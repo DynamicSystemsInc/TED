@@ -1,0 +1,48 @@
+set name=pkg.fmri value=pkg://solaris/system/management/rad/module/rad-bemgr@11.4,5.11-11.4.0.0.1.15.0:20180817T003322Z
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.arch value=sparc value=i386
+set name=variant.debug.osnet value=true value=false
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=pkg.summary value="RAD Boot Environment Management module"
+set name=info.classification value="org.opensolaris.category.2008:System/Administration and Configuration"
+set name=pkg.description value="A Remote Administration Daemon (RAD) API that provides for configuration and administration of Boot Environments on the system."
+depend fmri=pkg:/system/management/rad@11.4-11.4.0.0.1.15 type=require
+depend fmri=pkg:/system/library/install@11.4-11.4.0.0.1.15 type=require
+depend fmri=pkg:/system/boot-environment-utilities@11.4-11.4.0.0.1.15 type=require
+depend fmri=pkg:/system/management/rad/client/rad-python@11.4-11.4.0.0.1.15 type=require
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=pkg:/runtime/python-27@2.7.14-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.15 type=require
+dir group=sys mode=0755 owner=root path=usr
+dir group=bin mode=0755 owner=root path=usr/lib
+dir group=bin mode=0755 owner=root path=usr/lib/python2.7
+dir group=bin mode=0755 owner=root path=usr/lib/python2.7/vendor-packages
+dir group=bin mode=0755 owner=root path=usr/lib/python2.7/vendor-packages/rad
+dir group=bin mode=0755 owner=root path=usr/lib/python2.7/vendor-packages/rad/server
+dir group=bin mode=0755 owner=root path=usr/lib/python2.7/vendor-packages/rad/server/com
+dir group=bin mode=0755 owner=root path=usr/lib/python2.7/vendor-packages/rad/server/com/oracle
+dir group=bin mode=0755 owner=root path=usr/lib/python2.7/vendor-packages/rad/server/com/oracle/solaris
+dir group=bin mode=0755 owner=root path=usr/lib/python2.7/vendor-packages/rad/server/com/oracle/solaris/rad
+dir group=bin mode=0755 owner=root path=usr/lib/rad
+dir group=bin mode=0755 owner=root path=usr/lib/rad/module
+dir facet.devel=true group=sys mode=0755 owner=root path=usr/share
+dir facet.devel=true facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man
+dir facet.devel=true facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man3rad
+dir group=bin mode=0755 owner=root path=usr/share/odoc/bundles/en/bemgr-1
+file e528e9540201751476437452ded4ac5993810892 chash=5aca6bd6f9577ad95049d8e5517111f0034c3727 group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/rad/server/com/oracle/solaris/rad/bemgr_iface_1.pyc pkg.content-hash=file:sha512t_256:c68982dbf52a8d7d7b87c8d9680fc4fd104e44ebe352ba3ed03b56b99b131e03 pkg.content-hash=gzip:sha512t_256:d3f3ad6ec072439128d2e7a151edf2f85f39952d31f7b2739ac1243366fb6cc9 pkg.csize=3969 pkg.size=15736
+file c4517eaf53905e1faebbfbcae8a8bb7f0a8389d6 chash=9b82e0c0ba1c64241b6f636ec9f38319e7cf720f group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/rad/server/com/oracle/solaris/rad/bemgr_1.pyc pkg.content-hash=file:sha512t_256:0a2569591d79ca40b2f60f1139379dd76c8b9473a0d146539445d56213e50f1d pkg.content-hash=gzip:sha512t_256:ec465407e949831e1be1a46678edfc9ed2a1abd169f17b5ed891f12d0088ccc1 pkg.csize=4554 pkg.size=15992
+file 455aef9e2580878924cc30859e39955cb879d5a0 chash=7e7eef19f43d1005bc07e3940a5047a5db6b2de5 elfarch=i386 elfbits=64 elfhash=29dcf1847a666152dbafb8e744bdb3ec062e5912 group=bin mode=0755 owner=root path=usr/lib/rad/module/mod_bemgr.so.1 pkg.content-hash=gelf:sha512t_256:a334168932cba9e149181c2b4f9a7fde651aa9210d24fe10265b2dd4fb05cd0d pkg.content-hash=gelf.unsigned:sha512t_256:870fbfbf4633719eef795cfe234d59c814614db5b7e801dbbafb7c597f3fa35a pkg.content-hash=file:sha512t_256:6afef86a7580ed6fc758b1089208ac29f49a32591a4fe4c8fe4d597bfaf60eae pkg.content-hash=gzip:sha512t_256:cd74dc0740dff1512e27edaaa5ada5e6349765bd4f65717e251d19d8f5e33252 pkg.csize=8462 pkg.size=32296 variant.arch=i386
+file eb3fc39d863989ea62edbf630f460aec77cc65b2 chash=f635c427cc2a5e2d5254205fea1549af5278afd8 group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/rad/server/com/oracle/solaris/rad/bemgr_iface_1.py pkg.content-hash=file:sha512t_256:26f835be586f5b88b732c28c5a3ea98d100dbd3ed5741c882ec5012c8c3b41e6 pkg.content-hash=gzip:sha512t_256:620b5d4d1a7fcf1b1781320191e0f1bd4f57f95b02966ddf094ec9585d4fa2af pkg.csize=2379 pkg.size=11142 timestamp=20170202T082424Z
+file a8bf91dbdacec77de2bc0c638778f97ad46784b8 chash=7499d112a8341b638fc70f7a0ac0f48174a4f722 group=bin mode=0444 owner=root path=usr/share/odoc/bundles/en/bemgr-1/bemgr-1.html pkg.content-hash=file:sha512t_256:9962c768da3b0612b4d16eb4911e20c9c90450a7e31b16f3189379f545fad975 pkg.content-hash=gzip:sha512t_256:4bb68e2fe4412965ce1eac349fe057cddcb79964481f76117548944fa1c588ef pkg.csize=4463 pkg.size=64654
+file cd751a42e17b0041c186548bdba48c15c75c1950 chash=cbd7cc5d331f7d17d98c8a24adb6a83ddbc633eb group=bin mode=0444 owner=root path=usr/share/odoc/bundles/en/bemgr-1/search.json pkg.content-hash=file:sha512t_256:4f5dcfdbf25d48b14e98a7e825d7a2e726b4c493c80b4364c60ef71b4cea5c76 pkg.content-hash=gzip:sha512t_256:6eb55280226e3e9cf175f113eb11c02cbaa308ea7911ea82a17bc2d4afc09fc4 pkg.csize=1473 pkg.size=18634
+file e625df8462642e321a61a290082dcf7b4dd03b19 chash=e04af065ee124ba64c1fa6541cdc31a92926e567 group=bin mode=0444 owner=root path=usr/share/odoc/bundles/en/bemgr-1/bundle.json pkg.content-hash=file:sha512t_256:c02a0cbccb4c175fb181d8d69ec93b078ccce50310baa30d0b77bb19ab67b014 pkg.content-hash=gzip:sha512t_256:b7f3e549c7004872a7a2e8ab58b218ede6f2afb37814433cbdee36d23dcef91b pkg.csize=83 pkg.size=81
+file 1eb4f86b70f3deb38757544e6974052d7318aeaf chash=88b008a7ada59593d6e13ae7340bc7aabf5fb712 group=bin mode=0444 owner=root path=usr/share/odoc/bundles/en/bemgr-1/target.xml pkg.content-hash=file:sha512t_256:cf4b8521bb8c6033c1910f28473e1946002ae049406a79603d216563ea92bd26 pkg.content-hash=gzip:sha512t_256:5ccb1c581d62f2237fb79e92e5449ee77dc531dcd720e1a0da6039a172d11192 pkg.csize=1393 pkg.size=15009
+file f9c8a7ae4a06cb2e0f0e715f446d44fe8ff709ff chash=8c1f02b64f3f60af4d82cf2b507cfae956b2daa7 facet.devel=true facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man3rad/bemgr-1.3rad pkg.content-hash=file:sha512t_256:8579f5511ef0348eceaf32711a56901a9989db8ac42a6ba4f72eedf6ebe66266 pkg.content-hash=gzip:sha512t_256:44dd435ee0d6f3c7af3d8376133c38917ef9f7d1cea29b36bdb8715fb1fdd246 pkg.csize=3983 pkg.size=31084
+file e5df0b35333470555049ca7735eb280fc6371e55 chash=e9c6c15af5e2bacd2f88ba6ad735e38cabb21f72 elfarch=sparc elfbits=64 elfhash=adc74934563a064f4423e7cb6c7611194e308e28 group=bin mode=0755 owner=root path=usr/lib/rad/module/mod_bemgr.so.1 pkg.content-hash=gelf:sha512t_256:2f8d8a67f43870d481e686453ed9831225e0d5139649def38db100b597edd8b2 pkg.content-hash=gelf.unsigned:sha512t_256:27582a518c770be5056ce6f15cdb0ed365643e91b8fafc685f56d43995ff8e2d pkg.content-hash=file:sha512t_256:291553634c42ad24f5fe5e14ccad8a9d8528e1c6e4b4924c5c34e2303a424332 pkg.content-hash=gzip:sha512t_256:2ebaafb0af8097f71ae7e9caf41bfb79310bdc4795372a2f6a7b7bc50da84bd4 pkg.csize=8313 pkg.size=32904 variant.arch=sparc
+file d31c4c7f79477edb72f7b73bbee8d3756a135636 chash=e88e81bbda46461ef8a3b61ba9fa0777a17738e0 group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/rad/server/com/oracle/solaris/rad/bemgr_1.py pkg.content-hash=file:sha512t_256:61e82e6be91e8ba2a62261b3cb145b6d3e89f1d7bcb2f4d6016b418855c55614 pkg.content-hash=gzip:sha512t_256:01156eb1fed9427ec0c3e5198eea2baa4de8a003e9dbea7905e9609ee1863f22 pkg.csize=3022 pkg.size=11432 timestamp=20170202T082424Z
+link path=usr/lib/python2.7/vendor-packages/rad/server/com/oracle/solaris/rad/bemgr.py target=bemgr_1.py
+link path=usr/lib/python2.7/vendor-packages/rad/server/com/oracle/solaris/rad/bemgr_iface.py target=bemgr_iface_1.py
+link path=usr/lib/rad/module/mod_bemgr.so target=mod_bemgr.so.1
+link facet.devel=true facet.doc.man=all path=usr/share/man/man3rad/bemgr.3rad target=bemgr-1.3rad
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=a4ca161eea4d2b0cb206142480a92cf8845559e6996782fd23f2269b720601cbeef732749c38f1697466af471b31d131c8727b5123b2b2992e6198e1318519fc449b3b06874da781aba33ddf382bf442143deb314362de36ad942bcb3a77bbd9b4fac317c1045829c0666ccdef84b3ca7fe726ff68bfca606030e7c00868a02716efee0574ef3d529b4a813659055ebd156e99098606ac59cc5b383990c23cf6042fc37d9c489081a1ffe512f20279a450e34acf65941b431b3c3bc517b1faa391cb9f7306987475a71adf4a3aab1270ac52ef2882906cd36929e2274d95fa610a6065b423837a0da73aac998d94efd3561d4595208e9072a48cbd4e633d961e version=0

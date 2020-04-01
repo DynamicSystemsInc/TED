@@ -1,0 +1,21 @@
+set name=pkg.fmri value=pkg://solaris/system/locale/support@0.1,5.11-11.4.0.0.1.14.1:20180814T145040Z
+set name=variant.arch value=sparc value=i386
+set name=pkg.summary value="Language Support cluster"
+set name=info.classification value=org.opensolaris.category.2008:System/Localizations
+set name=org.opensolaris.consolidation value=l10n
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=pkg.description value="Cluster installs basic fonts, input methods, or code conversions according to locale facet configuration. Also installs translation packages which have not been controlled by facet directly yet."
+depend fmri=system/locale type=group
+depend facet.locale.ja=true fmri=system/font/truetype/ipafont type=group
+depend fmri=system/library/iconv/iconv-core type=group
+depend facet.locale.hi=true fmri=system/font/truetype/indic-fonts-core type=group
+depend facet.locale.ko=true fmri=system/font/truetype/hanyang-ko-core type=group
+depend facet.locale.hi=true fmri=system/font/truetype/lohit type=group
+depend facet.locale.ar=true fmri=system/font/truetype/arabeyes type=group
+depend facet.locale.ar=true fmri=system/font/truetype/kacst type=group
+depend facet.locale.zh_CN=true facet.locale.zh_HK=true facet.locale.zh_SG=true facet.locale.zh_TW=true fmri=system/font/truetype/arphic-uming type=group
+depend facet.locale.th=true fmri=system/font/truetype/thai-scalable type=group
+depend facet.locale.ka=true fmri=system/font/truetype/bpg-georgian type=group
+depend fmri=consolidation/l10n/l10n-incorporation type=require
+depend facet.locale.el=true fmri=system/font/truetype/mgopen type=group
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=b0b5ba3dfac9763b99fe7d00688415fb71a3417ceebd9639906e94782f74809b153570f9bdbc9bfd3124842c42b810f3bf239decc959ba79e6a54a6b9124fdddf4c2bbfdf16dcb84b866a4083bf60323de99eb70dfede78b2912f954bd19c4975dd54b349b3af22eae95f2bcd0d3156909f074023496cbf05adf4017c3a77032c45162b9d5826bf1b324cd2e0eea0480fae9e882c7d192de84158975ec6f723d9c75523a51cc4188e12e8ae01b057a8818e204dd65305a90c33939ab4f72090945dbd6b3fcf0adb92a4dcc97c730f99eb8f027151003e4312ddb82ab6a5bcc4385c0686f114b39936aa3d7a3233b7d4e17a7affb97934a94279c322573e54c0c version=0

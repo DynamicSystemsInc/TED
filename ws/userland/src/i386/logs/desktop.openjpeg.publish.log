@@ -1,0 +1,812 @@
+gmake: Entering directory '/ws/userland/src/components/desktop/openjpeg'
+/bin/rm -f -r /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  openjpeg-2.3.0.tar.gz
+/usr/bin/touch /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 --strip=1 --backup --version-control=numbered < patches/01-CVE-2018-7648.patch
+patching file src/bin/mj2/opj_mj2_extract.c
+/usr/bin/touch /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/.patched-01-CVE-2018-7648.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 --strip=1 --backup --version-control=numbered < patches/02-CVE-2017-17479.patch
+patching file src/bin/jpwl/convert.c
+patching file src/bin/jp3d/convert.c
+/usr/bin/touch /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/.patched-02-CVE-2017-17479.patch
+/usr/bin/touch /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/.patched
+/usr/bin/touch /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/.prep
+/bin/rm -f -r /ws/userland/src/components/desktop/openjpeg/build/i86 ; /bin/mkdir -p /ws/userland/src/components/desktop/openjpeg/build/i86
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/build/i86
+symlink cloning /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 to /ws/userland/src/components/desktop/openjpeg/build/i86
+cd /ws/userland/src/components/desktop/openjpeg/build/i86; echo Running cmake with -DCMAKE_CXX_COMPILER="/opt/solarisstudio12.4/bin/CC" -DCMAKE_CXX_FLAGS="-norunpath -m32 -xO4 -xchip=pentium -xregs=no%frameptr      " -DCMAKE_C_COMPILER="/opt/solarisstudio12.4/bin/cc" -DCMAKE_C_FLAGS="-m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt   " -DCMAKE_EXE_LINKER_FLAGS="-m32" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m32" -DCMAKE_SHARED_LINKER_FLAGS="-m32" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin/i86" -DEXEC_INSTALL_DIR="/usr/lib/i86" -DLIBEXEC_INSTALL_DIR="/usr/lib/i86" -DCMAKE_INSTALL_BINDIR="/usr/bin/i86" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib/i86" -DLIB_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_LIBDIR="/usr/lib" -DCMAKE_BUILD_TYPE=RelWithDebInfo  -DOPENJPEG_INSTALL_BIN_DIR=/usr/bin -DOPENJPEG_INSTALL_LIB_DIR=/usr/lib -DCMAKE_VERBOSE_MAKEFILE=ON -DLCMS2_INCLUDE_DIR=/usr/include/lcms; /usr/bin/env - LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" /usr/bin/cmake -DCMAKE_CXX_COMPILER="/opt/solarisstudio12.4/bin/CC" -DCMAKE_CXX_FLAGS="-norunpath -m32 -xO4 -xchip=pentium -xregs=no%frameptr      " -DCMAKE_C_COMPILER="/opt/solarisstudio12.4/bin/cc" -DCMAKE_C_FLAGS="-m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt   " -DCMAKE_EXE_LINKER_FLAGS="-m32" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m32" -DCMAKE_SHARED_LINKER_FLAGS="-m32" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin/i86" -DEXEC_INSTALL_DIR="/usr/lib/i86" -DLIBEXEC_INSTALL_DIR="/usr/lib/i86" -DCMAKE_INSTALL_BINDIR="/usr/bin/i86" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib/i86" -DLIB_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_LIBDIR="/usr/lib" -DCMAKE_BUILD_TYPE=RelWithDebInfo  -DOPENJPEG_INSTALL_BIN_DIR=/usr/bin -DOPENJPEG_INSTALL_LIB_DIR=/usr/lib -DCMAKE_VERBOSE_MAKEFILE=ON -DLCMS2_INCLUDE_DIR=/usr/include/lcms /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0;  
+Running cmake with -DCMAKE_CXX_COMPILER=/opt/solarisstudio12.4/bin/CC -DCMAKE_CXX_FLAGS=-norunpath -m32 -xO4 -xchip=pentium -xregs=no%frameptr       -DCMAKE_C_COMPILER=/opt/solarisstudio12.4/bin/cc -DCMAKE_C_FLAGS=-m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt    -DCMAKE_EXE_LINKER_FLAGS=-m32 -DCMAKE_AR=/usr/bin/ar -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MODULE_LINKER_FLAGS=-m32 -DCMAKE_SHARED_LINKER_FLAGS=-m32 -DGETTEXT_MSGFMT_EXECUTABLE=/usr/gnu/bin/msgfmt -DBIN_INSTALL_DIR=/usr/bin/i86 -DEXEC_INSTALL_DIR=/usr/lib/i86 -DLIBEXEC_INSTALL_DIR=/usr/lib/i86 -DCMAKE_INSTALL_BINDIR=/usr/bin/i86 -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib/i86 -DLIB_INSTALL_DIR=/usr/lib -DCMAKE_INSTALL_LIBDIR=/usr/lib -DCMAKE_BUILD_TYPE=RelWithDebInfo -DOPENJPEG_INSTALL_BIN_DIR=/usr/bin -DOPENJPEG_INSTALL_LIB_DIR=/usr/lib -DCMAKE_VERBOSE_MAKEFILE=ON -DLCMS2_INCLUDE_DIR=/usr/include/lcms
+-- The C compiler identification is SunPro 5.15.0
+-- The CXX compiler identification is SunPro 5.15.0
+-- Check for working C compiler: /opt/solarisstudio12.4/bin/cc
+-- Check for working C compiler: /opt/solarisstudio12.4/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - failed
+-- Check for working CXX compiler: /opt/solarisstudio12.4/bin/CC
+-- Check for working CXX compiler: /opt/solarisstudio12.4/bin/CC -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Check if the system is big endian
+-- Searching 16 bit integer
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of unsigned short
+-- Check size of unsigned short - done
+-- Using unsigned short
+-- Check if the system is big endian - little endian
+-- Looking for string.h
+-- Looking for string.h - found
+-- Looking for memory.h
+-- Looking for memory.h - found
+-- Looking for stdlib.h
+-- Looking for stdlib.h - found
+-- Looking for stdio.h
+-- Looking for stdio.h - found
+-- Looking for math.h
+-- Looking for math.h - found
+-- Looking for float.h
+-- Looking for float.h - found
+-- Looking for time.h
+-- Looking for time.h - found
+-- Looking for stdarg.h
+-- Looking for stdarg.h - found
+-- Looking for ctype.h
+-- Looking for ctype.h - found
+-- Looking for assert.h
+-- Looking for assert.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for inttypes.h
+-- Looking for inttypes.h - found
+-- Looking for strings.h
+-- Looking for strings.h - found
+-- Looking for sys/stat.h
+-- Looking for sys/stat.h - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Checking for 64-bit off_t
+-- Checking for 64-bit off_t - present with _FILE_OFFSET_BITS=64
+-- Checking for fseeko/ftello
+-- Checking for fseeko/ftello - present
+-- Large File support - found
+-- Looking for include file malloc.h
+-- Looking for include file malloc.h - found
+-- Looking for _aligned_malloc
+-- Looking for _aligned_malloc - not found
+-- Looking for posix_memalign
+-- Looking for posix_memalign - found
+-- Looking for memalign
+-- Looking for memalign - not found
+-- Found ZLIB: /usr/lib/libz.so (found version "1.2.11") 
+-- Your system seems to have a Z lib available, we will use it to generate PNG lib
+-- Found PNG: /usr/lib/libpng.so (found version "1.4.20") 
+-- Your system seems to have a PNG lib available, we will use it
+-- Found TIFF: /usr/lib/libtiff.so (found version "4.0.9") 
+-- Your system seems to have a TIFF lib available, we will use it
+-- Found LCMS2: /usr/lib/liblcms2.so  
+-- Your system seems to have a LCMS2 lib available, we will use it
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BIN_INSTALL_DIR
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    EXEC_INSTALL_DIR
+    GETTEXT_MSGFMT_EXECUTABLE
+    LIBEXEC_INSTALL_DIR
+    LIB_INSTALL_DIR
+
+
+-- Build files have been written to: /ws/userland/src/components/desktop/openjpeg/build/i86
+(cd /ws/userland/src/components/desktop/openjpeg/build/i86; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/bin/cmake -H/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 -B/ws/userland/src/components/desktop/openjpeg/build/i86 --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /ws/userland/src/components/desktop/openjpeg/build/i86/CMakeFiles /ws/userland/src/components/desktop/openjpeg/build/i86/CMakeFiles/progress.marks
+/usr/gnu/bin/make -f CMakeFiles/Makefile2 all
+make[2]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2_static.dir/build.make src/lib/openjp2/CMakeFiles/openjp2_static.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+cd /ws/userland/src/components/desktop/openjpeg/build/i86 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/i86 /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/CMakeFiles/openjp2_static.dir/DependInfo.cmake --color=
+Scanning dependencies of target openjp2_static
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2_static.dir/build.make src/lib/openjp2/CMakeFiles/openjp2_static.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[  1%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/thread.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/thread.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/thread.c
+"/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/opj_config_private.h", line 17: warning: macro redefined: _FILE_OFFSET_BITS
+[  2%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/bio.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/bio.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/bio.c
+[  4%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/cio.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/cio.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/cio.c
+[  5%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/dwt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/dwt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/dwt.c
+[  7%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/event.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/event.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/event.c
+[  8%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/image.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/image.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/image.c
+[  9%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/invert.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/invert.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/invert.c
+[ 11%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/j2k.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/j2k.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/j2k.c
+[ 12%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/jp2.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/jp2.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/jp2.c
+[ 14%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/mct.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/mct.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/mct.c
+[ 15%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/mqc.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/mqc.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/mqc.c
+[ 16%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/openjpeg.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/openjpeg.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/openjpeg.c
+[ 18%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/opj_clock.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/opj_clock.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/opj_clock.c
+[ 19%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/pi.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/pi.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/pi.c
+[ 21%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/t1.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/t1.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/t1.c
+[ 22%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/t2.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/t2.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/t2.c
+[ 23%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/tcd.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/tcd.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/tcd.c
+[ 25%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/tgt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/tgt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/tgt.c
+[ 26%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/function_list.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/function_list.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/function_list.c
+[ 28%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/opj_malloc.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/opj_malloc.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/opj_malloc.c
+[ 29%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/sparse_array.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/sparse_array.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/sparse_array.c
+[ 30%] Linking C static library ../../../bin/libopenjp2.a
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /usr/bin/cmake -P CMakeFiles/openjp2_static.dir/cmake_clean_target.cmake
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /usr/bin/cmake -E cmake_link_script CMakeFiles/openjp2_static.dir/link.txt --verbose=1
+/usr/bin/ar qc ../../../bin/libopenjp2.a  CMakeFiles/openjp2_static.dir/thread.c.o CMakeFiles/openjp2_static.dir/bio.c.o CMakeFiles/openjp2_static.dir/cio.c.o CMakeFiles/openjp2_static.dir/dwt.c.o CMakeFiles/openjp2_static.dir/event.c.o CMakeFiles/openjp2_static.dir/image.c.o CMakeFiles/openjp2_static.dir/invert.c.o CMakeFiles/openjp2_static.dir/j2k.c.o CMakeFiles/openjp2_static.dir/jp2.c.o CMakeFiles/openjp2_static.dir/mct.c.o CMakeFiles/openjp2_static.dir/mqc.c.o CMakeFiles/openjp2_static.dir/openjpeg.c.o CMakeFiles/openjp2_static.dir/opj_clock.c.o CMakeFiles/openjp2_static.dir/pi.c.o CMakeFiles/openjp2_static.dir/t1.c.o CMakeFiles/openjp2_static.dir/t2.c.o CMakeFiles/openjp2_static.dir/tcd.c.o CMakeFiles/openjp2_static.dir/tgt.c.o CMakeFiles/openjp2_static.dir/function_list.c.o CMakeFiles/openjp2_static.dir/opj_malloc.c.o CMakeFiles/openjp2_static.dir/sparse_array.c.o
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[ 30%] Built target openjp2_static
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2.dir/build.make src/lib/openjp2/CMakeFiles/openjp2.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+cd /ws/userland/src/components/desktop/openjpeg/build/i86 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/i86 /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/CMakeFiles/openjp2.dir/DependInfo.cmake --color=
+Scanning dependencies of target openjp2
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2.dir/build.make src/lib/openjp2/CMakeFiles/openjp2.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[ 32%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/thread.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/thread.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/thread.c
+"/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/opj_config_private.h", line 17: warning: macro redefined: _FILE_OFFSET_BITS
+[ 33%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/bio.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/bio.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/bio.c
+[ 35%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/cio.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/cio.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/cio.c
+[ 36%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/dwt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/dwt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/dwt.c
+[ 38%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/event.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/event.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/event.c
+[ 39%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/image.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/image.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/image.c
+[ 40%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/invert.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/invert.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/invert.c
+[ 42%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/j2k.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/j2k.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/j2k.c
+[ 43%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/jp2.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/jp2.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/jp2.c
+[ 45%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/mct.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/mct.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/mct.c
+[ 46%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/mqc.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/mqc.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/mqc.c
+[ 47%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/openjpeg.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/openjpeg.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/openjpeg.c
+[ 49%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/opj_clock.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/opj_clock.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/opj_clock.c
+[ 50%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/pi.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/pi.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/pi.c
+[ 52%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/t1.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/t1.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/t1.c
+[ 53%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/t2.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/t2.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/t2.c
+[ 54%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/tcd.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/tcd.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/tcd.c
+[ 56%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/tgt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/tgt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/tgt.c
+[ 57%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/function_list.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/function_list.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/function_list.c
+[ 59%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/opj_malloc.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/opj_malloc.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/opj_malloc.c
+[ 60%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/sparse_array.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/sparse_array.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/sparse_array.c
+[ 61%] Linking C shared library ../../../bin/libopenjp2.so
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /usr/bin/cmake -E cmake_link_script CMakeFiles/openjp2.dir/link.txt --verbose=1
+/opt/solarisstudio12.4/bin/cc -KPIC -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -m32 -G -hlibopenjp2.so.7 -o ../../../bin/libopenjp2.so.2.3.0 CMakeFiles/openjp2.dir/thread.c.o CMakeFiles/openjp2.dir/bio.c.o CMakeFiles/openjp2.dir/cio.c.o CMakeFiles/openjp2.dir/dwt.c.o CMakeFiles/openjp2.dir/event.c.o CMakeFiles/openjp2.dir/image.c.o CMakeFiles/openjp2.dir/invert.c.o CMakeFiles/openjp2.dir/j2k.c.o CMakeFiles/openjp2.dir/jp2.c.o CMakeFiles/openjp2.dir/mct.c.o CMakeFiles/openjp2.dir/mqc.c.o CMakeFiles/openjp2.dir/openjpeg.c.o CMakeFiles/openjp2.dir/opj_clock.c.o CMakeFiles/openjp2.dir/pi.c.o CMakeFiles/openjp2.dir/t1.c.o CMakeFiles/openjp2.dir/t2.c.o CMakeFiles/openjp2.dir/tcd.c.o CMakeFiles/openjp2.dir/tgt.c.o CMakeFiles/openjp2.dir/function_list.c.o CMakeFiles/openjp2.dir/opj_malloc.c.o CMakeFiles/openjp2.dir/sparse_array.c.o -lm 
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 && /usr/bin/cmake -E cmake_symlink_library ../../../bin/libopenjp2.so.2.3.0 ../../../bin/libopenjp2.so.7 ../../../bin/libopenjp2.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[ 61%] Built target openjp2
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_compress.dir/build.make src/bin/jp2/CMakeFiles/opj_compress.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+cd /ws/userland/src/components/desktop/openjpeg/build/i86 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/i86 /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2/CMakeFiles/opj_compress.dir/DependInfo.cmake --color=
+Scanning dependencies of target opj_compress
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_compress.dir/build.make src/bin/jp2/CMakeFiles/opj_compress.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[ 63%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/opj_compress.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/opj_compress.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/opj_compress.c
+"/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/opj_config_private.h", line 17: warning: macro redefined: _FILE_OFFSET_BITS
+[ 64%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/convert.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/convert.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convert.c
+[ 66%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/convertbmp.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/convertbmp.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convertbmp.c
+[ 67%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/index.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/index.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/index.c
+"/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/opj_config_private.h", line 17: warning: macro redefined: _FILE_OFFSET_BITS
+[ 69%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/__/common/color.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/__/common/color.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common/color.c
+"/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/opj_config_private.h", line 17: warning: macro redefined: _FILE_OFFSET_BITS
+[ 70%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/__/common/opj_getopt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/__/common/opj_getopt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common/opj_getopt.c
+[ 71%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/converttif.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/converttif.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/converttif.c
+[ 73%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/convertpng.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/convertpng.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convertpng.c
+[ 74%] Linking C executable ../../../bin/opj_compress
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /usr/bin/cmake -E cmake_link_script CMakeFiles/opj_compress.dir/link.txt --verbose=1
+/opt/solarisstudio12.4/bin/cc -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG  -m32 CMakeFiles/opj_compress.dir/opj_compress.c.o CMakeFiles/opj_compress.dir/convert.c.o CMakeFiles/opj_compress.dir/convertbmp.c.o CMakeFiles/opj_compress.dir/index.c.o CMakeFiles/opj_compress.dir/__/common/color.c.o CMakeFiles/opj_compress.dir/__/common/opj_getopt.c.o CMakeFiles/opj_compress.dir/converttif.c.o CMakeFiles/opj_compress.dir/convertpng.c.o  -o ../../../bin/opj_compress -R/ws/userland/src/components/desktop/openjpeg/build/i86/bin: ../../../bin/libopenjp2.so.2.3.0 -lpng -lz -ltiff -llcms2 -lz -lm -ltiff -llcms2 -lm 
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[ 74%] Built target opj_compress
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_decompress.dir/build.make src/bin/jp2/CMakeFiles/opj_decompress.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+cd /ws/userland/src/components/desktop/openjpeg/build/i86 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/i86 /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2/CMakeFiles/opj_decompress.dir/DependInfo.cmake --color=
+Scanning dependencies of target opj_decompress
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_decompress.dir/build.make src/bin/jp2/CMakeFiles/opj_decompress.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[ 76%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/opj_decompress.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/opj_decompress.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/opj_decompress.c
+[ 77%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/convert.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/convert.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convert.c
+[ 78%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/convertbmp.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/convertbmp.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convertbmp.c
+[ 80%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/index.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/index.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/index.c
+"/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/opj_config_private.h", line 17: warning: macro redefined: _FILE_OFFSET_BITS
+[ 81%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/__/common/color.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/__/common/color.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common/color.c
+"/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/opj_config_private.h", line 17: warning: macro redefined: _FILE_OFFSET_BITS
+[ 83%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/__/common/opj_getopt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/__/common/opj_getopt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common/opj_getopt.c
+[ 84%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/converttif.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/converttif.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/converttif.c
+[ 85%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/convertpng.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/convertpng.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convertpng.c
+[ 87%] Linking C executable ../../../bin/opj_decompress
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /usr/bin/cmake -E cmake_link_script CMakeFiles/opj_decompress.dir/link.txt --verbose=1
+/opt/solarisstudio12.4/bin/cc -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG  -m32 CMakeFiles/opj_decompress.dir/opj_decompress.c.o CMakeFiles/opj_decompress.dir/convert.c.o CMakeFiles/opj_decompress.dir/convertbmp.c.o CMakeFiles/opj_decompress.dir/index.c.o CMakeFiles/opj_decompress.dir/__/common/color.c.o CMakeFiles/opj_decompress.dir/__/common/opj_getopt.c.o CMakeFiles/opj_decompress.dir/converttif.c.o CMakeFiles/opj_decompress.dir/convertpng.c.o  -o ../../../bin/opj_decompress -R/ws/userland/src/components/desktop/openjpeg/build/i86/bin: ../../../bin/libopenjp2.so.2.3.0 -lpng -lz -ltiff -llcms2 -lz -lm -ltiff -llcms2 -lm 
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[ 87%] Built target opj_decompress
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_dump.dir/build.make src/bin/jp2/CMakeFiles/opj_dump.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+cd /ws/userland/src/components/desktop/openjpeg/build/i86 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/i86 /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2/CMakeFiles/opj_dump.dir/DependInfo.cmake --color=
+Scanning dependencies of target opj_dump
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_dump.dir/build.make src/bin/jp2/CMakeFiles/opj_dump.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[ 88%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/opj_dump.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/opj_dump.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/opj_dump.c
+[ 90%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/convert.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/convert.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convert.c
+[ 91%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/convertbmp.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/convertbmp.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convertbmp.c
+[ 92%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/index.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/index.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/index.c
+"/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/opj_config_private.h", line 17: warning: macro redefined: _FILE_OFFSET_BITS
+[ 94%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/__/common/color.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/__/common/color.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common/color.c
+"/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/opj_config_private.h", line 17: warning: macro redefined: _FILE_OFFSET_BITS
+[ 95%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/__/common/opj_getopt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/__/common/opj_getopt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common/opj_getopt.c
+[ 97%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/converttif.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/converttif.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/converttif.c
+[ 98%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/convertpng.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/convertpng.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convertpng.c
+[100%] Linking C executable ../../../bin/opj_dump
+cd /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 && /usr/bin/cmake -E cmake_link_script CMakeFiles/opj_dump.dir/link.txt --verbose=1
+/opt/solarisstudio12.4/bin/cc -m32  -xO4 -xchip=pentium -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG  -m32 CMakeFiles/opj_dump.dir/opj_dump.c.o CMakeFiles/opj_dump.dir/convert.c.o CMakeFiles/opj_dump.dir/convertbmp.c.o CMakeFiles/opj_dump.dir/index.c.o CMakeFiles/opj_dump.dir/__/common/color.c.o CMakeFiles/opj_dump.dir/__/common/opj_getopt.c.o CMakeFiles/opj_dump.dir/converttif.c.o CMakeFiles/opj_dump.dir/convertpng.c.o  -o ../../../bin/opj_dump -R/ws/userland/src/components/desktop/openjpeg/build/i86/bin: ../../../bin/libopenjp2.so.2.3.0 -lpng -lz -ltiff -llcms2 -lz -lm -ltiff -llcms2 -lm 
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[100%] Built target opj_dump
+make[2]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/bin/cmake -E cmake_progress_start /ws/userland/src/components/desktop/openjpeg/build/i86/CMakeFiles 0
+make[1]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/openjpeg/build/i86/.built
+/bin/rm -f -r /ws/userland/src/components/desktop/openjpeg/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/desktop/openjpeg/build/amd64
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/build/amd64
+symlink cloning /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 to /ws/userland/src/components/desktop/openjpeg/build/amd64
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64; echo Running cmake with -DCMAKE_CXX_COMPILER="/opt/solarisstudio12.4/bin/CC" -DCMAKE_CXX_FLAGS="-norunpath -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr      " -DCMAKE_C_COMPILER="/opt/solarisstudio12.4/bin/cc" -DCMAKE_C_FLAGS="-m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt   " -DCMAKE_EXE_LINKER_FLAGS="-m64" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m64" -DCMAKE_SHARED_LINKER_FLAGS="-m64" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin" -DEXEC_INSTALL_DIR="/usr/lib" -DLIBEXEC_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_BINDIR="/usr/bin" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib" -DLIB_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_LIBDIR="/usr/lib/amd64" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLIB_SUFFIX="/amd64" -DOPENJPEG_INSTALL_BIN_DIR=/usr/bin/amd64 -DOPENJPEG_INSTALL_LIB_DIR=/usr/lib/amd64 -DCMAKE_VERBOSE_MAKEFILE=ON -DLCMS2_INCLUDE_DIR=/usr/include/lcms; /usr/bin/env - LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" /usr/bin/cmake -DCMAKE_CXX_COMPILER="/opt/solarisstudio12.4/bin/CC" -DCMAKE_CXX_FLAGS="-norunpath -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr      " -DCMAKE_C_COMPILER="/opt/solarisstudio12.4/bin/cc" -DCMAKE_C_FLAGS="-m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt   " -DCMAKE_EXE_LINKER_FLAGS="-m64" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m64" -DCMAKE_SHARED_LINKER_FLAGS="-m64" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin" -DEXEC_INSTALL_DIR="/usr/lib" -DLIBEXEC_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_BINDIR="/usr/bin" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib" -DLIB_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_LIBDIR="/usr/lib/amd64" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLIB_SUFFIX="/amd64" -DOPENJPEG_INSTALL_BIN_DIR=/usr/bin/amd64 -DOPENJPEG_INSTALL_LIB_DIR=/usr/lib/amd64 -DCMAKE_VERBOSE_MAKEFILE=ON -DLCMS2_INCLUDE_DIR=/usr/include/lcms /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0;  
+Running cmake with -DCMAKE_CXX_COMPILER=/opt/solarisstudio12.4/bin/CC -DCMAKE_CXX_FLAGS=-norunpath -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr       -DCMAKE_C_COMPILER=/opt/solarisstudio12.4/bin/cc -DCMAKE_C_FLAGS=-m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt    -DCMAKE_EXE_LINKER_FLAGS=-m64 -DCMAKE_AR=/usr/bin/ar -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MODULE_LINKER_FLAGS=-m64 -DCMAKE_SHARED_LINKER_FLAGS=-m64 -DGETTEXT_MSGFMT_EXECUTABLE=/usr/gnu/bin/msgfmt -DBIN_INSTALL_DIR=/usr/bin -DEXEC_INSTALL_DIR=/usr/lib -DLIBEXEC_INSTALL_DIR=/usr/lib -DCMAKE_INSTALL_BINDIR=/usr/bin -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib -DLIB_INSTALL_DIR=/usr/lib/amd64 -DCMAKE_INSTALL_LIBDIR=/usr/lib/amd64 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLIB_SUFFIX=/amd64 -DOPENJPEG_INSTALL_BIN_DIR=/usr/bin/amd64 -DOPENJPEG_INSTALL_LIB_DIR=/usr/lib/amd64 -DCMAKE_VERBOSE_MAKEFILE=ON -DLCMS2_INCLUDE_DIR=/usr/include/lcms
+-- The C compiler identification is SunPro 5.15.0
+-- The CXX compiler identification is SunPro 5.15.0
+-- Check for working C compiler: /opt/solarisstudio12.4/bin/cc
+-- Check for working C compiler: /opt/solarisstudio12.4/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - failed
+-- Check for working CXX compiler: /opt/solarisstudio12.4/bin/CC
+-- Check for working CXX compiler: /opt/solarisstudio12.4/bin/CC -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Check if the system is big endian
+-- Searching 16 bit integer
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of unsigned short
+-- Check size of unsigned short - done
+-- Using unsigned short
+-- Check if the system is big endian - little endian
+-- Looking for string.h
+-- Looking for string.h - found
+-- Looking for memory.h
+-- Looking for memory.h - found
+-- Looking for stdlib.h
+-- Looking for stdlib.h - found
+-- Looking for stdio.h
+-- Looking for stdio.h - found
+-- Looking for math.h
+-- Looking for math.h - found
+-- Looking for float.h
+-- Looking for float.h - found
+-- Looking for time.h
+-- Looking for time.h - found
+-- Looking for stdarg.h
+-- Looking for stdarg.h - found
+-- Looking for ctype.h
+-- Looking for ctype.h - found
+-- Looking for assert.h
+-- Looking for assert.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for inttypes.h
+-- Looking for inttypes.h - found
+-- Looking for strings.h
+-- Looking for strings.h - found
+-- Looking for sys/stat.h
+-- Looking for sys/stat.h - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Checking for 64-bit off_t
+-- Checking for 64-bit off_t - present
+-- Checking for fseeko/ftello
+-- Checking for fseeko/ftello - present
+-- Large File support - found
+-- Looking for include file malloc.h
+-- Looking for include file malloc.h - found
+-- Looking for _aligned_malloc
+-- Looking for _aligned_malloc - not found
+-- Looking for posix_memalign
+-- Looking for posix_memalign - found
+-- Looking for memalign
+-- Looking for memalign - not found
+-- Found ZLIB: /usr/lib/64/libz.so (found version "1.2.11") 
+-- Your system seems to have a Z lib available, we will use it to generate PNG lib
+-- Found PNG: /usr/lib/64/libpng.so (found version "1.4.20") 
+-- Your system seems to have a PNG lib available, we will use it
+-- Found TIFF: /usr/lib/64/libtiff.so (found version "4.0.9") 
+-- Your system seems to have a TIFF lib available, we will use it
+-- Found LCMS2: /usr/lib/64/liblcms2.so  
+-- Your system seems to have a LCMS2 lib available, we will use it
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BIN_INSTALL_DIR
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    EXEC_INSTALL_DIR
+    GETTEXT_MSGFMT_EXECUTABLE
+    LIBEXEC_INSTALL_DIR
+    LIB_INSTALL_DIR
+    LIB_SUFFIX
+
+
+-- Build files have been written to: /ws/userland/src/components/desktop/openjpeg/build/amd64
+(cd /ws/userland/src/components/desktop/openjpeg/build/amd64; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/bin/cmake -H/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 -B/ws/userland/src/components/desktop/openjpeg/build/amd64 --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /ws/userland/src/components/desktop/openjpeg/build/amd64/CMakeFiles /ws/userland/src/components/desktop/openjpeg/build/amd64/CMakeFiles/progress.marks
+/usr/gnu/bin/make -f CMakeFiles/Makefile2 all
+make[2]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2_static.dir/build.make src/lib/openjp2/CMakeFiles/openjp2_static.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/amd64 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2/CMakeFiles/openjp2_static.dir/DependInfo.cmake --color=
+Scanning dependencies of target openjp2_static
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2_static.dir/build.make src/lib/openjp2/CMakeFiles/openjp2_static.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[  1%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/thread.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/thread.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/thread.c
+[  2%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/bio.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/bio.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/bio.c
+[  4%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/cio.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/cio.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/cio.c
+[  5%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/dwt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/dwt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/dwt.c
+[  7%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/event.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/event.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/event.c
+[  8%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/image.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/image.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/image.c
+[  9%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/invert.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/invert.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/invert.c
+[ 11%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/j2k.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/j2k.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/j2k.c
+[ 12%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/jp2.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/jp2.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/jp2.c
+[ 14%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/mct.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/mct.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/mct.c
+[ 15%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/mqc.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/mqc.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/mqc.c
+[ 16%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/openjpeg.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/openjpeg.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/openjpeg.c
+[ 18%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/opj_clock.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/opj_clock.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/opj_clock.c
+[ 19%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/pi.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/pi.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/pi.c
+[ 21%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/t1.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/t1.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/t1.c
+[ 22%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/t2.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/t2.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/t2.c
+[ 23%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/tcd.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/tcd.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/tcd.c
+[ 25%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/tgt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/tgt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/tgt.c
+[ 26%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/function_list.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/function_list.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/function_list.c
+[ 28%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/opj_malloc.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/opj_malloc.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/opj_malloc.c
+[ 29%] Building C object src/lib/openjp2/CMakeFiles/openjp2_static.dir/sparse_array.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/openjp2_static.dir/sparse_array.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/sparse_array.c
+[ 30%] Linking C static library ../../../bin/libopenjp2.a
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /usr/bin/cmake -P CMakeFiles/openjp2_static.dir/cmake_clean_target.cmake
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /usr/bin/cmake -E cmake_link_script CMakeFiles/openjp2_static.dir/link.txt --verbose=1
+/usr/bin/ar qc ../../../bin/libopenjp2.a  CMakeFiles/openjp2_static.dir/thread.c.o CMakeFiles/openjp2_static.dir/bio.c.o CMakeFiles/openjp2_static.dir/cio.c.o CMakeFiles/openjp2_static.dir/dwt.c.o CMakeFiles/openjp2_static.dir/event.c.o CMakeFiles/openjp2_static.dir/image.c.o CMakeFiles/openjp2_static.dir/invert.c.o CMakeFiles/openjp2_static.dir/j2k.c.o CMakeFiles/openjp2_static.dir/jp2.c.o CMakeFiles/openjp2_static.dir/mct.c.o CMakeFiles/openjp2_static.dir/mqc.c.o CMakeFiles/openjp2_static.dir/openjpeg.c.o CMakeFiles/openjp2_static.dir/opj_clock.c.o CMakeFiles/openjp2_static.dir/pi.c.o CMakeFiles/openjp2_static.dir/t1.c.o CMakeFiles/openjp2_static.dir/t2.c.o CMakeFiles/openjp2_static.dir/tcd.c.o CMakeFiles/openjp2_static.dir/tgt.c.o CMakeFiles/openjp2_static.dir/function_list.c.o CMakeFiles/openjp2_static.dir/opj_malloc.c.o CMakeFiles/openjp2_static.dir/sparse_array.c.o
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[ 30%] Built target openjp2_static
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2.dir/build.make src/lib/openjp2/CMakeFiles/openjp2.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/amd64 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2/CMakeFiles/openjp2.dir/DependInfo.cmake --color=
+Scanning dependencies of target openjp2
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2.dir/build.make src/lib/openjp2/CMakeFiles/openjp2.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[ 32%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/thread.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/thread.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/thread.c
+[ 33%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/bio.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/bio.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/bio.c
+[ 35%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/cio.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/cio.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/cio.c
+[ 36%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/dwt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/dwt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/dwt.c
+[ 38%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/event.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/event.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/event.c
+[ 39%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/image.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/image.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/image.c
+[ 40%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/invert.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/invert.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/invert.c
+[ 42%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/j2k.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/j2k.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/j2k.c
+[ 43%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/jp2.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/jp2.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/jp2.c
+[ 45%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/mct.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/mct.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/mct.c
+[ 46%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/mqc.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/mqc.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/mqc.c
+[ 47%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/openjpeg.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/openjpeg.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/openjpeg.c
+[ 49%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/opj_clock.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/opj_clock.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/opj_clock.c
+[ 50%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/pi.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/pi.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/pi.c
+[ 52%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/t1.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/t1.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/t1.c
+[ 53%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/t2.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/t2.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/t2.c
+[ 54%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/tcd.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/tcd.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/tcd.c
+[ 56%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/tgt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/tgt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/tgt.c
+[ 57%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/function_list.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/function_list.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/function_list.c
+[ 59%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/opj_malloc.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/opj_malloc.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/opj_malloc.c
+[ 60%] Building C object src/lib/openjp2/CMakeFiles/openjp2.dir/sparse_array.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /opt/solarisstudio12.4/bin/cc -DMUTEX_pthread -Dopenjp2_EXPORTS -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -KPIC   -o CMakeFiles/openjp2.dir/sparse_array.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2/sparse_array.c
+[ 61%] Linking C shared library ../../../bin/libopenjp2.so
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /usr/bin/cmake -E cmake_link_script CMakeFiles/openjp2.dir/link.txt --verbose=1
+/opt/solarisstudio12.4/bin/cc -KPIC -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG -m64 -G -hlibopenjp2.so.7 -o ../../../bin/libopenjp2.so.2.3.0 CMakeFiles/openjp2.dir/thread.c.o CMakeFiles/openjp2.dir/bio.c.o CMakeFiles/openjp2.dir/cio.c.o CMakeFiles/openjp2.dir/dwt.c.o CMakeFiles/openjp2.dir/event.c.o CMakeFiles/openjp2.dir/image.c.o CMakeFiles/openjp2.dir/invert.c.o CMakeFiles/openjp2.dir/j2k.c.o CMakeFiles/openjp2.dir/jp2.c.o CMakeFiles/openjp2.dir/mct.c.o CMakeFiles/openjp2.dir/mqc.c.o CMakeFiles/openjp2.dir/openjpeg.c.o CMakeFiles/openjp2.dir/opj_clock.c.o CMakeFiles/openjp2.dir/pi.c.o CMakeFiles/openjp2.dir/t1.c.o CMakeFiles/openjp2.dir/t2.c.o CMakeFiles/openjp2.dir/tcd.c.o CMakeFiles/openjp2.dir/tgt.c.o CMakeFiles/openjp2.dir/function_list.c.o CMakeFiles/openjp2.dir/opj_malloc.c.o CMakeFiles/openjp2.dir/sparse_array.c.o -lm 
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 && /usr/bin/cmake -E cmake_symlink_library ../../../bin/libopenjp2.so.2.3.0 ../../../bin/libopenjp2.so.7 ../../../bin/libopenjp2.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[ 61%] Built target openjp2
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_compress.dir/build.make src/bin/jp2/CMakeFiles/opj_compress.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/amd64 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2/CMakeFiles/opj_compress.dir/DependInfo.cmake --color=
+Scanning dependencies of target opj_compress
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_compress.dir/build.make src/bin/jp2/CMakeFiles/opj_compress.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[ 63%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/opj_compress.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/opj_compress.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/opj_compress.c
+[ 64%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/convert.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/convert.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convert.c
+[ 66%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/convertbmp.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/convertbmp.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convertbmp.c
+[ 67%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/index.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/index.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/index.c
+[ 69%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/__/common/color.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/__/common/color.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common/color.c
+[ 70%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/__/common/opj_getopt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/__/common/opj_getopt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common/opj_getopt.c
+[ 71%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/converttif.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/converttif.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/converttif.c
+[ 73%] Building C object src/bin/jp2/CMakeFiles/opj_compress.dir/convertpng.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_compress.dir/convertpng.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convertpng.c
+[ 74%] Linking C executable ../../../bin/opj_compress
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /usr/bin/cmake -E cmake_link_script CMakeFiles/opj_compress.dir/link.txt --verbose=1
+/opt/solarisstudio12.4/bin/cc -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG  -m64 CMakeFiles/opj_compress.dir/opj_compress.c.o CMakeFiles/opj_compress.dir/convert.c.o CMakeFiles/opj_compress.dir/convertbmp.c.o CMakeFiles/opj_compress.dir/index.c.o CMakeFiles/opj_compress.dir/__/common/color.c.o CMakeFiles/opj_compress.dir/__/common/opj_getopt.c.o CMakeFiles/opj_compress.dir/converttif.c.o CMakeFiles/opj_compress.dir/convertpng.c.o  -o ../../../bin/opj_compress -R/ws/userland/src/components/desktop/openjpeg/build/amd64/bin: ../../../bin/libopenjp2.so.2.3.0 -lpng -lz -ltiff -llcms2 -lz -lm -ltiff -llcms2 -lm 
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[ 74%] Built target opj_compress
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_decompress.dir/build.make src/bin/jp2/CMakeFiles/opj_decompress.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/amd64 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2/CMakeFiles/opj_decompress.dir/DependInfo.cmake --color=
+Scanning dependencies of target opj_decompress
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_decompress.dir/build.make src/bin/jp2/CMakeFiles/opj_decompress.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[ 76%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/opj_decompress.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/opj_decompress.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/opj_decompress.c
+[ 77%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/convert.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/convert.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convert.c
+[ 78%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/convertbmp.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/convertbmp.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convertbmp.c
+[ 80%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/index.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/index.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/index.c
+[ 81%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/__/common/color.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/__/common/color.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common/color.c
+[ 83%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/__/common/opj_getopt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/__/common/opj_getopt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common/opj_getopt.c
+[ 84%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/converttif.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/converttif.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/converttif.c
+[ 85%] Building C object src/bin/jp2/CMakeFiles/opj_decompress.dir/convertpng.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_decompress.dir/convertpng.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convertpng.c
+[ 87%] Linking C executable ../../../bin/opj_decompress
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /usr/bin/cmake -E cmake_link_script CMakeFiles/opj_decompress.dir/link.txt --verbose=1
+/opt/solarisstudio12.4/bin/cc -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG  -m64 CMakeFiles/opj_decompress.dir/opj_decompress.c.o CMakeFiles/opj_decompress.dir/convert.c.o CMakeFiles/opj_decompress.dir/convertbmp.c.o CMakeFiles/opj_decompress.dir/index.c.o CMakeFiles/opj_decompress.dir/__/common/color.c.o CMakeFiles/opj_decompress.dir/__/common/opj_getopt.c.o CMakeFiles/opj_decompress.dir/converttif.c.o CMakeFiles/opj_decompress.dir/convertpng.c.o  -o ../../../bin/opj_decompress -R/ws/userland/src/components/desktop/openjpeg/build/amd64/bin: ../../../bin/libopenjp2.so.2.3.0 -lpng -lz -ltiff -llcms2 -lz -lm -ltiff -llcms2 -lm 
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[ 87%] Built target opj_decompress
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_dump.dir/build.make src/bin/jp2/CMakeFiles/opj_dump.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/amd64 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2/CMakeFiles/opj_dump.dir/DependInfo.cmake --color=
+Scanning dependencies of target opj_dump
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_dump.dir/build.make src/bin/jp2/CMakeFiles/opj_dump.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[ 88%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/opj_dump.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/opj_dump.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/opj_dump.c
+[ 90%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/convert.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/convert.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convert.c
+[ 91%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/convertbmp.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/convertbmp.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convertbmp.c
+[ 92%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/index.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/index.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/index.c
+[ 94%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/__/common/color.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/__/common/color.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common/color.c
+[ 95%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/__/common/opj_getopt.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/__/common/opj_getopt.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common/opj_getopt.c
+[ 97%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/converttif.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/converttif.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/converttif.c
+[ 98%] Building C object src/bin/jp2/CMakeFiles/opj_dump.dir/convertpng.c.o
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /opt/solarisstudio12.4/bin/cc  -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/common -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 -I/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/common -I/usr/include/lcms  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG   -o CMakeFiles/opj_dump.dir/convertpng.c.o   -c /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2/convertpng.c
+[100%] Linking C executable ../../../bin/opj_dump
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 && /usr/bin/cmake -E cmake_link_script CMakeFiles/opj_dump.dir/link.txt --verbose=1
+/opt/solarisstudio12.4/bin/cc -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr  -xc99=all  -mt -g -xO2 -DNDEBUG  -m64 CMakeFiles/opj_dump.dir/opj_dump.c.o CMakeFiles/opj_dump.dir/convert.c.o CMakeFiles/opj_dump.dir/convertbmp.c.o CMakeFiles/opj_dump.dir/index.c.o CMakeFiles/opj_dump.dir/__/common/color.c.o CMakeFiles/opj_dump.dir/__/common/opj_getopt.c.o CMakeFiles/opj_dump.dir/converttif.c.o CMakeFiles/opj_dump.dir/convertpng.c.o  -o ../../../bin/opj_dump -R/ws/userland/src/components/desktop/openjpeg/build/amd64/bin: ../../../bin/libopenjp2.so.2.3.0 -lpng -lz -ltiff -llcms2 -lz -lm -ltiff -llcms2 -lm 
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[100%] Built target opj_dump
+make[2]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/bin/cmake -E cmake_progress_start /ws/userland/src/components/desktop/openjpeg/build/amd64/CMakeFiles 0
+make[1]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/openjpeg/build/amd64/.built
+(cd /ws/userland/src/components/desktop/openjpeg/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/desktop/openjpeg/build/prototype/i386  install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/bin/cmake -H/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 -B/ws/userland/src/components/desktop/openjpeg/build/i86 --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /ws/userland/src/components/desktop/openjpeg/build/i86/CMakeFiles /ws/userland/src/components/desktop/openjpeg/build/i86/CMakeFiles/progress.marks
+/usr/gnu/bin/make -f CMakeFiles/Makefile2 all
+make[2]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2_static.dir/build.make src/lib/openjp2/CMakeFiles/openjp2_static.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+cd /ws/userland/src/components/desktop/openjpeg/build/i86 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/i86 /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/CMakeFiles/openjp2_static.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2_static.dir/build.make src/lib/openjp2/CMakeFiles/openjp2_static.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+make[3]: Nothing to be done for 'src/lib/openjp2/CMakeFiles/openjp2_static.dir/build'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[ 30%] Built target openjp2_static
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2.dir/build.make src/lib/openjp2/CMakeFiles/openjp2.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+cd /ws/userland/src/components/desktop/openjpeg/build/i86 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/i86 /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/i86/src/lib/openjp2/CMakeFiles/openjp2.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2.dir/build.make src/lib/openjp2/CMakeFiles/openjp2.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+make[3]: Nothing to be done for 'src/lib/openjp2/CMakeFiles/openjp2.dir/build'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[ 61%] Built target openjp2
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_compress.dir/build.make src/bin/jp2/CMakeFiles/opj_compress.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+cd /ws/userland/src/components/desktop/openjpeg/build/i86 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/i86 /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2/CMakeFiles/opj_compress.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_compress.dir/build.make src/bin/jp2/CMakeFiles/opj_compress.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+make[3]: Nothing to be done for 'src/bin/jp2/CMakeFiles/opj_compress.dir/build'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[ 74%] Built target opj_compress
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_decompress.dir/build.make src/bin/jp2/CMakeFiles/opj_decompress.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+cd /ws/userland/src/components/desktop/openjpeg/build/i86 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/i86 /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2/CMakeFiles/opj_decompress.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_decompress.dir/build.make src/bin/jp2/CMakeFiles/opj_decompress.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+make[3]: Nothing to be done for 'src/bin/jp2/CMakeFiles/opj_decompress.dir/build'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[ 87%] Built target opj_decompress
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_dump.dir/build.make src/bin/jp2/CMakeFiles/opj_dump.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+cd /ws/userland/src/components/desktop/openjpeg/build/i86 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/i86 /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/i86/src/bin/jp2/CMakeFiles/opj_dump.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_dump.dir/build.make src/bin/jp2/CMakeFiles/opj_dump.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+make[3]: Nothing to be done for 'src/bin/jp2/CMakeFiles/opj_dump.dir/build'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+[100%] Built target opj_dump
+make[2]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/bin/cmake -E cmake_progress_start /ws/userland/src/components/desktop/openjpeg/build/i86/CMakeFiles 0
+/usr/gnu/bin/make -f CMakeFiles/Makefile2 preinstall
+make[2]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+make[2]: Nothing to be done for 'preinstall'.
+make[2]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+Install the project...
+/usr/bin/cmake -P cmake_install.cmake
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/openjpeg-2.3/OpenJPEGTargets.cmake
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/openjpeg-2.3/OpenJPEGTargets-relwithdebinfo.cmake
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/openjpeg-2.3/OpenJPEGConfig.cmake
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/pkgconfig/libopenjp2.pc
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/include/openjpeg-2.3/opj_config.h
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/libopenjp2.so.2.3.0
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/libopenjp2.so.7
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/libopenjp2.so
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/libopenjp2.a
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/include/openjpeg-2.3/openjpeg.h
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/include/openjpeg-2.3/opj_stdint.h
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/bin/opj_decompress
+-- Set runtime path of "/ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/bin/opj_decompress" to ""
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/bin/opj_compress
+-- Set runtime path of "/ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/bin/opj_compress" to ""
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/bin/opj_dump
+-- Set runtime path of "/ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/bin/opj_dump" to ""
+make[1]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/openjpeg/build/i86/.installed
+(cd /ws/userland/src/components/desktop/openjpeg/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/desktop/openjpeg/build/prototype/i386  install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/bin/cmake -H/ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 -B/ws/userland/src/components/desktop/openjpeg/build/amd64 --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /ws/userland/src/components/desktop/openjpeg/build/amd64/CMakeFiles /ws/userland/src/components/desktop/openjpeg/build/amd64/CMakeFiles/progress.marks
+/usr/gnu/bin/make -f CMakeFiles/Makefile2 all
+make[2]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2_static.dir/build.make src/lib/openjp2/CMakeFiles/openjp2_static.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/amd64 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2/CMakeFiles/openjp2_static.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2_static.dir/build.make src/lib/openjp2/CMakeFiles/openjp2_static.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+make[3]: Nothing to be done for 'src/lib/openjp2/CMakeFiles/openjp2_static.dir/build'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[ 30%] Built target openjp2_static
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2.dir/build.make src/lib/openjp2/CMakeFiles/openjp2.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/amd64 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/lib/openjp2/CMakeFiles/openjp2.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/gnu/bin/make -f src/lib/openjp2/CMakeFiles/openjp2.dir/build.make src/lib/openjp2/CMakeFiles/openjp2.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+make[3]: Nothing to be done for 'src/lib/openjp2/CMakeFiles/openjp2.dir/build'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[ 61%] Built target openjp2
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_compress.dir/build.make src/bin/jp2/CMakeFiles/opj_compress.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/amd64 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2/CMakeFiles/opj_compress.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_compress.dir/build.make src/bin/jp2/CMakeFiles/opj_compress.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+make[3]: Nothing to be done for 'src/bin/jp2/CMakeFiles/opj_compress.dir/build'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[ 74%] Built target opj_compress
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_decompress.dir/build.make src/bin/jp2/CMakeFiles/opj_decompress.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/amd64 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2/CMakeFiles/opj_decompress.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_decompress.dir/build.make src/bin/jp2/CMakeFiles/opj_decompress.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+make[3]: Nothing to be done for 'src/bin/jp2/CMakeFiles/opj_decompress.dir/build'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[ 87%] Built target opj_decompress
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_dump.dir/build.make src/bin/jp2/CMakeFiles/opj_dump.dir/depend
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+cd /ws/userland/src/components/desktop/openjpeg/build/amd64 && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0 /ws/userland/src/components/desktop/openjpeg/openjpeg-2.3.0/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/amd64 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2 /ws/userland/src/components/desktop/openjpeg/build/amd64/src/bin/jp2/CMakeFiles/opj_dump.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/gnu/bin/make -f src/bin/jp2/CMakeFiles/opj_dump.dir/build.make src/bin/jp2/CMakeFiles/opj_dump.dir/build
+make[3]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+make[3]: Nothing to be done for 'src/bin/jp2/CMakeFiles/opj_dump.dir/build'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+[100%] Built target opj_dump
+make[2]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/bin/cmake -E cmake_progress_start /ws/userland/src/components/desktop/openjpeg/build/amd64/CMakeFiles 0
+/usr/gnu/bin/make -f CMakeFiles/Makefile2 preinstall
+make[2]: Entering directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+make[2]: Nothing to be done for 'preinstall'.
+make[2]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+Install the project...
+/usr/bin/cmake -P cmake_install.cmake
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/amd64/openjpeg-2.3/OpenJPEGTargets.cmake
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/amd64/openjpeg-2.3/OpenJPEGTargets-relwithdebinfo.cmake
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/amd64/openjpeg-2.3/OpenJPEGConfig.cmake
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/amd64/pkgconfig/libopenjp2.pc
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/include/openjpeg-2.3/opj_config.h
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/amd64/libopenjp2.so.2.3.0
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/amd64/libopenjp2.so.7
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/amd64/libopenjp2.so
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/lib/amd64/libopenjp2.a
+-- Up-to-date: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/include/openjpeg-2.3/openjpeg.h
+-- Up-to-date: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/include/openjpeg-2.3/opj_stdint.h
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/bin/amd64/opj_decompress
+-- Set runtime path of "/ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/bin/amd64/opj_decompress" to ""
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/bin/amd64/opj_compress
+-- Set runtime path of "/ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/bin/amd64/opj_compress" to ""
+-- Installing: /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/bin/amd64/opj_dump
+-- Set runtime path of "/ws/userland/src/components/desktop/openjpeg/build/prototype/i386/usr/bin/amd64/opj_dump" to ""
+make[1]: Leaving directory '/ws/userland/src/components/desktop/openjpeg/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/openjpeg/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 openjpeg.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=2\\.3\\.0 -D COMPONENT_RE_VERSION=2\\.3\\.0 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/openjpeg -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="43064" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="2.3.0" -D IPS_COMPONENT_VERSION="2.3.0" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://github.com/uclouvain/openjpeg/archive/v2.3.0.tar.gz" -D COMPONENT_PROJECT_URL="http://www.openjpeg.org/" -D COMPONENT_NAME="openjpeg" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" openjpeg.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/openjpeg/build/manifest-i386-openjpeg.mogrified
+/bin/mkdir -p /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/openjpeg/build/prototype/i386 -d /ws/userland/src/components/desktop/openjpeg/build -d /ws/userland/src/components/desktop/openjpeg -d openjpeg-2.3.0 -d /ws/userland/src/licenses -m /ws/userland/src/components/desktop/openjpeg/build/manifest-i386-openjpeg.mogrified >/ws/userland/src/components/desktop/openjpeg/build/manifest-i386-openjpeg.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/openjpeg/build/prototype/i386 -d /ws/userland/src/components/desktop/openjpeg/build -d /ws/userland/src/components/desktop/openjpeg -d openjpeg-2.3.0 -d /ws/userland/src/licenses /ws/userland/src/components/desktop/openjpeg/build/manifest-i386-openjpeg.mangled >/ws/userland/src/components/desktop/openjpeg/build/manifest-i386-openjpeg.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/desktop/openjpeg/build/resolve.deps -m /ws/userland/src/components/desktop/openjpeg/build/manifest-i386-openjpeg.depend
+/usr/bin/touch /ws/userland/src/components/desktop/openjpeg/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/desktop/openjpeg/build/manifest-i386-openjpeg.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/desktop/openjpeg/build/prototype/i386/mangled /ws/userland/src/components/desktop/openjpeg/build/prototype/i386 /ws/userland/src/components/desktop/openjpeg/build /ws/userland/src/components/desktop/openjpeg openjpeg-2.3.0 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/desktop/openjpeg/build/manifest-i386-openjpeg.depend.res
+/usr/bin/touch /ws/userland/src/components/desktop/openjpeg/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/openjpeg/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/openjpeg/build/prototype/i386 -d /ws/userland/src/components/desktop/openjpeg/build -d /ws/userland/src/components/desktop/openjpeg -d openjpeg-2.3.0 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/desktop/openjpeg/build/manifest-i386-openjpeg.depend.res
+pkg://nightly/image/library/openjpeg2@2.3.0,5.11-11.4.0.0.1.14.0:20190727T220251Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/openjpeg/build/manifest-i386-openjpeg.depend.res >/ws/userland/src/components/desktop/openjpeg/build/manifest-i386-openjpeg.published
+/usr/bin/touch /ws/userland/src/components/desktop/openjpeg/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/desktop/openjpeg'
+
+real     1:19.2
+user       56.7
+sys        15.3

@@ -1,0 +1,65 @@
+set name=pkg.fmri value=pkg://solaris/entire@11.4,5.11-11.4.0.0.1.15.0:20180817T004203Z
+set name=pkg.summary value="Incorporation to lock all system packages to the same build"
+set name=pkg.description value="This package constrains system package versions to the same build.  WARNING: Proper system update and correct package selection depend on the presence of this incorporation.  Removing this package will result in an unsupported system."
+set name=info.classification value="org.opensolaris.category.2008:Meta Packages/Incorporations"
+set name=pkg.depend.install-hold value=core-os
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=variant.arch value=sparc value=i386
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+set name=pkg.human-version value="Oracle Solaris 11.4.0.0.1.15.0"
+depend fmri=consolidation/SunVTS/SunVTS-incorporation type=require
+depend facet.version-lock.consolidation/SunVTS/SunVTS-incorporation=true fmri=consolidation/SunVTS/SunVTS-incorporation@8.2.2-11.4.0.0.1.3.8 type=incorporate
+depend fmri=consolidation/X/X-incorporation type=require
+depend facet.version-lock.consolidation/X/X-incorporation=true fmri=consolidation/X/X-incorporation@11.4-11.4.0.0.1.14.0 type=incorporate
+depend fmri=consolidation/admin/admin-incorporation type=require
+depend facet.version-lock.consolidation/admin/admin-incorporation=true fmri=consolidation/admin/admin-incorporation@0.5.11-0.175.1.0.0.5.0 type=incorporate
+depend fmri=consolidation/cde/cde-incorporation type=require
+depend facet.version-lock.consolidation/cde/cde-incorporation=true fmri=consolidation/cde/cde-incorporation@11.4-11.4.0.0.1.14.0 type=incorporate
+depend fmri=consolidation/dbtg/dbtg-incorporation type=require
+depend facet.version-lock.consolidation/dbtg/dbtg-incorporation=true fmri=consolidation/dbtg/dbtg-incorporation@0.5.12-5.12.0.0.0.87.0 type=incorporate
+depend fmri=consolidation/desktop/gnome-incorporation type=require
+depend facet.version-lock.consolidation/desktop/gnome-incorporation=true fmri=consolidation/desktop/gnome-incorporation@11.4-11.4.0.0.1.14.0 type=incorporate
+depend fmri=consolidation/gfx/gfx-incorporation type=require
+depend facet.version-lock.consolidation/gfx/gfx-incorporation=true fmri=consolidation/gfx/gfx-incorporation@0.5.11-0.175.1.0.0.5.0 type=incorporate
+depend fmri=consolidation/ips/ips-incorporation type=require
+depend facet.version-lock.consolidation/ips/ips-incorporation=true fmri=consolidation/ips/ips-incorporation@11.4-11.4.0.0.1.14.0 type=incorporate
+depend fmri=consolidation/java-8/java-8-incorporation type=require
+depend facet.version-lock.consolidation/java-8/java-8-incorporation=true fmri=consolidation/java-8/java-8-incorporation@1.8.0.181.12-0 type=incorporate
+depend fmri=consolidation/l10n/l10n-incorporation type=require
+depend facet.version-lock.consolidation/l10n/l10n-incorporation=true fmri=consolidation/l10n/l10n-incorporation@11.4-11.4.0.0.1.14.1 type=incorporate
+depend fmri=consolidation/ldoms/ldoms-incorporation type=require variant.arch=sparc
+depend facet.version-lock.consolidation/ldoms/ldoms-incorporation=true fmri=consolidation/ldoms/ldoms-incorporation@11.4-11.4.0.0.1.14.0 type=incorporate variant.arch=sparc
+depend fmri=consolidation/man/man-incorporation type=require
+depend facet.version-lock.consolidation/man/man-incorporation=true fmri=consolidation/man/man-incorporation@5.12-5.12.0.0.0.101.0 type=incorporate
+depend fmri=consolidation/nspg/nspg-incorporation type=require
+depend facet.version-lock.consolidation/nspg/nspg-incorporation=true fmri=consolidation/nspg/nspg-incorporation@0.5.11-0.175.1.0.0.5.0 type=incorporate
+depend fmri=consolidation/nvidia/nvidia-incorporation type=require variant.arch=i386
+depend facet.version-lock.consolidation/nvidia/nvidia-incorporation=true fmri=consolidation/nvidia/nvidia-incorporation@11.4-11.4.0.0.1.1.0 type=incorporate variant.arch=i386
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend facet.version-lock.consolidation/osnet/osnet-incorporation=true fmri=consolidation/osnet/osnet-incorporation@11.4-11.4.0.0.1.15.0 type=incorporate
+depend fmri=consolidation/sfw/sfw-incorporation type=require
+depend facet.version-lock.consolidation/sfw/sfw-incorporation=true fmri=consolidation/sfw/sfw-incorporation@11.4-11.4.0.0.1.14.0 type=incorporate
+depend fmri=consolidation/solaris_re/solaris_re-incorporation type=require
+depend facet.version-lock.consolidation/solaris_re/solaris_re-incorporation=true fmri=consolidation/solaris_re/solaris_re-incorporation@11.4-11.4.0.0.1.15.0 type=incorporate
+depend fmri=consolidation/ssm/ssm-incorporation type=require
+depend facet.version-lock.consolidation/ssm/ssm-incorporation=true fmri=consolidation/ssm/ssm-incorporation@2.4.4.0-11.4.0.0.1.9.0 type=incorporate
+depend fmri=consolidation/sunpro/sunpro-incorporation type=require
+depend facet.version-lock.consolidation/sunpro/sunpro-incorporation=true fmri=consolidation/sunpro/sunpro-incorporation@11.4-11.4.0.0.1.4.0 type=incorporate
+depend fmri=consolidation/userland/userland-incorporation type=require
+depend facet.version-lock.consolidation/userland/userland-incorporation=true fmri=consolidation/userland/userland-incorporation@11.4-11.4.0.0.1.14.0 type=incorporate
+depend fmri=consolidation/cns/cns-incorporation@11.4-11.4.0.0.0.11.0 type=incorporate
+depend fmri=consolidation/desktop/desktop-incorporation@11.4-11.4.0.0.0.12.0 type=incorporate
+depend fmri=consolidation/install/install-incorporation@11.4-11.4.0.0.0.1.0 type=incorporate
+depend fmri=consolidation/java-7/java-7-incorporation type=require
+depend facet.version-lock.consolidation/java-7/java-7-incorporation=true fmri=consolidation/java-7/java-7-incorporation@1.7.0.999.99 type=incorporate
+depend fmri=consolidation/java/java-incorporation@5.12-5.12.0.0.0.39.0 type=incorporate
+depend fmri=consolidation/ub_javavm-6/ub_javavm-6-incorporation type=require
+depend facet.version-lock.consolidation/ub_javavm-6/ub_javavm-6-incorporation=true fmri=consolidation/ub_javavm-6/ub_javavm-6-incorporation@1.6.0.999.99 type=incorporate
+depend fmri=consolidation/ub_javavm/ub_javavm-incorporation@5.12-5.12.0.0.0.39.0 type=incorporate
+depend fmri=consolidation/vpanels/vpanels-incorporation@0.5.11-0.175.1.0.0.17.0 type=incorporate
+depend fmri=consolidation/smcc/smcc-incorporation type=require variant.arch=sparc
+depend fmri=consolidation/smcc/smcc-incorporation@11.4-11.4.0.0.0.1.0 type=incorporate variant.arch=sparc
+depend fmri=consolidation/xvm/xvm-incorporation type=require variant.arch=i386
+depend fmri=consolidation/xvm/xvm-incorporation@0.5.11-0.175.1.0.0.5.0 type=incorporate variant.arch=i386
+file a7e58c93ac0306bc1b0e8fdbb289a0ff414c1469 chash=0c351ce71315594845c901da18d5c5f4e70b96e4 group=bin mode=0444 owner=root path=etc/versions/uts_version pkg.csize=32 pkg.size=12 sysattr=readonly variant.opensolaris.zone=global
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=83381f8ed8f7098f6cc30cfc0297c7b8950c108d1175320372ca664ba2e45ce9d2b290cc6fdf237ec19cd5d2090bb0c4798e0860fbed99ae77a11c688355284026ded55b5f8b1d775dd1ebda099e3be7c125beb7cd4195df97a0e83baa8734870be2ff5246bcd4eefae2b79c5b8e55e2882d9db4f4bccbcbf7737af29ba31bba5b26ccbc75b58b866ce6e79978a5b92ebdff2f9344d8d7f0e828a24433cbfad3ec0c14d3fd94cde88c59114f6a2d4679d1a04f40732f112bc085102013c02db220173d189a42eb8a310f28a0df9c66cd41a91ae1c694575cd66747655f46fe407afe71081117bb6ca7b33ed0073fe29a6fdd5eb56023065260485389e86d3bf9 version=0

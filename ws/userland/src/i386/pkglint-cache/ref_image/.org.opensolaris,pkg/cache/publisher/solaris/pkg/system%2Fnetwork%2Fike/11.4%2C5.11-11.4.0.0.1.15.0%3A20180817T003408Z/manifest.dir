@@ -1,0 +1,18 @@
+dir group=sys mode=0755 owner=root path=etc
+dir group=sys mode=0755 owner=root path=etc/inet
+dir group=sys mode=0755 owner=ikeuser path=etc/inet/ike
+dir group=sys mode=0755 owner=root path=etc/inet/ike/crls
+dir group=sys mode=0755 owner=root path=etc/inet/ike/publickeys
+dir group=sys mode=0700 owner=root path=etc/inet/secret
+dir group=sys mode=0700 owner=root path=etc/inet/secret/ike.privatekeys
+dir group=sys mode=0755 owner=root path=lib/svc/manifest/network/ipsec
+dir group=bin mode=0755 owner=root path=usr/lib/inet
+dir facet.doc.man=all facet.locale.ja_JP=all group=bin mode=0755 owner=root path=usr/share/man/ja_JP.UTF-8/man8
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man5
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man8
+dir facet.doc.man=all facet.locale.zh_CN=all group=bin mode=0755 owner=root path=usr/share/man/zh_CN.UTF-8/man8
+dir group=daemon mode=0700 owner=ikeuser path=var/.migrate/user/ikeuser refresh_fmri=svc:/system/filesystem/minimal:default salvage-from=/var/user/ikeuser
+dir group=daemon mode=0700 owner=ikeuser path=var/.migrate/user/ikeuser/certcache refresh_fmri=svc:/system/filesystem/minimal:default salvage-from=/var/user/ikeuser/certcache
+dir group=daemon mode=0700 owner=ikeuser path=var/.migrate/user/ikeuser/crls refresh_fmri=svc:/system/filesystem/minimal:default salvage-from=/var/user/ikeuser/crls
+dir group=daemon mode=0755 owner=ikeuser path=var/log/ikev2
+dir group=sys mode=0755 owner=root path=var/svc/manifest/network/ipsec

@@ -1,0 +1,20 @@
+set name=pkg.fmri value=pkg://solaris/library/python/paramiko@2.0.8,5.11-11.4.0.0.1.14.0:20180814T165900Z
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=pkg.description value="Paramiko is a library for making SSH2 connections (client or server.) Emphasis is on using SSH2 as an alternative to SSL for making secure connections between Python scripts. All major ciphers and hash methods are supported. SFTP client and server mode are both supported too."
+set name=info.upstream-url value=https://github.com/paramiko/paramiko/
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.name value=paramiko
+set name=info.classification value=org.opensolaris.category.2008:Development/Python value=org.opensolaris.category.2008:System/Security
+set name=org.opensolaris.arc-caseid value=PSARC/2015/250
+set name=pkg.summary value="SSH2 protocol library for Python"
+set name=com.oracle.info.version value=2.0.8
+set name=com.oracle.info.description value="Paramiko, the SSH2 protocol library for Python"
+set name=info.upstream value="Jeff Forcier <jeff@bitprophet.org>"
+set name=org.opensolaris.consolidation value=userland
+set name=info.source-url value=pypi:///paramiko==2.0.8
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+depend fmri=library/python/paramiko-34@2.0.8,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/paramiko-27@2.0.8,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+depend fmri=library/python/paramiko-35@2.0.8,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=86d7415efc1008c4e481a2dbe2db4164f6258ed681af962dfe068d1d2f587a0011ff1271f6de40d303c692137f5afa10a771d6eabfb6333b973a96044259ddf8da3a98c8276b137e8c2133b700a8c94e7e944d66e70f09dfe55430264980679025b7420d4ea0c1ad588a445bd060f9de6ed1653642325c1acf4862abc4aae5f0274bcf3a477d7ccf8a9b686aa8fa6f5389cda1bf12597689040aaf676e94c2869ea9fd42622fb26c64992d04774f32ef013782da68b72082001f9eeb958a7aba65d2447e28cd84cfca071c66dad763a27d35d0cfc28416ec2be611b675be128c85f435fc5ce656baa2d7bc4a14ba80329364f541d1d51795dc795f75dc3cc86e version=0

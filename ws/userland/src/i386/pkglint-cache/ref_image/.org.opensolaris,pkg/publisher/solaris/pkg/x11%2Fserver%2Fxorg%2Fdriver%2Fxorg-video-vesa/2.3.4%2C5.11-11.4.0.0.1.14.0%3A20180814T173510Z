@@ -1,0 +1,24 @@
+set name=pkg.fmri value=pkg://solaris/x11/server/xorg/driver/xorg-video-vesa@2.3.4,5.11-11.4.0.0.1.14.0:20180814T173510Z
+set name=pkg.summary value="xf86-video-vesa - Generic VESA video driver for the Xorg X server"
+set name=pkg.description value="Xorg driver for generic VESA video cards.  It can drive most VESA-compatible video cards, but only makes use of the basic standard VESA core that is common to these cards."
+set name=com.oracle.info.description value="the xf86-video-vesa driver"
+set name=com.oracle.info.name value=xf86-video-vesa
+set name=com.oracle.info.tpno value=39514
+set name=variant.arch value=i386
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=org.opensolaris.consolidation value=userland
+set name=info.source-url value=https://www.x.org/releases/individual/driver/xf86-video-vesa-2.3.4.tar.bz2
+set name=com.oracle.info.version value=2.3.4
+set name=org.opensolaris.arc-caseid value=PSARC/2017/212
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Display
+set name=info.upstream-url value=https://www.x.org
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/x11/server/xorg@1.19.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/diagnostic/scanpci@0.13.4-11.4.0.0.1.13.0 type=require
+file 55f157f490fe5c064b543ecff626a9c23f3d0cfe chash=324cbc0fbd1adeabc3b21743aa82d9c1a1ca5aec elfarch=i386 elfbits=64 elfhash=ae9119e227e3bb8f5b8e2e4ead19ef93b6da6128 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/drivers/vesa_drv.so pkg.content-hash=gelf:sha512t_256:7d5bdf97ce6920be7dedb934e0c33e220ae5b7d8ff8a106f96c13b52f3cdd421 pkg.content-hash=gelf.unsigned:sha512t_256:075f31861ada889f34af021b8891e0f92ed34095d20b80ee3be535f65693049c pkg.content-hash=file:sha512t_256:fb801c4c6aa24794aa720a64bd475e40b78e6ba742c58a2edc918c4e68c2697d pkg.content-hash=gzip:sha512t_256:f52bd967393c4dd0b7b272044406b9416e9bec91bcd1a3a40c39e6a27b3323ec pkg.csize=15046 pkg.size=44400
+file 5182bfa4cd7372ef186a1a405c8df879428de9a7 chash=4b302201f0cc85051d4229f299d5c820c7131e27 group=bin mode=0444 owner=root path=usr/lib/X11/xorg.conf.vesa pkg.content-hash=file:sha512t_256:ea6f409df6136a49fd8a6a2ef89528ebf0d5351aa1581565cb9ecd76f538b608 pkg.content-hash=gzip:sha512t_256:23602c89705168647c875040ad0035f1b5f084fe3abba09b699d660404beb507 pkg.csize=1032 pkg.size=1809
+file a13320fdb961fdd5dcb4c3e000552293bdeb2a4b chash=0f755fa0b0ca955ac704eb82339bff2675f5802c facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4/vesa.4 pkg.content-hash=file:sha512t_256:a561a98793f4699cad4f3ad630e76668bb61e58327a660908f79de218329b149 pkg.content-hash=gzip:sha512t_256:20f1b50c57ea31e169cf680855aa8febb27496b415244447c57a0b4022d76523 pkg.csize=1286 pkg.size=2441
+license e76471c3a2cace76952ade6268fbbcbed6ddb835 chash=b22ecb4950ded3872a3567cb64701152ec270e5c license=MIT pkg.content-hash=file:sha512t_256:dc1fec1ff5170e00e68f5ab25fd37a945361ea390ec7a035599319dde939c9b8 pkg.content-hash=gzip:sha512t_256:2af06a3cc4eaed3ddcdb2eecaf951c4e8391943071964670de1444d8c2a65434 pkg.csize=781 pkg.size=1331
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=1de83d1be8f90992dc4f5617a83e43b1cb36c1f3c9e0c322e0f2ad1e9d8c7578e749663fac70e95a14a4b7f1115777c3918dd183f90c108d9d91adc6bdce0f345a84460f8a327345417b06b5a7e31d60a34f46b303a7d37fb62b3039c53fa7a26324fa0b2f03af79a41f83bb03543e9350408724df84f83b82a5edc02b7740e852e69c216668ac771e992d526d9729b6edbebd182e9228d8ef1e1ebbf6d12d316bfcf34813830246c06e674aa3fda736be17bf09f1511d59c062602eadbf710eca3ceeabefc3836f981720f5cce6b5abf579ba2638ccbc81776d4c2ecebf547152a4349bf311b9ad83986749b145ee941cf72aea90393db39f5f60d62b458308 version=0

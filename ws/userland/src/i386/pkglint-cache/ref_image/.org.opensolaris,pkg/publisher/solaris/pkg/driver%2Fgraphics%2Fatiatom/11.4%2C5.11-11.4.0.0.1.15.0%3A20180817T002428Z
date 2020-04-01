@@ -1,0 +1,19 @@
+set name=pkg.fmri value=pkg://solaris/driver/graphics/atiatom@11.4,5.11-11.4.0.0.1.15.0:20180817T002428Z
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Display
+set name=pkg.summary value="ATI framebuffer driver"
+set name=variant.arch value=i386
+set name=variant.debug.osnet value=true value=false
+depend fmri=pkg:/system/kernel/platform@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv/amd64 variant.opensolaris.zone=global
+file 9160d5fff2e0282ae2301d634caae683eacbd51e chash=201f1cb84eb32d5b8f75811d0f6100ce572250a1 elfarch=i386 elfbits=64 elfhash=a3f6d0ddb611646b0169144618c08c08f8948636 group=sys mode=0755 owner=root path=kernel/drv/amd64/atiatom pkg.content-hash=gelf:sha512t_256:44dd1d420e1d52626047ac430ebfc2342e8be505289b3e26bdcd3082b42f6d9c pkg.content-hash=gelf.unsigned:sha512t_256:44dd1d420e1d52626047ac430ebfc2342e8be505289b3e26bdcd3082b42f6d9c pkg.content-hash=file:sha512t_256:7b420e4179133540c9072c758a9816b1c9b5702d225f8f62873939e9284ac9f6 pkg.content-hash=gzip:sha512t_256:96e86dfdebd3a4ee2ae88ead0d860887c75d36428d255c1cfeaea5ba3e57ff13 pkg.csize=14311 pkg.size=39896 reboot-needed=true variant.debug.osnet=true variant.opensolaris.zone=global
+file 3547015a8f7b0b11879918a959bc1c0918ece111 chash=765bdef7ff551e7a3fd21a917e450c18487496e9 elfarch=i386 elfbits=64 elfhash=606b77adb26039d28ed8e574052896a556f735d8 group=sys mode=0755 owner=root path=kernel/drv/amd64/atiatom pkg.content-hash=gelf:sha512t_256:2b8c4c9477600f9b8b4093b17626dc70884266426574c1b8a075dcd6e0872094 pkg.content-hash=gelf.unsigned:sha512t_256:2b8c4c9477600f9b8b4093b17626dc70884266426574c1b8a075dcd6e0872094 pkg.content-hash=file:sha512t_256:e672b28ddcf53ca951f6b6dd24963be2eaa1d8a90d086ba629519ddf8458e4d7 pkg.content-hash=gzip:sha512t_256:84b416664d64ee2dcc8a27197e771b7d6fdaff96a03ac3e13afd26334e28e683 pkg.csize=14106 pkg.size=39048 reboot-needed=true variant.debug.osnet=false variant.opensolaris.zone=global
+driver alias=pci1002,4752 name=atiatom perms="* 0644 root sys" variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+legacy arch=i386 category=system desc="Drivers for ATI framebuffer hardware" hotline="Please contact your local service provider" name="ATI Framebuffer Drivers" pkg=SUNWatigfx vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=4366d0e859394861b13b09413bade07d79f030883b4323677d8577fed29fb3fc8b53e5d4dddb4b9f07d595f7ceefc2a8b638782257931ac4282b4b1e870c5b3f144ad490f0b65f097c36555eabb4d6e6904ff9b601c2de974768ab01316af392a551b1b480de0d3ff3ecae445ba4de16ea4004fced64a9d7b293aebdfb1161e88c379a86e26002f71cca3c35098034f7389f5bedac8819425d47543f79b7ffd9c28596cc58bd7ba999ddd41dd25555aff454ceacce8c04990341b56991444d171b84efb591ff1a3e57b541d528f0e702132f516cc4d9361f0e5c2ef2252ec196b4ed8427726dd539ecc21deb655814bf2192547ab4d58421bd41edbd280a1dcb version=0

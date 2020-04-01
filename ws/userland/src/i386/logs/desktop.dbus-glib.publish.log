@@ -1,0 +1,1435 @@
+gmake: Entering directory '/ws/userland/src/components/desktop/dbus-glib'
+/bin/rm -f -r /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  dbus-glib-0.102.tar.gz
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102 --strip=1 --backup --version-control=numbered < patches/dbus-glib-01-avoid-crash.patch
+patching file dbus/dbus-gobject.c
+Hunk #1 succeeded at 835 (offset 119 lines).
+Hunk #2 succeeded at 868 (offset 119 lines).
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/.patched-dbus-glib-01-avoid-crash.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102 --strip=1 --backup --version-control=numbered < patches/dbus-glib-02-manpage.patch
+patching file doc/dbus-binding-tool.1
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/.patched-dbus-glib-02-manpage.patch
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/.patched
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/.prep
+(/bin/rm -f -rf /ws/userland/src/components/desktop/dbus-glib/build/i86 ; /bin/mkdir -p /ws/userland/src/components/desktop/dbus-glib/build/i86)
+(cd /ws/userland/src/components/desktop/dbus-glib/build/i86 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/pkgconfig" CC="/opt/solarisstudio12.4/bin/cc" CXX="/opt/solarisstudio12.4/bin/CC"  CC_FOR_BUILD="/opt/solarisstudio12.4/bin/cc -m32" CXX_FOR_BUILD="/opt/solarisstudio12.4/bin/CC -m32" CPPFLAGS="-m32" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt" CXXFLAGS="-norunpath -m32 -xO4 -xchip=pentium -xregs=no%frameptr" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin/i86 --sbindir=/usr/sbin/i86 --libdir=/usr/lib    --sysconfdir="/etc" --libexecdir="/usr/lib" --localstatedir="/var" --disable-static --enable-gtk-doc --enable-tests)
+checking build system type... i386-pc-solaris2.11
+checking host system type... i386-pc-solaris2.11
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking whether make supports nested variables... (cached) yes
+checking for gcc... /opt/solarisstudio12.4/bin/cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... no
+checking whether /opt/solarisstudio12.4/bin/cc accepts -g... yes
+checking for /opt/solarisstudio12.4/bin/cc option to accept ISO C89... none needed
+checking whether /opt/solarisstudio12.4/bin/cc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /opt/solarisstudio12.4/bin/cc... none
+checking for library containing strerror... none required
+checking how to run the C preprocessor... /opt/solarisstudio12.4/bin/cc -E
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for ANSI C header files... yes
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for fgrep... /usr/bin/ggrep -F
+checking for non-GNU ld... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert i386-pc-solaris2.11 file names to i386-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert i386-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /opt/solarisstudio12.4/bin/cc object... ok
+checking for sysroot... no
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking for /opt/solarisstudio12.4/bin/cc option to produce PIC... -KPIC -DPIC
+checking if /opt/solarisstudio12.4/bin/cc PIC flag -KPIC -DPIC works... yes
+checking if /opt/solarisstudio12.4/bin/cc static flag -Bstatic works... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... (cached) yes
+checking whether the /opt/solarisstudio12.4/bin/cc linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for library containing socket... none required
+checking whether socklen_t is defined... yes
+checking for XML_ParserCreate_MM in -lexpat... yes
+checking expat.h usability... yes
+checking expat.h presence... yes
+checking for expat.h... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for DBUS... yes
+checking for DBUS_GLIB... yes
+checking for DBUS_GLIB_THREADS... yes
+checking for gtkdoc-check... /usr/bin/gtkdoc-check
+checking for gtkdoc-rebase... /usr/bin/gtkdoc-rebase
+checking for gtkdoc-mkpdf... /usr/bin/gtkdoc-mkpdf
+checking for GTKDOC_DEPS... yes
+checking whether to build gtk-doc documentation... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating m4/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/reference/Makefile
+config.status: creating doc/reference/version.xml
+config.status: creating dbus/Makefile
+config.status: creating dbus/examples/Makefile
+config.status: creating dbus/examples/statemachine/Makefile
+config.status: creating test/Makefile
+config.status: creating test/core/Makefile
+config.status: creating test/interfaces/Makefile
+config.status: creating test/data/valid-service-files/debug-glib.service
+config.status: creating test/data/valid-service-files/debug-echo.service
+config.status: creating test/data/valid-service-files/interfaces-test.service
+config.status: creating test/lib/Makefile
+config.status: creating test/manual/Makefile
+config.status: creating tools/Makefile
+config.status: creating dbus-glib-1.pc
+config.status: creating dbus-glib-1-uninstalled.pc
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+                    D-BUS GLIB BINDINGS 0.102
+                  ==============
+
+	prefix:                   /usr
+	exec_prefix:              ${prefix}
+	source code location:	  /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102
+	compiler:		  /opt/solarisstudio12.4/bin/cc
+	cflags:		          -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt
+	cppflags:		  -m32
+
+
+        Maintainer mode:          no
+        gcc coverage profiling:   no
+        Building unit tests:      yes
+        Building assertions:      no
+        Building checks:          yes
+        Building Gtk-doc docs:    yes
+        Bash Completion:          yes
+        Using XML parser:         
+
+NOTE: building with unit tests increases the size of the installed library and renders it insecure.
+NOTE: building with unit tests but without assertions means tests may not properly report failures (this configuration is only useful when doing something like profiling the tests)
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/build/i86/.configured
+(cd /ws/userland/src/components/desktop/dbus-glib/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86'
+Making all in dbus
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus'
+Making all in .
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus'
+  CC       dbus-glib.lo
+  CC       dbus-gmain.lo
+  CC       dbus-gmarshal.lo
+  CC       dbus-gobject.lo
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gobject.c", line 1905: warning: argument #6 is incompatible with prototype:
+	prototype: pointer to void : "unknown", line 0
+	argument : const pointer to function(void) returning void
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gobject.c", line 2989: warning: assignment type mismatch:
+	pointer to function(pointer to struct _GClosure {volatile unsigned int ref_count :15, volatile unsigned int meta_marshal_nouse :1, volatile unsigned int n_guards :1, volatile unsigned int n_fnotifiers :2, volatile unsigned int n_inotifiers :8, volatile unsigned int in_inotify :1, volatile unsigned int floating :1, volatile unsigned int derivative_flag :1, volatile unsigned int in_marshal :1, volatile unsigned int is_invalid :1, pointer to function(..) returning void marshal, pointer to void data, pointer to struct _GClosureNotifyData {..} notifiers}, pointer to struct _GValue {unsigned int g_type, array[2] of union  {..} data}, unsigned int, pointer to const struct _GValue {unsigned int g_type, array[2] of union  {..} data}, pointer to void, pointer to void) returning void "=" pointer to void
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gobject.c", line 3110: warning: argument #3 is incompatible with prototype:
+	prototype: pointer to void : "/usr/include/glib-2.0/glib/ghash.h", line 67
+	argument : pointer to function(pointer to struct _GClosure {volatile unsigned int ref_count :15, volatile unsigned int meta_marshal_nouse :1, volatile unsigned int n_guards :1, volatile unsigned int n_fnotifiers :2, volatile unsigned int n_inotifiers :8, volatile unsigned int in_inotify :1, volatile unsigned int floating :1, volatile unsigned int derivative_flag :1, volatile unsigned int in_marshal :1, volatile unsigned int is_invalid :1, pointer to function(..) returning void marshal, pointer to void data, pointer to struct _GClosureNotifyData {..} notifiers}, pointer to struct _GValue {unsigned int g_type, array[2] of union  {..} data}, unsigned int, pointer to const struct _GValue {unsigned int g_type, array[2] of union  {..} data}, pointer to void, pointer to void) returning void
+  CC       dbus-gproxy.lo
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gproxy.c", line 3159: warning: argument #6 is incompatible with prototype:
+	prototype: pointer to void : "/usr/include/glib-2.0/gobject/gsignal.h", line 431
+	argument : pointer to function(void) returning void
+  CC       dbus-gtest.lo
+  CC       dbus-gvalue.lo
+  CC       dbus-gvalue-parse-variant.lo
+  CC       dbus-gthread.lo
+  CC       dbus-gtype-specialized.lo
+  CC       dbus-gutils.lo
+  CC       dbus-gsignature.lo
+  CC       dbus-gvalue-utils.lo
+  CCLD     libdbus-glib-1.la
+  CC       dbus-gidl.lo
+  CC       dbus-gloader-expat.lo
+  CC       dbus-gparser.lo
+  CCLD     libdbus-gtool.la
+  CC       dbus-binding-tool-glib.o
+  CC       dbus-glib-tool.o
+  CCLD     dbus-binding-tool
+ld: warning: file ./.libs/libdbus-glib-1.so: linked to /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       dbus-bash-completion-helper.o
+  CCLD     dbus-bash-completion-helper
+ld: warning: file ./.libs/libdbus-glib-1.so: linked to /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       dbus-gtest-main.o
+  CCLD     dbus-glib-test
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus'
+Making all in examples
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+/bin/bash ../../libtool --mode=execute ../../dbus/dbus-binding-tool --prefix=some_object --mode=glib-server --output=example-service-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/examples/example-service.xml
+/bin/bash ../../libtool --mode=execute ../../dbus/dbus-binding-tool --prefix=test_object --mode=glib-server --output=example-signal-emitter-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/examples/example-signal-emitter.xml
+/usr/gnu/bin/make  all-recursive
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+Making all in .
+make[6]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+  CC       example-client.o
+  CCLD     example-client
+  CC       example-service.o
+  CCLD     example-service
+  CC       example-signal-recipient.o
+  CCLD     example-signal-recipient
+  CC       example-signal-emitter.o
+  CCLD     example-signal-emitter
+make[6]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+Making all in statemachine
+make[6]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples/statemachine'
+/bin/bash ../../../libtool --mode=execute ../../../dbus/dbus-binding-tool --prefix=sm_server --mode=glib-server --output=statemachine-server-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/examples/statemachine/statemachine-server.xml
+/bin/bash ../../../libtool --mode=execute ../../../dbus/dbus-binding-tool --prefix=sm_object --mode=glib-server --output=statemachine-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/examples/statemachine/statemachine.xml
+echo "#include <config.h>" > sm-marshal.c.tmp
+glib-genmarshal --prefix=sm_marshal /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/examples/statemachine/sm-marshal.list --header --body >> sm-marshal.c.tmp
+mv sm-marshal.c.tmp sm-marshal.c
+glib-genmarshal --prefix=sm_marshal /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/examples/statemachine/sm-marshal.list --header > sm-marshal.h.tmp && mv sm-marshal.h.tmp sm-marshal.h
+/usr/gnu/bin/make  all-am
+make[7]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples/statemachine'
+  CC       statemachine-server.o
+  CC       sm-marshal.o
+  CC       statemachine.o
+  CCLD     statemachine-server
+make[7]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples/statemachine'
+make[6]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples/statemachine'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus'
+Making all in tools
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/tools'
+../dbus/dbus-binding-tool --mode=glib-client --prefix=dbus_bus --output=dbus-glib-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus-bus-introspect.xml
+/usr/gnu/bin/make  all-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/tools'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/tools'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/tools'
+Making all in test
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test'
+Making all in lib
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/lib'
+  CC       util.lo
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/lib/util.c", line 65: warning: argument #6 is incompatible with prototype:
+	prototype: pointer to void : "/usr/include/glib-2.0/gobject/gsignal.h", line 431
+	argument : pointer to function(pointer to struct _DBusGProxy {struct _GObject {..} parent}, pointer to void) returning void
+  CCLD     libtest.la
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/lib'
+Making all in .
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test'
+  CC       errors.o
+  CCLD     test-errors
+  CC       specialized-types.o
+  CCLD     test-specialized-types
+  CC       test-service.o
+  CCLD     test-service
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test'
+Making all in core
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/core'
+../../dbus/dbus-binding-tool --prefix=my_object --mode=glib-server --output=test-service-glib-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/test-service-glib.xml
+../../dbus/dbus-binding-tool --prefix=my_object_subclass --mode=glib-server --output=test-service-glib-subclass-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/test-service-glib-subclass.xml
+../../dbus/dbus-binding-tool --prefix=my_object --mode=glib-client --output=test-service-glib-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/test-service-glib.xml
+echo "#include <config.h>" > my-object-marshal.c.tmp
+glib-genmarshal --prefix=my_object_marshal /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/my-object-marshal.list --header --body >> my-object-marshal.c.tmp
+mv my-object-marshal.c.tmp my-object-marshal.c
+glib-genmarshal --prefix=my_object_marshal /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/my-object-marshal.list --header > my-object-marshal.h
+/usr/gnu/bin/make  all-am
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/core'
+  CC       my-object.o
+  CC       my-object-marshal.o
+  CC       test-dbus-glib.o
+  CCLD     test-dbus-glib
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       error-mapping.o
+  CCLD     test-error-mapping
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       my-object-subclass.o
+"./test-service-glib-subclass-glue.h", line 64: warning: syntax error:  empty initializer
+"./test-service-glib-subclass-glue.h", line 64: warning: null dimension: dbus_glib_my_object_subclass_methods
+  CC       test-service-glib.o
+  CCLD     test-service-glib
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-thread-server.o
+  CCLD     test-thread-server
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-thread-client.o
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/test-thread-client.c", line 60: warning: statement not reached
+  CCLD     test-thread-client
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-profile.o
+  CCLD     test-profile
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       peer-server.o
+  CCLD     peer-server
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       peer-client.o
+  CCLD     peer-client
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-types.o
+  CCLD     test-types
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       30574.o
+  CCLD     test-30574
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       private.o
+  CCLD     test-private
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       peer-on-bus.o
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/peer-on-bus.c", line 120: warning: argument #6 is incompatible with prototype:
+	prototype: pointer to void : "/usr/include/glib-2.0/gobject/gsignal.h", line 431
+	argument : pointer to function(pointer to struct _DBusGProxy {struct _GObject {..} parent}, pointer to void) returning void
+  CCLD     test-peer-on-bus
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       proxy-noc.o
+  CCLD     test-proxy-noc
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       proxy-peer.o
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/proxy-peer.c", line 224: warning: argument #6 is incompatible with prototype:
+	prototype: pointer to void : "/usr/include/glib-2.0/gobject/gsignal.h", line 431
+	argument : pointer to function(pointer to struct _DBusGProxy {struct _GObject {..} parent}, pointer to void) returning void
+  CCLD     test-proxy-peer
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       registrations.o
+  CCLD     test-registrations
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-variant-recursion.o
+  CCLD     test-variant-recursion
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-gvariant.o
+  CCLD     test-gvariant
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       shared-bus.o
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/shared-bus.c", line 73: warning: argument #6 is incompatible with prototype:
+	prototype: pointer to void : "/usr/include/glib-2.0/gobject/gsignal.h", line 431
+	argument : pointer to function(pointer to struct _DBusGProxy {struct _GObject {..} parent}, pointer to void) returning void
+  CCLD     test-shared-bus
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/core'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/core'
+Making all in interfaces
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/interfaces'
+../../dbus/dbus-binding-tool --prefix=test_song --mode=glib-server --output=test-song-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-song.xml
+../../dbus/dbus-binding-tool --prefix=test_hello --mode=glib-server --output=test-hello-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-hello.xml
+../../dbus/dbus-binding-tool --prefix=test_goodbye --mode=glib-server --output=test-goodbye-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-goodbye.xml
+../../dbus/dbus-binding-tool --prefix=test_dup_prop_a --mode=glib-server --output=test-dup-prop-a-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-dup-prop-a.xml
+../../dbus/dbus-binding-tool --prefix=test_dup_prop_b --mode=glib-server --output=test-dup-prop-b-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-dup-prop-b.xml
+../../dbus/dbus-binding-tool --prefix=test_song --mode=glib-client --output=test-song-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-song.xml
+../../dbus/dbus-binding-tool --prefix=test_hello --mode=glib-client --output=test-hello-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-hello.xml
+../../dbus/dbus-binding-tool --prefix=test_goodbye --mode=glib-client --output=test-goodbye-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-goodbye.xml
+../../dbus/dbus-binding-tool --prefix=test_dup_prop_a --mode=glib-client --output=test-dup-prop-a-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-dup-prop-a.xml
+../../dbus/dbus-binding-tool --prefix=test_dup_prop_b --mode=glib-client --output=test-dup-prop-b-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-dup-prop-b.xml
+../../dbus/dbus-binding-tool --prefix=test_annotated --mode=glib-server --output=valid-annotations-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/valid-annotations.xml
+../../dbus/dbus-binding-tool --prefix=test_annotated --mode=glib-client --output=valid-annotations-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/valid-annotations.xml
+/usr/gnu/bin/make  all-am
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/interfaces'
+  CC       test-interfaces.o
+  CC       test-dup-prop.o
+"./test-dup-prop-a-glue.h", line 64: warning: syntax error:  empty initializer
+"./test-dup-prop-a-glue.h", line 64: warning: null dimension: dbus_glib_test_dup_prop_a_methods
+"./test-dup-prop-b-glue.h", line 64: warning: syntax error:  empty initializer
+"./test-dup-prop-b-glue.h", line 64: warning: null dimension: dbus_glib_test_dup_prop_b_methods
+  CC       test-objects.o
+  CC       test-server.o
+  CCLD     test-service
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-client.o
+  CCLD     test-client
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/interfaces'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/interfaces'
+Making all in manual
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/manual'
+  CC       my-object-marshal.o
+  CC       my-object.o
+  CC       invalid-usage.o
+  CCLD     test-invalid-usage
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/manual'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test'
+Making all in doc
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc'
+Making all in reference
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc/reference'
+  DOC   Preparing build
+cp: illegal option -- u
+Usage: cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 f2
+       cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 ... fn d1
+       cp -r [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+       cp -R [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+cp: illegal option -- u
+Usage: cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 f2
+       cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 ... fn d1
+       cp -r [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+       cp -R [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+cp: illegal option -- u
+Usage: cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 f2
+       cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 ... fn d1
+       cp -r [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+       cp -R [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+cp: illegal option -- u
+Usage: cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 f2
+       cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 ... fn d1
+       cp -r [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+       cp -R [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+cp: illegal option -- u
+Usage: cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 f2
+       cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 ... fn d1
+       cp -r [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+       cp -R [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+cp: illegal option -- u
+Usage: cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 f2
+       cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 ... fn d1
+       cp -r [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+       cp -R [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+  DOC   Scanning header files
+  DOC   Introspecting gobjects
+  DOC   Rebuilding template files
+###############################################################################
+gtkdoc-mktmpl is deprecated and will be removed from one of the next gtk-doc 
+release.
+Please refer to the documentation "Modernizing the documentation"/"GTK-Doc 1.9".
+###############################################################################
+  DOC   Building XML
+/bin/bash: -chmod: command not found
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gproxy.c:1935: warning: Section dbus-gproxy is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:39: warning: Section dbus-gconnection is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:102: warning: Section dbus-gmessage is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:151: warning: Section dbus-gerror is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gobject.c:1654: warning: Section dbus-gmethod is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gobject.c:2596: warning: Section dbus-gobject is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NO_MEMORY is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SERVICE_UNKNOWN is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NAME_HAS_NO_OWNER is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NO_REPLY is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_IO_ERROR is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_BAD_ADDRESS is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NOT_SUPPORTED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_LIMITS_EXCEEDED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_ACCESS_DENIED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_AUTH_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NO_SERVER is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_TIMEOUT is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NO_NETWORK is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_ADDRESS_IN_USE is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_DISCONNECTED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_INVALID_ARGS is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_FILE_NOT_FOUND is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_FILE_EXISTS is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_UNKNOWN_METHOD is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_TIMED_OUT is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_MATCH_RULE_NOT_FOUND is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_MATCH_RULE_INVALID is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_EXEC_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_FORK_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_CHILD_EXITED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_CHILD_SIGNALED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_UNIX_PROCESS_ID_UNKNOWN is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_INVALID_SIGNATURE is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_INVALID_FILE_CONTENT is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SELINUX_SECURITY_CONTEXT_UNKNOWN is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_REMOTE_EXCEPTION is missing in source code comment block.
+./tmpl/dbus-glib.sgml:692: warning: Field descriptions for struct DBusGAsyncData are missing in source code comment block.
+  DOC   Building HTML
+  DOC   Fixing cross-references
+html/dbus-glib-dbus-gvalue-parse-variant.html:61: warning: no link for: 'GVariant' -> (<span class="type">GVariant</span>).
+html/dbus-glib-dbus-gvalue-parse-variant.html:62: warning: no link for: 'GValue' -> (<span class="type">GValue</span>).
+html/DBusGProxy.html:484: warning: no link for: 'G-SIGNAL-NO-HOOKS:CAPS' -> (No Hooks).
+html/DBusGProxy.html:489: warning: no link for: 'G-SIGNAL-DETAILED:CAPS' -> (Has Details).
+html/DBusGProxy.html:759: warning: no link for: 'GError' -> (<span class="type">GError</span>).
+html/DBusGProxy.html:764: warning: no link for: 'FALSE:CAPS' -> (<code class="literal">FALSE</code>).
+html/DBusGProxy.html:792: warning: no link for: 'TRUE:CAPS' -> (<code class="literal">TRUE</code>).
+html/DBusGProxy.html:841: warning: no link for: 'dbus-connection-open' -> (<code class="function">dbus_connection_open()</code>).
+html/DBusGProxy.html:875: warning: no link for: 'GMainContext' -> (<span class="type">GMainContext</span>).
+html/DBusGProxy.html:880: warning: no link for: 'dbus-bus-register' -> (<code class="function">dbus_bus_register()</code>).
+html/DBusGProxy.html:881: warning: no link for: 'dbus-connection-open-private' -> (<code class="function">dbus_connection_open_private()</code>).
+html/DBusGProxy.html:899: warning: no link for: 'NULL:CAPS' -> (<code class="literal">NULL</code>).
+html/DBusGProxy.html:920: warning: no link for: 'DBusBusType' -> (<span class="type">DBusBusType</span>).
+html/DBusGProxy.html:924: warning: no link for: 'dbus-bus-get' -> (<code class="function">dbus_bus_get()</code>).
+html/DBusGProxy.html:962: warning: no link for: 'dbus-bus-get-private' -> (<code class="function">dbus_bus_get_private()</code>).
+html/DBusGProxy.html:1012: warning: no link for: 'api-index-0.88' -> (0.88).
+html/DBusGProxy.html:1018: warning: no link for: 'GType' -> (<span class="type">GType</span>).
+html/DBusGProxy.html:1024: warning: no link for: 'class-init' -> (<code class="function">class_init()</code>).
+html/DBusGProxy.html:1074: warning: no link for: 'g-object-class-override-property' -> (<code class="function"><GTKDOCLINK HREF="g-object-class-override-property"><code class="function">g_object_class_override_property()</code>).
+html/DBusGProxy.html:1111: warning: no link for: 'GQuark' -> (<span class="type">GQuark</span>).
+html/DBusGProxy.html:1119: warning: no link for: 'GEnumValue.value-nick' -> (<span class="type">GEnumValue.value_nick</span>).
+html/DBusGProxy.html:1119: warning: no link for: 'GError.code' -> (<span class="type">GError.code</span>).
+html/DBusGProxy.html:1170: warning: no link for: 'GObject' -> (<span class="type">GObject</span>).
+html/DBusGProxy.html:1175: warning: no link for: 'DBusConnection' -> (<span class="type">DBusConnection</span>).
+html/DBusGProxy.html:1297: warning: no link for: 'GClosureMarshal' -> (<span class="type">GClosureMarshal</span>).
+html/DBusGProxy.html:1302: warning: no link for: 'G-TYPE-INVALID:CAPS' -> (<code class="literal">G_TYPE_INVALID</code>).
+html/DBusGProxy.html:1325: warning: no link for: 'GTypes' -> (<span class="type">GTypes</span>).
+html/DBusGProxy.html:1715: warning: no link for: 'GCallback' -> (<span class="type">GCallback</span>).
+html/DBusGProxy.html:1717: warning: no link for: 'GClosureNotify' -> (<span class="type">GClosureNotify</span>).
+html/DBusGProxy.html:1989: warning: no link for: 'GDestroyNotify' -> (<span class="type">GDestroyNotify</span>).
+html/DBusGProxy.html:2179: warning: no link for: 'api-index-0.75' -> (0.75).
+html/DBusGProxy.html:2789: warning: no link for: 'GArray' -> (<span class="type">GArray</span>).
+html/DBusGProxy.html:2799: warning: no link for: 'GByteArray' -> (<span class="type">GByteArray</span>).
+html/DBusGProxy.html:2839: warning: no link for: 'GPtrArray' -> (<span class="type">GPtrArray</span>).
+html/DBusGProxy.html:2851: warning: no link for: 'GHashTable' -> (<span class="type">GHashTable</span>).
+html/DBusGProxy.html:2861: warning: no link for: 'G-TYPE-BOXED:CAPS' -> (<code class="literal">G_TYPE_BOXED</code>).
+html/DBusGProxy.html:2864: warning: no link for: 'api-index-0.FIXME' -> (0.FIXME).
+html/DBusGProxy.html:2873: warning: no link for: 'g-strdup' -> (<code class="function">g_strdup()</code>).
+html/DBusGProxy.html:2873: warning: no link for: 'g-free' -> (<code class="function">g_free()</code>).
+html/DBusGProxy.html:2873: warning: no link for: 'G-TYPE-STRING:CAPS' -> (<code class="literal">G_TYPE_STRING</code>).
+html/DBusGProxy.html:2993: warning: no link for: 'DBusMessage' -> (<span class="type">DBusMessage</span>).
+html/dbus-glib-dbus-glib-lowlevel.html:187: warning: no link for: 'DBusError' -> (<span class="type">DBusError</span>).
+html/dbus-glib-dbus-glib-lowlevel.html:291: warning: no link for: 'DBusServer' -> (<span class="type">DBusServer</span>).
+html/dbus-glib-dbus-glib-lowlevel.html:338: warning: no link for: 'dbus-connection-send' -> (<code class="function">dbus_connection_send()</code>).
+html/dbus-glib-dbus-gtype-specialized.html:461: warning: no link for: 'GSList' -> (<span class="type">GSList</span>).
+html/dbus-glib-dbus-gtype-specialized.html:474: warning: no link for: 'GValueArray' -> (<span class="type">GValueArray</span>).
+html/dbus-glib-dbus-gtype-specialized.html:1358: warning: no link for: 'G-MAXUINT:CAPS' -> (<code class="literal">G_MAXUINT</code>).
+html/dbus-glib-dbus-gtype-specialized.html:1446: warning: no link for: 'GBoxedFreeFunc' -> (<span class="type">GBoxedFreeFunc</span>).
+html/dbus-glib-dbus-gtype-specialized.html:1482: warning: no link for: 'GBoxedCopyFunc' -> (<span class="type">GBoxedCopyFunc</span>).
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc/reference'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/build/i86/.built
+(/bin/rm -f -rf /ws/userland/src/components/desktop/dbus-glib/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/desktop/dbus-glib/build/amd64)
+(cd /ws/userland/src/components/desktop/dbus-glib/build/amd64 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/opt/solarisstudio12.4/bin/cc" CXX="/opt/solarisstudio12.4/bin/CC" PATH="/usr/bin/amd64:/usr/bin:/usr/gnu/bin" CC_FOR_BUILD="/opt/solarisstudio12.4/bin/cc -m64" CXX_FOR_BUILD="/opt/solarisstudio12.4/bin/CC -m64" CPPFLAGS="-m64" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt" CXXFLAGS="-norunpath -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib/amd64    --sysconfdir="/etc" --libexecdir="/usr/lib/amd64" --localstatedir="/var" --disable-static --enable-gtk-doc --enable-tests)
+checking build system type... x86_64-pc-solaris2.11
+checking host system type... x86_64-pc-solaris2.11
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking whether make supports nested variables... (cached) yes
+checking for gcc... /opt/solarisstudio12.4/bin/cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... no
+checking whether /opt/solarisstudio12.4/bin/cc accepts -g... yes
+checking for /opt/solarisstudio12.4/bin/cc option to accept ISO C89... none needed
+checking whether /opt/solarisstudio12.4/bin/cc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /opt/solarisstudio12.4/bin/cc... none
+checking for library containing strerror... none required
+checking how to run the C preprocessor... /opt/solarisstudio12.4/bin/cc -E
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for ANSI C header files... yes
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for fgrep... /usr/bin/ggrep -F
+checking for non-GNU ld... /usr/bin/amd64/ld
+checking if the linker (/usr/bin/amd64/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-pc-solaris2.11 file names to x86_64-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert x86_64-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/amd64/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /opt/solarisstudio12.4/bin/cc object... ok
+checking for sysroot... no
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking for /opt/solarisstudio12.4/bin/cc option to produce PIC... -KPIC -DPIC
+checking if /opt/solarisstudio12.4/bin/cc PIC flag -KPIC -DPIC works... yes
+checking if /opt/solarisstudio12.4/bin/cc static flag -Bstatic works... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... (cached) yes
+checking whether the /opt/solarisstudio12.4/bin/cc linker (/usr/bin/amd64/ld -64) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for library containing socket... none required
+checking whether socklen_t is defined... yes
+checking for XML_ParserCreate_MM in -lexpat... yes
+checking expat.h usability... yes
+checking expat.h presence... yes
+checking for expat.h... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for DBUS... yes
+checking for DBUS_GLIB... yes
+checking for DBUS_GLIB_THREADS... yes
+checking for gtkdoc-check... /usr/bin/gtkdoc-check
+checking for gtkdoc-rebase... /usr/bin/gtkdoc-rebase
+checking for gtkdoc-mkpdf... /usr/bin/gtkdoc-mkpdf
+checking for GTKDOC_DEPS... yes
+checking whether to build gtk-doc documentation... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating m4/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/reference/Makefile
+config.status: creating doc/reference/version.xml
+config.status: creating dbus/Makefile
+config.status: creating dbus/examples/Makefile
+config.status: creating dbus/examples/statemachine/Makefile
+config.status: creating test/Makefile
+config.status: creating test/core/Makefile
+config.status: creating test/interfaces/Makefile
+config.status: creating test/data/valid-service-files/debug-glib.service
+config.status: creating test/data/valid-service-files/debug-echo.service
+config.status: creating test/data/valid-service-files/interfaces-test.service
+config.status: creating test/lib/Makefile
+config.status: creating test/manual/Makefile
+config.status: creating tools/Makefile
+config.status: creating dbus-glib-1.pc
+config.status: creating dbus-glib-1-uninstalled.pc
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+                    D-BUS GLIB BINDINGS 0.102
+                  ==============
+
+	prefix:                   /usr
+	exec_prefix:              ${prefix}
+	source code location:	  /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102
+	compiler:		  /opt/solarisstudio12.4/bin/cc
+	cflags:		          -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt
+	cppflags:		  -m64
+
+
+        Maintainer mode:          no
+        gcc coverage profiling:   no
+        Building unit tests:      yes
+        Building assertions:      no
+        Building checks:          yes
+        Building Gtk-doc docs:    yes
+        Bash Completion:          yes
+        Using XML parser:         
+
+NOTE: building with unit tests increases the size of the installed library and renders it insecure.
+NOTE: building with unit tests but without assertions means tests may not properly report failures (this configuration is only useful when doing something like profiling the tests)
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/build/amd64/.configured
+(cd /ws/userland/src/components/desktop/dbus-glib/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64'
+Making all in dbus
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus'
+Making all in .
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus'
+  CC       dbus-glib.lo
+  CC       dbus-gmain.lo
+  CC       dbus-gmarshal.lo
+  CC       dbus-gobject.lo
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gobject.c", line 1905: warning: argument #6 is incompatible with prototype:
+	prototype: pointer to void : "unknown", line 0
+	argument : const pointer to function(void) returning void
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gobject.c", line 2989: warning: assignment type mismatch:
+	pointer to function(pointer to struct _GClosure {volatile unsigned int ref_count :15, volatile unsigned int meta_marshal_nouse :1, volatile unsigned int n_guards :1, volatile unsigned int n_fnotifiers :2, volatile unsigned int n_inotifiers :8, volatile unsigned int in_inotify :1, volatile unsigned int floating :1, volatile unsigned int derivative_flag :1, volatile unsigned int in_marshal :1, volatile unsigned int is_invalid :1, pointer to function(..) returning void marshal, pointer to void data, pointer to struct _GClosureNotifyData {..} notifiers}, pointer to struct _GValue {unsigned long g_type, array[2] of union  {..} data}, unsigned int, pointer to const struct _GValue {unsigned long g_type, array[2] of union  {..} data}, pointer to void, pointer to void) returning void "=" pointer to void
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gobject.c", line 3110: warning: argument #3 is incompatible with prototype:
+	prototype: pointer to void : "/usr/include/glib-2.0/glib/ghash.h", line 67
+	argument : pointer to function(pointer to struct _GClosure {volatile unsigned int ref_count :15, volatile unsigned int meta_marshal_nouse :1, volatile unsigned int n_guards :1, volatile unsigned int n_fnotifiers :2, volatile unsigned int n_inotifiers :8, volatile unsigned int in_inotify :1, volatile unsigned int floating :1, volatile unsigned int derivative_flag :1, volatile unsigned int in_marshal :1, volatile unsigned int is_invalid :1, pointer to function(..) returning void marshal, pointer to void data, pointer to struct _GClosureNotifyData {..} notifiers}, pointer to struct _GValue {unsigned long g_type, array[2] of union  {..} data}, unsigned int, pointer to const struct _GValue {unsigned long g_type, array[2] of union  {..} data}, pointer to void, pointer to void) returning void
+  CC       dbus-gproxy.lo
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gproxy.c", line 3159: warning: argument #6 is incompatible with prototype:
+	prototype: pointer to void : "/usr/include/glib-2.0/gobject/gsignal.h", line 431
+	argument : pointer to function(void) returning void
+  CC       dbus-gtest.lo
+  CC       dbus-gvalue.lo
+  CC       dbus-gvalue-parse-variant.lo
+  CC       dbus-gthread.lo
+  CC       dbus-gtype-specialized.lo
+  CC       dbus-gutils.lo
+  CC       dbus-gsignature.lo
+  CC       dbus-gvalue-utils.lo
+  CCLD     libdbus-glib-1.la
+  CC       dbus-gidl.lo
+  CC       dbus-gloader-expat.lo
+  CC       dbus-gparser.lo
+  CCLD     libdbus-gtool.la
+  CC       dbus-binding-tool-glib.o
+  CC       dbus-glib-tool.o
+  CCLD     dbus-binding-tool
+ld: warning: file ./.libs/libdbus-glib-1.so: linked to /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       dbus-bash-completion-helper.o
+  CCLD     dbus-bash-completion-helper
+ld: warning: file ./.libs/libdbus-glib-1.so: linked to /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       dbus-gtest-main.o
+  CCLD     dbus-glib-test
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus'
+Making all in examples
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+/bin/bash ../../libtool --mode=execute ../../dbus/dbus-binding-tool --prefix=some_object --mode=glib-server --output=example-service-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/examples/example-service.xml
+/bin/bash ../../libtool --mode=execute ../../dbus/dbus-binding-tool --prefix=test_object --mode=glib-server --output=example-signal-emitter-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/examples/example-signal-emitter.xml
+/usr/gnu/bin/make  all-recursive
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+Making all in .
+make[6]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+  CC       example-client.o
+  CCLD     example-client
+  CC       example-service.o
+  CCLD     example-service
+  CC       example-signal-recipient.o
+  CCLD     example-signal-recipient
+  CC       example-signal-emitter.o
+  CCLD     example-signal-emitter
+make[6]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+Making all in statemachine
+make[6]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples/statemachine'
+/bin/bash ../../../libtool --mode=execute ../../../dbus/dbus-binding-tool --prefix=sm_server --mode=glib-server --output=statemachine-server-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/examples/statemachine/statemachine-server.xml
+/bin/bash ../../../libtool --mode=execute ../../../dbus/dbus-binding-tool --prefix=sm_object --mode=glib-server --output=statemachine-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/examples/statemachine/statemachine.xml
+echo "#include <config.h>" > sm-marshal.c.tmp
+glib-genmarshal --prefix=sm_marshal /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/examples/statemachine/sm-marshal.list --header --body >> sm-marshal.c.tmp
+mv sm-marshal.c.tmp sm-marshal.c
+glib-genmarshal --prefix=sm_marshal /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/examples/statemachine/sm-marshal.list --header > sm-marshal.h.tmp && mv sm-marshal.h.tmp sm-marshal.h
+/usr/gnu/bin/make  all-am
+make[7]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples/statemachine'
+  CC       statemachine-server.o
+  CC       sm-marshal.o
+  CC       statemachine.o
+  CCLD     statemachine-server
+make[7]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples/statemachine'
+make[6]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples/statemachine'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus'
+Making all in tools
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/tools'
+../dbus/dbus-binding-tool --mode=glib-client --prefix=dbus_bus --output=dbus-glib-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus-bus-introspect.xml
+/usr/gnu/bin/make  all-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/tools'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/tools'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/tools'
+Making all in test
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test'
+Making all in lib
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/lib'
+  CC       util.lo
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/lib/util.c", line 65: warning: argument #6 is incompatible with prototype:
+	prototype: pointer to void : "/usr/include/glib-2.0/gobject/gsignal.h", line 431
+	argument : pointer to function(pointer to struct _DBusGProxy {struct _GObject {..} parent}, pointer to void) returning void
+  CCLD     libtest.la
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/lib'
+Making all in .
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test'
+  CC       errors.o
+  CCLD     test-errors
+  CC       specialized-types.o
+  CCLD     test-specialized-types
+  CC       test-service.o
+  CCLD     test-service
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test'
+Making all in core
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/core'
+../../dbus/dbus-binding-tool --prefix=my_object --mode=glib-server --output=test-service-glib-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/test-service-glib.xml
+../../dbus/dbus-binding-tool --prefix=my_object_subclass --mode=glib-server --output=test-service-glib-subclass-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/test-service-glib-subclass.xml
+../../dbus/dbus-binding-tool --prefix=my_object --mode=glib-client --output=test-service-glib-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/test-service-glib.xml
+echo "#include <config.h>" > my-object-marshal.c.tmp
+glib-genmarshal --prefix=my_object_marshal /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/my-object-marshal.list --header --body >> my-object-marshal.c.tmp
+mv my-object-marshal.c.tmp my-object-marshal.c
+glib-genmarshal --prefix=my_object_marshal /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/my-object-marshal.list --header > my-object-marshal.h
+/usr/gnu/bin/make  all-am
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/core'
+  CC       my-object.o
+  CC       my-object-marshal.o
+  CC       test-dbus-glib.o
+  CCLD     test-dbus-glib
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       error-mapping.o
+  CCLD     test-error-mapping
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       my-object-subclass.o
+"./test-service-glib-subclass-glue.h", line 64: warning: syntax error:  empty initializer
+"./test-service-glib-subclass-glue.h", line 64: warning: null dimension: dbus_glib_my_object_subclass_methods
+  CC       test-service-glib.o
+  CCLD     test-service-glib
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-thread-server.o
+  CCLD     test-thread-server
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-thread-client.o
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/test-thread-client.c", line 60: warning: statement not reached
+  CCLD     test-thread-client
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-profile.o
+  CCLD     test-profile
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       peer-server.o
+  CCLD     peer-server
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       peer-client.o
+  CCLD     peer-client
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-types.o
+  CCLD     test-types
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       30574.o
+  CCLD     test-30574
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       private.o
+  CCLD     test-private
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       peer-on-bus.o
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/peer-on-bus.c", line 120: warning: argument #6 is incompatible with prototype:
+	prototype: pointer to void : "/usr/include/glib-2.0/gobject/gsignal.h", line 431
+	argument : pointer to function(pointer to struct _DBusGProxy {struct _GObject {..} parent}, pointer to void) returning void
+  CCLD     test-peer-on-bus
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       proxy-noc.o
+  CCLD     test-proxy-noc
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       proxy-peer.o
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/proxy-peer.c", line 224: warning: argument #6 is incompatible with prototype:
+	prototype: pointer to void : "/usr/include/glib-2.0/gobject/gsignal.h", line 431
+	argument : pointer to function(pointer to struct _DBusGProxy {struct _GObject {..} parent}, pointer to void) returning void
+  CCLD     test-proxy-peer
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       registrations.o
+  CCLD     test-registrations
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-variant-recursion.o
+  CCLD     test-variant-recursion
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-gvariant.o
+  CCLD     test-gvariant
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       shared-bus.o
+"/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/core/shared-bus.c", line 73: warning: argument #6 is incompatible with prototype:
+	prototype: pointer to void : "/usr/include/glib-2.0/gobject/gsignal.h", line 431
+	argument : pointer to function(pointer to struct _DBusGProxy {struct _GObject {..} parent}, pointer to void) returning void
+  CCLD     test-shared-bus
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/core'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/core'
+Making all in interfaces
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/interfaces'
+../../dbus/dbus-binding-tool --prefix=test_song --mode=glib-server --output=test-song-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-song.xml
+../../dbus/dbus-binding-tool --prefix=test_hello --mode=glib-server --output=test-hello-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-hello.xml
+../../dbus/dbus-binding-tool --prefix=test_goodbye --mode=glib-server --output=test-goodbye-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-goodbye.xml
+../../dbus/dbus-binding-tool --prefix=test_dup_prop_a --mode=glib-server --output=test-dup-prop-a-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-dup-prop-a.xml
+../../dbus/dbus-binding-tool --prefix=test_dup_prop_b --mode=glib-server --output=test-dup-prop-b-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-dup-prop-b.xml
+../../dbus/dbus-binding-tool --prefix=test_song --mode=glib-client --output=test-song-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-song.xml
+../../dbus/dbus-binding-tool --prefix=test_hello --mode=glib-client --output=test-hello-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-hello.xml
+../../dbus/dbus-binding-tool --prefix=test_goodbye --mode=glib-client --output=test-goodbye-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-goodbye.xml
+../../dbus/dbus-binding-tool --prefix=test_dup_prop_a --mode=glib-client --output=test-dup-prop-a-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-dup-prop-a.xml
+../../dbus/dbus-binding-tool --prefix=test_dup_prop_b --mode=glib-client --output=test-dup-prop-b-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/test-dup-prop-b.xml
+../../dbus/dbus-binding-tool --prefix=test_annotated --mode=glib-server --output=valid-annotations-glue.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/valid-annotations.xml
+../../dbus/dbus-binding-tool --prefix=test_annotated --mode=glib-client --output=valid-annotations-bindings.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/test/interfaces/valid-annotations.xml
+/usr/gnu/bin/make  all-am
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/interfaces'
+  CC       test-interfaces.o
+  CC       test-dup-prop.o
+"./test-dup-prop-a-glue.h", line 64: warning: syntax error:  empty initializer
+"./test-dup-prop-a-glue.h", line 64: warning: null dimension: dbus_glib_test_dup_prop_a_methods
+"./test-dup-prop-b-glue.h", line 64: warning: syntax error:  empty initializer
+"./test-dup-prop-b-glue.h", line 64: warning: null dimension: dbus_glib_test_dup_prop_b_methods
+  CC       test-objects.o
+  CC       test-server.o
+  CCLD     test-service
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+  CC       test-client.o
+  CCLD     test-client
+ld: warning: file /ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/.libs/libdbus-glib-1.so: linked to ../../dbus/.libs/libdbus-glib-1.so: attempted multiple inclusion of file
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/interfaces'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/interfaces'
+Making all in manual
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/manual'
+  CC       my-object-marshal.o
+  CC       my-object.o
+  CC       invalid-usage.o
+  CCLD     test-invalid-usage
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/manual'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test'
+Making all in doc
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc'
+Making all in reference
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc/reference'
+  DOC   Preparing build
+cp: illegal option -- u
+Usage: cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 f2
+       cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 ... fn d1
+       cp -r [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+       cp -R [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+cp: illegal option -- u
+Usage: cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 f2
+       cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 ... fn d1
+       cp -r [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+       cp -R [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+cp: illegal option -- u
+Usage: cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 f2
+       cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 ... fn d1
+       cp -r [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+       cp -R [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+cp: illegal option -- u
+Usage: cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 f2
+       cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 ... fn d1
+       cp -r [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+       cp -R [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+cp: illegal option -- u
+Usage: cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 f2
+       cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 ... fn d1
+       cp -r [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+       cp -R [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+cp: illegal option -- u
+Usage: cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 f2
+       cp [-f] [-i] [-p] [-P] [-z] [-@] [-/] f1 ... fn d1
+       cp -r [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+       cp -R [-H|-L|-P] [-f] [-i] [-p] [-z] [-@] [-/] d1 ... dn-1 dn
+  DOC   Scanning header files
+  DOC   Introspecting gobjects
+  DOC   Rebuilding template files
+###############################################################################
+gtkdoc-mktmpl is deprecated and will be removed from one of the next gtk-doc 
+release.
+Please refer to the documentation "Modernizing the documentation"/"GTK-Doc 1.9".
+###############################################################################
+  DOC   Building XML
+/bin/bash: -chmod: command not found
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gproxy.c:1935: warning: Section dbus-gproxy is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:39: warning: Section dbus-gconnection is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:102: warning: Section dbus-gmessage is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:151: warning: Section dbus-gerror is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gobject.c:1654: warning: Section dbus-gmethod is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gobject.c:2596: warning: Section dbus-gobject is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NO_MEMORY is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SERVICE_UNKNOWN is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NAME_HAS_NO_OWNER is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NO_REPLY is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_IO_ERROR is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_BAD_ADDRESS is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NOT_SUPPORTED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_LIMITS_EXCEEDED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_ACCESS_DENIED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_AUTH_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NO_SERVER is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_TIMEOUT is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NO_NETWORK is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_ADDRESS_IN_USE is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_DISCONNECTED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_INVALID_ARGS is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_FILE_NOT_FOUND is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_FILE_EXISTS is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_UNKNOWN_METHOD is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_TIMED_OUT is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_MATCH_RULE_NOT_FOUND is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_MATCH_RULE_INVALID is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_EXEC_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_FORK_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_CHILD_EXITED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_CHILD_SIGNALED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_UNIX_PROCESS_ID_UNKNOWN is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_INVALID_SIGNATURE is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_INVALID_FILE_CONTENT is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SELINUX_SECURITY_CONTEXT_UNKNOWN is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_REMOTE_EXCEPTION is missing in source code comment block.
+./tmpl/dbus-glib.sgml:690: warning: Field descriptions for struct DBusGAsyncData are missing in source code comment block.
+  DOC   Building HTML
+  DOC   Fixing cross-references
+html/DBusGProxy.html:484: warning: no link for: 'G-SIGNAL-NO-HOOKS:CAPS' -> (No Hooks).
+html/DBusGProxy.html:489: warning: no link for: 'G-SIGNAL-DETAILED:CAPS' -> (Has Details).
+html/DBusGProxy.html:759: warning: no link for: 'GError' -> (<span class="type">GError</span>).
+html/DBusGProxy.html:764: warning: no link for: 'FALSE:CAPS' -> (<code class="literal">FALSE</code>).
+html/DBusGProxy.html:792: warning: no link for: 'TRUE:CAPS' -> (<code class="literal">TRUE</code>).
+html/DBusGProxy.html:841: warning: no link for: 'dbus-connection-open' -> (<code class="function">dbus_connection_open()</code>).
+html/DBusGProxy.html:875: warning: no link for: 'GMainContext' -> (<span class="type">GMainContext</span>).
+html/DBusGProxy.html:880: warning: no link for: 'dbus-bus-register' -> (<code class="function">dbus_bus_register()</code>).
+html/DBusGProxy.html:881: warning: no link for: 'dbus-connection-open-private' -> (<code class="function">dbus_connection_open_private()</code>).
+html/DBusGProxy.html:899: warning: no link for: 'NULL:CAPS' -> (<code class="literal">NULL</code>).
+html/DBusGProxy.html:920: warning: no link for: 'DBusBusType' -> (<span class="type">DBusBusType</span>).
+html/DBusGProxy.html:924: warning: no link for: 'dbus-bus-get' -> (<code class="function">dbus_bus_get()</code>).
+html/DBusGProxy.html:962: warning: no link for: 'dbus-bus-get-private' -> (<code class="function">dbus_bus_get_private()</code>).
+html/DBusGProxy.html:1012: warning: no link for: 'api-index-0.88' -> (0.88).
+html/DBusGProxy.html:1018: warning: no link for: 'GType' -> (<span class="type">GType</span>).
+html/DBusGProxy.html:1024: warning: no link for: 'class-init' -> (<code class="function">class_init()</code>).
+html/DBusGProxy.html:1074: warning: no link for: 'g-object-class-override-property' -> (<code class="function"><GTKDOCLINK HREF="g-object-class-override-property"><code class="function">g_object_class_override_property()</code>).
+html/DBusGProxy.html:1111: warning: no link for: 'GQuark' -> (<span class="type">GQuark</span>).
+html/DBusGProxy.html:1119: warning: no link for: 'GEnumValue.value-nick' -> (<span class="type">GEnumValue.value_nick</span>).
+html/DBusGProxy.html:1119: warning: no link for: 'GError.code' -> (<span class="type">GError.code</span>).
+html/DBusGProxy.html:1170: warning: no link for: 'GObject' -> (<span class="type">GObject</span>).
+html/DBusGProxy.html:1175: warning: no link for: 'DBusConnection' -> (<span class="type">DBusConnection</span>).
+html/DBusGProxy.html:1297: warning: no link for: 'GClosureMarshal' -> (<span class="type">GClosureMarshal</span>).
+html/DBusGProxy.html:1302: warning: no link for: 'G-TYPE-INVALID:CAPS' -> (<code class="literal">G_TYPE_INVALID</code>).
+html/DBusGProxy.html:1325: warning: no link for: 'GTypes' -> (<span class="type">GTypes</span>).
+html/DBusGProxy.html:1715: warning: no link for: 'GCallback' -> (<span class="type">GCallback</span>).
+html/DBusGProxy.html:1717: warning: no link for: 'GClosureNotify' -> (<span class="type">GClosureNotify</span>).
+html/DBusGProxy.html:1989: warning: no link for: 'GDestroyNotify' -> (<span class="type">GDestroyNotify</span>).
+html/DBusGProxy.html:2179: warning: no link for: 'api-index-0.75' -> (0.75).
+html/DBusGProxy.html:2789: warning: no link for: 'GArray' -> (<span class="type">GArray</span>).
+html/DBusGProxy.html:2799: warning: no link for: 'GByteArray' -> (<span class="type">GByteArray</span>).
+html/DBusGProxy.html:2839: warning: no link for: 'GPtrArray' -> (<span class="type">GPtrArray</span>).
+html/DBusGProxy.html:2851: warning: no link for: 'GHashTable' -> (<span class="type">GHashTable</span>).
+html/DBusGProxy.html:2861: warning: no link for: 'G-TYPE-BOXED:CAPS' -> (<code class="literal">G_TYPE_BOXED</code>).
+html/DBusGProxy.html:2864: warning: no link for: 'api-index-0.FIXME' -> (0.FIXME).
+html/DBusGProxy.html:2873: warning: no link for: 'g-strdup' -> (<code class="function">g_strdup()</code>).
+html/DBusGProxy.html:2873: warning: no link for: 'g-free' -> (<code class="function">g_free()</code>).
+html/DBusGProxy.html:2873: warning: no link for: 'G-TYPE-STRING:CAPS' -> (<code class="literal">G_TYPE_STRING</code>).
+html/DBusGProxy.html:2875: warning: no link for: 'GValue' -> (<span class="type">GValue</span>).
+html/DBusGProxy.html:2993: warning: no link for: 'DBusMessage' -> (<span class="type">DBusMessage</span>).
+html/dbus-glib-dbus-gtype-specialized.html:461: warning: no link for: 'GSList' -> (<span class="type">GSList</span>).
+html/dbus-glib-dbus-gtype-specialized.html:474: warning: no link for: 'GValueArray' -> (<span class="type">GValueArray</span>).
+html/dbus-glib-dbus-gtype-specialized.html:1358: warning: no link for: 'G-MAXUINT:CAPS' -> (<code class="literal">G_MAXUINT</code>).
+html/dbus-glib-dbus-gtype-specialized.html:1446: warning: no link for: 'GBoxedFreeFunc' -> (<span class="type">GBoxedFreeFunc</span>).
+html/dbus-glib-dbus-gtype-specialized.html:1482: warning: no link for: 'GBoxedCopyFunc' -> (<span class="type">GBoxedCopyFunc</span>).
+html/dbus-glib-dbus-gtype-specialized.html:2076: warning: no link for: 'GVariant' -> (<span class="type">GVariant</span>).
+html/dbus-glib-dbus-glib-lowlevel.html:187: warning: no link for: 'DBusError' -> (<span class="type">DBusError</span>).
+html/dbus-glib-dbus-glib-lowlevel.html:291: warning: no link for: 'DBusServer' -> (<span class="type">DBusServer</span>).
+html/dbus-glib-dbus-glib-lowlevel.html:338: warning: no link for: 'dbus-connection-send' -> (<code class="function">dbus_connection_send()</code>).
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc/reference'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/build/amd64/.built
+(cd /ws/userland/src/components/desktop/dbus-glib/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86'
+Making install in dbus
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus'
+Making install in .
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libdbus-glib-1.la '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/libdbus-glib-1.so.2.2.2 /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/libdbus-glib-1.so.2.2.2
+libtool: install: (cd /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib && { ln -s -f libdbus-glib-1.so.2.2.2 libdbus-glib-1.so.2 || { rm -f libdbus-glib-1.so.2 && ln -s libdbus-glib-1.so.2.2.2 libdbus-glib-1.so.2; }; })
+libtool: install: (cd /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib && { ln -s -f libdbus-glib-1.so.2.2.2 libdbus-glib-1.so || { rm -f libdbus-glib-1.so && ln -s libdbus-glib-1.so.2.2.2 libdbus-glib-1.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/libdbus-glib-1.so.2.2.2
+libtool: install: /usr/bin/ginstall -c .libs/libdbus-glib-1.lai /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/libdbus-glib-1.la
+libtool: install: warning: remember to run `libtool --finish /usr/lib'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/bin/i86'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c dbus-binding-tool '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/bin/i86'
+libtool: install: warning: `/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/libdbus-glib-1.la' has not been installed in `/usr/lib'
+libtool: install: warning: `./libdbus-glib-1.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-binding-tool /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/bin/i86/dbus-binding-tool
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c dbus-bash-completion-helper '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib'
+libtool: install: warning: `/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/libdbus-glib-1.la' has not been installed in `/usr/lib'
+libtool: install: warning: `./libdbus-glib-1.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-bash-completion-helper /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/dbus-bash-completion-helper
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/etc/bash_completion.d'
+ /usr/bin/ginstall -c dbus-bash-completion.sh '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/etc/bash_completion.d'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/include/dbus-1.0/dbus'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gtype-specialized.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gvalue-parse-variant.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib-lowlevel.h '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/include/dbus-1.0/dbus'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus'
+Making install in examples
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+/usr/gnu/bin/make  install-recursive
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+Making install in .
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+make[6]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+Making install in statemachine
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples/statemachine'
+/usr/gnu/bin/make  install-am
+make[6]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples/statemachine'
+make[7]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples/statemachine'
+make[7]: Nothing to be done for 'install-exec-am'.
+make[7]: Nothing to be done for 'install-data-am'.
+make[7]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples/statemachine'
+make[6]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples/statemachine'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples/statemachine'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus/examples'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/dbus'
+Making install in tools
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/tools'
+/usr/gnu/bin/make  install-am
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/tools'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/tools'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/include/dbus-1.0/dbus'
+ /usr/bin/ginstall -c -m 644 dbus-glib-bindings.h '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/include/dbus-1.0/dbus'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/tools'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/tools'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/tools'
+Making install in test
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test'
+Making install in lib
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/lib'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/lib'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/lib'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/lib'
+Making install in .
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test'
+Making install in core
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/core'
+/usr/gnu/bin/make  install-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/core'
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/core'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/core'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/core'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/core'
+Making install in interfaces
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/interfaces'
+/usr/gnu/bin/make  install-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/interfaces'
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/interfaces'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/interfaces'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/interfaces'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/interfaces'
+Making install in manual
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/manual'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/manual'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/manual'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test/manual'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/test'
+Making install in doc
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc'
+Making install in reference
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc/reference'
+  DOC   Building XML
+/bin/bash: -chmod: command not found
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gproxy.c:1935: warning: Section dbus-gproxy is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:39: warning: Section dbus-gconnection is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:102: warning: Section dbus-gmessage is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:151: warning: Section dbus-gerror is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gobject.c:1654: warning: Section dbus-gmethod is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gobject.c:2596: warning: Section dbus-gobject is not defined in the dbus-glib-sections.txt file.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NO_MEMORY is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SERVICE_UNKNOWN is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NAME_HAS_NO_OWNER is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NO_REPLY is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_IO_ERROR is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_BAD_ADDRESS is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NOT_SUPPORTED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_LIMITS_EXCEEDED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_ACCESS_DENIED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_AUTH_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NO_SERVER is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_TIMEOUT is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_NO_NETWORK is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_ADDRESS_IN_USE is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_DISCONNECTED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_INVALID_ARGS is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_FILE_NOT_FOUND is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_FILE_EXISTS is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_UNKNOWN_METHOD is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_TIMED_OUT is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_MATCH_RULE_NOT_FOUND is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_MATCH_RULE_INVALID is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_EXEC_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_FORK_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_CHILD_EXITED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_CHILD_SIGNALED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SPAWN_FAILED is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_UNIX_PROCESS_ID_UNKNOWN is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_INVALID_SIGNATURE is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_INVALID_FILE_CONTENT is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_SELINUX_SECURITY_CONTEXT_UNKNOWN is missing in source code comment block.
+/ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.c:159: warning: Value description for DBusGError::DBUS_GERROR_REMOTE_EXCEPTION is missing in source code comment block.
+./tmpl/dbus-glib.sgml:692: warning: Field descriptions for struct DBusGAsyncData are missing in source code comment block.
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc/reference'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/ginstall -c -m 644 ./html/DBusGProxy.html
+ /usr/bin/ginstall -c -m 644 ./html/annotation-glossary.html
+ /usr/bin/ginstall -c -m 644 ./html/api-index-full.html
+ /usr/bin/ginstall -c -m 644 ./html/ch01.html
+ /usr/bin/ginstall -c -m 644 ./html/dbus-glib-dbus-glib-lowlevel.html
+ /usr/bin/ginstall -c -m 644 ./html/dbus-glib-dbus-gtype-specialized.html
+ /usr/bin/ginstall -c -m 644 ./html/dbus-glib-dbus-gvalue-parse-variant.html
+ /usr/bin/ginstall -c -m 644 ./html/dbus-glib.devhelp2
+ /usr/bin/ginstall -c -m 644 ./html/deprecated-api-index.html
+ /usr/bin/ginstall -c -m 644 ./html/home.png
+ /usr/bin/ginstall -c -m 644 ./html/index.html
+ /usr/bin/ginstall -c -m 644 ./html/left-insensitive.png
+ /usr/bin/ginstall -c -m 644 ./html/left.png
+ /usr/bin/ginstall -c -m 644 ./html/object-tree.html
+ /usr/bin/ginstall -c -m 644 ./html/right-insensitive.png
+ /usr/bin/ginstall -c -m 644 ./html/right.png
+ /usr/bin/ginstall -c -m 644 ./html/style.css
+ /usr/bin/ginstall -c -m 644 ./html/up-insensitive.png
+ /usr/bin/ginstall -c -m 644 ./html/up.png
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc/reference'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc/reference'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/share/man/man1'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/doc/dbus-binding-tool.1 '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/share/man/man1'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86/doc'
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/i86'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/pkgconfig'
+ /usr/bin/ginstall -c -m 644 dbus-glib-1.pc '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/pkgconfig'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/build/i86/.installed
+(cd /ws/userland/src/components/desktop/dbus-glib/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64'
+Making install in dbus
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus'
+Making install in .
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/amd64'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libdbus-glib-1.la '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/libdbus-glib-1.so.2.2.2 /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/amd64/libdbus-glib-1.so.2.2.2
+libtool: install: (cd /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/amd64 && { ln -s -f libdbus-glib-1.so.2.2.2 libdbus-glib-1.so.2 || { rm -f libdbus-glib-1.so.2 && ln -s libdbus-glib-1.so.2.2.2 libdbus-glib-1.so.2; }; })
+libtool: install: (cd /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/amd64 && { ln -s -f libdbus-glib-1.so.2.2.2 libdbus-glib-1.so || { rm -f libdbus-glib-1.so && ln -s libdbus-glib-1.so.2.2.2 libdbus-glib-1.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/amd64/libdbus-glib-1.so.2.2.2
+libtool: install: /usr/bin/ginstall -c .libs/libdbus-glib-1.lai /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/amd64/libdbus-glib-1.la
+libtool: install: warning: remember to run `libtool --finish /usr/lib/amd64'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/bin'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c dbus-binding-tool '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/bin'
+libtool: install: warning: `/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/libdbus-glib-1.la' has not been installed in `/usr/lib/amd64'
+libtool: install: warning: `./libdbus-glib-1.la' has not been installed in `/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-binding-tool /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/bin/dbus-binding-tool
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/amd64'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c dbus-bash-completion-helper '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/amd64'
+libtool: install: warning: `/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/libdbus-glib-1.la' has not been installed in `/usr/lib/amd64'
+libtool: install: warning: `./libdbus-glib-1.la' has not been installed in `/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-bash-completion-helper /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/amd64/dbus-bash-completion-helper
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/etc/bash_completion.d'
+ /usr/bin/ginstall -c dbus-bash-completion.sh '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/etc/bash_completion.d'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/include/dbus-1.0/dbus'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gtype-specialized.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-gvalue-parse-variant.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib.h /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/dbus/dbus-glib-lowlevel.h '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/include/dbus-1.0/dbus'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus'
+Making install in examples
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+/usr/gnu/bin/make  install-recursive
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+Making install in .
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+make[6]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+Making install in statemachine
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples/statemachine'
+/usr/gnu/bin/make  install-am
+make[6]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples/statemachine'
+make[7]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples/statemachine'
+make[7]: Nothing to be done for 'install-exec-am'.
+make[7]: Nothing to be done for 'install-data-am'.
+make[7]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples/statemachine'
+make[6]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples/statemachine'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples/statemachine'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus/examples'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/dbus'
+Making install in tools
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/tools'
+/usr/gnu/bin/make  install-am
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/tools'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/tools'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/include/dbus-1.0/dbus'
+ /usr/bin/ginstall -c -m 644 dbus-glib-bindings.h '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/include/dbus-1.0/dbus'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/tools'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/tools'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/tools'
+Making install in test
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test'
+Making install in lib
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/lib'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/lib'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/lib'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/lib'
+Making install in .
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test'
+Making install in core
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/core'
+/usr/gnu/bin/make  install-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/core'
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/core'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/core'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/core'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/core'
+Making install in interfaces
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/interfaces'
+/usr/gnu/bin/make  install-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/interfaces'
+make[5]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/interfaces'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/interfaces'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/interfaces'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/interfaces'
+Making install in manual
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/manual'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/manual'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/manual'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test/manual'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/test'
+Making install in doc
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc'
+Making install in reference
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc/reference'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc/reference'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/ginstall -c -m 644 ./html/DBusGProxy.html
+ /usr/bin/ginstall -c -m 644 ./html/annotation-glossary.html
+ /usr/bin/ginstall -c -m 644 ./html/api-index-full.html
+ /usr/bin/ginstall -c -m 644 ./html/ch01.html
+ /usr/bin/ginstall -c -m 644 ./html/dbus-glib-dbus-glib-lowlevel.html
+ /usr/bin/ginstall -c -m 644 ./html/dbus-glib-dbus-gtype-specialized.html
+ /usr/bin/ginstall -c -m 644 ./html/dbus-glib-dbus-gvalue-parse-variant.html
+ /usr/bin/ginstall -c -m 644 ./html/dbus-glib.devhelp2
+ /usr/bin/ginstall -c -m 644 ./html/deprecated-api-index.html
+ /usr/bin/ginstall -c -m 644 ./html/home.png
+ /usr/bin/ginstall -c -m 644 ./html/index.html
+ /usr/bin/ginstall -c -m 644 ./html/left-insensitive.png
+ /usr/bin/ginstall -c -m 644 ./html/left.png
+ /usr/bin/ginstall -c -m 644 ./html/object-tree.html
+ /usr/bin/ginstall -c -m 644 ./html/right-insensitive.png
+ /usr/bin/ginstall -c -m 644 ./html/right.png
+ /usr/bin/ginstall -c -m 644 ./html/style.css
+ /usr/bin/ginstall -c -m 644 ./html/up-insensitive.png
+ /usr/bin/ginstall -c -m 644 ./html/up.png
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc/reference'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc/reference'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/share/man/man1'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/desktop/dbus-glib/dbus-glib-0.102/doc/dbus-binding-tool.1 '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/share/man/man1'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64/doc'
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/amd64/pkgconfig'
+ /usr/bin/ginstall -c -m 644 dbus-glib-1.pc '/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/usr/lib/amd64/pkgconfig'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/dbus-glib/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 libdbus-glib.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=0\\.102 -D COMPONENT_RE_VERSION=0\\.102 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/dbus-glib -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="25523" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="0.102" -D IPS_COMPONENT_VERSION="0.102" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.102.tar.gz" -D COMPONENT_PROJECT_URL="https://dbus.freedesktop.org" -D COMPONENT_NAME="dbus-glib" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" libdbus-glib.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/dbus-glib/build/manifest-i386-libdbus-glib.mogrified
+/bin/mkdir -p /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386 -d /ws/userland/src/components/desktop/dbus-glib/build -d /ws/userland/src/components/desktop/dbus-glib -d dbus-glib-0.102 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/dbus-glib/files -m /ws/userland/src/components/desktop/dbus-glib/build/manifest-i386-libdbus-glib.mogrified >/ws/userland/src/components/desktop/dbus-glib/build/manifest-i386-libdbus-glib.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386 -d /ws/userland/src/components/desktop/dbus-glib/build -d /ws/userland/src/components/desktop/dbus-glib -d dbus-glib-0.102 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/dbus-glib/files /ws/userland/src/components/desktop/dbus-glib/build/manifest-i386-libdbus-glib.mangled >/ws/userland/src/components/desktop/dbus-glib/build/manifest-i386-libdbus-glib.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/desktop/dbus-glib/build/resolve.deps -m /ws/userland/src/components/desktop/dbus-glib/build/manifest-i386-libdbus-glib.depend
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/desktop/dbus-glib/build/manifest-i386-libdbus-glib.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/mangled /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386 /ws/userland/src/components/desktop/dbus-glib/build /ws/userland/src/components/desktop/dbus-glib dbus-glib-0.102 /ws/userland/src/licenses /ws/userland/src/components/desktop/dbus-glib/files"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/desktop/dbus-glib/build/manifest-i386-libdbus-glib.depend.res
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus-glib/build/prototype/i386 -d /ws/userland/src/components/desktop/dbus-glib/build -d /ws/userland/src/components/desktop/dbus-glib -d dbus-glib-0.102 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/dbus-glib/files -T \*.py /ws/userland/src/components/desktop/dbus-glib/build/manifest-i386-libdbus-glib.depend.res
+pkg://nightly/system/library/libdbus-glib@0.102,5.11-11.4.0.0.1.14.0:20190727T184027Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/dbus-glib/build/manifest-i386-libdbus-glib.depend.res >/ws/userland/src/components/desktop/dbus-glib/build/manifest-i386-libdbus-glib.published
+/usr/bin/touch /ws/userland/src/components/desktop/dbus-glib/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/desktop/dbus-glib'
+
+real     1:51.9
+user       44.0
+sys        17.2

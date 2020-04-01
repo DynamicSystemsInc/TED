@@ -1,0 +1,21 @@
+set name=pkg.fmri value=pkg://solaris/library/python/paste@2.0.3,5.11-11.4.0.0.1.14.0:20180814T165913Z
+set name=com.oracle.info.name value=Paste
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.description value='Paste provides several pieces of "middleware" (or filters) that can be nested to build web applications. Each piece of middleware uses the WSGI (PEP 333) interface, and should be compatible with other middleware based on those interfaces.'
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=info.source-url value=pypi:///Paste==2.0.3
+set name=org.opensolaris.arc-caseid value=PSARC/2013/153
+set name=com.oracle.info.description value="the Python paste module"
+set name=info.upstream-url value=http://pythonpaste.org/
+set name=pkg.summary value="Tools for using a Web Server Gateway Interface stack"
+set name=org.opensolaris.consolidation value=userland
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.version value=2.0.3
+set name=info.upstream value="Ian Bicking <ianb@colorstudy.com>"
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/python/paste-27@2.0.3,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+depend fmri=library/python/paste-34@2.0.3,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/paste-35@2.0.3,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python-2/paste@1.7.5.1,5.12-5.12.0.0.0.41.0 type=optional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=17903a236545e226584875c400b12d9c972267a38feb5be18521de07d39fb4500c3653d4bff629920a7a193fba0e80437f4c418a43ba08ca721fb2811aa6db7c499b07957e69f7386c81cc65a98a0ef5808798b104d55941d3ad45131000d7e1ebbc2284493bae261cd0d64523681512ca054028c61302b8811dad0dac7a9f5b68962cc0c602f392b9591fd044f54fff203f0f7294c5509b6c64084576f639b9c0063c64c738ec3132365dd40c1727fe1c2ecb8dc3b38cf9d76ea954615068ec066f03deabc69b70e1fbee5bb9fa5684e0840e1a242441074588431df090357db0921ee04856fc8cf6d61333a8b139d535892e8861f4086300058f68caeb8abe version=0

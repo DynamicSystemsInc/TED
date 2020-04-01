@@ -1,0 +1,25 @@
+set name=pkg.fmri value=pkg://solaris/x11/diagnostic/xev@1.2.2,5.11-11.4.0.0.1.14.0:20180814T173316Z
+set name=pkg.summary value="xev - X11 event monitor"
+set name=pkg.description value="xev prints information about X11 events received by a window whenever anything happens to the window (such as it being moved, resized, typed in, clicked in, etc.).  It is useful for seeing what causes events to occur and to display the information that they contain; it is essentially a debugging and development tool."
+set name=com.oracle.info.name value=xev
+set name=info.upstream-url value=https://www.x.org
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.source-url value=https://www.x.org/releases/individual/app/xev-1.2.2.tar.bz2
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.arc-caseid value=PSARC/2011/033 value=PSARC/2015/221
+set name=com.oracle.info.version value=1.2.2
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+set name=com.oracle.info.description value=xev
+set name=com.oracle.info.tpno value=39514
+set name=variant.arch value=i386 value=sparc
+depend fmri=pkg:/x11/library/libxrandr@1.5.1-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/x11/library/libx11@1.6.5-11.4.0.0.1.13.0 type=require
+file 0751190c113b75f441e1b34b2a8c48538ee0f29d chash=44164eff81eff99a57fac34d310add57e5dc5095 elfarch=i386 elfbits=64 elfhash=62c5ee502282ada719bb703c8a6cc30656f9d027 group=bin mode=0555 owner=root path=usr/bin/xev pkg.content-hash=gelf:sha512t_256:42383047699fb9555477edf9eb84da68b43a87f15a3b3d67658ee8296f285b27 pkg.content-hash=gelf.unsigned:sha512t_256:bb7be57fb13a70a2196098028134e9ad214e1e38b47fb0f84c99be3c457c1320 pkg.content-hash=file:sha512t_256:93dab984bcfc64955d295373c6facac1940a5ecec11789f9165e24e02638070a pkg.content-hash=gzip:sha512t_256:709000964a85542ae81a12680071cf5b698a93a1cc60ad15fe974a08878c1932 pkg.csize=18715 pkg.size=51376 variant.arch=i386
+file 3f1a9cc44038fd8261f219b426619abb1a40d07d chash=cd1c004e8d4bfe506d618be892ac78146794cc9e facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/xev.1 pkg.content-hash=file:sha512t_256:92a66b0f93a1de97fa72ae9387e7decbf431f94862cf74276ccaf8e98794a722 pkg.content-hash=gzip:sha512t_256:7c3639d5be1318585d3758a6f04b1a09f7acb79a8ce1df52626f1f5be92a4d11 pkg.csize=1567 pkg.size=3493
+file 24d2097a80bdec9da8b879d1760028fdf00084ca chash=ddb73c2d620b979a574c6600ecd85317159ea0ea elfarch=sparc elfbits=64 elfhash=da37e769ca5fb12437a308f74e73792527e388fd group=bin mode=0555 owner=root path=usr/bin/xev pkg.content-hash=gelf:sha512t_256:78acb0cd242f7eef0c7b4a447c67e66d81816fe5292490c461494fb3a598404d pkg.content-hash=gelf.unsigned:sha512t_256:f4dbbb5645772b0e22a63411d013a842c1b2e33df13c4d4ff54d69c53d1e5e92 pkg.content-hash=file:sha512t_256:28b86af7510d3069de42eeefc550b9992bd205e10b3e97debbe243e63f0b7f06 pkg.content-hash=gzip:sha512t_256:6eb949b5a2dc75b285eca95bded261dedc0de212bf5e0284c0ba5555b812345b pkg.csize=24917 pkg.size=66128 variant.arch=sparc
+link path=usr/X11/bin/xev target=../../bin/xev
+license 44bbab8232ffc5c6021317930c862c5fe476593a chash=34f6d952fa383553ce64f23bbc6972cabe87c724 license=MIT pkg.content-hash=file:sha512t_256:71d5b1293fa4713c60875de08792987395e179498ff5284162819af3f421a148 pkg.content-hash=gzip:sha512t_256:7c34b92a0adbfd7e716d3afba4f21d5afe0a23c4b0242b933e60560a98bd51fe pkg.csize=740 pkg.size=1272
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=8ef9156fbc3c6c86e92fcb1ed2b99b51f28c42a0e73884651d52479f8d712aa6983b316784460972bd1d730794e9a5e8ecf3fc6205bf1fd3a71e6cd97737c347315e6ba6bf91a3f83cb7d592c9215a7e906c2478a0d3c9397b10e279a2fe8343a7fb25c6dd87da17897cfdfecb9311651d36f6d9fffbc5190510077678783e9a9ac98d041372dc49adc597ef317c75a7059b1fa0b772c33219e20d8b68a90358ebf20e0c00cbe527dcaa045f7fb618efcb2551e6c38e9d1158894ccfb11832a5320134c88987b687074b42e5df02e3e1969be541d221e65ce218260f0afc71cb8b4b1b13d0832c311d83c4f185167f3f3e1d5c900359c23f428c5c54aee00b65 version=0

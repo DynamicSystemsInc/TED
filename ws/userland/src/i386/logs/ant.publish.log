@@ -1,0 +1,689 @@
+gmake: Entering directory '/ws/userland/src/components/ant'
+/bin/rm -f -r /ws/userland/src/components/ant/apache-ant-1.10.1
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  apache-ant-1.10.1-src.tar.bz2
+/usr/bin/touch /ws/userland/src/components/ant/apache-ant-1.10.1/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/ant/apache-ant-1.10.1 --strip=1 --backup --version-control=numbered < patches/ant.patch
+patching file src/script/ant
+Hunk #2 succeeded at 177 (offset 54 lines).
+/usr/bin/touch /ws/userland/src/components/ant/apache-ant-1.10.1/.patched-ant.patch
+/usr/bin/patch -d /ws/userland/src/components/ant/apache-ant-1.10.1 --strip=1 --backup --version-control=numbered < patches/build_xml.patch
+patching file build.xml
+Hunk #1 succeeded at 1018 with fuzz 2 (offset 11 lines).
+/usr/bin/touch /ws/userland/src/components/ant/apache-ant-1.10.1/.patched-build_xml.patch
+/usr/bin/touch /ws/userland/src/components/ant/apache-ant-1.10.1/.patched
+/usr/bin/touch /ws/userland/src/components/ant/apache-ant-1.10.1/.prep
+/bin/rm -f -r /ws/userland/src/components/ant/build/i386 ; /bin/mkdir -p /ws/userland/src/components/ant/build/i386
+/ws/userland/src/tools/cloney /ws/userland/src/components/ant/apache-ant-1.10.1 /ws/userland/src/components/ant/build/i386
+symlink cloning /ws/userland/src/components/ant/apache-ant-1.10.1 to /ws/userland/src/components/ant/build/i386
+/bin/cp -f /usr/share/lib/java/junit.jar /usr/share/antlr-2.7.7/antlr.jar /ws/userland/src/components/ant/build/i386/lib/optional
+(cd /ws/userland/src/components/ant/build/i386; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=disable -zsx=nxstack=disable -zsx=nxheap=disable " LD_PIE_OPTIONS="-zsx=aslr=disable -zsx=nxstack=disable -zsx=nxheap=disable "  CC="/opt/solarisstudio12.4/bin/cc" CXX="/opt/solarisstudio12.4/bin/CC" CFLAGS="-m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt" CXXFLAGS="-norunpath -m32 -xO4 -xchip=pentium -xregs=no%frameptr" LDFLAGS="" JAVA_HOME=/usr/jdk/instances/jdk1.8.0 ./build.sh  build)
+... Bootstrapping Ant Distribution
+... Compiling Ant Classes
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+... Copying Required Files
+... Building Ant Distribution
+Buildfile: /ws/userland/src/components/ant/build/i386/build.xml
+
+bootstrap:
+
+prepare:
+
+check_for_optional_packages:
+
+build:
+Created dir: /ws/userland/src/components/ant/build/i386/build/lib
+Compiling 269 source files to /ws/userland/src/components/ant/build/i386/build/classes
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Copying 6 files to /ws/userland/src/components/ant/build/i386/build/classes
+Copying 2 files to /ws/userland/src/components/ant/build/i386/build/classes
+Copying 2 files to /ws/userland/src/components/ant/build/i386/build/classes/org/apache/tools/ant/taskdefs/optional/junit/xsl
+
+jars:
+Copying 2 files to /ws/userland/src/components/ant/build/i386/build
+Copying 1 file to /ws/userland/src/components/ant/build/i386/build
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-launcher.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-bootstrap.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-apache-resolver.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-junit.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-junit4.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-apache-regexp.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-apache-oro.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-apache-bcel.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-apache-log4j.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-commons-logging.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-apache-bsf.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-javamail.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-netrexx.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-commons-net.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-antlr.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-jmf.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-jai.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-swing.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-jsch.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-jdepend.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-apache-xalan2.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-xz.jar
+
+compile-tests:
+Created dir: /ws/userland/src/components/ant/build/i386/build/testcases
+Compiling 312 source files to /ws/userland/src/components/ant/build/i386/build/testcases
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Building jar: /ws/userland/src/components/ant/build/i386/build/testcases/org/apache/tools/ant/taskdefs/test2-antlib.jar
+
+test-jar:
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-testutil.jar
+
+dist-lite:
+Created dir: /ws/userland/src/components/ant/build/i386/bootstrap
+Created dir: /ws/userland/src/components/ant/build/i386/bootstrap/bin
+Created dir: /ws/userland/src/components/ant/build/i386/bootstrap/lib
+Copying 23 files to /ws/userland/src/components/ant/build/i386/bootstrap/lib
+Copying 13 files to /ws/userland/src/components/ant/build/i386/bootstrap/bin
+
+BUILD SUCCESSFUL
+Total time: 7 seconds
+... Cleaning Up Build Directories
+... Done Bootstrapping Ant Distribution
+Buildfile: /ws/userland/src/components/ant/build/i386/build.xml
+
+prepare:
+
+check_for_optional_packages:
+
+build:
+Created dir: /ws/userland/src/components/ant/build/i386/build/classes
+Compiling 818 source files to /ws/userland/src/components/ant/build/i386/build/classes
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Copying 8 files to /ws/userland/src/components/ant/build/i386/build/classes
+Copying 2 files to /ws/userland/src/components/ant/build/i386/build/classes
+Copying 2 files to /ws/userland/src/components/ant/build/i386/build/classes/org/apache/tools/ant/taskdefs/optional/junit/xsl
+
+BUILD SUCCESSFUL
+Total time: 6 seconds
+/usr/bin/touch /ws/userland/src/components/ant/build/i386/.built
+(cd /ws/userland/src/components/ant/build/i386 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=disable -zsx=nxstack=disable -zsx=nxheap=disable " LD_PIE_OPTIONS="-zsx=aslr=disable -zsx=nxstack=disable -zsx=nxheap=disable "  JAVA_HOME=/usr/jdk/instances/jdk1.8.0 ./build.sh -Ddist.dir=/ws/userland/src/components/ant/build/prototype/i386 -Ddist.bin=/ws/userland/src/components/ant/build/prototype/i386/usr/bin -Ddist.etc=/ws/userland/src/components/ant/build/prototype/i386/usr/share/lib/ant -Ddist.docs=/ws/userland/src/components/ant/build/prototype/i386/usr/share/doc/ant -Ddist.manual=/ws/userland/src/components/ant/build/prototype/i386/usr/share/doc/ant/manual -Ddist.javadocs=/ws/userland/src/components/ant/build/prototype/i386/usr/share/doc/ant/manual/api -Ddist.lib=/ws/userland/src/components/ant/build/prototype/i386/usr/share/lib/ant dist)
+Buildfile: /ws/userland/src/components/ant/build/i386/build.xml
+
+dist:
+
+prepare:
+
+check_for_optional_packages:
+
+build:
+Copying 2 files to /ws/userland/src/components/ant/build/i386/build/classes
+
+jars:
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-launcher.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-bootstrap.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-junit.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-junit4.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-antlr.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-jmf.jar
+Building jar: /ws/userland/src/components/ant/build/i386/build/lib/ant-swing.jar
+
+compile-tests:
+
+test-jar:
+
+dist-lite:
+Created dir: /ws/userland/src/components/ant/build/prototype/i386
+Created dir: /ws/userland/src/components/ant/build/prototype/i386/usr/bin
+Created dir: /ws/userland/src/components/ant/build/prototype/i386/usr/share/lib/ant
+Copying 23 files to /ws/userland/src/components/ant/build/prototype/i386/usr/share/lib/ant
+Copying 13 files to /ws/userland/src/components/ant/build/prototype/i386/usr/bin
+
+javadoc_check:
+
+javadocs:
+Created dir: /ws/userland/src/components/ant/build/i386/build/javadocs
+Generating Javadoc
+Javadoc execution
+Loading source files for package org.apache.tools.ant...
+Loading source files for package org.apache.tools.ant.attribute...
+Loading source files for package org.apache.tools.ant.dispatch...
+Loading source files for package org.apache.tools.ant.filters...
+Loading source files for package org.apache.tools.ant.filters.util...
+Loading source files for package org.apache.tools.ant.helper...
+Loading source files for package org.apache.tools.ant.input...
+Loading source files for package org.apache.tools.ant.launch...
+Loading source files for package org.apache.tools.ant.listener...
+Loading source files for package org.apache.tools.ant.loader...
+Loading source files for package org.apache.tools.ant.property...
+Loading source files for package org.apache.tools.ant.taskdefs...
+Loading source files for package org.apache.tools.ant.taskdefs.compilers...
+Loading source files for package org.apache.tools.ant.taskdefs.condition...
+Loading source files for package org.apache.tools.ant.taskdefs.cvslib...
+Loading source files for package org.apache.tools.ant.taskdefs.email...
+Loading source files for package org.apache.tools.ant.taskdefs.launcher...
+Loading source files for package org.apache.tools.ant.taskdefs.optional...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.ccm...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.clearcase...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.depend...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.depend.constantpool...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.ejb...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.extension...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.extension.resolvers...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.i18n...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.image...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.j2ee...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.javacc...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.javah...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.jdepend...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.jlink...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.jsp...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.jsp.compilers...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.junit...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.native2ascii...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.net...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.pvcs...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.script...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.sos...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.sound...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.splash...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.ssh...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.testing...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.unix...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.vss...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.windows...
+Loading source files for package org.apache.tools.ant.taskdefs.optional.xz...
+Loading source files for package org.apache.tools.ant.taskdefs.rmic...
+Loading source files for package org.apache.tools.ant.types...
+Loading source files for package org.apache.tools.ant.types.mappers...
+Loading source files for package org.apache.tools.ant.types.optional...
+Loading source files for package org.apache.tools.ant.types.optional.depend...
+Loading source files for package org.apache.tools.ant.types.optional.image...
+Loading source files for package org.apache.tools.ant.types.optional.xz...
+Loading source files for package org.apache.tools.ant.types.resolver...
+Loading source files for package org.apache.tools.ant.types.resources...
+Loading source files for package org.apache.tools.ant.types.resources.comparators...
+Loading source files for package org.apache.tools.ant.types.resources.selectors...
+Loading source files for package org.apache.tools.ant.types.selectors...
+Loading source files for package org.apache.tools.ant.types.selectors.modifiedselector...
+Loading source files for package org.apache.tools.ant.types.spi...
+Loading source files for package org.apache.tools.ant.util...
+Loading source files for package org.apache.tools.ant.util.depend...
+Loading source files for package org.apache.tools.ant.util.depend.bcel...
+Loading source files for package org.apache.tools.ant.util.facade...
+Loading source files for package org.apache.tools.ant.util.java15...
+Loading source files for package org.apache.tools.ant.util.optional...
+Loading source files for package org.apache.tools.ant.util.regexp...
+Loading source files for package org.apache.tools.bzip2...
+Loading source files for package org.apache.tools.mail...
+Loading source files for package org.apache.tools.tar...
+Loading source files for package org.apache.tools.zip...
+Constructing Javadoc information...
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/filters/util/JavaClassHelper.java:23: error: package org.apache.bcel.classfile does not exist
+import org.apache.bcel.classfile.ClassParser;
+                                ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/filters/util/JavaClassHelper.java:24: error: package org.apache.bcel.classfile does not exist
+import org.apache.bcel.classfile.ConstantValue;
+                                ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/filters/util/JavaClassHelper.java:25: error: package org.apache.bcel.classfile does not exist
+import org.apache.bcel.classfile.Field;
+                                ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/filters/util/JavaClassHelper.java:26: error: package org.apache.bcel.classfile does not exist
+import org.apache.bcel.classfile.JavaClass;
+                                ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/listener/CommonsLoggingListener.java:23: error: package org.apache.commons.logging does not exist
+import org.apache.commons.logging.Log;
+                                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/listener/CommonsLoggingListener.java:24: error: package org.apache.commons.logging does not exist
+import org.apache.commons.logging.LogConfigurationException;
+                                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/listener/CommonsLoggingListener.java:25: error: package org.apache.commons.logging does not exist
+import org.apache.commons.logging.LogFactory;
+                                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/listener/CommonsLoggingListener.java:59: error: cannot find symbol
+    private LogFactory logFactory;
+            ^
+  symbol:   class LogFactory
+  location: class CommonsLoggingListener
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/listener/CommonsLoggingListener.java:77: error: cannot find symbol
+    private Log getLog(String cat, String suffix) {
+            ^
+  symbol:   class Log
+  location: class CommonsLoggingListener
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/listener/CommonsLoggingListener.java:252: error: cannot find symbol
+    private void realLog(final Log log, final String message, final int priority, final Throwable t) {
+                               ^
+  symbol:   class Log
+  location: class CommonsLoggingListener
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/listener/Log4jListener.java:21: error: package org.apache.log4j does not exist
+import org.apache.log4j.Logger;
+                       ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/listener/Log4jListener.java:22: error: package org.apache.log4j.helpers does not exist
+import org.apache.log4j.helpers.NullEnumeration;
+                               ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:39: error: package javax.mail does not exist
+import javax.mail.Address;
+                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:40: error: package javax.mail does not exist
+import javax.mail.Authenticator;
+                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:41: error: package javax.mail does not exist
+import javax.mail.Message;
+                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:42: error: package javax.mail does not exist
+import javax.mail.MessagingException;
+                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:43: error: package javax.mail does not exist
+import javax.mail.PasswordAuthentication;
+                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:44: error: package javax.mail does not exist
+import javax.mail.SendFailedException;
+                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:45: error: package javax.mail does not exist
+import javax.mail.Session;
+                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:46: error: package javax.mail does not exist
+import javax.mail.Transport;
+                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:47: error: package javax.mail.internet does not exist
+import javax.mail.internet.AddressException;
+                          ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:48: error: package javax.mail.internet does not exist
+import javax.mail.internet.InternetAddress;
+                          ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:49: error: package javax.mail.internet does not exist
+import javax.mail.internet.MimeBodyPart;
+                          ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:50: error: package javax.mail.internet does not exist
+import javax.mail.internet.MimeMessage;
+                          ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:51: error: package javax.mail.internet does not exist
+import javax.mail.internet.MimeMultipart;
+                          ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:290: error: cannot find symbol
+    private static InternetAddress[] internetAddresses(final Vector list)
+                   ^
+  symbol:   class InternetAddress
+  location: class MimeMailer
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:291: error: cannot find symbol
+        throws AddressException, UnsupportedEncodingException {
+               ^
+  symbol:   class AddressException
+  location: class MimeMailer
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:320: error: cannot find symbol
+    private void didntReach(final Address addr, final String category,
+                                  ^
+  symbol:   class Address
+  location: class MimeMailer
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:321: error: cannot find symbol
+                            final MessagingException ex) {
+                                  ^
+  symbol:   class MessagingException
+  location: class MimeMailer
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:331: error: cannot find symbol
+    static class SimpleAuthenticator extends Authenticator {
+                                             ^
+  symbol:   class Authenticator
+  location: class MimeMailer
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/email/MimeMailer.java:338: error: cannot find symbol
+        public PasswordAuthentication getPasswordAuthentication() {
+               ^
+  symbol:   class PasswordAuthentication
+  location: class SimpleAuthenticator
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/NetRexxC.java:32: error: package netrexx.lang does not exist
+import netrexx.lang.Rexx;
+                   ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/Xalan2TraceSupport.java:28: error: package org.apache.xalan.trace does not exist
+import org.apache.xalan.trace.PrintTraceListener;
+                             ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/Xalan2TraceSupport.java:29: error: package org.apache.xalan.transformer does not exist
+import org.apache.xalan.transformer.TransformerImpl;
+                                   ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/image/Image.java:26: error: package javax.media.jai does not exist
+import javax.media.jai.JAI;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/image/Image.java:27: error: package javax.media.jai does not exist
+import javax.media.jai.PlanarImage;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/image/Image.java:45: error: package com.sun.media.jai.codec does not exist
+import com.sun.media.jai.codec.FileSeekableStream;
+                              ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Rotate.java:23: error: package javax.media.jai does not exist
+import javax.media.jai.InterpolationNearest;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Rotate.java:24: error: package javax.media.jai does not exist
+import javax.media.jai.JAI;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Rotate.java:25: error: package javax.media.jai does not exist
+import javax.media.jai.PlanarImage;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/TransformOperation.java:20: error: package javax.media.jai does not exist
+import javax.media.jai.PlanarImage;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/DrawOperation.java:20: error: package javax.media.jai does not exist
+import javax.media.jai.PlanarImage;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Scale.java:23: error: package javax.media.jai does not exist
+import javax.media.jai.JAI;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Scale.java:24: error: package javax.media.jai does not exist
+import javax.media.jai.PlanarImage;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Draw.java:23: error: package javax.media.jai does not exist
+import javax.media.jai.PlanarImage;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Rectangle.java:24: error: package javax.media.jai does not exist
+import javax.media.jai.PlanarImage;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Text.java:27: error: package javax.media.jai does not exist
+import javax.media.jai.PlanarImage;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Rotate.java:53: error: cannot find symbol
+    public PlanarImage performRotate(PlanarImage image) {
+                                     ^
+  symbol:   class PlanarImage
+  location: class Rotate
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Rotate.java:53: error: cannot find symbol
+    public PlanarImage performRotate(PlanarImage image) {
+           ^
+  symbol:   class PlanarImage
+  location: class Rotate
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Rotate.java:70: error: cannot find symbol
+    public PlanarImage executeTransformOperation(PlanarImage image) {
+                                                 ^
+  symbol:   class PlanarImage
+  location: class Rotate
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Rotate.java:70: error: cannot find symbol
+    public PlanarImage executeTransformOperation(PlanarImage image) {
+           ^
+  symbol:   class PlanarImage
+  location: class Rotate
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Rotate.java:103: error: cannot find symbol
+    public PlanarImage executeDrawOperation() {
+           ^
+  symbol:   class PlanarImage
+  location: class Rotate
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/TransformOperation.java:32: error: cannot find symbol
+    public abstract PlanarImage executeTransformOperation(PlanarImage img);
+                                                          ^
+  symbol:   class PlanarImage
+  location: class TransformOperation
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/TransformOperation.java:32: error: cannot find symbol
+    public abstract PlanarImage executeTransformOperation(PlanarImage img);
+                    ^
+  symbol:   class PlanarImage
+  location: class TransformOperation
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/DrawOperation.java:39: error: cannot find symbol
+    PlanarImage executeDrawOperation();
+    ^
+  symbol:   class PlanarImage
+  location: interface DrawOperation
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Scale.java:112: error: cannot find symbol
+    public PlanarImage performScale(PlanarImage image) {
+                                    ^
+  symbol:   class PlanarImage
+  location: class Scale
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Scale.java:112: error: cannot find symbol
+    public PlanarImage performScale(PlanarImage image) {
+           ^
+  symbol:   class PlanarImage
+  location: class Scale
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Scale.java:148: error: cannot find symbol
+    public PlanarImage executeTransformOperation(PlanarImage image) {
+                                                 ^
+  symbol:   class PlanarImage
+  location: class Scale
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Scale.java:148: error: cannot find symbol
+    public PlanarImage executeTransformOperation(PlanarImage image) {
+           ^
+  symbol:   class PlanarImage
+  location: class Scale
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Scale.java:167: error: cannot find symbol
+    public PlanarImage executeDrawOperation() {
+           ^
+  symbol:   class PlanarImage
+  location: class Scale
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Ellipse.java:25: error: package javax.media.jai does not exist
+import javax.media.jai.PlanarImage;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Arc.java:25: error: package javax.media.jai does not exist
+import javax.media.jai.PlanarImage;
+                      ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Draw.java:78: error: cannot find symbol
+    public PlanarImage executeTransformOperation(PlanarImage image) {
+                                                 ^
+  symbol:   class PlanarImage
+  location: class Draw
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Draw.java:78: error: cannot find symbol
+    public PlanarImage executeTransformOperation(PlanarImage image) {
+           ^
+  symbol:   class PlanarImage
+  location: class Draw
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Rectangle.java:71: error: cannot find symbol
+    public PlanarImage executeDrawOperation() {
+           ^
+  symbol:   class PlanarImage
+  location: class Rectangle
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Text.java:95: error: cannot find symbol
+    public PlanarImage executeDrawOperation() {
+           ^
+  symbol:   class PlanarImage
+  location: class Text
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Ellipse.java:54: error: cannot find symbol
+    public PlanarImage executeDrawOperation() {
+           ^
+  symbol:   class PlanarImage
+  location: class Ellipse
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/types/optional/image/Arc.java:87: error: cannot find symbol
+    public PlanarImage executeDrawOperation() {
+           ^
+  symbol:   class PlanarImage
+  location: class Arc
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/TelnetTask.java:28: error: package org.apache.commons.net.telnet does not exist
+import org.apache.commons.net.telnet.TelnetClient;
+                                    ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/TelnetTask.java:330: error: cannot find symbol
+    public class AntTelnetClient extends TelnetClient {
+                                         ^
+  symbol:   class TelnetClient
+  location: class TelnetTask
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPConfigurator.java:19: error: package org.apache.commons.net.ftp does not exist
+import org.apache.commons.net.ftp.FTPClient;
+                                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPConfigurator.java:20: error: package org.apache.commons.net.ftp does not exist
+import org.apache.commons.net.ftp.FTPClientConfig;
+                                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPConfigurator.java:42: error: cannot find symbol
+    static FTPClient configure(FTPClient client, FTPTaskConfig task) {
+                               ^
+  symbol:   class FTPClient
+  location: class FTPConfigurator
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPConfigurator.java:42: error: cannot find symbol
+    static FTPClient configure(FTPClient client, FTPTaskConfig task) {
+           ^
+  symbol:   class FTPClient
+  location: class FTPConfigurator
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:41: error: package org.apache.commons.net.ftp does not exist
+import org.apache.commons.net.ftp.FTPClient;
+                                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:42: error: package org.apache.commons.net.ftp does not exist
+import org.apache.commons.net.ftp.FTPFile;
+                                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:43: error: package org.apache.commons.net.ftp does not exist
+import org.apache.commons.net.ftp.FTPReply;
+                                 ^
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1033: error: cannot find symbol
+    private boolean isFunctioningAsDirectory(FTPClient ftp, String dir, FTPFile file) {
+                                             ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1033: error: cannot find symbol
+    private boolean isFunctioningAsDirectory(FTPClient ftp, String dir, FTPFile file) {
+                                                                        ^
+  symbol:   class FTPFile
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1081: error: cannot find symbol
+    private boolean isFunctioningAsFile(FTPClient ftp, String dir, FTPFile file) {
+                                        ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1081: error: cannot find symbol
+    private boolean isFunctioningAsFile(FTPClient ftp, String dir, FTPFile file) {
+                                                                   ^
+  symbol:   class FTPFile
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1116: error: cannot find symbol
+    protected int transferFiles(final FTPClient ftp, FileSet fs)
+                                      ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1226: error: cannot find symbol
+    protected void transferFiles(FTPClient ftp)
+                                 ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1283: error: cannot find symbol
+    protected void createParents(FTPClient ftp, String filename)
+                                 ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1342: error: cannot find symbol
+    private long getTimeDiff(FTPClient ftp) {
+                             ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1375: error: cannot find symbol
+    private File findFileName(FTPClient ftp) {
+                              ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1417: error: cannot find symbol
+    protected boolean isUpToDate(FTPClient ftp, File localFile,
+                                 ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1482: error: cannot find symbol
+    protected void doSiteCommand(FTPClient ftp, String theCMD)
+                                 ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1522: error: cannot find symbol
+    protected void sendFile(FTPClient ftp, String dir, String filename)
+                            ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1580: error: cannot find symbol
+    protected void delFile(FTPClient ftp, String filename)
+                           ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1610: error: cannot find symbol
+    protected void rmDir(FTPClient ftp, String dirname)
+                         ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1649: error: cannot find symbol
+    protected void getFile(FTPClient ftp, String dir, String filename)
+                           ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1718: error: cannot find symbol
+    protected void listFile(FTPClient ftp, BufferedWriter bw, String filename)
+                            ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1745: error: cannot find symbol
+    protected void makeRemoteDir(FTPClient ftp, String dir)
+                                 ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:1797: error: cannot find symbol
+    private void handleMkDirFailure(FTPClient ftp)
+                                    ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:88: error: cannot find symbol
+        private final FTPFile file;
+                      ^
+  symbol:   class FTPFile
+  location: class FTPFileProxy
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:96: error: cannot find symbol
+        public FTPFileProxy(FTPFile file) {
+                            ^
+  symbol:   class FTPFile
+  location: class FTPFileProxy
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:226: error: cannot find symbol
+        protected FTPClient ftp = null;
+                  ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl.FTPDirectoryScanner
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:242: error: cannot find symbol
+        public FTPDirectoryScanner(FTPClient ftp) {
+                                   ^
+  symbol:   class FTPClient
+  location: class FTPTaskMirrorImpl.FTPDirectoryScanner
+/ws/userland/src/components/ant/build/i386/src/main/org/apache/tools/ant/taskdefs/optional/net/FTPTaskMirrorImpl.java:562: error: cannot find symbol
+        public FTPFile[] listFiles(String directory, boolean changedir) {
+               ^
+  symbol:   class FTPFile
+  location: class FTPTaskMirrorImpl.FTPDirectoryScanner
+Standard Doclet version 1.8.0_181
+Building tree for all the packages and classes...
+Building index for all the packages and classes...
+Building index for all classes...
+Generating /ws/userland/src/components/ant/build/i386/build/javadocs/help-doc.html...
+Note: Custom tags that could override future standard tags:  @todo. To avoid potential overrides, use at least one period character (.) in custom tag names.
+100 warnings
+
+dist_javadocs:
+Created dir: /ws/userland/src/components/ant/build/prototype/i386/usr/share/doc/ant/manual/api
+Copying 1308 files to /ws/userland/src/components/ant/build/prototype/i386/usr/share/doc/ant/manual/api
+
+internal_dist:
+Copying 1 file to /ws/userland/src/components/ant/build/prototype/i386/usr/share/lib/ant
+Copying 1 file to /ws/userland/src/components/ant/build/prototype/i386/usr/share/lib/ant
+Copying 23 files to /ws/userland/src/components/ant/build/prototype/i386/usr/share/lib/ant
+Copying 1 file to /ws/userland/src/components/ant/build/prototype/i386/usr/share/lib/ant
+Copying 230 files to /ws/userland/src/components/ant/build/prototype/i386/usr/share/doc/ant/manual
+Copying 11 files to /ws/userland/src/components/ant/build/prototype/i386/usr/share/doc/ant
+Copying 16 files to /ws/userland/src/components/ant/build/prototype/i386/usr/share/lib/ant
+
+BUILD SUCCESSFUL
+Total time: 13 seconds
+/usr/gnu/bin/sed -i -e '1s@/usr/bin/perl@/usr/perl5/5.22/bin/perl@' -e '1s@/usr/perl5/bin/perl@/usr/perl5/5.22/bin/perl@' -e '1s@/usr/bin/env\ perl@/usr/perl5/5.22/bin/perl@' /ws/userland/src/components/ant/build/prototype/i386/usr/bin/antRun.pl;  /usr/gnu/bin/sed -i -e '1s@/usr/bin/perl@/usr/perl5/5.22/bin/perl@' -e '1s@/usr/perl5/bin/perl@/usr/perl5/5.22/bin/perl@' -e '1s@/usr/bin/env\ perl@/usr/perl5/5.22/bin/perl@' /ws/userland/src/components/ant/build/prototype/i386/usr/bin/complete-ant-cmd.pl;  /usr/gnu/bin/sed -i -e '1s@/usr/bin/perl@/usr/perl5/5.22/bin/perl@' -e '1s@/usr/perl5/bin/perl@/usr/perl5/5.22/bin/perl@' -e '1s@/usr/bin/env\ perl@/usr/perl5/5.22/bin/perl@' /ws/userland/src/components/ant/build/prototype/i386/usr/bin/runant.pl;  
+/usr/bin/touch /ws/userland/src/components/ant/build/i386/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 ant.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=1\\.10\\.1 -D COMPONENT_RE_VERSION=1\\.10\\.1 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/ant -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="39149" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="1.10.1" -D IPS_COMPONENT_VERSION="1.10.1" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://archive.apache.org/dist/ant/source/apache-ant-1.10.1-src.tar.bz2" -D COMPONENT_PROJECT_URL="https://ant.apache.org/" -D COMPONENT_NAME="ant" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" ant.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/ant/build/manifest-i386-ant.mogrified
+/bin/mkdir -p /ws/userland/src/components/ant/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/ant/build/prototype/i386/mangled -d /ws/userland/src/components/ant/build/prototype/i386/mangled -d /ws/userland/src/components/ant/build/prototype/i386 -d /ws/userland/src/components/ant/build -d /ws/userland/src/components/ant -d apache-ant-1.10.1 -d /ws/userland/src/licenses -m /ws/userland/src/components/ant/build/manifest-i386-ant.mogrified >/ws/userland/src/components/ant/build/manifest-i386-ant.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/ant/build/prototype/i386/mangled -d /ws/userland/src/components/ant/build/prototype/i386 -d /ws/userland/src/components/ant/build -d /ws/userland/src/components/ant -d apache-ant-1.10.1 -d /ws/userland/src/licenses /ws/userland/src/components/ant/build/manifest-i386-ant.mangled >/ws/userland/src/components/ant/build/manifest-i386-ant.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/ant/build/resolve.deps -m /ws/userland/src/components/ant/build/manifest-i386-ant.depend
+/usr/bin/touch /ws/userland/src/components/ant/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/ant/build/manifest-i386-ant.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/ant/build/prototype/i386/mangled /ws/userland/src/components/ant/build/prototype/i386 /ws/userland/src/components/ant/build /ws/userland/src/components/ant apache-ant-1.10.1 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/ant/build/manifest-i386-ant.depend.res
+/usr/bin/touch /ws/userland/src/components/ant/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/ant/build/prototype/i386/mangled -d /ws/userland/src/components/ant/build/prototype/i386 -d /ws/userland/src/components/ant/build -d /ws/userland/src/components/ant -d apache-ant-1.10.1 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/ant/build/manifest-i386-ant.depend.res
+pkg://nightly/developer/build/ant@1.10.1,5.11-11.4.0.0.1.14.0:20190727T162715Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/ant/build/manifest-i386-ant.depend.res >/ws/userland/src/components/ant/build/manifest-i386-ant.published
+/usr/bin/touch /ws/userland/src/components/ant/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/ant'
+
+real       56.5
+user     1:31.3
+sys        13.5

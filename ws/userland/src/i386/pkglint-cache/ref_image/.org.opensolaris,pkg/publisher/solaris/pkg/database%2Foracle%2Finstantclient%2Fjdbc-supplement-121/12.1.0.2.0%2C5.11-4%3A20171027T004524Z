@@ -1,0 +1,25 @@
+set name=pkg.fmri value=pkg://solaris/database/oracle/instantclient/jdbc-supplement-121@12.1.0.2.0,5.11-4:20171027T004524Z
+set name=pkg.summary value="Oracle Instant Client JDBC supplement"
+set name=info.classification value=org.opensolaris.category.2008:System/Databases
+set name=pkg.description value="This package provides a JDBC supplement: additional support for XA, internationalization and RowSet operations with the Oracle Instant Client."
+set name=org.opensolaris.consolidation value=instantclient
+set name=variant.arch value=sparc value=i386
+depend fmri=pkg:/system/library/math@0.5.11-0.175.3.13.0.1.0 type=require
+depend fmri=consolidation/instantclient/instantclient-incorporation type=require
+depend fmri=pkg:/database/oracle/instantclient-121@12.1.0.2.0-4 type=require
+depend fmri=pkg:/system/library@0.5.11-0.175.3.25.0.1.0 type=require
+depend fmri=pkg:/system/linker@0.5.11-0.175.3.24.0.1.0 type=require
+depend fmri=pkg:/system/resource-mgmt/resource-pools@0.5.11-0.175.3.20.0.3.0 type=require
+dir group=bin mode=0755 owner=root path=usr/oracle
+dir group=bin mode=0755 owner=root path=usr/oracle/instantclient
+dir group=bin mode=0755 owner=root path=usr/oracle/instantclient/12.1
+dir group=bin mode=0755 owner=root path=usr/oracle/instantclient/12.1/lib
+file bb2574ed09319bc6dcde9a74ed137cd25dd1e5ca chash=987b12fe834f1f2711a1577918c712e560322baf elfarch=sparc elfbits=64 elfhash=ec3a4b2507dc3e611de6abd92b9258cc40e8d843 group=bin mode=0555 owner=root path=usr/oracle/instantclient/12.1/lib/sparcv9/libheteroxa12.so pkg.csize=4971 pkg.size=18872 variant.arch=sparc
+file 9c17c564a9f74a8be9eed8f5c975d2ba9b60e8cc chash=de3b3d6a8b7d22e12b8f7484dcd23417a9b9f3b6 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/lib/orai18n-mapping.jar pkg.csize=82050 pkg.size=87292
+file 11969072d3de96bfd5b246071976e274d78598a7 chash=2c63274e1a8ba489621aae16a1cdee9e555d39e9 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/lib/orai18n.jar pkg.csize=1484091 pkg.size=1659574
+file 90ca52c259ad20c3f2de65bc2afb67543dff83d2 chash=6c7eb5b252ac3db19aa679f1b037177d80598500 elfarch=sparc elfbits=32 elfhash=17b7153e82802db2ea2d795f9443b141fcfb0750 group=bin mode=0555 owner=root path=usr/oracle/instantclient/12.1/lib/libheteroxa12.so pkg.csize=4035 pkg.size=13024 variant.arch=sparc
+file 494928432aea7323221b0c5fed1b61328e53f01c chash=e426197d6a9c2132c1823e66afd6f2b3a955f702 elfarch=i386 elfbits=64 elfhash=91ff3c2a3351f7e97e71200ef26207929e233146 group=bin mode=0555 owner=root path=usr/oracle/instantclient/12.1/lib/amd64/libheteroxa12.so pkg.csize=4770 pkg.size=17984 variant.arch=i386
+file a7b71f5017247e1492607d7cc0d2806a0afe3461 chash=bd44be3479d23d231fae9e125d22753e0ebdbb1d elfarch=i386 elfbits=32 elfhash=451ef481e00e034cb1a80ac5b57bd5183581a746 group=bin mode=0555 owner=root path=usr/oracle/instantclient/12.1/lib/libheteroxa12.so pkg.csize=3778 pkg.size=12580 variant.arch=i386
+license 00a39f951798d4d92ba08bbda4fbc649476beb9d chash=4d395ba9bb4af2376edc3005c9d91d5ceeeefcc0 license=cr_Sun pkg.csize=88 pkg.size=71
+set name=com.oracle.service.bugid value=25791608 value=26300939
+signature 235c7674d821032ae3eeda280c7837d1f1f4fdb5 algorithm=rsa-sha256 chain="8e422c1bb80b05f08f7a849f3d7ae90a976e048e 754665e03bd28ef63b05a416073eb6d649624781" chain.chashes="083e40bb50e6964834ebfd3c66b8720b46028068 f85dabbb0d56b37de3c3de98663dd8f27a12ff8e" chain.csizes="1273 1326" chain.sizes="1773 2061" chash=05654e46fc5cac3b9b9bd11c39512bc92bc85089 pkg.csize=1281 pkg.size=1753 value=64e26e0286c59033f8cfabd324ffb888aaa69b7801ba3861bbbec87e6348d69f5a3578a23058c08b47fc1049ae7355902ce012961a435ec47eca48d5da83e014dab9cfb4a38dbb75b4ec2abbdfb3045df8fdf7682091ee9ceb2bc5733b13be50537f580c224534fda35309290fb066389cd349c65b5cbb55c256b7310e792109f4e48aa87ae893fce621b2505b7f66fb1ce38ec3ae7dbd6728a1bbe015b29724cc8fe5c05d9c87918cc113e773bc056f9afbcf54c821c9fca3db8a4e5b5a0ecfb773bb989309cb6d1fc04fdc1ff77075ae72684e58f0195032ca597eb15ab5df5ed7813215d99238c43cde37d6c3cafaad518f5605f98a7ebddf5ce3c58f2b1f version=0

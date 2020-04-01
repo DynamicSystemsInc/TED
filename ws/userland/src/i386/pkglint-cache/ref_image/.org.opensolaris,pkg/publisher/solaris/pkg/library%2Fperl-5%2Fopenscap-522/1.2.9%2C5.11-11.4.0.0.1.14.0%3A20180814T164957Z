@@ -1,0 +1,24 @@
+set name=pkg.fmri value=pkg://solaris/library/perl-5/openscap-522@1.2.9,5.11-11.4.0.0.1.14.0:20180814T164957Z
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.name value=openscap
+set name=com.oracle.info.description value="Perl 5.22 bindings for the Open implementation of SCAP"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.version value=1.2.9
+set name=info.classification value=org.opensolaris.category.2008:System/Security
+set name=org.opensolaris.arc-caseid value=PSARC/2012/152
+set name=info.upstream-url value=http://www.open-scap.org
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=info.source-url value=https://github.com/OpenSCAP/openscap/releases/download/1.2.9/openscap-1.2.9.tar.gz
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.tpno value=28398
+set name=pkg.summary value="Perl 5.22 bindings for the Open implementation of SCAP"
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require variant.arch=sparc
+depend fmri=pkg:/runtime/perl-522@5.22.1.1-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/security/compliance/openscap@1.2.9-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file 7d008016b53d8b638698beeac2a1b52ef5589ae9 chash=ef030dee804339ca6ba2c568960b6e3ebdf1e25d elfarch=i386 elfbits=64 elfhash=6bf25731991abb13a83d44371b15a81541c54cb1 group=bin mode=0444 owner=root path=usr/perl5/vendor_perl/5.22/i86pc-solaris-thread-multi-64/_openscap_pm.so pkg.content-hash=gelf:sha512t_256:c76622da647f697c5a1053ecf5c063d393a7dd3f3e4ddb6302d2a998798382c2 pkg.content-hash=gelf.unsigned:sha512t_256:27ed8d76d1ed1d38703c3cc5439c1da87a7ad7cb9171f2a1350599c8241be81a pkg.content-hash=file:sha512t_256:6399776a368cd0dfbe2cf7634fb586b7de3d0577863edf965fd7f30bf98ac713 pkg.content-hash=gzip:sha512t_256:f3f7161a733afb130514cc5da171db8daccdf7394d16708cc4bcc4f157827dc7 pkg.csize=567115 pkg.size=2810544 variant.arch=i386
+file c15bac811127559d2541708764233a81bd01740d chash=6a019b400ca3aa33da423f2161d995703245d8f8 group=bin mode=0444 owner=root path=usr/perl5/vendor_perl/5.22/openscap.pm pkg.content-hash=file:sha512t_256:16efe6bd74d9c05903ebd2ae750f3947f4777d7542b2a96f30a69e301ffd2b99 pkg.content-hash=gzip:sha512t_256:46d43a3291331ed965bce9d595d3bf70d229e6903e2ebaea9f44e07210afd2cd pkg.csize=21859 pkg.size=195535
+file 0d9e258bc21c4fcdf0a4c3bfa7d358dfc67752ea chash=97e2b34eba5b078b9deec44d98db7abbfd604a44 elfarch=sparc elfbits=64 elfhash=c05ec83f84865e8af6251772c98d5cafd6e373e5 group=bin mode=0444 owner=root path=usr/perl5/vendor_perl/5.22/sun4-solaris-thread-multi-64/_openscap_pm.so pkg.content-hash=gelf:sha512t_256:fab32e9893f43695fd93b356af36921cff3226f354ecb529c1e154c9961c0d8f pkg.content-hash=gelf.unsigned:sha512t_256:1ecb98183c3285fe213a3137ff5de8b7987a785fe2d33874b47a9287057ac926 pkg.content-hash=file:sha512t_256:fce2768f8344c8ae7d895ee9977a7c776e742391c9428618f6cdf541c40358e8 pkg.content-hash=gzip:sha512t_256:864580a07456b781f8137d138ea114f19efa988593a4275405e49828590a1d4c pkg.csize=515601 pkg.size=2653288 variant.arch=sparc
+license 3c26f534ac44ea0cfda8372117f2ab5114b02439 chash=96505ae81ce2f057c8cae42e47e51d3e7fb47417 license="LGPLv2.1, LGPLv3, OVAL" pkg.content-hash=file:sha512t_256:d157c9a560029c0069e2b66b8640063de5ba9db900c792df32d0cc116a012a0b pkg.content-hash=gzip:sha512t_256:241255d702908aa0aa1cade77fc760e57c102881ddebf7632e35aa37c26c901d pkg.csize=12108 pkg.size=37359
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=9acdb5d73d727dd9d86da250a2da031d0a8105d27e844d68bf08228a95054625ae328e225a1f7cf95e9a0b2b89d1e3c78e1701141349cd6e71ed32406201826cc2d08c7d322691ed0c572f00b46d85d000c573e064d4bcbca3da7e2255736f11475be71d4d72bd491e4f0ff1e4b93227e9187827584b205d985157e204bc9f9d4796a29d3fdbc4c1ede5f3558d125a4cc82baedd77a9ee717ea70b69eb5cf827b1a75473859eef1ba6381f3cc9fa4f8dbd456a5dc76709ad9651a59e9ba87a06565dfc9b325ba903ba3fbed70cecbbaa44e4992e3f04235d5dfb42820549a8ffd9d1c2a1fb7b56c7bce936e6c17c46528f31473afc863dca0727209de8ef34c7 version=0

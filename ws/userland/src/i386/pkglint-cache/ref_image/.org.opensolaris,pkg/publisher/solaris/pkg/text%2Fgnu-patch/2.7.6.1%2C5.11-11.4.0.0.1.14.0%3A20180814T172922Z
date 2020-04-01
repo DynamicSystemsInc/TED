@@ -1,0 +1,26 @@
+set name=pkg.fmri value=pkg://solaris/text/gnu-patch@2.7.6.1,5.11-11.4.0.0.1.14.0:20180814T172922Z
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.tpno value=42799
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.name value=patch
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=pkg.summary value="The GNU Patch utility"
+set name=pkg.human-version value=2.7.6-1
+set name=com.oracle.info.version value=2.7.6-1
+set name=info.classification value=org.opensolaris.category.2008:Development/GNU
+set name=info.upstream-url value=https://www.gnu.org/software/patch
+set name=org.opensolaris.arc-caseid value=PSARC/1999/555 value=PSARC/2014/324
+set name=info.source-url value=https://ftp.gnu.org/gnu/patch/patch-2.7.6.tar.gz
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.description value="GNU patch"
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file 28d62eca2972f175a35bef3787bee32dbee4e44a chash=34fd634323d03a83bd7afe0e650f920ce9c3ab3b elfarch=i386 elfbits=64 elfhash=5401998fae396c637ca68cd7bedf4932859710d7 group=bin mode=0555 owner=root path=usr/bin/patch pkg.content-hash=gelf:sha512t_256:9ce6505d6b122405d63e2a18a19085262d9b0cacbc200ed329cf53255c3b267c pkg.content-hash=gelf.unsigned:sha512t_256:6e67664a8708c618a24fca8dfd7ac4a558cb93e04aec135113452868f22240f3 pkg.content-hash=file:sha512t_256:acb6b86c736a47bc967f21b230e55fe8016024e4fcc3d02e9bcffd5a8826ee47 pkg.content-hash=gzip:sha512t_256:780ae70e29d7af237fc52e4980ff627dc5b82869a88965b4c5a0bc06fcbc13ec pkg.csize=125363 pkg.size=277232 variant.arch=i386
+file 312716ac20c008e1473dd52e11b17ea1148c4091 chash=6cbd7052605951fa7762910c40ed1619727a11f5 elfarch=sparc elfbits=64 elfhash=664abab9eacfa4c58de3e1e4225d4dc0c5d78240 group=bin mode=0555 owner=root path=usr/bin/patch pkg.content-hash=gelf:sha512t_256:b257f1b93a842833ed7b6a278046d3ba2789b23f2fc163c446c4c0eaa342dad7 pkg.content-hash=gelf.unsigned:sha512t_256:699ca613a7642fda66e5d779644a9d5d302443111a2a0db6a70fd379c66b5861 pkg.content-hash=file:sha512t_256:c57290be62e08dfefbf98253528027104e925089a7f19109943374f27e9d5b6c pkg.content-hash=gzip:sha512t_256:2c6c7e065201040940e727acc5495564717c1c4d04031dbfb072859553192019 pkg.csize=123141 pkg.size=276592 variant.arch=sparc
+file 09ead02bf5ed7b688c2066d39a0be78b1207299a chash=64454da7f8ab5a91168ddf07da84851b64cd0db6 facet.doc.man=all group=bin mode=0444 owner=root path=usr/gnu/share/man/man1/patch.1 pkg.content-hash=file:sha512t_256:3048bd2b7fc841e3a1a843fff155121503a6e02469d5d02704dfd184630d3db3 pkg.content-hash=gzip:sha512t_256:35ed468a437ccdddb3032433514bc16a69214f765091d9cc714fc0272345e11a pkg.csize=12222 pkg.size=35405
+link facet.compat.gnulinks=true path=usr/bin/gpatch target=../bin/patch
+link facet.compat.gnulinks=all facet.doc.man=all path=usr/share/man/man1/gpatch.1 target=../../../gnu/share/man/man1/patch.1
+link facet.doc.man=all path=usr/share/man/man1/patch.1 target=../../../gnu/share/man/man1/patch.1
+link path=usr/gnu/bin/patch target=../../bin/patch
+license f4203c3720850386d86cddee63411d424776f92e chash=71a6ac333fb4792b79588941dc3171b5b38e3e29 license=GPLv3 pkg.content-hash=file:sha512t_256:1960125363641e3b986a09e18fb3cc803ba1fa857696ca6c985090aef3efa605 pkg.content-hash=gzip:sha512t_256:caaa2653fda131189fa6eef850732234bb4d9d3b3232348937ced4df098003e4 pkg.csize=12130 pkg.size=35145
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=8d9efbfbf3604a0c68c050c2c7584e4868a4663e61e6e00337e2af11a0f202aa800fa49545862e3dd9eabf3e72d61733e633d7bef0f7c1bc94a869234fe1e9bed5fdd8b583f56cb35acbade38e170f91fd08199bce6bc0727694505a09709ac61015c2a4eb5749c8f021e220de19a4b650f4b6ee5300119ac3615458b0822a4830715bb9d5d0e4ee34b39c89239af710d29dd78cb86ef9e2b37d3ffdfd2a511925e7fc89c4cf1538523b1a8fa8dcf96bb6e01afaa9e6ef17ddfccee268a18657db1c7bb41f3917fccb7e482806155c8539dca53d218fe0183dc133ec1ec4ee3b8376bef7d4402b8a6302a5fa6cbfbcd503f23c86510b5f82ebbaa712c88444a9 version=0

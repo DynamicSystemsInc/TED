@@ -1,0 +1,27 @@
+set name=pkg.fmri value=pkg://solaris/driver/network/wlan/arn@11.4,5.11-11.4.0.0.1.15.0:20180817T002456Z
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=variant.arch value=i386
+set name=variant.debug.osnet value=true value=false
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Networking
+set name=com.oracle.info.description value="driver for Atheros AR9280/9281/9285 IEEE802.11 a/b/g/n wireles devices"
+set name=pkg.description value="Wireless network device driver for Atheros AR9280, AR9281, AR9285 chipset-based 802.11a/b/g/n NICs."
+set name=com.oracle.info.name value=arn
+set name=pkg.summary value="Atheros AR928X Wireless NIC driver"
+set name=com.oracle.info.version value=1.0
+set name=com.oracle.info.tpno value=5779
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+depend fmri=pkg:/system/kernel@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv/amd64 variant.opensolaris.zone=global
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man4d
+file bd6952a4281874b9374db53874c62fc1b8b9fa8b chash=fd00386c9835943015bf5299a7d2cc2f556877e5 elfarch=i386 elfbits=64 elfhash=c3dc6999ec0092ba33e77b9159718096cc8ab92c group=sys mode=0755 owner=root path=kernel/drv/amd64/arn pkg.content-hash=gelf:sha512t_256:175e428502f19ebf6a9b513f5162b6698482b912a810941ba2ff174919ac8901 pkg.content-hash=gelf.unsigned:sha512t_256:175e428502f19ebf6a9b513f5162b6698482b912a810941ba2ff174919ac8901 pkg.content-hash=file:sha512t_256:12a256bcb6d9055aac85f057721535e22b4ec8f9da7d3510c72a3e0b8f70b55a pkg.content-hash=gzip:sha512t_256:ce904a9241b6c279da07eec118a51b5437d11cbdab4cea1a3fa046e5e3f1865a pkg.csize=131163 pkg.size=421288 reboot-needed=true variant.debug.osnet=true variant.opensolaris.zone=global
+file 8a08c88e2c930581292fbd52c41fa694da93beb3 chash=eb721e26713db3a49887c4cb64d1ddc9e542d2d8 elfarch=i386 elfbits=64 elfhash=99d9f48a68b7d9f87b12bb810404f7a625921f4c group=sys mode=0755 owner=root path=kernel/drv/amd64/arn pkg.content-hash=gelf:sha512t_256:fdac7580cda61509f3ce5f846f5c0ec3bfc9100e73fff0aac8d723aaed087c04 pkg.content-hash=gelf.unsigned:sha512t_256:fdac7580cda61509f3ce5f846f5c0ec3bfc9100e73fff0aac8d723aaed087c04 pkg.content-hash=file:sha512t_256:3e66fbffb23e1f4957e97e2f9d1db5fa01670c247f105c5f82bc6875e53d8b19 pkg.content-hash=gzip:sha512t_256:f94186f059ddc356f5de94b50d3055158e2ff0e97caa53698239d4f2a5fa42fb pkg.csize=114341 pkg.size=352024 reboot-needed=true variant.debug.osnet=false variant.opensolaris.zone=global
+file 8a57fb4a523ac7521f3cfa6a2a02051c3e63c90b chash=25dab6a7e2ea47fdc6654b427bf0b3b7e3c649c1 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4d/arn.4d pkg.content-hash=file:sha512t_256:a98b3dbbb0d231888ca11be6fe34654f4bb3c6b2b6e17c671a849a8791ae41ad pkg.content-hash=gzip:sha512t_256:c04092cd2d7925bf71879649eafc5726a4d7734a6f282ac8346db59638facc88 pkg.csize=813 pkg.size=1475
+driver alias=pciex168c,2a alias=pciex168c,2b clone_perms="arn 0666 root sys" name=arn perms="* 0666 root sys" variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+license 46324b3e41288f5d73f4361e70f99d59fecf8e81 chash=0518917e96844033479e6db75f5c2ca71c2f3f8e license=usr/src/uts/common/io/arn/LICENSE pkg.content-hash=file:sha512t_256:2b35e86014e463f859a7e6acb234db53658d97bc698063646d409fb7dc4a02d5 pkg.content-hash=gzip:sha512t_256:b72288eaec5d49e9ab5bae059619ae6f685b5ee0bff493e6125478e50e27156f pkg.csize=687 pkg.size=2874
+legacy arch=i386 category=system desc="Atheros AR9xxx 802.11 Wireless NIC Driver" hotline="Please contact your local service provider" name="Atheros IEEE 802.11 Wireless NIC Driver" pkg=SUNWarn vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=988d5df87af7019498be1821dcd3677739f1e8224d09710cd9f81247cc8e2dd12aa98a315c9a301dcb9c14fe706a4847e8870894da5fa865ec3d1940874fc126ce31b09e23f7ce6c9a8dbed800e8a2726b7c7396e46a6c05d1b0322c03261ff21a6949ed722a16cab3e6ccdb88bba1d440eeebcf95fb5c76330c9623f8994688a4e93e70b8c0c4dde5239576292d325eb78233fe704e1f213a40732b9b34f847eead689de0d48b173359890abdbd77798121a5f634113e1662b8b9ad471a6ea10254ec57f415e73d8d30e2abab8c8d2ae7c57385cf178dc34535db27065cb334f810f9957bddaf99e9f8c191f47b688290d42e0fac42fa9c94ba85f91e8b6f80 version=0

@@ -1,0 +1,23 @@
+set name=pkg.fmri value=pkg://solaris/web/server/apache-24/module/apache-jk@1.2.42,5.11-11.4.0.0.1.14.0:20180814T173235Z
+set name=com.oracle.info.name value=mod_jk
+set name=com.oracle.info.tpno value=39168
+set name=com.oracle.info.description value="the Tomcat Connector plugin for Apache Web Server V2.4"
+set name=pkg.summary value="Tomcat Connector plugin for Apache Web Server V2.4"
+set name=pkg.description value="Tomcat Connector plugin for Apache Web Server Version 2.4"
+set name=variant.arch value=i386 value=sparc
+set name=org.opensolaris.arc-caseid value=PSARC/2014/253
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=info.classification value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
+set name=com.oracle.info.version value=1.2.42
+set name=info.upstream-url value=https://tomcat.apache.org/connectors-doc/
+set name=info.source-url value=https://archive.apache.org/dist/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.42-src.tar.gz
+set name=org.opensolaris.consolidation value=userland
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file 693605c26d80416289acc92c750bb0201bbe917b chash=511436b77b47cc4f17ea52821c2c29a52fa8ea3c group=bin mode=0444 owner=root path=etc/apache2/2.4/samples-conf.d/jk.conf pkg.content-hash=file:sha512t_256:2275cf144b5fae91bfd649772069da78ae86ecf39e0da8074e2e7fe8e0dc441e pkg.content-hash=gzip:sha512t_256:42e2df0216688cd235375a0294b5e815e9838d511942cfad92fd70cad0e2e0d1 pkg.csize=386 pkg.size=723
+file 25933a17855c6ef8fe84db4efd6bf42aa2746980 chash=18a8e58d70abac6192c7a72740a596c4e073eb98 group=bin mode=0444 owner=root path=etc/apache2/2.4/samples-conf.d/workers.properties pkg.content-hash=file:sha512t_256:bca692f8c2a9986524a9ecad121cd65411dad7fa87b9801c131c0f42ed81d7d5 pkg.content-hash=gzip:sha512t_256:8830e6ce63915b0905bec6455e735b536038ca48471f10543d12022eca32744c pkg.csize=131 pkg.size=173
+file ddbeef4c0fdce6ae9b0600f966510eb3b847b1e8 chash=7f796dcb8ef79567421f15fffba21980c878c233 elfarch=i386 elfbits=64 elfhash=828d7c71101a0ef5c9b23b0215db1c0799fb5b3c group=bin mode=0444 owner=root path=usr/apache2/2.4/libexec/mod_jk.so pkg.content-hash=gelf:sha512t_256:0f6ef0c10315fa1b041e2ede1c6d9f0bd7e3f65b06c38e31274bfcc63ffc1c3f pkg.content-hash=gelf.unsigned:sha512t_256:5c87de79289fe64c3c7dded661e4c678eb04d2224c841b4ca6a068e8b8ea6e71 pkg.content-hash=file:sha512t_256:44e24cf7c5073c37fe1ee1181ce459899261e8f925f6d99c0a9c039ef1a0a61b pkg.content-hash=gzip:sha512t_256:2747811d9394c5fbf762542972dec5189b66fc7f80005bb0cd4031832faccf0a pkg.csize=218508 pkg.linted.userland.action001.2=true pkg.size=655008 variant.arch=i386
+file 787bc568c8123381bafc0eb3f74245103fd1e6a6 chash=738ee6202a4bda1fdc7a2f40f20a1f91009a2f13 elfarch=sparc elfbits=64 elfhash=b7cb7e61964225cb4897ad8f95eab90e4ef4f13b group=bin mode=0444 owner=root path=usr/apache2/2.4/libexec/mod_jk.so pkg.content-hash=gelf:sha512t_256:b11de758adeae99da7fc5c9ee780720b67530a4b1f9aa7137c09132846df536c pkg.content-hash=gelf.unsigned:sha512t_256:8b33fcf90036db47e7c6213c341174947998883426d551ab555b95aa3258eaa8 pkg.content-hash=file:sha512t_256:10240193aecf0af321524c254f10e6506fafbe9f8a6e2082bd3a1357ab2870aa pkg.content-hash=gzip:sha512t_256:a9be76f5dfa6cc8f15c9a774f79a5cf63908dbe8786e0b6e66d2a7efe764a007 pkg.csize=254019 pkg.linted.userland.action001.2=true pkg.size=668440 variant.arch=sparc
+license 9579deab5bed279448ce1e173935f1e26e2d95db chash=2c2b301a68aaa750ff22bbb73fe46a9c96af490b license="Apache v2.0" pkg.content-hash=file:sha512t_256:e6b5c7ec9384002eab4f0a907924e1f3e8df9740e4d159be9a540093c8880bd4 pkg.content-hash=gzip:sha512t_256:611d2bfb58b05b0a040dc33974e21d914a3afb11144cc942330beb1170872736 pkg.csize=5047 pkg.size=14052
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=932d586996a2590e56f7fee1026f6f0f6fe232f5461129ea63c262da5d7a2699e266e80d4c10a60f249bf29910c97d2aa2c31601bc3b7f2041fa99a19205be2e807c6fbed08ee24c1c445d97ee39c4d853862a625cfca93e43fce5a1634376a42ada12db8ca21c6b0e941abbc3076f0b64f2e905e72718fb6617b18648099291dcd18db44d765447690f309b3a6201be9a20b963b13864978152fd8248d4ffe20bffcd7a32268cdc8cd2e38f3839e818ce53f96f09bee806f226d869b14acc83636c4b632ca5c8e84bd9ed220f84989e10e60cb66bb2c2a85928950b99284f8e387bb8f8987aee844aad2daf749fd7dbb0923b41b84447a344c69e92ed578281 version=0

@@ -1,0 +1,29 @@
+set name=pkg.fmri value=pkg://solaris/x11/keyboard/xkbcomp@1.3.1,5.11-11.4.0.0.1.14.0:20180814T173327Z
+set name=com.oracle.info.tpno value=39514
+set name=com.oracle.info.description value=xkbcomp
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+set name=info.source-url value=https://www.x.org/releases/individual/app/xkbcomp-1.3.1.tar.bz2
+set name=com.oracle.info.name value=xkbcomp
+set name=pkg.summary value="X Keyboard Extension data compiler"
+set name=pkg.description value="The xkbcomp keymap compiler converts a description of an XKB keymap into one of several output formats, including the one used by X servers to load keymap data."
+set name=variant.arch value=i386 value=sparc
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=PSARC/2015/221
+set name=info.upstream-url value=https://www.x.org
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.version value=1.3.1
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/x11/library/libx11@1.6.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libxkbfile@1.0.9-11.4.0.0.1.13.0 type=require
+file 8749b760e0a3ba0a53f86d259a03e2c8fdf1cc17 chash=e016d316d2d17eddce689ef38789ac6bef5b210a facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/xkbcomp.1 pkg.content-hash=file:sha512t_256:137da645f43262b6f43f2ed315d5a1c35b3ac55ab065d2ab9ec48ff765ca8f6d pkg.content-hash=gzip:sha512t_256:79c88ed7124fb2f4afe2d1e292da6de8d6e3d4f7bd2614391b251d044b9ba494 pkg.csize=2160 pkg.size=5126
+file 9349a9f93cb9b7c9a513b42d4dc488e7bffb0f2a chash=fb39cf14a334c9c596f9adfd343d2bd23f09d54f elfarch=i386 elfbits=64 elfhash=ae38c0ebad44e6cac17582f91978335a9088fca6 group=bin mode=0555 owner=root path=usr/bin/xkbcomp pkg.content-hash=gelf:sha512t_256:5011e5838bbf9898ca520aaca768d488dd0fd17a99632d09f33f83d9f2fa18b6 pkg.content-hash=gelf.unsigned:sha512t_256:be782c73782db4eceb444a67c7989b4272dbbd9e4d42ea8fbe81715042593065 pkg.content-hash=file:sha512t_256:3da35df029f342a26c9ac2ba34b309481e4a1866b71df893e6da28c180772f0c pkg.content-hash=gzip:sha512t_256:495040e37d9d7b3f681d8e50cf781e391824b039451e24c86431c3a2f31525d6 pkg.csize=141234 pkg.size=412960 variant.arch=i386
+file 97e17f6a43f8e06a1cf1194e6db063e6a570e842 chash=26be9ee5cc1ca617dad1bd393e1353ec305cc442 facet.devel=all group=bin mode=0444 owner=root path=usr/lib/amd64/pkgconfig/xkbcomp.pc pkg.content-hash=file:sha512t_256:419d8206e2a9896a6fd26067c8d6ceea6633aab1fc318be0cd1e8ac999b6cbd2 pkg.content-hash=gzip:sha512t_256:bd82c4efcb3f268048fa73a1cdf71cdf5ea39142a88e997294aed849f6ca0046 pkg.csize=169 pkg.size=205 variant.arch=i386
+file 7639a5d83368b9099d11bf694712b920ec735340 chash=17d9dccc6602b2c1bd505be144482cd7513448f6 elfarch=sparc elfbits=64 elfhash=5a18fb434ae3c889c4ccdd0bd02d10a047e2f326 group=bin mode=0555 owner=root path=usr/bin/xkbcomp pkg.content-hash=gelf:sha512t_256:674abae694293d5247b405d575e107a72153280bc4a3cf08dc2ab0515073d78d pkg.content-hash=gelf.unsigned:sha512t_256:484c595dd4a6315ef5ef17c09711bed7b5a36c1793b06275412a3382926cdfb4 pkg.content-hash=file:sha512t_256:36d3db27a4e4765438a7e05c6fc1fb00535d881130840cd761fb0884095d268a pkg.content-hash=gzip:sha512t_256:bc43473605718941fabe7f72c763f5d2122f100b2dd445035ad18ed59e45375c pkg.csize=151262 pkg.size=387440 variant.arch=sparc
+file 97e17f6a43f8e06a1cf1194e6db063e6a570e842 chash=26be9ee5cc1ca617dad1bd393e1353ec305cc442 facet.devel=all group=bin mode=0444 owner=root path=usr/lib/sparcv9/pkgconfig/xkbcomp.pc pkg.content-hash=file:sha512t_256:419d8206e2a9896a6fd26067c8d6ceea6633aab1fc318be0cd1e8ac999b6cbd2 pkg.content-hash=gzip:sha512t_256:bd82c4efcb3f268048fa73a1cdf71cdf5ea39142a88e997294aed849f6ca0046 pkg.csize=169 pkg.size=205 variant.arch=sparc
+link facet.devel=all path=usr/lib/pkgconfig/xkbcomp.pc target=../amd64/pkgconfig/xkbcomp.pc variant.arch=i386
+link facet.devel=all path=usr/lib/pkgconfig/xkbcomp.pc target=../sparcv9/pkgconfig/xkbcomp.pc variant.arch=sparc
+link path=usr/X11/bin/xkbcomp target=../../bin/xkbcomp
+license a08228c5c15d51b7072c406b0d30d862af339ada chash=9ac3f9ddee0b28cc83fb6080df286d901cf7bd84 license=MIT pkg.content-hash=file:sha512t_256:74a71b43e31058f8ff96a448b2c5aee1aa79225fe10b34bb431b5228f7c55e0b pkg.content-hash=gzip:sha512t_256:ef2a858324e447ff402926a6c4b1d148296282d402bfddb4889b885f3b40202a pkg.csize=1498 pkg.size=4410
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=622bf3a4c2853d75fb6889b6dc9edc56b06ec386e899881a9053b899e3d33481f0565c199311bafee4365531c9c90967f65bc914217c42d01f3e3466693c7dcece593b30574db85daed7b8bd2bbafc939246d4e54851fccb2bda2023c5a62f1aa756aa8799d89e776ae5123660c296192871907fa2133ee8cf2d605b02e99b69d31e44e69b21f08804f236e50d37c2776d173cb3abcf2a4961f5af4c7a38178044b5afb1b4d7493930e90e1da3ab70b8f42eb96af69d99fc933a9894b36a935ccf68648bea4fac62570fab94da17278b572da20342b502cbe3c4e95c49ee01ec4b9e4ba986f7671d2a818e0f94bc8aa9c777d210987888a068e948ff762046d8 version=0

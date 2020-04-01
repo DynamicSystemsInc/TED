@@ -1,0 +1,810 @@
+gmake: Entering directory '/ws/userland/src/components/daq'
+/bin/rm -f -r /ws/userland/src/components/daq/daq-2.0.6
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  daq-2.0.6.tar.gz
+/usr/bin/touch /ws/userland/src/components/daq/daq-2.0.6/.unpacked
+/usr/bin/touch /ws/userland/src/components/daq/daq-2.0.6/.prep
+(/bin/rm -f -rf /ws/userland/src/components/daq/build/i86 ; /bin/mkdir -p /ws/userland/src/components/daq/build/i86)
+(cd /ws/userland/src/components/daq/build/i86 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/pkgconfig" CC="/opt/solarisstudio12.4/bin/cc" CXX="/opt/solarisstudio12.4/bin/CC"  CC_FOR_BUILD="/opt/solarisstudio12.4/bin/cc -m32" CXX_FOR_BUILD="/opt/solarisstudio12.4/bin/CC -m32" CPPFLAGS="-m32" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t" CXXFLAGS="-norunpath -m32 -xO4 -xchip=pentium -xregs=no%frameptr" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/daq/daq-2.0.6/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib    --disable-ipfw-module --enable-static=no "gl_cv_cc_visibility=no" gl_save_CFLAGS="-m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t")
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... /opt/solarisstudio12.4/bin/cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... no
+checking whether /opt/solarisstudio12.4/bin/cc accepts -g... yes
+checking for /opt/solarisstudio12.4/bin/cc option to accept ISO C89... none needed
+checking whether /opt/solarisstudio12.4/bin/cc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /opt/solarisstudio12.4/bin/cc... none
+checking build system type... i386-pc-solaris2.11
+checking host system type... i386-pc-solaris2.11
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for fgrep... /usr/bin/ggrep -F
+checking for non-GNU ld... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert i386-pc-solaris2.11 file names to i386-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert i386-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /opt/solarisstudio12.4/bin/cc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... /opt/solarisstudio12.4/bin/cc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking for /opt/solarisstudio12.4/bin/cc option to produce PIC... -KPIC -DPIC
+checking if /opt/solarisstudio12.4/bin/cc PIC flag -KPIC -DPIC works... yes
+checking if /opt/solarisstudio12.4/bin/cc static flag -Bstatic works... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... (cached) yes
+checking whether the /opt/solarisstudio12.4/bin/cc linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for visibility support... (cached) no
+checking for getaddrinfo... yes
+checking for flex... flex
+checking for flex 2.4 or higher... yes
+checking for bison... bison
+checking linux/if_ether.h usability... no
+checking linux/if_ether.h presence... no
+checking for linux/if_ether.h... no
+checking linux/if_packet.h usability... no
+checking linux/if_packet.h presence... no
+checking for linux/if_packet.h... no
+checking whether TPACKET2_HDRLEN is declared... no
+checking whether PACKET_TX_RING is declared... no
+checking pcap.h usability... yes
+checking pcap.h presence... yes
+checking for pcap.h... yes
+checking for pcap_lib_version in -lpcap... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking libipq.h usability... no
+checking libipq.h presence... no
+checking for libipq.h... no
+checking for linux/netfilter.h... no
+checking for netinet/in.h... (cached) yes
+checking libnetfilter_queue/libnetfilter_queue.h usability... no
+checking libnetfilter_queue/libnetfilter_queue.h presence... no
+checking for libnetfilter_queue/libnetfilter_queue.h... no
+checking for linux/netfilter.h... (cached) no
+checking for pcap.h... (cached) yes
+checking for pcap_lib_version... checking for pcap_lib_version in -lpcap... (cached) yes
+checking for libpcap version >= "1.0.0"... yes
+checking for net/netmap.h... no
+checking for net/netmap_user.h... no
+checking whether NETMAP_API is declared... no
+checking for dlopen in -ldl... yes
+checking for inttypes.h... (cached) yes
+checking for memory.h... (cached) yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking for netinet/in.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for inline... inline
+checking for size_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking for uint8_t... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking for gethostbyname... yes
+checking for getpagesize... (cached) yes
+checking for memset... yes
+checking for munmap... yes
+checking for socket... yes
+checking for strchr... yes
+checking for strcspn... yes
+checking for strdup... yes
+checking for strerror... yes
+checking for strrchr... yes
+checking for strstr... yes
+checking for strtoul... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating api/Makefile
+config.status: creating os-daq-modules/Makefile
+config.status: creating os-daq-modules/daq-modules-config
+config.status: creating sfbpf/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+Build AFPacket DAQ module.. : no
+Build Dump DAQ module...... : yes
+Build IPFW DAQ module...... : no
+Build IPQ DAQ module....... : no
+Build NFQ DAQ module....... : no
+Build PCAP DAQ module...... : yes
+Build netmap DAQ module.... : no
+
+/usr/bin/touch /ws/userland/src/components/daq/build/i86/.configured
+(cd /ws/userland/src/components/daq/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/daq/build/i86'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/daq/build/i86'
+Making all in api
+make[3]: Entering directory '/ws/userland/src/components/daq/build/i86/api'
+source='/ws/userland/src/components/daq/daq-2.0.6/api/daq_base.c' object='daq_base.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I..   -m32 -I/usr/include  -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o daq_base.lo /ws/userland/src/components/daq/daq-2.0.6/api/daq_base.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I.. -m32 -I/usr/include -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/api/daq_base.c  -KPIC -DPIC -o .libs/daq_base.o
+source='/ws/userland/src/components/daq/daq-2.0.6/api/daq_mod_ops.c' object='daq_mod_ops.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I..   -m32 -I/usr/include  -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o daq_mod_ops.lo /ws/userland/src/components/daq/daq-2.0.6/api/daq_mod_ops.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I.. -m32 -I/usr/include -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/api/daq_mod_ops.c  -KPIC -DPIC -o .libs/daq_mod_ops.o
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -version-info 2:4:0   -o libdaq.la -rpath /usr/lib daq_base.lo daq_mod_ops.lo -ldl 
+libtool: link: /opt/solarisstudio12.4/bin/cc -G -h libdaq.so.2 -o .libs/libdaq.so.2.0.4  .libs/daq_base.o .libs/daq_mod_ops.o   -ldl -lc  -m32 -mt   -mt
+libtool: link: (cd ".libs" && rm -f "libdaq.so.2" && ln -s "libdaq.so.2.0.4" "libdaq.so.2")
+libtool: link: (cd ".libs" && rm -f "libdaq.so" && ln -s "libdaq.so.2.0.4" "libdaq.so")
+libtool: link: ( cd ".libs" && rm -f "libdaq.la" && ln -s "../libdaq.la" "libdaq.la" )
+source='daq_base.c' object='libdaq_static_la-daq_base.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I..   -m32 -I/usr/include -DSTATIC_MODULE_LIST -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libdaq_static_la-daq_base.lo `test -f 'daq_base.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/api/'`daq_base.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I.. -m32 -I/usr/include -DSTATIC_MODULE_LIST -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/api/daq_base.c  -KPIC -DPIC -o .libs/libdaq_static_la-daq_base.o
+source='daq_mod_ops.c' object='libdaq_static_la-daq_mod_ops.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I..   -m32 -I/usr/include -DSTATIC_MODULE_LIST -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libdaq_static_la-daq_mod_ops.lo `test -f 'daq_mod_ops.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/api/'`daq_mod_ops.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I.. -m32 -I/usr/include -DSTATIC_MODULE_LIST -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/api/daq_mod_ops.c  -KPIC -DPIC -o .libs/libdaq_static_la-daq_mod_ops.o
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc -DSTATIC_MODULE_LIST -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -static  -o libdaq_static.la -rpath /usr/lib libdaq_static_la-daq_base.lo libdaq_static_la-daq_mod_ops.lo  
+libtool: link: ar cru .libs/libdaq_static.a  .libs/libdaq_static_la-daq_base.o .libs/libdaq_static_la-daq_mod_ops.o
+libtool: link: ranlib .libs/libdaq_static.a
+libtool: link: ( cd ".libs" && rm -f "libdaq_static.la" && ln -s "../libdaq_static.la" "libdaq_static.la" )
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/i86/api'
+Making all in sfbpf
+make[3]: Entering directory '/ws/userland/src/components/daq/build/i86/sfbpf'
+source='sf_bpf_filter.c' object='libsfbpf_la-sf_bpf_filter.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m32 -I/usr/include -Dyylval=sfbpf_lval -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_bpf_filter.lo `test -f 'sf_bpf_filter.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_bpf_filter.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m32 -I/usr/include -Dyylval=sfbpf_lval -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_bpf_filter.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_bpf_filter.o
+source='sf_bpf_printer.c' object='libsfbpf_la-sf_bpf_printer.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m32 -I/usr/include -Dyylval=sfbpf_lval -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_bpf_printer.lo `test -f 'sf_bpf_printer.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_bpf_printer.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m32 -I/usr/include -Dyylval=sfbpf_lval -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_bpf_printer.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_bpf_printer.o
+source='sf_gencode.c' object='libsfbpf_la-sf_gencode.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m32 -I/usr/include -Dyylval=sfbpf_lval -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_gencode.lo `test -f 'sf_gencode.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_gencode.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m32 -I/usr/include -Dyylval=sfbpf_lval -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_gencode.o
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/gencode.h", line 328: warning:  attribute "format" is unknown, ignored
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 1689: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 6264: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 6442: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 6497: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 6943: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7113: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7325: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7438: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7553: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7560: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7567: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7574: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7581: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7588: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7660: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7822: warning: statement not reached
+source='sf_nametoaddr.c' object='libsfbpf_la-sf_nametoaddr.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m32 -I/usr/include -Dyylval=sfbpf_lval -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_nametoaddr.lo `test -f 'sf_nametoaddr.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_nametoaddr.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m32 -I/usr/include -Dyylval=sfbpf_lval -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_nametoaddr.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_nametoaddr.o
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/gencode.h", line 328: warning:  attribute "format" is unknown, ignored
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_nametoaddr.c", line 519: warning: statement not reached
+source='sf_optimize.c' object='libsfbpf_la-sf_optimize.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m32 -I/usr/include -Dyylval=sfbpf_lval -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_optimize.lo `test -f 'sf_optimize.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_optimize.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m32 -I/usr/include -Dyylval=sfbpf_lval -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_optimize.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_optimize.o
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/gencode.h", line 328: warning:  attribute "format" is unknown, ignored
+source='sfbpf-int.c' object='libsfbpf_la-sfbpf-int.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m32 -I/usr/include -Dyylval=sfbpf_lval -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sfbpf-int.lo `test -f 'sfbpf-int.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sfbpf-int.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m32 -I/usr/include -Dyylval=sfbpf_lval -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sfbpf-int.c  -KPIC -DPIC -o .libs/libsfbpf_la-sfbpf-int.o
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/gencode.h", line 328: warning:  attribute "format" is unknown, ignored
+bison -y -p sfbpf_ -d /ws/userland/src/components/daq/daq-2.0.6/sfbpf/grammar.y
+mv y.tab.c sf_grammar.c
+mv y.tab.h tokdefs.h
+source='sf_grammar.c' object='libsfbpf_la-sf_grammar.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m32 -I/usr/include -Dyylval=sfbpf_lval -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_grammar.lo `test -f 'sf_grammar.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_grammar.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m32 -I/usr/include -Dyylval=sfbpf_lval -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c sf_grammar.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_grammar.o
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/gencode.h", line 328: warning:  attribute "format" is unknown, ignored
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/grammar.y", line 216: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/grammar.y", line 226: warning: statement not reached
+/ws/userland/src/components/daq/daq-2.0.6/sfbpf/runlex.sh flex -Psfbpf_ -osf_scanner.c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/scanner.l
+source='sf_scanner.c' object='libsfbpf_la-sf_scanner.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m32 -I/usr/include -Dyylval=sfbpf_lval -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_scanner.lo `test -f 'sf_scanner.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_scanner.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m32 -I/usr/include -Dyylval=sfbpf_lval -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c sf_scanner.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_scanner.o
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/gencode.h", line 328: warning:  attribute "format" is unknown, ignored
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/scanner.l", line 85: warning: macro redefined: yylval
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc -Dyylval=sfbpf_lval -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -version-info 0:1:0   -o libsfbpf.la -rpath /usr/lib libsfbpf_la-sf_bpf_filter.lo libsfbpf_la-sf_bpf_printer.lo libsfbpf_la-sf_gencode.lo libsfbpf_la-sf_nametoaddr.lo libsfbpf_la-sf_optimize.lo libsfbpf_la-sfbpf-int.lo libsfbpf_la-sf_grammar.lo libsfbpf_la-sf_scanner.lo  
+libtool: link: /opt/solarisstudio12.4/bin/cc -G -h libsfbpf.so.0 -o .libs/libsfbpf.so.0.0.1  .libs/libsfbpf_la-sf_bpf_filter.o .libs/libsfbpf_la-sf_bpf_printer.o .libs/libsfbpf_la-sf_gencode.o .libs/libsfbpf_la-sf_nametoaddr.o .libs/libsfbpf_la-sf_optimize.o .libs/libsfbpf_la-sfbpf-int.o .libs/libsfbpf_la-sf_grammar.o .libs/libsfbpf_la-sf_scanner.o   -lc  -m32 -mt   -mt
+libtool: link: (cd ".libs" && rm -f "libsfbpf.so.0" && ln -s "libsfbpf.so.0.0.1" "libsfbpf.so.0")
+libtool: link: (cd ".libs" && rm -f "libsfbpf.so" && ln -s "libsfbpf.so.0.0.1" "libsfbpf.so")
+libtool: link: ( cd ".libs" && rm -f "libsfbpf.la" && ln -s "../libsfbpf.la" "libsfbpf.la" )
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/i86/sfbpf'
+Making all in os-daq-modules
+make[3]: Entering directory '/ws/userland/src/components/daq/build/i86/os-daq-modules'
+source='daq_static_modules.c' object='libdaq_static_modules_la-daq_static_modules.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I..  -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m32 -I/usr/include  -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE     -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libdaq_static_modules_la-daq_static_modules.lo `test -f 'daq_static_modules.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/'`daq_static_modules.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I.. -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m32 -I/usr/include -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/daq_static_modules.c  -KPIC -DPIC -o .libs/libdaq_static_modules_la-daq_static_modules.o
+source='daq_pcap.c' object='libdaq_static_modules_la-daq_pcap.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I..  -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m32 -I/usr/include  -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE     -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libdaq_static_modules_la-daq_pcap.lo `test -f 'daq_pcap.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/'`daq_pcap.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I.. -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m32 -I/usr/include -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/daq_pcap.c  -KPIC -DPIC -o .libs/libdaq_static_modules_la-daq_pcap.o
+source='daq_dump.c' object='libdaq_static_modules_la-daq_dump.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I..  -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m32 -I/usr/include  -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE     -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libdaq_static_modules_la-daq_dump.lo `test -f 'daq_dump.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/'`daq_dump.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I.. -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m32 -I/usr/include -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/daq_dump.c  -KPIC -DPIC -o .libs/libdaq_static_modules_la-daq_dump.o
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE     -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -static -avoid-version  -o libdaq_static_modules.la -rpath /usr/lib libdaq_static_modules_la-daq_static_modules.lo  libdaq_static_modules_la-daq_pcap.lo libdaq_static_modules_la-daq_dump.lo      
+libtool: link: ar cru .libs/libdaq_static_modules.a  .libs/libdaq_static_modules_la-daq_static_modules.o .libs/libdaq_static_modules_la-daq_pcap.o .libs/libdaq_static_modules_la-daq_dump.o
+libtool: link: ranlib .libs/libdaq_static_modules.a
+libtool: link: ( cd ".libs" && rm -f "libdaq_static_modules.la" && ln -s "../libdaq_static_modules.la" "libdaq_static_modules.la" )
+source='daq_pcap.c' object='daq_pcap_la-daq_pcap.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I..  -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m32 -I/usr/include -DBUILDING_SO -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o daq_pcap_la-daq_pcap.lo `test -f 'daq_pcap.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/'`daq_pcap.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I.. -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m32 -I/usr/include -DBUILDING_SO -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/daq_pcap.c  -KPIC -DPIC -o .libs/daq_pcap_la-daq_pcap.o
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc -DBUILDING_SO -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -module -export-dynamic -avoid-version -shared   -o daq_pcap.la -rpath /usr/lib/daq daq_pcap_la-daq_pcap.lo -lpcap 
+libtool: link: /opt/solarisstudio12.4/bin/cc -G -h daq_pcap.so -o .libs/daq_pcap.so  .libs/daq_pcap_la-daq_pcap.o   -lpcap -lc  -m32 -mt   -mt
+libtool: link: ( cd ".libs" && rm -f "daq_pcap.la" && ln -s "../daq_pcap.la" "daq_pcap.la" )
+source='daq_dump.c' object='daq_dump_la-daq_dump.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I..  -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m32 -I/usr/include -DBUILDING_SO -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o daq_dump_la-daq_dump.lo `test -f 'daq_dump.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/'`daq_dump.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I.. -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m32 -I/usr/include -DBUILDING_SO -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/daq_dump.c  -KPIC -DPIC -o .libs/daq_dump_la-daq_dump.o
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc -DBUILDING_SO -m32  -xO4 -xchip=pentium -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -module -export-dynamic -avoid-version -shared   -o daq_dump.la -rpath /usr/lib/daq daq_dump_la-daq_dump.lo -lpcap 
+libtool: link: /opt/solarisstudio12.4/bin/cc -G -h daq_dump.so -o .libs/daq_dump.so  .libs/daq_dump_la-daq_dump.o   -lpcap -lc  -m32 -mt   -mt
+libtool: link: ( cd ".libs" && rm -f "daq_dump.la" && ln -s "../daq_dump.la" "daq_dump.la" )
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/i86/os-daq-modules'
+make[3]: Entering directory '/ws/userland/src/components/daq/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/i86'
+make[2]: Leaving directory '/ws/userland/src/components/daq/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/daq/build/i86'
+/usr/bin/touch /ws/userland/src/components/daq/build/i86/.built
+(/bin/rm -f -rf /ws/userland/src/components/daq/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/daq/build/amd64)
+(cd /ws/userland/src/components/daq/build/amd64 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/opt/solarisstudio12.4/bin/cc" CXX="/opt/solarisstudio12.4/bin/CC" PATH="/usr/bin/amd64:/usr/bin:/usr/gnu/bin" CC_FOR_BUILD="/opt/solarisstudio12.4/bin/cc -m64" CXX_FOR_BUILD="/opt/solarisstudio12.4/bin/CC -m64" CPPFLAGS="-m64" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t" CXXFLAGS="-norunpath -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/daq/daq-2.0.6/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin/amd64 --sbindir=/usr/sbin/amd64 --libdir=/usr/lib/amd64    --disable-ipfw-module --enable-static=no "gl_cv_cc_visibility=no" gl_save_CFLAGS="-m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t")
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... /opt/solarisstudio12.4/bin/cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... no
+checking whether /opt/solarisstudio12.4/bin/cc accepts -g... yes
+checking for /opt/solarisstudio12.4/bin/cc option to accept ISO C89... none needed
+checking whether /opt/solarisstudio12.4/bin/cc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /opt/solarisstudio12.4/bin/cc... none
+checking build system type... x86_64-pc-solaris2.11
+checking host system type... x86_64-pc-solaris2.11
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for fgrep... /usr/bin/ggrep -F
+checking for non-GNU ld... /usr/bin/amd64/ld
+checking if the linker (/usr/bin/amd64/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert x86_64-pc-solaris2.11 file names to x86_64-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert x86_64-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/amd64/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /opt/solarisstudio12.4/bin/cc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... /opt/solarisstudio12.4/bin/cc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking for /opt/solarisstudio12.4/bin/cc option to produce PIC... -KPIC -DPIC
+checking if /opt/solarisstudio12.4/bin/cc PIC flag -KPIC -DPIC works... yes
+checking if /opt/solarisstudio12.4/bin/cc static flag -Bstatic works... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... (cached) yes
+checking whether the /opt/solarisstudio12.4/bin/cc linker (/usr/bin/amd64/ld -64) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for visibility support... (cached) no
+checking for getaddrinfo... yes
+checking for flex... flex
+checking for flex 2.4 or higher... yes
+checking for bison... bison
+checking linux/if_ether.h usability... no
+checking linux/if_ether.h presence... no
+checking for linux/if_ether.h... no
+checking linux/if_packet.h usability... no
+checking linux/if_packet.h presence... no
+checking for linux/if_packet.h... no
+checking whether TPACKET2_HDRLEN is declared... no
+checking whether PACKET_TX_RING is declared... no
+checking pcap.h usability... yes
+checking pcap.h presence... yes
+checking for pcap.h... yes
+checking for pcap_lib_version in -lpcap... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking libipq.h usability... no
+checking libipq.h presence... no
+checking for libipq.h... no
+checking for linux/netfilter.h... no
+checking for netinet/in.h... (cached) yes
+checking libnetfilter_queue/libnetfilter_queue.h usability... no
+checking libnetfilter_queue/libnetfilter_queue.h presence... no
+checking for libnetfilter_queue/libnetfilter_queue.h... no
+checking for linux/netfilter.h... (cached) no
+checking for pcap.h... (cached) yes
+checking for pcap_lib_version... checking for pcap_lib_version in -lpcap... (cached) yes
+checking for libpcap version >= "1.0.0"... yes
+checking for net/netmap.h... no
+checking for net/netmap_user.h... no
+checking whether NETMAP_API is declared... no
+checking for dlopen in -ldl... yes
+checking for inttypes.h... (cached) yes
+checking for memory.h... (cached) yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking for netinet/in.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for inline... inline
+checking for size_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking for uint8_t... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking for gethostbyname... yes
+checking for getpagesize... (cached) yes
+checking for memset... yes
+checking for munmap... yes
+checking for socket... yes
+checking for strchr... yes
+checking for strcspn... yes
+checking for strdup... yes
+checking for strerror... yes
+checking for strrchr... yes
+checking for strstr... yes
+checking for strtoul... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating api/Makefile
+config.status: creating os-daq-modules/Makefile
+config.status: creating os-daq-modules/daq-modules-config
+config.status: creating sfbpf/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+Build AFPacket DAQ module.. : no
+Build Dump DAQ module...... : yes
+Build IPFW DAQ module...... : no
+Build IPQ DAQ module....... : no
+Build NFQ DAQ module....... : no
+Build PCAP DAQ module...... : yes
+Build netmap DAQ module.... : no
+
+/usr/bin/touch /ws/userland/src/components/daq/build/amd64/.configured
+(cd /ws/userland/src/components/daq/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/daq/build/amd64'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/daq/build/amd64'
+Making all in api
+make[3]: Entering directory '/ws/userland/src/components/daq/build/amd64/api'
+source='/ws/userland/src/components/daq/daq-2.0.6/api/daq_base.c' object='daq_base.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I..   -m64 -I/usr/include  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o daq_base.lo /ws/userland/src/components/daq/daq-2.0.6/api/daq_base.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I.. -m64 -I/usr/include -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/api/daq_base.c  -KPIC -DPIC -o .libs/daq_base.o
+source='/ws/userland/src/components/daq/daq-2.0.6/api/daq_mod_ops.c' object='daq_mod_ops.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I..   -m64 -I/usr/include  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o daq_mod_ops.lo /ws/userland/src/components/daq/daq-2.0.6/api/daq_mod_ops.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I.. -m64 -I/usr/include -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/api/daq_mod_ops.c  -KPIC -DPIC -o .libs/daq_mod_ops.o
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -version-info 2:4:0   -o libdaq.la -rpath /usr/lib/amd64 daq_base.lo daq_mod_ops.lo -ldl 
+libtool: link: /opt/solarisstudio12.4/bin/cc -G -h libdaq.so.2 -o .libs/libdaq.so.2.0.4  .libs/daq_base.o .libs/daq_mod_ops.o   -ldl -lc  -m64 -mt   -mt
+libtool: link: (cd ".libs" && rm -f "libdaq.so.2" && ln -s "libdaq.so.2.0.4" "libdaq.so.2")
+libtool: link: (cd ".libs" && rm -f "libdaq.so" && ln -s "libdaq.so.2.0.4" "libdaq.so")
+libtool: link: ( cd ".libs" && rm -f "libdaq.la" && ln -s "../libdaq.la" "libdaq.la" )
+source='daq_base.c' object='libdaq_static_la-daq_base.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I..   -m64 -I/usr/include -DSTATIC_MODULE_LIST -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libdaq_static_la-daq_base.lo `test -f 'daq_base.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/api/'`daq_base.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I.. -m64 -I/usr/include -DSTATIC_MODULE_LIST -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/api/daq_base.c  -KPIC -DPIC -o .libs/libdaq_static_la-daq_base.o
+source='daq_mod_ops.c' object='libdaq_static_la-daq_mod_ops.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I..   -m64 -I/usr/include -DSTATIC_MODULE_LIST -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libdaq_static_la-daq_mod_ops.lo `test -f 'daq_mod_ops.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/api/'`daq_mod_ops.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/api -I.. -m64 -I/usr/include -DSTATIC_MODULE_LIST -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/api/daq_mod_ops.c  -KPIC -DPIC -o .libs/libdaq_static_la-daq_mod_ops.o
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc -DSTATIC_MODULE_LIST -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -static  -o libdaq_static.la -rpath /usr/lib/amd64 libdaq_static_la-daq_base.lo libdaq_static_la-daq_mod_ops.lo  
+libtool: link: ar cru .libs/libdaq_static.a  .libs/libdaq_static_la-daq_base.o .libs/libdaq_static_la-daq_mod_ops.o
+libtool: link: ranlib .libs/libdaq_static.a
+libtool: link: ( cd ".libs" && rm -f "libdaq_static.la" && ln -s "../libdaq_static.la" "libdaq_static.la" )
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/amd64/api'
+Making all in sfbpf
+make[3]: Entering directory '/ws/userland/src/components/daq/build/amd64/sfbpf'
+source='sf_bpf_filter.c' object='libsfbpf_la-sf_bpf_filter.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m64 -I/usr/include -Dyylval=sfbpf_lval -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_bpf_filter.lo `test -f 'sf_bpf_filter.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_bpf_filter.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m64 -I/usr/include -Dyylval=sfbpf_lval -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_bpf_filter.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_bpf_filter.o
+source='sf_bpf_printer.c' object='libsfbpf_la-sf_bpf_printer.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m64 -I/usr/include -Dyylval=sfbpf_lval -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_bpf_printer.lo `test -f 'sf_bpf_printer.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_bpf_printer.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m64 -I/usr/include -Dyylval=sfbpf_lval -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_bpf_printer.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_bpf_printer.o
+source='sf_gencode.c' object='libsfbpf_la-sf_gencode.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m64 -I/usr/include -Dyylval=sfbpf_lval -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_gencode.lo `test -f 'sf_gencode.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_gencode.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m64 -I/usr/include -Dyylval=sfbpf_lval -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_gencode.o
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/gencode.h", line 328: warning:  attribute "format" is unknown, ignored
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 1689: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 6264: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 6442: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 6497: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 6943: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7113: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7325: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7438: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7553: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7560: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7567: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7574: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7581: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7588: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7660: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_gencode.c", line 7822: warning: statement not reached
+source='sf_nametoaddr.c' object='libsfbpf_la-sf_nametoaddr.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m64 -I/usr/include -Dyylval=sfbpf_lval -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_nametoaddr.lo `test -f 'sf_nametoaddr.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_nametoaddr.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m64 -I/usr/include -Dyylval=sfbpf_lval -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_nametoaddr.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_nametoaddr.o
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/gencode.h", line 328: warning:  attribute "format" is unknown, ignored
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_nametoaddr.c", line 519: warning: statement not reached
+source='sf_optimize.c' object='libsfbpf_la-sf_optimize.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m64 -I/usr/include -Dyylval=sfbpf_lval -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_optimize.lo `test -f 'sf_optimize.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_optimize.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m64 -I/usr/include -Dyylval=sfbpf_lval -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sf_optimize.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_optimize.o
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/gencode.h", line 328: warning:  attribute "format" is unknown, ignored
+source='sfbpf-int.c' object='libsfbpf_la-sfbpf-int.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m64 -I/usr/include -Dyylval=sfbpf_lval -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sfbpf-int.lo `test -f 'sfbpf-int.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sfbpf-int.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m64 -I/usr/include -Dyylval=sfbpf_lval -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sfbpf-int.c  -KPIC -DPIC -o .libs/libsfbpf_la-sfbpf-int.o
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/gencode.h", line 328: warning:  attribute "format" is unknown, ignored
+bison -y -p sfbpf_ -d /ws/userland/src/components/daq/daq-2.0.6/sfbpf/grammar.y
+mv y.tab.c sf_grammar.c
+mv y.tab.h tokdefs.h
+source='sf_grammar.c' object='libsfbpf_la-sf_grammar.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m64 -I/usr/include -Dyylval=sfbpf_lval -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_grammar.lo `test -f 'sf_grammar.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_grammar.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m64 -I/usr/include -Dyylval=sfbpf_lval -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c sf_grammar.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_grammar.o
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/gencode.h", line 328: warning:  attribute "format" is unknown, ignored
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/grammar.y", line 216: warning: statement not reached
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/grammar.y", line 226: warning: statement not reached
+/ws/userland/src/components/daq/daq-2.0.6/sfbpf/runlex.sh flex -Psfbpf_ -osf_scanner.c /ws/userland/src/components/daq/daq-2.0.6/sfbpf/scanner.l
+source='sf_scanner.c' object='libsfbpf_la-sf_scanner.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I..   -m64 -I/usr/include -Dyylval=sfbpf_lval -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libsfbpf_la-sf_scanner.lo `test -f 'sf_scanner.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/sfbpf/'`sf_scanner.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I.. -m64 -I/usr/include -Dyylval=sfbpf_lval -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c sf_scanner.c  -KPIC -DPIC -o .libs/libsfbpf_la-sf_scanner.o
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/gencode.h", line 328: warning:  attribute "format" is unknown, ignored
+"/ws/userland/src/components/daq/daq-2.0.6/sfbpf/scanner.l", line 85: warning: macro redefined: yylval
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc -Dyylval=sfbpf_lval -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -version-info 0:1:0   -o libsfbpf.la -rpath /usr/lib/amd64 libsfbpf_la-sf_bpf_filter.lo libsfbpf_la-sf_bpf_printer.lo libsfbpf_la-sf_gencode.lo libsfbpf_la-sf_nametoaddr.lo libsfbpf_la-sf_optimize.lo libsfbpf_la-sfbpf-int.lo libsfbpf_la-sf_grammar.lo libsfbpf_la-sf_scanner.lo  
+libtool: link: /opt/solarisstudio12.4/bin/cc -G -h libsfbpf.so.0 -o .libs/libsfbpf.so.0.0.1  .libs/libsfbpf_la-sf_bpf_filter.o .libs/libsfbpf_la-sf_bpf_printer.o .libs/libsfbpf_la-sf_gencode.o .libs/libsfbpf_la-sf_nametoaddr.o .libs/libsfbpf_la-sf_optimize.o .libs/libsfbpf_la-sfbpf-int.o .libs/libsfbpf_la-sf_grammar.o .libs/libsfbpf_la-sf_scanner.o   -lc  -m64 -mt   -mt
+libtool: link: (cd ".libs" && rm -f "libsfbpf.so.0" && ln -s "libsfbpf.so.0.0.1" "libsfbpf.so.0")
+libtool: link: (cd ".libs" && rm -f "libsfbpf.so" && ln -s "libsfbpf.so.0.0.1" "libsfbpf.so")
+libtool: link: ( cd ".libs" && rm -f "libsfbpf.la" && ln -s "../libsfbpf.la" "libsfbpf.la" )
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/amd64/sfbpf'
+Making all in os-daq-modules
+make[3]: Entering directory '/ws/userland/src/components/daq/build/amd64/os-daq-modules'
+source='daq_static_modules.c' object='libdaq_static_modules_la-daq_static_modules.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I..  -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m64 -I/usr/include  -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE     -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libdaq_static_modules_la-daq_static_modules.lo `test -f 'daq_static_modules.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/'`daq_static_modules.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I.. -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m64 -I/usr/include -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/daq_static_modules.c  -KPIC -DPIC -o .libs/libdaq_static_modules_la-daq_static_modules.o
+source='daq_pcap.c' object='libdaq_static_modules_la-daq_pcap.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I..  -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m64 -I/usr/include  -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE     -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libdaq_static_modules_la-daq_pcap.lo `test -f 'daq_pcap.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/'`daq_pcap.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I.. -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m64 -I/usr/include -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/daq_pcap.c  -KPIC -DPIC -o .libs/libdaq_static_modules_la-daq_pcap.o
+source='daq_dump.c' object='libdaq_static_modules_la-daq_dump.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I..  -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m64 -I/usr/include  -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE     -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o libdaq_static_modules_la-daq_dump.lo `test -f 'daq_dump.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/'`daq_dump.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I.. -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m64 -I/usr/include -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/daq_dump.c  -KPIC -DPIC -o .libs/libdaq_static_modules_la-daq_dump.o
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -DBUILD_PCAP_MODULE -DBUILD_DUMP_MODULE     -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -static -avoid-version  -o libdaq_static_modules.la -rpath /usr/lib/amd64 libdaq_static_modules_la-daq_static_modules.lo  libdaq_static_modules_la-daq_pcap.lo libdaq_static_modules_la-daq_dump.lo      
+libtool: link: ar cru .libs/libdaq_static_modules.a  .libs/libdaq_static_modules_la-daq_static_modules.o .libs/libdaq_static_modules_la-daq_pcap.o .libs/libdaq_static_modules_la-daq_dump.o
+libtool: link: ranlib .libs/libdaq_static_modules.a
+libtool: link: ( cd ".libs" && rm -f "libdaq_static_modules.la" && ln -s "../libdaq_static_modules.la" "libdaq_static_modules.la" )
+source='daq_pcap.c' object='daq_pcap_la-daq_pcap.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I..  -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m64 -I/usr/include -DBUILDING_SO -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o daq_pcap_la-daq_pcap.lo `test -f 'daq_pcap.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/'`daq_pcap.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I.. -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m64 -I/usr/include -DBUILDING_SO -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/daq_pcap.c  -KPIC -DPIC -o .libs/daq_pcap_la-daq_pcap.o
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc -DBUILDING_SO -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -module -export-dynamic -avoid-version -shared   -o daq_pcap.la -rpath /usr/lib/amd64/daq daq_pcap_la-daq_pcap.lo -lpcap 
+libtool: link: /opt/solarisstudio12.4/bin/cc -G -h daq_pcap.so -o .libs/daq_pcap.so  .libs/daq_pcap_la-daq_pcap.o   -lpcap -lc  -m64 -mt   -mt
+libtool: link: ( cd ".libs" && rm -f "daq_pcap.la" && ln -s "../daq_pcap.la" "daq_pcap.la" )
+source='daq_dump.c' object='daq_dump_la-daq_dump.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/daq/daq-2.0.6/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I..  -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m64 -I/usr/include -DBUILDING_SO -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c -o daq_dump_la-daq_dump.lo `test -f 'daq_dump.c' || echo '/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/'`daq_dump.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/daq/daq-2.0.6/os-daq-modules -I.. -I/ws/userland/src/components/daq/daq-2.0.6/api -I/ws/userland/src/components/daq/daq-2.0.6/sfbpf -I../sfbpf -m64 -I/usr/include -DBUILDING_SO -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -c /ws/userland/src/components/daq/daq-2.0.6/os-daq-modules/daq_dump.c  -KPIC -DPIC -o .libs/daq_dump_la-daq_dump.o
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc -DBUILDING_SO -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -Du_int8_t=uint8_t -Du_int16_t=uint16_t -Du_int32_t=uint32_t -module -export-dynamic -avoid-version -shared   -o daq_dump.la -rpath /usr/lib/amd64/daq daq_dump_la-daq_dump.lo -lpcap 
+libtool: link: /opt/solarisstudio12.4/bin/cc -G -h daq_dump.so -o .libs/daq_dump.so  .libs/daq_dump_la-daq_dump.o   -lpcap -lc  -m64 -mt   -mt
+libtool: link: ( cd ".libs" && rm -f "daq_dump.la" && ln -s "../daq_dump.la" "daq_dump.la" )
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/amd64/os-daq-modules'
+make[3]: Entering directory '/ws/userland/src/components/daq/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/daq/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/daq/build/amd64'
+/usr/bin/touch /ws/userland/src/components/daq/build/amd64/.built
+(cd /ws/userland/src/components/daq/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/daq/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/daq/build/i86'
+Making install in api
+make[2]: Entering directory '/ws/userland/src/components/daq/build/i86/api'
+make[3]: Entering directory '/ws/userland/src/components/daq/build/i86/api'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/lib'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libdaq.la libdaq_static.la '/ws/userland/src/components/daq/build/prototype/i386/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/libdaq.so.2.0.4 /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libdaq.so.2.0.4
+libtool: install: (cd /ws/userland/src/components/daq/build/prototype/i386/usr/lib && { ln -s -f libdaq.so.2.0.4 libdaq.so.2 || { rm -f libdaq.so.2 && ln -s libdaq.so.2.0.4 libdaq.so.2; }; })
+libtool: install: (cd /ws/userland/src/components/daq/build/prototype/i386/usr/lib && { ln -s -f libdaq.so.2.0.4 libdaq.so || { rm -f libdaq.so && ln -s libdaq.so.2.0.4 libdaq.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libdaq.so.2.0.4
+libtool: install: /usr/bin/ginstall -c .libs/libdaq.lai /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libdaq.la
+libtool: install: /usr/bin/ginstall -c .libs/libdaq_static.lai /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libdaq_static.la
+libtool: install: /usr/bin/ginstall -c .libs/libdaq_static.a /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libdaq_static.a
+libtool: install: chmod 644 /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libdaq_static.a
+libtool: install: ranlib /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libdaq_static.a
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/include'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/daq/daq-2.0.6/api/daq.h /ws/userland/src/components/daq/daq-2.0.6/api/daq_api.h /ws/userland/src/components/daq/daq-2.0.6/api/daq_common.h '/ws/userland/src/components/daq/build/prototype/i386/usr/include'
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/i86/api'
+make[2]: Leaving directory '/ws/userland/src/components/daq/build/i86/api'
+Making install in sfbpf
+make[2]: Entering directory '/ws/userland/src/components/daq/build/i86/sfbpf'
+make[3]: Entering directory '/ws/userland/src/components/daq/build/i86/sfbpf'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/lib'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libsfbpf.la '/ws/userland/src/components/daq/build/prototype/i386/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/libsfbpf.so.0.0.1 /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libsfbpf.so.0.0.1
+libtool: install: (cd /ws/userland/src/components/daq/build/prototype/i386/usr/lib && { ln -s -f libsfbpf.so.0.0.1 libsfbpf.so.0 || { rm -f libsfbpf.so.0 && ln -s libsfbpf.so.0.0.1 libsfbpf.so.0; }; })
+libtool: install: (cd /ws/userland/src/components/daq/build/prototype/i386/usr/lib && { ln -s -f libsfbpf.so.0.0.1 libsfbpf.so || { rm -f libsfbpf.so && ln -s libsfbpf.so.0.0.1 libsfbpf.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libsfbpf.so.0.0.1
+libtool: install: /usr/bin/ginstall -c .libs/libsfbpf.lai /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libsfbpf.la
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/include'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sfbpf.h /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sfbpf_dlt.h '/ws/userland/src/components/daq/build/prototype/i386/usr/include'
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/i86/sfbpf'
+make[2]: Leaving directory '/ws/userland/src/components/daq/build/i86/sfbpf'
+Making install in os-daq-modules
+make[2]: Entering directory '/ws/userland/src/components/daq/build/i86/os-daq-modules'
+make[3]: Entering directory '/ws/userland/src/components/daq/build/i86/os-daq-modules'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/bin'
+ /usr/bin/ginstall -c daq-modules-config '/ws/userland/src/components/daq/build/prototype/i386/usr/bin'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/lib'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libdaq_static_modules.la '/ws/userland/src/components/daq/build/prototype/i386/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/libdaq_static_modules.lai /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libdaq_static_modules.la
+libtool: install: /usr/bin/ginstall -c .libs/libdaq_static_modules.a /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libdaq_static_modules.a
+libtool: install: chmod 644 /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libdaq_static_modules.a
+libtool: install: ranlib /ws/userland/src/components/daq/build/prototype/i386/usr/lib/libdaq_static_modules.a
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/lib/daq'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   daq_pcap.la daq_dump.la '/ws/userland/src/components/daq/build/prototype/i386/usr/lib/daq'
+libtool: install: /usr/bin/ginstall -c .libs/daq_pcap.so /ws/userland/src/components/daq/build/prototype/i386/usr/lib/daq/daq_pcap.so
+libtool: install: chmod +x /ws/userland/src/components/daq/build/prototype/i386/usr/lib/daq/daq_pcap.so
+libtool: install: /usr/bin/ginstall -c .libs/daq_pcap.lai /ws/userland/src/components/daq/build/prototype/i386/usr/lib/daq/daq_pcap.la
+libtool: install: /usr/bin/ginstall -c .libs/daq_dump.so /ws/userland/src/components/daq/build/prototype/i386/usr/lib/daq/daq_dump.so
+libtool: install: chmod +x /ws/userland/src/components/daq/build/prototype/i386/usr/lib/daq/daq_dump.so
+libtool: install: /usr/bin/ginstall -c .libs/daq_dump.lai /ws/userland/src/components/daq/build/prototype/i386/usr/lib/daq/daq_dump.la
+libtool: warning: remember to run 'libtool --finish /usr/lib/daq'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/i86/os-daq-modules'
+make[2]: Leaving directory '/ws/userland/src/components/daq/build/i86/os-daq-modules'
+make[2]: Entering directory '/ws/userland/src/components/daq/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/daq/build/i86'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/i86'
+make[2]: Leaving directory '/ws/userland/src/components/daq/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/daq/build/i86'
+/usr/bin/touch /ws/userland/src/components/daq/build/i86/.installed
+(cd /ws/userland/src/components/daq/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/daq/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/daq/build/amd64'
+Making install in api
+make[2]: Entering directory '/ws/userland/src/components/daq/build/amd64/api'
+make[3]: Entering directory '/ws/userland/src/components/daq/build/amd64/api'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libdaq.la libdaq_static.la '/ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/libdaq.so.2.0.4 /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libdaq.so.2.0.4
+libtool: install: (cd /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64 && { ln -s -f libdaq.so.2.0.4 libdaq.so.2 || { rm -f libdaq.so.2 && ln -s libdaq.so.2.0.4 libdaq.so.2; }; })
+libtool: install: (cd /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64 && { ln -s -f libdaq.so.2.0.4 libdaq.so || { rm -f libdaq.so && ln -s libdaq.so.2.0.4 libdaq.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libdaq.so.2.0.4
+libtool: install: /usr/bin/ginstall -c .libs/libdaq.lai /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libdaq.la
+libtool: install: /usr/bin/ginstall -c .libs/libdaq_static.lai /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libdaq_static.la
+libtool: install: /usr/bin/ginstall -c .libs/libdaq_static.a /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libdaq_static.a
+libtool: install: chmod 644 /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libdaq_static.a
+libtool: install: ranlib /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libdaq_static.a
+libtool: warning: remember to run 'libtool --finish /usr/lib/amd64'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/include'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/daq/daq-2.0.6/api/daq.h /ws/userland/src/components/daq/daq-2.0.6/api/daq_api.h /ws/userland/src/components/daq/daq-2.0.6/api/daq_common.h '/ws/userland/src/components/daq/build/prototype/i386/usr/include'
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/amd64/api'
+make[2]: Leaving directory '/ws/userland/src/components/daq/build/amd64/api'
+Making install in sfbpf
+make[2]: Entering directory '/ws/userland/src/components/daq/build/amd64/sfbpf'
+make[3]: Entering directory '/ws/userland/src/components/daq/build/amd64/sfbpf'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libsfbpf.la '/ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/libsfbpf.so.0.0.1 /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libsfbpf.so.0.0.1
+libtool: install: (cd /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64 && { ln -s -f libsfbpf.so.0.0.1 libsfbpf.so.0 || { rm -f libsfbpf.so.0 && ln -s libsfbpf.so.0.0.1 libsfbpf.so.0; }; })
+libtool: install: (cd /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64 && { ln -s -f libsfbpf.so.0.0.1 libsfbpf.so || { rm -f libsfbpf.so && ln -s libsfbpf.so.0.0.1 libsfbpf.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libsfbpf.so.0.0.1
+libtool: install: /usr/bin/ginstall -c .libs/libsfbpf.lai /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libsfbpf.la
+libtool: warning: remember to run 'libtool --finish /usr/lib/amd64'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/include'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sfbpf.h /ws/userland/src/components/daq/daq-2.0.6/sfbpf/sfbpf_dlt.h '/ws/userland/src/components/daq/build/prototype/i386/usr/include'
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/amd64/sfbpf'
+make[2]: Leaving directory '/ws/userland/src/components/daq/build/amd64/sfbpf'
+Making install in os-daq-modules
+make[2]: Entering directory '/ws/userland/src/components/daq/build/amd64/os-daq-modules'
+make[3]: Entering directory '/ws/userland/src/components/daq/build/amd64/os-daq-modules'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/bin/amd64'
+ /usr/bin/ginstall -c daq-modules-config '/ws/userland/src/components/daq/build/prototype/i386/usr/bin/amd64'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libdaq_static_modules.la '/ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/libdaq_static_modules.lai /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libdaq_static_modules.la
+libtool: install: /usr/bin/ginstall -c .libs/libdaq_static_modules.a /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libdaq_static_modules.a
+libtool: install: chmod 644 /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libdaq_static_modules.a
+libtool: install: ranlib /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/libdaq_static_modules.a
+libtool: warning: remember to run 'libtool --finish /usr/lib/amd64'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/daq'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   daq_pcap.la daq_dump.la '/ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/daq'
+libtool: install: /usr/bin/ginstall -c .libs/daq_pcap.so /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/daq/daq_pcap.so
+libtool: install: chmod +x /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/daq/daq_pcap.so
+libtool: install: /usr/bin/ginstall -c .libs/daq_pcap.lai /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/daq/daq_pcap.la
+libtool: install: /usr/bin/ginstall -c .libs/daq_dump.so /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/daq/daq_dump.so
+libtool: install: chmod +x /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/daq/daq_dump.so
+libtool: install: /usr/bin/ginstall -c .libs/daq_dump.lai /ws/userland/src/components/daq/build/prototype/i386/usr/lib/amd64/daq/daq_dump.la
+libtool: warning: remember to run 'libtool --finish /usr/lib/amd64/daq'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/amd64/os-daq-modules'
+make[2]: Leaving directory '/ws/userland/src/components/daq/build/amd64/os-daq-modules'
+make[2]: Entering directory '/ws/userland/src/components/daq/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/daq/build/amd64'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/daq/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/daq/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/daq/build/amd64'
+/usr/bin/touch /ws/userland/src/components/daq/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 daq.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=2\\.0\\.6 -D COMPONENT_RE_VERSION=2\\.0\\.6 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/daq -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="32523" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="2.0.6" -D IPS_COMPONENT_VERSION="2.0.6" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://www.snort.org/downloads/snort/daq-2.0.6.tar.gz" -D COMPONENT_PROJECT_URL="http://www.snort.org/" -D COMPONENT_NAME="daq" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" daq.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/daq/build/manifest-i386-daq.mogrified
+/bin/mkdir -p /ws/userland/src/components/daq/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/daq/build/prototype/i386/mangled -d /ws/userland/src/components/daq/build/prototype/i386/mangled -d /ws/userland/src/components/daq/build/prototype/i386 -d /ws/userland/src/components/daq/build -d /ws/userland/src/components/daq -d daq-2.0.6 -d /ws/userland/src/licenses -m /ws/userland/src/components/daq/build/manifest-i386-daq.mogrified >/ws/userland/src/components/daq/build/manifest-i386-daq.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/daq/build/prototype/i386/mangled -d /ws/userland/src/components/daq/build/prototype/i386 -d /ws/userland/src/components/daq/build -d /ws/userland/src/components/daq -d daq-2.0.6 -d /ws/userland/src/licenses /ws/userland/src/components/daq/build/manifest-i386-daq.mangled >/ws/userland/src/components/daq/build/manifest-i386-daq.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/daq/build/resolve.deps -m /ws/userland/src/components/daq/build/manifest-i386-daq.depend
+/usr/bin/touch /ws/userland/src/components/daq/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/daq/build/manifest-i386-daq.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/daq/build/prototype/i386/mangled /ws/userland/src/components/daq/build/prototype/i386 /ws/userland/src/components/daq/build /ws/userland/src/components/daq daq-2.0.6 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/daq/build/manifest-i386-daq.depend.res
+/usr/bin/touch /ws/userland/src/components/daq/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/daq/build/prototype/i386/mangled -d /ws/userland/src/components/daq/build/prototype/i386 -d /ws/userland/src/components/daq/build -d /ws/userland/src/components/daq -d daq-2.0.6 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/daq/build/manifest-i386-daq.depend.res
+pkg://nightly/system/library/libdaq@2.0.6,5.11-11.4.0.0.1.14.0:20190727T181509Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/daq/build/manifest-i386-daq.depend.res >/ws/userland/src/components/daq/build/manifest-i386-daq.published
+/usr/bin/touch /ws/userland/src/components/daq/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/daq'
+
+real       49.1
+user       16.7
+sys         5.6

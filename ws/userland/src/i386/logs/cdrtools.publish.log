@@ -1,0 +1,3647 @@
+gmake: Entering directory '/ws/userland/src/components/cdrtools'
+/bin/rm -f -r /ws/userland/src/components/cdrtools/cdrtools-3.01
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  cdrtools-3.01a22.tar.gz
+/usr/bin/touch /ws/userland/src/components/cdrtools/cdrtools-3.01/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/cdrtools/cdrtools-3.01 --strip=1 --backup --version-control=numbered < patches/Defaults.sunos5.patch
+File DEFAULTS/Defaults.sunos5 is read-only; trying to patch anyway
+patching file DEFAULTS/Defaults.sunos5
+/usr/bin/touch /ws/userland/src/components/cdrtools/cdrtools-3.01/.patched-Defaults.sunos5.patch
+/usr/bin/patch -d /ws/userland/src/components/cdrtools/cdrtools-3.01 --strip=1 --backup --version-control=numbered < patches/fix-man-page.patch
+File mkisofs/mkisofs.8 is read-only; trying to patch anyway
+patching file mkisofs/mkisofs.8
+/usr/bin/touch /ws/userland/src/components/cdrtools/cdrtools-3.01/.patched-fix-man-page.patch
+/usr/bin/patch -d /ws/userland/src/components/cdrtools/cdrtools-3.01 --strip=1 --backup --version-control=numbered < patches/strip-fast.patch
+File libedc/libedc.mk is read-only; trying to patch anyway
+patching file libedc/libedc.mk
+File libedc/libedc_dec.mk is read-only; trying to patch anyway
+patching file libedc/libedc_dec.mk
+File libedc/libedc_dec_p.mk is read-only; trying to patch anyway
+patching file libedc/libedc_dec_p.mk
+File libedc/libedc_p.mk is read-only; trying to patch anyway
+patching file libedc/libedc_p.mk
+File libedc/shledc.mk is read-only; trying to patch anyway
+patching file libedc/shledc.mk
+File libedc/shledc_dec.mk is read-only; trying to patch anyway
+patching file libedc/shledc_dec.mk
+File libmdigest/mdigest.mk is read-only; trying to patch anyway
+patching file libmdigest/mdigest.mk
+File libmdigest/shlmdigest.mk is read-only; trying to patch anyway
+patching file libmdigest/shlmdigest.mk
+/usr/bin/touch /ws/userland/src/components/cdrtools/cdrtools-3.01/.patched-strip-fast.patch
+/usr/bin/touch /ws/userland/src/components/cdrtools/cdrtools-3.01/.patched
+/usr/bin/touch /ws/userland/src/components/cdrtools/cdrtools-3.01/.prep
+/bin/rm -f -r /ws/userland/src/components/cdrtools/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/cdrtools/build/amd64
+/ws/userland/src/tools/cloney /ws/userland/src/components/cdrtools/cdrtools-3.01 /ws/userland/src/components/cdrtools/build/amd64
+symlink cloning /ws/userland/src/components/cdrtools/cdrtools-3.01 to /ws/userland/src/components/cdrtools/build/amd64
+(cd /ws/userland/src/components/cdrtools/build/amd64; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  CC="/opt/solarisstudio12.4/bin/cc" CXX="/opt/solarisstudio12.4/bin/CC" CFLAGS="-m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt" CXXFLAGS="-norunpath -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr" LDFLAGS="" /usr/ccs/bin/make  GMAKE_NOWARN=true CCOM=cc64 )
+	==> MAKING SYMLINKS in ./RULES/
+sh conf/cc-config.sh cc cc incs/Dcc.i386-sunos5
+Trying to find cc
+Found cc
+Creating empty 'incs/Dcc.i386-sunos5', using cc as default compiler
+	==> MAKING DIRECTORY "incs/i386-sunos5-cc64/Inull"
+	==> CONFIGURING RULES "incs/i386-sunos5-cc64/rules.cnf"
+creating cache ./config.cache
+checking host system type... i386-pc-solaris2.11
+checking if sh is bash... no
+checking if /bin/sh is bash... no
+checking whether sh -ce is broken... no
+checking whether /bin/sh -ce is broken... no
+checking whether /bin/bosh is a working shell... no
+checking whether /opt/schily/bin/bosh is a working shell... no
+checking for cc... cc
+checking for gcc... (cached) cc
+checking whether the C compiler (cc -Xa -xarch=generic64  -O   -Llibs/i386-sunos5-cc64  ) works... yes
+checking whether the C compiler (cc -Xa -xarch=generic64  -O   -Llibs/i386-sunos5-cc64  ) is a cross-compiler... no
+checking whether we are using GNU C... no
+checking whether cc accepts -g... yes
+checking for object suffix... o
+checking for Cygwin environment... no
+checking for mingw32 environment... no
+checking for EMX/OS2 environment... no
+checking for executable suffix... no
+checking for executable calling suffix... no
+checking how to run the C preprocessor... cc -E
+checking how to run the C preprocessor for any type of file... cc -E
+checking if suncc/cc supports -m64... yes
+checking if HP cc supports -Ae... no
+checking if HP cc supports -O... no
+checking if HP cc supports -G... no
+checking for ranlib... ranlib
+checking whether make sets ${MAKE}... yes
+checking for yacc... yacc
+checking for bison... bison
+checking for ANSI C header files... yes
+checking for stdarg.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for float.h... yes
+checking for UNIX-98 compliant inttypes.h... yes
+checking for SUSv3 compliant stdint.h... yes
+checking for dirent.h that defines DIR... yes
+checking for opendir in -lc... yes
+checking whether stat file-mode macros are broken... no
+checking whether time.h and sys/time.h may both be included... yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking if select needs nonstd include files... no
+checking if sys/select.h is needed for select... no
+checking if sys/socket.h is needed for select... no
+checking for assert.h... yes
+checking for stdio.h... yes
+checking for varargs.h... yes
+checking for stdarg.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for stddef.h... yes
+checking for string.h... (cached) yes
+checking for strings.h... yes
+checking for unistd.h... yes
+checking for fcntl.h... yes
+checking for io.h... no
+checking for sys/file.h... yes
+checking for conio.h... no
+checking for getopt.h... yes
+checking for limits.h... yes
+checking for a.out.h... no
+checking for aouthdr.h... no
+checking for elf.h... yes
+checking for sysexits.h... yes
+checking for malloc.h... yes
+checking for sgtty.h... yes
+checking for termios.h... yes
+checking for termio.h... yes
+checking for pwd.h... yes
+checking for grp.h... yes
+checking for sys/acl.h... yes
+checking for aclutils.h... no
+checking for acllib.h... no
+checking for acl/libacl.h... no
+checking for signal.h... yes
+checking for siginfo.h... yes
+checking for sys/siginfo.h... yes
+checking for ucontext.h... yes
+checking for shadow.h... yes
+checking for syslog.h... yes
+checking for sys/time.h... yes
+checking for sys/times.h... yes
+checking for utime.h... yes
+checking for sys/utime.h... yes
+checking for sys/ioctl.h... yes
+checking for sys/filio.h... yes
+checking for sys/param.h... yes
+checking for sys/systeminfo.h... yes
+checking for sys/sysctl.h... no
+checking for sys/syscall.h... yes
+checking for mach/machine.h... no
+checking for mntent.h... no
+checking for sys/mntent.h... yes
+checking for sys/mnttab.h... yes
+checking for sys/mount.h... yes
+checking for sys/fork.h... yes
+checking for vfork.h... no
+checking for wait.h... yes
+checking for sys/wait.h... (cached) yes
+checking for sys/resource.h... yes
+checking for procfs.h... yes
+checking for sys/procfs.h... yes
+checking for libproc.h... yes
+checking for ulimit.h... yes
+checking for process.h... no
+checking for sys/utsname.h... yes
+checking for sys/priocntl.h... yes
+checking for sys/rtpriocntl.h... yes
+checking for sys/procset.h... yes
+checking for sys/mtio.h... yes
+checking for sys/tape.h... no
+checking for sys/mman.h... yes
+checking for linux/pg.h... no
+checking for camlib.h... no
+checking for sys/shm.h... yes
+checking for sys/sem.h... yes
+checking for sys/ipc.h... yes
+checking for sys/dkio.h... yes
+checking for sys/dklabel.h... yes
+checking for sun/dkio.h... no
+checking for sun/dklabel.h... no
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for types.h... no
+checking for stat.h... no
+checking for sys/stypes.h... no
+checking for sys/filedesc.h... no
+checking for sys/acct.h... yes
+checking for poll.h... yes
+checking for sys/poll.h... yes
+checking for sys/select.h... yes
+checking for netdb.h... yes
+checking for sys/socket.h... yes
+checking for netinet/in.h... yes
+checking for stropts.h... yes
+checking for ieeefp.h... yes
+checking for fp.h... no
+checking for values.h... yes
+checking for float.h... (cached) yes
+checking for math.h... yes
+checking for arpa/inet.h... yes
+checking for bsd/dev/scsireg.h... no
+checking for sys/bsdtty.h... no
+checking for scsi/scsi.h... no
+checking for scsi/sg.h... no
+checking for linux/scsi.h... no
+checking for linux.sg.h... no
+checking for linux/types.h... no
+checking for linux/gfp.h... no
+checking for asm/types.h... no
+checking for sys/capability.h... no
+checking for OS.h... no
+checking for os2.h... no
+checking for os2me.h... no
+checking for windows.h... no
+checking for ext2fs/ext2_fs.h... no
+checking for attr/xattr.h... no
+checking for crt_externs.h... no
+checking for fnmatch.h... yes
+checking for libintl.h... yes
+checking for locale.h... yes
+checking for langinfo.h... yes
+checking for nl_types.h... yes
+checking for ctype.h... yes
+checking for wctype.h... yes
+checking for wchar.h... yes
+checking for iconv.h... yes
+checking for priv.h... yes
+checking for sys/priv.h... yes
+checking for exec_attr.h... yes
+checking for secdb.h... yes
+checking for direct.h... no
+checking for pthread.h... yes
+checking for thread.h... yes
+checking for libgen.h... yes
+checking for regex.h... yes
+checking for regexp.h... yes
+checking for regexpr.h... yes
+checking for dlfcn.h... yes
+checking for link.h... yes
+checking for dl.h... no
+checking for header file containing  major(), minor() and makedev()... sys/mkdev.h
+checking bits in minor device number... 32
+checking whether bits in minor device numbers are non contiguous... no
+checking for _filbuf()... yes
+checking for __filbuf()... yes
+checking for USG derived STDIO... yes
+checking for errno definition in errno.h... yes
+checking for environ definition in unistd.h/stdlib.h... no
+checking for sys_siglist definition in signal.h... no
+checking for working const... yes
+checking whether byte ordering is bigendian... no
+checking whether bitorder in bitfields is htol... no
+checking for preprocessor stringizing operator... yes
+checking for inline... inline
+checking return type of signal handlers... void
+checking for uid_t in sys/types.h... yes
+checking type of array argument to getgroups... gid_t
+checking for type long long... yes
+checking for type __int64... no
+checking for type long double... yes
+checking for prototypes... yes
+checking if compiler allows dynamic arrays... yes
+checking if compiler allows pragma weak... yes
+checking for uid_t in sys/types.h... (cached) yes
+checking for size_t... yes
+checking for ssize_t... yes
+checking for ptrdiff_t... yes
+checking for pid_t... yes
+checking for off_t... yes
+checking for mode_t... yes
+checking for time_t... yes
+checking for caddr_t... yes
+checking for daddr_t... yes
+checking for dev_t... yes
+checking for major_t... yes
+checking for minor_t... yes
+checking for ino_t... yes
+checking for nlink_t... yes
+checking for blksize_t... yes
+checking for blkcnt_t... yes
+checking for clock_t... yes
+checking for socklen_t... yes
+checking for greg_t... yes
+checking if stack_t is declared in signal.h... yes
+checking if siginfo_t is declared in signal.h... yes
+checking for u_char... yes
+checking for u_short... yes
+checking for u_int... yes
+checking for u_long... yes
+checking for int8_t... yes
+checking for int16_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for intmax_t... yes
+checking for intptr_t... yes
+checking for uint8_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking for uintmax_t... yes
+checking for uintptr_t... yes
+checking for wctype_t... yes
+checking for mbstate_t... yes
+checking size of char... 1
+checking size of short int... 2
+checking size of int... 4
+checking size of long int... 8
+checking size of long long... 8
+checking size of __int64... 0
+checking size of char *... 8
+checking size of unsigned char... 1
+checking size of unsigned short int... 2
+checking size of unsigned int... 4
+checking size of unsigned long int... 8
+checking size of unsigned long long... 8
+checking size of unsigned __int64... 0
+checking size of unsigned char *... 8
+checking size of float... 4
+checking size of double... 8
+checking size of long double... 16
+checking size of size_t... 8
+checking size of ssize_t... 8
+checking size of ptrdiff_t... 8
+checking size of mode_t... 4
+checking size of uid_t... 4
+checking size of gid_t... 4
+checking size of pid_t... 4
+checking size of dev_t... 8
+checking size of major_t... 4
+checking size of minor_t... 4
+checking size of time_t... 8
+checking size of wchar... 4
+checking size of wchar_t... 4
+checking if char is unsigned... no
+checking if va_list is an array... yes
+checking for f->_flags in FILE *... no
+checking for f->_IO_buf_base in FILE *... no
+checking for struct timeval in time.h or sys/time.h... yes
+checking for struct timezone in time.h or sys/time.h... yes
+checking for struct timespec in time.h or sys/time.h... yes
+checking if struct mtget contains mt_type... yes
+checking if struct mtget contains mt_model... no
+checking if struct mtget contains mt_dsreg... yes
+checking if struct mtget contains mt_dsreg1... no
+checking if struct mtget contains mt_dsreg2... no
+checking if struct mtget contains mt_gstat... no
+checking if struct mtget contains mt_erreg... yes
+checking if struct mtget contains mt_resid... yes
+checking if struct mtget contains mt_fileno... yes
+checking if struct mtget contains mt_blkno... yes
+checking if struct mtget contains mt_flags... yes
+checking if struct mtget contains mt_bf... yes
+checking if struct rusage is declared in sys/resource.h... yes
+checking if struct siginfo contains si_utime... yes
+checking if struct sockaddr_storage is declared in socket.h... yes
+checking if an illegal declaration for union semun in sys/sem.h exists... no
+checking if union wait is declared in wait.h or sys/wait.h... no
+checking if union wait is used by default... no
+checking if struct stat contains st_spare1... no
+checking if struct stat contains st_atimensec... no
+checking if struct stat contains st_atime_n... no
+checking if struct stat contains st_atim.tv_nsec... yes
+checking if struct stat contains st_atim.st__tim.tv_nsec... no
+checking if struct stat contains st_atimespec.tv_nsec... no
+checking for st_blksize in struct stat... yes
+checking for st_blocks in struct stat... yes
+checking if struct stat contains st_fstype... yes
+checking if struct stat contains st_aclcnt... no
+checking for st_rdev in struct stat... yes
+checking if struct stat contains st_flag... no
+checking if struct stat contains st_flags... no
+checking if struct dirent contains d_ino... yes
+checking if DIR * contains dd_fd... no
+checking if struct utsname contains arch... no
+checking if struct utsname contains processor... no
+checking if struct utsname contains sysname_host... no
+checking if struct utsname contains release_host... no
+checking if struct utsname contains version_host... no
+checking whether iconv() uses const char **... no
+checking if stat is declared... yes
+checking if lstat is declared... yes
+checking for wait3 that fills in rusage... yes
+checking for mlock... yes
+checking for mlockall... yes
+checking for va_copy... yes
+checking for __va_copy... yes
+checking for working ecvt() ... yes
+checking for working fcvt() ... yes
+checking for working gcvt() ... yes
+checking for __dtoa... no
+checking for __dtoa that needs result ptr... no
+checking if getpagesize is defined or function... yes
+checking for unistd.h... (cached) yes
+checking for mmap that needs ptr to size... no
+checking for unistd.h... (cached) yes
+checking for working mmap... yes
+checking for unistd.h... (cached) yes
+checking for mmap that needs ptr to size... (cached) no
+checking if mmap works to get shared memory... yes
+checking if shmget works to get shared memory... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking if quotactl is an ioctl... yes
+checking for file locking via fcntl... yes
+checking for uname... yes
+checking for execl... yes
+checking for vfork.h... (cached) no
+checking for working vfork... yes
+checking for sys_siglist... no
+checking for BSD compliant getpgrp... no
+checking for BSD compliant setpgrp... no
+checking for C99 compliant isinf... yes
+checking for C99 compliant isnan... yes
+checking for sigsetjmp... yes
+checking for siglongjmp... yes
+checking whether *printf() supports %jd... yes
+checking whether *printf() supports %lld... yes
+checking for stdlib.h... (cached) yes
+checking return type of signal handlers... (cached) void
+checking if realloc() does implement realloc(NULL, size)... yes
+checking for access... yes
+checking for eaccess... yes
+checking for euidaccess... yes
+checking for memchr... yes
+checking for memcmp... yes
+checking for memcpy... yes
+checking for memccpy... yes
+checking for memmove... yes
+checking for memset... yes
+checking for brk... yes
+checking for sbrk... yes
+checking for strerror... yes
+checking for nice... yes
+checking for flock... no
+checking for lockf... yes
+checking for fchdir... yes
+checking for statvfs... yes
+checking for quotactl... no
+checking for realpath... yes
+checking for resolvepath... yes
+checking for dup... yes
+checking for dup2... yes
+checking for getcwd... yes
+checking for shmat... yes
+checking for semget... yes
+checking for lstat... yes
+checking for readlink... yes
+checking for symlink... yes
+checking for link... yes
+checking for rename... yes
+checking for mkfifo... yes
+checking for mknod... yes
+checking for setreuid... yes
+checking for setresuid... no
+checking for seteuid... yes
+checking for setuid... yes
+checking for setregid... yes
+checking for setresgid... no
+checking for setegid... yes
+checking for setgid... yes
+checking for getuid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getegid... yes
+checking for getpid... yes
+checking for getppid... yes
+checking for getpgid... yes
+checking for setpgid... yes
+checking for getsid... yes
+checking for setsid... yes
+checking for getpgrp... yes
+checking for setpgrp... yes
+checking for getpwnam... yes
+checking for getpwent... yes
+checking for getpwuid... yes
+checking for setpwent... yes
+checking for endpwent... yes
+checking for getgrnam... yes
+checking for getgrent... yes
+checking for getgrgid... yes
+checking for setgrent... yes
+checking for endgrent... yes
+checking for getspnam... yes
+checking for getspwnam... no
+checking for getlogin... yes
+checking for sync... yes
+checking for fsync... yes
+checking for fork... yes
+checking for forkx... yes
+checking for vforkx... yes
+checking for forkall... yes
+checking for forkallx... yes
+checking for wait... yes
+checking for wait4... yes
+checking for waitid... yes
+checking for waitpid... yes
+checking for getrusage... yes
+checking for getrlimit... yes
+checking for setrlimit... yes
+checking for ulimit... yes
+checking for execl... (cached) yes
+checking for execle... yes
+checking for execlp... yes
+checking for execv... yes
+checking for execve... yes
+checking for execvp... yes
+checking for spawnl... no
+checking for spawnle... no
+checking for spawnlp... no
+checking for spawnlpe... no
+checking for spawnv... no
+checking for spawnve... no
+checking for spawnvp... no
+checking for spawnvpe... no
+checking for cwait... no
+checking for getexecname... yes
+checking for getprogname... yes
+checking for setprogname... yes
+checking for proc_pidpath... no
+checking for gethostid... yes
+checking for gethostname... yes
+checking for getdomainname... yes
+checking for getdtablesize... yes
+checking for gettimeofday... yes
+checking for settimeofday... yes
+checking for time... yes
+checking for stime... yes
+checking for gethrtime... yes
+checking for ftime... yes
+checking for tzset... yes
+checking for mktime... yes
+checking for gmtime... yes
+checking for localtime... yes
+checking for timegm... yes
+checking for timelocal... yes
+checking for ctime... yes
+checking for cftime... yes
+checking for ascftime... yes
+checking for strftime... yes
+checking for poll... yes
+checking for select... yes
+checking for isastream... yes
+checking for chown... yes
+checking for fchown... yes
+checking for lchown... yes
+checking for chmod... yes
+checking for fchmod... yes
+checking for lchmod... no
+checking for times... yes
+checking for utime... yes
+checking for utimes... yes
+checking for futimes... no
+checking for lutimes... no
+checking for utimens... no
+checking for lutimens... no
+checking for futimens... yes
+checking for utimensat... yes
+checking for ioctl... yes
+checking for fcntl... yes
+checking for qecvt... yes
+checking for qfcvt... yes
+checking for qgcvt... yes
+checking for _qecvt... no
+checking for _qfcvt... no
+checking for _qgcvt... no
+checking for _qecvt_r... no
+checking for _qfcvt_r... no
+checking for _qgcvt_r... no
+checking for _ldecvt... no
+checking for _ldfcvt... no
+checking for _ldgcvt... no
+checking for ecvt_r... no
+checking for fcvt_r... no
+checking for gcvt_r... no
+checking for _ldecvt_r... no
+checking for _ldfcvt_r... no
+checking for _ldgcvt_r... no
+checking for econvert... yes
+checking for fconvert... yes
+checking for gconvert... yes
+checking for qeconvert... yes
+checking for qfconvert... yes
+checking for qgconvert... yes
+checking for isinf... no
+checking for isnan... yes
+checking for getc_unlocked... yes
+checking for getchar_unlocked... yes
+checking for putc_unlocked... yes
+checking for putchar_unlocked... yes
+checking for flockfile... yes
+checking for funlockfile... yes
+checking for ftrylockfile... yes
+checking for rand... yes
+checking for drand48... yes
+checking for strtol... yes
+checking for strtoll... yes
+checking for strtoul... yes
+checking for strtoull... yes
+checking for strtod... yes
+checking for setpriority... yes
+checking for DosSetPriority... no
+checking for DosAllocSharedMem... no
+checking for getdelim... yes
+checking for seekdir... yes
+checking for fdopendir... yes
+checking for openat... yes
+checking for fstatat... yes
+checking for fchownat... yes
+checking for futimesat... yes
+checking for renameat... yes
+checking for unlinkat... yes
+checking for attropen... yes
+checking for __accessat... no
+checking for accessat... no
+checking for mkdirat... yes
+checking for faccessat... yes
+checking for fchmodat... yes
+checking for linkat... yes
+checking for mkfifoat... yes
+checking for mknodat... yes
+checking for readlinkat... yes
+checking for symlinkat... yes
+checking for pipe... yes
+checking for _pipe... yes
+checking for popen... yes
+checking for pclose... yes
+checking for _popen... yes
+checking for _pclose... yes
+checking for strsignal... yes
+checking for str2sig... yes
+checking for sig2str... yes
+checking for kill... yes
+checking for killpg... yes
+checking for signal... yes
+checking for sighold... yes
+checking for sigrelse... yes
+checking for sigignore... yes
+checking for sigpause... yes
+checking for sigprocmask... yes
+checking for sigsetmask... no
+checking for sigset... yes
+checking for sigaltstack... yes
+checking for sigblock... no
+checking for alarm... yes
+checking for sleep... yes
+checking for usleep... yes
+checking for yield... yes
+checking if tcgetattr is defined or function... yes
+checking if tcsetattr is defined or function... yes
+checking for tcgetpgrp... yes
+checking for tcsetpgrp... yes
+checking for getenv... yes
+checking for putenv... yes
+checking for setenv... yes
+checking for unsetenv... yes
+checking for snprintf... yes
+checking for strcasecmp... yes
+checking for strncasecmp... yes
+checking if strcat is defined or function... yes
+checking if strncat is defined or function... yes
+checking if strcmp is defined or function... yes
+checking if strncmp is defined or function... yes
+checking if strcpy is defined or function... yes
+checking if strlcat is defined or function... yes
+checking if strlcpy is defined or function... yes
+checking if strncpy is defined or function... yes
+checking if strdup is defined or function... yes
+checking if strndup is defined or function... yes
+checking if strlen is defined or function... yes
+checking if strnlen is defined or function... yes
+checking if strchr is defined or function... yes
+checking if strrchr is defined or function... yes
+checking if strstr is defined or function... yes
+checking if strspn is defined or function... yes
+checking if strcspn is defined or function... yes
+checking if wcscat is defined or function... yes
+checking if wcsncat is defined or function... yes
+checking if wcscmp is defined or function... yes
+checking if wcsncmp is defined or function... yes
+checking if wcscpy is defined or function... yes
+checking if wcslcat is defined or function... no
+checking if wcslcpy is defined or function... no
+checking if wcsncpy is defined or function... yes
+checking if wcsdup is defined or function... yes
+checking if wcsndup is defined or function... no
+checking if wcslen is defined or function... yes
+checking if wcsnlen is defined or function... yes
+checking if wcschr is defined or function... yes
+checking if wcsrchr is defined or function... yes
+checking if wcsstr is defined or function... yes
+checking if wcsspn is defined or function... yes
+checking if wcscspn is defined or function... yes
+checking for wcwidth... yes
+checking for wcswidth... yes
+checking for wctype... yes
+checking for iswctype... yes
+checking for basename... yes
+checking for dirname... yes
+checking for pathconf... yes
+checking for fpathconf... yes
+checking for lpathconf... no
+checking for malloc... yes
+checking for calloc... yes
+checking for valloc... yes
+checking for realloc... yes
+checking for memalign... yes
+checking for posix_memalign... yes
+checking for madvise... yes
+checking for mktemp... yes
+checking for mkstemp... yes
+checking for chflags... no
+checking for fchflags... no
+checking for fflagstostr... no
+checking for strtofflags... no
+checking for fnmatch... yes
+checking for truncate... yes
+checking for ftruncate... yes
+checking for getppriv... yes
+checking for setppriv... yes
+checking for priv_set... yes
+checking for issetugid... yes
+checking for getroles... no
+checking for privbit_set... no
+checking for setlocale... yes
+checking for localeconv... yes
+checking for nl_langinfo... yes
+checking for setbuf... yes
+checking for setvbuf... yes
+checking for clone_area... no
+checking for create_area... no
+checking for delete_area... no
+Checking for POSIX violations by the POSIX.1-2008 standard:
+checking for raw availability of fexecl... no
+checking for raw availability of fexecle... no
+checking for raw availability of fexecv... no
+checking for raw availability of fexecve... yes
+checking for raw availability of fspawnv... no
+checking for raw availability of fspawnl... no
+checking for raw availability of fspawnv_nowait... no
+checking for raw availability of getline... yes
+checking for raw availability of fgetline... no
+End of tests for POSIX violations by the POSIX.1-2008 standard.
+checking if dirfd is defined or function... yes
+checking if iswprint is defined or function... yes
+checking if mbsinit is defined or function... yes
+checking if mbtowc is defined or function... yes
+checking if wctomb is defined or function... yes
+checking if mbrtowc is defined or function... yes
+checking if wcrtomb is defined or function... yes
+checking if finite is defined or function... yes
+checking if isnand is defined or function... yes
+checking if we may not define our own malloc()... no
+checking for working extern long timezone ... yes
+checking for extern timezone in time.h or sys/time.h... yes
+checking for working extern char *__progname ... yes
+checking for working extern char *__progname_full ... no
+checking if link() allows hard links on symlinks... yes
+checking if link() does not folow symlinks... yes
+checking for unistd.h... (cached) yes
+checking if access() does implement E_OK... yes
+checking for fnmatch.h... (cached) yes
+checking if fnmatch() does implement FNM_IGNORECASE or FNM_CASEFOLD... yes
+checking for fseeko()... yes
+checking for ftello()... yes
+checking for dlopen in -lc... yes
+checking for dlopen... yes
+checking for dlclose... yes
+checking for dlsym... yes
+checking for dlerror... yes
+checking for dlinfo... yes
+checking for shl_load... no
+checking for shl_unload... no
+checking for shl_gethandle... no
+checking if LoadLibrary is defined or function... no
+checking if FreeLibrary is defined or function... no
+checking if GetProcAddress is defined or function... no
+checking for rcmd in -lsocket... yes
+checking for inet_ntoa in -lnsl... yes
+checking for rcmd... yes
+checking for socket... yes
+checking for socketpair... yes
+checking for getservbyname... yes
+checking for inet_ntoa... yes
+checking for getaddrinfo... yes
+checking for getnameinfo... yes
+checking for res_init in -lc... no
+checking for res_init in -lresolv... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for _LARGE_FILES value needed for large files... no
+checking for _LARGEFILE_SOURCE value needed for large files... no
+checking if system supports Large Files at all... yes
+checking for crypt in -lc... yes
+checking for crypt... yes
+checking for gettext in -lc... yes
+checking if gettext is defined or function... yes
+checking for iconv_open in -lc... yes
+checking if iconv is defined or function... yes
+checking if iconv_open is defined or function... yes
+checking if iconv_close is defined or function... yes
+checking if libiconv is defined or function... no
+checking if libiconv_open is defined or function... no
+checking if libiconv_close is defined or function... no
+checking for Posix Access Control List support
+checking for acl_get_file in -lacl... no
+checking for acl_get_file in -lpacl... no
+checking for acl_get_file... no
+checking for acl_set_file... no
+checking for acl_from_text... no
+checking for acl_to_text... no
+checking for acl_free... no
+checking for acl_delete_def_file... no
+checking for acl_extended_file... no
+checking for acl_get_entry... no
+checking for acl_to_text_np... no
+checking for acl_get_brand_np... no
+checking for acl_is_trivial_np... no
+checking for acl_strip_np... no
+checking for Solaris UFS Access Control List support
+checking for acltotext in -lsec... yes
+checking for acl... yes
+checking for facl... yes
+checking for aclfromtext... yes
+checking for acltotext... yes
+checking for NFSv4 Access Control List support
+checking for acl_get... yes
+checking for acl_set... yes
+checking for facl_get... yes
+checking for facl_set... yes
+checking for acl_fromtext... yes
+checking for acl_totext... yes
+checking for HP-UX Access Control List support
+checking for getacl... no
+checking for fgetacl... no
+checking for setacl... no
+checking for fsetacl... no
+checking for strtoacl... no
+checking for acltostr... no
+checking for cpacl... no
+checking for fcpacl... no
+checking for chownacl... no
+checking for setaclentry... no
+checking for fsetaclentry... no
+checking for RBAC support
+checking for getuserattr in -lsecdb... yes
+checking for getauthattr... yes
+checking for getuserattr... yes
+checking for getexecattr... yes
+checking for getprofattr... yes
+checking for gmatch() support
+checking for gmatch in -lgen... yes
+checking for gmatch... yes
+checking for thr_yield... yes
+checking for pthread_create in -lpthread... yes
+checking for pthread_create... yes
+checking for pthread_kill... yes
+checking for pthread_mutex_lock... yes
+checking for pthread_cond_wait... yes
+checking for pthread_spin_lock... yes
+checking for clock_gettime in -lc... yes
+checking for clock_gettime... yes
+checking for clock_settime... yes
+checking for clock_getres... yes
+checking for sched_getparam... yes
+checking for sched_setparam... yes
+checking for sched_getscheduler... yes
+checking for sched_setscheduler... yes
+checking for sched_yield... yes
+checking for nanosleep... yes
+checking for cap_get_proc in -lcap... no
+checking for cap_get_proc... no
+checking for cap_set_proc... no
+checking for cap_set_flag... no
+checking for cap_clear_flag... no
+checking for /dev/tty... yes
+checking for /dev/null... yes
+checking for /dev/zero... yes
+checking for /dev/stdin... yes
+checking for /dev/stdout... yes
+checking for /dev/stderr... yes
+checking for /dev/fd/0... yes
+checking for /dev/fd/1... no
+checking for /dev/fd/2... no
+checking for /usr/src/linux/include... no
+updating cache ./config.cache
+creating ./config.status
+creating rules.cnf
+creating xconfig.h
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/conf"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/inc"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/inc/align_test.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/align.h.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/align_test.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/align_test"
+	==> GENERATING include file "../incs/i386-sunos5-cc64/align.h"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/inc/avoffset.mk"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/avoffset.h.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/avoffset.o"
+"avoffset.c", line 158: warning: statement not reached
+	==> LINKING "OBJ/i386-sunos5-cc64/avoffset"
+	==> GENERATING include file "../incs/i386-sunos5-cc64/avoffset.h"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/include"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/include/schily"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libschily"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libschily/libschily.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libschily.a.dep"
+stdio/cvmod.c:
+stdio/dat.c:
+stdio/fcons.c:
+stdio/fdown.c:
+stdio/fdup.c:
+stdio/ffileread.c:
+stdio/ffilewrite.c:
+stdio/fgetaline.c:
+stdio/fgetline.c:
+stdio/fgetstr.c:
+stdio/file_getraise.c:
+stdio/file_raise.c:
+stdio/fileclose.c:
+stdio/fileluopen.c:
+stdio/fileopen.c:
+stdio/filemopen.c:
+stdio/filepos.c:
+stdio/fileread.c:
+stdio/filereopen.c:
+stdio/fileseek.c:
+stdio/filesize.c:
+stdio/filestat.c:
+stdio/filewrite.c:
+stdio/flag.c:
+stdio/flush.c:
+stdio/fpipe.c:
+stdio/niread.c:
+stdio/niwrite.c:
+stdio/nixread.c:
+stdio/nixwrite.c:
+stdio/openfd.c:
+stdio/peekc.c:
+stdio/fcons64.c:
+stdio/fdup64.c:
+stdio/fileluopen64.c:
+stdio/fileopen64.c:
+stdio/filemopen64.c:
+stdio/filepos64.c:
+stdio/filereopen64.c:
+stdio/fileseek64.c:
+stdio/filesize64.c:
+stdio/filestat64.c:
+stdio/openfd64.c:
+abspath.c:
+astoi.c:
+astoll.c:
+astoull.c:
+basename.c:
+breakline.c:
+checkerr.c:
+comerr.c:
+fcomerr.c:
+chown.c:
+cmpbytes.c:
+cmpmbytes.c:
+cmpnullbytes.c:
+dirent.c:
+dirname.c:
+diropen.c:
+eaccess.c:
+error.c:
+fchdir.c:
+fchownat.c:
+fconv.c:
+fdopendir.c:
+fexec.c:
+fillbytes.c:
+findinpath.c:
+findbytes.c:
+findline.c:
+fnmatch.c:
+format.c:
+fprformat.c:
+fstatat.c:
+fstream.c:
+futimens.c:
+futimesat.c:
+getargs.c:
+getav0.c:
+geterrno.c:
+getexecpath.c:
+getfp.c:
+getgrent.c:
+getdtablesize.c:
+getdomainname.c:
+gethostid.c:
+gethostname.c:
+getpagesize.c:
+getlogin.c:
+getnum.c:
+getxnum.c:
+gettnum.c:
+getxtnum.c:
+getperm.c:
+getpwent.c:
+getnstimeofday.c:
+gettimeofday.c:
+gid.c:
+handlecond.c:
+jsprintf.c:
+jssnprintf.c:
+jssprintf.c:
+kill.c:
+linkat.c:
+lutimens.c:
+lxchdir.c:
+match.c:
+matchl.c:
+matchw.c:
+matchwl.c:
+movebytes.c:
+mkdirat.c:
+mkdirs.c:
+mkfifo.c:
+mkfifoat.c:
+mkgmtime.c:
+mknodat.c:
+mkstemp.c:
+mem.c:
+jmem.c:
+fjmem.c:
+openat.c:
+permtostr.c:
+procnameat.c:
+raisecond.c:
+readlinkat.c:
+rename.c:
+renameat.c:
+resolvepath.c:
+saveargs.c:
+savewd.c:
+searchinpath.c:
+serrmsg.c:
+seterrno.c:
+setfp.c:
+setnstimeofday.c:
+sleep.c:
+snprintf.c:
+spawn.c:
+strcasecmp.c:
+strncasecmp.c:
+strcasemap.c:
+strcat.c:
+strcatl.c:
+strchr.c:
+strcmp.c:
+strcpy.c:
+strcspn.c:
+strdup.c:
+streql.c:
+strlen.c:
+strlcat.c:
+strlcpy.c:
+strncat.c:
+strncmp.c:
+strncpy.c:
+strndup.c:
+strnlen.c:
+strrchr.c:
+strspn.c:
+strstr.c:
+swabbytes.c:
+symlinkat.c:
+timegm.c:
+uid.c:
+unlinkat.c:
+uname.c:
+usleep.c:
+utimens.c:
+utimensat.c:
+wcscat.c:
+wcscatl.c:
+wcschr.c:
+wcscmp.c:
+wcscpy.c:
+wcscspn.c:
+wcsdup.c:
+wcseql.c:
+wcslen.c:
+wcslcat.c:
+wcslcpy.c:
+wcsncat.c:
+wcsncmp.c:
+wcsncpy.c:
+wcsndup.c:
+wcsnlen.c:
+wcsrchr.c:
+wcsspn.c:
+wcsstr.c:
+wdabort.c:
+zerobytes.c:
+	==> MAKING DIRECTORY "../libs/i386-sunos5-cc64"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cvmod.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/dat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fcons.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fdown.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fdup.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/ffileread.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/ffilewrite.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fgetaline.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fgetline.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fgetstr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/file_getraise.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/file_raise.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fileclose.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fileluopen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fileopen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/filemopen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/filepos.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fileread.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/filereopen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fileseek.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/filesize.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/filestat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/filewrite.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/flag.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/flush.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fpipe.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/niread.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/niwrite.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/nixread.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/nixwrite.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/openfd.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/peekc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fcons64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fdup64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fileluopen64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fileopen64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/filemopen64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/filepos64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/filereopen64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fileseek64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/filesize64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/filestat64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/openfd64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/abspath.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/astoi.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/astoll.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/astoull.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/basename.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/breakline.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/checkerr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/comerr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fcomerr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/chown.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cmpbytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cmpmbytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cmpnullbytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/dirent.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/dirname.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/diropen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/eaccess.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/error.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fchdir.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fchownat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fconv.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fdopendir.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fexec.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fillbytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/findinpath.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/findbytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/findline.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fnmatch.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/format.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fprformat.o"
+"../include/schily/stdio.h", line 97: warning: macro redefined: putc_unlocked
+	==> COMPILING "OBJ/i386-sunos5-cc64/fstatat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fstream.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/futimens.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/futimesat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getargs.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getav0.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/geterrno.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getexecpath.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getfp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getgrent.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getdtablesize.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getdomainname.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/gethostid.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/gethostname.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getpagesize.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getlogin.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getnum.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getxnum.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/gettnum.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getxtnum.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getperm.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getpwent.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/getnstimeofday.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/gettimeofday.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/gid.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/handlecond.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/jsprintf.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/jssnprintf.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/jssprintf.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/kill.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/linkat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/lutimens.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/lxchdir.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/match.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/matchl.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/matchw.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/matchwl.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/movebytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/mkdirat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/mkdirs.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/mkfifo.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/mkfifoat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/mkgmtime.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/mknodat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/mkstemp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/mem.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/jmem.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fjmem.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/openat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/permtostr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/procnameat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/raisecond.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/readlinkat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/rename.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/renameat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/resolvepath.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/saveargs.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/savewd.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/searchinpath.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/serrmsg.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/seterrno.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/setfp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/setnstimeofday.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/sleep.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/snprintf.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/spawn.o"
+"spawn.c", line 183: warning:  "vfork" is deprecated, declared in : "/usr/include/unistd.h", line 672
+"spawn.c", line 197: warning: statement not reached
+	==> COMPILING "OBJ/i386-sunos5-cc64/strcasecmp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strncasecmp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strcasemap.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strcat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strcatl.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strchr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strcmp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strcpy.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strcspn.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strdup.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/streql.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strlen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strlcat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strlcpy.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strncat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strncmp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strncpy.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strndup.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strnlen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strrchr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strspn.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/strstr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/swabbytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/symlinkat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/timegm.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/uid.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/unlinkat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/uname.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/usleep.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/utimens.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/utimensat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcscat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcscatl.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcschr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcscmp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcscpy.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcscspn.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcsdup.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcseql.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcslen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcslcat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcslcpy.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcsncat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcsncmp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcsncpy.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcsndup.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcsnlen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcsrchr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcsspn.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wcsstr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wdabort.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/zerobytes.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libschily.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libschily.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libschily/libschily_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libschily.a.dep"
+stdio/cvmod.c:
+stdio/dat.c:
+stdio/fcons.c:
+stdio/fdown.c:
+stdio/fdup.c:
+stdio/ffileread.c:
+stdio/ffilewrite.c:
+stdio/fgetaline.c:
+stdio/fgetline.c:
+stdio/fgetstr.c:
+stdio/file_getraise.c:
+stdio/file_raise.c:
+stdio/fileclose.c:
+stdio/fileluopen.c:
+stdio/fileopen.c:
+stdio/filemopen.c:
+stdio/filepos.c:
+stdio/fileread.c:
+stdio/filereopen.c:
+stdio/fileseek.c:
+stdio/filesize.c:
+stdio/filestat.c:
+stdio/filewrite.c:
+stdio/flag.c:
+stdio/flush.c:
+stdio/fpipe.c:
+stdio/niread.c:
+stdio/niwrite.c:
+stdio/nixread.c:
+stdio/nixwrite.c:
+stdio/openfd.c:
+stdio/peekc.c:
+stdio/fcons64.c:
+stdio/fdup64.c:
+stdio/fileluopen64.c:
+stdio/fileopen64.c:
+stdio/filemopen64.c:
+stdio/filepos64.c:
+stdio/filereopen64.c:
+stdio/fileseek64.c:
+stdio/filesize64.c:
+stdio/filestat64.c:
+stdio/openfd64.c:
+abspath.c:
+astoi.c:
+astoll.c:
+astoull.c:
+basename.c:
+breakline.c:
+checkerr.c:
+comerr.c:
+fcomerr.c:
+chown.c:
+cmpbytes.c:
+cmpmbytes.c:
+cmpnullbytes.c:
+dirent.c:
+dirname.c:
+diropen.c:
+eaccess.c:
+error.c:
+fchdir.c:
+fchownat.c:
+fconv.c:
+fdopendir.c:
+fexec.c:
+fillbytes.c:
+findinpath.c:
+findbytes.c:
+findline.c:
+fnmatch.c:
+format.c:
+fprformat.c:
+fstatat.c:
+fstream.c:
+futimens.c:
+futimesat.c:
+getargs.c:
+getav0.c:
+geterrno.c:
+getexecpath.c:
+getfp.c:
+getgrent.c:
+getdtablesize.c:
+getdomainname.c:
+gethostid.c:
+gethostname.c:
+getpagesize.c:
+getlogin.c:
+getnum.c:
+getxnum.c:
+gettnum.c:
+getxtnum.c:
+getperm.c:
+getpwent.c:
+getnstimeofday.c:
+gettimeofday.c:
+gid.c:
+handlecond.c:
+jsprintf.c:
+jssnprintf.c:
+jssprintf.c:
+kill.c:
+linkat.c:
+lutimens.c:
+lxchdir.c:
+match.c:
+matchl.c:
+matchw.c:
+matchwl.c:
+movebytes.c:
+mkdirat.c:
+mkdirs.c:
+mkfifo.c:
+mkfifoat.c:
+mkgmtime.c:
+mknodat.c:
+mkstemp.c:
+mem.c:
+jmem.c:
+fjmem.c:
+openat.c:
+permtostr.c:
+procnameat.c:
+raisecond.c:
+readlinkat.c:
+rename.c:
+renameat.c:
+resolvepath.c:
+saveargs.c:
+savewd.c:
+searchinpath.c:
+serrmsg.c:
+seterrno.c:
+setfp.c:
+setnstimeofday.c:
+sleep.c:
+snprintf.c:
+spawn.c:
+strcasecmp.c:
+strncasecmp.c:
+strcasemap.c:
+strcat.c:
+strcatl.c:
+strchr.c:
+strcmp.c:
+strcpy.c:
+strcspn.c:
+strdup.c:
+streql.c:
+strlen.c:
+strlcat.c:
+strlcpy.c:
+strncat.c:
+strncmp.c:
+strncpy.c:
+strndup.c:
+strnlen.c:
+strrchr.c:
+strspn.c:
+strstr.c:
+swabbytes.c:
+symlinkat.c:
+timegm.c:
+uid.c:
+unlinkat.c:
+uname.c:
+usleep.c:
+utimens.c:
+utimensat.c:
+wcscat.c:
+wcscatl.c:
+wcschr.c:
+wcscmp.c:
+wcscpy.c:
+wcscspn.c:
+wcsdup.c:
+wcseql.c:
+wcslen.c:
+wcslcat.c:
+wcslcpy.c:
+wcsncat.c:
+wcsncmp.c:
+wcsncpy.c:
+wcsndup.c:
+wcsnlen.c:
+wcsrchr.c:
+wcsspn.c:
+wcsstr.c:
+wdabort.c:
+zerobytes.c:
+	==> MAKING DIRECTORY "../libs/i386-sunos5-cc64/profiled"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/cvmod.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/dat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fcons.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fdown.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fdup.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/ffileread.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/ffilewrite.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fgetaline.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fgetline.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fgetstr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/file_getraise.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/file_raise.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fileclose.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fileluopen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fileopen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/filemopen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/filepos.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fileread.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/filereopen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fileseek.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/filesize.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/filestat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/filewrite.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/flag.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/flush.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fpipe.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/niread.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/niwrite.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/nixread.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/nixwrite.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/openfd.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/peekc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fcons64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fdup64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fileluopen64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fileopen64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/filemopen64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/filepos64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/filereopen64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fileseek64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/filesize64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/filestat64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/openfd64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/abspath.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/astoi.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/astoll.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/astoull.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/basename.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/breakline.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/checkerr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/comerr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fcomerr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/chown.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/cmpbytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/cmpmbytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/cmpnullbytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/dirent.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/dirname.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/diropen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/eaccess.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/error.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fchdir.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fchownat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fconv.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fdopendir.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fexec.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fillbytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/findinpath.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/findbytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/findline.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fnmatch.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/format.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fprformat.o"
+"../include/schily/stdio.h", line 97: warning: macro redefined: putc_unlocked
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fstatat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fstream.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/futimens.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/futimesat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getargs.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getav0.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/geterrno.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getexecpath.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getfp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getgrent.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getdtablesize.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getdomainname.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/gethostid.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/gethostname.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getpagesize.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getlogin.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getnum.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getxnum.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/gettnum.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getxtnum.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getperm.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getpwent.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/getnstimeofday.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/gettimeofday.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/gid.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/handlecond.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/jsprintf.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/jssnprintf.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/jssprintf.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/kill.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/linkat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/lutimens.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/lxchdir.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/match.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/matchl.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/matchw.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/matchwl.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/movebytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/mkdirat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/mkdirs.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/mkfifo.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/mkfifoat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/mkgmtime.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/mknodat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/mkstemp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/mem.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/jmem.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fjmem.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/openat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/permtostr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/procnameat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/raisecond.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/readlinkat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/rename.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/renameat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/resolvepath.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/saveargs.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/savewd.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/searchinpath.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/serrmsg.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/seterrno.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/setfp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/setnstimeofday.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/sleep.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/snprintf.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/spawn.o"
+"spawn.c", line 183: warning:  "vfork" is deprecated, declared in : "/usr/include/unistd.h", line 672
+"spawn.c", line 197: warning: statement not reached
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strcasecmp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strncasecmp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strcasemap.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strcat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strcatl.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strchr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strcmp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strcpy.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strcspn.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strdup.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/streql.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strlen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strlcat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strlcpy.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strncat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strncmp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strncpy.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strndup.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strnlen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strrchr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strspn.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/strstr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/swabbytes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/symlinkat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/timegm.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/uid.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/unlinkat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/uname.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/usleep.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/utimens.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/utimensat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcscat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcscatl.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcschr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcscmp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcscpy.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcscspn.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcsdup.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcseql.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcslen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcslcat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcslcpy.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcsncat.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcsncmp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcsncpy.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcsndup.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcsnlen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcsrchr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcsspn.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wcsstr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/wdabort.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/zerobytes.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libschily.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libschily.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libschily/noshlschily.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libdeflt"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libdeflt/libdeflt.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libdeflt.a.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/default.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libdeflt.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libdeflt.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libdeflt/libdeflt_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libdeflt.a.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/default.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libdeflt.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libdeflt.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libdeflt/noshldeflt.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libscg"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libscg/libscg.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libscg.a.dep"
+scsitransp.c:
+scsihack.c:
+scsiopen.c:
+scgsettarget.c:
+scsierrs.c:
+scgtimes.c:
+scsihelp.c:
+rdummy.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsitransp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsihack.o"
+"scsi-sun.c", line 492: warning:  "volmgt_running" is deprecated, declared in : "/usr/include/volmgt.h", line 55
+"scsi-sun.c", line 678: warning:  "volmgt_symdev" is deprecated, declared in : "/usr/include/volmgt.h", line 95
+"scsi-sun.c", line 680: warning:  "volmgt_symname" is deprecated, declared in : "/usr/include/volmgt.h", line 75
+"scsi-sun.c", line 692: warning:  "volmgt_symname" is deprecated, declared in : "/usr/include/volmgt.h", line 75
+"scsi-sun.c", line 694: warning:  "volmgt_symdev" is deprecated, declared in : "/usr/include/volmgt.h", line 95
+"scsi-sun.c", line 707: warning:  "media_findname" is deprecated, declared in : "/usr/include/volmgt.h", line 154
+"scsi-sun.c", line 718: warning:  "volmgt_inuse" is deprecated, declared in : "/usr/include/volmgt.h", line 43
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsiopen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scgsettarget.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsierrs.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scgtimes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsihelp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/rdummy.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libscg.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libscg.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libscg/libscg_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libscg.a.dep"
+scsitransp.c:
+scsihack.c:
+scsiopen.c:
+scgsettarget.c:
+scsierrs.c:
+scgtimes.c:
+scsihelp.c:
+rdummy.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/scsitransp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/scsihack.o"
+"scsi-sun.c", line 492: warning:  "volmgt_running" is deprecated, declared in : "/usr/include/volmgt.h", line 55
+"scsi-sun.c", line 678: warning:  "volmgt_symdev" is deprecated, declared in : "/usr/include/volmgt.h", line 95
+"scsi-sun.c", line 680: warning:  "volmgt_symname" is deprecated, declared in : "/usr/include/volmgt.h", line 75
+"scsi-sun.c", line 692: warning:  "volmgt_symname" is deprecated, declared in : "/usr/include/volmgt.h", line 75
+"scsi-sun.c", line 694: warning:  "volmgt_symdev" is deprecated, declared in : "/usr/include/volmgt.h", line 95
+"scsi-sun.c", line 707: warning:  "media_findname" is deprecated, declared in : "/usr/include/volmgt.h", line 154
+"scsi-sun.c", line 718: warning:  "volmgt_inuse" is deprecated, declared in : "/usr/include/volmgt.h", line 43
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/scsiopen.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/scgsettarget.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/scsierrs.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/scgtimes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/scsihelp.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/rdummy.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libscg.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libscg.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libscg/noshlscg.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libscg/scg"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/lib"
+NOTICE: Partial source (SRCROOT/lib) missing
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libcdrdeflt"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libcdrdeflt/libcdrdeflt.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libcdrdeflt.a.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cdrdeflt.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libcdrdeflt.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libcdrdeflt.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libcdrdeflt/libcdrdeflt_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libcdrdeflt.a.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/cdrdeflt.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libcdrdeflt.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libcdrdeflt.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libcdrdeflt/noshlcdrdeflt.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libedc"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libedc/libedc.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libedc_ecc.a.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/edc_ecc.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libedc_ecc.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libedc_ecc.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libedc/libedc_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libedc_ecc.a.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/edc_ecc.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libedc_ecc.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libedc_ecc.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libedc/libedc_dec.mk"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libedc_ecc_dec.a.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/edc_ecc_dec.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libedc_ecc_dec.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libedc_ecc_dec.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libedc/libedc_dec_p.mk"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libedc_ecc_dec.a.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/edc_ecc_dec.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libedc_ecc_dec.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libedc_ecc_dec.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libedc/noshledc.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libedc/noshledc_dec.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libfile"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libfile/libfile.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libfile.a.dep"
+file.c:
+apprentice.c:
+softmagic.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/file.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/apprentice.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/softmagic.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libfile.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libfile.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libfile/libfile_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libfile.a.dep"
+file.c:
+apprentice.c:
+softmagic.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/file.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/apprentice.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/softmagic.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libfile.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libfile.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libfile/noshlfile.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libfind"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libfind/libfind.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libfind.a.dep"
+find.c:
+walk.c:
+fetchdir.c:
+cmpdir.c:
+find_misc.c:
+find_list.c:
+find_main.c:
+idcache.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/find.o"
+"find.c", line 1860: warning:  "vfork" is deprecated, declared in : "/usr/include/unistd.h", line 672
+"find.c", line 1959: warning: statement not reached
+	==> COMPILING "OBJ/i386-sunos5-cc64/walk.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fetchdir.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cmpdir.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/find_misc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/find_list.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/find_main.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/idcache.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libfind.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libfind.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libfind/libfind_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libfind.a.dep"
+find.c:
+walk.c:
+fetchdir.c:
+cmpdir.c:
+find_misc.c:
+find_list.c:
+find_main.c:
+idcache.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/find.o"
+"find.c", line 1860: warning:  "vfork" is deprecated, declared in : "/usr/include/unistd.h", line 672
+"find.c", line 1959: warning: statement not reached
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/walk.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/fetchdir.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/cmpdir.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/find_misc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/find_list.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/find_main.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/idcache.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libfind.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libfind.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libfind/noshlfind.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libhfs_iso"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libhfs_iso/libhfs.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libhfs.a.dep"
+data.c:
+block.c:
+low.c:
+file.c:
+btree.c:
+node.c:
+record.c:
+volume.c:
+hfs.c:
+gdata.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/data.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/block.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/low.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/file.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/btree.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/node.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/record.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/volume.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/hfs.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/gdata.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libhfs.a"
+UX tsort: INFORM: cycle in data
+	OBJ/i386-sunos5-cc64/file.o
+	OBJ/i386-sunos5-cc64/volume.o
+	OBJ/i386-sunos5-cc64/low.o
+	OBJ/i386-sunos5-cc64/block.o
+	OBJ/i386-sunos5-cc64/data.o
+UX tsort: INFORM: cycle in data
+	OBJ/i386-sunos5-cc64/file.o
+	OBJ/i386-sunos5-cc64/volume.o
+	OBJ/i386-sunos5-cc64/btree.o
+	OBJ/i386-sunos5-cc64/block.o
+	OBJ/i386-sunos5-cc64/data.o
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libhfs.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libhfs_iso/libhfs_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libhfs.a.dep"
+data.c:
+block.c:
+low.c:
+file.c:
+btree.c:
+node.c:
+record.c:
+volume.c:
+hfs.c:
+gdata.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/data.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/block.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/low.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/file.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/btree.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/node.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/record.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/volume.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/hfs.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/gdata.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libhfs.a"
+UX tsort: INFORM: cycle in data
+	OBJ/i386-sunos5-cc64/profiled/file.o
+	OBJ/i386-sunos5-cc64/profiled/volume.o
+	OBJ/i386-sunos5-cc64/profiled/low.o
+	OBJ/i386-sunos5-cc64/profiled/block.o
+	OBJ/i386-sunos5-cc64/profiled/data.o
+UX tsort: INFORM: cycle in data
+	OBJ/i386-sunos5-cc64/profiled/file.o
+	OBJ/i386-sunos5-cc64/profiled/volume.o
+	OBJ/i386-sunos5-cc64/profiled/btree.o
+	OBJ/i386-sunos5-cc64/profiled/block.o
+	OBJ/i386-sunos5-cc64/profiled/data.o
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libhfs.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libhfs_iso/noshlhfs.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libmdigest"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libmdigest/mdigest.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libmdigest.a.dep"
+md4.c:
+md5.c:
+rmd160.c:
+sha1.c:
+sha2.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/md4.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/md5.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/rmd160.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/sha1.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/sha2.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libmdigest.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libmdigest.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libmdigest/mdigest_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libmdigest.a.dep"
+md4.c:
+md5.c:
+rmd160.c:
+sha1.c:
+sha2.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/md4.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/md5.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/rmd160.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/sha1.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/sha2.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libmdigest.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libmdigest.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libmdigest/noshlmdigest.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libparanoia"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libparanoia/paranoia.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libparanoia.a.dep"
+gap.c:
+isort.c:
+overlap.c:
+p_block.c:
+paranoia.c:
+pmalloc.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/gap.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/isort.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/overlap.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/p_block.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/paranoia.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/pmalloc.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libparanoia.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libparanoia.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libparanoia/paranoia_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libparanoia.a.dep"
+gap.c:
+isort.c:
+overlap.c:
+p_block.c:
+paranoia.c:
+pmalloc.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/gap.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/isort.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/overlap.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/p_block.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/paranoia.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/pmalloc.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libparanoia.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libparanoia.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libparanoia/noshlparanoia.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/librscg"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/librscg/librscg.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/librscg.a.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi-remote.o"
+"scsi-remote.c", line 1190: warning: statement not reached
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/librscg.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/librscg.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/librscg/librscg_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/librscg.a.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/scsi-remote.o"
+"scsi-remote.c", line 1190: warning: statement not reached
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/librscg.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/librscg.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/librscg/noshlrscg.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libscgcmd"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libscgcmd/libscgcmd.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libscgcmd.a.dep"
+buffer.c:
+inquiry.c:
+modes.c:
+modesense.c:
+read.c:
+readcap.c:
+ready.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/buffer.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/inquiry.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/modes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/modesense.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/read.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/readcap.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/ready.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libscgcmd.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libscgcmd.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libscgcmd/libscgcmd_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libscgcmd.a.dep"
+buffer.c:
+inquiry.c:
+modes.c:
+modesense.c:
+read.c:
+readcap.c:
+ready.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/buffer.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/inquiry.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/modes.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/modesense.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/read.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/readcap.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/ready.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libscgcmd.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libscgcmd.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libscgcmd/noshlscgcmd.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libsiconv"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libsiconv/libsiconv.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/libsiconv.a.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/sic_nls.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/libsiconv.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/libsiconv.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libsiconv/libsiconv_p.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/profiled"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/profiled/libsiconv.a.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/profiled/sic_nls.o"
+	==> ARCHIVING  "../libs/i386-sunos5-cc64/profiled/libsiconv.a"
+	==> RANDOMIZING ARCHIVE "../libs/i386-sunos5-cc64/profiled/libsiconv.a"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/libsiconv/noshlsiconv.mk"
+	==> NO shared libs on this platform (yet)
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/libsiconv/tables"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/btcflash"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING SYMLINKS in .
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/btcflash.dep"
+skel.c:
+io.c:
+cd_misc.c:
+scsi_cdr.c:
+scsi_scan.c:
+misc.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/skel.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/io.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cd_misc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_cdr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_scan.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/misc.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/btcflash"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/cdda2wav"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/Inull"
+	==> MAKING SYMLINKS in .
+	==> CONFIGURING LOCAL RULES "OBJ/i386-sunos5-cc64/local.cnf"
+creating cache ./config.cache
+checking host system type... i386-pc-solaris2.11
+checking for sched_get_priority_max in -lposix4... yes
+checking for _oss_ioctl in -lossaudio... no
+checking how to run the C preprocessor... cc -E
+checking for sys/cdio.h... yes
+checking for sys/cdrio.h... no
+checking for sundev/srreg.h... no
+checking for sys/audioio.h... yes
+checking for sun/audioio.h... no
+checking for soundcard.h... no
+checking for sys/soundcard.h... yes
+checking for linux/soundcard.h... no
+checking for machine/soundcard.h... no
+checking for sys/asoundlib.h... no
+checking for windows.h... no
+checking for mmsystem.h... no
+updating cache ./config.cache
+creating ./config.status
+creating local.cnf
+creating lconfig.h
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/cdda2wav.dep"
+cdda2wav.c:
+interface.c:
+semshm.c:
+resample.c:
+scsi_scan.c:
+toc.c:
+wav.c:
+sun.c:
+raw.c:
+setuid.c:
+ringbuff.c:
+sndconfig.c:
+scsi_cmds.c:
+aiff.c:
+aifc.c:
+scsi_cdr.c:
+cd_misc.c:
+ioctl.c:
+base64.c:
+parse.c:
+priv.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/cdda2wav.o"
+"cdda2wav.c", line 1599: warning: statement not reached
+	==> COMPILING "OBJ/i386-sunos5-cc64/interface.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/semshm.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/resample.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_scan.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/toc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wav.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/sun.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/raw.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/setuid.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/ringbuff.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/sndconfig.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_cmds.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/aiff.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/aifc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_cdr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cd_misc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/ioctl.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/base64.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/parse.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/priv.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/cdda2wav"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/cdrecord"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/cdrecord.dep"
+cdrecord.c:
+cd_misc.c:
+fifo.c:
+isosize.c:
+audiosize.c:
+auinfo.c:
+cue.c:
+diskid.c:
+wm_session.c:
+wm_track.c:
+wm_packet.c:
+sector.c:
+clone.c:
+movesect.c:
+subchan.c:
+cdtext.c:
+cdr_drv.c:
+drv_philips.c:
+drv_sony.c:
+drv_jvc.c:
+drv_7501.c:
+drv_mmc.c:
+drv_dvd.c:
+drv_dvdplus.c:
+drv_bd.c:
+drv_simul.c:
+vendor.c:
+scsi_scan.c:
+scsi_cdr.c:
+scsi_cdr_mmc4.c:
+scsi_mmc.c:
+scsi_mmc4.c:
+scsilog.c:
+misc.c:
+crc16.c:
+xio.c:
+priv.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/cdrecord.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cd_misc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/fifo.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/isosize.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/audiosize.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/auinfo.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cue.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/diskid.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wm_session.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wm_track.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/wm_packet.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/sector.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/clone.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/movesect.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/subchan.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cdtext.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cdr_drv.o"
+"cdr_drv.c", line 296: warning: statement not reached
+	==> COMPILING "OBJ/i386-sunos5-cc64/drv_philips.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/drv_sony.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/drv_jvc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/drv_7501.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/drv_mmc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/drv_dvd.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/drv_dvdplus.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/drv_bd.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/drv_simul.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/vendor.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_scan.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_cdr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_cdr_mmc4.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_mmc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_mmc4.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsilog.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/misc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/crc16.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/xio.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/priv.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/cdrecord"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/cmd"
+NOTICE: Partial source (SRCROOT/cmd) missing
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/mkisofs"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/mkisofs.dep"
+mkisofs.c:
+tree.c:
+write.c:
+hash.c:
+rock.c:
+inode.c:
+udf.c:
+multi.c:
+joliet.c:
+match.c:
+name.c:
+eltorito.c:
+boot.c:
+isonum.c:
+scsi.c:
+apple.c:
+volume.c:
+desktop.c:
+mac_label.c:
+stream.c:
+ifo_read.c:
+dvd_file.c:
+dvd_reader.c:
+walk.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/mkisofs.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/tree.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/write.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/hash.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/rock.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/inode.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/udf.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/multi.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/joliet.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/match.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/name.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/eltorito.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/boot.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/isonum.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/apple.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/volume.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/desktop.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/mac_label.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/stream.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/ifo_read.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/dvd_file.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/dvd_reader.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/walk.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/mkisofs"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/mkisofs/diag"
+	==> MAKING SYMLINKS in .
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/dump.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/devdump.dep"
+dump.c:
+scsi.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/dump.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/devdump"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/isodump.mk"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/isodump.dep"
+isodump.c:
+scsi.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/isodump.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/isodump"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/isoinfo.mk"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/isoinfo.dep"
+isoinfo.c:
+scsi.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/isoinfo.o"
+"isoinfo.c", line 1255: warning: statement not reached
+	==> LINKING "OBJ/i386-sunos5-cc64/isoinfo"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/isovfy.mk"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/isovfy.dep"
+isovfy.c:
+scsi.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/isovfy.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/isovfy"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/isodebug.mk"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/isodebug.dep"
+isodebug.c:
+scsi.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/isodebug.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/isodebug"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/readcd"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING SYMLINKS in .
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/readcd.dep"
+readcd.c:
+cd_misc.c:
+io.c:
+scsi_scan.c:
+movesect.c:
+scsi_cdr.c:
+scsi_mmc.c:
+misc.c:
+priv.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/readcd.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cd_misc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/io.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_scan.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/movesect.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_cdr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_mmc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/misc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/priv.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/readcd"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/rscsi"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/rscsi.dep"
+	==> COMPILING "OBJ/i386-sunos5-cc64/rscsi.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/rscsi"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/scgcheck"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING SYMLINKS in .
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/scgcheck.dep"
+scgcheck.c:
+sense.c:
+dmaresid.c:
+scsi_scan.c:
+scsi_cdr.c:
+cd_misc.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/scgcheck.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/sense.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/dmaresid.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_scan.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_cdr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cd_misc.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/scgcheck"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/scgskeleton"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64"
+	==> MAKING SYMLINKS in .
+	==> MAKING DEPENDENCIES "OBJ/i386-sunos5-cc64/scgskeleton.dep"
+skel.c:
+io.c:
+cd_misc.c:
+scsi_cdr.c:
+scsi_scan.c:
+misc.c:
+	==> COMPILING "OBJ/i386-sunos5-cc64/skel.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/io.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/cd_misc.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_cdr.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/scsi_scan.o"
+	==> COMPILING "OBJ/i386-sunos5-cc64/misc.o"
+	==> LINKING "OBJ/i386-sunos5-cc64/scgskeleton"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/man"
+	==> MAKING "all" ON SUBDIRECTORY "SRCROOT/man/man4"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/man/man4/makefiles.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/man"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/makefiles.4"
+	==> MAKING "all" ON SUBCOMPONENT "SRCROOT/man/man4/makerules.mk"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/makerules.4"
+/usr/bin/touch /ws/userland/src/components/cdrtools/build/amd64/.built
+(cd /ws/userland/src/components/cdrtools/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/ccs/bin/make  DESTDIR=/ws/userland/src/components/cdrtools/build/prototype/i386  GMAKE_NOWARN=true CCOM=cc64 install)
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/conf"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/i386-sunos5-cc64"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/i386-sunos5-cc64/xconfig.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/conf/xconfig.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/inc"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/inc/align_test.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/i386-sunos5-cc64/align.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/inc/avoffset.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/i386-sunos5-cc64/avoffset.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/include"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/include/schily"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/align.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/align.mk"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/alloca.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/alloca.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/archdefs.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/archdefs.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/assert.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/assert.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/avoffset.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/avoffset.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/btorder.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/btorder.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/ccomdefs.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/ccomdefs.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/checkerr.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/checkerr.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/ctype.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/ctype.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/dbgmalloc.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/dbgmalloc.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/deflts.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/deflts.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/device.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/device.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/dirent.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/dirent.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/dlfcn.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/dlfcn.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/err_arch.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/err_arch.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/err_bit.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/err_bit.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/err_char.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/err_char.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/err_type.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/err_type.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/errno.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/errno.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/fcntl.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/fcntl.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/fetchdir.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/fetchdir.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/find.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/find.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/float.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/float.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/fnmatch.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/fnmatch.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/fstream.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/fstream.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/getargs.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/getargs.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/getcwd.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/getcwd.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/grp.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/grp.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/hostname.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/hostname.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/iconv.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/iconv.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/idcache.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/idcache.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/in.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/in.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/inet.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/inet.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/io.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/io.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/ioctl.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/ioctl.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/ipc.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/ipc.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/intcvt.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/intcvt.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/inttypes.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/inttypes.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/jmpdefs.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/jmpdefs.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/libgen.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/libgen.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/libport.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/libport.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/librmt.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/librmt.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/limits.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/limits.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/locale.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/locale.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/math.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/math.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/maxpath.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/maxpath.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/mconfig.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/mconfig.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/md4.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/md4.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/md5.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/md5.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/mman.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/mman.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/mtio.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/mtio.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/netdb.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/netdb.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/nlsdefs.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/nlsdefs.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/param.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/param.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/patmatch.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/patmatch.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/poll.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/poll.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/priv.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/priv.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/procfs.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/procfs.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/prototyp.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/prototyp.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/pwd.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/pwd.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/regex.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/regex.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/_regex.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/_regex.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/resource.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/resource.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/rmd160.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/rmd160.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/rmtio.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/rmtio.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/schily.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/schily.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/schilyp.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/schilyp.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/select.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/select.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/sem.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/sem.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/shedit.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/shedit.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/shm.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/shm.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/setjmp.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/setjmp.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/sha1.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/sha1.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/sha2.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/sha2.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/shcall.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/shcall.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/siconv.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/siconv.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/shadow.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/shadow.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/sigblk.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/sigblk.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/signal.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/signal.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/sigset.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/sigset.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/socket.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/socket.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/standard.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/standard.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/stat.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/stat.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/stdarg.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/stdarg.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/stdint.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/stdint.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/stdio.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/stdio.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/stdlib.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/stdlib.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/stkframe.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/stkframe.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/string.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/string.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/sunos4_proto.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/sunos4_proto.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/sysexits.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/sysexits.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/syslog.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/syslog.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/systeminfo.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/systeminfo.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/termcap.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/termcap.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/termios.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/termios.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/time.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/time.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/timeb.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/timeb.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/times.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/times.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/types.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/types.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/unistd.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/unistd.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/utime.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/utime.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/utsname.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/utsname.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/utypes.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/utypes.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/varargs.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/varargs.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/vfork.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/vfork.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/walk.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/walk.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/wchar.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/wchar.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/wctype.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/wctype.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/wait.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/wait.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/windows.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/windows.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/xconfig.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/xconfig.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/include/schily/xmconfig.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/schily/xmconfig.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libschily"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libschily/libschily.mk"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libschily.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libschily/libschily_p.mk"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libschily.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libschily/noshlschily.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libdeflt"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libdeflt/libdeflt.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libdeflt.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libdeflt/libdeflt_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libdeflt.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libdeflt/noshldeflt.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libscg"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/libscg.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libscg.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/libscg_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libscg.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/noshlscg.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libscg/scg"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg/scgcmd.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/scg/aspi-dos.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg/aspi-dos.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/scg/aspi-win32.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg/aspi-win32.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/scg/scgcmd.mk"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/scg/scgio.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg/scgio.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/scg/scgops.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg/scgops.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/scg/scsicdb.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg/scsicdb.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/scg/scsidefs.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg/scsidefs.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/scg/scsireg.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg/scsireg.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/scg/scsisense.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg/scsisense.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/scg/scsitransp.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg/scsitransp.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/scg/spti-wnt.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg/spti-wnt.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscg/scg/srb_os2.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/include/scg/srb_os2.h"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/lib"
+NOTICE: Partial source (SRCROOT/lib) missing
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libcdrdeflt"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libcdrdeflt/libcdrdeflt.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libcdrdeflt.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libcdrdeflt/libcdrdeflt_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libcdrdeflt.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libcdrdeflt/noshlcdrdeflt.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libedc"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libedc/libedc.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libedc_ecc.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libedc/libedc_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libedc_ecc.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libedc/libedc_dec.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libedc_ecc_dec.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libedc/libedc_dec_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libedc_ecc_dec.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libedc/noshledc.mk"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libedc/noshledc_dec.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libfile"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libfile/libfile.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libfile.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+NOTICE: Partial source (SRCROOT/libfile/Makefile.man) missing
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libfile/libfile_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libfile.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+NOTICE: Partial source (SRCROOT/libfile/Makefile.man) missing
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libfile/noshlfile.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libfind"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libfind/libfind.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libfind.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libfind/libfind_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libfind.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libfind/noshlfind.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libhfs_iso"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libhfs_iso/libhfs.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libhfs.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+NOTICE: Partial source (SRCROOT/libhfs_iso/Makefile.man) missing
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libhfs_iso/libhfs_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libhfs.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+NOTICE: Partial source (SRCROOT/libhfs_iso/Makefile.man) missing
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libhfs_iso/noshlhfs.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libmdigest"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libmdigest/mdigest.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libmdigest.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libmdigest/mdigest_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libmdigest.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libmdigest/noshlmdigest.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libparanoia"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libparanoia/paranoia.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libparanoia.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libparanoia/Rinterface.mk"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/libparanoia"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/libparanoia/README.interface"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libparanoia/Rparanoia.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/libparanoia/README.paranoia"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libparanoia/paranoia_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libparanoia.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libparanoia/noshlparanoia.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/librscg"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/librscg/librscg.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/librscg.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/librscg/librscg_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/librscg.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/librscg/noshlrscg.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libscgcmd"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscgcmd/libscgcmd.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libscgcmd.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscgcmd/libscgcmd_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libscgcmd.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libscgcmd/noshlscgcmd.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libsiconv"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/libsiconv.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/libsiconv.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/libsiconv_p.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/profiled/libsiconv.a"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/noshlsiconv.mk"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/libsiconv/tables"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-1"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp10000.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp10000"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp10006.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp10006"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp10007.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp10007"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp10029.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp10029"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp10079.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp10079"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp10081.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp10081"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp1250.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp1250"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp1251.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp1251"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp1252.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp1252"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp1253.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp1253"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp1254.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp1254"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp1255.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp1255"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp1256.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp1256"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp1257.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp1257"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp1258.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp1258"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp437.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp437"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp737.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp737"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp775.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp775"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp850.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp850"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp852.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp852"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp855.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp855"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp857.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp857"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp860.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp860"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp861.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp861"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp862.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp862"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp863.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp863"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp864.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp864"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp865.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp865"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp866.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp866"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp869.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp869"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/cp874.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/cp874"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-1.mk"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-10.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-10"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-11.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-11"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-13.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-13"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-14.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-14"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-15.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-15"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-16.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-16"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-2.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-2"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-3.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-3"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-4.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-4"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-5.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-5"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-6.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-6"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-7.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-7"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-8.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-8"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/iso8859-9.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/iso8859-9"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/koi8-r.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/koi8-r"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/libsiconv/tables/koi8-u.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/lib/siconv/koi8-u"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/btcflash"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/btcflash"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/btcflash/Makefile.man"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/man"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/btcflash.1"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man1"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man1/btcflash.1"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/cdda2wav"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/cdda2wav"
+install: -m option with suid/sticky available only to root -- ignored
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdda2wav/Makefile.man"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/man"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/cdda2wav.1"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man1/cdda2wav.1"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdda2wav/Makefile.rd"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdda2wav"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdda2wav/README"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdda2wav/cdda2ogg.mk"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/cdda2ogg"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/cdda2ogg"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdda2wav/cdda2ogg.mk1"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/cdda2ogg.1"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man1/cdda2ogg.1"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdda2wav/cdda2mp3.mk"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/cdda2mp3"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/cdda2mp3"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdda2wav/cdda2mp3.mk1"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/cdda2mp3.1"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man1/cdda2mp3.1"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/cdrecord"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/cdrecord"
+install: -m option with suid/sticky available only to root -- ignored
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Makefile.man"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/man"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/cdrecord.1"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man1/cdrecord.1"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Makefile.dfl"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/etc/default"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/etc/default/cdrecord"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Makefile.doc"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/readme.mk"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rata-dma.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.solaris-x86-ata-DMA"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Ratapi-dma.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.solaris-x86-ATAPI-DMA"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Ratapi.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.ATAPI"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Raudio.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.audio"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rcdplus.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.cdplus"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rcdrw.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.cdrw"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rcdtext.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.cdtext"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rclone.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.clone"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rcopy.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.copy"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rdisktattoo.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.DiskT@2"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rmulti.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.multi"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rparallel.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.parallel"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rraw.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.raw"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rrscsi.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.rscsi"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rsony.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.sony"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rsun-lofi.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.sun-lofi"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rverify.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.verify"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rvolmgt.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.volmgt"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/cdrecord/Rworm.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/cdrecord/README.WORM"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/cmd"
+NOTICE: Partial source (SRCROOT/cmd) missing
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/mkisofs"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/mkisofs"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> INSTALLING symlink "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/mkhybrid"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Makefile.man"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/man"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/mkisofs.8"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man8"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man8/mkisofs.8"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/hybridman.mk"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/mkhybrid.8"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man8/mkhybrid.8"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Makefile.doc"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rcompresion.mk"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.compression"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Reltorito.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.eltorito"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rgraft_dirs.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.graft_dirs"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rhfs_boot.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.hfs_boot"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rhfs_magic.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.hfs_magic"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rhide.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.hide"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rjoliet.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.joliet"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rmacosx.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.macosx"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rmkhybrid.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.mkhybrid"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rprep_boot.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.prep_boot"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/readme.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rrootinfo.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.rootinfo"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rsession.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.session"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rsort.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.sort"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rsparcboot.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.sparcboot"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/Rsunx86boot.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/mkisofs/README.sunx86boot"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/mkisofs/diag"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/dump.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/devdump"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/devdump_man.mk"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/man"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/devdump.8"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man8/devdump.8"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/isodump.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/isodump"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/isodump_man.mk"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/isodump.8"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man8/isodump.8"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/isoinfo.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/isoinfo"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/isoinfo_man.mk"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/isoinfo.8"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man8/isoinfo.8"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/isovfy.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/isovfy"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/isovfy_man.mk"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/isovfy.8"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man8/isovfy.8"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/isodebug.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/isodebug"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/mkisofs/diag/isodebug_man.mk"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/isodebug.8"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man8/isodebug.8"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/readcd"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/readcd"
+install: -m option with suid/sticky available only to root -- ignored
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/readcd/Mreadcd.man"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/man"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/readcd.1"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man1/readcd.1"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/rscsi"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/sbin"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/sbin/rscsi"
+install: -m option with suid/sticky available only to root -- ignored
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/rscsi/Makefile.man"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/man"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/rscsi.1"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man1/rscsi.1"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/rscsi/Makefile.dfl"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/etc/default/rscsi"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/rscsi/Makefile.doc"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/rscsi"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/doc/rscsi/default-rscsi.sample"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/scgcheck"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/scgcheck"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/scgcheck/Makefile.man"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/man"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/scgcheck.1"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man1/scgcheck.1"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/scgskeleton"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/bin/scgskeleton"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/scgskeleton/Makefile.man"
+	==> MAKING DIRECTORY "OBJ/i386-sunos5-cc64/man"
+	==> LOCALIZING "OBJ/i386-sunos5-cc64/man/scgskeleton.1"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man1/scgskeleton.1"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/man"
+	==> MAKING "install" ON SUBDIRECTORY "SRCROOT/man/man4"
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/man/man4/makefiles.mk"
+	==> MAKING DIRECTORY "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man4"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man4/makefiles.4"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+	==> MAKING "install" ON SUBCOMPONENT "SRCROOT/man/man4/makerules.mk"
+	==> INSTALLING "/ws/userland/src/components/cdrtools/build/prototype/i386/usr/share/man/man4/makerules.4"
+install: -o option available only to root -- ignored
+install: -g option available only to root -- ignored
+/usr/bin/touch /ws/userland/src/components/cdrtools/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 cdrtools.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=3\\.1 -D COMPONENT_RE_VERSION=3\\.01 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/cdrtools -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="6305" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="3.01" -D IPS_COMPONENT_VERSION="3.1" -D HUMAN_VERSION="3.01" -D COMPONENT_ARCHIVE_URL="https://sourceforge.net/projects/cdrtools/files/alpha/OLD/3.01aX/cdrtools-3.01a22.tar.gz/download" -D COMPONENT_PROJECT_URL="http://cdrecord.org/" -D COMPONENT_NAME="cdrtools" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" cdrtools.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/cdrtools/build/manifest-i386-cdrtools.mogrified
+/bin/mkdir -p /ws/userland/src/components/cdrtools/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/cdrtools/build/prototype/i386/mangled -d /ws/userland/src/components/cdrtools/build/prototype/i386/mangled -d /ws/userland/src/components/cdrtools/build/prototype/i386 -d /ws/userland/src/components/cdrtools/build -d /ws/userland/src/components/cdrtools -d cdrtools-3.01 -d /ws/userland/src/licenses -m /ws/userland/src/components/cdrtools/build/manifest-i386-cdrtools.mogrified >/ws/userland/src/components/cdrtools/build/manifest-i386-cdrtools.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/cdrtools/build/prototype/i386/mangled -d /ws/userland/src/components/cdrtools/build/prototype/i386 -d /ws/userland/src/components/cdrtools/build -d /ws/userland/src/components/cdrtools -d cdrtools-3.01 -d /ws/userland/src/licenses /ws/userland/src/components/cdrtools/build/manifest-i386-cdrtools.mangled >/ws/userland/src/components/cdrtools/build/manifest-i386-cdrtools.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/cdrtools/build/resolve.deps -m /ws/userland/src/components/cdrtools/build/manifest-i386-cdrtools.depend
+/usr/bin/touch /ws/userland/src/components/cdrtools/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/cdrtools/build/manifest-i386-cdrtools.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/cdrtools/build/prototype/i386/mangled /ws/userland/src/components/cdrtools/build/prototype/i386 /ws/userland/src/components/cdrtools/build /ws/userland/src/components/cdrtools cdrtools-3.01 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/cdrtools/build/manifest-i386-cdrtools.depend.res
+/usr/bin/touch /ws/userland/src/components/cdrtools/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/cdrtools/build/prototype/i386/mangled -d /ws/userland/src/components/cdrtools/build/prototype/i386 -d /ws/userland/src/components/cdrtools/build -d /ws/userland/src/components/cdrtools -d cdrtools-3.01 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/cdrtools/build/manifest-i386-cdrtools.depend.res
+pkg://nightly/media/cdrtools@3.1,5.11-11.4.0.0.1.14.0:20190727T173537Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/cdrtools/build/manifest-i386-cdrtools.depend.res >/ws/userland/src/components/cdrtools/build/manifest-i386-cdrtools.published
+/usr/bin/touch /ws/userland/src/components/cdrtools/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/cdrtools'
+
+real     3:38.4
+user       59.9
+sys        30.9

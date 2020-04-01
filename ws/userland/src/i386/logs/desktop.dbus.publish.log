@@ -1,0 +1,2494 @@
+gmake: Entering directory '/ws/userland/src/components/desktop/dbus'
+/bin/rm -f -r /ws/userland/src/components/desktop/dbus/dbus-1.10.22
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  dbus-1.10.22.tar.gz
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/dbus-1.10.22/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/desktop/dbus/dbus-1.10.22 --strip=1 --backup --version-control=numbered < patches/dbus-01-nosystemservice.patch
+patching file bus/system.conf.in
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/dbus-1.10.22/.patched-dbus-01-nosystemservice.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/dbus/dbus-1.10.22 --strip=1 --backup --version-control=numbered < patches/dbus-02-closefrom.patch
+patching file configure.ac
+patching file dbus/dbus-sysdeps-unix.c
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/dbus-1.10.22/.patched-dbus-02-closefrom.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/dbus/dbus-1.10.22 --strip=1 --backup --version-control=numbered < patches/dbus-03-consoleuser.patch
+patching file dbus/dbus-sysdeps-util-unix.c
+Hunk #2 succeeded at 652 (offset 106 lines).
+Hunk #3 succeeded at 701 (offset 106 lines).
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/dbus-1.10.22/.patched-dbus-03-consoleuser.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/dbus/dbus-1.10.22 --strip=1 --backup --version-control=numbered < patches/dbus-04-doxygen.patch
+patching file Doxyfile.in
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/dbus-1.10.22/.patched-dbus-04-doxygen.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/dbus/dbus-1.10.22 --strip=1 --backup --version-control=numbered < patches/dbus-05-manpage.patch
+patching file doc/dbus-daemon.1.xml.in
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/dbus-1.10.22/.patched-dbus-05-manpage.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/dbus/dbus-1.10.22 --strip=1 --backup --version-control=numbered < patches/dbus-06-test-fdpass.patch
+patching file test/fdpass.c
+Hunk #1 succeeded at 850 (offset 37 lines).
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/dbus-1.10.22/.patched-dbus-06-test-fdpass.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/dbus/dbus-1.10.22 --strip=1 --backup --version-control=numbered < patches/dbus-07-xopen_source.patch
+patching file configure.ac
+Hunk #1 succeeded at 1426 (offset -8 lines).
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/dbus-1.10.22/.patched-dbus-07-xopen_source.patch
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/dbus-1.10.22/.patched
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/dbus-1.10.22/.prep
+(/bin/rm -f -rf /ws/userland/src/components/desktop/dbus/build/i86 ; /bin/mkdir -p /ws/userland/src/components/desktop/dbus/build/i86)
+(cd /ws/userland/src/components/desktop/dbus/build/i86 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/pkgconfig" CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++"  CC_FOR_BUILD="/usr/gcc/7/bin/gcc -m32" CXX_FOR_BUILD="/usr/gcc/7/bin/g++ -m32" CPPFLAGS="-m32" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m32 -O3 -mincoming-stack-boundary=2" CXXFLAGS="-m32 -O3 -mincoming-stack-boundary=2" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/desktop/dbus/dbus-1.10.22/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin/i86 --libdir=/usr/lib    --sysconfdir=/etc --with-dbus-daemondir=/usr/lib --with-dbus-user=root --libexecdir=/usr/lib --localstatedir=/var --disable-static)
+checking build system type... i386-pc-solaris2.11
+checking host system type... i386-pc-solaris2.11
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether UID '100' is supported by ustar format... yes
+checking whether GID '10' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking whether make supports nested variables... (cached) yes
+checking for gcc... /usr/gcc/7/bin/gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /usr/gcc/7/bin/gcc... gcc3
+checking whether we are using the GNU C++ compiler... yes
+checking whether /usr/gcc/7/bin/g++ accepts -g... yes
+checking dependency style of /usr/gcc/7/bin/g++... gcc3
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking for library containing strerror... none required
+checking for ANSI C header files... (cached) yes
+checking for inline... inline
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for fgrep... /usr/bin/ggrep -F
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert i386-pc-solaris2.11 file names to i386-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert i386-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /usr/gcc/7/bin/gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/gcc/7/bin/gcc supports -fno-rtti -fno-exceptions... no
+checking for /usr/gcc/7/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/gcc static flag -static works... no
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/gcc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking how to run the C++ preprocessor... /usr/gcc/7/bin/g++ -E
+checking for ld used by /usr/gcc/7/bin/g++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking for /usr/gcc/7/bin/g++ option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/g++ PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/g++ static flag -static works... no
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for gawk... (cached) gawk
+checking whether the -Werror option is usable... yes
+checking for simple visibility declarations... yes
+checking for windres... no
+checking for GLIB... yes
+checking for a Python interpreter with version >= 2.6... python
+checking for python... /usr/bin/python
+checking for python version... 2.7
+checking for python platform... sunos5
+checking for python script directory... ${prefix}/lib/python2.7/site-packages
+checking for python extension module directory... ${exec_prefix}/lib/python2.7/site-packages
+checking whether we are using the GNU C Library 2.1 or newer... no
+checking size of char... 1
+checking size of short... 2
+checking size of long... 4
+checking size of int... 4
+checking size of void *... 4
+checking size of long long... 8
+checking size of __int64... 0
+checking 64-bit integer type... long long
+checking 32-bit integer type... int
+checking 16-bit integer type... short
+checking whether byte ordering is bigendian... no
+checking for an implementation of va_copy()... yes
+checking for an implementation of __va_copy()... yes
+checking whether va_lists can be copied by value... no
+checking whether /usr/gcc/7/bin/gcc knows __sync_sub_and_fetch()... yes
+checking for library containing socket... none required
+checking for gethostbyname... yes
+checking for vsnprintf... yes
+checking for vasprintf... yes
+checking for nanosleep... yes
+checking for usleep... yes
+checking for setenv... yes
+checking for clearenv... yes
+checking for unsetenv... yes
+checking for socketpair... yes
+checking for getgrouplist... yes
+checking for fpathconf... yes
+checking for setrlimit... yes
+checking for poll... yes
+checking for setlocale... yes
+checking for localeconv... yes
+checking for strtoll... yes
+checking for strtoull... yes
+checking for issetugid... yes
+checking for getresuid... no
+checking for setresuid... no
+checking for getrlimit... yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking whether LOG_PERROR is declared... no
+checking for sys/prctl.h... no
+checking for prctl... no
+checking for raise... yes
+checking for broken poll... no
+checking for dirfd... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking dirent.h usability... yes
+checking dirent.h presence... yes
+checking for dirent.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking for library containing backtrace... none required
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking byteswap.h usability... no
+checking byteswap.h presence... no
+checking for byteswap.h... no
+checking for unistd.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking ws2tcpip.h usability... no
+checking ws2tcpip.h presence... no
+checking for ws2tcpip.h... no
+checking alloca.h usability... yes
+checking alloca.h presence... yes
+checking for alloca.h... yes
+checking for posix getpwnam_r... yes
+checking whether socklen_t is defined... yes
+checking sys/uio.h usability... yes
+checking sys/uio.h presence... yes
+checking for sys/uio.h... yes
+checking for writev... yes
+checking sys/syslimits.h usability... no
+checking sys/syslimits.h presence... no
+checking for sys/syslimits.h... no
+checking whether MSG_NOSIGNAL is declared... yes
+checking for ISO C99 varargs macros in C... yes
+checking for GNUC varargs macros... yes
+checking for struct cmsgcred... no
+checking for struct unpcbid.unp_pid... no
+checking for getpeerucred... yes
+checking for getpeereid... no
+checking for pipe2... yes
+checking for accept4... yes
+checking abstract socket namespace... no
+checking for XML_ParserCreate_MM in -lexpat... yes
+checking expat.h usability... yes
+checking expat.h presence... yes
+checking for expat.h... yes
+checking for library containing pthread_cond_timedwait... none required
+checking for library containing pthread_mutexattr_init... none required
+checking for library containing pthread_mutexattr_settype... none required
+checking for library containing pthread_condattr_setclock... none required
+checking for library containing clock_getres... none required
+checking for CLOCK_MONOTONIC... found
+checking for is_selinux_enabled in -lselinux... no
+configure: WARNING: Sufficiently new SELinux library not found
+checking for APPARMOR... no
+configure: WARNING: Sufficiently new AppArmor library not found
+checking sys/inotify.h usability... no
+checking sys/inotify.h presence... no
+checking for sys/inotify.h... no
+checking for Linux epoll(4)... no
+checking sys/event.h usability... no
+checking sys/event.h presence... no
+checking for sys/event.h... no
+checking for kqueue... no
+checking launch.h usability... no
+checking launch.h presence... no
+checking for launch.h... no
+checking for launchctl... no
+checking for SYSTEMD... no
+checking for SYSTEMD... no
+checking for systemctl... /usr/bin/systemctl
+checking for audit_log_user_avc_message in -laudit... no
+checking for ADT API... yes
+checking for SCM_RIGHTS... supported
+checking for X... libraries , headers 
+checking for gethostbyname... (cached) yes
+checking for connect... yes
+checking for remove... yes
+checking for shmat... yes
+checking for IceConnectionNumber in -lICE... yes
+checking to see if compiler understands ... yes
+checking to see if compiler understands -Wall... yes
+checking to see if compiler understands -Wextra... yes
+checking to see if compiler understands -Wchar-subscripts... yes
+checking to see if compiler understands -Wmissing-declarations... yes
+checking to see if compiler understands -Wmissing-prototypes... yes
+checking to see if compiler understands -Wnested-externs... yes
+checking to see if compiler understands -Wpointer-arith... yes
+checking to see if compiler understands -Wcast-align... yes
+checking to see if compiler understands -Wno-address... yes
+checking to see if compiler understands -Wfloat-equal... yes
+checking to see if compiler understands -Wdeclaration-after-statement... yes
+checking to see if compiler understands -Werror... yes
+checking to see if compiler understands -Wno-unused-label... yes
+checking to see if compiler understands -Wno-error=unused-label... yes
+checking to see if compiler understands -Wno-deprecated-declarations... yes
+checking to see if compiler understands -Wno-error=deprecated-declarations... yes
+checking to see if compiler understands -Wno-missing-field-initializers... yes
+checking to see if compiler understands -Wno-error=missing-field-initializers... yes
+checking to see if compiler understands -Wno-misleading-indentation... yes
+checking to see if compiler understands -Wno-error=misleading-indentation... yes
+checking to see if compiler understands -Wno-unused-parameter... yes
+checking to see if compiler understands -Wno-error=unused-parameter... yes
+checking to see if compiler understands -Wno-pointer-sign... yes
+checking to see if compiler understands -Wno-error=pointer-sign... yes
+checking to see if compiler understands -Wno-type-limits... yes
+checking to see if compiler understands -Wno-error=type-limits... yes
+checking to see if compiler understands -fno-common... yes
+checking to see if compiler understands -fno-strict-aliasing... yes
+checking if LD -Wl,--version-script works... no
+checking for doxygen... /usr/bin/doxygen
+checking whether to build Doxygen documentation... yes
+checking for xsltproc... xsltproc
+checking for ducktype... no
+checking for yelp-build... /usr/bin/yelp-build
+checking whether to build Ducktype documentation... no
+checking for xmlto... /usr/bin/xmlto
+checking whether to build XML documentation... yes
+checking crt_externs.h usability... no
+checking crt_externs.h presence... no
+checking for crt_externs.h... no
+checking for _NSGetEnviron... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Doxyfile
+config.status: creating dbus/Version
+config.status: creating dbus/versioninfo.rc
+config.status: creating dbus/dbus-arch-deps.h
+config.status: creating bus/system.conf
+config.status: creating bus/session.conf
+config.status: creating bus/legacy-config/system.conf
+config.status: creating bus/legacy-config/session.conf
+config.status: creating bus/example-system-enable-stats.conf
+config.status: creating bus/example-session-disable-stats.conf
+config.status: creating bus/messagebus
+config.status: creating bus/messagebus-config
+config.status: creating bus/org.freedesktop.dbus-session.plist
+config.status: creating bus/rc.messagebus
+config.status: creating bus/dbus.service
+config.status: creating bus/dbus.socket
+config.status: creating bus/systemd-user/dbus.service
+config.status: creating bus/systemd-user/dbus.socket
+config.status: creating Makefile
+config.status: creating dbus/Makefile
+config.status: creating bus/Makefile
+config.status: creating tools/Makefile
+config.status: creating test/Makefile
+config.status: creating test/name-test/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/dbus-cleanup-sockets.1.xml
+config.status: creating doc/dbus-daemon.1.xml
+config.status: creating doc/dbus-launch.1.xml
+config.status: creating doc/dbus-monitor.1.xml
+config.status: creating doc/dbus-run-session.1.xml
+config.status: creating doc/dbus-send.1.xml
+config.status: creating doc/dbus-test-tool.1.xml
+config.status: creating doc/dbus-update-activation-environment.1.xml
+config.status: creating doc/dbus-uuidgen.1.xml
+config.status: creating dbus-1.pc
+config.status: creating dbus-1-uninstalled.pc
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+                    D-Bus 1.10.22
+                  ==============
+
+	prefix:                   /usr
+	exec_prefix:              ${prefix}
+        libdir:                   /usr/lib
+        libexecdir:               /usr/lib
+        bindir:                   /usr/bin
+        sysconfdir:               /etc
+        localstatedir:            /var
+	datadir:                  /usr/share
+	source code location:	  /ws/userland/src/components/desktop/dbus/dbus-1.10.22
+	compiler:		  /usr/gcc/7/bin/gcc
+	cflags:		           -Wall -Wextra -Wchar-subscripts -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wpointer-arith -Wcast-align -Wno-address -Wfloat-equal -Wdeclaration-after-statement -Wno-unused-label -Wno-deprecated-declarations -Wno-missing-field-initializers -Wno-misleading-indentation -Wno-unused-parameter -Wno-pointer-sign -Wno-type-limits -fno-common -fno-strict-aliasing -m32 -O3 -mincoming-stack-boundary=2 -D_POSIX_PTHREAD_SEMANTICS -D_POSIX_PTHREAD_SEMANTICS -D_REENTRANT -D__EXTENSIONS__ -D_XOPEN_SOURCE=500
+	cppflags:		  -m32
+	cxxflags:		  -m32 -O3 -mincoming-stack-boundary=2
+	64-bit int:		  long long
+	32-bit int:		  int
+	16-bit int:		  short
+        Doxygen:                  /usr/bin/doxygen
+        xmlto:                    /usr/bin/xmlto
+        ducktype:                 no
+        yelp-build:               /usr/bin/yelp-build
+
+        Rebuilding generated files: yes
+        gcc coverage profiling:   no
+        Building embedded tests:  no
+        Building modular tests:   auto
+            - with GLib:          yes
+        Installing tests:         no
+        Building verbose mode:    no
+        Building assertions:      no
+        Building checks:          yes
+        Building bus stats API:   yes
+        Building SELinux support: no
+        Building AppArmor support: no
+        Building inotify support: no
+        Building kqueue support:  no
+        Building systemd support: no
+        Building X11 code:        yes
+        Building Doxygen docs:    yes
+        Building Ducktype docs:   no
+        Building XML docs:        yes
+        Building launchd support: no
+        Init scripts style:       none
+        Abstract socket names:    no
+        System bus socket:        /var/run/dbus/system_bus_socket
+        System bus address:       unix:path=/var/run/dbus/system_bus_socket
+        System bus PID file:      /var/run/dbus/pid
+        Session bus listens on:   unix:tmpdir=/tmp
+        Session clients connect to: autolaunch:
+        Console auth dir:         /var/run/console/
+        Console owner file:       yes
+        Console owner file path:  /dev/console
+	System bus user:          root
+	Session bus services dir: /usr/share/dbus-1/services
+        'make check' socket dir:  /tmp
+
+
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/build/i86/.configured
+(cd /ws/userland/src/components/desktop/dbus/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86'
+CDPATH="${ZSH_VERSION+.}:" && cd /ws/userland/src/components/desktop/dbus/dbus-1.10.22 && /bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/missing aclocal-1.15 -I m4 
+/usr/share/aclocal/aalib.m4:12: warning: underquoted definition of AM_PATH_AALIB
+/usr/share/aclocal/aalib.m4:12:   run info Automake 'Extending aclocal'
+/usr/share/aclocal/aalib.m4:12:   or see http://www.gnu.org/software/automake/manual/automake.html#Extending-aclocal
+ cd /ws/userland/src/components/desktop/dbus/dbus-1.10.22 && /bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/missing automake-1.15 --gnu
+CDPATH="${ZSH_VERSION+.}:" && cd /ws/userland/src/components/desktop/dbus/dbus-1.10.22 && /bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/missing autoconf
+/bin/bash ./config.status --recheck
+running CONFIG_SHELL=/bin/bash /bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin/i86 --libdir=/usr/lib --sysconfdir=/etc --with-dbus-daemondir=/usr/lib --with-dbus-user=root --libexecdir=/usr/lib --localstatedir=/var --disable-static CC=/usr/gcc/7/bin/gcc CFLAGS=-m32 -O3 -mincoming-stack-boundary=2 LDFLAGS= CPPFLAGS=-m32 CXX=/usr/gcc/7/bin/g++ CXXFLAGS=-m32 -O3 -mincoming-stack-boundary=2 --no-create --no-recursion
+checking build system type... x86_64-pc-solaris2.11
+checking host system type... x86_64-pc-solaris2.11
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether UID '100' is supported by ustar format... yes
+checking whether GID '10' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking whether make supports nested variables... (cached) yes
+checking for gcc... /usr/gcc/7/bin/gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /usr/gcc/7/bin/gcc... gcc3
+checking whether we are using the GNU C++ compiler... yes
+checking whether /usr/gcc/7/bin/g++ accepts -g... yes
+checking dependency style of /usr/gcc/7/bin/g++... gcc3
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking for library containing strerror... none required
+checking for ANSI C header files... (cached) yes
+checking for inline... inline
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for fgrep... /usr/bin/ggrep -F
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -p
+checking the name lister (/usr/bin/nm -p) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert x86_64-pc-solaris2.11 file names to x86_64-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert x86_64-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -p output from /usr/gcc/7/bin/gcc object... failed
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/gcc/7/bin/gcc supports -fno-rtti -fno-exceptions... no
+checking for /usr/gcc/7/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/gcc static flag -static works... no
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/gcc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking how to run the C++ preprocessor... /usr/gcc/7/bin/g++ -E
+checking for ld used by /usr/gcc/7/bin/g++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking for /usr/gcc/7/bin/g++ option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/g++ PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/g++ static flag -static works... no
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for gawk... (cached) gawk
+checking whether the -Werror option is usable... yes
+checking for simple visibility declarations... yes
+checking for windres... no
+checking for GLIB... yes
+checking for a Python interpreter with version >= 2.6... python
+checking for python... /usr/bin/python
+checking for python version... 2.7
+checking for python platform... sunos5
+checking for python script directory... ${prefix}/lib/python2.7/site-packages
+checking for python extension module directory... ${exec_prefix}/lib/python2.7/site-packages
+checking whether we are using the GNU C Library 2.1 or newer... no
+checking size of char... 1
+checking size of short... 2
+checking size of long... 4
+checking size of int... 4
+checking size of void *... 4
+checking size of long long... 8
+checking size of __int64... 0
+checking 64-bit integer type... long long
+checking 32-bit integer type... int
+checking 16-bit integer type... short
+checking whether byte ordering is bigendian... no
+checking for an implementation of va_copy()... yes
+checking for an implementation of __va_copy()... yes
+checking whether va_lists can be copied by value... no
+checking whether /usr/gcc/7/bin/gcc knows __sync_sub_and_fetch()... yes
+checking for library containing socket... none required
+checking for gethostbyname... yes
+checking for vsnprintf... yes
+checking for vasprintf... yes
+checking for nanosleep... yes
+checking for usleep... yes
+checking for setenv... yes
+checking for clearenv... yes
+checking for unsetenv... yes
+checking for socketpair... yes
+checking for getgrouplist... yes
+checking for fpathconf... yes
+checking for setrlimit... yes
+checking for poll... yes
+checking for setlocale... yes
+checking for localeconv... yes
+checking for strtoll... yes
+checking for strtoull... yes
+checking for issetugid... yes
+checking for getresuid... no
+checking for setresuid... no
+checking for getrlimit... yes
+checking for closefrom... yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking whether LOG_PERROR is declared... no
+checking for sys/prctl.h... no
+checking for prctl... no
+checking for raise... yes
+checking for broken poll... no
+checking for dirfd... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking dirent.h usability... yes
+checking dirent.h presence... yes
+checking for dirent.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking for library containing backtrace... none required
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking byteswap.h usability... no
+checking byteswap.h presence... no
+checking for byteswap.h... no
+checking for unistd.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking ws2tcpip.h usability... no
+checking ws2tcpip.h presence... no
+checking for ws2tcpip.h... no
+checking alloca.h usability... yes
+checking alloca.h presence... yes
+checking for alloca.h... yes
+checking for posix getpwnam_r... yes
+checking whether socklen_t is defined... yes
+checking sys/uio.h usability... yes
+checking sys/uio.h presence... yes
+checking for sys/uio.h... yes
+checking for writev... yes
+checking sys/syslimits.h usability... no
+checking sys/syslimits.h presence... no
+checking for sys/syslimits.h... no
+checking whether MSG_NOSIGNAL is declared... yes
+checking for ISO C99 varargs macros in C... yes
+checking for GNUC varargs macros... yes
+checking for struct cmsgcred... no
+checking for struct unpcbid.unp_pid... no
+checking for getpeerucred... yes
+checking for getpeereid... no
+checking for pipe2... yes
+checking for accept4... yes
+checking abstract socket namespace... no
+checking for XML_ParserCreate_MM in -lexpat... yes
+checking expat.h usability... yes
+checking expat.h presence... yes
+checking for expat.h... yes
+checking for library containing pthread_cond_timedwait... none required
+checking for library containing pthread_mutexattr_init... none required
+checking for library containing pthread_mutexattr_settype... none required
+checking for library containing pthread_condattr_setclock... none required
+checking for library containing clock_getres... none required
+checking for CLOCK_MONOTONIC... found
+checking for is_selinux_enabled in -lselinux... no
+configure: WARNING: Sufficiently new SELinux library not found
+checking for APPARMOR... no
+configure: WARNING: Sufficiently new AppArmor library not found
+checking sys/inotify.h usability... no
+checking sys/inotify.h presence... no
+checking for sys/inotify.h... no
+checking for Linux epoll(4)... no
+checking sys/event.h usability... no
+checking sys/event.h presence... no
+checking for sys/event.h... no
+checking for kqueue... no
+checking launch.h usability... no
+checking launch.h presence... no
+checking for launch.h... no
+checking for launchctl... no
+checking for SYSTEMD... no
+checking for SYSTEMD... no
+checking for systemctl... /usr/bin/systemctl
+checking for audit_log_user_avc_message in -laudit... no
+checking for ADT API... yes
+checking for SCM_RIGHTS... supported
+checking for X... libraries , headers 
+checking for gethostbyname... (cached) yes
+checking for connect... yes
+checking for remove... yes
+checking for shmat... yes
+checking for IceConnectionNumber in -lICE... yes
+checking to see if compiler understands ... yes
+checking to see if compiler understands -Wall... yes
+checking to see if compiler understands -Wextra... yes
+checking to see if compiler understands -Wchar-subscripts... yes
+checking to see if compiler understands -Wmissing-declarations... yes
+checking to see if compiler understands -Wmissing-prototypes... yes
+checking to see if compiler understands -Wnested-externs... yes
+checking to see if compiler understands -Wpointer-arith... yes
+checking to see if compiler understands -Wcast-align... yes
+checking to see if compiler understands -Wno-address... yes
+checking to see if compiler understands -Wfloat-equal... yes
+checking to see if compiler understands -Wdeclaration-after-statement... yes
+checking to see if compiler understands -Werror... yes
+checking to see if compiler understands -Wno-unused-label... yes
+checking to see if compiler understands -Wno-error=unused-label... yes
+checking to see if compiler understands -Wno-deprecated-declarations... yes
+checking to see if compiler understands -Wno-error=deprecated-declarations... yes
+checking to see if compiler understands -Wno-missing-field-initializers... yes
+checking to see if compiler understands -Wno-error=missing-field-initializers... yes
+checking to see if compiler understands -Wno-misleading-indentation... yes
+checking to see if compiler understands -Wno-error=misleading-indentation... yes
+checking to see if compiler understands -Wno-unused-parameter... yes
+checking to see if compiler understands -Wno-error=unused-parameter... yes
+checking to see if compiler understands -Wno-pointer-sign... yes
+checking to see if compiler understands -Wno-error=pointer-sign... yes
+checking to see if compiler understands -Wno-type-limits... yes
+checking to see if compiler understands -Wno-error=type-limits... yes
+checking to see if compiler understands -fno-common... yes
+checking to see if compiler understands -fno-strict-aliasing... yes
+checking if LD -Wl,--version-script works... no
+checking for doxygen... /usr/bin/doxygen
+checking whether to build Doxygen documentation... yes
+checking for xsltproc... xsltproc
+checking for ducktype... no
+checking for yelp-build... /usr/bin/yelp-build
+checking whether to build Ducktype documentation... no
+checking for xmlto... /usr/bin/xmlto
+checking whether to build XML documentation... yes
+checking crt_externs.h usability... no
+checking crt_externs.h presence... no
+checking for crt_externs.h... no
+checking for _NSGetEnviron... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+
+                    D-Bus 1.10.22
+                  ==============
+
+	prefix:                   /usr
+	exec_prefix:              ${prefix}
+        libdir:                   /usr/lib
+        libexecdir:               /usr/lib
+        bindir:                   /usr/bin
+        sysconfdir:               /etc
+        localstatedir:            /var
+	datadir:                  /usr/share
+	source code location:	  /ws/userland/src/components/desktop/dbus/dbus-1.10.22
+	compiler:		  /usr/gcc/7/bin/gcc
+	cflags:		           -Wall -Wextra -Wchar-subscripts -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wpointer-arith -Wcast-align -Wno-address -Wfloat-equal -Wdeclaration-after-statement -Wno-unused-label -Wno-deprecated-declarations -Wno-missing-field-initializers -Wno-misleading-indentation -Wno-unused-parameter -Wno-pointer-sign -Wno-type-limits -fno-common -fno-strict-aliasing -m32 -O3 -mincoming-stack-boundary=2 -D_POSIX_PTHREAD_SEMANTICS -D_POSIX_PTHREAD_SEMANTICS -D_REENTRANT -D__EXTENSIONS__ -D_XOPEN_SOURCE=700
+	cppflags:		  -m32
+	cxxflags:		  -m32 -O3 -mincoming-stack-boundary=2
+	64-bit int:		  long long
+	32-bit int:		  int
+	16-bit int:		  short
+        Doxygen:                  /usr/bin/doxygen
+        xmlto:                    /usr/bin/xmlto
+        ducktype:                 no
+        yelp-build:               /usr/bin/yelp-build
+
+        Rebuilding generated files: yes
+        gcc coverage profiling:   no
+        Building embedded tests:  no
+        Building modular tests:   auto
+            - with GLib:          yes
+        Installing tests:         no
+        Building verbose mode:    no
+        Building assertions:      no
+        Building checks:          yes
+        Building bus stats API:   yes
+        Building SELinux support: no
+        Building AppArmor support: no
+        Building inotify support: no
+        Building kqueue support:  no
+        Building systemd support: no
+        Building X11 code:        yes
+        Building Doxygen docs:    yes
+        Building Ducktype docs:   no
+        Building XML docs:        yes
+        Building launchd support: no
+        Init scripts style:       none
+        Abstract socket names:    no
+        System bus socket:        /var/run/dbus/system_bus_socket
+        System bus address:       unix:path=/var/run/dbus/system_bus_socket
+        System bus PID file:      /var/run/dbus/pid
+        Session bus listens on:   unix:tmpdir=/tmp
+        Session clients connect to: autolaunch:
+        Console auth dir:         /var/run/console/
+        Console owner file:       yes
+        Console owner file path:  /dev/console
+	System bus user:          root
+	Session bus services dir: /usr/share/dbus-1/services
+        'make check' socket dir:  /tmp
+
+
+ /bin/bash ./config.status
+config.status: creating Doxyfile
+config.status: creating dbus/Version
+config.status: creating dbus/versioninfo.rc
+config.status: creating dbus/dbus-arch-deps.h
+config.status: creating bus/system.conf
+config.status: creating bus/session.conf
+config.status: creating bus/legacy-config/system.conf
+config.status: creating bus/legacy-config/session.conf
+config.status: creating bus/example-system-enable-stats.conf
+config.status: creating bus/example-session-disable-stats.conf
+config.status: creating bus/messagebus
+config.status: creating bus/messagebus-config
+config.status: creating bus/org.freedesktop.dbus-session.plist
+config.status: creating bus/rc.messagebus
+config.status: creating bus/dbus.service
+config.status: creating bus/dbus.socket
+config.status: creating bus/systemd-user/dbus.service
+config.status: creating bus/systemd-user/dbus.socket
+config.status: creating Makefile
+config.status: creating dbus/Makefile
+config.status: creating bus/Makefile
+config.status: creating tools/Makefile
+config.status: creating test/Makefile
+config.status: creating test/name-test/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/dbus-cleanup-sockets.1.xml
+config.status: creating doc/dbus-daemon.1.xml
+config.status: creating doc/dbus-launch.1.xml
+config.status: creating doc/dbus-monitor.1.xml
+config.status: creating doc/dbus-run-session.1.xml
+config.status: creating doc/dbus-send.1.xml
+config.status: creating doc/dbus-test-tool.1.xml
+config.status: creating doc/dbus-update-activation-environment.1.xml
+config.status: creating doc/dbus-uuidgen.1.xml
+config.status: creating dbus-1.pc
+config.status: creating dbus-1-uninstalled.pc
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+(CDPATH="${ZSH_VERSION+.}:" && cd /ws/userland/src/components/desktop/dbus/dbus-1.10.22 && /bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/missing autoheader)
+rm -f stamp-h1
+touch /ws/userland/src/components/desktop/dbus/dbus-1.10.22/config.h.in
+cd . && /bin/bash ./config.status config.h
+config.status: creating config.h
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86'
+Making all in dbus
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/dbus'
+/usr/gnu/bin/make  all-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/dbus'
+  CC       libdbus_1_la-dbus-address.lo
+  CC       libdbus_1_la-dbus-auth.lo
+  CC       libdbus_1_la-dbus-bus.lo
+  CC       libdbus_1_la-dbus-connection.lo
+  CC       libdbus_1_la-dbus-credentials.lo
+  CC       libdbus_1_la-dbus-errors.lo
+  CC       libdbus_1_la-dbus-keyring.lo
+  CC       libdbus_1_la-dbus-marshal-header.lo
+  CC       libdbus_1_la-dbus-marshal-byteswap.lo
+  CC       libdbus_1_la-dbus-marshal-recursive.lo
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-marshal-recursive.c: In function '_dbus_type_reader_recurse':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-marshal-recursive.c:992:30: warning: 'klass' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   const DBusTypeReaderClass *klass;
+                              ^~~~~
+  CC       libdbus_1_la-dbus-marshal-validate.lo
+  CC       libdbus_1_la-dbus-message.lo
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c: In function '_dbus_message_loader_get_unix_fds':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:4108:36: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if (loader->n_unix_fds_allocated < loader->max_message_unix_fds)
+                                    ^
+  CC       libdbus_1_la-dbus-misc.lo
+  CC       libdbus_1_la-dbus-nonce.lo
+  CC       libdbus_1_la-dbus-object-tree.lo
+  CC       libdbus_1_la-dbus-pending-call.lo
+  CC       libdbus_1_la-dbus-resources.lo
+  CC       libdbus_1_la-dbus-server.lo
+  CC       libdbus_1_la-dbus-server-debug-pipe.lo
+  CC       libdbus_1_la-dbus-server-socket.lo
+  CC       libdbus_1_la-dbus-uuidgen.lo
+  CC       libdbus_1_la-dbus-server-unix.lo
+  CC       libdbus_1_la-dbus-sha.lo
+  CC       libdbus_1_la-dbus-signature.lo
+  CC       libdbus_1_la-dbus-syntax.lo
+  CC       libdbus_1_la-dbus-timeout.lo
+  CC       libdbus_1_la-dbus-threads.lo
+  CC       libdbus_1_la-dbus-transport.lo
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.c: In function 'recover_unused_bytes':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.c:1061:11: warning: variable 'orig_len' set but not used [-Wunused-but-set-variable]
+       int orig_len;
+           ^~~~~~~~
+  CC       libdbus_1_la-dbus-transport-socket.lo
+  CC       libdbus_1_la-dbus-watch.lo
+  CC       libdbus_1_la-dbus-dataslot.lo
+  CC       libdbus_1_la-dbus-file.lo
+  CC       libdbus_1_la-dbus-hash.lo
+  CC       libdbus_1_la-dbus-internals.lo
+  CC       libdbus_1_la-dbus-list.lo
+  CC       libdbus_1_la-dbus-marshal-basic.lo
+  CC       libdbus_1_la-dbus-memory.lo
+  CC       libdbus_1_la-dbus-mempool.lo
+  CC       libdbus_1_la-dbus-pipe.lo
+  CC       libdbus_1_la-dbus-string.lo
+  CC       libdbus_1_la-dbus-file-unix.lo
+  CC       libdbus_1_la-dbus-pipe-unix.lo
+  CC       libdbus_1_la-dbus-sysdeps-unix.lo
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.c: In function '_dbus_read_credentials_socket':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.c:2059:9: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+         adt_session_data_t *adth = NULL;
+         ^~~~~~~~~~~~~~~~~~
+  CC       libdbus_1_la-dbus-sysdeps-pthread.lo
+  CC       libdbus_1_la-dbus-transport-unix.lo
+  CC       libdbus_1_la-dbus-userdb.lo
+  CC       libdbus_1_la-dbus-sysdeps.lo
+  CCLD     libdbus-1.la
+  CC       dbus-asv-util.lo
+  CC       dbus-auth-script.lo
+  CC       dbus-auth-util.lo
+  CC       dbus-credentials-util.lo
+  CC       dbus-mainloop.lo
+  CC       dbus-marshal-byteswap-util.lo
+  CC       dbus-marshal-recursive-util.lo
+  CC       dbus-marshal-validate-util.lo
+  CC       dbus-message-factory.lo
+  CC       dbus-message-util.lo
+  CC       dbus-shell.lo
+  CC       dbus-sysdeps-util-unix.lo
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c: In function '_dbus_user_at_console':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:653:17: warning: unused variable 'f' [-Wunused-variable]
+   DBusString u, f;
+                 ^
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:653:14: warning: unused variable 'u' [-Wunused-variable]
+   DBusString u, f;
+              ^
+  CC       dbus-userdb-util.lo
+  CC       dbus-spawn.lo
+  CC       dbus-socket-set.lo
+  CC       dbus-socket-set-poll.lo
+  CC       dbus-string-util.lo
+  CC       dbus-sysdeps-util.lo
+  CC       dbus-test.lo
+  CCLD     libdbus-internal.la
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/dbus'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/dbus'
+Making all in bus
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/bus'
+  CC       activation.o
+  CC       apparmor.o
+  CC       audit.o
+  CC       bus.o
+  CC       config-parser.o
+  CC       config-parser-common.o
+  CC       connection.o
+  CC       desktop-file.o
+  CC       dir-watch-default.o
+  CC       dispatch.o
+  CC       driver.o
+  CC       expirelist.o
+  CC       policy.o
+  CC       selinux.o
+  CC       services.o
+  CC       signals.o
+  CC       stats.o
+  CC       test.o
+  CC       utils.o
+  CC       config-loader-expat.o
+  CC       main.o
+  CCLD     dbus-daemon
+ld: warning: file /ws/userland/src/components/desktop/dbus/build/i86/dbus/.libs/libdbus-1.so: linked to ../dbus/.libs/libdbus-1.so: attempted multiple inclusion of file
+  CC       activation-helper-bin.o
+  CC       config-parser-trivial.o
+  CC       activation-helper.o
+  CCLD     dbus-daemon-launch-helper
+ld: warning: file /ws/userland/src/components/desktop/dbus/build/i86/dbus/.libs/libdbus-1.so: linked to ../dbus/.libs/libdbus-1.so: attempted multiple inclusion of file
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/bus'
+Making all in tools
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/tools'
+  CC       dbus_launch-dbus-launch.o
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/dbus-launch.c:209:1: warning: 'concat2' defined but not used [-Wunused-function]
+ concat2 (const char *a,
+ ^~~~~~~
+  CC       dbus_launch-dbus-launch-x11.o
+  CC       dbus_launch-tool-common.o
+  CCLD     dbus-launch
+  CC       dbus-monitor.o
+  CC       dbus-print-message.o
+  CC       tool-common.o
+  CCLD     dbus-monitor
+  CC       dbus-send.o
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/dbus-send.c: In function 'main':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/dbus-send.c:185:7: warning: 'secondary_type' may be used uninitialized in this function [-Wmaybe-uninitialized]
+       append_arg (&subiter, valtype, val);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/dbus-send.c:461:11: note: 'secondary_type' was declared here
+       int secondary_type;
+           ^~~~~~~~~~~~~~
+  CCLD     dbus-send
+  CC       dbus-echo.o
+  CC       dbus-spam.o
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/dbus-spam.c: In function 'dbus_test_tool_spam':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/dbus-spam.c:446:25: warning: 'payload_len' may be used uninitialized in this function [-Wmaybe-uninitialized]
+                     mem = dbus_message_append_args (message,
+                     ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                     DBUS_TYPE_ARRAY,
+                                                     ~~~~~~~~~~~~~~~~
+                                                       DBUS_TYPE_BYTE,
+                                                       ~~~~~~~~~~~~~~~
+                                                       &payload,
+                                                       ~~~~~~~~~
+                                                       (dbus_uint32_t) len,
+                                                       ~~~~~~~~~~~~~~~~~~~~
+                                                     DBUS_TYPE_INVALID);
+                                                     ~~~~~~~~~~~~~~~~~~
+  CC       test-tool.o
+  CCLD     dbus-test-tool
+  CC       dbus-update-activation-environment.o
+  CCLD     dbus-update-activation-environment
+  CC       dbus-cleanup-sockets.o
+  CCLD     dbus-cleanup-sockets
+  CC       dbus-run-session.o
+  CCLD     dbus-run-session
+  CC       dbus-uuidgen.o
+  CCLD     dbus-uuidgen
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/tools'
+Making all in test
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/test'
+Making all in .
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/test'
+  CC       test-utils.lo
+  CC       test-utils-glib.lo
+  CCLD     libdbus-testutils.la
+  CC       shell-test.o
+  CCLD     test-shell
+  CC       internals/printf.o
+  CCLD     test-printf
+  CC       corrupt.o
+  CCLD     test-corrupt
+  CC       dbus-daemon.o
+  CCLD     test-dbus-daemon
+  CC       dbus-daemon-eavesdrop.o
+  CCLD     test-dbus-daemon-eavesdrop
+  CC       fdpass.o
+  CCLD     test-fdpass
+  CC       monitor.o
+  CCLD     test-monitor
+  CC       loopback.o
+  CCLD     test-loopback
+  CC       marshal.o
+  CCLD     test-marshal
+  CC       internals/refs.o
+  CCLD     test-refs
+  CC       relay.o
+  CCLD     test-relay
+  CC       syntax.o
+  CCLD     test-syntax
+  CC       internals/syslog.o
+  CCLD     test-syslog
+  CC       uid-permissions.o
+  CCLD     test-uid-permissions
+  CC       sd-activation.o
+  CCLD     test-sd-activation
+  CC       manual-dir-iter.o
+  CCLD     manual-dir-iter
+  CC       manual-tcp.o
+  CCLD     manual-tcp
+  CC       manual-authz.o
+  CCLD     manual-authz
+  GEN      data/valid-config-files/session.conf
+  GEN      data/valid-config-files-system/system.conf
+  GEN      copy-config-local
+  GEN      uninstalled-config-local
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/test'
+Making all in name-test
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/test/name-test'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/test/name-test'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/test'
+Making all in doc
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/doc'
+/usr/bin/xmlto man dbus-cleanup-sockets.1.xml
+Note: Writing dbus-cleanup-sockets.1
+/usr/bin/xmlto man dbus-daemon.1.xml
+Note: Writing dbus-daemon.1
+/usr/bin/xmlto man dbus-launch.1.xml
+Note: Writing dbus-launch.1
+/usr/bin/xmlto man dbus-monitor.1.xml
+Note: Writing dbus-monitor.1
+/usr/bin/xmlto man dbus-run-session.1.xml
+Warn: meta author : no refentry/info/author                        dbus-run-session
+Note: meta author : see http://docbook.sf.net/el/author            dbus-run-session
+Warn: meta author : no author data, so inserted a fixme            dbus-run-session
+Note: Writing dbus-run-session.1
+/usr/bin/xmlto man dbus-send.1.xml
+Note: Writing dbus-send.1
+/usr/bin/xmlto man dbus-test-tool.1.xml
+Warn: meta author : no refentry/info/author                        dbus-test-tool
+Note: meta author : see http://docbook.sf.net/el/author            dbus-test-tool
+Warn: meta author : no author data, so inserted a fixme            dbus-test-tool
+Note: Writing dbus-test-tool.1
+/usr/bin/xmlto man dbus-update-activation-environment.1.xml
+Warn: meta author : no refentry/info/author                        dbus-update-activation-environment
+Note: meta author : see http://docbook.sf.net/el/author            dbus-update-activation-environment
+Warn: meta author : no author data, so inserted a fixme            dbus-update-activation-environment
+Note: Writing dbus-update-activation-environment.1
+/usr/bin/xmlto man dbus-uuidgen.1.xml
+Note: Writing dbus-uuidgen.1
+/usr/bin/xmlto html-nochunks /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/dbus-faq.xml
+/usr/bin/xmlto html-nochunks /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/dbus-specification.xml
+/usr/bin/xmlto html-nochunks /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/dbus-test-plan.xml
+/usr/bin/xmlto html-nochunks /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/dbus-tutorial.xml
+/usr/bin/xmlto html-nochunks dbus-cleanup-sockets.1.xml
+/usr/bin/xmlto html-nochunks dbus-daemon.1.xml
+/usr/bin/xmlto html-nochunks dbus-launch.1.xml
+/usr/bin/xmlto html-nochunks dbus-monitor.1.xml
+/usr/bin/xmlto html-nochunks dbus-run-session.1.xml
+/usr/bin/xmlto html-nochunks dbus-send.1.xml
+/usr/bin/xmlto html-nochunks dbus-test-tool.1.xml
+/usr/bin/xmlto html-nochunks dbus-update-activation-environment.1.xml
+/usr/bin/xmlto html-nochunks dbus-uuidgen.1.xml
+  GEN      doxygen.stamp
+warning: Tag `HTML_ALIGN_MEMBERS' at line 96 of file `Doxyfile' has become obsolete.
+         To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u"
+warning: Tag `MAX_DOT_GRAPH_WIDTH' at line 174 of file `Doxyfile' has become obsolete.
+         To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u"
+warning: Tag `MAX_DOT_GRAPH_HEIGHT' at line 175 of file `Doxyfile' has become obsolete.
+         To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u"
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:102 warning: documentation for unknown define DBUS_MAJOR_VERSION found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:110 warning: documentation for unknown define DBUS_MINOR_VERSION found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:118 warning: documentation for unknown define DBUS_MICRO_VERSION found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:126 warning: documentation for unknown define DBUS_VERSION found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:139 warning: documentation for unknown define DBUS_VERSION_STRING found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:92 warning: documentation for unknown define DBUS_HAVE_INT64 found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:102 warning: documentation for unknown define DBUS_INT64_CONSTANT found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:110 warning: documentation for unknown define DBUS_UINT64_CONSTANT found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:381 warning: Compound DBusPollFD is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-pipe.h:41 warning: Compound DBusPipe is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-marshal-header.c:70 warning: Compound HeaderFieldType is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-marshal-recursive.c:1136 warning: Compound ReplacementBlock is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-pthread.c:48 warning: Compound DBusRMutex is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:48 warning: Compound DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-nonce.h:37 warning: Compound DBusNonceFile is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-pthread.c:52 warning: Compound DBusCMutex is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-thread-win.c:48 warning: Compound DBusCondVar is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-pthread.c:56 warning: Compound DBusCondVar is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-string.h:43 warning: Compound DBusString is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:55 warning: documented symbol `dbus_uint32_t' was not declared or defined.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:61 warning: documented symbol `dbus_int32_t' was not declared or defined.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:67 warning: documented symbol `dbus_uint16_t' was not declared or defined.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:73 warning: documented symbol `dbus_int16_t' was not declared or defined.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:80 warning: documented symbol `dbus_uint64_t' was not declared or defined.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:86 warning: documented symbol `dbus_int64_t' was not declared or defined.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-connection.c:5360 warning: Member _dbus_connection_get_linux_security_label(DBusConnection *connection, char **label_p) (function) of group DBusConnection is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-connection.c:2573 warning: The following parameters of _dbus_connection_set_pending_fds_function(DBusConnection *connection, DBusPendingFdsChangeFunction callback, void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-dataslot.c:46 warning: The following parameters of _dbus_data_slot_allocator_init(DBusDataSlotAllocator *allocator, DBusGlobalLock lock) are not documented:
+  parameter 'lock'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-errors.c:81 warning: Member _DBUS_STATIC_ASSERT(sizeof(DBusRealError)==sizeof(DBusError)) (function) of group DBusErrorInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-errors.c:374 warning: Member _dbus_set_error_valist(DBusError *error, const char *name, const char *format, va_list args) (function) of group DBusErrors is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-hash.h:155 warning: Member DBUS_HASH_POLLABLE (macro definition) of group DBusHashTable is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-hash.c:225 warning: Member _DBUS_STATIC_ASSERT(sizeof(DBusRealHashIter)==sizeof(DBusHashIter)) (function) of group DBusHashTableInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn.c:1458 warning: Member _dbus_babysitter_set_result_function(DBusBabysitter *sitter, DBusBabysitterFinishedFunc finished, void *user_data) (function) of group DBusInternalsUtils is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:493 warning: Member _dbus_rlimit_save_fd_limit(DBusError *error) (function) of group DBusInternalsUtils is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:500 warning: Member _dbus_rlimit_raise_fd_limit_if_privileged(unsigned int desired, DBusError *error) (function) of group DBusInternalsUtils is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:508 warning: Member _dbus_rlimit_restore_fd_limit(DBusRLimit *saved, DBusError *error) (function) of group DBusInternalsUtils is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:518 warning: Member _dbus_rlimit_free(DBusRLimit *lim) (function) of group DBusInternalsUtils is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:524 warning: Member _dbus_init_system_log(dbus_bool_t is_daemon) (function) of group DBusInternalsUtils is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-macros.h:198 warning: Member DBUS_EXPORT (macro definition) of group DBusMacros is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-macros.h:214 warning: Member DBUS_PRIVATE_EXPORT (macro definition) of group DBusMacros is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-marshal-validate.h:163 warning: Member _dbus_validate_utf8(s, b, e) (macro definition) of group DBusMarshal is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-marshal-validate.c:837 warning: Member _dbus_validity_to_error_message(DBusValidity validity) (function) of group DBusMarshal is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-memory.c:824 warning: Member _dbus_register_shutdown_func_unlocked(DBusShutdownFunction func, void *data) (function) of group DBusMemoryInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:88 warning: Member _dbus_enable_message_cache() (macro definition) of group DBusMessageInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:93 warning: Member _dbus_message_trace_ref(DBusMessage *message, int old_refcount, int new_refcount, const char *why) (function) of group DBusMessageInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MAJOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MINOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MICRO_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:149 warning: explicit link request to 'DBUS_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-protocol.h:242 warning: Member DBUS_NUM_MESSAGE_TYPES (macro definition) of group DBusProtocol is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-server.c:58 warning: Member _dbus_server_trace_ref(DBusServer *server, int old_refcount, int new_refcount, const char *why) (function) of group DBusServerInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.h:158 warning: Member DBusEnsureStandardFdsFlags (enumeration) of group DBusSysdepsUnix is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.h:83 warning: Member _dbus_read_credentials(int client_fd, DBusCredentials *credentials, DBusError *error) (function) of group DBusSysdepsUnix is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.h:86 warning: Member _dbus_send_credentials(int server_fd, DBusError *error) (function) of group DBusSysdepsUnix is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.h:94 warning: Member _dbus_lookup_user_bus(dbus_bool_t *supported, DBusString *address, DBusError *error) (function) of group DBusSysdepsUnix is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:149 warning: Member DBUS_SOCKET_FORMAT (macro definition) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:150 warning: Member DBUS_SOCKET_INIT (macro definition) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:337 warning: Member DBUS_POLLABLE_FORMAT (macro definition) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:576 warning: Member DBUS_VA_COPY(ap1, ap2) (macro definition) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:675 warning: Member DBUS_DEFAULT_MESSAGE_UNIX_FDS (macro definition) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:336 warning: Member DBusPollable (typedef) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:667 warning: Member DBusRLimit (typedef) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:557 warning: Member DBusSystemLogSeverity (enumeration) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:203 warning: Member _dbus_write_socket_with_unix_fds(DBusSocket fd, const DBusString *buffer, int start, int len, const int *fds, int n_fds) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:209 warning: Member _dbus_write_socket_with_unix_fds_two(DBusSocket fd, const DBusString *buffer1, int start1, int len1, const DBusString *buffer2, int start2, int len2, const int *fds, int n_fds) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:223 warning: Member _dbus_connect_tcp_socket_with_nonce(const char *host, const char *port, const char *family, const char *noncefile, DBusError *error) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:263 warning: Member _dbus_daemon_is_session_bus_address_published(const char *scope) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:265 warning: Member _dbus_daemon_publish_session_bus_address(const char *address, const char *shm_name) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:267 warning: Member _dbus_daemon_unpublish_session_bus_address(void) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:480 warning: Member _dbus_save_socket_errno(void) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:481 warning: Member _dbus_restore_socket_errno(int saved_errno) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:555 warning: Member _dbus_init_system_log(dbus_bool_t is_daemon) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:667 warning: Member _dbus_replace_install_prefix(const char *configure_time_path) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:679 warning: Member _dbus_rlimit_save_fd_limit(DBusError *error) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:680 warning: Member _dbus_rlimit_raise_fd_limit_if_privileged(unsigned int desired, DBusError *error) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:682 warning: Member _dbus_rlimit_restore_fd_limit(DBusRLimit *saved, DBusError *error) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:684 warning: Member _dbus_rlimit_free(DBusRLimit *lim) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:1931 warning: argument 'client_fd' of command @param is not found in the argument list of _dbus_read_credentials_socket(DBusSocket handle, DBusCredentials *credentials, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:535 warning: argument 'fd' of command @param is not found in the argument list of _dbus_set_socket_nonblocking(DBusSocket handle, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-threads.c:337 warning: Member _dbus_lock(DBusGlobalLock lock) (function) of group DBusThreadsInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-threads.c:351 warning: Member _dbus_unlock(DBusGlobalLock lock) (function) of group DBusThreadsInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.c:1432 warning: Member _dbus_transport_get_linux_security_label(DBusTransport *transport, char **label_p) (function) of group DBusTransport is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.c:1564 warning: The following parameters of _dbus_transport_set_pending_fds_function(DBusTransport *transport, void(*callback)(void *), void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.h:40 warning: Member _DBUS_WATCH_NVAL (macro definition) of group DBusWatchInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.c:57 warning: Member _dbus_watch_get_enabled(DBusWatch *watch) (function) of group DBusWatchInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.c:63 warning: Member _dbus_watch_get_oom_last_time(DBusWatch *watch) (function) of group DBusWatchInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.c:69 warning: Member _dbus_watch_set_oom_last_time(DBusWatch *watch, dbus_bool_t oom) (function) of group DBusWatchInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.h:98 warning: Member _dbus_watch_get_socket(DBusWatch *watch) (function) of group DBusWatchInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.h:100 warning: Member _dbus_watch_get_pollable(DBusWatch *watch) (function) of group DBusWatchInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.c:606 warning: Member _dbus_watch_get_socket(DBusWatch *watch) (function) of group DBusWatch is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.c:622 warning: Member _dbus_watch_get_pollable(DBusWatch *watch) (function) of group DBusWatch is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:117 warning: explicit link request to 'dbus_int64_t' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:117 warning: explicit link request to 'dbus_uint64_t' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:63 warning: Member refcount (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:65 warning: Member start_sync_event (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:72 warning: Member child_setup (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:73 warning: Member user_data (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:75 warning: Member argc (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:76 warning: Member argv (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:77 warning: Member envp (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:79 warning: Member child_handle (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:81 warning: Member socket_to_main (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:85 warning: Member finished_cb (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:86 warning: Member finished_data (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:88 warning: Member have_spawn_errno (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:89 warning: Member spawn_errno (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:90 warning: Member have_child_status (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:91 warning: Member child_status (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:49 warning: Member refcount (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:50 warning: Member unix_uid (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:51 warning: Member pid (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:52 warning: Member windows_sid (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:53 warning: Member linux_security_label (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:54 warning: Member adt_audit_data (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:55 warning: Member adt_audit_data_size (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-win.c:466 warning: Member handle (variable) of class DBusDirIter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-win.c:467 warning: Member fileinfo (variable) of class DBusDirIter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-win.c:468 warning: Member finished (variable) of class DBusDirIter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-win.c:469 warning: Member offset (variable) of class DBusDirIter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:146 warning: Member dummy1 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:147 warning: Member dummy2 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:148 warning: Member dummy3 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:149 warning: Member dummy4 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:150 warning: Member dummy5 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:151 warning: Member dummy6 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:152 warning: Member dummy7 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:153 warning: Member dummy8 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:154 warning: Member dummy9 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:155 warning: Member dummy10 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:156 warning: Member dummy11 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:157 warning: Member pad1 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:158 warning: Member pad2 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:159 warning: Member pad3 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-nonce.h:38 warning: Member path (variable) of class DBusNonceFile is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-nonce.h:39 warning: Member dir (variable) of class DBusNonceFile is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-pipe.h:42 warning: Member fd (variable) of class DBusPipe is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:148 warning: Member fd (variable) of class DBusSocket is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:117 warning: explicit link request to 'dbus_int64_t' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:117 warning: explicit link request to 'dbus_uint64_t' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-connection-internal.h:113 warning: The following parameters of _dbus_connection_set_pending_fds_function(DBusConnection *connection, DBusPendingFdsChangeFunction callback, void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-connection.c:2573 warning: The following parameters of _dbus_connection_set_pending_fds_function(DBusConnection *connection, DBusPendingFdsChangeFunction callback, void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-dataslot.c:46 warning: The following parameters of _dbus_data_slot_allocator_init(DBusDataSlotAllocator *allocator, DBusGlobalLock lock) are not documented:
+  parameter 'lock'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-dataslot.h:75 warning: The following parameters of _dbus_data_slot_allocator_init(DBusDataSlotAllocator *allocator, DBusGlobalLock lock) are not documented:
+  parameter 'lock'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MAJOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MINOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MICRO_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:149 warning: explicit link request to 'DBUS_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MAJOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MINOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MICRO_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:149 warning: explicit link request to 'DBUS_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.c:2181 warning: argument 'server_fd' of command @param is not found in the argument list of _dbus_send_credentials_socket(DBusSocket handle, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:1873 warning: The following parameters of _dbus_send_credentials_socket(DBusSocket handle, DBusError *error) are not documented:
+  parameter 'handle'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:535 warning: argument 'fd' of command @param is not found in the argument list of _dbus_set_socket_nonblocking(DBusSocket handle, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:1931 warning: argument 'client_fd' of command @param is not found in the argument list of _dbus_read_credentials_socket(DBusSocket handle, DBusCredentials *credentials, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.c:1564 warning: The following parameters of _dbus_transport_set_pending_fds_function(DBusTransport *transport, void(*callback)(void *), void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.h:104 warning: The following parameters of _dbus_transport_set_pending_fds_function(DBusTransport *transport, void(*callback)(void *), void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-connection.c:2573 warning: The following parameters of _dbus_connection_set_pending_fds_function(DBusConnection *connection, DBusPendingFdsChangeFunction callback, void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-dataslot.c:46 warning: The following parameters of _dbus_data_slot_allocator_init(DBusDataSlotAllocator *allocator, DBusGlobalLock lock) are not documented:
+  parameter 'lock'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MAJOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MINOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MICRO_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:149 warning: explicit link request to 'DBUS_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:535 warning: argument 'fd' of command @param is not found in the argument list of _dbus_set_socket_nonblocking(DBusSocket handle, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:1931 warning: argument 'client_fd' of command @param is not found in the argument list of _dbus_read_credentials_socket(DBusSocket handle, DBusCredentials *credentials, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.c:1564 warning: The following parameters of _dbus_transport_set_pending_fds_function(DBusTransport *transport, void(*callback)(void *), void *data) are not documented:
+  parameter 'data'
+xsltproc -o dbus.devhelp /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/doxygen_to_devhelp.xsl api/xml/index.xml
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/doc'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/build/i86/.built
+(/bin/rm -f -rf /ws/userland/src/components/desktop/dbus/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/desktop/dbus/build/amd64)
+(cd /ws/userland/src/components/desktop/dbus/build/amd64 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++" PATH="/usr/bin/amd64:/usr/bin:/usr/gnu/bin" CC_FOR_BUILD="/usr/gcc/7/bin/gcc -m64" CXX_FOR_BUILD="/usr/gcc/7/bin/g++ -m64" CPPFLAGS="-m64" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m64 -O3" CXXFLAGS="-m64 -O3" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/desktop/dbus/dbus-1.10.22/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib/amd64    --sysconfdir=/etc --with-dbus-daemondir=/usr/lib --with-dbus-user=root --libexecdir=/usr/lib --localstatedir=/var --disable-static)
+checking build system type... x86_64-pc-solaris2.11
+checking host system type... x86_64-pc-solaris2.11
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether UID '100' is supported by ustar format... yes
+checking whether GID '10' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking whether make supports nested variables... (cached) yes
+checking for gcc... /usr/gcc/7/bin/gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /usr/gcc/7/bin/gcc... gcc3
+checking whether we are using the GNU C++ compiler... yes
+checking whether /usr/gcc/7/bin/g++ accepts -g... yes
+checking dependency style of /usr/gcc/7/bin/g++... gcc3
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for library containing strerror... none required
+checking for ANSI C header files... (cached) yes
+checking for inline... inline
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for fgrep... /usr/bin/ggrep -F
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert x86_64-pc-solaris2.11 file names to x86_64-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert x86_64-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /usr/gcc/7/bin/gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/gcc/7/bin/gcc supports -fno-rtti -fno-exceptions... no
+checking for /usr/gcc/7/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/gcc static flag -static works... no
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/gcc linker (/usr/bin/ld -64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking how to run the C++ preprocessor... /usr/gcc/7/bin/g++ -E
+checking for ld used by /usr/gcc/7/bin/g++... /usr/bin/ld -64
+checking if the linker (/usr/bin/ld -64) is GNU ld... no
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld -64) supports shared libraries... yes
+checking for /usr/gcc/7/bin/g++ option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/g++ PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/g++ static flag -static works... no
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld -64) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for gawk... (cached) gawk
+checking whether the -Werror option is usable... yes
+checking for simple visibility declarations... yes
+checking for windres... no
+checking for GLIB... yes
+checking for a Python interpreter with version >= 2.6... python
+checking for python... /usr/bin/amd64/python
+checking for python version... 2.7
+checking for python platform... sunos5
+checking for python script directory... ${prefix}/lib/python2.7/site-packages
+checking for python extension module directory... ${exec_prefix}/lib/python2.7/site-packages
+checking whether we are using the GNU C Library 2.1 or newer... no
+checking size of char... 1
+checking size of short... 2
+checking size of long... 8
+checking size of int... 4
+checking size of void *... 8
+checking size of long long... 8
+checking size of __int64... 0
+checking 64-bit integer type... long
+checking 32-bit integer type... int
+checking 16-bit integer type... short
+checking whether byte ordering is bigendian... no
+checking for an implementation of va_copy()... yes
+checking for an implementation of __va_copy()... yes
+checking whether va_lists can be copied by value... no
+checking whether /usr/gcc/7/bin/gcc knows __sync_sub_and_fetch()... yes
+checking for library containing socket... none required
+checking for gethostbyname... yes
+checking for vsnprintf... yes
+checking for vasprintf... yes
+checking for nanosleep... yes
+checking for usleep... yes
+checking for setenv... yes
+checking for clearenv... yes
+checking for unsetenv... yes
+checking for socketpair... yes
+checking for getgrouplist... yes
+checking for fpathconf... yes
+checking for setrlimit... yes
+checking for poll... yes
+checking for setlocale... yes
+checking for localeconv... yes
+checking for strtoll... yes
+checking for strtoull... yes
+checking for issetugid... yes
+checking for getresuid... no
+checking for setresuid... no
+checking for getrlimit... yes
+checking for closefrom... yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking whether LOG_PERROR is declared... no
+checking for sys/prctl.h... no
+checking for prctl... no
+checking for raise... yes
+checking for broken poll... no
+checking for dirfd... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking dirent.h usability... yes
+checking dirent.h presence... yes
+checking for dirent.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking for library containing backtrace... none required
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking byteswap.h usability... no
+checking byteswap.h presence... no
+checking for byteswap.h... no
+checking for unistd.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking ws2tcpip.h usability... no
+checking ws2tcpip.h presence... no
+checking for ws2tcpip.h... no
+checking alloca.h usability... yes
+checking alloca.h presence... yes
+checking for alloca.h... yes
+checking for posix getpwnam_r... yes
+checking whether socklen_t is defined... yes
+checking sys/uio.h usability... yes
+checking sys/uio.h presence... yes
+checking for sys/uio.h... yes
+checking for writev... yes
+checking sys/syslimits.h usability... no
+checking sys/syslimits.h presence... no
+checking for sys/syslimits.h... no
+checking whether MSG_NOSIGNAL is declared... yes
+checking for ISO C99 varargs macros in C... yes
+checking for GNUC varargs macros... yes
+checking for struct cmsgcred... no
+checking for struct unpcbid.unp_pid... no
+checking for getpeerucred... yes
+checking for getpeereid... no
+checking for pipe2... yes
+checking for accept4... yes
+checking abstract socket namespace... no
+checking for XML_ParserCreate_MM in -lexpat... yes
+checking expat.h usability... yes
+checking expat.h presence... yes
+checking for expat.h... yes
+checking for library containing pthread_cond_timedwait... none required
+checking for library containing pthread_mutexattr_init... none required
+checking for library containing pthread_mutexattr_settype... none required
+checking for library containing pthread_condattr_setclock... none required
+checking for library containing clock_getres... none required
+checking for CLOCK_MONOTONIC... found
+checking for is_selinux_enabled in -lselinux... no
+configure: WARNING: Sufficiently new SELinux library not found
+checking for APPARMOR... no
+configure: WARNING: Sufficiently new AppArmor library not found
+checking sys/inotify.h usability... no
+checking sys/inotify.h presence... no
+checking for sys/inotify.h... no
+checking for Linux epoll(4)... no
+checking sys/event.h usability... no
+checking sys/event.h presence... no
+checking for sys/event.h... no
+checking for kqueue... no
+checking launch.h usability... no
+checking launch.h presence... no
+checking for launch.h... no
+checking for launchctl... no
+checking for SYSTEMD... no
+checking for SYSTEMD... no
+checking for systemctl... /usr/bin/systemctl
+checking for audit_log_user_avc_message in -laudit... no
+checking for ADT API... yes
+checking for SCM_RIGHTS... supported
+checking for X... libraries , headers 
+checking for gethostbyname... (cached) yes
+checking for connect... yes
+checking for remove... yes
+checking for shmat... yes
+checking for IceConnectionNumber in -lICE... yes
+checking to see if compiler understands ... yes
+checking to see if compiler understands -Wall... yes
+checking to see if compiler understands -Wextra... yes
+checking to see if compiler understands -Wchar-subscripts... yes
+checking to see if compiler understands -Wmissing-declarations... yes
+checking to see if compiler understands -Wmissing-prototypes... yes
+checking to see if compiler understands -Wnested-externs... yes
+checking to see if compiler understands -Wpointer-arith... yes
+checking to see if compiler understands -Wcast-align... yes
+checking to see if compiler understands -Wno-address... yes
+checking to see if compiler understands -Wfloat-equal... yes
+checking to see if compiler understands -Wdeclaration-after-statement... yes
+checking to see if compiler understands -Werror... yes
+checking to see if compiler understands -Wno-unused-label... yes
+checking to see if compiler understands -Wno-error=unused-label... yes
+checking to see if compiler understands -Wno-deprecated-declarations... yes
+checking to see if compiler understands -Wno-error=deprecated-declarations... yes
+checking to see if compiler understands -Wno-missing-field-initializers... yes
+checking to see if compiler understands -Wno-error=missing-field-initializers... yes
+checking to see if compiler understands -Wno-misleading-indentation... yes
+checking to see if compiler understands -Wno-error=misleading-indentation... yes
+checking to see if compiler understands -Wno-unused-parameter... yes
+checking to see if compiler understands -Wno-error=unused-parameter... yes
+checking to see if compiler understands -Wno-pointer-sign... yes
+checking to see if compiler understands -Wno-error=pointer-sign... yes
+checking to see if compiler understands -Wno-type-limits... yes
+checking to see if compiler understands -Wno-error=type-limits... yes
+checking to see if compiler understands -fno-common... yes
+checking to see if compiler understands -fno-strict-aliasing... yes
+checking if LD -Wl,--version-script works... no
+checking for doxygen... /usr/bin/doxygen
+checking whether to build Doxygen documentation... yes
+checking for xsltproc... xsltproc
+checking for ducktype... no
+checking for yelp-build... /usr/bin/yelp-build
+checking whether to build Ducktype documentation... no
+checking for xmlto... /usr/bin/xmlto
+checking whether to build XML documentation... yes
+checking crt_externs.h usability... no
+checking crt_externs.h presence... no
+checking for crt_externs.h... no
+checking for _NSGetEnviron... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Doxyfile
+config.status: creating dbus/Version
+config.status: creating dbus/versioninfo.rc
+config.status: creating dbus/dbus-arch-deps.h
+config.status: creating bus/system.conf
+config.status: creating bus/session.conf
+config.status: creating bus/legacy-config/system.conf
+config.status: creating bus/legacy-config/session.conf
+config.status: creating bus/example-system-enable-stats.conf
+config.status: creating bus/example-session-disable-stats.conf
+config.status: creating bus/messagebus
+config.status: creating bus/messagebus-config
+config.status: creating bus/org.freedesktop.dbus-session.plist
+config.status: creating bus/rc.messagebus
+config.status: creating bus/dbus.service
+config.status: creating bus/dbus.socket
+config.status: creating bus/systemd-user/dbus.service
+config.status: creating bus/systemd-user/dbus.socket
+config.status: creating Makefile
+config.status: creating dbus/Makefile
+config.status: creating bus/Makefile
+config.status: creating tools/Makefile
+config.status: creating test/Makefile
+config.status: creating test/name-test/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/dbus-cleanup-sockets.1.xml
+config.status: creating doc/dbus-daemon.1.xml
+config.status: creating doc/dbus-launch.1.xml
+config.status: creating doc/dbus-monitor.1.xml
+config.status: creating doc/dbus-run-session.1.xml
+config.status: creating doc/dbus-send.1.xml
+config.status: creating doc/dbus-test-tool.1.xml
+config.status: creating doc/dbus-update-activation-environment.1.xml
+config.status: creating doc/dbus-uuidgen.1.xml
+config.status: creating dbus-1.pc
+config.status: creating dbus-1-uninstalled.pc
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+                    D-Bus 1.10.22
+                  ==============
+
+	prefix:                   /usr
+	exec_prefix:              ${prefix}
+        libdir:                   /usr/lib/amd64
+        libexecdir:               /usr/lib
+        bindir:                   /usr/bin
+        sysconfdir:               /etc
+        localstatedir:            /var
+	datadir:                  /usr/share
+	source code location:	  /ws/userland/src/components/desktop/dbus/dbus-1.10.22
+	compiler:		  /usr/gcc/7/bin/gcc
+	cflags:		           -Wall -Wextra -Wchar-subscripts -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wpointer-arith -Wcast-align -Wno-address -Wfloat-equal -Wdeclaration-after-statement -Wno-unused-label -Wno-deprecated-declarations -Wno-missing-field-initializers -Wno-misleading-indentation -Wno-unused-parameter -Wno-pointer-sign -Wno-type-limits -fno-common -fno-strict-aliasing -m64 -O3 -D_POSIX_PTHREAD_SEMANTICS -D_POSIX_PTHREAD_SEMANTICS -D_REENTRANT -D__EXTENSIONS__ -D_XOPEN_SOURCE=700
+	cppflags:		  -m64
+	cxxflags:		  -m64 -O3
+	64-bit int:		  long
+	32-bit int:		  int
+	16-bit int:		  short
+        Doxygen:                  /usr/bin/doxygen
+        xmlto:                    /usr/bin/xmlto
+        ducktype:                 no
+        yelp-build:               /usr/bin/yelp-build
+
+        Rebuilding generated files: yes
+        gcc coverage profiling:   no
+        Building embedded tests:  no
+        Building modular tests:   auto
+            - with GLib:          yes
+        Installing tests:         no
+        Building verbose mode:    no
+        Building assertions:      no
+        Building checks:          yes
+        Building bus stats API:   yes
+        Building SELinux support: no
+        Building AppArmor support: no
+        Building inotify support: no
+        Building kqueue support:  no
+        Building systemd support: no
+        Building X11 code:        yes
+        Building Doxygen docs:    yes
+        Building Ducktype docs:   no
+        Building XML docs:        yes
+        Building launchd support: no
+        Init scripts style:       none
+        Abstract socket names:    no
+        System bus socket:        /var/run/dbus/system_bus_socket
+        System bus address:       unix:path=/var/run/dbus/system_bus_socket
+        System bus PID file:      /var/run/dbus/pid
+        Session bus listens on:   unix:tmpdir=/tmp
+        Session clients connect to: autolaunch:
+        Console auth dir:         /var/run/console/
+        Console owner file:       yes
+        Console owner file path:  /dev/console
+	System bus user:          root
+	Session bus services dir: /usr/share/dbus-1/services
+        'make check' socket dir:  /tmp
+
+
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/build/amd64/.configured
+(cd /ws/userland/src/components/desktop/dbus/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64'
+Making all in dbus
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/dbus'
+/usr/gnu/bin/make  all-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/dbus'
+  CC       libdbus_1_la-dbus-address.lo
+  CC       libdbus_1_la-dbus-auth.lo
+  CC       libdbus_1_la-dbus-bus.lo
+  CC       libdbus_1_la-dbus-connection.lo
+  CC       libdbus_1_la-dbus-credentials.lo
+  CC       libdbus_1_la-dbus-errors.lo
+  CC       libdbus_1_la-dbus-keyring.lo
+  CC       libdbus_1_la-dbus-marshal-header.lo
+  CC       libdbus_1_la-dbus-marshal-byteswap.lo
+  CC       libdbus_1_la-dbus-marshal-recursive.lo
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-marshal-recursive.c: In function '_dbus_type_reader_recurse':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-marshal-recursive.c:992:30: warning: 'klass' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   const DBusTypeReaderClass *klass;
+                              ^~~~~
+  CC       libdbus_1_la-dbus-marshal-validate.lo
+  CC       libdbus_1_la-dbus-message.lo
+  CC       libdbus_1_la-dbus-misc.lo
+  CC       libdbus_1_la-dbus-nonce.lo
+  CC       libdbus_1_la-dbus-object-tree.lo
+  CC       libdbus_1_la-dbus-pending-call.lo
+  CC       libdbus_1_la-dbus-resources.lo
+  CC       libdbus_1_la-dbus-server.lo
+  CC       libdbus_1_la-dbus-server-debug-pipe.lo
+  CC       libdbus_1_la-dbus-server-socket.lo
+  CC       libdbus_1_la-dbus-uuidgen.lo
+  CC       libdbus_1_la-dbus-server-unix.lo
+  CC       libdbus_1_la-dbus-sha.lo
+  CC       libdbus_1_la-dbus-signature.lo
+  CC       libdbus_1_la-dbus-syntax.lo
+  CC       libdbus_1_la-dbus-timeout.lo
+  CC       libdbus_1_la-dbus-threads.lo
+  CC       libdbus_1_la-dbus-transport.lo
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.c: In function 'recover_unused_bytes':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.c:1061:11: warning: variable 'orig_len' set but not used [-Wunused-but-set-variable]
+       int orig_len;
+           ^~~~~~~~
+  CC       libdbus_1_la-dbus-transport-socket.lo
+  CC       libdbus_1_la-dbus-watch.lo
+  CC       libdbus_1_la-dbus-dataslot.lo
+  CC       libdbus_1_la-dbus-file.lo
+  CC       libdbus_1_la-dbus-hash.lo
+  CC       libdbus_1_la-dbus-internals.lo
+  CC       libdbus_1_la-dbus-list.lo
+  CC       libdbus_1_la-dbus-marshal-basic.lo
+  CC       libdbus_1_la-dbus-memory.lo
+  CC       libdbus_1_la-dbus-mempool.lo
+  CC       libdbus_1_la-dbus-pipe.lo
+  CC       libdbus_1_la-dbus-string.lo
+  CC       libdbus_1_la-dbus-file-unix.lo
+  CC       libdbus_1_la-dbus-pipe-unix.lo
+  CC       libdbus_1_la-dbus-sysdeps-unix.lo
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.c: In function '_dbus_read_credentials_socket':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.c:2059:9: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+         adt_session_data_t *adth = NULL;
+         ^~~~~~~~~~~~~~~~~~
+  CC       libdbus_1_la-dbus-sysdeps-pthread.lo
+  CC       libdbus_1_la-dbus-transport-unix.lo
+  CC       libdbus_1_la-dbus-userdb.lo
+  CC       libdbus_1_la-dbus-sysdeps.lo
+  CCLD     libdbus-1.la
+  CC       dbus-asv-util.lo
+  CC       dbus-auth-script.lo
+  CC       dbus-auth-util.lo
+  CC       dbus-credentials-util.lo
+  CC       dbus-mainloop.lo
+  CC       dbus-marshal-byteswap-util.lo
+  CC       dbus-marshal-recursive-util.lo
+  CC       dbus-marshal-validate-util.lo
+  CC       dbus-message-factory.lo
+  CC       dbus-message-util.lo
+  CC       dbus-shell.lo
+  CC       dbus-sysdeps-util-unix.lo
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c: In function '_dbus_user_at_console':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:653:17: warning: unused variable 'f' [-Wunused-variable]
+   DBusString u, f;
+                 ^
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:653:14: warning: unused variable 'u' [-Wunused-variable]
+   DBusString u, f;
+              ^
+  CC       dbus-userdb-util.lo
+  CC       dbus-spawn.lo
+  CC       dbus-socket-set.lo
+  CC       dbus-socket-set-poll.lo
+  CC       dbus-string-util.lo
+  CC       dbus-sysdeps-util.lo
+  CC       dbus-test.lo
+  CCLD     libdbus-internal.la
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/dbus'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/dbus'
+Making all in bus
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/bus'
+  CC       activation.o
+  CC       apparmor.o
+  CC       audit.o
+  CC       bus.o
+  CC       config-parser.o
+  CC       config-parser-common.o
+  CC       connection.o
+  CC       desktop-file.o
+  CC       dir-watch-default.o
+  CC       dispatch.o
+  CC       driver.o
+  CC       expirelist.o
+  CC       policy.o
+  CC       selinux.o
+  CC       services.o
+  CC       signals.o
+  CC       stats.o
+  CC       test.o
+  CC       utils.o
+  CC       config-loader-expat.o
+  CC       main.o
+  CCLD     dbus-daemon
+ld: warning: file /ws/userland/src/components/desktop/dbus/build/amd64/dbus/.libs/libdbus-1.so: linked to ../dbus/.libs/libdbus-1.so: attempted multiple inclusion of file
+  CC       activation-helper-bin.o
+  CC       config-parser-trivial.o
+  CC       activation-helper.o
+  CCLD     dbus-daemon-launch-helper
+ld: warning: file /ws/userland/src/components/desktop/dbus/build/amd64/dbus/.libs/libdbus-1.so: linked to ../dbus/.libs/libdbus-1.so: attempted multiple inclusion of file
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/bus'
+Making all in tools
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/tools'
+  CC       dbus_launch-dbus-launch.o
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/dbus-launch.c:209:1: warning: 'concat2' defined but not used [-Wunused-function]
+ concat2 (const char *a,
+ ^~~~~~~
+  CC       dbus_launch-dbus-launch-x11.o
+  CC       dbus_launch-tool-common.o
+  CCLD     dbus-launch
+  CC       dbus-monitor.o
+  CC       dbus-print-message.o
+  CC       tool-common.o
+  CCLD     dbus-monitor
+  CC       dbus-send.o
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/dbus-send.c: In function 'main':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/dbus-send.c:185:7: warning: 'secondary_type' may be used uninitialized in this function [-Wmaybe-uninitialized]
+       append_arg (&subiter, valtype, val);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/dbus-send.c:461:11: note: 'secondary_type' was declared here
+       int secondary_type;
+           ^~~~~~~~~~~~~~
+  CCLD     dbus-send
+  CC       dbus-echo.o
+  CC       dbus-spam.o
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/dbus-spam.c: In function 'dbus_test_tool_spam':
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/dbus-spam.c:440:25: warning: 'payload_len' may be used uninitialized in this function [-Wmaybe-uninitialized]
+                     len = payload_len;
+                     ~~~~^~~~~~~~~~~~~
+  CC       test-tool.o
+  CCLD     dbus-test-tool
+  CC       dbus-update-activation-environment.o
+  CCLD     dbus-update-activation-environment
+  CC       dbus-cleanup-sockets.o
+  CCLD     dbus-cleanup-sockets
+  CC       dbus-run-session.o
+  CCLD     dbus-run-session
+  CC       dbus-uuidgen.o
+  CCLD     dbus-uuidgen
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/tools'
+Making all in test
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/test'
+Making all in .
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/test'
+  CC       test-utils.lo
+  CC       test-utils-glib.lo
+  CCLD     libdbus-testutils.la
+  CC       shell-test.o
+  CCLD     test-shell
+  CC       internals/printf.o
+  CCLD     test-printf
+  CC       corrupt.o
+  CCLD     test-corrupt
+  CC       dbus-daemon.o
+  CCLD     test-dbus-daemon
+  CC       dbus-daemon-eavesdrop.o
+  CCLD     test-dbus-daemon-eavesdrop
+  CC       fdpass.o
+  CCLD     test-fdpass
+  CC       monitor.o
+  CCLD     test-monitor
+  CC       loopback.o
+  CCLD     test-loopback
+  CC       marshal.o
+  CCLD     test-marshal
+  CC       internals/refs.o
+  CCLD     test-refs
+  CC       relay.o
+  CCLD     test-relay
+  CC       syntax.o
+  CCLD     test-syntax
+  CC       internals/syslog.o
+  CCLD     test-syslog
+  CC       uid-permissions.o
+  CCLD     test-uid-permissions
+  CC       sd-activation.o
+  CCLD     test-sd-activation
+  CC       manual-dir-iter.o
+  CCLD     manual-dir-iter
+  CC       manual-tcp.o
+  CCLD     manual-tcp
+  CC       manual-authz.o
+  CCLD     manual-authz
+  GEN      data/valid-config-files/session.conf
+  GEN      data/valid-config-files-system/system.conf
+  GEN      copy-config-local
+  GEN      uninstalled-config-local
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/test'
+Making all in name-test
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/test/name-test'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/test/name-test'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/test'
+Making all in doc
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/doc'
+/usr/bin/xmlto man dbus-cleanup-sockets.1.xml
+Note: Writing dbus-cleanup-sockets.1
+/usr/bin/xmlto man dbus-daemon.1.xml
+Note: Writing dbus-daemon.1
+/usr/bin/xmlto man dbus-launch.1.xml
+Note: Writing dbus-launch.1
+/usr/bin/xmlto man dbus-monitor.1.xml
+Note: Writing dbus-monitor.1
+/usr/bin/xmlto man dbus-run-session.1.xml
+Warn: meta author : no refentry/info/author                        dbus-run-session
+Note: meta author : see http://docbook.sf.net/el/author            dbus-run-session
+Warn: meta author : no author data, so inserted a fixme            dbus-run-session
+Note: Writing dbus-run-session.1
+/usr/bin/xmlto man dbus-send.1.xml
+Note: Writing dbus-send.1
+/usr/bin/xmlto man dbus-test-tool.1.xml
+Warn: meta author : no refentry/info/author                        dbus-test-tool
+Note: meta author : see http://docbook.sf.net/el/author            dbus-test-tool
+Warn: meta author : no author data, so inserted a fixme            dbus-test-tool
+Note: Writing dbus-test-tool.1
+/usr/bin/xmlto man dbus-update-activation-environment.1.xml
+Warn: meta author : no refentry/info/author                        dbus-update-activation-environment
+Note: meta author : see http://docbook.sf.net/el/author            dbus-update-activation-environment
+Warn: meta author : no author data, so inserted a fixme            dbus-update-activation-environment
+Note: Writing dbus-update-activation-environment.1
+/usr/bin/xmlto man dbus-uuidgen.1.xml
+Note: Writing dbus-uuidgen.1
+/usr/bin/xmlto html-nochunks /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/dbus-faq.xml
+/usr/bin/xmlto html-nochunks /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/dbus-specification.xml
+/usr/bin/xmlto html-nochunks /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/dbus-test-plan.xml
+/usr/bin/xmlto html-nochunks /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/dbus-tutorial.xml
+/usr/bin/xmlto html-nochunks dbus-cleanup-sockets.1.xml
+/usr/bin/xmlto html-nochunks dbus-daemon.1.xml
+/usr/bin/xmlto html-nochunks dbus-launch.1.xml
+/usr/bin/xmlto html-nochunks dbus-monitor.1.xml
+/usr/bin/xmlto html-nochunks dbus-run-session.1.xml
+/usr/bin/xmlto html-nochunks dbus-send.1.xml
+/usr/bin/xmlto html-nochunks dbus-test-tool.1.xml
+/usr/bin/xmlto html-nochunks dbus-update-activation-environment.1.xml
+/usr/bin/xmlto html-nochunks dbus-uuidgen.1.xml
+  GEN      doxygen.stamp
+warning: Tag `HTML_ALIGN_MEMBERS' at line 96 of file `Doxyfile' has become obsolete.
+         To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u"
+warning: Tag `MAX_DOT_GRAPH_WIDTH' at line 174 of file `Doxyfile' has become obsolete.
+         To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u"
+warning: Tag `MAX_DOT_GRAPH_HEIGHT' at line 175 of file `Doxyfile' has become obsolete.
+         To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u"
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:102 warning: documentation for unknown define DBUS_MAJOR_VERSION found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:110 warning: documentation for unknown define DBUS_MINOR_VERSION found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:118 warning: documentation for unknown define DBUS_MICRO_VERSION found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:126 warning: documentation for unknown define DBUS_VERSION found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:139 warning: documentation for unknown define DBUS_VERSION_STRING found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:92 warning: documentation for unknown define DBUS_HAVE_INT64 found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:102 warning: documentation for unknown define DBUS_INT64_CONSTANT found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:110 warning: documentation for unknown define DBUS_UINT64_CONSTANT found.
+
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:381 warning: Compound DBusPollFD is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-pipe.h:41 warning: Compound DBusPipe is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-marshal-header.c:70 warning: Compound HeaderFieldType is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-marshal-recursive.c:1136 warning: Compound ReplacementBlock is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-pthread.c:48 warning: Compound DBusRMutex is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:48 warning: Compound DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-nonce.h:37 warning: Compound DBusNonceFile is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-pthread.c:52 warning: Compound DBusCMutex is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-thread-win.c:48 warning: Compound DBusCondVar is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-pthread.c:56 warning: Compound DBusCondVar is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-string.h:43 warning: Compound DBusString is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:55 warning: documented symbol `dbus_uint32_t' was not declared or defined.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:61 warning: documented symbol `dbus_int32_t' was not declared or defined.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:67 warning: documented symbol `dbus_uint16_t' was not declared or defined.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:73 warning: documented symbol `dbus_int16_t' was not declared or defined.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:80 warning: documented symbol `dbus_uint64_t' was not declared or defined.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:86 warning: documented symbol `dbus_int64_t' was not declared or defined.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-connection.c:5360 warning: Member _dbus_connection_get_linux_security_label(DBusConnection *connection, char **label_p) (function) of group DBusConnection is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-connection.c:2573 warning: The following parameters of _dbus_connection_set_pending_fds_function(DBusConnection *connection, DBusPendingFdsChangeFunction callback, void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-dataslot.c:46 warning: The following parameters of _dbus_data_slot_allocator_init(DBusDataSlotAllocator *allocator, DBusGlobalLock lock) are not documented:
+  parameter 'lock'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-errors.c:81 warning: Member _DBUS_STATIC_ASSERT(sizeof(DBusRealError)==sizeof(DBusError)) (function) of group DBusErrorInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-errors.c:374 warning: Member _dbus_set_error_valist(DBusError *error, const char *name, const char *format, va_list args) (function) of group DBusErrors is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-hash.h:155 warning: Member DBUS_HASH_POLLABLE (macro definition) of group DBusHashTable is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-hash.c:225 warning: Member _DBUS_STATIC_ASSERT(sizeof(DBusRealHashIter)==sizeof(DBusHashIter)) (function) of group DBusHashTableInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn.c:1458 warning: Member _dbus_babysitter_set_result_function(DBusBabysitter *sitter, DBusBabysitterFinishedFunc finished, void *user_data) (function) of group DBusInternalsUtils is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:493 warning: Member _dbus_rlimit_save_fd_limit(DBusError *error) (function) of group DBusInternalsUtils is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:500 warning: Member _dbus_rlimit_raise_fd_limit_if_privileged(unsigned int desired, DBusError *error) (function) of group DBusInternalsUtils is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:508 warning: Member _dbus_rlimit_restore_fd_limit(DBusRLimit *saved, DBusError *error) (function) of group DBusInternalsUtils is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:518 warning: Member _dbus_rlimit_free(DBusRLimit *lim) (function) of group DBusInternalsUtils is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-unix.c:524 warning: Member _dbus_init_system_log(dbus_bool_t is_daemon) (function) of group DBusInternalsUtils is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-macros.h:198 warning: Member DBUS_EXPORT (macro definition) of group DBusMacros is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-macros.h:214 warning: Member DBUS_PRIVATE_EXPORT (macro definition) of group DBusMacros is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-marshal-validate.h:163 warning: Member _dbus_validate_utf8(s, b, e) (macro definition) of group DBusMarshal is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-marshal-validate.c:837 warning: Member _dbus_validity_to_error_message(DBusValidity validity) (function) of group DBusMarshal is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-memory.c:824 warning: Member _dbus_register_shutdown_func_unlocked(DBusShutdownFunction func, void *data) (function) of group DBusMemoryInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:88 warning: Member _dbus_enable_message_cache() (macro definition) of group DBusMessageInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:93 warning: Member _dbus_message_trace_ref(DBusMessage *message, int old_refcount, int new_refcount, const char *why) (function) of group DBusMessageInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MAJOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MINOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MICRO_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:149 warning: explicit link request to 'DBUS_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-protocol.h:242 warning: Member DBUS_NUM_MESSAGE_TYPES (macro definition) of group DBusProtocol is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-server.c:58 warning: Member _dbus_server_trace_ref(DBusServer *server, int old_refcount, int new_refcount, const char *why) (function) of group DBusServerInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.h:158 warning: Member DBusEnsureStandardFdsFlags (enumeration) of group DBusSysdepsUnix is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.h:83 warning: Member _dbus_read_credentials(int client_fd, DBusCredentials *credentials, DBusError *error) (function) of group DBusSysdepsUnix is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.h:86 warning: Member _dbus_send_credentials(int server_fd, DBusError *error) (function) of group DBusSysdepsUnix is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.h:94 warning: Member _dbus_lookup_user_bus(dbus_bool_t *supported, DBusString *address, DBusError *error) (function) of group DBusSysdepsUnix is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:149 warning: Member DBUS_SOCKET_FORMAT (macro definition) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:150 warning: Member DBUS_SOCKET_INIT (macro definition) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:337 warning: Member DBUS_POLLABLE_FORMAT (macro definition) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:576 warning: Member DBUS_VA_COPY(ap1, ap2) (macro definition) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:675 warning: Member DBUS_DEFAULT_MESSAGE_UNIX_FDS (macro definition) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:336 warning: Member DBusPollable (typedef) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:667 warning: Member DBusRLimit (typedef) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:557 warning: Member DBusSystemLogSeverity (enumeration) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:203 warning: Member _dbus_write_socket_with_unix_fds(DBusSocket fd, const DBusString *buffer, int start, int len, const int *fds, int n_fds) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:209 warning: Member _dbus_write_socket_with_unix_fds_two(DBusSocket fd, const DBusString *buffer1, int start1, int len1, const DBusString *buffer2, int start2, int len2, const int *fds, int n_fds) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:223 warning: Member _dbus_connect_tcp_socket_with_nonce(const char *host, const char *port, const char *family, const char *noncefile, DBusError *error) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:263 warning: Member _dbus_daemon_is_session_bus_address_published(const char *scope) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:265 warning: Member _dbus_daemon_publish_session_bus_address(const char *address, const char *shm_name) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:267 warning: Member _dbus_daemon_unpublish_session_bus_address(void) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:480 warning: Member _dbus_save_socket_errno(void) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:481 warning: Member _dbus_restore_socket_errno(int saved_errno) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:555 warning: Member _dbus_init_system_log(dbus_bool_t is_daemon) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:667 warning: Member _dbus_replace_install_prefix(const char *configure_time_path) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:679 warning: Member _dbus_rlimit_save_fd_limit(DBusError *error) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:680 warning: Member _dbus_rlimit_raise_fd_limit_if_privileged(unsigned int desired, DBusError *error) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:682 warning: Member _dbus_rlimit_restore_fd_limit(DBusRLimit *saved, DBusError *error) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:684 warning: Member _dbus_rlimit_free(DBusRLimit *lim) (function) of group DBusSysdeps is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:1931 warning: argument 'client_fd' of command @param is not found in the argument list of _dbus_read_credentials_socket(DBusSocket handle, DBusCredentials *credentials, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:535 warning: argument 'fd' of command @param is not found in the argument list of _dbus_set_socket_nonblocking(DBusSocket handle, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-threads.c:337 warning: Member _dbus_lock(DBusGlobalLock lock) (function) of group DBusThreadsInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-threads.c:351 warning: Member _dbus_unlock(DBusGlobalLock lock) (function) of group DBusThreadsInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.c:1432 warning: Member _dbus_transport_get_linux_security_label(DBusTransport *transport, char **label_p) (function) of group DBusTransport is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.c:1564 warning: The following parameters of _dbus_transport_set_pending_fds_function(DBusTransport *transport, void(*callback)(void *), void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.h:40 warning: Member _DBUS_WATCH_NVAL (macro definition) of group DBusWatchInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.c:57 warning: Member _dbus_watch_get_enabled(DBusWatch *watch) (function) of group DBusWatchInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.c:63 warning: Member _dbus_watch_get_oom_last_time(DBusWatch *watch) (function) of group DBusWatchInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.c:69 warning: Member _dbus_watch_set_oom_last_time(DBusWatch *watch, dbus_bool_t oom) (function) of group DBusWatchInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.h:98 warning: Member _dbus_watch_get_socket(DBusWatch *watch) (function) of group DBusWatchInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.h:100 warning: Member _dbus_watch_get_pollable(DBusWatch *watch) (function) of group DBusWatchInternals is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.c:606 warning: Member _dbus_watch_get_socket(DBusWatch *watch) (function) of group DBusWatch is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-watch.c:622 warning: Member _dbus_watch_get_pollable(DBusWatch *watch) (function) of group DBusWatch is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:117 warning: explicit link request to 'dbus_int64_t' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:117 warning: explicit link request to 'dbus_uint64_t' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:63 warning: Member refcount (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:65 warning: Member start_sync_event (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:72 warning: Member child_setup (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:73 warning: Member user_data (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:75 warning: Member argc (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:76 warning: Member argv (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:77 warning: Member envp (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:79 warning: Member child_handle (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:81 warning: Member socket_to_main (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:85 warning: Member finished_cb (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:86 warning: Member finished_data (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:88 warning: Member have_spawn_errno (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:89 warning: Member spawn_errno (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:90 warning: Member have_child_status (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-spawn-win.c:91 warning: Member child_status (variable) of class DBusBabysitter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:49 warning: Member refcount (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:50 warning: Member unix_uid (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:51 warning: Member pid (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:52 warning: Member windows_sid (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:53 warning: Member linux_security_label (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:54 warning: Member adt_audit_data (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-credentials.c:55 warning: Member adt_audit_data_size (variable) of class DBusCredentials is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-win.c:466 warning: Member handle (variable) of class DBusDirIter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-win.c:467 warning: Member fileinfo (variable) of class DBusDirIter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-win.c:468 warning: Member finished (variable) of class DBusDirIter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-util-win.c:469 warning: Member offset (variable) of class DBusDirIter is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:146 warning: Member dummy1 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:147 warning: Member dummy2 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:148 warning: Member dummy3 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:149 warning: Member dummy4 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:150 warning: Member dummy5 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:151 warning: Member dummy6 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:152 warning: Member dummy7 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:153 warning: Member dummy8 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:154 warning: Member dummy9 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:155 warning: Member dummy10 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:156 warning: Member dummy11 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:157 warning: Member pad1 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:158 warning: Member pad2 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.c:159 warning: Member pad3 (variable) of class DBusMessageIter_1_10_0 is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-nonce.h:38 warning: Member path (variable) of class DBusNonceFile is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-nonce.h:39 warning: Member dir (variable) of class DBusNonceFile is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-pipe.h:42 warning: Member fd (variable) of class DBusPipe is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps.h:148 warning: Member fd (variable) of class DBusSocket is not documented.
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:117 warning: explicit link request to 'dbus_int64_t' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h:117 warning: explicit link request to 'dbus_uint64_t' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-connection-internal.h:113 warning: The following parameters of _dbus_connection_set_pending_fds_function(DBusConnection *connection, DBusPendingFdsChangeFunction callback, void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-connection.c:2573 warning: The following parameters of _dbus_connection_set_pending_fds_function(DBusConnection *connection, DBusPendingFdsChangeFunction callback, void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-dataslot.c:46 warning: The following parameters of _dbus_data_slot_allocator_init(DBusDataSlotAllocator *allocator, DBusGlobalLock lock) are not documented:
+  parameter 'lock'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-dataslot.h:75 warning: The following parameters of _dbus_data_slot_allocator_init(DBusDataSlotAllocator *allocator, DBusGlobalLock lock) are not documented:
+  parameter 'lock'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MAJOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MINOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MICRO_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:149 warning: explicit link request to 'DBUS_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MAJOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MINOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MICRO_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:149 warning: explicit link request to 'DBUS_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-unix.c:2181 warning: argument 'server_fd' of command @param is not found in the argument list of _dbus_send_credentials_socket(DBusSocket handle, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:1873 warning: The following parameters of _dbus_send_credentials_socket(DBusSocket handle, DBusError *error) are not documented:
+  parameter 'handle'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:535 warning: argument 'fd' of command @param is not found in the argument list of _dbus_set_socket_nonblocking(DBusSocket handle, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:1931 warning: argument 'client_fd' of command @param is not found in the argument list of _dbus_read_credentials_socket(DBusSocket handle, DBusCredentials *credentials, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.c:1564 warning: The following parameters of _dbus_transport_set_pending_fds_function(DBusTransport *transport, void(*callback)(void *), void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.h:104 warning: The following parameters of _dbus_transport_set_pending_fds_function(DBusTransport *transport, void(*callback)(void *), void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-connection.c:2573 warning: The following parameters of _dbus_connection_set_pending_fds_function(DBusConnection *connection, DBusPendingFdsChangeFunction callback, void *data) are not documented:
+  parameter 'data'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-dataslot.c:46 warning: The following parameters of _dbus_data_slot_allocator_init(DBusDataSlotAllocator *allocator, DBusGlobalLock lock) are not documented:
+  parameter 'lock'
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MAJOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MINOR_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:148 warning: explicit link request to 'DBUS_MICRO_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.c:149 warning: explicit link request to 'DBUS_VERSION' could not be resolved
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:535 warning: argument 'fd' of command @param is not found in the argument list of _dbus_set_socket_nonblocking(DBusSocket handle, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-sysdeps-win.c:1931 warning: argument 'client_fd' of command @param is not found in the argument list of _dbus_read_credentials_socket(DBusSocket handle, DBusCredentials *credentials, DBusError *error)
+/ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-transport.c:1564 warning: The following parameters of _dbus_transport_set_pending_fds_function(DBusTransport *transport, void(*callback)(void *), void *data) are not documented:
+  parameter 'data'
+xsltproc -o dbus.devhelp /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/doxygen_to_devhelp.xsl api/xml/index.xml
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/doc'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/build/amd64/.built
+(cd /ws/userland/src/components/desktop/dbus/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/desktop/dbus/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86'
+Making install in dbus
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/dbus'
+/usr/gnu/bin/make  install-am
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/dbus'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/dbus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libdbus-1.la '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/libdbus-1.so.3.14.13 /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/libdbus-1.so.3.14.13
+libtool: install: (cd /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib && { ln -s -f libdbus-1.so.3.14.13 libdbus-1.so.3 || { rm -f libdbus-1.so.3 && ln -s libdbus-1.so.3.14.13 libdbus-1.so.3; }; })
+libtool: install: (cd /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib && { ln -s -f libdbus-1.so.3.14.13 libdbus-1.so || { rm -f libdbus-1.so && ln -s libdbus-1.so.3.14.13 libdbus-1.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/libdbus-1.so.3.14.13
+libtool: install: /usr/bin/ginstall -c .libs/libdbus-1.lai /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/libdbus-1.la
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/include/dbus-1.0/dbus'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-address.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-bus.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-connection.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-errors.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-macros.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-memory.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-pending-call.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-protocol.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-server.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-shared.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-signature.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-syntax.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-threads.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/include/dbus-1.0/dbus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-1.0/include/dbus'
+ /usr/bin/ginstall -c -m 644 dbus-arch-deps.h '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-1.0/include/dbus'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/dbus'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/dbus'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/dbus'
+Making install in bus
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/bus'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/bus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c dbus-daemon '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib'
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib'
+libtool: warning: '/ws/userland/src/components/desktop/dbus/build/i86/dbus/libdbus-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-daemon /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-daemon
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c dbus-daemon-launch-helper '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib'
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib'
+libtool: warning: '/ws/userland/src/components/desktop/dbus/build/i86/dbus/libdbus-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-daemon-launch-helper /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-daemon-launch-helper
+/usr/gnu/bin/make  install-exec-hook
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/bus'
+if test `id -u` -eq 0; then \
+	chown root:root /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-daemon-launch-helper; \
+	chmod 4750 /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-daemon-launch-helper; \
+else \
+	echo "Not installing /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-daemon-launch-helper binary setuid!"; \
+	echo "You'll need to manually set permissions to root:root and permissions 4750"; \
+fi
+Not installing /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-daemon-launch-helper binary setuid!
+You'll need to manually set permissions to root:root and permissions 4750
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/bus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/dbus-1'
+ /usr/bin/ginstall -c -m 644 session.conf system.conf '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/dbus-1'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus/examples'
+ /usr/bin/ginstall -c -m 644 example-system-enable-stats.conf example-session-disable-stats.conf '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus/examples'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/etc/dbus-1'
+ /usr/bin/ginstall -c -m 644 legacy-config/session.conf legacy-config/system.conf '/ws/userland/src/components/desktop/dbus/build/prototype/i386/etc/dbus-1'
+/usr/gnu/bin/make  install-data-hook
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/bus'
+/bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/install-sh -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/dbus-1/session.d
+/bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/install-sh -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/dbus-1/services
+/bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/install-sh -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/var/run/dbus
+/bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/install-sh -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/dbus-1/system.d
+/bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/install-sh -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/dbus-1/system-services
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/bus'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/bus'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/bus'
+Making install in tools
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/tools'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/tools'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c dbus-launch dbus-monitor dbus-send dbus-test-tool dbus-update-activation-environment dbus-cleanup-sockets dbus-run-session dbus-uuidgen '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin'
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-launch /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-launch
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-monitor /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-monitor
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-send /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-send
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-test-tool /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-test-tool
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-update-activation-environment /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-update-activation-environment
+libtool: install: /usr/bin/ginstall -c dbus-cleanup-sockets /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-cleanup-sockets
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-run-session /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-run-session
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-uuidgen /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-uuidgen
+/usr/bin/gmkdir -p /ws/userland/src/components/desktop/dbus/build/prototype/i386/var/lib/dbus
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus/examples'
+ /usr/bin/ginstall -c /ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/GetAllMatchRules.py '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus/examples'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/tools'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/tools'
+Making install in test
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/test'
+Making install in .
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/test'
+  GEN      copy-config-local
+  GEN      uninstalled-config-local
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/test'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/test'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/test'
+Making install in name-test
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/test/name-test'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/test/name-test'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/test/name-test'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/test/name-test'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/test'
+Making install in doc
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/doc'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86/doc'
+make[3]: Nothing to be done for 'install-exec-am'.
+/usr/bin/gmkdir -p /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus/api
+/usr/bin/ginstall -c -m 644 api/html/* /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus/api
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/system-activation.txt '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/diagram.png /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/diagram.svg '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus'
+ /usr/bin/ginstall -c -m 644 dbus-faq.html dbus-specification.html dbus-test-plan.html dbus-tutorial.html dbus-cleanup-sockets.1.html dbus-daemon.1.html dbus-launch.1.html dbus-monitor.1.html dbus-run-session.1.html dbus-send.1.html dbus-test-tool.1.html dbus-update-activation-environment.1.html dbus-uuidgen.1.html dbus.devhelp '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/man/man1'
+ /usr/bin/ginstall -c -m 644 dbus-cleanup-sockets.1 dbus-daemon.1 dbus-launch.1 dbus-monitor.1 dbus-run-session.1 dbus-send.1 dbus-test-tool.1 dbus-update-activation-environment.1 dbus-uuidgen.1 '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/man/man1'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/doc'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86/doc'
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/i86'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/pkgconfig'
+ /usr/bin/ginstall -c -m 644 dbus-1.pc '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/pkgconfig'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/build/i86/.installed
+(cd /ws/userland/src/components/desktop/dbus/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/desktop/dbus/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64'
+Making install in dbus
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/dbus'
+/usr/gnu/bin/make  install-am
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/dbus'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/dbus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/amd64'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libdbus-1.la '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/libdbus-1.so.3.14.13 /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/amd64/libdbus-1.so.3.14.13
+libtool: install: (cd /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/amd64 && { ln -s -f libdbus-1.so.3.14.13 libdbus-1.so.3 || { rm -f libdbus-1.so.3 && ln -s libdbus-1.so.3.14.13 libdbus-1.so.3; }; })
+libtool: install: (cd /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/amd64 && { ln -s -f libdbus-1.so.3.14.13 libdbus-1.so || { rm -f libdbus-1.so && ln -s libdbus-1.so.3.14.13 libdbus-1.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/amd64/libdbus-1.so.3.14.13
+libtool: install: /usr/bin/ginstall -c .libs/libdbus-1.lai /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/amd64/libdbus-1.la
+libtool: warning: remember to run 'libtool --finish /usr/lib/amd64'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/include/dbus-1.0/dbus'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-address.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-bus.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-connection.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-errors.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-macros.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-memory.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-message.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-misc.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-pending-call.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-protocol.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-server.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-shared.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-signature.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-syntax.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-threads.h /ws/userland/src/components/desktop/dbus/dbus-1.10.22/dbus/dbus-types.h '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/include/dbus-1.0/dbus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/amd64/dbus-1.0/include/dbus'
+ /usr/bin/ginstall -c -m 644 dbus-arch-deps.h '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/amd64/dbus-1.0/include/dbus'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/dbus'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/dbus'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/dbus'
+Making install in bus
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/bus'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/bus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c dbus-daemon '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib'
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib/amd64'
+libtool: warning: '/ws/userland/src/components/desktop/dbus/build/amd64/dbus/libdbus-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-daemon /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-daemon
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c dbus-daemon-launch-helper '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib'
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib/amd64'
+libtool: warning: '/ws/userland/src/components/desktop/dbus/build/amd64/dbus/libdbus-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-daemon-launch-helper /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-daemon-launch-helper
+/usr/gnu/bin/make  install-exec-hook
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/bus'
+if test `id -u` -eq 0; then \
+	chown root:root /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-daemon-launch-helper; \
+	chmod 4750 /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-daemon-launch-helper; \
+else \
+	echo "Not installing /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-daemon-launch-helper binary setuid!"; \
+	echo "You'll need to manually set permissions to root:root and permissions 4750"; \
+fi
+Not installing /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/dbus-daemon-launch-helper binary setuid!
+You'll need to manually set permissions to root:root and permissions 4750
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/bus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/dbus-1'
+ /usr/bin/ginstall -c -m 644 session.conf system.conf '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/dbus-1'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus/examples'
+ /usr/bin/ginstall -c -m 644 example-system-enable-stats.conf example-session-disable-stats.conf '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus/examples'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/etc/dbus-1'
+ /usr/bin/ginstall -c -m 644 legacy-config/session.conf legacy-config/system.conf '/ws/userland/src/components/desktop/dbus/build/prototype/i386/etc/dbus-1'
+/usr/gnu/bin/make  install-data-hook
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/bus'
+/bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/install-sh -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/dbus-1/session.d
+/bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/install-sh -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/dbus-1/services
+/bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/install-sh -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/var/run/dbus
+/bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/install-sh -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/dbus-1/system.d
+/bin/bash /ws/userland/src/components/desktop/dbus/dbus-1.10.22/build-aux/install-sh -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/dbus-1/system-services
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/bus'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/bus'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/bus'
+Making install in tools
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/tools'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/tools'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c dbus-launch dbus-monitor dbus-send dbus-test-tool dbus-update-activation-environment dbus-cleanup-sockets dbus-run-session dbus-uuidgen '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin'
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-launch /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-launch
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-monitor /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-monitor
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-send /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-send
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-test-tool /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-test-tool
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-update-activation-environment /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-update-activation-environment
+libtool: install: /usr/bin/ginstall -c dbus-cleanup-sockets /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-cleanup-sockets
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-run-session /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-run-session
+libtool: warning: '../dbus/libdbus-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/dbus-uuidgen /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/bin/dbus-uuidgen
+/usr/bin/gmkdir -p /ws/userland/src/components/desktop/dbus/build/prototype/i386/var/lib/dbus
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus/examples'
+ /usr/bin/ginstall -c /ws/userland/src/components/desktop/dbus/dbus-1.10.22/tools/GetAllMatchRules.py '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus/examples'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/tools'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/tools'
+Making install in test
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/test'
+Making install in .
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/test'
+  GEN      copy-config-local
+  GEN      uninstalled-config-local
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/test'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/test'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/test'
+Making install in name-test
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/test/name-test'
+make[4]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/test/name-test'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/test/name-test'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/test/name-test'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/test'
+Making install in doc
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/doc'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64/doc'
+make[3]: Nothing to be done for 'install-exec-am'.
+/usr/bin/gmkdir -p /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus/api
+/usr/bin/ginstall -c -m 644 api/html/* /ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus/api
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/system-activation.txt '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/diagram.png /ws/userland/src/components/desktop/dbus/dbus-1.10.22/doc/diagram.svg '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus'
+ /usr/bin/ginstall -c -m 644 dbus-faq.html dbus-specification.html dbus-test-plan.html dbus-tutorial.html dbus-cleanup-sockets.1.html dbus-daemon.1.html dbus-launch.1.html dbus-monitor.1.html dbus-run-session.1.html dbus-send.1.html dbus-test-tool.1.html dbus-update-activation-environment.1.html dbus-uuidgen.1.html dbus.devhelp '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/doc/dbus'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/man/man1'
+ /usr/bin/ginstall -c -m 644 dbus-cleanup-sockets.1 dbus-daemon.1 dbus-launch.1 dbus-monitor.1 dbus-run-session.1 dbus-send.1 dbus-test-tool.1 dbus-update-activation-environment.1 dbus-uuidgen.1 '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/share/man/man1'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/doc'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64/doc'
+make[2]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/dbus/build/amd64'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/amd64/pkgconfig'
+ /usr/bin/ginstall -c -m 644 dbus-1.pc '/ws/userland/src/components/desktop/dbus/build/prototype/i386/usr/lib/amd64/pkgconfig'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/dbus/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 dbus.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=1\\.10\\.22 -D COMPONENT_RE_VERSION=1\\.10\\.22 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/dbus -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="37224" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="1.10.22" -D IPS_COMPONENT_VERSION="1.10.22" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="http://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz" -D COMPONENT_PROJECT_URL="http://dbus.freedesktop.org" -D COMPONENT_NAME="dbus" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" dbus.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus.mogrified
+/bin/mkdir -p /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus/build/prototype/i386 -d /ws/userland/src/components/desktop/dbus/build -d /ws/userland/src/components/desktop/dbus -d dbus-1.10.22 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/dbus/files -m /ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus.mogrified >/ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus/build/prototype/i386 -d /ws/userland/src/components/desktop/dbus/build -d /ws/userland/src/components/desktop/dbus -d dbus-1.10.22 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/dbus/files /ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus.mangled >/ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus.depend
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 libdbus.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=1\\.10\\.22 -D COMPONENT_RE_VERSION=1\\.10\\.22 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/dbus -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="37224" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="1.10.22" -D IPS_COMPONENT_VERSION="1.10.22" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="http://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz" -D COMPONENT_PROJECT_URL="http://dbus.freedesktop.org" -D COMPONENT_NAME="dbus" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" libdbus.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/dbus/build/manifest-i386-libdbus.mogrified
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus/build/prototype/i386 -d /ws/userland/src/components/desktop/dbus/build -d /ws/userland/src/components/desktop/dbus -d dbus-1.10.22 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/dbus/files -m /ws/userland/src/components/desktop/dbus/build/manifest-i386-libdbus.mogrified >/ws/userland/src/components/desktop/dbus/build/manifest-i386-libdbus.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus/build/prototype/i386 -d /ws/userland/src/components/desktop/dbus/build -d /ws/userland/src/components/desktop/dbus -d dbus-1.10.22 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/dbus/files /ws/userland/src/components/desktop/dbus/build/manifest-i386-libdbus.mangled >/ws/userland/src/components/desktop/dbus/build/manifest-i386-libdbus.depend
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 dbus-x11.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=1\\.10\\.22 -D COMPONENT_RE_VERSION=1\\.10\\.22 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/dbus -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="37224" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="1.10.22" -D IPS_COMPONENT_VERSION="1.10.22" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="http://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz" -D COMPONENT_PROJECT_URL="http://dbus.freedesktop.org" -D COMPONENT_NAME="dbus" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" dbus-x11.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus-x11.mogrified
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus/build/prototype/i386 -d /ws/userland/src/components/desktop/dbus/build -d /ws/userland/src/components/desktop/dbus -d dbus-1.10.22 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/dbus/files -m /ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus-x11.mogrified >/ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus-x11.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus/build/prototype/i386 -d /ws/userland/src/components/desktop/dbus/build -d /ws/userland/src/components/desktop/dbus -d dbus-1.10.22 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/dbus/files /ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus-x11.mangled >/ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus-x11.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/desktop/dbus/build/resolve.deps -m /ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus-x11.depend /ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus.depend /ws/userland/src/components/desktop/dbus/build/manifest-i386-libdbus.depend
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus-x11.depend.res /ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus.depend.res /ws/userland/src/components/desktop/dbus/build/manifest-i386-libdbus.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled /ws/userland/src/components/desktop/dbus/build/prototype/i386 /ws/userland/src/components/desktop/dbus/build /ws/userland/src/components/desktop/dbus dbus-1.10.22 /ws/userland/src/licenses /ws/userland/src/components/desktop/dbus/files"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus-x11.depend.res /ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus.depend.res /ws/userland/src/components/desktop/dbus/build/manifest-i386-libdbus.depend.res
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus/build/prototype/i386 -d /ws/userland/src/components/desktop/dbus/build -d /ws/userland/src/components/desktop/dbus -d dbus-1.10.22 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/dbus/files -T \*.py /ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus.depend.res
+pkg://nightly/system/library/dbus@1.10.22,5.11-11.4.0.0.1.14.0:20190727T183832Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus.depend.res >/ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus.published
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus/build/prototype/i386 -d /ws/userland/src/components/desktop/dbus/build -d /ws/userland/src/components/desktop/dbus -d dbus-1.10.22 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/dbus/files -T \*.py /ws/userland/src/components/desktop/dbus/build/manifest-i386-libdbus.depend.res
+pkg://nightly/system/library/libdbus@1.10.22,5.11-11.4.0.0.1.14.0:20190727T183834Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/dbus/build/manifest-i386-libdbus.depend.res >/ws/userland/src/components/desktop/dbus/build/manifest-i386-libdbus.published
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/dbus/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/dbus/build/prototype/i386 -d /ws/userland/src/components/desktop/dbus/build -d /ws/userland/src/components/desktop/dbus -d dbus-1.10.22 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/dbus/files -T \*.py /ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus-x11.depend.res
+pkg://nightly/system/library/dbus/dbus-x11@1.10.22,5.11-11.4.0.0.1.14.0:20190727T183835Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus-x11.depend.res >/ws/userland/src/components/desktop/dbus/build/manifest-i386-dbus-x11.published
+/usr/bin/touch /ws/userland/src/components/desktop/dbus/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/desktop/dbus'
+
+real     5:16.6
+user     2:01.9
+sys        33.1

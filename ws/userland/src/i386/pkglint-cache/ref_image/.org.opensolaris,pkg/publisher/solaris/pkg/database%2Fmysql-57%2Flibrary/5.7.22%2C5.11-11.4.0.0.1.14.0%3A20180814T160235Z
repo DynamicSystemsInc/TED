@@ -1,0 +1,28 @@
+set name=pkg.fmri value=pkg://solaris/database/mysql-57/library@5.7.22,5.11-11.4.0.0.1.14.0:20180814T160235Z
+set name=info.classification value=org.opensolaris.category.2008:Development/Databases
+set name=info.source-url value=https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-boost-5.7.22.tar.gz
+set name=variant.arch value=i386 value=sparc
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.version value=5.7.22
+set name=org.opensolaris.arc-caseid value=PSARC/2015/501
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.summary value="MySQL 5.7 client libraries and plugins"
+set name=com.oracle.info.description value="MySQL 5.7 client libraries and plugins"
+set name=com.oracle.info.name value=mysql
+set name=info.upstream-url value=https://dev.mysql.com/
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/library/gcc/gcc-c++-runtime@7.3.0-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/system/library/gcc/gcc-c-runtime@7.3.0-11.4.0.0.1.13.0 type=require
+file 6288e4812818737da3cadc08324ea916472891a3 chash=9bd0ad789654b5c452df2d428f0bbb36ea2be58d elfarch=i386 elfbits=64 elfhash=4072d1a902e4db1217dfbc687e832970d90f0259 group=bin mode=0555 owner=root path=usr/mysql/5.7/lib/amd64/libmysqlclient.so.20.3.9 pkg.content-hash=gelf:sha512t_256:518476f2dc9cfc4819337e51a5df33ce7b96b3efd666437ba44796091f3dd4d4 pkg.content-hash=gelf.unsigned:sha512t_256:516163f614b4317f23deb8c840979574785a9b10c37da0afb451e8599dd25622 pkg.content-hash=file:sha512t_256:8035232ab397871dede512d23b06cf6ea0698dcb0c81cf15d39f5165a8fce73a pkg.content-hash=gzip:sha512t_256:e66723b245d53d414319e4eea7b0385c32421ca285df05682634a0deac40186c pkg.csize=3307863 pkg.size=10393832 variant.arch=i386
+file 50eab4134d2b775c0f2808f7b27c5a886c4ea4d1 chash=e101295b0e93e90bc95b66283796c7766044837c elfarch=sparc elfbits=64 elfhash=911e82d29386a9de29d4d860ced30f93c55ee140 group=bin mode=0555 owner=root path=usr/mysql/5.7/lib/sparcv9/libmysqlclient.so.20.3.9 pkg.content-hash=gelf:sha512t_256:b7fb3eb1026c841bffc1248fe11676cd521d2271acad005bdf077b919e452f07 pkg.content-hash=gelf.unsigned:sha512t_256:7332d970127f5ad6d5f96d8e59c9b4622e3397dcb27851f1d62e1ffadeb14644 pkg.content-hash=file:sha512t_256:b00ebbce4b80d5a8f43b582978e9c2bfd8f604f596d1eab1220ee38a1621d1b6 pkg.content-hash=gzip:sha512t_256:b1ff2369ae07040414d4748b825500fd0e74b28033aebf5c90e42b200e790074 pkg.csize=3295081 pkg.size=9958856 variant.arch=sparc
+link path=usr/mysql/5.7/lib/sparcv9/libmysqlclient.so.20 target=libmysqlclient.so.20.3.9 variant.arch=sparc
+link path=usr/mysql/5.7/lib/sparcv9/libmysqlclient.so target=libmysqlclient.so.20 variant.arch=sparc
+link path=usr/mysql/5.7/lib/amd64/libmysqlclient.so target=libmysqlclient.so.20 variant.arch=i386
+link path=usr/mysql/5.7/lib/64 target=amd64 variant.arch=i386
+link path=usr/mysql/5.7/lib/64 target=sparcv9 variant.arch=sparc
+link path=usr/mysql/5.7/lib/amd64/libmysqlclient.so.20 target=libmysqlclient.so.20.3.9 variant.arch=i386
+license 141a05dc3ea1cac4f6b33350048b917495881382 chash=86214325ed14bace45127e5568ed1c5f4a1fe174 license=GPLv2 pkg.content-hash=file:sha512t_256:4c933cf4bb58287160f76b8e5e1019fc7fe0407e141d01edbec941ebe8b855ba pkg.content-hash=gzip:sha512t_256:2b3ba89f8a66dd84b8e1b218fee36ed12cab37bb0dc6d3307f09c4848168ed65 pkg.csize=8641 pkg.size=24213
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=aad40932883d84f0e0a8548a0b9609e6cbe5a1fa9fd637c714931746b66f03edf7ab85a4458c87f0f6362efa46cdef3367374daa442553a5f6dcabd8d136cd05336d8097e63fc214d7e25247b35749e92cee11026a5d4ad0b55d9c60f191c134b8234b63cc639032b8a592ddd38e354f9d9919809098413e270065e0a8c36dff8a291b10e89c5078623926fecb59a7ea904694ecf500e341f8f2b56c0b6bc960ca793fa05327ed6ba396ca3cb11e0ce875d4e3dd9b17bfd16af98e36346828133198cdf212a7b1a4520ce68884cda271c87f505d146d05d71298651375d954902a8136344b4c21ec9487bb2f0276c47aa2f88b754e776975dde7022c20ce5590 version=0

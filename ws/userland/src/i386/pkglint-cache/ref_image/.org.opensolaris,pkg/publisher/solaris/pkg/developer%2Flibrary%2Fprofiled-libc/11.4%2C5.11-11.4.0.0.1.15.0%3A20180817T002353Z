@@ -1,0 +1,24 @@
+set name=pkg.fmri value=pkg://solaris/developer/library/profiled-libc@11.4,5.11-11.4.0.0.1.15.0:20180817T002353Z
+set name=variant.arch value=sparc value=i386
+set name=variant.debug.osnet value=true value=false
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=info.classification value=org.opensolaris.category.2008:Development/System
+set name=org.opensolaris.consolidation value=osnet
+set name=pkg.summary value="Developer Profiled Libraries"
+set name=pkg.description value="system libraries compiled with profiling for software development performance measurement"
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+dir group=sys mode=0755 owner=root path=usr
+dir group=bin mode=0755 owner=root path=usr/lib
+dir group=bin mode=0755 owner=root path=usr/lib/libp
+dir group=bin mode=0755 owner=root path=usr/lib/libp/amd64 variant.arch=i386
+dir group=bin mode=0755 owner=root path=usr/lib/libp/sparcv9 variant.arch=sparc
+link path=usr/lib/libp/libc.so.1 target=../../../lib/libc.so.1
+link path=usr/lib/libp/64 target=amd64 variant.arch=i386
+link path=usr/lib/libp/amd64/libc.so.1 target=../../../../lib/amd64/libc.so.1 variant.arch=i386
+link path=usr/lib/libp/sparcv9/libc.so.1 target=../../../../lib/sparcv9/libc.so.1 variant.arch=sparc
+link path=usr/lib/libp/32 target=.
+link path=usr/lib/libp/64 target=sparcv9 variant.arch=sparc
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+legacy arch=sparc category=system desc="system libraries compiled with profiling for software development performance measurement" hotline="Please contact your local service provider" name="Developer Profiled Libraries" pkg=SUNWdpl variant.arch=sparc vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+legacy arch=i386 category=system desc="system libraries compiled with profiling for software development performance measurement" hotline="Please contact your local service provider" name="Developer Profiled Libraries" pkg=SUNWdpl variant.arch=i386 vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=7931e8ba8c1bfc1d646c7465e96a684885ff78af7dd8979d2c433d3445373935078b67cfbbd848609f5a6489fb0478272d40c662a65e575c2925a048a0cd1232cf77db91134bbf9986cde4fa393f44b4594272135db1c084bbead1b5ea2b068de3eca02ad1c8dac53da6fab4a857aeb1f50b02b2013306675bf916c5b50c4336cf29786114cc664c3e0d7958adfb86d04f5c56d551b8ab6894eb7a4d88242d60a8173e79af647b688e53bf5f83e43a883c08d5d8137c870eb2134486a03333cb48b61cc8ef1d3b1e700aba51ee4abc9d184e3d7d2d047abee2fb7bd484eca77f57aed86e13a533d20ad77a598499759b8fc1552f342129f2a42c60c67a74dd16 version=0

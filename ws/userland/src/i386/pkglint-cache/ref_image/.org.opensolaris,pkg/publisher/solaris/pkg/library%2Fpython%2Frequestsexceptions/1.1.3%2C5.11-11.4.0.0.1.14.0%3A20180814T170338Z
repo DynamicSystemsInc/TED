@@ -1,0 +1,20 @@
+set name=pkg.fmri value=pkg://solaris/library/python/requestsexceptions@1.1.3,5.11-11.4.0.0.1.14.0:20180814T170338Z
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.arc-caseid value=PSARC/2016/430
+set name=com.oracle.info.version value=1.1.3
+set name=info.upstream value="Monty Taylor <monty@inaugust.com>"
+set name=info.upstream-url value=https://github.com/openstack-infra/requestsexceptions
+set name=org.opensolaris.consolidation value=userland
+set name=info.source-url value=pypi:///requestsexceptions==1.1.3
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=info.classification value=org.opensolaris.category.2008:Development/Python value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.description value="the requestsexceptions Python module"
+set name=pkg.summary value="find the correct path to exceptions in the requests library"
+set name=com.oracle.info.name value=requestsexceptions
+set name=pkg.description value='The python requests library bundles the urllib3 library, however, some software distributions modify requests to remove the bundled library. This makes some operations, such as supressing the "insecure platform warning" messages that urllib emits difficult. This is a simple library to find the correct path to exceptions in the requests library regardless of whether they are bundled.'
+depend fmri=library/python/requestsexceptions-27@1.1.3,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+depend fmri=library/python/requestsexceptions-34@1.1.3,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/requestsexceptions-35@1.1.3,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=54da35f824eded41c1c795b61f556035b0539ad9ee9a350c77dda4c548890dea06e82fca075716e38e7fa943343e03cfcd6fb378eadec6eda71a00adbbebd99f546925a4f1272be3d43f4372bd3f5a8abf24ddb415deb1da77a7fc3e44d42fa6df0032bb03c4c13120e9af674c4eac84923d422f2aee4561873351cd01282951657da9cc8a1cb71a982f8271b940c0b768201e13ead702912650aeb3554d92775071b6917d4d996f6ffee53912a56a9a138b1820fddf17f1e460a53d2909bd9b69619cae6d557e374efeff5e154af552a440ed58d49b0da93c448d462cff665999c8ed61521be85f46df1e2f2a4c021b19ca730cd9da0b090780159b678b4fe5 version=0

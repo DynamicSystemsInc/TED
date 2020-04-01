@@ -1,0 +1,15 @@
+set name=pkg.fmri value=pkg://solaris/system/microcode/amd@11.4,5.11-11.4.0.0.1.15.0:20180817T003404Z
+set name=pkg.summary value="Microcode update file for AMD processors"
+set name=pkg.description value="Provides microcode update for AMD processors.  If the microcode version of the processors on the system is older than the one provided by this package, the microcode of the processors will be updated at boot time."
+set name=variant.arch value=i386
+set name=variant.debug.osnet value=true value=false
+set name=info.classification value=org.opensolaris.category.2008:System/Hardware
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=org.opensolaris.consolidation value=osnet
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+dir group=sys mode=0755 owner=root path=platform variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=platform/i86pc variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=platform/i86pc/ucode variant.opensolaris.zone=global
+file 1253750937fd41137c93ddbe80e887a0387b4f13 chash=95174e6ec4f9403d8a7d19f41c10ce0f3003ef0a group=sys mode=0444 original_name=SUNWcakr:platform/i86pc/ucode/amd-ucode.bin owner=root path=platform/i86pc/ucode/amd-ucode.bin pkg.content-hash=file:sha512t_256:90135d725c1694cc6fd6965f1b42e2e46e69fea2f8dcdf859d7e56c83d35951d pkg.content-hash=gzip:sha512t_256:0131b91cb280745fc0793167c20757c5afce0589cee75dd09c8a219fd0822819 pkg.csize=10468 pkg.size=15020 preserve=true reboot-needed=true variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=957ec766c1e2c9aecc95615fe159285d34e23cbefefe78529d59d0b3cb35b4de2e15eef0211a92a73d47a59237540ca77b2cdb201447b67d88df7f6a8be84fc8da787336603e9c0ab755581d7d4a17bc9f3681277ce8d0653a378c0db15c299f1c75aeeb6e418628a52326c65ff88291d64105290dc020bd4b916d916dc168dba3193b7618e5ee3397e779e418d57f7cff913820caa6e108e9c36c2f2987c2cc10616ece480e4f30f597d612cf55bec917c673c75cd50ec2af64719282b98bdd7472cb924b276dfedca083743af6b464dc1450567187cfdb31c47f1ba6585af3f8f54a0e97d612822fee3c4a0106fd646425ec73c93cc64ff148bba401766c9c version=0

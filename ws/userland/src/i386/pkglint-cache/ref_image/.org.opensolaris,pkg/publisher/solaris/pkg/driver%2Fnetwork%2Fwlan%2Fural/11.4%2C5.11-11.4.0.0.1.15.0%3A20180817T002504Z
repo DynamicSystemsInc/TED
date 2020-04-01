@@ -1,0 +1,28 @@
+set name=pkg.fmri value=pkg://solaris/driver/network/wlan/ural@11.4,5.11-11.4.0.0.1.15.0:20180817T002504Z
+set name=variant.debug.osnet value=true value=false
+set name=org.opensolaris.consolidation value=osnet
+set name=com.oracle.info.name value=ural
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=variant.arch value=i386
+set name=com.oracle.info.tpno value=5907
+set name=com.oracle.info.version value=1.70
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Networking
+set name=pkg.description value="Wireless network device driver for Ralink RT2500USB chipset-based USB 802.11b/g NICs."
+set name=pkg.summary value="Ralink RT2500USB USB Wireless NIC Driver"
+set name=com.oracle.info.description value="driver for Ralink RT2500 USB wireless chipset"
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=pkg:/system/io/usb@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+depend fmri=pkg:/system/kernel@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv/amd64 variant.opensolaris.zone=global
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man4d
+file e5e052d0090f9eb059a1d3af1e350333c09e996d chash=57fc7e855b6615d5f06eaffe97e3726777d8533b elfarch=i386 elfbits=64 elfhash=56e23eb2a90ff450fc2eb168930e0762d0bfa57c group=sys mode=0755 owner=root path=kernel/drv/amd64/ural pkg.content-hash=gelf:sha512t_256:6d5cdc8e519b65ccffb414556432a92aeb06dfff5d06b5516dd40649bdfcf9c4 pkg.content-hash=gelf.unsigned:sha512t_256:6d5cdc8e519b65ccffb414556432a92aeb06dfff5d06b5516dd40649bdfcf9c4 pkg.content-hash=file:sha512t_256:3763698c124b4964d1572456eb0405b0fa8517a5e27a92a389aa015c47bbd0ad pkg.content-hash=gzip:sha512t_256:74167ea52fed009abd515b3f0b39765d0b7afec4138761c7eeaae3da3b943e57 pkg.csize=26931 pkg.size=58328 reboot-needed=true variant.debug.osnet=false variant.opensolaris.zone=global
+file 4df37730f8e13c659244cef1c322e955eb20c3d6 chash=798cd14630a1f64157e598139da4b13a0f9c7e3e facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4d/ural.4d pkg.content-hash=file:sha512t_256:2512d30e00a138e80127bf57643041eff59c854e959222b367fadefcfa1d88cd pkg.content-hash=gzip:sha512t_256:f0cb5979739c15f98525b69b929b83b9a6b95ba26c89e2ef1e47af7f256b01b1 pkg.csize=873 pkg.size=1538
+file 59430600764f6ccce557dd510f3fb5bff3a4c066 chash=5ce396135bdc9db3b1ab8739e56527739406725a elfarch=i386 elfbits=64 elfhash=605281874eb619d84144f37026f0bf72e2f3baa1 group=sys mode=0755 owner=root path=kernel/drv/amd64/ural pkg.content-hash=gelf:sha512t_256:b2b80656d34eda726f0b54690978bdf32823e3799e956dfc6d28d37197e3ff84 pkg.content-hash=gelf.unsigned:sha512t_256:b2b80656d34eda726f0b54690978bdf32823e3799e956dfc6d28d37197e3ff84 pkg.content-hash=file:sha512t_256:6334c1a1fedbac7eb62bbf4df6571efc69f6a693e18dc9bdaec4349cca45155e pkg.content-hash=gzip:sha512t_256:90854d42725c3f8bc467634b5a27d34b89a993c126628f0920cd764af019e2b2 pkg.csize=27141 pkg.size=59120 reboot-needed=true variant.debug.osnet=true variant.opensolaris.zone=global
+driver alias=usb411,67 alias=usb1044,8007 alias=usb13b1,d alias=usb2001,3c00 clone_perms="ural 0666 root sys" name=ural perms="* 0666 root sys" variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+license 387468a6192ab59f896e9133374002cf2f3e1b1f chash=0f600c58f54d4ec86fde1a54f5f3b2586f5bd3f6 license=usr/src/uts/common/io/ural/THIRDPARTYLICENSE pkg.content-hash=file:sha512t_256:1c33ab93983d4390792f7759bb4920c380000466f93e8942ac52ac5cca4c9087 pkg.content-hash=gzip:sha512t_256:ea1337d49987bf32338a5e4a01ee9fd9ebbb70d8de2e6924cb6d9a49e4e80584 pkg.csize=603 pkg.size=997
+legacy arch=i386 category=system desc="Ralink RT2500USB 802.11b/g Wireless Driver" hotline="Please contact your local service provider" name="Ralink RT2500USB 802.11b/g Wireless Driver" pkg=SUNWural vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=20d07d3a8b0532b3d273d95101352dc012598f7dc51dff091b32671db560689ee426da694caf63daab809688cc950f9bb326aba47e3e03d9bb31a64b216d6a294679f7ea0defdb668583288dc27692fc1677f7ead1258f27817a045827dd9ab7b98aa890871aac0c0ed285d108af8aef79217ebb9d0b2c40949d48fe531d62d8de9ca94489105d2c6509877252b045795d88b77442beeacbd66567e11e8af99e845155060122f0f3617f8a8a77b45efae746cc4b3a997033b61e901da99f045d63564e4c7ce6a17fbbaed6a5e7f6fffe7dc8fb9d44c8b16a68ee4aa7582c90395e8f2ba81b0003eb46ce0ebe6ba7ece4865b4c494add1a8da9ad94aaaa5369b7 version=0

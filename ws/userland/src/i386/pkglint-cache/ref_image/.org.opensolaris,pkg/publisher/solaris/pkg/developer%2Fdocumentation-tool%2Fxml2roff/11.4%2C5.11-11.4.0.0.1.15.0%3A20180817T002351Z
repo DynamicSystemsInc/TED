@@ -1,0 +1,33 @@
+set name=pkg.fmri value=pkg://solaris/developer/documentation-tool/xml2roff@11.4,5.11-11.4.0.0.1.15.0:20180817T002351Z
+set name=pkg.summary value="xml2roff xslt-stylesheet and script"
+set name=info.classification value="org.opensolaris.category.2008:System/Text Tools"
+set name=pkg.description value="This package contains necessary tools to convert SolBook XML man pages to roff format"
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.debug.osnet value=true value=false
+set name=variant.arch value=sparc value=i386
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=library/libxml2 type=require
+depend fmri=library/libxslt type=require
+depend fmri=pkg:/runtime/python-27@2.7.14-11.4.0.0.1.14.0 type=require
+dir group=bin mode=0755 owner=root path=usr/share/xml
+dir group=bin mode=0755 owner=root path=usr/share/xml/xsolbook
+dir group=bin mode=0755 owner=root path=usr/share/xml/xsolbook/entities
+dir group=bin mode=0755 owner=root path=usr/share/xml/xsolbook/entities/en
+dir group=bin mode=0755 owner=root path=usr/share/xml/xsolbook/entities/ja
+dir group=bin mode=0755 owner=root path=usr/share/xml/xsolbook/entities/zh_CN
+dir group=bin mode=0755 owner=root path=usr/share/xml/xsolbook/python
+dir group=bin mode=0755 owner=root path=usr/share/xml/xsolbook/xslt
+dir group=bin mode=0755 owner=root path=usr/share/xml/xsolbook/xslt/l10n
+file d34b095045cfd9d95641266da7ae367f6481d5a5 chash=e08893609311e83fd00103fb92ef8b8cc95d6ece group=bin mode=0444 owner=root path=usr/share/xml/xsolbook/xsolbook.dtd pkg.content-hash=file:sha512t_256:72c3de7aeb0965a6a2e945b05c22717d20bc5d4f0cab416eed6c8d601d4abc0b pkg.content-hash=gzip:sha512t_256:baa4857ccbe63761063e9384b1300d11916fc874b361107f177dbb96f878d406 pkg.csize=12046 pkg.size=125165
+file 7abb0c89b8628be0a3651631db145f823db65b3a chash=9521129bcd9477393cee09dbe9c505d85dfa322d group=bin mode=0444 owner=root path=usr/share/xml/xsolbook/xslt/l10n/en.xml pkg.content-hash=file:sha512t_256:9a49fc5b167209923abf1ecd8d7f5a09a9cae53e20489b53f6b6b0c780de45e0 pkg.content-hash=gzip:sha512t_256:e9e863beae6ca600921cbd3abb23f7603bf0ec99be186395f923e7c09ae77fe4 pkg.csize=390 pkg.size=871
+file 6a772d2b20c8ea105c86a011cd39c72f591da613 chash=9906cb0d76b82d0f2254082bfd7fbae2f102aa50 group=bin mode=0444 owner=root path=usr/share/xml/xsolbook/xslt/l10n/ja.xml pkg.content-hash=file:sha512t_256:2d2345804f2849cd3044cd05b9d0aa2e62b4c03d2497565b089b27a27f82306b pkg.content-hash=gzip:sha512t_256:9817e0c3de9b2be0accc145fb9622e8117d6cb1ff19f43d4d7366416ce63ceae pkg.csize=811 pkg.size=1991
+file 5876c4406fbf05490e7e3d6f61e7c244ac136381 chash=b070460bdecfd3977b6ef28dd5a6a95a9524fe98 group=bin mode=0444 owner=root path=usr/share/xml/xsolbook/entities/zh_CN/entities.ent pkg.content-hash=file:sha512t_256:73cc420883e260a3d1e548607da9fd4dbcaae8f3e192729bd0c673637e5a608b pkg.content-hash=gzip:sha512t_256:da0d7fa9e650939da913c49c514d796d47d89c33bc7edb7a3bc42c4fa34deef3 pkg.csize=1890 pkg.size=5586
+file 93e25e5812fba3611c22c5538adfb98d4ce3a57c chash=2f6cb71cbe63152e3254f12a704d06f24b14c34b group=bin mode=0555 owner=root path=usr/share/xml/xsolbook/python/xml2roff.py pkg.content-hash=file:sha512t_256:273af874da04c26999caa9f81b343a857001eb34d5a2716435a5d93e0a985a36 pkg.content-hash=gzip:sha512t_256:8c05e5290d1aea89f5af57dfe42401c9eab6a31c10bbd7c72b891d22eb3b12ec pkg.csize=3741 pkg.size=13689 timestamp=20180105T221427Z
+file 0b13cff25ce25216390b63334f868418298add4d chash=e50325185d6f608ee2d18211d2be006f50b55927 group=bin mode=0444 owner=root path=usr/share/xml/xsolbook/entities/ja/entities.ent pkg.content-hash=file:sha512t_256:329d2cc74dddf09022c782ed2ccdc76ff4b951cef67d8dcf455294ffc8706f14 pkg.content-hash=gzip:sha512t_256:dcb7016f212a3ec89521e630cdb7e84dd4d42f4b5658d0cb1d51b90e2fdcd71c pkg.csize=2158 pkg.size=7711
+file 4065ba215fefe9b95928cfba13a4c730b55334e6 chash=01843d1099ec8e2f5ab73ae6d55550ffb30b48ea group=bin mode=0444 owner=root path=usr/share/xml/xsolbook/entities/en/entities.ent pkg.content-hash=file:sha512t_256:877e99af5047c754e63ef960845b2554ac170c8ff3a1f7bb498d745099d5c35f pkg.content-hash=gzip:sha512t_256:afd63ee2b31979d0913ee0fc1d8f725dab0d4b92792ee4fcdbdd0029219a5b3e pkg.csize=1796 pkg.size=6738
+file 4b8b67624e06913efae1a787d4122fc3f079d389 chash=a0462c8991cd6feb8778c2d7aae48a9d1a9a65a8 group=bin mode=0444 owner=root path=usr/share/xml/xsolbook/entities/sun-iso-map.xml pkg.content-hash=file:sha512t_256:45b828196c535d0c9e0cefeacb2704c34852e17c9f01e9d10d8c67bbf62b80a4 pkg.content-hash=gzip:sha512t_256:820789adf0574833e16ea585365661ee5190e89a8a124988e4c632997f44f03d pkg.csize=1185 pkg.size=3566
+file 3b69ab0ed1ee4271bc597354251b0b3f0f9e7d6f chash=f21607ecbcbb5bc79e53cddd426740f2422046bd group=bin mode=0444 owner=root path=usr/share/xml/xsolbook/xslt/xml2roff.xsl pkg.content-hash=file:sha512t_256:ce1129b778c2e815a7d108e3925afd1b0baf673058ae23acf0b4f1c9a17b093b pkg.content-hash=gzip:sha512t_256:a261027c6eb17cba0c9ef3c250bc3bcb34702f3d5751845bd1435cbae9c95f30 pkg.csize=6725 pkg.size=42904
+file 95535ce26c99f04d930a60843491ea17ec294a1b chash=47a2d5bd775c9ed68a514b50be84a809bfe2c3d3 group=bin mode=0444 owner=root path=usr/share/xml/xsolbook/xslt/l10n/zh_CN.xml pkg.content-hash=file:sha512t_256:16751955b11912f8c8c6dbfda77886365c15893b5f46d4d996032dbc6edc44c1 pkg.content-hash=gzip:sha512t_256:f5335ad581380f5f0bc26db5f97ef4030a3ac7a945549934a6e1e361001fe1cd pkg.csize=761 pkg.size=1896
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=504b5f438d7eaf232b5e0777defb305653d69cdc2e9bc43ecee2ef03a26ce3031b52b345145b4a5d606429bf4647c4b1b0d043c8ab5ba473d42c036eec8e0c2e891b27065e343b86beabc3e5d7fd738285d726313362ad92a825d4c70f115d026e7b74f6c97fe7af7be365413336af6f3c9654b12912d648751231f63d691c9c20f9ec57e954d6defc9e7b2fd9283ece8a64ade96e732a7bb30c03a28c0c1fd5f9810cbcc262f818256ecb1bc72ad346238de80213c633889536205ce1320d92b087b14edb60be9b01ddd3a48af72c3bab88b97c9ea1f0535067af955d701224ed34e1d4deee6ba15797537d917c7ce7583dcfea0a4d7bd133df4a7e6b47f1a8 version=0

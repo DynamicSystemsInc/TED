@@ -1,0 +1,2012 @@
+gmake: Entering directory '/ws/userland/src/components/desktop/polkit'
+/bin/rm -f -r /ws/userland/src/components/desktop/polkit/polkit-0.113
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  polkit-0.113.tar.gz
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/polkit-0.113/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/desktop/polkit/polkit-0.113 --strip=1 --backup --version-control=numbered < patches/01-procfs.patch
+patching file src/polkit/polkitunixprocess.c
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/polkit-0.113/.patched-01-procfs.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/polkit/polkit-0.113 --strip=1 --backup --version-control=numbered < patches/04-fdwalk.patch
+patching file src/programs/pkexec.c
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/polkit-0.113/.patched-04-fdwalk.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/polkit/polkit-0.113 --strip=1 --backup --version-control=numbered < patches/05-mocklibc.patch
+patching file test/mocklibc/src/netdb.c
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/polkit-0.113/.patched-05-mocklibc.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/polkit/polkit-0.113 --strip=1 --backup --version-control=numbered < patches/10-mozjs.patch
+patching file configure.ac
+patching file src/polkitbackend/Makefile.am
+Hunk #1 succeeded at 32 with fuzz 2.
+Hunk #2 succeeded at 54 (offset 1 line).
+Hunk #3 succeeded at 76 (offset 1 line).
+patching file src/polkitbackend/polkitbackendjsauthority.cpp (renamed from src/polkitbackend/polkitbackendjsauthority.c)
+patching file test/polkitbackend/Makefile.am
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/polkit-0.113/.patched-10-mozjs.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/polkit/polkit-0.113 --strip=1 --backup --version-control=numbered < patches/11-mozjs.patch
+patching file configure.ac
+patching file src/polkitbackend/polkitbackendjsauthority.cpp
+Hunk #1 succeeded at 88 (offset -4 lines).
+Hunk #2 succeeded at 149 (offset -4 lines).
+Hunk #3 succeeded at 165 (offset -4 lines).
+Hunk #4 succeeded at 284 (offset -4 lines).
+Hunk #5 succeeded at 331 (offset -4 lines).
+Hunk #6 succeeded at 347 (offset -4 lines).
+Hunk #7 succeeded at 439 (offset -4 lines).
+Hunk #8 succeeded at 453 (offset -4 lines).
+Hunk #9 succeeded at 520 (offset -4 lines).
+Hunk #10 succeeded at 739 (offset -4 lines).
+Hunk #11 succeeded at 971 (offset -4 lines).
+Hunk #12 succeeded at 1009 (offset -4 lines).
+Hunk #13 succeeded at 1067 (offset -4 lines).
+Hunk #14 succeeded at 1178 (offset -4 lines).
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/polkit-0.113/.patched-11-mozjs.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/polkit/polkit-0.113 --strip=1 --backup --version-control=numbered < patches/12-mozjs.patch
+patching file src/polkitbackend/Makefile.am
+Hunk #1 succeeded at 54 (offset 1 line).
+patching file src/polkitbackend/polkitbackendjsauthority.cpp
+Hunk #1 succeeded at 283 (offset -4 lines).
+Hunk #2 succeeded at 460 (offset -4 lines).
+Hunk #3 succeeded at 555 (offset -4 lines).
+Hunk #4 succeeded at 641 (offset -4 lines).
+Hunk #5 succeeded at 681 (offset -4 lines).
+Hunk #6 succeeded at 1343 (offset -4 lines).
+Hunk #7 succeeded at 1653 (offset -4 lines).
+Hunk #8 succeeded at 1668 (offset -4 lines).
+Hunk #9 succeeded at 1682 (offset -4 lines).
+Hunk #10 succeeded at 1696 (offset -4 lines).
+Hunk #11 succeeded at 1725 (offset -4 lines).
+Hunk #12 succeeded at 1754 (offset -4 lines).
+Hunk #13 succeeded at 1792 (offset -4 lines).
+Hunk #14 succeeded at 1859 (offset -4 lines).
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/polkit-0.113/.patched-12-mozjs.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/polkit/polkit-0.113 --strip=1 --backup --version-control=numbered < patches/13-mozjs.patch
+patching file src/polkitbackend/polkitbackendjsauthority.cpp
+Hunk #1 succeeded at 72 (offset -4 lines).
+Hunk #2 succeeded at 332 (offset -4 lines).
+Hunk #3 succeeded at 462 (offset -4 lines).
+Hunk #4 succeeded at 568 (offset -4 lines).
+Hunk #5 succeeded at 1072 (offset -4 lines).
+Hunk #6 succeeded at 1181 (offset -4 lines).
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/polkit-0.113/.patched-13-mozjs.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/polkit/polkit-0.113 --strip=1 --backup --version-control=numbered < patches/14-mozjs38.patch
+patching file configure.ac
+patching file src/polkitbackend/polkitbackendjsauthority.cpp
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/polkit-0.113/.patched-14-mozjs38.patch
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/polkit-0.113/.patched
+( cd /ws/userland/src/components/desktop/polkit/polkit-0.113; autoreconf -fiv); ( /usr/sbin/svccfg validate /ws/userland/src/components/desktop/polkit/files/polkit.xml );
+autoreconf: Entering directory `.'
+autoreconf: configure.ac: not using Gettext
+autoreconf: running: aclocal --force 
+/usr/share/aclocal/aalib.m4:12: warning: underquoted definition of AM_PATH_AALIB
+/usr/share/aclocal/aalib.m4:12:   run info Automake 'Extending aclocal'
+/usr/share/aclocal/aalib.m4:12:   or see http://www.gnu.org/software/automake/manual/automake.html#Extending-aclocal
+autoreconf: configure.ac: tracing
+autoreconf: configure.ac: adding subdirectory test/mocklibc to autoreconf
+autoreconf: Entering directory `test/mocklibc'
+/usr/share/aclocal/aalib.m4:12: warning: underquoted definition of AM_PATH_AALIB
+/usr/share/aclocal/aalib.m4:12:   run info Automake 'Extending aclocal'
+/usr/share/aclocal/aalib.m4:12:   or see http://www.gnu.org/software/automake/manual/automake.html#Extending-aclocal
+autoreconf: running: libtoolize --copy --force
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+/usr/share/aclocal/aalib.m4:12: warning: underquoted definition of AM_PATH_AALIB
+/usr/share/aclocal/aalib.m4:12:   run info Automake 'Extending aclocal'
+/usr/share/aclocal/aalib.m4:12:   or see http://www.gnu.org/software/automake/manual/automake.html#Extending-aclocal
+autoreconf: running: /usr/bin/autoconf --force
+autoreconf: running: /usr/bin/autoheader --force
+autoreconf: running: automake --add-missing --copy --force-missing
+configure.ac:11: installing './compile'
+configure.ac:8: installing './missing'
+src/Makefile.am: installing './depcomp'
+autoreconf: Leaving directory `test/mocklibc'
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+/usr/share/aclocal/aalib.m4:12: warning: underquoted definition of AM_PATH_AALIB
+/usr/share/aclocal/aalib.m4:12:   run info Automake 'Extending aclocal'
+/usr/share/aclocal/aalib.m4:12:   or see http://www.gnu.org/software/automake/manual/automake.html#Extending-aclocal
+configure.ac:25: installing './compile'
+configure.ac:5: installing './missing'
+src/examples/Makefile.am: installing './depcomp'
+autoreconf: Leaving directory `.'
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/polkit-0.113/.prep
+(/bin/rm -f -rf /ws/userland/src/components/desktop/polkit/build/i86 ; /bin/mkdir -p /ws/userland/src/components/desktop/polkit/build/i86)
+(cd /ws/userland/src/components/desktop/polkit/build/i86 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/pkgconfig" CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++"  CC_FOR_BUILD="/usr/gcc/7/bin/gcc -m32" CXX_FOR_BUILD="/usr/gcc/7/bin/g++ -m32" CPPFLAGS="-m32 -DLOG_AUTHPRIV='(10<<3)'" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb" CXXFLAGS="-m32 -O3 -mincoming-stack-boundary=2" LDFLAGS="" PATH=/usr/gnu/bin:/usr/bin:/usr/gnu/bin /bin/bash \
+	/ws/userland/src/components/desktop/polkit/polkit-0.113/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin/i86 --sbindir=/usr/sbin/i86 --libdir=/usr/lib    --disable-static --enable-gtk-doc --enable-man-pages --enable-shared --with-pic --with-authfw=pam --with-polkitd-user=_polkitd --with-os-type=solaris --sysconfdir="/etc")
+checking for a BSD-compatible install... /usr/gnu/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/gnu/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking whether make supports nested variables... (cached) yes
+checking for style of include used by make... GNU
+checking for gcc... /usr/gcc/7/bin/gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... yes
+checking dependency style of /usr/gcc/7/bin/gcc... gcc3
+checking for library containing strerror... none required
+checking for gcc... (cached) /usr/gcc/7/bin/gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... (cached) yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... (cached) none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... (cached) yes
+checking dependency style of /usr/gcc/7/bin/gcc... (cached) gcc3
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for grep that handles long lines and -e... /usr/gnu/bin/grep
+checking for egrep... /usr/gnu/bin/grep -E
+checking for ANSI C header files... yes
+checking build system type... i386-pc-solaris2.11
+checking host system type... i386-pc-solaris2.11
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/gnu/bin/sed
+checking for fgrep... /usr/gnu/bin/grep -F
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert i386-pc-solaris2.11 file names to i386-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert i386-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /usr/gcc/7/bin/gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/gnu/bin/dd
+checking how to truncate binary pipes... /usr/gnu/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/gcc/7/bin/gcc supports -fno-rtti -fno-exceptions... no
+checking for /usr/gcc/7/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/gcc static flag -static works... no
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/gcc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking whether make sets $(MAKE)... (cached) yes
+checking whether ln -s works... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking whether we are using the GNU C++ compiler... yes
+checking whether /usr/gcc/7/bin/g++ accepts -g... yes
+checking dependency style of /usr/gcc/7/bin/g++... gcc3
+checking how to run the C++ preprocessor... /usr/gcc/7/bin/g++ -E
+checking for ld used by /usr/gcc/7/bin/g++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking for /usr/gcc/7/bin/g++ option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/g++ PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/g++ static flag -static works... no
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking for xsltproc... /usr/bin/xsltproc
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for gtk-doc... yes
+checking for gtkdoc-check... gtkdoc-check.test
+checking for gtkdoc-check... /usr/bin/gtkdoc-check
+checking for gtkdoc-rebase... /usr/bin/gtkdoc-rebase
+checking for gtkdoc-mkpdf... /usr/bin/gtkdoc-mkpdf
+checking whether to build gtk-doc documentation... yes
+checking for GTKDOC_DEPS... yes
+checking for GLIB... yes
+checking for LIBJS... yes
+checking expat.h usability... yes
+checking expat.h presence... yes
+checking for expat.h... yes
+checking for XML_ParserCreate in -lexpat... yes
+checking for clearenv... yes
+checking for fdatasync... yes
+checking for LIBSYSTEMD... no
+checking for LIBSYSTEMD_LOGIN... no
+Package systemd was not found in the pkg-config search path.
+Perhaps you should add the directory containing `systemd.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'systemd' found
+checking for pam_start in -lpam... yes
+checking for sigtimedwait in -lc... yes
+checking how to call pam_strerror... two arguments
+checking security/pam_modutil.h usability... no
+checking security/pam_modutil.h presence... no
+checking for security/pam_modutil.h... no
+checking security/pam_ext.h usability... no
+checking security/pam_ext.h presence... no
+checking for security/pam_ext.h... no
+checking for pam_vsyslog in -lpam... no
+checking for gobject-introspection... yes
+checking whether NLS is requested... yes
+checking for intltool >= 0.40.0... 0.51.0 found
+checking for intltool-update... /usr/bin/intltool-update
+checking for intltool-merge... /usr/bin/intltool-merge
+checking for intltool-extract... /usr/bin/intltool-extract
+checking for xgettext... /usr/gnu/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for msgfmt... /usr/gnu/bin/msgfmt
+checking for gmsgfmt... /usr/bin/gmsgfmt
+checking for perl... /usr/perl5/5.22/bin/perl
+checking for perl >= 5.8.1... 5.22.1
+checking for XML::Parser... ok
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking for LC_MESSAGES... yes
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking for ngettext in libc... yes
+checking for dgettext in libc... yes
+checking for bind_textdomain_codeset... yes
+checking for msgfmt... (cached) /usr/gnu/bin/msgfmt
+checking for dcgettext... yes
+checking if msgfmt accepts -c... yes
+checking for gmsgfmt... (cached) /usr/bin/gmsgfmt
+checking for xgettext... (cached) /usr/gnu/bin/xgettext
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating actions/Makefile
+config.status: creating data/Makefile
+config.status: creating data/polkit-1
+config.status: creating data/polkit-gobject-1.pc
+config.status: creating data/polkit-agent-1.pc
+config.status: creating src/Makefile
+config.status: creating src/polkit/Makefile
+config.status: creating src/polkitbackend/Makefile
+config.status: creating src/polkitagent/Makefile
+config.status: creating src/programs/Makefile
+config.status: creating src/examples/Makefile
+config.status: creating docs/version.xml
+config.status: creating docs/extensiondir.xml
+config.status: creating docs/Makefile
+config.status: creating docs/polkit/Makefile
+config.status: creating docs/man/Makefile
+config.status: creating po/Makefile.in
+config.status: creating test/Makefile
+config.status: creating test/polkit/Makefile
+config.status: creating test/polkitbackend/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing default-1 commands
+config.status: executing po/stamp-it commands
+=== configuring in test/mocklibc (/ws/userland/src/components/desktop/polkit/build/i86/test/mocklibc)
+configure: running /bin/bash /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/configure --disable-option-checking '--prefix=/usr'  '--mandir=/usr/share/man' '--bindir=/usr/bin/i86' '--sbindir=/usr/sbin/i86' '--libdir=/usr/lib' '--disable-static' '--enable-gtk-doc' '--enable-man-pages' '--enable-shared' '--with-pic' '--with-authfw=pam' '--with-polkitd-user=_polkitd' '--with-os-type=solaris' '--sysconfdir=/etc' 'CC=/usr/gcc/7/bin/gcc' 'CFLAGS=-m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb' 'LDFLAGS=' 'CPPFLAGS=-m32 -DLOG_AUTHPRIV='\''(10<<3)'\''' 'CXX=/usr/gcc/7/bin/g++' 'CXXFLAGS=-m32 -O3 -mincoming-stack-boundary=2' 'PKG_CONFIG_PATH=/usr/lib/pkgconfig' --cache-file=/dev/null --srcdir=/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc
+checking for a BSD-compatible install... /usr/gnu/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/gnu/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... /usr/gcc/7/bin/gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /usr/gcc/7/bin/gcc... gcc3
+checking build system type... i386-pc-solaris2.11
+checking host system type... i386-pc-solaris2.11
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/gnu/bin/sed
+checking for grep that handles long lines and -e... /usr/gnu/bin/grep
+checking for egrep... /usr/gnu/bin/grep -E
+checking for fgrep... /usr/gnu/bin/grep -F
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert i386-pc-solaris2.11 file names to i386-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert i386-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /usr/gcc/7/bin/gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/gnu/bin/dd
+checking how to truncate binary pipes... /usr/gnu/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/gcc/7/bin/gcc supports -fno-rtti -fno-exceptions... no
+checking for /usr/gcc/7/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/gcc static flag -static works... no
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/gcc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for uid_t in sys/types.h... yes
+checking for size_t... yes
+checking for ssize_t... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for endgrent... yes
+checking for endpwent... yes
+checking for memset... yes
+checking for regcomp... yes
+checking for strdup... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating bin/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+                  polkit 0.113
+                =================
+
+        prefix:                     /usr
+        libdir:                     /usr/lib
+        libexecdir:                 ${exec_prefix}/libexec
+        bindir:                     /usr/bin/i86
+        sbindir:                    /usr/sbin/i86
+        datadir:                    ${datarootdir}
+        sysconfdir:                 /etc
+        localstatedir:              ${prefix}/var
+        docdir:                     ${datarootdir}/doc/${PACKAGE_TARNAME}
+
+        compiler:                   /usr/gcc/7/bin/gcc
+        cflags:                     -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb -Wall -Wchar-subscripts -Wmissing-declarations -Wnested-externs -Wpointer-arith -Wcast-align -Wsign-compare -Wformat -Wformat-security
+        cppflags:                   -m32 -DLOG_AUTHPRIV='(10<<3)'
+        xsltproc:                   /usr/bin/xsltproc
+	introspection:		    yes
+
+        Distribution/OS:            solaris
+        Authentication framework:   pam
+        Session tracking:           ConsoleKit
+        PAM support:                yes
+        systemdsystemunitdir:       
+        polkitd user:               _polkitd
+
+        PAM file auth:              common-auth
+        PAM file account:           common-account
+        PAM file password:          common-password
+        PAM file session:           common-session
+
+        Maintainer mode:            no
+        Building api docs:          yes
+        Building man pages:         yes
+        Building examples:          yes
+
+
+NOTE: The file /usr/lib/polkit-1/polkit-agent-helper-1 must be owned
+      by root and have mode 4755 (setuid root binary)
+
+NOTE: The file /usr/bin/i86/pkexec must be owned by root and
+      have mode 4755 (setuid root binary)
+
+NOTE: The directory /etc/polkit-1/rules.d must be owned
+      by user '_polkitd' and have mode 700
+
+NOTE: The directory ${datarootdir}/polkit-1/rules.d must be owned
+      by user '_polkitd' and have mode 700
+
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/build/i86/.configured
+(cd /ws/userland/src/components/desktop/polkit/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable  -M /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile" LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" GI_SCANNER_DISABLE_CACHE="" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86'
+Making all in actions
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/actions'
+  ITMRG  org.freedesktop.policykit.policy
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/actions'
+Making all in data
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/data'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/data'
+Making all in src
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src'
+Making all in polkit
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit'
+( top_builddir=`cd ../.. && pwd`; \
+ cd /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit && glib-mkenums --template polkitenumtypes.c.template polkitcheckauthorizationflags.h polkiterror.h polkitimplicitauthorization.h polkitauthorityfeatures.h) > \
+   polkitenumtypes.c.tmp && mv polkitenumtypes.c.tmp polkitenumtypes.c
+( top_builddir=`cd ../.. && pwd`; \
+ cd /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit && glib-mkenums --template polkitenumtypes.h.template polkitcheckauthorizationflags.h polkiterror.h polkitimplicitauthorization.h polkitauthorityfeatures.h) > \
+   polkitenumtypes.h.tmp && mv polkitenumtypes.h.tmp polkitenumtypes.h
+/usr/gnu/bin/make  all-am
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit'
+  CC       libpolkit_gobject_1_la-polkitenumtypes.lo
+  CC       libpolkit_gobject_1_la-polkitactiondescription.lo
+  CC       libpolkit_gobject_1_la-polkitauthorityfeatures.lo
+  CC       libpolkit_gobject_1_la-polkitdetails.lo
+  CC       libpolkit_gobject_1_la-polkitauthority.lo
+  CC       libpolkit_gobject_1_la-polkiterror.lo
+  CC       libpolkit_gobject_1_la-polkitsubject.lo
+  CC       libpolkit_gobject_1_la-polkitunixprocess.lo
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitunixprocess.c: In function 'get_start_time_for_pid':
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitunixprocess.c:552:39: warning: format '%d' expects argument of type 'int', but argument 2 has type 'pid_t {aka long int}' [-Wformat=]
+   filename = g_strdup_printf ("/proc/%d/stat", pid);
+                                      ~^
+                                      %ld
+  CC       libpolkit_gobject_1_la-polkitsystembusname.lo
+  CC       libpolkit_gobject_1_la-polkitidentity.lo
+  CC       libpolkit_gobject_1_la-polkitunixuser.lo
+  CC       libpolkit_gobject_1_la-polkitunixgroup.lo
+  CC       libpolkit_gobject_1_la-polkitunixnetgroup.lo
+  CC       libpolkit_gobject_1_la-polkitauthorizationresult.lo
+  CC       libpolkit_gobject_1_la-polkitcheckauthorizationflags.lo
+  CC       libpolkit_gobject_1_la-polkitimplicitauthorization.lo
+  CC       libpolkit_gobject_1_la-polkittemporaryauthorization.lo
+  CC       libpolkit_gobject_1_la-polkitpermission.lo
+  CC       libpolkit_gobject_1_la-polkitunixsession.lo
+  CCLD     libpolkit-gobject-1.la
+  GISCAN   Polkit-1.0.gir
+/usr/gcc/7/lib/gcc/x86_64-pc-solaris2.11/7.3.0/include/stddef.h:435: syntax error, unexpected identifier in '  __float128 __max_align_f128 __attribute__((__aligned__(__alignof(__float128))));' at '__float128'
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+g-ir-scanner: Polkit: warning: 2 warnings suppressed (use --warn-all to see them)
+  GICOMP   Polkit-1.0.gir
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit'
+Making all in polkitbackend
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitbackend'
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitbackend/toarray.pl /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitbackend/init.js init_js > initjs.h
+/usr/gnu/bin/make  all-am
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitbackend'
+  CC       libpolkit_backend_1_la-polkitbackendauthority.lo
+  CC       libpolkit_backend_1_la-polkitbackendinteractiveauthority.lo
+  CXX      libpolkit_backend_1_la-polkitbackendjsauthority.lo
+  CC       libpolkit_backend_1_la-polkitbackendactionpool.lo
+  CC       libpolkit_backend_1_la-polkitbackendconfigsource.lo
+  CC       libpolkit_backend_1_la-polkitbackendactionlookup.lo
+  CC       libpolkit_backend_1_la-polkitbackendsessionmonitor.lo
+  CXXLD    libpolkit-backend-1.la
+  CC       polkitd-polkitd.o
+  CXXLD    polkitd
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+ld: warning: file /ws/userland/src/components/desktop/polkit/build/i86/src/polkit/.libs/libpolkit-gobject-1.so: linked to ../../src/polkit/.libs/libpolkit-gobject-1.so: attempted multiple inclusion of file
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitbackend'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitbackend'
+Making all in polkitagent
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent'
+glib-genmarshal --prefix=_polkit_agent_marshal /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagentmarshal.list --header > polkitagentmarshal.h.tmp && mv polkitagentmarshal.h.tmp polkitagentmarshal.h
+(echo "#include \"polkitagentmarshal.h\""; glib-genmarshal --prefix=_polkit_agent_marshal /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagentmarshal.list --body) > polkitagentmarshal.c.tmp && mv polkitagentmarshal.c.tmp polkitagentmarshal.c
+touch marshal.stamp
+( top_builddir=`cd ../.. && pwd`; \
+ cd /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent && glib-mkenums --template polkitagentenumtypes.c.template polkitagentlistener.h) > \
+   polkitagentenumtypes.c.tmp && mv polkitagentenumtypes.c.tmp polkitagentenumtypes.c
+( top_builddir=`cd ../.. && pwd`; \
+ cd /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent && glib-mkenums --template polkitagentenumtypes.h.template polkitagentlistener.h) > \
+   polkitagentenumtypes.h.tmp && mv polkitagentenumtypes.h.tmp polkitagentenumtypes.h
+/usr/gnu/bin/make  all-am
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent'
+  CC       libpolkit_agent_1_la-polkitagentenumtypes.lo
+  CC       libpolkit_agent_1_la-polkitagentmarshal.lo
+  CC       libpolkit_agent_1_la-polkitagentsession.lo
+  CC       libpolkit_agent_1_la-polkitagentlistener.lo
+  CC       libpolkit_agent_1_la-polkitagenttextlistener.lo
+  CCLD     libpolkit-agent-1.la
+  CC       polkit_agent_helper_1-polkitagenthelperprivate.o
+  CC       polkit_agent_helper_1-polkitagenthelper-pam.o
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagenthelper-pam.c: In function 'main':
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagenthelper-pam.c:128:32: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   pam_conversation.conv        = conversation_function;
+                                ^
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagenthelper-pam.c:171:39: warning: passing argument 3 of 'pam_get_item' from incompatible pointer type [-Wincompatible-pointer-types]
+   rc = pam_get_item (pam_h, PAM_USER, &authed_user);
+                                       ^
+In file included from /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagenthelper-pam.c:32:0:
+/usr/include/security/pam_appl.h:167:1: note: expected 'void **' but argument is of type 'const void **'
+ pam_get_item(
+ ^~~~~~~~~~~~
+  CCLD     polkit-agent-helper-1
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+  GISCAN   PolkitAgent-1.0.gir
+/usr/gcc/7/lib/gcc/x86_64-pc-solaris2.11/7.3.0/include/stddef.h:435: syntax error, unexpected identifier in '  __float128 __max_align_f128 __attribute__((__aligned__(__alignof(__float128))));' at '__float128'
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+  GICOMP   PolkitAgent-1.0.gir
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent'
+Making all in programs
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/programs'
+  CC       pkexec-pkexec.o
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/programs/pkexec.c: In function 'open_session':
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/programs/pkexec.c:173:28: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   conversation.conv        = pam_conversation_function;
+                            ^
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/programs/pkexec.c: In function 'main':
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/programs/pkexec.c:727:2: warning: #warning "Please add OS specific code to catch when the parent dies" [-Wcpp]
+ #warning "Please add OS specific code to catch when the parent dies"
+  ^~~~~~~
+  CCLD     pkexec
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+ld: warning: file /ws/userland/src/components/desktop/polkit/build/i86/src/polkit/.libs/libpolkit-gobject-1.so: linked to ../../src/polkit/.libs/libpolkit-gobject-1.so: attempted multiple inclusion of file
+  CC       pkcheck-pkcheck.o
+  CCLD     pkcheck
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+ld: warning: file /ws/userland/src/components/desktop/polkit/build/i86/src/polkit/.libs/libpolkit-gobject-1.so: linked to ../../src/polkit/.libs/libpolkit-gobject-1.so: attempted multiple inclusion of file
+  CC       pkaction-pkaction.o
+  CCLD     pkaction
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+  CC       pkttyagent-pkttyagent.o
+  CCLD     pkttyagent
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+ld: warning: file /ws/userland/src/components/desktop/polkit/build/i86/src/polkit/.libs/libpolkit-gobject-1.so: linked to ../../src/polkit/.libs/libpolkit-gobject-1.so: attempted multiple inclusion of file
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/programs'
+Making all in examples
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/examples'
+  CC       pk_example_frobnicate-frobnicate.o
+  CCLD     pk-example-frobnicate
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+  CC       cancel-cancel.o
+  CCLD     cancel
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+  ITMRG  org.freedesktop.policykit.examples.pkexec.policy
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/examples'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src'
+Making all in docs
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/docs'
+Making all in man
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/docs/man'
+/usr/bin/xsltproc -nonet --stringparam man.base.url.for.relative.links /usr/share/gtk-doc/html/polkit-1/ --xinclude http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl /ws/userland/src/components/desktop/polkit/polkit-0.113/docs/man/polkit.xml
+Error: no ID for constraint linkend: polkitd.8.
+Error: no ID for constraint linkend: pkcheck.1.
+Error: no ID for constraint linkend: PolkitAgentTextListener-struct.
+Error: no ID for constraint linkend: pkttyagent.1.
+Error: no ID for constraint linkend: pkaction.1.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: PolkitIdentity-struct.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: polkitd.8.
+Error: no ID for constraint linkend: pkaction.1.
+Error: no ID for constraint linkend: pkcheck.1.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: pkttyagent.1.
+Note: Writing polkit.8
+/usr/bin/xsltproc -nonet --stringparam man.base.url.for.relative.links /usr/share/gtk-doc/html/polkit-1/ --xinclude http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl /ws/userland/src/components/desktop/polkit/polkit-0.113/docs/man/polkitd.xml
+Error: no ID for constraint linkend: polkit.8.
+Error: no ID for constraint linkend: polkit.8.
+Error: no ID for constraint linkend: pkaction.1.
+Error: no ID for constraint linkend: pkcheck.1.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: pkttyagent.1.
+Note: Writing polkitd.8
+/usr/bin/xsltproc -nonet --stringparam man.base.url.for.relative.links /usr/share/gtk-doc/html/polkit-1/ --xinclude http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl /ws/userland/src/components/desktop/polkit/polkit-0.113/docs/man/pkexec.xml
+Error: no ID for constraint linkend: polkit.8.
+Error: no ID for constraint linkend: polkitd.8.
+Error: no ID for constraint linkend: pkaction.1.
+Error: no ID for constraint linkend: pkcheck.1.
+Error: no ID for constraint linkend: pkttyagent.1.
+Note: Writing pkexec.1
+/usr/bin/xsltproc -nonet --stringparam man.base.url.for.relative.links /usr/share/gtk-doc/html/polkit-1/ --xinclude http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl /ws/userland/src/components/desktop/polkit/polkit-0.113/docs/man/pkcheck.xml
+Error: no ID for constraint linkend: polkit.8.
+Error: no ID for constraint linkend: polkitd.8.
+Error: no ID for constraint linkend: pkaction.1.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: pkttyagent.1.
+Note: Writing pkcheck.1
+/usr/bin/xsltproc -nonet --stringparam man.base.url.for.relative.links /usr/share/gtk-doc/html/polkit-1/ --xinclude http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl /ws/userland/src/components/desktop/polkit/polkit-0.113/docs/man/pkaction.xml
+Error: no ID for constraint linkend: polkit.8.
+Error: no ID for constraint linkend: polkitd.8.
+Error: no ID for constraint linkend: pkcheck.1.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: pkttyagent.1.
+Note: Writing pkaction.1
+/usr/bin/xsltproc -nonet --stringparam man.base.url.for.relative.links /usr/share/gtk-doc/html/polkit-1/ --xinclude http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl /ws/userland/src/components/desktop/polkit/polkit-0.113/docs/man/pkttyagent.xml
+Error: no ID for constraint linkend: eggdbus-signal-org.freedesktop.PolicyKit1.Authority::Changed.
+Error: no ID for constraint linkend: polkit.8.
+Error: no ID for constraint linkend: polkitd.8.
+Error: no ID for constraint linkend: pkaction.1.
+Error: no ID for constraint linkend: pkcheck.1.
+Error: no ID for constraint linkend: pkexec.1.
+Note: Writing pkttyagent.1
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/docs/man'
+Making all in polkit
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/docs/polkit'
+  DOC   Preparing build
+  DOC   Scanning header files
+  DOC   Introspecting gobjects
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+ld: warning: file /ws/userland/src/components/desktop/polkit/build/i86/src/polkit/.libs/libpolkit-gobject-1.so: linked to ../../src/polkit/.libs/libpolkit-gobject-1.so: attempted multiple inclusion of file
+  DOC   Building XML
+./polkit-1-unused.txt:1: warning: 1 unused declarations.They should be added to polkit-1-sections.txt in the appropriate place.
+  DOC   Building HTML
+  DOC   Fixing cross-references
+html/PolkitUnixUser.html:156: warning: no link for: 'g-object-unref' -> (<code class="function">g_object_unref()</code>).
+html/PolkitUnixUser.html:165: warning: no link for: 'GError' -> (<span class="type">GError</span>).
+html/PolkitUnixUser.html:193: warning: no link for: 'NULL:CAPS' -> (<code class="literal">NULL</code>).
+html/PolkitPermission.html:33: warning: no link for: 'GPermission' -> (<span class="type">GPermission</span>).
+html/PolkitPermission.html:150: warning: no link for: 'GtkLockButton' -> (<span class="type">GtkLockButton</span>).
+html/PolkitPermission.html:160: warning: no link for: 'GCancellable' -> (<span class="type">GCancellable</span>).
+html/PolkitPermission.html:161: warning: no link for: 'GAsyncReadyCallback' -> (<span class="type">GAsyncReadyCallback</span>).
+html/PolkitPermission.html:215: warning: no link for: 'GAsyncResult' -> (<span class="type">GAsyncResult</span>).
+html/PolkitSubject.html:153: warning: no link for: 'g-hash-table-new' -> (<code class="function">g_hash_table_new()</code>).
+html/PolkitSubject.html:208: warning: no link for: 'TRUE:CAPS' -> (<code class="literal">TRUE</code>).
+html/PolkitSubject.html:210: warning: no link for: 'FALSE:CAPS' -> (<code class="literal">FALSE</code>).
+html/PolkitSubject.html:375: warning: no link for: 'g-free' -> (<code class="function">g_free()</code>).
+html/PolkitSubject.html:463: warning: no link for: 'GTypeInterface' -> (<span class="type">GTypeInterface</span>).
+html/PolkitDetails.html:228: warning: no link for: 'g-strfreev' -> (<code class="function">g_strfreev()</code>).
+html/PolkitAgentListener.html:167: warning: no link for: 'GList' -> (<span class="type">GList</span>).
+html/PolkitAgentListener.html:386: warning: no link for: 'GVariant' -> (<span class="type">GVariant</span>).
+html/PolkitAgentSession.html:133: warning: no link for: 'G-SIGNAL-RUN-LAST:CAPS' -> (Run Last).
+html/PolkitAuthority.html:576: warning: no link for: 'GObject-notify' -> (<span class="type">“notify”</span>).
+html/PolkitAuthority.html:989: warning: no link for: 'g-list-free' -> (<code class="function">g_list_free()</code>).
+html/PolkitAuthorizationResult.html:345: warning: no link for: 'api-index-0.101' -> (0.101).
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/docs/polkit'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/docs'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/docs'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/docs'
+Making all in po
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/po'
+  MSGFMT cs.gmo
+  MSGFMT da.gmo
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/po'
+Making all in test
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/test'
+Making all in mocklibc
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/test/mocklibc'
+/usr/gnu/bin/make  all-recursive
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/test/mocklibc'
+Making all in src
+make[6]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/test/mocklibc/src'
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I..   -m32 -DLOG_AUTHPRIV='(10<<3)'  -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb -MT pwd.lo -MD -MP -MF .deps/pwd.Tpo -c -o pwd.lo /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/pwd.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I.. -m32 "-DLOG_AUTHPRIV=(10<<3)" -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb -MT pwd.lo -MD -MP -MF .deps/pwd.Tpo -c /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/pwd.c  -fPIC -DPIC -o .libs/pwd.o
+mv -f .deps/pwd.Tpo .deps/pwd.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I..   -m32 -DLOG_AUTHPRIV='(10<<3)'  -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb -MT grp.lo -MD -MP -MF .deps/grp.Tpo -c -o grp.lo /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/grp.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I.. -m32 "-DLOG_AUTHPRIV=(10<<3)" -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb -MT grp.lo -MD -MP -MF .deps/grp.Tpo -c /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/grp.c  -fPIC -DPIC -o .libs/grp.o
+mv -f .deps/grp.Tpo .deps/grp.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I..   -m32 -DLOG_AUTHPRIV='(10<<3)'  -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb -MT netdb.lo -MD -MP -MF .deps/netdb.Tpo -c -o netdb.lo /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netdb.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I.. -m32 "-DLOG_AUTHPRIV=(10<<3)" -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb -MT netdb.lo -MD -MP -MF .deps/netdb.Tpo -c /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netdb.c  -fPIC -DPIC -o .libs/netdb.o
+mv -f .deps/netdb.Tpo .deps/netdb.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I..   -m32 -DLOG_AUTHPRIV='(10<<3)'  -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb -MT netgroup.lo -MD -MP -MF .deps/netgroup.Tpo -c -o netgroup.lo /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netgroup.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I.. -m32 "-DLOG_AUTHPRIV=(10<<3)" -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb -MT netgroup.lo -MD -MP -MF .deps/netgroup.Tpo -c /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netgroup.c  -fPIC -DPIC -o .libs/netgroup.o
+mv -f .deps/netgroup.Tpo .deps/netgroup.Plo
+/bin/bash ../libtool  --tag=CC   --mode=link /usr/gcc/7/bin/gcc  -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb   -o libmocklibc.la -rpath /usr/lib pwd.lo grp.lo netdb.lo netgroup.lo  
+libtool: link: /usr/gcc/7/bin/gcc -shared  -fPIC -DPIC -Wl,-z -Wl,text -Wl,-h -Wl,libmocklibc.so.0 -o .libs/libmocklibc.so.0.0.0  .libs/pwd.o .libs/grp.o .libs/netdb.o .libs/netgroup.o    -m32 -O3 -mincoming-stack-boundary=2 -ggdb  
+libtool: link: (cd ".libs" && rm -f "libmocklibc.so.0" && ln -s "libmocklibc.so.0.0.0" "libmocklibc.so.0")
+libtool: link: (cd ".libs" && rm -f "libmocklibc.so" && ln -s "libmocklibc.so.0.0.0" "libmocklibc.so")
+libtool: link: ( cd ".libs" && rm -f "libmocklibc.la" && ln -s "../libmocklibc.la" "libmocklibc.la" )
+/usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I..   -m32 -DLOG_AUTHPRIV='(10<<3)'  -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb -MT netgroup-debug.o -MD -MP -MF .deps/netgroup-debug.Tpo -c -o netgroup-debug.o /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netgroup-debug.c
+/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netgroup-debug.c: In function 'netgroup_debug_print_entry':
+/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netgroup-debug.c:25:3: warning: implicit declaration of function 'print_indent' [-Wimplicit-function-declaration]
+   print_indent(stream, indent);
+   ^~~~~~~~~~~~
+mv -f .deps/netgroup-debug.Tpo .deps/netgroup-debug.Po
+/bin/bash ../libtool  --tag=CC   --mode=link /usr/gcc/7/bin/gcc  -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb   -o mocklibc-debug-netgroup netgroup-debug.o libmocklibc.la 
+libtool: link: /usr/gcc/7/bin/gcc -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb -o .libs/mocklibc-debug-netgroup netgroup-debug.o  ./.libs/libmocklibc.so
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+make[6]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/test/mocklibc/src'
+Making all in bin
+make[6]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/test/mocklibc/bin'
+sed -e 's|@libdir[@]|/usr/lib|g' -e 's|@libname[@]|libmocklibc.so|g' -e 's|@top_srcdir[@]|/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc|g' -e 's|@top_builddir[@]|..|g' /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/bin/mocklibc.in > mocklibc
+chmod a+x mocklibc
+make[6]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/test/mocklibc/bin'
+make[6]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/test/mocklibc'
+make[6]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/test/mocklibc'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/test/mocklibc'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/test/mocklibc'
+Making all in .
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/test'
+  CC       polkittesthelper.lo
+  CCLD     libpolkit-test-helper.la
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/test'
+Making all in polkit
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/test/polkit'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/test/polkit'
+Making all in polkitbackend
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/test/polkitbackend'
+  CC       test-polkitbackendjsauthority.o
+  CXXLD    polkitbackendjsauthoritytest
+ld: warning: /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile: 3: software capability ADDR32: is ineffective when building 32-bit object: ignored
+ld: warning: file /ws/userland/src/components/desktop/polkit/build/i86/src/polkit/.libs/libpolkit-gobject-1.so: linked to ../../src/polkit/.libs/libpolkit-gobject-1.so: attempted multiple inclusion of file
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/test/polkitbackend'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/test'
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/build/i86/.built
+(/bin/rm -f -rf /ws/userland/src/components/desktop/polkit/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/desktop/polkit/build/amd64)
+(cd /ws/userland/src/components/desktop/polkit/build/amd64 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++" PATH="/usr/bin/amd64:/usr/bin:/usr/gnu/bin" CC_FOR_BUILD="/usr/gcc/7/bin/gcc -m64" CXX_FOR_BUILD="/usr/gcc/7/bin/g++ -m64" CPPFLAGS="-m64 -DLOG_AUTHPRIV='(10<<3)'" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m64 -O3 -std=gnu11 -ggdb" CXXFLAGS="-m64 -O3" LDFLAGS="" PATH=/usr/gnu/bin:/usr/bin:/usr/gnu/bin /bin/bash \
+	/ws/userland/src/components/desktop/polkit/polkit-0.113/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib/amd64    --disable-static --enable-gtk-doc --enable-man-pages --enable-shared --with-pic --with-authfw=pam --with-polkitd-user=_polkitd --with-os-type=solaris --sysconfdir="/etc")
+checking for a BSD-compatible install... /usr/gnu/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/gnu/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking whether make supports nested variables... (cached) yes
+checking for style of include used by make... GNU
+checking for gcc... /usr/gcc/7/bin/gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... yes
+checking dependency style of /usr/gcc/7/bin/gcc... gcc3
+checking for library containing strerror... none required
+checking for gcc... (cached) /usr/gcc/7/bin/gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... (cached) yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... (cached) none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... (cached) yes
+checking dependency style of /usr/gcc/7/bin/gcc... (cached) gcc3
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for grep that handles long lines and -e... /usr/gnu/bin/grep
+checking for egrep... /usr/gnu/bin/grep -E
+checking for ANSI C header files... yes
+checking build system type... x86_64-pc-solaris2.11
+checking host system type... x86_64-pc-solaris2.11
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/gnu/bin/sed
+checking for fgrep... /usr/gnu/bin/grep -F
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert x86_64-pc-solaris2.11 file names to x86_64-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert x86_64-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /usr/gcc/7/bin/gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/gnu/bin/dd
+checking how to truncate binary pipes... /usr/gnu/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/gcc/7/bin/gcc supports -fno-rtti -fno-exceptions... no
+checking for /usr/gcc/7/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/gcc static flag -static works... no
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/gcc linker (/usr/bin/ld -64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking whether make sets $(MAKE)... (cached) yes
+checking whether ln -s works... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking whether we are using the GNU C++ compiler... yes
+checking whether /usr/gcc/7/bin/g++ accepts -g... yes
+checking dependency style of /usr/gcc/7/bin/g++... gcc3
+checking how to run the C++ preprocessor... /usr/gcc/7/bin/g++ -E
+checking for ld used by /usr/gcc/7/bin/g++... /usr/bin/ld -64
+checking if the linker (/usr/bin/ld -64) is GNU ld... no
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld -64) supports shared libraries... yes
+checking for /usr/gcc/7/bin/g++ option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/g++ PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/g++ static flag -static works... no
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld -64) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking for xsltproc... /usr/bin/xsltproc
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for gtk-doc... yes
+checking for gtkdoc-check... gtkdoc-check.test
+checking for gtkdoc-check... /usr/bin/gtkdoc-check
+checking for gtkdoc-rebase... /usr/bin/gtkdoc-rebase
+checking for gtkdoc-mkpdf... /usr/bin/gtkdoc-mkpdf
+checking whether to build gtk-doc documentation... yes
+checking for GTKDOC_DEPS... yes
+checking for GLIB... yes
+checking for LIBJS... yes
+checking expat.h usability... yes
+checking expat.h presence... yes
+checking for expat.h... yes
+checking for XML_ParserCreate in -lexpat... yes
+checking for clearenv... yes
+checking for fdatasync... yes
+checking for LIBSYSTEMD... no
+checking for LIBSYSTEMD_LOGIN... no
+Package systemd was not found in the pkg-config search path.
+Perhaps you should add the directory containing `systemd.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'systemd' found
+checking for pam_start in -lpam... yes
+checking for sigtimedwait in -lc... yes
+checking how to call pam_strerror... two arguments
+checking security/pam_modutil.h usability... no
+checking security/pam_modutil.h presence... no
+checking for security/pam_modutil.h... no
+checking security/pam_ext.h usability... no
+checking security/pam_ext.h presence... no
+checking for security/pam_ext.h... no
+checking for pam_vsyslog in -lpam... no
+checking for gobject-introspection... yes
+checking whether NLS is requested... yes
+checking for intltool >= 0.40.0... 0.51.0 found
+checking for intltool-update... /usr/bin/intltool-update
+checking for intltool-merge... /usr/bin/intltool-merge
+checking for intltool-extract... /usr/bin/intltool-extract
+checking for xgettext... /usr/gnu/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for msgfmt... /usr/gnu/bin/msgfmt
+checking for gmsgfmt... /usr/bin/gmsgfmt
+checking for perl... /usr/perl5/5.22/bin/perl
+checking for perl >= 5.8.1... 5.22.1
+checking for XML::Parser... ok
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking for LC_MESSAGES... yes
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking for ngettext in libc... yes
+checking for dgettext in libc... yes
+checking for bind_textdomain_codeset... yes
+checking for msgfmt... (cached) /usr/gnu/bin/msgfmt
+checking for dcgettext... yes
+checking if msgfmt accepts -c... yes
+checking for gmsgfmt... (cached) /usr/bin/gmsgfmt
+checking for xgettext... (cached) /usr/gnu/bin/xgettext
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating actions/Makefile
+config.status: creating data/Makefile
+config.status: creating data/polkit-1
+config.status: creating data/polkit-gobject-1.pc
+config.status: creating data/polkit-agent-1.pc
+config.status: creating src/Makefile
+config.status: creating src/polkit/Makefile
+config.status: creating src/polkitbackend/Makefile
+config.status: creating src/polkitagent/Makefile
+config.status: creating src/programs/Makefile
+config.status: creating src/examples/Makefile
+config.status: creating docs/version.xml
+config.status: creating docs/extensiondir.xml
+config.status: creating docs/Makefile
+config.status: creating docs/polkit/Makefile
+config.status: creating docs/man/Makefile
+config.status: creating po/Makefile.in
+config.status: creating test/Makefile
+config.status: creating test/polkit/Makefile
+config.status: creating test/polkitbackend/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing default-1 commands
+config.status: executing po/stamp-it commands
+=== configuring in test/mocklibc (/ws/userland/src/components/desktop/polkit/build/amd64/test/mocklibc)
+configure: running /bin/bash /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/configure --disable-option-checking '--prefix=/usr'  '--mandir=/usr/share/man' '--bindir=/usr/bin' '--sbindir=/usr/sbin' '--libdir=/usr/lib/amd64' '--disable-static' '--enable-gtk-doc' '--enable-man-pages' '--enable-shared' '--with-pic' '--with-authfw=pam' '--with-polkitd-user=_polkitd' '--with-os-type=solaris' '--sysconfdir=/etc' 'CC=/usr/gcc/7/bin/gcc' 'CFLAGS=-m64 -O3 -std=gnu11 -ggdb' 'LDFLAGS=' 'CPPFLAGS=-m64 -DLOG_AUTHPRIV='\''(10<<3)'\''' 'CXX=/usr/gcc/7/bin/g++' 'CXXFLAGS=-m64 -O3' 'PKG_CONFIG_PATH=/usr/lib/amd64/pkgconfig' --cache-file=/dev/null --srcdir=/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc
+checking for a BSD-compatible install... /usr/gnu/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/gnu/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... /usr/gcc/7/bin/gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /usr/gcc/7/bin/gcc... gcc3
+checking build system type... x86_64-pc-solaris2.11
+checking host system type... x86_64-pc-solaris2.11
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/gnu/bin/sed
+checking for grep that handles long lines and -e... /usr/gnu/bin/grep
+checking for egrep... /usr/gnu/bin/grep -E
+checking for fgrep... /usr/gnu/bin/grep -F
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert x86_64-pc-solaris2.11 file names to x86_64-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert x86_64-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /usr/gcc/7/bin/gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/gnu/bin/dd
+checking how to truncate binary pipes... /usr/gnu/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/gcc/7/bin/gcc supports -fno-rtti -fno-exceptions... no
+checking for /usr/gcc/7/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/gcc static flag -static works... no
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/gcc linker (/usr/bin/ld -64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for uid_t in sys/types.h... yes
+checking for size_t... yes
+checking for ssize_t... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for endgrent... yes
+checking for endpwent... yes
+checking for memset... yes
+checking for regcomp... yes
+checking for strdup... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating bin/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+                  polkit 0.113
+                =================
+
+        prefix:                     /usr
+        libdir:                     /usr/lib/amd64
+        libexecdir:                 ${exec_prefix}/libexec
+        bindir:                     /usr/bin
+        sbindir:                    /usr/sbin
+        datadir:                    ${datarootdir}
+        sysconfdir:                 /etc
+        localstatedir:              ${prefix}/var
+        docdir:                     ${datarootdir}/doc/${PACKAGE_TARNAME}
+
+        compiler:                   /usr/gcc/7/bin/gcc
+        cflags:                     -m64 -O3 -std=gnu11 -ggdb -Wall -Wchar-subscripts -Wmissing-declarations -Wnested-externs -Wpointer-arith -Wcast-align -Wsign-compare -Wformat -Wformat-security
+        cppflags:                   -m64 -DLOG_AUTHPRIV='(10<<3)'
+        xsltproc:                   /usr/bin/xsltproc
+	introspection:		    yes
+
+        Distribution/OS:            solaris
+        Authentication framework:   pam
+        Session tracking:           ConsoleKit
+        PAM support:                yes
+        systemdsystemunitdir:       
+        polkitd user:               _polkitd
+
+        PAM file auth:              common-auth
+        PAM file account:           common-account
+        PAM file password:          common-password
+        PAM file session:           common-session
+
+        Maintainer mode:            no
+        Building api docs:          yes
+        Building man pages:         yes
+        Building examples:          yes
+
+
+NOTE: The file /usr/lib/polkit-1/polkit-agent-helper-1 must be owned
+      by root and have mode 4755 (setuid root binary)
+
+NOTE: The file /usr/bin/pkexec must be owned by root and
+      have mode 4755 (setuid root binary)
+
+NOTE: The directory /etc/polkit-1/rules.d must be owned
+      by user '_polkitd' and have mode 700
+
+NOTE: The directory ${datarootdir}/polkit-1/rules.d must be owned
+      by user '_polkitd' and have mode 700
+
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/build/amd64/.configured
+(cd /ws/userland/src/components/desktop/polkit/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable  -M /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile" LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" GI_SCANNER_DISABLE_CACHE="" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64'
+Making all in actions
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/actions'
+  ITMRG  org.freedesktop.policykit.policy
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/actions'
+Making all in data
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/data'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/data'
+Making all in src
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src'
+Making all in polkit
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit'
+( top_builddir=`cd ../.. && pwd`; \
+ cd /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit && glib-mkenums --template polkitenumtypes.c.template polkitcheckauthorizationflags.h polkiterror.h polkitimplicitauthorization.h polkitauthorityfeatures.h) > \
+   polkitenumtypes.c.tmp && mv polkitenumtypes.c.tmp polkitenumtypes.c
+( top_builddir=`cd ../.. && pwd`; \
+ cd /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit && glib-mkenums --template polkitenumtypes.h.template polkitcheckauthorizationflags.h polkiterror.h polkitimplicitauthorization.h polkitauthorityfeatures.h) > \
+   polkitenumtypes.h.tmp && mv polkitenumtypes.h.tmp polkitenumtypes.h
+/usr/gnu/bin/make  all-am
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit'
+  CC       libpolkit_gobject_1_la-polkitenumtypes.lo
+  CC       libpolkit_gobject_1_la-polkitactiondescription.lo
+  CC       libpolkit_gobject_1_la-polkitauthorityfeatures.lo
+  CC       libpolkit_gobject_1_la-polkitdetails.lo
+  CC       libpolkit_gobject_1_la-polkitauthority.lo
+  CC       libpolkit_gobject_1_la-polkiterror.lo
+  CC       libpolkit_gobject_1_la-polkitsubject.lo
+  CC       libpolkit_gobject_1_la-polkitunixprocess.lo
+  CC       libpolkit_gobject_1_la-polkitsystembusname.lo
+  CC       libpolkit_gobject_1_la-polkitidentity.lo
+  CC       libpolkit_gobject_1_la-polkitunixuser.lo
+  CC       libpolkit_gobject_1_la-polkitunixgroup.lo
+  CC       libpolkit_gobject_1_la-polkitunixnetgroup.lo
+  CC       libpolkit_gobject_1_la-polkitauthorizationresult.lo
+  CC       libpolkit_gobject_1_la-polkitcheckauthorizationflags.lo
+  CC       libpolkit_gobject_1_la-polkitimplicitauthorization.lo
+  CC       libpolkit_gobject_1_la-polkittemporaryauthorization.lo
+  CC       libpolkit_gobject_1_la-polkitpermission.lo
+  CC       libpolkit_gobject_1_la-polkitunixsession.lo
+  CCLD     libpolkit-gobject-1.la
+  GISCAN   Polkit-1.0.gir
+g-ir-scanner: Polkit: warning: 2 warnings suppressed (use --warn-all to see them)
+  GICOMP   Polkit-1.0.gir
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit'
+Making all in polkitbackend
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitbackend'
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitbackend/toarray.pl /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitbackend/init.js init_js > initjs.h
+/usr/gnu/bin/make  all-am
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitbackend'
+  CC       libpolkit_backend_1_la-polkitbackendauthority.lo
+  CC       libpolkit_backend_1_la-polkitbackendinteractiveauthority.lo
+  CXX      libpolkit_backend_1_la-polkitbackendjsauthority.lo
+  CC       libpolkit_backend_1_la-polkitbackendactionpool.lo
+  CC       libpolkit_backend_1_la-polkitbackendconfigsource.lo
+  CC       libpolkit_backend_1_la-polkitbackendactionlookup.lo
+  CC       libpolkit_backend_1_la-polkitbackendsessionmonitor.lo
+  CXXLD    libpolkit-backend-1.la
+  CC       polkitd-polkitd.o
+  CXXLD    polkitd
+ld: warning: file /ws/userland/src/components/desktop/polkit/build/amd64/src/polkit/.libs/libpolkit-gobject-1.so: linked to ../../src/polkit/.libs/libpolkit-gobject-1.so: attempted multiple inclusion of file
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitbackend'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitbackend'
+Making all in polkitagent
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent'
+glib-genmarshal --prefix=_polkit_agent_marshal /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagentmarshal.list --header > polkitagentmarshal.h.tmp && mv polkitagentmarshal.h.tmp polkitagentmarshal.h
+(echo "#include \"polkitagentmarshal.h\""; glib-genmarshal --prefix=_polkit_agent_marshal /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagentmarshal.list --body) > polkitagentmarshal.c.tmp && mv polkitagentmarshal.c.tmp polkitagentmarshal.c
+touch marshal.stamp
+( top_builddir=`cd ../.. && pwd`; \
+ cd /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent && glib-mkenums --template polkitagentenumtypes.c.template polkitagentlistener.h) > \
+   polkitagentenumtypes.c.tmp && mv polkitagentenumtypes.c.tmp polkitagentenumtypes.c
+( top_builddir=`cd ../.. && pwd`; \
+ cd /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent && glib-mkenums --template polkitagentenumtypes.h.template polkitagentlistener.h) > \
+   polkitagentenumtypes.h.tmp && mv polkitagentenumtypes.h.tmp polkitagentenumtypes.h
+/usr/gnu/bin/make  all-am
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent'
+  CC       libpolkit_agent_1_la-polkitagentenumtypes.lo
+  CC       libpolkit_agent_1_la-polkitagentmarshal.lo
+  CC       libpolkit_agent_1_la-polkitagentsession.lo
+  CC       libpolkit_agent_1_la-polkitagentlistener.lo
+  CC       libpolkit_agent_1_la-polkitagenttextlistener.lo
+  CCLD     libpolkit-agent-1.la
+  CC       polkit_agent_helper_1-polkitagenthelperprivate.o
+  CC       polkit_agent_helper_1-polkitagenthelper-pam.o
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagenthelper-pam.c: In function 'main':
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagenthelper-pam.c:128:32: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   pam_conversation.conv        = conversation_function;
+                                ^
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagenthelper-pam.c:171:39: warning: passing argument 3 of 'pam_get_item' from incompatible pointer type [-Wincompatible-pointer-types]
+   rc = pam_get_item (pam_h, PAM_USER, &authed_user);
+                                       ^
+In file included from /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagenthelper-pam.c:32:0:
+/usr/include/security/pam_appl.h:167:1: note: expected 'void **' but argument is of type 'const void **'
+ pam_get_item(
+ ^~~~~~~~~~~~
+  CCLD     polkit-agent-helper-1
+  GISCAN   PolkitAgent-1.0.gir
+  GICOMP   PolkitAgent-1.0.gir
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent'
+Making all in programs
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/programs'
+  CC       pkexec-pkexec.o
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/programs/pkexec.c: In function 'open_session':
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/programs/pkexec.c:173:28: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   conversation.conv        = pam_conversation_function;
+                            ^
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/programs/pkexec.c: In function 'main':
+/ws/userland/src/components/desktop/polkit/polkit-0.113/src/programs/pkexec.c:727:2: warning: #warning "Please add OS specific code to catch when the parent dies" [-Wcpp]
+ #warning "Please add OS specific code to catch when the parent dies"
+  ^~~~~~~
+  CCLD     pkexec
+ld: warning: file /ws/userland/src/components/desktop/polkit/build/amd64/src/polkit/.libs/libpolkit-gobject-1.so: linked to ../../src/polkit/.libs/libpolkit-gobject-1.so: attempted multiple inclusion of file
+  CC       pkcheck-pkcheck.o
+  CCLD     pkcheck
+ld: warning: file /ws/userland/src/components/desktop/polkit/build/amd64/src/polkit/.libs/libpolkit-gobject-1.so: linked to ../../src/polkit/.libs/libpolkit-gobject-1.so: attempted multiple inclusion of file
+  CC       pkaction-pkaction.o
+  CCLD     pkaction
+  CC       pkttyagent-pkttyagent.o
+  CCLD     pkttyagent
+ld: warning: file /ws/userland/src/components/desktop/polkit/build/amd64/src/polkit/.libs/libpolkit-gobject-1.so: linked to ../../src/polkit/.libs/libpolkit-gobject-1.so: attempted multiple inclusion of file
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/programs'
+Making all in examples
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/examples'
+  CC       pk_example_frobnicate-frobnicate.o
+  CCLD     pk-example-frobnicate
+  CC       cancel-cancel.o
+  CCLD     cancel
+  ITMRG  org.freedesktop.policykit.examples.pkexec.policy
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/examples'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src'
+Making all in docs
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs'
+Making all in man
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs/man'
+/usr/bin/xsltproc -nonet --stringparam man.base.url.for.relative.links /usr/share/gtk-doc/html/polkit-1/ --xinclude http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl /ws/userland/src/components/desktop/polkit/polkit-0.113/docs/man/polkit.xml
+Error: no ID for constraint linkend: polkitd.8.
+Error: no ID for constraint linkend: pkcheck.1.
+Error: no ID for constraint linkend: PolkitAgentTextListener-struct.
+Error: no ID for constraint linkend: pkttyagent.1.
+Error: no ID for constraint linkend: pkaction.1.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: PolkitIdentity-struct.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: polkitd.8.
+Error: no ID for constraint linkend: pkaction.1.
+Error: no ID for constraint linkend: pkcheck.1.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: pkttyagent.1.
+Note: Writing polkit.8
+/usr/bin/xsltproc -nonet --stringparam man.base.url.for.relative.links /usr/share/gtk-doc/html/polkit-1/ --xinclude http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl /ws/userland/src/components/desktop/polkit/polkit-0.113/docs/man/polkitd.xml
+Error: no ID for constraint linkend: polkit.8.
+Error: no ID for constraint linkend: polkit.8.
+Error: no ID for constraint linkend: pkaction.1.
+Error: no ID for constraint linkend: pkcheck.1.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: pkttyagent.1.
+Note: Writing polkitd.8
+/usr/bin/xsltproc -nonet --stringparam man.base.url.for.relative.links /usr/share/gtk-doc/html/polkit-1/ --xinclude http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl /ws/userland/src/components/desktop/polkit/polkit-0.113/docs/man/pkexec.xml
+Error: no ID for constraint linkend: polkit.8.
+Error: no ID for constraint linkend: polkitd.8.
+Error: no ID for constraint linkend: pkaction.1.
+Error: no ID for constraint linkend: pkcheck.1.
+Error: no ID for constraint linkend: pkttyagent.1.
+Note: Writing pkexec.1
+/usr/bin/xsltproc -nonet --stringparam man.base.url.for.relative.links /usr/share/gtk-doc/html/polkit-1/ --xinclude http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl /ws/userland/src/components/desktop/polkit/polkit-0.113/docs/man/pkcheck.xml
+Error: no ID for constraint linkend: polkit.8.
+Error: no ID for constraint linkend: polkitd.8.
+Error: no ID for constraint linkend: pkaction.1.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: pkttyagent.1.
+Note: Writing pkcheck.1
+/usr/bin/xsltproc -nonet --stringparam man.base.url.for.relative.links /usr/share/gtk-doc/html/polkit-1/ --xinclude http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl /ws/userland/src/components/desktop/polkit/polkit-0.113/docs/man/pkaction.xml
+Error: no ID for constraint linkend: polkit.8.
+Error: no ID for constraint linkend: polkitd.8.
+Error: no ID for constraint linkend: pkcheck.1.
+Error: no ID for constraint linkend: pkexec.1.
+Error: no ID for constraint linkend: pkttyagent.1.
+Note: Writing pkaction.1
+/usr/bin/xsltproc -nonet --stringparam man.base.url.for.relative.links /usr/share/gtk-doc/html/polkit-1/ --xinclude http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl /ws/userland/src/components/desktop/polkit/polkit-0.113/docs/man/pkttyagent.xml
+Error: no ID for constraint linkend: eggdbus-signal-org.freedesktop.PolicyKit1.Authority::Changed.
+Error: no ID for constraint linkend: polkit.8.
+Error: no ID for constraint linkend: polkitd.8.
+Error: no ID for constraint linkend: pkaction.1.
+Error: no ID for constraint linkend: pkcheck.1.
+Error: no ID for constraint linkend: pkexec.1.
+Note: Writing pkttyagent.1
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs/man'
+Making all in polkit
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs/polkit'
+  DOC   Preparing build
+  DOC   Scanning header files
+  DOC   Introspecting gobjects
+ld: warning: file /ws/userland/src/components/desktop/polkit/build/amd64/src/polkit/.libs/libpolkit-gobject-1.so: linked to ../../src/polkit/.libs/libpolkit-gobject-1.so: attempted multiple inclusion of file
+  DOC   Building XML
+./polkit-1-unused.txt:1: warning: 1 unused declarations.They should be added to polkit-1-sections.txt in the appropriate place.
+  DOC   Building HTML
+  DOC   Fixing cross-references
+html/PolkitPermission.html:33: warning: no link for: 'GPermission' -> (<span class="type">GPermission</span>).
+html/PolkitPermission.html:150: warning: no link for: 'GtkLockButton' -> (<span class="type">GtkLockButton</span>).
+html/PolkitPermission.html:160: warning: no link for: 'GCancellable' -> (<span class="type">GCancellable</span>).
+html/PolkitPermission.html:161: warning: no link for: 'GAsyncReadyCallback' -> (<span class="type">GAsyncReadyCallback</span>).
+html/PolkitPermission.html:188: warning: no link for: 'NULL:CAPS' -> (<code class="literal">NULL</code>).
+html/PolkitPermission.html:215: warning: no link for: 'GAsyncResult' -> (<span class="type">GAsyncResult</span>).
+html/PolkitPermission.html:216: warning: no link for: 'GError' -> (<span class="type">GError</span>).
+html/PolkitUnixNetgroup.html:141: warning: no link for: 'g-object-unref' -> (<code class="function">g_object_unref()</code>).
+html/PolkitIdentity.html:129: warning: no link for: 'g-hash-table-new' -> (<code class="function">g_hash_table_new()</code>).
+html/PolkitIdentity.html:184: warning: no link for: 'TRUE:CAPS' -> (<code class="literal">TRUE</code>).
+html/PolkitIdentity.html:186: warning: no link for: 'FALSE:CAPS' -> (<code class="literal">FALSE</code>).
+html/PolkitIdentity.html:215: warning: no link for: 'g-free' -> (<code class="function">g_free()</code>).
+html/PolkitIdentity.html:290: warning: no link for: 'GTypeInterface' -> (<span class="type">GTypeInterface</span>).
+html/PolkitAgentSession.html:133: warning: no link for: 'G-SIGNAL-RUN-LAST:CAPS' -> (Run Last).
+html/PolkitAuthorizationResult.html:345: warning: no link for: 'api-index-0.101' -> (0.101).
+html/PolkitAuthority.html:576: warning: no link for: 'GObject-notify' -> (<span class="type">“notify”</span>).
+html/PolkitAuthority.html:989: warning: no link for: 'g-list-free' -> (<code class="function">g_list_free()</code>).
+html/PolkitAuthority.html:1232: warning: no link for: 'GVariant' -> (<span class="type">GVariant</span>).
+html/PolkitDetails.html:228: warning: no link for: 'g-strfreev' -> (<code class="function">g_strfreev()</code>).
+html/PolkitAgentListener.html:167: warning: no link for: 'GList' -> (<span class="type">GList</span>).
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs/polkit'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs'
+Making all in po
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/po'
+  MSGFMT cs.gmo
+  MSGFMT da.gmo
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/po'
+Making all in test
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/test'
+Making all in mocklibc
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/mocklibc'
+/usr/gnu/bin/make  all-recursive
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/mocklibc'
+Making all in src
+make[6]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/mocklibc/src'
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I..   -m64 -DLOG_AUTHPRIV='(10<<3)'  -m64 -O3 -std=gnu11 -ggdb -MT pwd.lo -MD -MP -MF .deps/pwd.Tpo -c -o pwd.lo /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/pwd.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I.. -m64 "-DLOG_AUTHPRIV=(10<<3)" -m64 -O3 -std=gnu11 -ggdb -MT pwd.lo -MD -MP -MF .deps/pwd.Tpo -c /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/pwd.c  -fPIC -DPIC -o .libs/pwd.o
+mv -f .deps/pwd.Tpo .deps/pwd.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I..   -m64 -DLOG_AUTHPRIV='(10<<3)'  -m64 -O3 -std=gnu11 -ggdb -MT grp.lo -MD -MP -MF .deps/grp.Tpo -c -o grp.lo /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/grp.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I.. -m64 "-DLOG_AUTHPRIV=(10<<3)" -m64 -O3 -std=gnu11 -ggdb -MT grp.lo -MD -MP -MF .deps/grp.Tpo -c /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/grp.c  -fPIC -DPIC -o .libs/grp.o
+mv -f .deps/grp.Tpo .deps/grp.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I..   -m64 -DLOG_AUTHPRIV='(10<<3)'  -m64 -O3 -std=gnu11 -ggdb -MT netdb.lo -MD -MP -MF .deps/netdb.Tpo -c -o netdb.lo /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netdb.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I.. -m64 "-DLOG_AUTHPRIV=(10<<3)" -m64 -O3 -std=gnu11 -ggdb -MT netdb.lo -MD -MP -MF .deps/netdb.Tpo -c /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netdb.c  -fPIC -DPIC -o .libs/netdb.o
+mv -f .deps/netdb.Tpo .deps/netdb.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I..   -m64 -DLOG_AUTHPRIV='(10<<3)'  -m64 -O3 -std=gnu11 -ggdb -MT netgroup.lo -MD -MP -MF .deps/netgroup.Tpo -c -o netgroup.lo /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netgroup.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I.. -m64 "-DLOG_AUTHPRIV=(10<<3)" -m64 -O3 -std=gnu11 -ggdb -MT netgroup.lo -MD -MP -MF .deps/netgroup.Tpo -c /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netgroup.c  -fPIC -DPIC -o .libs/netgroup.o
+mv -f .deps/netgroup.Tpo .deps/netgroup.Plo
+/bin/bash ../libtool  --tag=CC   --mode=link /usr/gcc/7/bin/gcc  -m64 -O3 -std=gnu11 -ggdb   -o libmocklibc.la -rpath /usr/lib/amd64 pwd.lo grp.lo netdb.lo netgroup.lo  
+libtool: link: /usr/gcc/7/bin/gcc -shared  -fPIC -DPIC -Wl,-z -Wl,text -Wl,-h -Wl,libmocklibc.so.0 -o .libs/libmocklibc.so.0.0.0  .libs/pwd.o .libs/grp.o .libs/netdb.o .libs/netgroup.o    -m64 -O3 -ggdb  
+libtool: link: (cd ".libs" && rm -f "libmocklibc.so.0" && ln -s "libmocklibc.so.0.0.0" "libmocklibc.so.0")
+libtool: link: (cd ".libs" && rm -f "libmocklibc.so" && ln -s "libmocklibc.so.0.0.0" "libmocklibc.so")
+libtool: link: ( cd ".libs" && rm -f "libmocklibc.la" && ln -s "../libmocklibc.la" "libmocklibc.la" )
+/usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src -I..   -m64 -DLOG_AUTHPRIV='(10<<3)'  -m64 -O3 -std=gnu11 -ggdb -MT netgroup-debug.o -MD -MP -MF .deps/netgroup-debug.Tpo -c -o netgroup-debug.o /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netgroup-debug.c
+/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netgroup-debug.c: In function 'netgroup_debug_print_entry':
+/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/src/netgroup-debug.c:25:3: warning: implicit declaration of function 'print_indent' [-Wimplicit-function-declaration]
+   print_indent(stream, indent);
+   ^~~~~~~~~~~~
+mv -f .deps/netgroup-debug.Tpo .deps/netgroup-debug.Po
+/bin/bash ../libtool  --tag=CC   --mode=link /usr/gcc/7/bin/gcc  -m64 -O3 -std=gnu11 -ggdb   -o mocklibc-debug-netgroup netgroup-debug.o libmocklibc.la 
+libtool: link: /usr/gcc/7/bin/gcc -m64 -O3 -std=gnu11 -ggdb -o .libs/mocklibc-debug-netgroup netgroup-debug.o  ./.libs/libmocklibc.so -R/usr/lib/amd64
+make[6]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/mocklibc/src'
+Making all in bin
+make[6]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/mocklibc/bin'
+sed -e 's|@libdir[@]|/usr/lib/amd64|g' -e 's|@libname[@]|libmocklibc.so|g' -e 's|@top_srcdir[@]|/ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc|g' -e 's|@top_builddir[@]|..|g' /ws/userland/src/components/desktop/polkit/polkit-0.113/test/mocklibc/bin/mocklibc.in > mocklibc
+chmod a+x mocklibc
+make[6]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/mocklibc/bin'
+make[6]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/mocklibc'
+make[6]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/mocklibc'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/mocklibc'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/mocklibc'
+Making all in .
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/test'
+  CC       polkittesthelper.lo
+  CCLD     libpolkit-test-helper.la
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/test'
+Making all in polkit
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/polkit'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/polkit'
+Making all in polkitbackend
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/polkitbackend'
+  CC       test-polkitbackendjsauthority.o
+  CXXLD    polkitbackendjsauthoritytest
+ld: warning: file /ws/userland/src/components/desktop/polkit/build/amd64/src/polkit/.libs/libpolkit-gobject-1.so: linked to ../../src/polkit/.libs/libpolkit-gobject-1.so: attempted multiple inclusion of file
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/test/polkitbackend'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/test'
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/build/amd64/.built
+(cd /ws/userland/src/components/desktop/polkit/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable  -M /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile" LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/desktop/polkit/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86'
+Making install in actions
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/actions'
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/actions'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/actions'
+ /usr/gnu/bin/install -c -m 644 org.freedesktop.policykit.policy '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/actions'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/actions'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/actions'
+Making install in data
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/data'
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/data'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/dbus-1/system.d'
+ /usr/gnu/bin/install -c -m 644 org.freedesktop.PolicyKit1.conf '/ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/dbus-1/system.d'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/pam.d'
+ /usr/gnu/bin/install -c -m 644 polkit-1 '/ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/pam.d'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/pkgconfig'
+ /usr/gnu/bin/install -c -m 644 polkit-gobject-1.pc polkit-agent-1.pc '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/pkgconfig'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/dbus-1/system-services'
+ /usr/gnu/bin/install -c -m 644 org.freedesktop.PolicyKit1.service '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/dbus-1/system-services'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/data'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/data'
+Making install in src
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src'
+Making install in polkit
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit'
+/usr/gnu/bin/make  install-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit'
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib'
+ /bin/bash ../../libtool   --mode=install /usr/gnu/bin/install -c   libpolkit-gobject-1.la '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib'
+libtool: install: /usr/gnu/bin/install -c .libs/libpolkit-gobject-1.so.0.0.0 /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/libpolkit-gobject-1.so.0.0.0
+libtool: install: (cd /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib && { ln -s -f libpolkit-gobject-1.so.0.0.0 libpolkit-gobject-1.so.0 || { rm -f libpolkit-gobject-1.so.0 && ln -s libpolkit-gobject-1.so.0.0.0 libpolkit-gobject-1.so.0; }; })
+libtool: install: (cd /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib && { ln -s -f libpolkit-gobject-1.so.0.0.0 libpolkit-gobject-1.so || { rm -f libpolkit-gobject-1.so && ln -s libpolkit-gobject-1.so.0.0.0 libpolkit-gobject-1.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/libpolkit-gobject-1.so.0.0.0
+libtool: install: /usr/gnu/bin/install -c .libs/libpolkit-gobject-1.lai /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/libpolkit-gobject-1.la
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/gir-1.0'
+ /usr/gnu/bin/install -c -m 644 Polkit-1.0.gir '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/gir-1.0'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/include/polkit-1/polkit'
+ /usr/gnu/bin/install -c -m 644 /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkit.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitprivate.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkittypes.h polkitenumtypes.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitactiondescription.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitauthorityfeatures.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitdetails.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitauthority.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkiterror.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitsubject.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitunixprocess.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitunixsession.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitsystembusname.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitidentity.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitunixuser.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitunixgroup.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitunixnetgroup.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitauthorizationresult.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitcheckauthorizationflags.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitimplicitauthorization.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkittemporaryauthorization.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitpermission.h '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/include/polkit-1/polkit'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/girepository-1.0'
+ /usr/gnu/bin/install -c -m 644 Polkit-1.0.typelib '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/girepository-1.0'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit'
+Making install in polkitbackend
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitbackend'
+/usr/gnu/bin/make  install-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitbackend'
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitbackend'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1'
+  /bin/bash ../../libtool   --mode=install /usr/gnu/bin/install -c polkitd '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1'
+libtool: warning: '../../src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib'
+libtool: warning: '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/gnu/bin/install -c .libs/polkitd /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1/polkitd
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/polkit-1/rules.d'
+ /usr/gnu/bin/install -c -m 644 /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitbackend/50-default.rules '/ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/polkit-1/rules.d'
+/usr/gnu/bin/make  install-data-hook
+make[6]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitbackend'
+mkdir -p /ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/polkit-1/rules.d
+chmod 700 /ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/polkit-1/rules.d
+chown _polkitd /ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/polkit-1/rules.d
+chown: /ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/polkit-1/rules.d: Not owner
+make[6]: [Makefile:1051: install-data-hook] Error 1 (ignored)
+mkdir -p /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/rules.d
+chmod 700 /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/rules.d
+chown _polkitd /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/rules.d
+chown: /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/rules.d: Not owner
+make[6]: [Makefile:1054: install-data-hook] Error 1 (ignored)
+make[6]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitbackend'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitbackend'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitbackend'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitbackend'
+Making install in polkitagent
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent'
+/usr/gnu/bin/make  install-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent'
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib'
+ /bin/bash ../../libtool   --mode=install /usr/gnu/bin/install -c   libpolkit-agent-1.la '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib'
+libtool: warning: relinking 'libpolkit-agent-1.la'
+libtool: install: (cd /ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent; /bin/bash "/ws/userland/src/components/desktop/polkit/build/i86/libtool"  --silent --tag CC --mode=relink /usr/gcc/7/bin/gcc -D_POLKIT_COMPILATION -D_POLKIT_AGENT_COMPILATION -D_REENTRANT -I/usr/include/gio-unix-2.0/ -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -m32 -O3 -mincoming-stack-boundary=2 -std=gnu11 -ggdb -Wall -Wchar-subscripts -Wmissing-declarations -Wnested-externs -Wpointer-arith -Wcast-align -Wsign-compare -Wformat -Wformat-security -export-symbols-regex "(^polkit_.*)" -Wl,--as-needed -o libpolkit-agent-1.la -rpath /usr/lib libpolkit_agent_1_la-polkitagentenumtypes.lo libpolkit_agent_1_la-polkitagentmarshal.lo libpolkit_agent_1_la-polkitagentsession.lo libpolkit_agent_1_la-polkitagentlistener.lo libpolkit_agent_1_la-polkitagenttextlistener.lo -lgmodule-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 ../../src/polkit/libpolkit-gobject-1.la -lexpat -inst-prefix-dir /ws/userland/src/components/desktop/polkit/build/prototype/i386)
+libtool: install: /usr/gnu/bin/install -c .libs/libpolkit-agent-1.so.0.0.0T /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/libpolkit-agent-1.so.0.0.0
+libtool: install: (cd /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib && { ln -s -f libpolkit-agent-1.so.0.0.0 libpolkit-agent-1.so.0 || { rm -f libpolkit-agent-1.so.0 && ln -s libpolkit-agent-1.so.0.0.0 libpolkit-agent-1.so.0; }; })
+libtool: install: (cd /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib && { ln -s -f libpolkit-agent-1.so.0.0.0 libpolkit-agent-1.so || { rm -f libpolkit-agent-1.so && ln -s libpolkit-agent-1.so.0.0.0 libpolkit-agent-1.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/libpolkit-agent-1.so.0.0.0
+libtool: install: /usr/gnu/bin/install -c .libs/libpolkit-agent-1.lai /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/libpolkit-agent-1.la
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/gir-1.0'
+ /usr/gnu/bin/install -c -m 644 PolkitAgent-1.0.gir '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/gir-1.0'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/include/polkit-1/polkitagent'
+ /usr/gnu/bin/install -c -m 644 /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagent.h polkitagentenumtypes.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagenttypes.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagentsession.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagentlistener.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagenttextlistener.h '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/include/polkit-1/polkitagent'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1'
+  /bin/bash ../../libtool   --mode=install /usr/gnu/bin/install -c polkit-agent-helper-1 '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1'
+libtool: warning: '../../src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/gnu/bin/install -c .libs/polkit-agent-helper-1 /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1/polkit-agent-helper-1
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/girepository-1.0'
+ /usr/gnu/bin/install -c -m 644 PolkitAgent-1.0.typelib '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/girepository-1.0'
+/usr/gnu/bin/make  install-data-hook
+make[6]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent'
+chown root /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1/polkit-agent-helper-1
+chown: /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1/polkit-agent-helper-1: Not owner
+make[6]: [Makefile:1102: install-data-hook] Error 1 (ignored)
+chmod 4755 /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1/polkit-agent-helper-1
+make[6]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/polkitagent'
+Making install in programs
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/programs'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/programs'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/i86'
+  /bin/bash ../../libtool   --mode=install /usr/gnu/bin/install -c pkexec pkcheck pkaction pkttyagent '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/i86'
+libtool: warning: '../../src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib'
+libtool: warning: '../../src/polkitagent/libpolkit-agent-1.la' has not been installed in '/usr/lib'
+libtool: warning: '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/gnu/bin/install -c .libs/pkexec /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/i86/pkexec
+libtool: warning: '../../src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib'
+libtool: warning: '../../src/polkitagent/libpolkit-agent-1.la' has not been installed in '/usr/lib'
+libtool: warning: '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/gnu/bin/install -c .libs/pkcheck /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/i86/pkcheck
+libtool: warning: '../../src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/gnu/bin/install -c .libs/pkaction /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/i86/pkaction
+libtool: warning: '../../src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib'
+libtool: warning: '../../src/polkitagent/libpolkit-agent-1.la' has not been installed in '/usr/lib'
+libtool: warning: '/ws/userland/src/components/desktop/polkit/build/i86/src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib'
+libtool: install: /usr/gnu/bin/install -c .libs/pkttyagent /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/i86/pkttyagent
+/usr/gnu/bin/make  install-exec-hook
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/programs'
+chmod 4755 /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/i86/pkexec
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/programs'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/programs'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/programs'
+Making install in examples
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/examples'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src/examples'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/i86'
+  /bin/bash ../../libtool   --mode=install /usr/gnu/bin/install -c pk-example-frobnicate '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/i86'
+libtool: install: /usr/gnu/bin/install -c pk-example-frobnicate /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/i86/pk-example-frobnicate
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/actions'
+ /usr/gnu/bin/install -c -m 644 org.freedesktop.policykit.examples.pkexec.policy '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/actions'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/examples'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src/examples'
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/src'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/src'
+Making install in docs
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/docs'
+Making install in man
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/docs/man'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/docs/man'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/man/man1'
+ /usr/gnu/bin/install -c -m 644 pkexec.1 pkcheck.1 pkaction.1 pkttyagent.1 '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/man/man1'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/man/man8'
+ /usr/gnu/bin/install -c -m 644 polkit.8 polkitd.8 '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/man/man8'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/docs/man'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/docs/man'
+Making install in polkit
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/docs/polkit'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/docs/polkit'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/gnu/bin/install -c -m 644 ./html/Identities.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitActionDescription.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitAgentListener.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitAgentSession.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitAgentTextListener.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitAuthority.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitAuthorizationResult.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitDetails.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitIdentity.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitPermission.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitSubject.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitSystemBusName.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitTemporaryAuthorization.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitUnixGroup.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitUnixNetgroup.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitUnixProcess.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitUnixSession.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitUnixUser.html
+ /usr/gnu/bin/install -c -m 644 ./html/annotation-glossary.html
+ /usr/gnu/bin/install -c -m 644 ./html/eggdbus-interface-org.freedesktop.PolicyKit1.AuthenticationAgent.html
+ /usr/gnu/bin/install -c -m 644 ./html/eggdbus-interface-org.freedesktop.PolicyKit1.Authority.html
+ /usr/gnu/bin/install -c -m 644 ./html/home.png
+ /usr/gnu/bin/install -c -m 644 ./html/index.html
+ /usr/gnu/bin/install -c -m 644 ./html/left-insensitive.png
+ /usr/gnu/bin/install -c -m 644 ./html/left.png
+ /usr/gnu/bin/install -c -m 644 ./html/license.html
+ /usr/gnu/bin/install -c -m 644 ./html/manpages.html
+ /usr/gnu/bin/install -c -m 644 ./html/overview.html
+ /usr/gnu/bin/install -c -m 644 ./html/pkaction.1.html
+ /usr/gnu/bin/install -c -m 644 ./html/pkcheck.1.html
+ /usr/gnu/bin/install -c -m 644 ./html/pkexec.1.html
+ /usr/gnu/bin/install -c -m 644 ./html/pkttyagent.1.html
+ /usr/gnu/bin/install -c -m 644 ./html/polit-index.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-1-PolkitError.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-1.devhelp2
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-agents.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-apps.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-architecture.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-architecture.png
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-authentication-agent-example-wheel.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-authentication-agent-example-wheel.png
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-authentication-agent-example.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-authentication-agent-example.png
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-hierarchy.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-intro.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit.8.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkitd.8.html
+ /usr/gnu/bin/install -c -m 644 ./html/ref-api.html
+ /usr/gnu/bin/install -c -m 644 ./html/ref-authentication-agent-api.html
+ /usr/gnu/bin/install -c -m 644 ./html/ref-dbus-api.html
+ /usr/gnu/bin/install -c -m 644 ./html/right-insensitive.png
+ /usr/gnu/bin/install -c -m 644 ./html/right.png
+ /usr/gnu/bin/install -c -m 644 ./html/style.css
+ /usr/gnu/bin/install -c -m 644 ./html/subjects.html
+ /usr/gnu/bin/install -c -m 644 ./html/up-insensitive.png
+ /usr/gnu/bin/install -c -m 644 ./html/up.png
+http://www.freedesktop.org/software/polkit/docs/latest/ -> /usr/share/gtk-doc/html/polkit-1/ (2)
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/docs/polkit'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/docs/polkit'
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/docs'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/docs'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/docs'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/docs'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/docs'
+Making install in po
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86/po'
+linguas="cs da "; \
+for lang in $linguas; do \
+  dir=/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/locale/$lang/LC_MESSAGES; \
+  /bin/bash /ws/userland/src/components/desktop/polkit/polkit-0.113/install-sh -d $dir; \
+  if test -r $lang.gmo; then \
+    /usr/gnu/bin/install -c -m 644 $lang.gmo $dir/polkit-1.mo; \
+    echo "installing $lang.gmo as $dir/polkit-1.mo"; \
+  else \
+    /usr/gnu/bin/install -c -m 644 /ws/userland/src/components/desktop/polkit/polkit-0.113/po/$lang.gmo $dir/polkit-1.mo; \
+    echo "installing /ws/userland/src/components/desktop/polkit/polkit-0.113/po/$lang.gmo as" \
+	 "$dir/polkit-1.mo"; \
+  fi; \
+  if test -r $lang.gmo.m; then \
+    /usr/gnu/bin/install -c -m 644 $lang.gmo.m $dir/polkit-1.mo.m; \
+    echo "installing $lang.gmo.m as $dir/polkit-1.mo.m"; \
+  else \
+    if test -r /ws/userland/src/components/desktop/polkit/polkit-0.113/po/$lang.gmo.m ; then \
+      /usr/gnu/bin/install -c -m 644 /ws/userland/src/components/desktop/polkit/polkit-0.113/po/$lang.gmo.m \
+	$dir/polkit-1.mo.m; \
+      echo "installing /ws/userland/src/components/desktop/polkit/polkit-0.113/po/$lang.gmo.m as" \
+	   "$dir/polkit-1.mo.m"; \
+    else \
+      true; \
+    fi; \
+  fi; \
+done
+installing cs.gmo as /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/locale/cs/LC_MESSAGES/polkit-1.mo
+installing da.gmo as /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/locale/da/LC_MESSAGES/polkit-1.mo
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86/po'
+Making install in test
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/i86'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/build/i86/.installed
+(cd /ws/userland/src/components/desktop/polkit/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable  -M /ws/userland/src/components/desktop/polkit/../../gnome/gjs/mapfile" LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/desktop/polkit/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64'
+Making install in actions
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/actions'
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/actions'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/actions'
+ /usr/gnu/bin/install -c -m 644 org.freedesktop.policykit.policy '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/actions'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/actions'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/actions'
+Making install in data
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/data'
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/data'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/dbus-1/system.d'
+ /usr/gnu/bin/install -c -m 644 org.freedesktop.PolicyKit1.conf '/ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/dbus-1/system.d'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/pam.d'
+ /usr/gnu/bin/install -c -m 644 polkit-1 '/ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/pam.d'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64/pkgconfig'
+ /usr/gnu/bin/install -c -m 644 polkit-gobject-1.pc polkit-agent-1.pc '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64/pkgconfig'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/dbus-1/system-services'
+ /usr/gnu/bin/install -c -m 644 org.freedesktop.PolicyKit1.service '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/dbus-1/system-services'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/data'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/data'
+Making install in src
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src'
+Making install in polkit
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit'
+/usr/gnu/bin/make  install-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit'
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64'
+ /bin/bash ../../libtool   --mode=install /usr/gnu/bin/install -c   libpolkit-gobject-1.la '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64'
+libtool: install: /usr/gnu/bin/install -c .libs/libpolkit-gobject-1.so.0.0.0 /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64/libpolkit-gobject-1.so.0.0.0
+libtool: install: (cd /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64 && { ln -s -f libpolkit-gobject-1.so.0.0.0 libpolkit-gobject-1.so.0 || { rm -f libpolkit-gobject-1.so.0 && ln -s libpolkit-gobject-1.so.0.0.0 libpolkit-gobject-1.so.0; }; })
+libtool: install: (cd /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64 && { ln -s -f libpolkit-gobject-1.so.0.0.0 libpolkit-gobject-1.so || { rm -f libpolkit-gobject-1.so && ln -s libpolkit-gobject-1.so.0.0.0 libpolkit-gobject-1.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64/libpolkit-gobject-1.so.0.0.0
+libtool: install: /usr/gnu/bin/install -c .libs/libpolkit-gobject-1.lai /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64/libpolkit-gobject-1.la
+libtool: warning: remember to run 'libtool --finish /usr/lib/amd64'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/gir-1.0'
+ /usr/gnu/bin/install -c -m 644 Polkit-1.0.gir '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/gir-1.0'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/include/polkit-1/polkit'
+ /usr/gnu/bin/install -c -m 644 /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkit.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitprivate.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkittypes.h polkitenumtypes.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitactiondescription.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitauthorityfeatures.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitdetails.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitauthority.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkiterror.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitsubject.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitunixprocess.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitunixsession.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitsystembusname.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitidentity.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitunixuser.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitunixgroup.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitunixnetgroup.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitauthorizationresult.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitcheckauthorizationflags.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitimplicitauthorization.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkittemporaryauthorization.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkit/polkitpermission.h '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/include/polkit-1/polkit'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64/girepository-1.0'
+ /usr/gnu/bin/install -c -m 644 Polkit-1.0.typelib '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64/girepository-1.0'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit'
+Making install in polkitbackend
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitbackend'
+/usr/gnu/bin/make  install-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitbackend'
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitbackend'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1'
+  /bin/bash ../../libtool   --mode=install /usr/gnu/bin/install -c polkitd '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1'
+libtool: warning: '../../src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib/amd64'
+libtool: warning: '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/gnu/bin/install -c .libs/polkitd /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1/polkitd
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/polkit-1/rules.d'
+ /usr/gnu/bin/install -c -m 644 /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitbackend/50-default.rules '/ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/polkit-1/rules.d'
+/usr/gnu/bin/make  install-data-hook
+make[6]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitbackend'
+mkdir -p /ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/polkit-1/rules.d
+chmod 700 /ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/polkit-1/rules.d
+chown _polkitd /ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/polkit-1/rules.d
+chown: /ws/userland/src/components/desktop/polkit/build/prototype/i386/etc/polkit-1/rules.d: Not owner
+make[6]: [Makefile:1051: install-data-hook] Error 1 (ignored)
+mkdir -p /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/rules.d
+chmod 700 /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/rules.d
+chown _polkitd /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/rules.d
+chown: /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/rules.d: Not owner
+make[6]: [Makefile:1054: install-data-hook] Error 1 (ignored)
+make[6]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitbackend'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitbackend'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitbackend'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitbackend'
+Making install in polkitagent
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent'
+/usr/gnu/bin/make  install-am
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent'
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64'
+ /bin/bash ../../libtool   --mode=install /usr/gnu/bin/install -c   libpolkit-agent-1.la '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64'
+libtool: warning: relinking 'libpolkit-agent-1.la'
+libtool: install: (cd /ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent; /bin/bash "/ws/userland/src/components/desktop/polkit/build/amd64/libtool"  --silent --tag CC --mode=relink /usr/gcc/7/bin/gcc -D_POLKIT_COMPILATION -D_POLKIT_AGENT_COMPILATION -D_REENTRANT -I/usr/include/gio-unix-2.0/ -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pcre -m64 -O3 -std=gnu11 -ggdb -Wall -Wchar-subscripts -Wmissing-declarations -Wnested-externs -Wpointer-arith -Wcast-align -Wsign-compare -Wformat -Wformat-security -export-symbols-regex "(^polkit_.*)" -Wl,--as-needed -o libpolkit-agent-1.la -rpath /usr/lib/amd64 libpolkit_agent_1_la-polkitagentenumtypes.lo libpolkit_agent_1_la-polkitagentmarshal.lo libpolkit_agent_1_la-polkitagentsession.lo libpolkit_agent_1_la-polkitagentlistener.lo libpolkit_agent_1_la-polkitagenttextlistener.lo -L/usr/lib/amd64 -lgmodule-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 ../../src/polkit/libpolkit-gobject-1.la -lexpat -inst-prefix-dir /ws/userland/src/components/desktop/polkit/build/prototype/i386)
+libtool: install: /usr/gnu/bin/install -c .libs/libpolkit-agent-1.so.0.0.0T /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64/libpolkit-agent-1.so.0.0.0
+libtool: install: (cd /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64 && { ln -s -f libpolkit-agent-1.so.0.0.0 libpolkit-agent-1.so.0 || { rm -f libpolkit-agent-1.so.0 && ln -s libpolkit-agent-1.so.0.0.0 libpolkit-agent-1.so.0; }; })
+libtool: install: (cd /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64 && { ln -s -f libpolkit-agent-1.so.0.0.0 libpolkit-agent-1.so || { rm -f libpolkit-agent-1.so && ln -s libpolkit-agent-1.so.0.0.0 libpolkit-agent-1.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64/libpolkit-agent-1.so.0.0.0
+libtool: install: /usr/gnu/bin/install -c .libs/libpolkit-agent-1.lai /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64/libpolkit-agent-1.la
+libtool: warning: remember to run 'libtool --finish /usr/lib/amd64'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/gir-1.0'
+ /usr/gnu/bin/install -c -m 644 PolkitAgent-1.0.gir '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/gir-1.0'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/include/polkit-1/polkitagent'
+ /usr/gnu/bin/install -c -m 644 /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagent.h polkitagentenumtypes.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagenttypes.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagentsession.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagentlistener.h /ws/userland/src/components/desktop/polkit/polkit-0.113/src/polkitagent/polkitagenttextlistener.h '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/include/polkit-1/polkitagent'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1'
+  /bin/bash ../../libtool   --mode=install /usr/gnu/bin/install -c polkit-agent-helper-1 '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1'
+libtool: warning: '../../src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/gnu/bin/install -c .libs/polkit-agent-helper-1 /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1/polkit-agent-helper-1
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64/girepository-1.0'
+ /usr/gnu/bin/install -c -m 644 PolkitAgent-1.0.typelib '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/amd64/girepository-1.0'
+/usr/gnu/bin/make  install-data-hook
+make[6]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent'
+chown root /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1/polkit-agent-helper-1
+chown: /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1/polkit-agent-helper-1: Not owner
+make[6]: [Makefile:1102: install-data-hook] Error 1 (ignored)
+chmod 4755 /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/lib/polkit-1/polkit-agent-helper-1
+make[6]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent'
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkitagent'
+Making install in programs
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/programs'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/programs'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin'
+  /bin/bash ../../libtool   --mode=install /usr/gnu/bin/install -c pkexec pkcheck pkaction pkttyagent '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin'
+libtool: warning: '../../src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib/amd64'
+libtool: warning: '../../src/polkitagent/libpolkit-agent-1.la' has not been installed in '/usr/lib/amd64'
+libtool: warning: '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/gnu/bin/install -c .libs/pkexec /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/pkexec
+libtool: warning: '../../src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib/amd64'
+libtool: warning: '../../src/polkitagent/libpolkit-agent-1.la' has not been installed in '/usr/lib/amd64'
+libtool: warning: '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/gnu/bin/install -c .libs/pkcheck /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/pkcheck
+libtool: warning: '../../src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/gnu/bin/install -c .libs/pkaction /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/pkaction
+libtool: warning: '../../src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib/amd64'
+libtool: warning: '../../src/polkitagent/libpolkit-agent-1.la' has not been installed in '/usr/lib/amd64'
+libtool: warning: '/ws/userland/src/components/desktop/polkit/build/amd64/src/polkit/libpolkit-gobject-1.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/gnu/bin/install -c .libs/pkttyagent /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/pkttyagent
+/usr/gnu/bin/make  install-exec-hook
+make[5]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/programs'
+chmod 4755 /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/pkexec
+make[5]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/programs'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/programs'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/programs'
+Making install in examples
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/examples'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/examples'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin'
+  /bin/bash ../../libtool   --mode=install /usr/gnu/bin/install -c pk-example-frobnicate '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin'
+libtool: install: /usr/gnu/bin/install -c pk-example-frobnicate /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/bin/pk-example-frobnicate
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/actions'
+ /usr/gnu/bin/install -c -m 644 org.freedesktop.policykit.examples.pkexec.policy '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/polkit-1/actions'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/examples'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src/examples'
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/src'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/src'
+Making install in docs
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs'
+Making install in man
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs/man'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs/man'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/man/man1'
+ /usr/gnu/bin/install -c -m 644 pkexec.1 pkcheck.1 pkaction.1 pkttyagent.1 '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/man/man1'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/man/man8'
+ /usr/gnu/bin/install -c -m 644 polkit.8 polkitd.8 '/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/man/man8'
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs/man'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs/man'
+Making install in polkit
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs/polkit'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs/polkit'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/gnu/bin/install -c -m 644 ./html/Identities.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitActionDescription.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitAgentListener.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitAgentSession.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitAgentTextListener.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitAuthority.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitAuthorizationResult.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitDetails.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitIdentity.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitPermission.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitSubject.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitSystemBusName.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitTemporaryAuthorization.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitUnixGroup.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitUnixNetgroup.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitUnixProcess.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitUnixSession.html
+ /usr/gnu/bin/install -c -m 644 ./html/PolkitUnixUser.html
+ /usr/gnu/bin/install -c -m 644 ./html/annotation-glossary.html
+ /usr/gnu/bin/install -c -m 644 ./html/eggdbus-interface-org.freedesktop.PolicyKit1.AuthenticationAgent.html
+ /usr/gnu/bin/install -c -m 644 ./html/eggdbus-interface-org.freedesktop.PolicyKit1.Authority.html
+ /usr/gnu/bin/install -c -m 644 ./html/home.png
+ /usr/gnu/bin/install -c -m 644 ./html/index.html
+ /usr/gnu/bin/install -c -m 644 ./html/left-insensitive.png
+ /usr/gnu/bin/install -c -m 644 ./html/left.png
+ /usr/gnu/bin/install -c -m 644 ./html/license.html
+ /usr/gnu/bin/install -c -m 644 ./html/manpages.html
+ /usr/gnu/bin/install -c -m 644 ./html/overview.html
+ /usr/gnu/bin/install -c -m 644 ./html/pkaction.1.html
+ /usr/gnu/bin/install -c -m 644 ./html/pkcheck.1.html
+ /usr/gnu/bin/install -c -m 644 ./html/pkexec.1.html
+ /usr/gnu/bin/install -c -m 644 ./html/pkttyagent.1.html
+ /usr/gnu/bin/install -c -m 644 ./html/polit-index.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-1-PolkitError.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-1.devhelp2
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-agents.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-apps.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-architecture.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-architecture.png
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-authentication-agent-example-wheel.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-authentication-agent-example-wheel.png
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-authentication-agent-example.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-authentication-agent-example.png
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-hierarchy.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit-intro.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkit.8.html
+ /usr/gnu/bin/install -c -m 644 ./html/polkitd.8.html
+ /usr/gnu/bin/install -c -m 644 ./html/ref-api.html
+ /usr/gnu/bin/install -c -m 644 ./html/ref-authentication-agent-api.html
+ /usr/gnu/bin/install -c -m 644 ./html/ref-dbus-api.html
+ /usr/gnu/bin/install -c -m 644 ./html/right-insensitive.png
+ /usr/gnu/bin/install -c -m 644 ./html/right.png
+ /usr/gnu/bin/install -c -m 644 ./html/style.css
+ /usr/gnu/bin/install -c -m 644 ./html/subjects.html
+ /usr/gnu/bin/install -c -m 644 ./html/up-insensitive.png
+ /usr/gnu/bin/install -c -m 644 ./html/up.png
+http://www.freedesktop.org/software/polkit/docs/latest/ -> /usr/share/gtk-doc/html/polkit-1/ (2)
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs/polkit'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs/polkit'
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs'
+make[4]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/docs'
+Making install in po
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64/po'
+linguas="cs da "; \
+for lang in $linguas; do \
+  dir=/ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/locale/$lang/LC_MESSAGES; \
+  /bin/bash /ws/userland/src/components/desktop/polkit/polkit-0.113/install-sh -d $dir; \
+  if test -r $lang.gmo; then \
+    /usr/gnu/bin/install -c -m 644 $lang.gmo $dir/polkit-1.mo; \
+    echo "installing $lang.gmo as $dir/polkit-1.mo"; \
+  else \
+    /usr/gnu/bin/install -c -m 644 /ws/userland/src/components/desktop/polkit/polkit-0.113/po/$lang.gmo $dir/polkit-1.mo; \
+    echo "installing /ws/userland/src/components/desktop/polkit/polkit-0.113/po/$lang.gmo as" \
+	 "$dir/polkit-1.mo"; \
+  fi; \
+  if test -r $lang.gmo.m; then \
+    /usr/gnu/bin/install -c -m 644 $lang.gmo.m $dir/polkit-1.mo.m; \
+    echo "installing $lang.gmo.m as $dir/polkit-1.mo.m"; \
+  else \
+    if test -r /ws/userland/src/components/desktop/polkit/polkit-0.113/po/$lang.gmo.m ; then \
+      /usr/gnu/bin/install -c -m 644 /ws/userland/src/components/desktop/polkit/polkit-0.113/po/$lang.gmo.m \
+	$dir/polkit-1.mo.m; \
+      echo "installing /ws/userland/src/components/desktop/polkit/polkit-0.113/po/$lang.gmo.m as" \
+	   "$dir/polkit-1.mo.m"; \
+    else \
+      true; \
+    fi; \
+  fi; \
+done
+installing cs.gmo as /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/locale/cs/LC_MESSAGES/polkit-1.mo
+installing da.gmo as /ws/userland/src/components/desktop/polkit/build/prototype/i386/usr/share/locale/da/LC_MESSAGES/polkit-1.mo
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64/po'
+Making install in test
+make[2]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/polkit/build/amd64'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/polkit/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 polkit.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=0\\.113 -D COMPONENT_RE_VERSION=0\\.113 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/polkit -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="27381" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="0.113" -D IPS_COMPONENT_VERSION="0.113" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="http://www.freedesktop.org/software/polkit/releases/polkit-0.113.tar.gz" -D COMPONENT_PROJECT_URL="http://www.freedesktop.org/wiki/Software/polkit/" -D COMPONENT_NAME="polkit" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" polkit.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/polkit/build/manifest-i386-polkit.mogrified
+/bin/mkdir -p /ws/userland/src/components/desktop/polkit/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/polkit/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/polkit/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/polkit/build/prototype/i386 -d /ws/userland/src/components/desktop/polkit/build -d /ws/userland/src/components/desktop/polkit -d polkit-0.113 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/polkit/files -d /ws/userland/src/components/desktop/polkit/files -m /ws/userland/src/components/desktop/polkit/build/manifest-i386-polkit.mogrified >/ws/userland/src/components/desktop/polkit/build/manifest-i386-polkit.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/polkit/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/polkit/build/prototype/i386 -d /ws/userland/src/components/desktop/polkit/build -d /ws/userland/src/components/desktop/polkit -d polkit-0.113 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/polkit/files -d /ws/userland/src/components/desktop/polkit/files /ws/userland/src/components/desktop/polkit/build/manifest-i386-polkit.mangled >/ws/userland/src/components/desktop/polkit/build/manifest-i386-polkit.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/desktop/polkit/build/resolve.deps -m /ws/userland/src/components/desktop/polkit/build/manifest-i386-polkit.depend
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/desktop/polkit/build/manifest-i386-polkit.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/desktop/polkit/build/prototype/i386/mangled /ws/userland/src/components/desktop/polkit/build/prototype/i386 /ws/userland/src/components/desktop/polkit/build /ws/userland/src/components/desktop/polkit polkit-0.113 /ws/userland/src/licenses /ws/userland/src/components/desktop/polkit/files /ws/userland/src/components/desktop/polkit/files"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/desktop/polkit/build/manifest-i386-polkit.depend.res
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/polkit/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/polkit/build/prototype/i386 -d /ws/userland/src/components/desktop/polkit/build -d /ws/userland/src/components/desktop/polkit -d polkit-0.113 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/polkit/files -d /ws/userland/src/components/desktop/polkit/files -T \*.py /ws/userland/src/components/desktop/polkit/build/manifest-i386-polkit.depend.res
+pkg://nightly/system/library/polkit@0.113,5.11-11.4.0.0.1.14.0:20190727T222138Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/polkit/build/manifest-i386-polkit.depend.res >/ws/userland/src/components/desktop/polkit/build/manifest-i386-polkit.published
+/usr/bin/touch /ws/userland/src/components/desktop/polkit/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/desktop/polkit'
+
+real     3:54.8
+user     1:20.8
+sys        41.1

@@ -1,0 +1,30 @@
+set name=pkg.fmri value=pkg://solaris/system/library/security/sasl/digestmd5@2.1.26,5.11-11.4.0.0.1.14.0:20180814T172727Z
+set name=variant.arch value=i386 value=sparc
+set name=info.source-url value=ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz
+set name=info.classification value=org.opensolaris.category.2008:System/Libraries
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.consolidation value=userland
+set name=info.upstream-url value=https://www.cyrusimap.org/sasl/
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=org.opensolaris.arc-caseid value=PSARC/2016/158
+set name=com.oracle.info.version value=2.1.26
+set name=com.oracle.info.name value=cyrus-sasl
+set name=pkg.summary value="DIGEST-MD5 plugin for SASL --Simple Authentication and Security Layer"
+set name=com.oracle.info.tpno value=21351
+set name=com.oracle.info.description value="sasl DIGEST-MD5 mechanism plugin"
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/library/security/openssl@1.0.2.15-11.4.0.0.1.13.0 type=require
+depend fmri=system/library/security/libsasl2@2.1.26 type=require
+file 64f5991fd4dd019de2d8d15e7fb43f0797579ec4 chash=18a92902777a9d25c891eac82a9ad5f91341a4d0 elfarch=i386 elfbits=64 elfhash=4ac01b5e38adf9b6b3099be357bd53d61e7cf27e group=bin mode=0555 owner=root path=usr/lib/sasl2/amd64/libdigestmd5.so.3.0.0 pkg.content-hash=gelf:sha512t_256:951860aee4221a2a9b5e50338357c0f6daf7ac92254fc30e508b8635474a7d8f pkg.content-hash=gelf.unsigned:sha512t_256:a3bdf64ec16a83657c88f19643b98be21db2a1341665f6cb99a5e50f705a5807 pkg.content-hash=file:sha512t_256:b4fd1f7465bc68a1738f69a80d448849a7f7453230b61d389504c1afad9075bf pkg.content-hash=gzip:sha512t_256:740397c0ea2d5f3957cff13613d87a99d30fecd95b6dfcc6e26f36fc678ab905 pkg.csize=33020 pkg.size=98912 variant.arch=i386
+file fdf3dc590a7c10de3380397732f687cabc1b4e65 chash=a71f63c5eca9ec260cf2cd40077186c22b9402f4 elfarch=i386 elfbits=32 elfhash=6464ec2b637a98874b2aa7ffddae68bd686f860d group=bin mode=0555 owner=root path=usr/lib/sasl2/libdigestmd5.so.3.0.0 pkg.content-hash=gelf:sha512t_256:4e65f60e28f384ac7d3068526ee0125c5a77ffec0a3178f1aee1a56911265174 pkg.content-hash=gelf.unsigned:sha512t_256:c9803166d35289e13e86e043e73082a4650e7c74af6d5bd01646635a3c23bc01 pkg.content-hash=file:sha512t_256:a44effb1ea29af633df9bb334bee157b5bd11663db6ad9d77de9145237147d00 pkg.content-hash=gzip:sha512t_256:55371e843c42d4205174fcf08f8b8ac31033e34e831e879cf5e352ece8355316 pkg.csize=31249 pkg.size=87932 variant.arch=i386
+file e7f1c9d2597b0fe5fc3d871c135d371306f8c9bf chash=57204029f422dacb0a9136376148c4b6d6e73464 elfarch=sparc elfbits=32 elfhash=0cd3a574df561126ef7bd1f19e1b7407840de074 group=bin mode=0555 owner=root path=usr/lib/sasl2/libdigestmd5.so.3.0.0 pkg.content-hash=gelf:sha512t_256:be097b29a990d92224ede0d430631e2e1b5b343e59484c306a7b9c0ce0035bca pkg.content-hash=gelf.unsigned:sha512t_256:4258248416ff4c32ef94f6537181feaab1aa665a3c8d1bfd333d6422087c7442 pkg.content-hash=file:sha512t_256:659ddb2f288546a21b11964a115b165ac74407170ff12ebc700fa42d60531011 pkg.content-hash=gzip:sha512t_256:b792e5ab7cdadc15a566f5e1c1a12c0185cb34632f6799df646312ce92bc433d pkg.csize=40331 pkg.size=88668 variant.arch=sparc
+file 719b0298fe90182829d2ae49027cc00780550e95 chash=3cd0eb13c5540fdd1f131d28a6bf013a3006e9d4 elfarch=sparc elfbits=64 elfhash=959a76c3c269e9ca19bf28add8360b916efac968 group=bin mode=0555 owner=root path=usr/lib/sasl2/sparcv9/libdigestmd5.so.3.0.0 pkg.content-hash=gelf:sha512t_256:dae3051e7694f8a9638a581a56e92955081bc56e48f5aec6a3fa2d51ffffd939 pkg.content-hash=gelf.unsigned:sha512t_256:997f81d775ef9876c43dad2224db12996bf06c80ad6655234fbc8a1d1eb4f63a pkg.content-hash=file:sha512t_256:4d304779250c0b37da8ff1ec8a34c605ce26caedfc0920fcee0b9138bd2f9ef7 pkg.content-hash=gzip:sha512t_256:0fbaaa2fdeb402e40b086107f0eee01dd7def07f89ce56f68b4ab14f1d0320cb pkg.csize=43630 pkg.size=100200 variant.arch=sparc
+link path=usr/lib/sasl2/libdigestmd5.so target=libdigestmd5.so.3.0.0
+link path=usr/lib/sasl2/sparcv9/libdigestmd5.so.3 target=libdigestmd5.so.3.0.0 variant.arch=sparc
+link path=usr/lib/sasl2/sparcv9/libdigestmd5.so target=libdigestmd5.so.3.0.0 variant.arch=sparc
+link path=usr/lib/sasl2/libdigestmd5.so.3 target=libdigestmd5.so.3.0.0
+link path=usr/lib/sasl2/amd64/libdigestmd5.so.3 target=libdigestmd5.so.3.0.0 variant.arch=i386
+link path=usr/lib/sasl2/amd64/libdigestmd5.so target=libdigestmd5.so.3.0.0 variant.arch=i386
+license 178cdd3a52e7220b3a3f50b35a9f2f18023a5553 chash=3199b02812667f21d8c024d6dafd14a30724048d license="BSD with attribution to CMU, MIT, others" pkg.content-hash=file:sha512t_256:ee2de1d2be7d6a69ef7e6a7648ae656a12041ab8b06f6aa091d71cbc20594479 pkg.content-hash=gzip:sha512t_256:04be64c6efeddf6118f85f077fcc815a50572428bd74c2d1a345a83ae9a70cbf pkg.csize=5387 pkg.size=16724
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=68c3980b9bae99cd66e6a5cde4c3cf2f12ceef2f5512a1acf98c86d196c6695275bf549cbb9771a717b81e3efdfffa0bd330287fda3de7b18346831c7d34d64f012aeedc03d6a3947a0d14b8365fea95573585ebacc14a065915b325e9a12033dc557ee74a2fb0703d9e2190e675d3a4ab05a896b8ccde1a13cb1646227ae8d91a64e4f8db7bfb6566dc9eae5a144a47a0b5f26aafa66cc50ca150b572e98003aef3904cae9072207301738d17b5eb9ff5bd31ce69f30c920c09ba9f4a1bc30d9dc349b329c8e52723719b9c6eb139ae5742ce7909c3a914ccd82de9a6271ca1a2803a781bdbc3b32f74968ae5f5d1e2c393802ecf8fa767b019e8f1131cf568 version=0

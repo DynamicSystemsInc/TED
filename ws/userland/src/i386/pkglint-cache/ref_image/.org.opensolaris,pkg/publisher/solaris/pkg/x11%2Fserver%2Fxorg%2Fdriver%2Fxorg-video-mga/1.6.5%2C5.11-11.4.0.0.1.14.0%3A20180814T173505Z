@@ -1,0 +1,26 @@
+set name=pkg.fmri value=pkg://solaris/x11/server/xorg/driver/xorg-video-mga@1.6.5,5.11-11.4.0.0.1.14.0:20180814T173505Z
+set name=com.oracle.info.tpno value=39514
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Display
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.consolidation value=userland
+set name=info.source-url value=https://www.x.org/releases/individual/driver/xf86-video-mga-1.6.5.tar.bz2
+set name=com.oracle.info.version value=1.6.5
+set name=info.upstream-url value=https://www.x.org
+set name=com.oracle.info.description value="the xf86-video-mga driver"
+set name=org.opensolaris.arc-caseid value=PSARC/2017/212
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.summary value="xf86-video-mga - Matrox video driver for the Xorg X server"
+set name=pkg.description value="Xorg video driver for Matrox graphics devices"
+set name=com.oracle.info.name value=xf86-video-mga
+set name=variant.arch value=i386 value=sparc
+depend fmri=pkg:/library/graphics/pixman@0.34.0-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/diagnostic/scanpci@0.13.4-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/x11/server/xorg@1.19.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/driver/graphics/mga type=require variant.arch=sparc
+file 98514e80c67c1f3eaebb55f04ba39d371e9b1372 chash=a0382c2b06027a2c99feeaba7133a203bc2254e7 elfarch=sparc elfbits=64 elfhash=a54c30e57623747b0d96e1e4f8a91941beb56717 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/drivers/mga_drv.so pkg.content-hash=gelf:sha512t_256:3f48f59a218117353102781c2d68e00104665163dc270a550b0e48fe314f652f pkg.content-hash=gelf.unsigned:sha512t_256:3dd38f706cb53cc91f1d98187f965b794daf62e3365e143c80152dcdcd3e9254 pkg.content-hash=file:sha512t_256:6990f4a9e7426a689144ff7f6a37cbb53a61eb2ca2613bea19872df17159e2f8 pkg.content-hash=gzip:sha512t_256:1f68ad543da1529a141b177ddbd8ec4e4540f467f28be505a281fb2ebc843306 pkg.csize=112172 pkg.size=296064 variant.arch=sparc
+file c2fe9180e78a03c88f7b0cff5c83157bfabd3da1 chash=e4ba661343f62139fb502f0c40bb3db92fe4b6ad facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4/mga.4 pkg.content-hash=file:sha512t_256:a1a3b6e455fe1e30e16aa818fee99716336abc36b4cc7ac1cc30f17b492c63b0 pkg.content-hash=gzip:sha512t_256:09a0d07a89240c1852e4ccd3d3d71885b5b8755fba99bb55d5e86415b612d6e2 pkg.csize=2836 pkg.size=6544
+file a70a64e258be451d769888362a28ca889cf2baa5 chash=c2f6d2b852aef235ab6b15b138c58b9ab707326a elfarch=i386 elfbits=64 elfhash=c2d6e937a464eeac43143e4c9f249e0f5bb3e6d0 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/drivers/mga_drv.so pkg.content-hash=gelf:sha512t_256:0a3a57e710deadfb6ad600573c6cfe56a284e458da6ae9d1849c0946eb6f14b7 pkg.content-hash=gelf.unsigned:sha512t_256:692a9e59e1ab53cc3db46e38ef363c48cbbd14b2eec8498854eb8f26cee85bb6 pkg.content-hash=file:sha512t_256:a8d6687f2e4613c43c8dfcdf15af7b5cd49073067b9a9fd1a3b2be025c06fb97 pkg.content-hash=gzip:sha512t_256:35b47a324fd646283052eda9fc314cd9424f3767b262ac054eed46482bb03aeb pkg.csize=80809 pkg.size=245032 variant.arch=i386
+license f2adb6a6093bb5c02387ce8cbd009c8e879f5e94 chash=71acd7765cc67e869d76050696f45da66bd730f8 license=MIT,Other pkg.content-hash=file:sha512t_256:45ac3df975b7848ebcb6b4d36a242e216de315b80e78dcf18c87ca3615c898dd pkg.content-hash=gzip:sha512t_256:0b3a8d0c0aa5b9d102bce05d5df61b9528aa9270c38006983268b493c578293f pkg.csize=1809 pkg.size=11968
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=7d22301caef2279c84a81cbb91dc6beb98b19493a257ac0a439461124479b015d832c1b8a82f907af193bf49500057c65a50234d9f5e4c96c595332dde87d792ae29184e4e1d4f8d3f5be2d49d99c2b77837e6475127b79c1f0a7346dc1b69c822fa95b7e9d51c2dc79edf31e46451b143dd432de36f8063a894870a34d491d3e694b67d0955064ff41494cbdc511ddeb147b228edfec072206da82da05941c26c53e7d1a83ae071b5dd4a56de7eca5b74864f896d5ac8ac1c04fe975e363a2d6e867aae646274153384c71dc35ed755589b4818d5fc92813e4cac723daf43fcda5975e2f2b46bb288be09b9df72ebde882e9e3f9835533aa9a854d162f9a8c3 version=0

@@ -1,0 +1,1053 @@
+gmake: Entering directory '/ws/userland/src/components/desktop/libical'
+/bin/rm -f -r /ws/userland/src/components/desktop/libical/libical-1.0.1
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  libical-1.0.1.tar.gz
+/usr/bin/touch /ws/userland/src/components/desktop/libical/libical-1.0.1/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/desktop/libical/libical-1.0.1 --strip=1 --backup --version-control=numbered < patches/01-fixtests.patch
+patching file src/test/recur.c
+patching file src/test/testvcal.c
+/usr/bin/touch /ws/userland/src/components/desktop/libical/libical-1.0.1/.patched-01-fixtests.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/libical/libical-1.0.1 --strip=1 --backup --version-control=numbered < patches/02-parser-test.patch
+patching file src/test/CMakeLists.txt
+/usr/bin/touch /ws/userland/src/components/desktop/libical/libical-1.0.1/.patched-02-parser-test.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/libical/libical-1.0.1 --strip=1 --backup --version-control=numbered < patches/03-CVE-2016-9584.patch
+patching file src/libical/icaltypes.c
+/usr/bin/touch /ws/userland/src/components/desktop/libical/libical-1.0.1/.patched-03-CVE-2016-9584.patch
+/usr/bin/touch /ws/userland/src/components/desktop/libical/libical-1.0.1/.patched
+/usr/bin/touch /ws/userland/src/components/desktop/libical/libical-1.0.1/.prep
+/bin/rm -f -r /ws/userland/src/components/desktop/libical/build/i86 ; /bin/mkdir -p /ws/userland/src/components/desktop/libical/build/i86
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/libical/libical-1.0.1 /ws/userland/src/components/desktop/libical/build/i86
+symlink cloning /ws/userland/src/components/desktop/libical/libical-1.0.1 to /ws/userland/src/components/desktop/libical/build/i86
+cd /ws/userland/src/components/desktop/libical/build/i86; echo Running cmake with -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m32       -std=c++11 -D__EXTENSIONS__" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m32       -D__EXTENSIONS__" -DCMAKE_EXE_LINKER_FLAGS="-m32" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m32" -DCMAKE_SHARED_LINKER_FLAGS="-m32" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin/i86" -DEXEC_INSTALL_DIR="/usr/lib/i86" -DLIBEXEC_INSTALL_DIR="/usr/lib/i86" -DCMAKE_INSTALL_BINDIR="/usr/bin/i86" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib/i86" -DLIB_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_LIBDIR="/usr/lib" -DCMAKE_BUILD_TYPE=RelWithDebInfo  -DSHARED_ONLY=true -DGOBJECT_INTROSPECTION=true -DUSE_BUILTIN_TZDATA=false; /usr/bin/env - LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect  -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" CC="/usr/gcc/7/bin/gcc" CFLAGS="-m32       -D__EXTENSIONS__" CXX="/usr/gcc/7/bin/g++" CXXFLAGS=" -m32       -std=c++11 -D__EXTENSIONS__" GI_SCANNER_DISABLE_CACHE="" /usr/bin/cmake -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m32       -std=c++11 -D__EXTENSIONS__" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m32       -D__EXTENSIONS__" -DCMAKE_EXE_LINKER_FLAGS="-m32" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m32" -DCMAKE_SHARED_LINKER_FLAGS="-m32" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin/i86" -DEXEC_INSTALL_DIR="/usr/lib/i86" -DLIBEXEC_INSTALL_DIR="/usr/lib/i86" -DCMAKE_INSTALL_BINDIR="/usr/bin/i86" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib/i86" -DLIB_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_LIBDIR="/usr/lib" -DCMAKE_BUILD_TYPE=RelWithDebInfo  -DSHARED_ONLY=true -DGOBJECT_INTROSPECTION=true -DUSE_BUILTIN_TZDATA=false /ws/userland/src/components/desktop/libical/libical-1.0.1;  
+Running cmake with -DCMAKE_CXX_COMPILER=/usr/gcc/7/bin/g++ -DCMAKE_CXX_FLAGS= -m32       -std=c++11 -D__EXTENSIONS__ -DCMAKE_C_COMPILER=/usr/gcc/7/bin/gcc -DCMAKE_C_FLAGS=-m32       -D__EXTENSIONS__ -DCMAKE_EXE_LINKER_FLAGS=-m32 -DCMAKE_AR=/usr/bin/ar -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MODULE_LINKER_FLAGS=-m32 -DCMAKE_SHARED_LINKER_FLAGS=-m32 -DGETTEXT_MSGFMT_EXECUTABLE=/usr/gnu/bin/msgfmt -DBIN_INSTALL_DIR=/usr/bin/i86 -DEXEC_INSTALL_DIR=/usr/lib/i86 -DLIBEXEC_INSTALL_DIR=/usr/lib/i86 -DCMAKE_INSTALL_BINDIR=/usr/bin/i86 -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib/i86 -DLIB_INSTALL_DIR=/usr/lib -DCMAKE_INSTALL_LIBDIR=/usr/lib -DCMAKE_BUILD_TYPE=RelWithDebInfo -DSHARED_ONLY=true -DGOBJECT_INTROSPECTION=true -DUSE_BUILTIN_TZDATA=false
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: /usr/gcc/7/bin/gcc
+-- Check for working C compiler: /usr/gcc/7/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Deprecation Warning at CMakeLists.txt:53 (cmake_policy):
+  The OLD behavior for policy CMP0005 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+-- Found Perl: /usr/bin/perl (found version "5.22.1") 
+-- Looking for include file assert.h
+-- Looking for include file assert.h - found
+-- Looking for include file byteswap.h
+-- Looking for include file byteswap.h - not found
+-- Looking for include file ctype.h
+-- Looking for include file ctype.h - found
+-- Looking for include file dlfcn.h
+-- Looking for include file dlfcn.h - found
+-- Looking for include file endian.h
+-- Looking for include file endian.h - not found
+-- Looking for include file inttypes.h
+-- Looking for include file inttypes.h - found
+-- Looking for include file memory.h
+-- Looking for include file memory.h - found
+-- Looking for include file pthread.h
+-- Looking for include file pthread.h - found
+-- Looking for include file stdint.h
+-- Looking for include file stdint.h - found
+-- Looking for include file stdlib.h
+-- Looking for include file stdlib.h - found
+-- Looking for include file strings.h
+-- Looking for include file strings.h - found
+-- Looking for include file string.h
+-- Looking for include file string.h - found
+-- Looking for include file sys/endian.h
+-- Looking for include file sys/endian.h - not found
+-- Looking for include file sys/stat.h
+-- Looking for include file sys/stat.h - found
+-- Looking for include file sys/types.h
+-- Looking for include file sys/types.h - found
+-- Looking for include file time.h
+-- Looking for include file time.h - found
+-- Looking for include file unistd.h
+-- Looking for include file unistd.h - found
+-- Looking for include file wctype.h
+-- Looking for include file wctype.h - found
+-- Looking for backtrace
+-- Looking for backtrace - found
+-- Looking for gmtime_r
+-- Looking for gmtime_r - found
+-- Looking for isspace
+-- Looking for isspace - found
+-- Looking for iswspace
+-- Looking for iswspace - found
+-- Looking for setenv
+-- Looking for setenv - found
+-- Looking for snprintf
+-- Looking for snprintf - found
+-- Looking for strdup
+-- Looking for strdup - found
+-- Looking for unsetenv
+-- Looking for unsetenv - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of mode_t
+-- Check size of mode_t - done
+-- Check size of size_t
+-- Check size of size_t - done
+-- Check size of intptr_t
+-- Check size of intptr_t - done
+-- Check size of pid_t
+-- Check size of pid_t - done
+-- Check size of time_t
+-- Check size of time_t - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - found
+-- Found Threads: TRUE  
+-- Looking for pthread_attr_get_np in pthread
+-- Looking for pthread_attr_get_np in pthread - not found
+-- Looking for pthread_getattr_np in pthread
+-- Looking for pthread_getattr_np in pthread - found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Looking for include files pthread.h, pthread_np.h
+-- Looking for include files pthread.h, pthread_np.h - not found
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29") 
+-- Checking for module 'gobject-introspection-1.0'
+--   Found gobject-introspection-1.0, version 1.52.0
+-- Performing Test HAVE_GCC_UNUSED_BUT_SET
+-- Performing Test HAVE_GCC_UNUSED_BUT_SET - Success
+-- Performing Test HAVE_GCC_LOGICAL_OP
+-- Performing Test HAVE_GCC_LOGICAL_OP - Success
+-- Performing Test HAVE_GCC_POINTER_MEMACCESS
+-- Performing Test HAVE_GCC_POINTER_MEMACCESS - Success
+-- Found Doxygen: /usr/bin/doxygen (found version "1.8.13") found components:  doxygen dot 
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    EXEC_INSTALL_DIR
+    GETTEXT_MSGFMT_EXECUTABLE
+    LIBEXEC_INSTALL_DIR
+
+
+-- Build files have been written to: /ws/userland/src/components/desktop/libical/build/i86
+(cd /ws/userland/src/components/desktop/libical/build/i86; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect  -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" CC="/usr/gcc/7/bin/gcc" CFLAGS="-m32       -D__EXTENSIONS__" CXX="/usr/gcc/7/bin/g++" CXXFLAGS=" -m32       -std=c++11 -D__EXTENSIONS__" GI_SCANNER_DISABLE_CACHE="" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target ical-header
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[  1%] Generating icalderivedvalue.h
+[  2%] Generating icalderivedproperty.h
+[  3%] Generating icalderivedparameter.h
+[  4%] Generating ical.h
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[  4%] Built target ical-header
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[  5%] Generating icalderivedvalue.c
+[  6%] Generating icalderivedparameter.c
+[  8%] Generating icalderivedproperty.c
+[  9%] Generating icalrestriction.c
+Scanning dependencies of target ical
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 10%] Building C object src/libical/CMakeFiles/ical.dir/icalderivedparameter.c.o
+[ 11%] Building C object src/libical/CMakeFiles/ical.dir/icalderivedproperty.c.o
+[ 12%] Building C object src/libical/CMakeFiles/ical.dir/icalrestriction.c.o
+[ 13%] Building C object src/libical/CMakeFiles/ical.dir/icalderivedvalue.c.o
+[ 15%] Building C object src/libical/CMakeFiles/ical.dir/icalarray.c.o
+[ 16%] Building C object src/libical/CMakeFiles/ical.dir/icalattach.c.o
+[ 17%] Building C object src/libical/CMakeFiles/ical.dir/icalcomponent.c.o
+[ 18%] Building C object src/libical/CMakeFiles/ical.dir/icalenums.c.o
+[ 19%] Building C object src/libical/CMakeFiles/ical.dir/icalerror.c.o
+[ 20%] Building C object src/libical/CMakeFiles/ical.dir/icalmemory.c.o
+[ 22%] Building C object src/libical/CMakeFiles/ical.dir/icalmime.c.o
+[ 23%] Building C object src/libical/CMakeFiles/ical.dir/icalparameter.c.o
+[ 24%] Building C object src/libical/CMakeFiles/ical.dir/icalparser.c.o
+[ 25%] Building C object src/libical/CMakeFiles/ical.dir/icalproperty.c.o
+[ 26%] Building C object src/libical/CMakeFiles/ical.dir/icalrecur.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalrecur.c: In function 'next_day':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalrecur.c:1402:7: warning: unused variable 'has_by_day' [-Wunused-variable]
+   int has_by_day = (impl->by_ptrs[BY_DAY][0]!=ICAL_RECURRENCE_ARRAY_MAX);
+       ^~~~~~~~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalrecur.c: In function 'next_month':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalrecur.c:1548:9: warning: unused variable 'this_frequency' [-Wunused-variable]
+     int this_frequency = (impl->rule.freq == ICAL_MONTHLY_RECURRENCE);
+         ^~~~~~~~~~~~~~
+[ 27%] Building C object src/libical/CMakeFiles/ical.dir/icaltime.c.o
+[ 29%] Building C object src/libical/CMakeFiles/ical.dir/icaltz-util.c.o
+[ 30%] Building C object src/libical/CMakeFiles/ical.dir/icaltimezone.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icaltimezone.c: In function 'icaltimezone_load_builtin_timezone':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icaltimezone.c:1897:5: warning: 'comp' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     icalcomponent_free(comp);
+     ^~~~~~~~~~~~~~~~~~~~~~~~
+[ 31%] Building C object src/libical/CMakeFiles/ical.dir/icalduration.c.o
+[ 32%] Building C object src/libical/CMakeFiles/ical.dir/icalperiod.c.o
+[ 33%] Building C object src/libical/CMakeFiles/ical.dir/icaltypes.c.o
+[ 34%] Building C object src/libical/CMakeFiles/ical.dir/icalvalue.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c: In function 'icalmemory_strdup_and_quote':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c:344:78: warning: this statement may fall through [-Wimplicit-fallthrough=]
+             if ((icalproperty_isa(value->parent) == ICAL_CATEGORIES_PROPERTY) ||
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                 (icalproperty_isa(value->parent) == ICAL_RESOURCES_PROPERTY) ||
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+                 (icalproperty_isa(value->parent) == ICAL_POLLPROPERTIES_PROPERTY)) {
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c:352:6: note: here
+      case '\\': {
+      ^~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c: In function 'icalvalue_as_ical_string_r':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c:921:31: warning: '%02d' directive output may be truncated writing between 2 and 10 bytes into a region of size between 0 and 4 [-Wformat-truncation=]
+     snprintf(str,9,"%c%02d%02d%02d",sign,abs(h),abs(m),abs(s));
+                               ^~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c:921:20: note: directive argument in the range [1, 2147483647]
+     snprintf(str,9,"%c%02d%02d%02d",sign,abs(h),abs(m),abs(s));
+                    ^~~~~~~~~~~~~~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c:921:5: note: 'snprintf' output between 8 and 34 bytes into a destination of size 9
+     snprintf(str,9,"%c%02d%02d%02d",sign,abs(h),abs(m),abs(s));
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 36%] Building C object src/libical/CMakeFiles/ical.dir/pvl.c.o
+[ 37%] Building C object src/libical/CMakeFiles/ical.dir/sspm.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/sspm.c: In function 'sspm_write_base64':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/sspm.c:1399:16: warning: this statement may fall through [-Wimplicit-fallthrough=]
+      outbuf[3] =   inbuf[2] & 0x3F;
+      ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/sspm.c:1401:2: note: here
+  case 3:
+  ^~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/sspm.c:1402:16: warning: this statement may fall through [-Wimplicit-fallthrough=]
+      outbuf[2] = ((inbuf[1] & 0x0F) << 2) | ((inbuf[2] & 0xC0) >> 6);
+      ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/sspm.c:1404:2: note: here
+  case 2:
+  ^~~~
+[ 38%] Building C object src/libical/CMakeFiles/ical.dir/icallangbind.c.o
+[ 39%] Building C object src/libical/CMakeFiles/ical.dir/caldate.c.o
+[ 40%] Linking C shared library ../../lib/libical.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 44%] Built target ical
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target gir-girs
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 45%] Generating libical-1.0.1.gir
+g-ir-scanner: libical: warning: 890 warnings suppressed (use --warn-all to see them)
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 45%] Built target gir-girs
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target gir-typelibs
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 46%] Generating libical-1.0.1.typelib
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 47%] Built target gir-typelibs
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target icalss-header
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 48%] Generating icalss.h
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 48%] Built target icalss-header
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target icalss
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 50%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalcalendar.c.o
+[ 51%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalclassify.c.o
+[ 52%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalcluster.c.o
+[ 53%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalgauge.c.o
+[ 54%] Building C object src/libicalss/CMakeFiles/icalss.dir/icaldirset.c.o
+[ 55%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalfileset.c.o
+[ 56%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalset.c.o
+[ 58%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalspanlist.c.o
+[ 59%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalmessage.c.o
+[ 60%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalsslexer.c.o
+[ 61%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalssyacc.c.o
+[ 62%] Linking C shared library ../../lib/libicalss.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 62%] Built target icalss
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target icalvcal
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 63%] Building C object src/libicalvcal/CMakeFiles/icalvcal.dir/icalvcal.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libicalvcal/icalvcal.c: In function 'get_alarm_properties':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libicalvcal/icalvcal.c:572:17: warning: 'action' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     action_prop = icalproperty_new_action (action);
+     ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 65%] Building C object src/libicalvcal/CMakeFiles/icalvcal.dir/vobject.c.o
+[ 66%] Building C object src/libicalvcal/CMakeFiles/icalvcal.dir/vcaltmp.c.o
+[ 67%] Building C object src/libicalvcal/CMakeFiles/icalvcal.dir/vcc.c.o
+[ 68%] Linking C shared library ../../lib/libicalvcal.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 68%] Built target icalvcal
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target timezones
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 69%] Building C object src/test/CMakeFiles/timezones.dir/timezones.c.o
+[ 70%] Linking C executable timezones
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 70%] Built target timezones
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target process
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 72%] Building C object src/test/CMakeFiles/process.dir/process.c.o
+[ 73%] Linking C executable process
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 73%] Built target process
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target parser
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 74%] Building C object src/test/CMakeFiles/parser.dir/icaltestparser.c.o
+[ 75%] Linking C executable parser
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 75%] Built target parser
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target regression
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 76%] Building C object src/test/CMakeFiles/regression.dir/regression.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c: In function 'test_dirset':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c:646:19: warning: variable 'error' set but not used [-Wunused-but-set-variable]
+     icalerrorenum error;
+                   ^~~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c: In function 'test_file_locks':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c:2932:15: warning: variable 'sec' set but not used [-Wunused-but-set-variable]
+     int final,sec = 0;
+               ^~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c: In function 'main':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c:3766:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  do_header = 1;;
+  ~~~~~~~~~~^~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c:3768:7: note: here
+       case '?': {
+       ^~~~
+[ 77%] Building C object src/test/CMakeFiles/regression.dir/regression-component.c.o
+[ 79%] Building C object src/test/CMakeFiles/regression.dir/regression-classify.c.o
+[ 80%] Building C object src/test/CMakeFiles/regression.dir/regression-utils.c.o
+[ 81%] Building C object src/test/CMakeFiles/regression.dir/regression-recur.c.o
+[ 82%] Building C object src/test/CMakeFiles/regression.dir/regression-storage.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression-storage.c: In function 'test_dirset_extended':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression-storage.c:665:19: warning: variable 'error' set but not used [-Wunused-but-set-variable]
+     icalerrorenum error;
+                   ^~~~~
+[ 83%] Linking C executable regression
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 83%] Built target regression
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target recur
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 84%] Building C object src/test/CMakeFiles/recur.dir/recur.c.o
+[ 86%] Linking C executable recur
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 86%] Built target recur
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target icalrecurtest
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 87%] Building C object src/test/CMakeFiles/icalrecurtest.dir/icalrecur_test.c.o
+[ 88%] Linking C executable icalrecurtest
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 88%] Built target icalrecurtest
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target testmime
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 89%] Building C object src/test/CMakeFiles/testmime.dir/testmime.c.o
+[ 90%] Linking C executable testmime
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 90%] Built target testmime
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target testvcal
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 91%] Building C object src/test/CMakeFiles/testvcal.dir/testvcal.c.o
+[ 93%] Linking C executable testvcal
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 93%] Built target testvcal
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+Scanning dependencies of target doesnothing
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 94%] Building C object examples/CMakeFiles/doesnothing.dir/access_components.c.o
+[ 95%] Building C object examples/CMakeFiles/doesnothing.dir/access_properties_and_parameters.c.o
+[ 96%] Building C object examples/CMakeFiles/doesnothing.dir/errors.c.o
+[ 97%] Building C object examples/CMakeFiles/doesnothing.dir/main.c.o
+[ 98%] Building C object examples/CMakeFiles/doesnothing.dir/parse_text.c.o
+[100%] Linking C executable ../bin/doesnothing
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[100%] Built target doesnothing
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/libical/build/i86/.built
+/bin/rm -f -r /ws/userland/src/components/desktop/libical/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/desktop/libical/build/amd64
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/libical/libical-1.0.1 /ws/userland/src/components/desktop/libical/build/amd64
+symlink cloning /ws/userland/src/components/desktop/libical/libical-1.0.1 to /ws/userland/src/components/desktop/libical/build/amd64
+cd /ws/userland/src/components/desktop/libical/build/amd64; echo Running cmake with -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m64       -std=c++11 -D__EXTENSIONS__" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m64       -D__EXTENSIONS__" -DCMAKE_EXE_LINKER_FLAGS="-m64" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m64" -DCMAKE_SHARED_LINKER_FLAGS="-m64" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin" -DEXEC_INSTALL_DIR="/usr/lib" -DLIBEXEC_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_BINDIR="/usr/bin" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib" -DLIB_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_LIBDIR="/usr/lib/amd64" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLIB_SUFFIX="/amd64" -DSHARED_ONLY=true -DGOBJECT_INTROSPECTION=true -DUSE_BUILTIN_TZDATA=false; /usr/bin/env - LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect  -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/usr/gcc/7/bin/gcc" CFLAGS="-m64       -D__EXTENSIONS__" CXX="/usr/gcc/7/bin/g++" CXXFLAGS=" -m64       -std=c++11 -D__EXTENSIONS__" GI_SCANNER_DISABLE_CACHE="" /usr/bin/cmake -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m64       -std=c++11 -D__EXTENSIONS__" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m64       -D__EXTENSIONS__" -DCMAKE_EXE_LINKER_FLAGS="-m64" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m64" -DCMAKE_SHARED_LINKER_FLAGS="-m64" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin" -DEXEC_INSTALL_DIR="/usr/lib" -DLIBEXEC_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_BINDIR="/usr/bin" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib" -DLIB_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_LIBDIR="/usr/lib/amd64" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLIB_SUFFIX="/amd64" -DSHARED_ONLY=true -DGOBJECT_INTROSPECTION=true -DUSE_BUILTIN_TZDATA=false /ws/userland/src/components/desktop/libical/libical-1.0.1;  
+Running cmake with -DCMAKE_CXX_COMPILER=/usr/gcc/7/bin/g++ -DCMAKE_CXX_FLAGS= -m64       -std=c++11 -D__EXTENSIONS__ -DCMAKE_C_COMPILER=/usr/gcc/7/bin/gcc -DCMAKE_C_FLAGS=-m64       -D__EXTENSIONS__ -DCMAKE_EXE_LINKER_FLAGS=-m64 -DCMAKE_AR=/usr/bin/ar -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MODULE_LINKER_FLAGS=-m64 -DCMAKE_SHARED_LINKER_FLAGS=-m64 -DGETTEXT_MSGFMT_EXECUTABLE=/usr/gnu/bin/msgfmt -DBIN_INSTALL_DIR=/usr/bin -DEXEC_INSTALL_DIR=/usr/lib -DLIBEXEC_INSTALL_DIR=/usr/lib -DCMAKE_INSTALL_BINDIR=/usr/bin -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib -DLIB_INSTALL_DIR=/usr/lib/amd64 -DCMAKE_INSTALL_LIBDIR=/usr/lib/amd64 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLIB_SUFFIX=/amd64 -DSHARED_ONLY=true -DGOBJECT_INTROSPECTION=true -DUSE_BUILTIN_TZDATA=false
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: /usr/gcc/7/bin/gcc
+-- Check for working C compiler: /usr/gcc/7/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Deprecation Warning at CMakeLists.txt:53 (cmake_policy):
+  The OLD behavior for policy CMP0005 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+-- Found Perl: /usr/bin/perl (found version "5.22.1") 
+-- Looking for include file assert.h
+-- Looking for include file assert.h - found
+-- Looking for include file byteswap.h
+-- Looking for include file byteswap.h - not found
+-- Looking for include file ctype.h
+-- Looking for include file ctype.h - found
+-- Looking for include file dlfcn.h
+-- Looking for include file dlfcn.h - found
+-- Looking for include file endian.h
+-- Looking for include file endian.h - not found
+-- Looking for include file inttypes.h
+-- Looking for include file inttypes.h - found
+-- Looking for include file memory.h
+-- Looking for include file memory.h - found
+-- Looking for include file pthread.h
+-- Looking for include file pthread.h - found
+-- Looking for include file stdint.h
+-- Looking for include file stdint.h - found
+-- Looking for include file stdlib.h
+-- Looking for include file stdlib.h - found
+-- Looking for include file strings.h
+-- Looking for include file strings.h - found
+-- Looking for include file string.h
+-- Looking for include file string.h - found
+-- Looking for include file sys/endian.h
+-- Looking for include file sys/endian.h - not found
+-- Looking for include file sys/stat.h
+-- Looking for include file sys/stat.h - found
+-- Looking for include file sys/types.h
+-- Looking for include file sys/types.h - found
+-- Looking for include file time.h
+-- Looking for include file time.h - found
+-- Looking for include file unistd.h
+-- Looking for include file unistd.h - found
+-- Looking for include file wctype.h
+-- Looking for include file wctype.h - found
+-- Looking for backtrace
+-- Looking for backtrace - found
+-- Looking for gmtime_r
+-- Looking for gmtime_r - found
+-- Looking for isspace
+-- Looking for isspace - found
+-- Looking for iswspace
+-- Looking for iswspace - found
+-- Looking for setenv
+-- Looking for setenv - found
+-- Looking for snprintf
+-- Looking for snprintf - found
+-- Looking for strdup
+-- Looking for strdup - found
+-- Looking for unsetenv
+-- Looking for unsetenv - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of mode_t
+-- Check size of mode_t - done
+-- Check size of size_t
+-- Check size of size_t - done
+-- Check size of intptr_t
+-- Check size of intptr_t - done
+-- Check size of pid_t
+-- Check size of pid_t - done
+-- Check size of time_t
+-- Check size of time_t - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - found
+-- Found Threads: TRUE  
+-- Looking for pthread_attr_get_np in pthread
+-- Looking for pthread_attr_get_np in pthread - not found
+-- Looking for pthread_getattr_np in pthread
+-- Looking for pthread_getattr_np in pthread - found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Looking for include files pthread.h, pthread_np.h
+-- Looking for include files pthread.h, pthread_np.h - not found
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29") 
+-- Checking for module 'gobject-introspection-1.0'
+--   Found gobject-introspection-1.0, version 1.52.0
+-- Performing Test HAVE_GCC_UNUSED_BUT_SET
+-- Performing Test HAVE_GCC_UNUSED_BUT_SET - Success
+-- Performing Test HAVE_GCC_LOGICAL_OP
+-- Performing Test HAVE_GCC_LOGICAL_OP - Success
+-- Performing Test HAVE_GCC_POINTER_MEMACCESS
+-- Performing Test HAVE_GCC_POINTER_MEMACCESS - Success
+-- Found Doxygen: /usr/bin/doxygen (found version "1.8.13") found components:  doxygen dot 
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    EXEC_INSTALL_DIR
+    GETTEXT_MSGFMT_EXECUTABLE
+    LIBEXEC_INSTALL_DIR
+
+
+-- Build files have been written to: /ws/userland/src/components/desktop/libical/build/amd64
+(cd /ws/userland/src/components/desktop/libical/build/amd64; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect  -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/usr/gcc/7/bin/gcc" CFLAGS="-m64       -D__EXTENSIONS__" CXX="/usr/gcc/7/bin/g++" CXXFLAGS=" -m64       -std=c++11 -D__EXTENSIONS__" GI_SCANNER_DISABLE_CACHE="" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target ical-header
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[  1%] Generating icalderivedvalue.h
+[  2%] Generating icalderivedproperty.h
+[  3%] Generating icalderivedparameter.h
+[  4%] Generating ical.h
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[  4%] Built target ical-header
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[  5%] Generating icalderivedvalue.c
+[  6%] Generating icalderivedparameter.c
+[  8%] Generating icalderivedproperty.c
+[  9%] Generating icalrestriction.c
+Scanning dependencies of target ical
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 10%] Building C object src/libical/CMakeFiles/ical.dir/icalderivedparameter.c.o
+[ 11%] Building C object src/libical/CMakeFiles/ical.dir/icalderivedproperty.c.o
+[ 12%] Building C object src/libical/CMakeFiles/ical.dir/icalrestriction.c.o
+[ 13%] Building C object src/libical/CMakeFiles/ical.dir/icalderivedvalue.c.o
+[ 15%] Building C object src/libical/CMakeFiles/ical.dir/icalarray.c.o
+[ 16%] Building C object src/libical/CMakeFiles/ical.dir/icalattach.c.o
+[ 17%] Building C object src/libical/CMakeFiles/ical.dir/icalcomponent.c.o
+[ 18%] Building C object src/libical/CMakeFiles/ical.dir/icalenums.c.o
+[ 19%] Building C object src/libical/CMakeFiles/ical.dir/icalerror.c.o
+[ 20%] Building C object src/libical/CMakeFiles/ical.dir/icalmemory.c.o
+[ 22%] Building C object src/libical/CMakeFiles/ical.dir/icalmime.c.o
+[ 23%] Building C object src/libical/CMakeFiles/ical.dir/icalparameter.c.o
+[ 24%] Building C object src/libical/CMakeFiles/ical.dir/icalparser.c.o
+[ 25%] Building C object src/libical/CMakeFiles/ical.dir/icalproperty.c.o
+[ 26%] Building C object src/libical/CMakeFiles/ical.dir/icalrecur.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalrecur.c: In function 'next_day':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalrecur.c:1402:7: warning: unused variable 'has_by_day' [-Wunused-variable]
+   int has_by_day = (impl->by_ptrs[BY_DAY][0]!=ICAL_RECURRENCE_ARRAY_MAX);
+       ^~~~~~~~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalrecur.c: In function 'next_month':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalrecur.c:1548:9: warning: unused variable 'this_frequency' [-Wunused-variable]
+     int this_frequency = (impl->rule.freq == ICAL_MONTHLY_RECURRENCE);
+         ^~~~~~~~~~~~~~
+[ 27%] Building C object src/libical/CMakeFiles/ical.dir/icaltime.c.o
+[ 29%] Building C object src/libical/CMakeFiles/ical.dir/icaltz-util.c.o
+[ 30%] Building C object src/libical/CMakeFiles/ical.dir/icaltimezone.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icaltimezone.c: In function 'icaltimezone_load_builtin_timezone':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icaltimezone.c:1897:5: warning: 'comp' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     icalcomponent_free(comp);
+     ^~~~~~~~~~~~~~~~~~~~~~~~
+[ 31%] Building C object src/libical/CMakeFiles/ical.dir/icalduration.c.o
+[ 32%] Building C object src/libical/CMakeFiles/ical.dir/icalperiod.c.o
+[ 33%] Building C object src/libical/CMakeFiles/ical.dir/icaltypes.c.o
+[ 34%] Building C object src/libical/CMakeFiles/ical.dir/icalvalue.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c: In function 'icalmemory_strdup_and_quote':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c:344:78: warning: this statement may fall through [-Wimplicit-fallthrough=]
+             if ((icalproperty_isa(value->parent) == ICAL_CATEGORIES_PROPERTY) ||
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                 (icalproperty_isa(value->parent) == ICAL_RESOURCES_PROPERTY) ||
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+                 (icalproperty_isa(value->parent) == ICAL_POLLPROPERTIES_PROPERTY)) {
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c:352:6: note: here
+      case '\\': {
+      ^~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c: In function 'icalvalue_as_ical_string_r':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c:921:31: warning: '%02d' directive output may be truncated writing between 2 and 10 bytes into a region of size between 0 and 4 [-Wformat-truncation=]
+     snprintf(str,9,"%c%02d%02d%02d",sign,abs(h),abs(m),abs(s));
+                               ^~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c:921:20: note: directive argument in the range [1, 2147483647]
+     snprintf(str,9,"%c%02d%02d%02d",sign,abs(h),abs(m),abs(s));
+                    ^~~~~~~~~~~~~~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/icalvalue.c:921:5: note: 'snprintf' output between 8 and 34 bytes into a destination of size 9
+     snprintf(str,9,"%c%02d%02d%02d",sign,abs(h),abs(m),abs(s));
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 36%] Building C object src/libical/CMakeFiles/ical.dir/pvl.c.o
+[ 37%] Building C object src/libical/CMakeFiles/ical.dir/sspm.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/sspm.c: In function 'sspm_write_base64':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/sspm.c:1399:16: warning: this statement may fall through [-Wimplicit-fallthrough=]
+      outbuf[3] =   inbuf[2] & 0x3F;
+      ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/sspm.c:1401:2: note: here
+  case 3:
+  ^~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/sspm.c:1402:16: warning: this statement may fall through [-Wimplicit-fallthrough=]
+      outbuf[2] = ((inbuf[1] & 0x0F) << 2) | ((inbuf[2] & 0xC0) >> 6);
+      ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libical/sspm.c:1404:2: note: here
+  case 2:
+  ^~~~
+[ 38%] Building C object src/libical/CMakeFiles/ical.dir/icallangbind.c.o
+[ 39%] Building C object src/libical/CMakeFiles/ical.dir/caldate.c.o
+[ 40%] Linking C shared library ../../lib/libical.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 44%] Built target ical
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target gir-girs
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 45%] Generating libical-1.0.1.gir
+g-ir-scanner: libical: warning: 890 warnings suppressed (use --warn-all to see them)
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 45%] Built target gir-girs
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target gir-typelibs
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 46%] Generating libical-1.0.1.typelib
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 47%] Built target gir-typelibs
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target icalss-header
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 48%] Generating icalss.h
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 48%] Built target icalss-header
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target icalss
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 50%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalcalendar.c.o
+[ 51%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalclassify.c.o
+[ 52%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalcluster.c.o
+[ 53%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalgauge.c.o
+[ 54%] Building C object src/libicalss/CMakeFiles/icalss.dir/icaldirset.c.o
+[ 55%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalfileset.c.o
+[ 56%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalset.c.o
+[ 58%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalspanlist.c.o
+[ 59%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalmessage.c.o
+[ 60%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalsslexer.c.o
+[ 61%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalssyacc.c.o
+[ 62%] Linking C shared library ../../lib/libicalss.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 62%] Built target icalss
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target icalvcal
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 63%] Building C object src/libicalvcal/CMakeFiles/icalvcal.dir/icalvcal.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libicalvcal/icalvcal.c: In function 'get_alarm_properties':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/libicalvcal/icalvcal.c:572:17: warning: 'action' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     action_prop = icalproperty_new_action (action);
+     ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 65%] Building C object src/libicalvcal/CMakeFiles/icalvcal.dir/vobject.c.o
+[ 66%] Building C object src/libicalvcal/CMakeFiles/icalvcal.dir/vcaltmp.c.o
+[ 67%] Building C object src/libicalvcal/CMakeFiles/icalvcal.dir/vcc.c.o
+[ 68%] Linking C shared library ../../lib/libicalvcal.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 68%] Built target icalvcal
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target timezones
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 69%] Building C object src/test/CMakeFiles/timezones.dir/timezones.c.o
+[ 70%] Linking C executable timezones
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 70%] Built target timezones
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target process
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 72%] Building C object src/test/CMakeFiles/process.dir/process.c.o
+[ 73%] Linking C executable process
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 73%] Built target process
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target parser
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 74%] Building C object src/test/CMakeFiles/parser.dir/icaltestparser.c.o
+[ 75%] Linking C executable parser
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 75%] Built target parser
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target regression
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 76%] Building C object src/test/CMakeFiles/regression.dir/regression.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c: In function 'test_dirset':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c:646:19: warning: variable 'error' set but not used [-Wunused-but-set-variable]
+     icalerrorenum error;
+                   ^~~~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c: In function 'test_file_locks':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c:2932:15: warning: variable 'sec' set but not used [-Wunused-but-set-variable]
+     int final,sec = 0;
+               ^~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c: In function 'main':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c:3766:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  do_header = 1;;
+  ~~~~~~~~~~^~~
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression.c:3768:7: note: here
+       case '?': {
+       ^~~~
+[ 77%] Building C object src/test/CMakeFiles/regression.dir/regression-component.c.o
+[ 79%] Building C object src/test/CMakeFiles/regression.dir/regression-classify.c.o
+[ 80%] Building C object src/test/CMakeFiles/regression.dir/regression-utils.c.o
+[ 81%] Building C object src/test/CMakeFiles/regression.dir/regression-recur.c.o
+[ 82%] Building C object src/test/CMakeFiles/regression.dir/regression-storage.c.o
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression-storage.c: In function 'test_dirset_extended':
+/ws/userland/src/components/desktop/libical/libical-1.0.1/src/test/regression-storage.c:665:19: warning: variable 'error' set but not used [-Wunused-but-set-variable]
+     icalerrorenum error;
+                   ^~~~~
+[ 83%] Linking C executable regression
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 83%] Built target regression
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target recur
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 84%] Building C object src/test/CMakeFiles/recur.dir/recur.c.o
+[ 86%] Linking C executable recur
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 86%] Built target recur
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target icalrecurtest
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 87%] Building C object src/test/CMakeFiles/icalrecurtest.dir/icalrecur_test.c.o
+[ 88%] Linking C executable icalrecurtest
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 88%] Built target icalrecurtest
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target testmime
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 89%] Building C object src/test/CMakeFiles/testmime.dir/testmime.c.o
+[ 90%] Linking C executable testmime
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 90%] Built target testmime
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target testvcal
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 91%] Building C object src/test/CMakeFiles/testvcal.dir/testvcal.c.o
+[ 93%] Linking C executable testvcal
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 93%] Built target testvcal
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Scanning dependencies of target doesnothing
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 94%] Building C object examples/CMakeFiles/doesnothing.dir/access_components.c.o
+[ 95%] Building C object examples/CMakeFiles/doesnothing.dir/access_properties_and_parameters.c.o
+[ 96%] Building C object examples/CMakeFiles/doesnothing.dir/errors.c.o
+[ 97%] Building C object examples/CMakeFiles/doesnothing.dir/main.c.o
+[ 98%] Building C object examples/CMakeFiles/doesnothing.dir/parse_text.c.o
+[100%] Linking C executable ../bin/doesnothing
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[100%] Built target doesnothing
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/libical/build/amd64/.built
+(cd /ws/userland/src/components/desktop/libical/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect  -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/desktop/libical/build/prototype/i386  install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[  4%] Built target ical-header
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 44%] Built target ical
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 45%] Built target gir-girs
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 47%] Built target gir-typelibs
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 48%] Built target icalss-header
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 62%] Built target icalss
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 68%] Built target icalvcal
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 70%] Built target timezones
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 73%] Built target process
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 75%] Built target parser
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 83%] Built target regression
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 86%] Built target recur
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 88%] Built target icalrecurtest
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 90%] Built target testmime
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[ 93%] Built target testvcal
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+[100%] Built target doesnothing
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/pkgconfig/libical.pc
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/cmake/LibIcal/LibIcalConfigVersion.cmake
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/cmake/LibIcal/LibIcalConfig.cmake
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/cmake/LibIcal/LibIcalTargets.cmake
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/cmake/LibIcal/LibIcalTargets-relwithdebinfo.cmake
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/share/gir-1.0/libical-1.0.1.gir
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/girepository-1.0/libical-1.0.1.typelib
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/libical.so.1.0.1
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/libical.so.1
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/libical.so
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/ical.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/ical.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalarray.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalattach.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalcomponent.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalderivedparameter.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalderivedproperty.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalderivedvalue.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalduration.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalenums.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalerror.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icallangbind.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalmemory.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalmime.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalparameter.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalparser.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalperiod.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalproperty.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalrecur.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalrestriction.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icaltime.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icaltz-util.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icaltimezone.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icaltypes.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalvalue.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/pvl.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/sspm.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/libicalss.so.1.0.1
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/libicalss.so.1
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/libicalss.so
+-- Set runtime path of "/ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/libicalss.so.1.0.1" to ""
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalss.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalcalendar.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalclassify.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalcluster.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icaldirset.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icaldirsetimpl.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalfileset.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalfilesetimpl.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalgauge.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalgaugeimpl.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalmessage.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalset.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalspanlist.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalssyacc.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/libicalvcal.so.1.0.1
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/libicalvcal.so.1
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/libicalvcal.so
+-- Set runtime path of "/ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/libicalvcal.so.1.0.1" to ""
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalvcal.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/port.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/vcc.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/vobject.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/vcaltmp.h
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libical/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/libical/build/i86/.installed
+(cd /ws/userland/src/components/desktop/libical/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect  -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/desktop/libical/build/prototype/i386  install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[  4%] Built target ical-header
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 44%] Built target ical
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 45%] Built target gir-girs
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 47%] Built target gir-typelibs
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 48%] Built target icalss-header
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 62%] Built target icalss
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 68%] Built target icalvcal
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 70%] Built target timezones
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 73%] Built target process
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 75%] Built target parser
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 83%] Built target regression
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 86%] Built target recur
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 88%] Built target icalrecurtest
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 90%] Built target testmime
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[ 93%] Built target testvcal
+make[3]: Entering directory '/ws/userland/src/components/desktop/libical/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+[100%] Built target doesnothing
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/pkgconfig/libical.pc
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/cmake/LibIcal/LibIcalConfigVersion.cmake
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/cmake/LibIcal/LibIcalConfig.cmake
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/cmake/LibIcal/LibIcalTargets.cmake
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/cmake/LibIcal/LibIcalTargets-relwithdebinfo.cmake
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/share/gir-1.0/libical-1.0.1.gir
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/girepository-1.0/libical-1.0.1.typelib
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/libical.so.1.0.1
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/libical.so.1
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/libical.so
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/ical.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/ical.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalarray.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalattach.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalcomponent.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalderivedparameter.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalderivedproperty.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalderivedvalue.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalduration.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalenums.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalerror.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icallangbind.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalmemory.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalmime.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalparameter.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalparser.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalperiod.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalproperty.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalrecur.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalrestriction.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icaltime.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icaltz-util.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icaltimezone.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icaltypes.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalvalue.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/pvl.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/sspm.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/libicalss.so.1.0.1
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/libicalss.so.1
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/libicalss.so
+-- Set runtime path of "/ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/libicalss.so.1.0.1" to ""
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalss.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalcalendar.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalclassify.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalcluster.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icaldirset.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icaldirsetimpl.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalfileset.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalfilesetimpl.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalgauge.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalgaugeimpl.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalmessage.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalset.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalspanlist.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalssyacc.h
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/libicalvcal.so.1.0.1
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/libicalvcal.so.1
+-- Installing: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/libicalvcal.so
+-- Set runtime path of "/ws/userland/src/components/desktop/libical/build/prototype/i386/usr/lib/amd64/libicalvcal.so.1.0.1" to ""
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/icalvcal.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/port.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/vcc.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/vobject.h
+-- Up-to-date: /ws/userland/src/components/desktop/libical/build/prototype/i386/usr/include/libical/vcaltmp.h
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libical/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/libical/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 libical.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=1\\.0\\.1 -D COMPONENT_RE_VERSION=1\\.0\\.1 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/libical -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="24898" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="1.0.1" -D IPS_COMPONENT_VERSION="1.0.1" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://github.com/libical/libical/releases/download/v1.0.1/libical-1.0.1.tar.gz" -D COMPONENT_PROJECT_URL="http://libical.github.io/libical/" -D COMPONENT_NAME="libical" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" libical.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/libical/build/manifest-i386-libical.mogrified
+/bin/mkdir -p /ws/userland/src/components/desktop/libical/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/libical/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libical/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libical/build/prototype/i386 -d /ws/userland/src/components/desktop/libical/build -d /ws/userland/src/components/desktop/libical -d libical-1.0.1 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/libical/files -m /ws/userland/src/components/desktop/libical/build/manifest-i386-libical.mogrified >/ws/userland/src/components/desktop/libical/build/manifest-i386-libical.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/libical/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libical/build/prototype/i386 -d /ws/userland/src/components/desktop/libical/build -d /ws/userland/src/components/desktop/libical -d libical-1.0.1 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/libical/files /ws/userland/src/components/desktop/libical/build/manifest-i386-libical.mangled >/ws/userland/src/components/desktop/libical/build/manifest-i386-libical.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/desktop/libical/build/resolve.deps -m /ws/userland/src/components/desktop/libical/build/manifest-i386-libical.depend
+/usr/bin/touch /ws/userland/src/components/desktop/libical/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/desktop/libical/build/manifest-i386-libical.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/desktop/libical/build/prototype/i386/mangled /ws/userland/src/components/desktop/libical/build/prototype/i386 /ws/userland/src/components/desktop/libical/build /ws/userland/src/components/desktop/libical libical-1.0.1 /ws/userland/src/licenses /ws/userland/src/components/desktop/libical/files"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/desktop/libical/build/manifest-i386-libical.depend.res
+/usr/bin/touch /ws/userland/src/components/desktop/libical/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/libical/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libical/build/prototype/i386 -d /ws/userland/src/components/desktop/libical/build -d /ws/userland/src/components/desktop/libical -d libical-1.0.1 -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/libical/files -T \*.py /ws/userland/src/components/desktop/libical/build/manifest-i386-libical.depend.res
+pkg://nightly/library/libical@1.0.1,5.11-11.4.0.0.1.14.0:20190727T211955Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/libical/build/manifest-i386-libical.depend.res >/ws/userland/src/components/desktop/libical/build/manifest-i386-libical.published
+/usr/bin/touch /ws/userland/src/components/desktop/libical/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/desktop/libical'
+
+real     1:17.5
+user       31.3
+sys        10.8

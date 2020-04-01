@@ -1,0 +1,24 @@
+set name=pkg.fmri value=pkg://solaris/terminal/tmux@2.2,5.11-11.4.0.0.1.14.0:20180814T172903Z
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.version value=2.2
+set name=info.source-url value=https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz
+set name=info.upstream-url value=https://tmux.github.io/
+set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=PSARC/2013/270
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.name value=tmux
+set name=com.oracle.info.description value="the tmux terminal multiplexer"
+set name=pkg.description value="tmux(1) is a terminal multiplexer that enables a number of terminals to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached."
+set name=pkg.summary value="tmux - terminal multiplexer"
+set name=com.oracle.info.tpno value=31154
+depend fmri=pkg:/library/ncurses@6.0.0.20170708-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/libevent@2.0.22-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file 5802d3f29bf549f0ace54008f0e8eaa554e49f6d chash=786e7087c22705d296a3ea52a192b3f73ac132fa elfarch=i386 elfbits=64 elfhash=fe431a8d583e4f0a952f8fb7a77ce5853daa7a24 group=bin mode=0555 owner=root path=usr/bin/tmux pkg.content-hash=gelf:sha512t_256:ed589ff8efd479d56c7ae047df4b668cef45c12e6f489d5fbda2af343c55ea6f pkg.content-hash=gelf.unsigned:sha512t_256:e8cfc867ce1cdfd59ab4687d2caa9a0ce91fb07ec8c1a9d91d7e1c287cb331ff pkg.content-hash=file:sha512t_256:df854bf3cea96f9176ccc82ba07e29a518a8edec62a8c7d27fb42457743b966b pkg.content-hash=gzip:sha512t_256:281fa9763f7b172fd5c1001e61f28b2e89cbee142be27eb6dfffb552256e1432 pkg.csize=255815 pkg.size=659048 variant.arch=i386
+file 3d79f462007f897ab0154b0475058362fc342a15 chash=49d99a47d894b7ea891a70397dd5c180f339b8de facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/tmux.1 pkg.content-hash=file:sha512t_256:8badde36bcc0bfbd60c33cbc8017c92ce2388c5672c8cc851512cfa660d3a802 pkg.content-hash=gzip:sha512t_256:02f6a72e6e908dc7bf98252dff369778dfde5b813d9342369a7bb263a8db4bd6 pkg.csize=29544 pkg.size=102778
+file dc93790c222560bf47d08a73592d8341f09cb484 chash=f204d230beecdb87437b03533b468efb5d4365f4 elfarch=sparc elfbits=64 elfhash=eef6aa74068a349ce5062d5537f5fa5fec760508 group=bin mode=0555 owner=root path=usr/bin/tmux pkg.content-hash=gelf:sha512t_256:06dbb71477125b632f998b788d64a3cc625604af7b8187459f5d96b2229805fe pkg.content-hash=gelf.unsigned:sha512t_256:b2fa32253944000530f2f8660dde109d2816a6a9befa170814ae5138f89c68a1 pkg.content-hash=file:sha512t_256:e8cf2d50b5c74d1925a90b297329d2b50fa3e9eca7d4cfe76725114db8ba13ef pkg.content-hash=gzip:sha512t_256:a11aa282e5ba7cbae3ef6afa51b2fb21f4cb57a7a970754f0ae290194c525f81 pkg.csize=236652 pkg.size=602560 variant.arch=sparc
+license 67edf483057358a979c36c1aaaa84a41591575b7 chash=60c75a613fc721d720a95daadf058cf5211aac6b license="MIT, BSD" pkg.content-hash=file:sha512t_256:385633960d0835c7f590b2d5d88964f3ceb89814d35079b69fec93c90cd00e5b pkg.content-hash=gzip:sha512t_256:5fec7d2443a4a5d6791a9e030ed95d46530c4cd2ed51ddb679fdbafbbe0b7ce6 pkg.csize=3293 pkg.size=37395
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=9b05d98b7072269544559ba30fe12739ae4e9ca8f8c8fe08737fd35cc913d86e58dd1da29b4add34176dec7a45cb5681b8661dc9a05a8bba3f0a7ae86d8eac2c58aa599bcb2c0cbb3833d1c57711ef5a170a3728e159b1cbd45023012a1bd4fb891d14b52fdd5bf10154054e00a7c0d984cf17d6b9a683a08f8e8f3932c614afe246b9d22249d0e4204d3a595ce1da39188ccade5122ddd436b564843d69aec0f6e9cb5eb123a577bf76e788eaf0c2c08900304b8bc46f8bd3b23708a83a801ace6c68307dc542d58f80259838d7afbac18307ca23f8c548c03736cff620653099c0be6aa51963c38cdd586c351ab9bb21c0f8278301eb38df44f6c441282119 version=0

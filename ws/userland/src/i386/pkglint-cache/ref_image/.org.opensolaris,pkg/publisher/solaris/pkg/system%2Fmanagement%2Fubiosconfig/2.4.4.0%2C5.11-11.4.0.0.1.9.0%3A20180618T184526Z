@@ -1,0 +1,33 @@
+set name=pkg.fmri value=pkg://solaris/system/management/ubiosconfig@2.4.4.0,5.11-11.4.0.0.1.9.0:20180618T184526Z
+set name=org.opensolaris.arc-caseid value=PSARC/2012/020
+set name=info.classification value="org.opensolaris.category.2008:System/Administration and Configuration"
+set name=pkg.summary value="Oracle Hardware Management Pack - ubiosconfig"
+set name=pkg.description value="Oracle Hardware Management Tools - UEFI BIOS configuration utility"
+set name=variant.arch value=i386
+set name=org.opensolaris.consolidation value=ssm
+set name=variant.opensolaris.zone value=global value=nonglobal
+depend fmri=pkg:/system/library/hmp-libs@2.4.4.0-11.4.0.0.1.9.0 type=require
+depend fmri=pkg:/library/security/openssl@1.0.2.15-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/library/libv12n@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/linker@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/library/libxml2@2.9.5-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/library/zlib@1.2.11-11.4.0.0.1.8.0 type=require
+dir group=sys mode=0755 owner=root path=etc
+dir group=sys mode=0755 owner=root path=etc/security
+dir group=sys mode=0755 owner=root path=etc/security/exec_attr.d
+dir group=sys mode=0755 owner=root path=usr
+dir group=bin mode=0755 owner=root path=usr/sbin
+dir group=sys mode=0755 owner=root path=usr/share
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man8
+dir group=sys mode=0755 owner=root path=var
+dir group=sys mode=0755 owner=root path=var/log
+dir group=bin mode=0750 owner=root path=var/log/ssm
+file fe61cec34c77cc49d345341f81e518d13dfc78eb chash=f083140876d2f5941050b77e2aa54d44b57240e8 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man8/ubiosconfig.8 pkg.content-hash=file:sha512t_256:a99795880222b11fd0c6f2881fb4f2a7f8d9e2fe5bf2b236271b0e6321684ad7 pkg.content-hash=gzip:sha512t_256:b97fbbf6c7ebd4b3d4661860668381283331fdea394958427cdd7dffd30a7f2a pkg.csize=2436 pkg.size=7857
+file 8ff4434e71846bce51c49246b75219b76e881054 chash=f8400bca30c116dc65c8ddc5eb86b2996abd42d7 group=sys mode=0444 owner=root path=etc/security/exec_attr.d/ubiosconfig pkg.content-hash=file:sha512t_256:6f7d4e428dcbe7558cc037caea9badcbc1f923b0e1ad0718e580d15ffdbc9ee2 pkg.content-hash=gzip:sha512t_256:e5bc1651aefe7e20a38bae474ed6de31c9ef505d304edd8da1a4abe03e19f43d pkg.csize=86 pkg.size=67
+file 7ca69ab0057a36be2f4c794cf5675b1e5eb1a9c6 chash=3c23b58019bdcd297145e44237eeb236e4c4119b group=bin mode=0640 owner=root path=var/log/ssm/ubiosconfig.log pkg.content-hash=file:sha512t_256:5488f8842f11c2dd375987e2148533adb35afa8038f17835d1a05a54d87cc0c4 pkg.content-hash=gzip:sha512t_256:1d7d65c2a4b52149eae787bbca8b21a6719b0f898392f430b746d770e589921d pkg.csize=38 pkg.size=20 preserve=true
+file a666d8902107ab8f07782848260a96a32169258d chash=4b1e1d553c2ccdf26992ad06b46b2e37616f1cb8 elfarch=i386 elfbits=32 elfhash=39e6d043bbd887a6c8cfab760cf389c6d5b26355 group=bin mode=0755 owner=root path=usr/sbin/ubiosconfig pkg.content-hash=gelf:sha512t_256:9378c4e5bd831334c4ad10c6162ce814cc599e2a1b080ef2d8f1a831be15c1b8 pkg.content-hash=gelf.unsigned:sha512t_256:262be606e6dc60083070f8025996d6864764eb9cfa5b5567ebf7c0f0ff02b3a4 pkg.content-hash=file:sha512t_256:a169644d6140179b47d8deec960b8ca70465ef35d1bc4e5b1281c9732a7268d8 pkg.content-hash=gzip:sha512t_256:6f9a452105c35587c24d4ad0d0b0f0f0984d9121d7bb1d3bd9fb99cea1d5f6ff pkg.csize=466541 pkg.size=1454964
+license e4a3f48ef48c47ae571c2f6ee63f261478986fae chash=6a799c3ce8ea2ccc2cf8bd23205ed9531a43e1e7 license=cr_Oracle pkg.content-hash=file:sha512t_256:e6fcd4138cbff522ad40ddb69bcc8e1086e4d98f20ba02e118fa125119f8b615 pkg.content-hash=gzip:sha512t_256:f6cf57bb3c69026ccc761456e014b2d091bff6053f9b9ddaa0c408e9ee586717 pkg.csize=91 pkg.size=77
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=6d76f90b3428538650bbfe173b7338733f09f7ca5f23befbbc21eb457b921704211bd0661eae73b7f90c98affc5683752ee13ff64f1c544a17679be633e78527177d6183489eadfa5efbbdc6a48553c1793de198e98c3534aa87765f6d351bb334e271ce6786b59157a31760d1f186bb89527c3bb6cb4f44b0bc6538988d97519cfe2c7d1057d4b3e4de0a169a7e6ae69187b515d46100de60021208942e466a79b14329833d77f12107534cdf36dca4408317d265c4ff9994323fc3b34033828dbf89fb3d21a952dd8d8188c6cc61e8d858f04dd013de425fc9bdada2905ce0562be7d1c6915ebaa09a119e43aeac6328a9fe121baecfa99eba29fba5f3cc2a version=0

@@ -1,0 +1,19 @@
+set name=pkg.fmri value=pkg://solaris/library/python/python-mysql@1.2.5,5.11-11.4.0.0.1.14.0:20180814T170237Z
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.description value="the MySQL database adapter for Python"
+set name=pkg.description value="The MySQLdb Python module provides a thread-compatible interface to the popular MySQL database server. One interface included, _mysql, mostly implements the MySQL C API, although wrapped in an object-oriented way. However, for applications intending to be portable across databases, the MySQLdb interface itself should be used as it provides a thin Python wrapper around the lower-level inteface. The MySQLdb interface is compatible with the Python Database API Specification v2.0, as specified by PEP 249."
+set name=info.classification value=org.opensolaris.category.2008:Development/Databases value=org.opensolaris.category.2008:Development/Python
+set name=info.source-url value=pypi:///MySQL-python==1.2.5
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.consolidation value=userland
+set name=info.upstream-url value=https://github.com/farcepest/MySQLdb1
+set name=org.opensolaris.arc-caseid value=PSARC/2008/081
+set name=com.oracle.info.version value=1.2.5
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.summary value="MySQL database connector for Python"
+set name=com.oracle.info.name value=MySQL-python
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/python/python-mysql-27@1.2.5,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+depend facet.version-lock.library/python/python-mysql=true fmri=consolidation/desktop/desktop-incorporation@5.12-5.12.0.0.0.14.0 type=optional
+depend fmri=library/python-2/python-mysql@1.2.2,5.12-5.12.0.0.0.41.0 type=optional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=b2db968e969b93305d611114029ef0e1eb33d1d170e2fdd8ac263e44953714077ad47d7a31520f48565bc202289f8d13da7303ea5d05554e848b32ca86dca1b9124ad5ea7ceefdf35aef489302683e7d32049e719d1fa71a82c342fa26be14d721fb52890ba1dfbe55de9518b9f2e3ed39f5836b87ca834cff8bf562571bef33243881172a102ccb8e362d85c3dcc1894142b8b95ff1b44394beb56f167f746419312ba96f5840194607db77bbe167e24bfc7acac39b9d5b304e73d4399bb9ac52af018e00919ed825b5b24ecccde8091341a5efc1e58f0f13213523c614ea7a2b2e766a3ad089c8f1d21042d5486d2ddff31572a2374491adf6585c7aebc39b version=0

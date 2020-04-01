@@ -1,0 +1,21 @@
+set name=pkg.fmri value=pkg://solaris/library/python/filechunkio@1.6,5.11-11.4.0.0.1.14.0:20180814T165422Z
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=com.oracle.info.description value="the Python filechunkio module"
+set name=pkg.description value="FileChunkIO is a Python library that allows representation of chunks of files. It can be used to segment large files into multiple parts without having to split them physically up front or for creating in-memory chunks as StringIO instances."
+set name=pkg.summary value="filechunkio represents a chunk of an OS-level file"
+set name=info.upstream value="Fabian Topfstedt <topfstedt@schneevonmorgen.com>"
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.version value=1.6
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=PSARC/2013/179
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.upstream-url value=https://bitbucket.org/fabian/filechunkio
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=info.source-url value=pypi:///filechunkio==1.6
+set name=com.oracle.info.name value=filechunkio
+depend fmri=library/python-2/filechunkio@1.5,5.12-5.12.0.0.0.41.0 type=optional
+depend fmri=library/python/filechunkio-34@1.6,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/filechunkio-35@1.6,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python/filechunkio-27@1.6,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=56f8a315fcbf95bd7068f5c736a4b8040c284c4395c74793c45c738bf5d2ae35a433fb53db7c7bc97b3924ccd41308a9551d4b3f54dc5f7f6154b39ffcaa9249fa94ccd2cb3d0feddebbd518332e52f38fba739af103908625c385ebd7f7e15ff35e0ff0d7b6b69f69511834041157bdec78c1e5929a04ccb5aeea99dc039f88d901441347c39aef61b328c50e719d8de0c836bcd6d7ca531023fc62fa73465443041f1993224a1aaf0af2135a83bbdf2cabca500d9197c995a765aed7b44084d36a06dfd351b09d500deba4bd7dc450ad55fc09d61104ee845ad19ba2707db428ac9c63f54de89c4f5022ab33d7ff69fa828582d073dd5843ff202153e0691f version=0

@@ -1,0 +1,26 @@
+set name=pkg.fmri value=pkg://solaris/service/network/finger@11.4,5.11-11.4.0.0.1.15.0:20180817T002657Z
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=variant.arch value=sparc value=i386
+set name=info.classification value=org.opensolaris.category.2008:Applications/Internet
+set name=variant.debug.osnet value=true value=false
+set name=pkg.description value="finger daemon is remote user information server"
+set name=pkg.summary value="finger daemon"
+set name=org.opensolaris.smf.fmri value=svc:/network/finger:default value=svc:/network/finger
+depend fmri=pkg:/network/finger type=require
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.15 type=require
+dir group=bin mode=0755 owner=root path=lib
+dir group=bin mode=0755 owner=root path=lib/svc
+dir group=sys mode=0755 owner=root path=lib/svc/manifest
+dir group=sys mode=0755 owner=root path=lib/svc/manifest/network
+dir group=sys mode=0755 owner=root path=usr
+dir group=bin mode=0755 owner=root path=usr/sbin
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man8
+file 36543b02f74c447b0839d7f41cf2d06fc3f681ba chash=2ea5024fdb8d05897fd6e2f19e2b33ea0ce1d643 group=sys mode=0444 owner=root path=lib/svc/manifest/network/finger.xml pkg.content-hash=file:sha512t_256:020936df907154f78186499bb80698ac8dac375e047e6d9f7910853fae9e6b32 pkg.content-hash=gzip:sha512t_256:ba56c8a6fa21d7d6007fb9392bf560c6522f957902cf0e1d5d5228dac3090b0d pkg.csize=970 pkg.size=2301 restart_fmri=svc:/system/manifest-import:default
+file 17c153ed44fd1cd39e275561e829b1104ac12c8b chash=979b319d0ccbeaf712f0e51b939d55c251143271 elfarch=sparc elfbits=64 elfhash=065cb84537fe230aa57578dc7bcef4534217e4ce group=bin mode=0555 owner=root path=usr/sbin/in.fingerd pkg.content-hash=gelf:sha512t_256:2ff74496dbd29855dbca39babda7222b04a4ca9cf537163a84defe9c3eb24c76 pkg.content-hash=gelf.unsigned:sha512t_256:32230b786965662f75cc3eb06e7b7db3cd4dd43019129222b28d6f4895a62d71 pkg.content-hash=file:sha512t_256:685ee7004061135ad3e4bfc6896e6f4711da0295bbd6a2d0563563b0ca77f907 pkg.content-hash=gzip:sha512t_256:0d5f17fdd36d02028e8a86697cb3b6da28ae5febf01de494a2918a349ba3eaf9 pkg.csize=5005 pkg.size=24688 variant.arch=sparc
+file 06135fd377ac0e4c385287f56665d9fe31efe299 chash=9dba6b0dc5abcc7a02340765953a748e7db0e74c facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man8/in.fingerd.8 pkg.content-hash=file:sha512t_256:b72c7d3b66bc42414fa3ca72dbdb3cafbcf0e4598247c6acf289ad9745aa550c pkg.content-hash=gzip:sha512t_256:b2f34dc5755b0d40cc7536ae1517220628520cf722c996bf2e215d556bf58291 pkg.csize=1518 pkg.size=3304
+file 982252d7e823e86c1a62cf74a3a2a161fe97da3c chash=154ca0590de5d3a125b7c257a114fc666cba5d0b elfarch=i386 elfbits=64 elfhash=823ba78dcf9e96fb1ba95d96cbe7174411353e3b group=bin mode=0555 owner=root path=usr/sbin/in.fingerd pkg.content-hash=gelf:sha512t_256:299a178cca5017fd9b5bfa570ab12c83d4373a5abb1739f3eac3c5c6edf8695c pkg.content-hash=gelf.unsigned:sha512t_256:f6a272dc8d5e7262e0d5735b554b2f9da9533b79a1524e340ebe67b926adc021 pkg.content-hash=file:sha512t_256:cbf891dbc49ab9d87e43ea7f53e93d79a9546a892194ef56561531ca97238042 pkg.content-hash=gzip:sha512t_256:254b8755a15e3581214a47dec23bf0ce1c7d9731db1ce037bc252116450a93e1 pkg.csize=5788 pkg.size=19664 variant.arch=i386
+file 83e85202acec40f4681023654a10c027ccd339b5 chash=65e7aaba257508b66791a5aaf5a59706f17920d7 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man8/fingerd.8 pkg.content-hash=file:sha512t_256:ee108ef6b6e1f2e8d4cc340ac838238883dc51ed3e5839beefa44873208d8c8a pkg.content-hash=gzip:sha512t_256:2924abf691e883b95142330b457cfc0def72129b5f9c64fe8a8fda14d03f39b4 pkg.csize=42 pkg.size=22
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=b6073db8d6a5bdace153b4bc3eb5c043897e45c7a1827b197f55e67fa6b8ee75412c2b8329d6887846796d070580c615a768dca1c7246c2947c0daf707960101e2ec197a4a7467b836a484fe6bbe63fa2b51f49b75ac697d7547ab0c354296810f1e3f7032e876d4753502c9ef8f153229b67a981c39f64012cb3e55526c4f4aa2b18c0510b3fd77bdae5b79b6ceff1d1fe17e274f6d1851109671c911d373da49083ff26e646117553383eca2774891cad7639344392b836a3c25bf4680fe8cd217b8fb63dcca2758c48188f76a0175ee3fb64e3b5c2b37e47760f12f974a995bc106ae9150aa4390a80bf31fc61d057c94fc96d38de1750e4a308ad0400fe9 version=0

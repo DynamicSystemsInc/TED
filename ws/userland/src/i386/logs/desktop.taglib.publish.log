@@ -1,0 +1,714 @@
+gmake: Entering directory '/ws/userland/src/components/desktop/taglib'
+/bin/rm -f -r /ws/userland/src/components/desktop/taglib/taglib-1.11.1
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  taglib-1.11.1.tar.gz
+/usr/bin/touch /ws/userland/src/components/desktop/taglib/taglib-1.11.1/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/desktop/taglib/taglib-1.11.1 --strip=1 --backup --version-control=numbered < patches/0001-CVE-2017-12678.patch
+patching file taglib/mpeg/id3v2/id3v2framefactory.cpp
+/usr/bin/touch /ws/userland/src/components/desktop/taglib/taglib-1.11.1/.patched-0001-CVE-2017-12678.patch
+/usr/bin/touch /ws/userland/src/components/desktop/taglib/taglib-1.11.1/.patched
+/usr/bin/touch /ws/userland/src/components/desktop/taglib/taglib-1.11.1/.prep
+/bin/rm -f -r /ws/userland/src/components/desktop/taglib/build/i86 ; /bin/mkdir -p /ws/userland/src/components/desktop/taglib/build/i86
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/taglib/taglib-1.11.1 /ws/userland/src/components/desktop/taglib/build/i86
+symlink cloning /ws/userland/src/components/desktop/taglib/taglib-1.11.1 to /ws/userland/src/components/desktop/taglib/build/i86
+cd /ws/userland/src/components/desktop/taglib/build/i86; echo Running cmake with -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m32 -O3 -mincoming-stack-boundary=2      -std=c++11" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m32  -O3 -mincoming-stack-boundary=2    " -DCMAKE_EXE_LINKER_FLAGS="-m32" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m32" -DCMAKE_SHARED_LINKER_FLAGS="-m32" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin" -DEXEC_INSTALL_DIR="/usr/lib" -DLIBEXEC_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_BINDIR="/usr/bin" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib" -DLIB_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_LIBDIR="/usr/lib" -DCMAKE_BUILD_TYPE=RelWithDebInfo  -DBUILD_SHARED_LIBS=ON; /usr/bin/env - LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" /usr/bin/cmake -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m32 -O3 -mincoming-stack-boundary=2      -std=c++11" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m32  -O3 -mincoming-stack-boundary=2    " -DCMAKE_EXE_LINKER_FLAGS="-m32" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m32" -DCMAKE_SHARED_LINKER_FLAGS="-m32" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin" -DEXEC_INSTALL_DIR="/usr/lib" -DLIBEXEC_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_BINDIR="/usr/bin" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib" -DLIB_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_LIBDIR="/usr/lib" -DCMAKE_BUILD_TYPE=RelWithDebInfo  -DBUILD_SHARED_LIBS=ON /ws/userland/src/components/desktop/taglib/taglib-1.11.1;  
+Running cmake with -DCMAKE_CXX_COMPILER=/usr/gcc/7/bin/g++ -DCMAKE_CXX_FLAGS= -m32 -O3 -mincoming-stack-boundary=2      -std=c++11 -DCMAKE_C_COMPILER=/usr/gcc/7/bin/gcc -DCMAKE_C_FLAGS=-m32  -O3 -mincoming-stack-boundary=2     -DCMAKE_EXE_LINKER_FLAGS=-m32 -DCMAKE_AR=/usr/bin/ar -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MODULE_LINKER_FLAGS=-m32 -DCMAKE_SHARED_LINKER_FLAGS=-m32 -DGETTEXT_MSGFMT_EXECUTABLE=/usr/gnu/bin/msgfmt -DBIN_INSTALL_DIR=/usr/bin -DEXEC_INSTALL_DIR=/usr/lib -DLIBEXEC_INSTALL_DIR=/usr/lib -DCMAKE_INSTALL_BINDIR=/usr/bin -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib -DLIB_INSTALL_DIR=/usr/lib -DCMAKE_INSTALL_LIBDIR=/usr/lib -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_SHARED_LIBS=ON
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: /usr/gcc/7/bin/gcc
+-- Check for working C compiler: /usr/gcc/7/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Deprecation Warning at CMakeLists.txt:6 (cmake_policy):
+  The OLD behavior for policy CMP0022 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of short
+-- Check size of short - done
+-- Check size of int
+-- Check size of int - done
+-- Check size of long long
+-- Check size of long long - done
+-- Check size of wchar_t
+-- Check size of wchar_t - done
+-- Check size of float
+-- Check size of float - done
+-- Check size of double
+-- Check size of double - done
+-- Could NOT find Boost
+-- Performing Test HAVE_STD_ATOMIC
+-- Performing Test HAVE_STD_ATOMIC - Success
+-- Performing Test HAVE_BOOST_BYTESWAP
+-- Performing Test HAVE_BOOST_BYTESWAP - Failed
+-- Performing Test HAVE_GCC_BYTESWAP
+-- Performing Test HAVE_GCC_BYTESWAP - Success
+-- Performing Test HAVE_VSNPRINTF
+-- Performing Test HAVE_VSNPRINTF - Success
+-- Performing Test HAVE_ISO_STRDUP
+-- Performing Test HAVE_ISO_STRDUP - Failed
+-- Found ZLIB: /usr/lib/libz.so (found version "1.2.11") 
+-- Looking for __RTTI___ in Crun
+-- Looking for __RTTI___ in Crun - not found
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    EXEC_INSTALL_DIR
+    GETTEXT_MSGFMT_EXECUTABLE
+    LIBEXEC_INSTALL_DIR
+
+
+-- Build files have been written to: /ws/userland/src/components/desktop/taglib/build/i86
+(cd /ws/userland/src/components/desktop/taglib/build/i86; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/taglib/build/i86'
+make[2]: Entering directory '/ws/userland/src/components/desktop/taglib/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/taglib/build/i86'
+Scanning dependencies of target tag
+make[3]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/taglib/build/i86'
+[  0%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/mpegfile.cpp.o
+[  1%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/mpegproperties.cpp.o
+[  2%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/mpegheader.cpp.o
+[  3%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/xingheader.cpp.o
+[  4%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v1/id3v1tag.cpp.o
+[  5%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v1/id3v1genres.cpp.o
+[  6%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2framefactory.cpp.o
+[  7%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2synchdata.cpp.o
+[  8%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2tag.cpp.o
+[  9%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2header.cpp.o
+[ 10%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2frame.cpp.o
+[ 11%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2footer.cpp.o
+[ 12%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2extendedheader.cpp.o
+[ 13%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/attachedpictureframe.cpp.o
+[ 14%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/commentsframe.cpp.o
+[ 15%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/eventtimingcodesframe.cpp.o
+[ 16%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/generalencapsulatedobjectframe.cpp.o
+[ 16%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/ownershipframe.cpp.o
+[ 17%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/popularimeterframe.cpp.o
+[ 18%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/privateframe.cpp.o
+[ 19%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/relativevolumeframe.cpp.o
+[ 20%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/synchronizedlyricsframe.cpp.o
+[ 21%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/textidentificationframe.cpp.o
+[ 22%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/uniquefileidentifierframe.cpp.o
+[ 23%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/unknownframe.cpp.o
+[ 24%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/unsynchronizedlyricsframe.cpp.o
+[ 25%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/urllinkframe.cpp.o
+[ 26%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/chapterframe.cpp.o
+[ 27%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/tableofcontentsframe.cpp.o
+[ 28%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/podcastframe.cpp.o
+[ 29%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/oggfile.cpp.o
+[ 30%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/oggpage.cpp.o
+[ 31%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/oggpageheader.cpp.o
+[ 32%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/xiphcomment.cpp.o
+[ 33%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/vorbis/vorbisfile.cpp.o
+[ 33%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/vorbis/vorbisproperties.cpp.o
+[ 34%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/flac/oggflacfile.cpp.o
+[ 35%] Building CXX object taglib/CMakeFiles/tag.dir/mpc/mpcfile.cpp.o
+[ 36%] Building CXX object taglib/CMakeFiles/tag.dir/mpc/mpcproperties.cpp.o
+[ 37%] Building CXX object taglib/CMakeFiles/tag.dir/ape/apetag.cpp.o
+[ 38%] Building CXX object taglib/CMakeFiles/tag.dir/ape/apefooter.cpp.o
+[ 39%] Building CXX object taglib/CMakeFiles/tag.dir/ape/apeitem.cpp.o
+[ 40%] Building CXX object taglib/CMakeFiles/tag.dir/ape/apefile.cpp.o
+[ 41%] Building CXX object taglib/CMakeFiles/tag.dir/ape/apeproperties.cpp.o
+[ 42%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tstring.cpp.o
+[ 43%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tstringlist.cpp.o
+[ 44%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tbytevector.cpp.o
+[ 45%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tbytevectorlist.cpp.o
+[ 46%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tbytevectorstream.cpp.o
+[ 47%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tiostream.cpp.o
+[ 48%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tfile.cpp.o
+[ 49%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tfilestream.cpp.o
+[ 50%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tdebug.cpp.o
+[ 50%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tpropertymap.cpp.o
+[ 51%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/trefcounter.cpp.o
+[ 52%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tdebuglistener.cpp.o
+[ 53%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tzlib.cpp.o
+[ 54%] Building CXX object taglib/CMakeFiles/tag.dir/flac/flacfile.cpp.o
+[ 55%] Building CXX object taglib/CMakeFiles/tag.dir/flac/flacpicture.cpp.o
+[ 56%] Building CXX object taglib/CMakeFiles/tag.dir/flac/flacproperties.cpp.o
+[ 57%] Building CXX object taglib/CMakeFiles/tag.dir/flac/flacmetadatablock.cpp.o
+[ 58%] Building CXX object taglib/CMakeFiles/tag.dir/flac/flacunknownmetadatablock.cpp.o
+[ 59%] Building CXX object taglib/CMakeFiles/tag.dir/wavpack/wavpackfile.cpp.o
+[ 60%] Building CXX object taglib/CMakeFiles/tag.dir/wavpack/wavpackproperties.cpp.o
+[ 61%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/speex/speexfile.cpp.o
+[ 62%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/speex/speexproperties.cpp.o
+[ 63%] Building CXX object taglib/CMakeFiles/tag.dir/trueaudio/trueaudiofile.cpp.o
+[ 64%] Building CXX object taglib/CMakeFiles/tag.dir/trueaudio/trueaudioproperties.cpp.o
+[ 65%] Building CXX object taglib/CMakeFiles/tag.dir/riff/rifffile.cpp.o
+[ 66%] Building CXX object taglib/CMakeFiles/tag.dir/riff/aiff/aifffile.cpp.o
+[ 66%] Building CXX object taglib/CMakeFiles/tag.dir/riff/aiff/aiffproperties.cpp.o
+[ 67%] Building CXX object taglib/CMakeFiles/tag.dir/riff/wav/wavfile.cpp.o
+[ 68%] Building CXX object taglib/CMakeFiles/tag.dir/riff/wav/wavproperties.cpp.o
+[ 69%] Building CXX object taglib/CMakeFiles/tag.dir/riff/wav/infotag.cpp.o
+[ 70%] Building CXX object taglib/CMakeFiles/tag.dir/asf/asftag.cpp.o
+[ 71%] Building CXX object taglib/CMakeFiles/tag.dir/asf/asffile.cpp.o
+[ 72%] Building CXX object taglib/CMakeFiles/tag.dir/asf/asfproperties.cpp.o
+[ 73%] Building CXX object taglib/CMakeFiles/tag.dir/asf/asfattribute.cpp.o
+[ 74%] Building CXX object taglib/CMakeFiles/tag.dir/asf/asfpicture.cpp.o
+[ 75%] Building CXX object taglib/CMakeFiles/tag.dir/mp4/mp4file.cpp.o
+[ 76%] Building CXX object taglib/CMakeFiles/tag.dir/mp4/mp4atom.cpp.o
+[ 77%] Building CXX object taglib/CMakeFiles/tag.dir/mp4/mp4tag.cpp.o
+[ 78%] Building CXX object taglib/CMakeFiles/tag.dir/mp4/mp4item.cpp.o
+[ 79%] Building CXX object taglib/CMakeFiles/tag.dir/mp4/mp4properties.cpp.o
+[ 80%] Building CXX object taglib/CMakeFiles/tag.dir/mp4/mp4coverart.cpp.o
+[ 81%] Building CXX object taglib/CMakeFiles/tag.dir/mod/modfilebase.cpp.o
+[ 82%] Building CXX object taglib/CMakeFiles/tag.dir/mod/modfile.cpp.o
+[ 83%] Building CXX object taglib/CMakeFiles/tag.dir/mod/modtag.cpp.o
+[ 83%] Building CXX object taglib/CMakeFiles/tag.dir/mod/modproperties.cpp.o
+[ 84%] Building CXX object taglib/CMakeFiles/tag.dir/s3m/s3mfile.cpp.o
+[ 85%] Building CXX object taglib/CMakeFiles/tag.dir/s3m/s3mproperties.cpp.o
+[ 86%] Building CXX object taglib/CMakeFiles/tag.dir/it/itfile.cpp.o
+[ 87%] Building CXX object taglib/CMakeFiles/tag.dir/it/itproperties.cpp.o
+[ 88%] Building CXX object taglib/CMakeFiles/tag.dir/xm/xmfile.cpp.o
+[ 89%] Building CXX object taglib/CMakeFiles/tag.dir/xm/xmproperties.cpp.o
+[ 90%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/opus/opusfile.cpp.o
+[ 91%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/opus/opusproperties.cpp.o
+[ 92%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/unicode.cpp.o
+[ 93%] Building CXX object taglib/CMakeFiles/tag.dir/tag.cpp.o
+[ 94%] Building CXX object taglib/CMakeFiles/tag.dir/tagunion.cpp.o
+[ 95%] Building CXX object taglib/CMakeFiles/tag.dir/fileref.cpp.o
+In file included from /ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/toolkit/tlist.h:263:0,
+                 from /ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/toolkit/tstringlist.h:30,
+                 from /ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/fileref.h:30,
+                 from /ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/fileref.cpp:35:
+/ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/toolkit/tlist.tcc: In instantiation of 'void TagLib::List<T>::ListPrivate<TP*>::clear() [with TP = const TagLib::FileRef::FileTypeResolver; T = const TagLib::FileRef::FileTypeResolver*]':
+/ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/toolkit/tlist.tcc:74:10:   required from 'TagLib::List<T>::ListPrivate<TP*>::~ListPrivate() [with TP = const TagLib::FileRef::FileTypeResolver; T = const TagLib::FileRef::FileTypeResolver*]'
+/ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/toolkit/tlist.tcc:107:5:   required from 'TagLib::List<T>::~List() [with T = const TagLib::FileRef::FileTypeResolver*]'
+/ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/fileref.cpp:343:1:   required from here
+/ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/toolkit/tlist.tcc:80:9: warning: deleting object of abstract class type 'TagLib::FileRef::FileTypeResolver' which has non-virtual destructor will cause undefined behavior [-Wdelete-non-virtual-dtor]
+         delete *it;
+         ^~~~~~
+[ 96%] Building CXX object taglib/CMakeFiles/tag.dir/audioproperties.cpp.o
+[ 97%] Building CXX object taglib/CMakeFiles/tag.dir/tagutils.cpp.o
+[ 98%] Linking CXX shared library libtag.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/i86'
+[ 98%] Built target tag
+make[3]: Entering directory '/ws/userland/src/components/desktop/taglib/build/i86'
+Scanning dependencies of target tag_c
+make[3]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/taglib/build/i86'
+[ 99%] Building CXX object bindings/c/CMakeFiles/tag_c.dir/tag_c.cpp.o
+[100%] Linking CXX shared library libtag_c.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/i86'
+[100%] Built target tag_c
+make[2]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/taglib/build/i86/.built
+/bin/rm -f -r /ws/userland/src/components/desktop/taglib/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/desktop/taglib/build/amd64
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/taglib/taglib-1.11.1 /ws/userland/src/components/desktop/taglib/build/amd64
+symlink cloning /ws/userland/src/components/desktop/taglib/taglib-1.11.1 to /ws/userland/src/components/desktop/taglib/build/amd64
+cd /ws/userland/src/components/desktop/taglib/build/amd64; echo Running cmake with -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m64 -O3       -std=c++11" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m64  -O3     " -DCMAKE_EXE_LINKER_FLAGS="-m64" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m64" -DCMAKE_SHARED_LINKER_FLAGS="-m64" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin/amd64" -DEXEC_INSTALL_DIR="/usr/lib/amd64" -DLIBEXEC_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_BINDIR="/usr/bin/amd64" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib/amd64" -DLIB_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_LIBDIR="/usr/lib/amd64" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLIB_SUFFIX="/amd64" -DBUILD_SHARED_LIBS=ON; /usr/bin/env - LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" /usr/bin/cmake -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m64 -O3       -std=c++11" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m64  -O3     " -DCMAKE_EXE_LINKER_FLAGS="-m64" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m64" -DCMAKE_SHARED_LINKER_FLAGS="-m64" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin/amd64" -DEXEC_INSTALL_DIR="/usr/lib/amd64" -DLIBEXEC_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_BINDIR="/usr/bin/amd64" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib/amd64" -DLIB_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_LIBDIR="/usr/lib/amd64" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLIB_SUFFIX="/amd64" -DBUILD_SHARED_LIBS=ON /ws/userland/src/components/desktop/taglib/taglib-1.11.1;  
+Running cmake with -DCMAKE_CXX_COMPILER=/usr/gcc/7/bin/g++ -DCMAKE_CXX_FLAGS= -m64 -O3       -std=c++11 -DCMAKE_C_COMPILER=/usr/gcc/7/bin/gcc -DCMAKE_C_FLAGS=-m64  -O3      -DCMAKE_EXE_LINKER_FLAGS=-m64 -DCMAKE_AR=/usr/bin/ar -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MODULE_LINKER_FLAGS=-m64 -DCMAKE_SHARED_LINKER_FLAGS=-m64 -DGETTEXT_MSGFMT_EXECUTABLE=/usr/gnu/bin/msgfmt -DBIN_INSTALL_DIR=/usr/bin/amd64 -DEXEC_INSTALL_DIR=/usr/lib/amd64 -DLIBEXEC_INSTALL_DIR=/usr/lib/amd64 -DCMAKE_INSTALL_BINDIR=/usr/bin/amd64 -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib/amd64 -DLIB_INSTALL_DIR=/usr/lib/amd64 -DCMAKE_INSTALL_LIBDIR=/usr/lib/amd64 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLIB_SUFFIX=/amd64 -DBUILD_SHARED_LIBS=ON
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: /usr/gcc/7/bin/gcc
+-- Check for working C compiler: /usr/gcc/7/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Deprecation Warning at CMakeLists.txt:6 (cmake_policy):
+  The OLD behavior for policy CMP0022 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of short
+-- Check size of short - done
+-- Check size of int
+-- Check size of int - done
+-- Check size of long long
+-- Check size of long long - done
+-- Check size of wchar_t
+-- Check size of wchar_t - done
+-- Check size of float
+-- Check size of float - done
+-- Check size of double
+-- Check size of double - done
+-- Could NOT find Boost
+-- Performing Test HAVE_STD_ATOMIC
+-- Performing Test HAVE_STD_ATOMIC - Success
+-- Performing Test HAVE_BOOST_BYTESWAP
+-- Performing Test HAVE_BOOST_BYTESWAP - Failed
+-- Performing Test HAVE_GCC_BYTESWAP
+-- Performing Test HAVE_GCC_BYTESWAP - Success
+-- Performing Test HAVE_VSNPRINTF
+-- Performing Test HAVE_VSNPRINTF - Success
+-- Performing Test HAVE_ISO_STRDUP
+-- Performing Test HAVE_ISO_STRDUP - Failed
+-- Found ZLIB: /usr/lib/64/libz.so (found version "1.2.11") 
+-- Looking for __RTTI___ in Crun
+-- Looking for __RTTI___ in Crun - not found
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    EXEC_INSTALL_DIR
+    GETTEXT_MSGFMT_EXECUTABLE
+    LIBEXEC_INSTALL_DIR
+
+
+-- Build files have been written to: /ws/userland/src/components/desktop/taglib/build/amd64
+(cd /ws/userland/src/components/desktop/taglib/build/amd64; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+make[2]: Entering directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+Scanning dependencies of target tag
+make[3]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+[  0%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/mpegfile.cpp.o
+[  1%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/mpegproperties.cpp.o
+[  2%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/mpegheader.cpp.o
+[  3%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/xingheader.cpp.o
+[  4%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v1/id3v1tag.cpp.o
+[  5%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v1/id3v1genres.cpp.o
+[  6%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2framefactory.cpp.o
+[  7%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2synchdata.cpp.o
+[  8%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2tag.cpp.o
+[  9%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2header.cpp.o
+[ 10%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2frame.cpp.o
+[ 11%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2footer.cpp.o
+[ 12%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/id3v2extendedheader.cpp.o
+[ 13%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/attachedpictureframe.cpp.o
+[ 14%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/commentsframe.cpp.o
+[ 15%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/eventtimingcodesframe.cpp.o
+[ 16%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/generalencapsulatedobjectframe.cpp.o
+[ 16%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/ownershipframe.cpp.o
+[ 17%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/popularimeterframe.cpp.o
+[ 18%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/privateframe.cpp.o
+[ 19%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/relativevolumeframe.cpp.o
+[ 20%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/synchronizedlyricsframe.cpp.o
+[ 21%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/textidentificationframe.cpp.o
+[ 22%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/uniquefileidentifierframe.cpp.o
+[ 23%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/unknownframe.cpp.o
+[ 24%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/unsynchronizedlyricsframe.cpp.o
+[ 25%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/urllinkframe.cpp.o
+[ 26%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/chapterframe.cpp.o
+[ 27%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/tableofcontentsframe.cpp.o
+[ 28%] Building CXX object taglib/CMakeFiles/tag.dir/mpeg/id3v2/frames/podcastframe.cpp.o
+[ 29%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/oggfile.cpp.o
+[ 30%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/oggpage.cpp.o
+[ 31%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/oggpageheader.cpp.o
+[ 32%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/xiphcomment.cpp.o
+[ 33%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/vorbis/vorbisfile.cpp.o
+[ 33%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/vorbis/vorbisproperties.cpp.o
+[ 34%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/flac/oggflacfile.cpp.o
+[ 35%] Building CXX object taglib/CMakeFiles/tag.dir/mpc/mpcfile.cpp.o
+[ 36%] Building CXX object taglib/CMakeFiles/tag.dir/mpc/mpcproperties.cpp.o
+[ 37%] Building CXX object taglib/CMakeFiles/tag.dir/ape/apetag.cpp.o
+[ 38%] Building CXX object taglib/CMakeFiles/tag.dir/ape/apefooter.cpp.o
+[ 39%] Building CXX object taglib/CMakeFiles/tag.dir/ape/apeitem.cpp.o
+[ 40%] Building CXX object taglib/CMakeFiles/tag.dir/ape/apefile.cpp.o
+[ 41%] Building CXX object taglib/CMakeFiles/tag.dir/ape/apeproperties.cpp.o
+[ 42%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tstring.cpp.o
+[ 43%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tstringlist.cpp.o
+[ 44%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tbytevector.cpp.o
+[ 45%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tbytevectorlist.cpp.o
+[ 46%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tbytevectorstream.cpp.o
+[ 47%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tiostream.cpp.o
+[ 48%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tfile.cpp.o
+[ 49%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tfilestream.cpp.o
+[ 50%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tdebug.cpp.o
+[ 50%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tpropertymap.cpp.o
+[ 51%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/trefcounter.cpp.o
+[ 52%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tdebuglistener.cpp.o
+[ 53%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/tzlib.cpp.o
+[ 54%] Building CXX object taglib/CMakeFiles/tag.dir/flac/flacfile.cpp.o
+[ 55%] Building CXX object taglib/CMakeFiles/tag.dir/flac/flacpicture.cpp.o
+[ 56%] Building CXX object taglib/CMakeFiles/tag.dir/flac/flacproperties.cpp.o
+[ 57%] Building CXX object taglib/CMakeFiles/tag.dir/flac/flacmetadatablock.cpp.o
+[ 58%] Building CXX object taglib/CMakeFiles/tag.dir/flac/flacunknownmetadatablock.cpp.o
+[ 59%] Building CXX object taglib/CMakeFiles/tag.dir/wavpack/wavpackfile.cpp.o
+[ 60%] Building CXX object taglib/CMakeFiles/tag.dir/wavpack/wavpackproperties.cpp.o
+[ 61%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/speex/speexfile.cpp.o
+[ 62%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/speex/speexproperties.cpp.o
+[ 63%] Building CXX object taglib/CMakeFiles/tag.dir/trueaudio/trueaudiofile.cpp.o
+[ 64%] Building CXX object taglib/CMakeFiles/tag.dir/trueaudio/trueaudioproperties.cpp.o
+[ 65%] Building CXX object taglib/CMakeFiles/tag.dir/riff/rifffile.cpp.o
+[ 66%] Building CXX object taglib/CMakeFiles/tag.dir/riff/aiff/aifffile.cpp.o
+[ 66%] Building CXX object taglib/CMakeFiles/tag.dir/riff/aiff/aiffproperties.cpp.o
+[ 67%] Building CXX object taglib/CMakeFiles/tag.dir/riff/wav/wavfile.cpp.o
+[ 68%] Building CXX object taglib/CMakeFiles/tag.dir/riff/wav/wavproperties.cpp.o
+[ 69%] Building CXX object taglib/CMakeFiles/tag.dir/riff/wav/infotag.cpp.o
+[ 70%] Building CXX object taglib/CMakeFiles/tag.dir/asf/asftag.cpp.o
+[ 71%] Building CXX object taglib/CMakeFiles/tag.dir/asf/asffile.cpp.o
+[ 72%] Building CXX object taglib/CMakeFiles/tag.dir/asf/asfproperties.cpp.o
+[ 73%] Building CXX object taglib/CMakeFiles/tag.dir/asf/asfattribute.cpp.o
+[ 74%] Building CXX object taglib/CMakeFiles/tag.dir/asf/asfpicture.cpp.o
+[ 75%] Building CXX object taglib/CMakeFiles/tag.dir/mp4/mp4file.cpp.o
+[ 76%] Building CXX object taglib/CMakeFiles/tag.dir/mp4/mp4atom.cpp.o
+[ 77%] Building CXX object taglib/CMakeFiles/tag.dir/mp4/mp4tag.cpp.o
+[ 78%] Building CXX object taglib/CMakeFiles/tag.dir/mp4/mp4item.cpp.o
+[ 79%] Building CXX object taglib/CMakeFiles/tag.dir/mp4/mp4properties.cpp.o
+[ 80%] Building CXX object taglib/CMakeFiles/tag.dir/mp4/mp4coverart.cpp.o
+[ 81%] Building CXX object taglib/CMakeFiles/tag.dir/mod/modfilebase.cpp.o
+[ 82%] Building CXX object taglib/CMakeFiles/tag.dir/mod/modfile.cpp.o
+[ 83%] Building CXX object taglib/CMakeFiles/tag.dir/mod/modtag.cpp.o
+[ 83%] Building CXX object taglib/CMakeFiles/tag.dir/mod/modproperties.cpp.o
+[ 84%] Building CXX object taglib/CMakeFiles/tag.dir/s3m/s3mfile.cpp.o
+[ 85%] Building CXX object taglib/CMakeFiles/tag.dir/s3m/s3mproperties.cpp.o
+[ 86%] Building CXX object taglib/CMakeFiles/tag.dir/it/itfile.cpp.o
+[ 87%] Building CXX object taglib/CMakeFiles/tag.dir/it/itproperties.cpp.o
+[ 88%] Building CXX object taglib/CMakeFiles/tag.dir/xm/xmfile.cpp.o
+[ 89%] Building CXX object taglib/CMakeFiles/tag.dir/xm/xmproperties.cpp.o
+[ 90%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/opus/opusfile.cpp.o
+[ 91%] Building CXX object taglib/CMakeFiles/tag.dir/ogg/opus/opusproperties.cpp.o
+[ 92%] Building CXX object taglib/CMakeFiles/tag.dir/toolkit/unicode.cpp.o
+[ 93%] Building CXX object taglib/CMakeFiles/tag.dir/tag.cpp.o
+[ 94%] Building CXX object taglib/CMakeFiles/tag.dir/tagunion.cpp.o
+[ 95%] Building CXX object taglib/CMakeFiles/tag.dir/fileref.cpp.o
+In file included from /ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/toolkit/tlist.h:263:0,
+                 from /ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/toolkit/tstringlist.h:30,
+                 from /ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/fileref.h:30,
+                 from /ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/fileref.cpp:35:
+/ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/toolkit/tlist.tcc: In instantiation of 'void TagLib::List<T>::ListPrivate<TP*>::clear() [with TP = const TagLib::FileRef::FileTypeResolver; T = const TagLib::FileRef::FileTypeResolver*]':
+/ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/toolkit/tlist.tcc:74:10:   required from 'TagLib::List<T>::ListPrivate<TP*>::~ListPrivate() [with TP = const TagLib::FileRef::FileTypeResolver; T = const TagLib::FileRef::FileTypeResolver*]'
+/ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/toolkit/tlist.tcc:107:5:   required from 'TagLib::List<T>::~List() [with T = const TagLib::FileRef::FileTypeResolver*]'
+/ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/fileref.cpp:343:1:   required from here
+/ws/userland/src/components/desktop/taglib/taglib-1.11.1/taglib/toolkit/tlist.tcc:80:9: warning: deleting object of abstract class type 'TagLib::FileRef::FileTypeResolver' which has non-virtual destructor will cause undefined behavior [-Wdelete-non-virtual-dtor]
+         delete *it;
+         ^~~~~~
+[ 96%] Building CXX object taglib/CMakeFiles/tag.dir/audioproperties.cpp.o
+[ 97%] Building CXX object taglib/CMakeFiles/tag.dir/tagutils.cpp.o
+[ 98%] Linking CXX shared library libtag.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+[ 98%] Built target tag
+make[3]: Entering directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+Scanning dependencies of target tag_c
+make[3]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+[ 99%] Building CXX object bindings/c/CMakeFiles/tag_c.dir/tag_c.cpp.o
+[100%] Linking CXX shared library libtag_c.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+[100%] Built target tag_c
+make[2]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/taglib/build/amd64/.built
+(cd /ws/userland/src/components/desktop/taglib/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/desktop/taglib/build/prototype/i386  install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/taglib/build/i86'
+make[2]: Entering directory '/ws/userland/src/components/desktop/taglib/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/taglib/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/i86'
+[ 98%] Built target tag
+make[3]: Entering directory '/ws/userland/src/components/desktop/taglib/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/i86'
+[100%] Built target tag_c
+make[2]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/i86'
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/bin/taglib-config
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/pkgconfig/taglib.pc
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/libtag.so.1.17.0
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/libtag.so.1
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/libtag.so
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tag.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/fileref.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/audioproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/taglib_export.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/taglib_config.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/taglib.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tstring.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tlist.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tlist.tcc
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tstringlist.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tbytevector.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tbytevectorlist.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tbytevectorstream.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tiostream.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tfilestream.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tmap.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tmap.tcc
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tpropertymap.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/trefcounter.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tdebuglistener.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mpegfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mpegproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mpegheader.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/xingheader.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v1tag.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v1genres.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2extendedheader.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2frame.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2header.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2synchdata.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2footer.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2framefactory.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2tag.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/attachedpictureframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/commentsframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/eventtimingcodesframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/generalencapsulatedobjectframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/ownershipframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/popularimeterframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/privateframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/relativevolumeframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/synchronizedlyricsframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/textidentificationframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/uniquefileidentifierframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/unknownframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/unsynchronizedlyricsframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/urllinkframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/chapterframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tableofcontentsframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/podcastframe.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/oggfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/oggpage.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/oggpageheader.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/xiphcomment.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/vorbisfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/vorbisproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/oggflacfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/speexfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/speexproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/opusfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/opusproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/flacfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/flacpicture.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/flacproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/flacmetadatablock.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/apefile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/apeproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/apetag.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/apefooter.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/apeitem.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mpcfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mpcproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/wavpackfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/wavpackproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/trueaudiofile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/trueaudioproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/rifffile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/aifffile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/aiffproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/wavfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/wavproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/infotag.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/asffile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/asfproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/asftag.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/asfattribute.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/asfpicture.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mp4file.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mp4atom.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mp4tag.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mp4item.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mp4properties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mp4coverart.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/modfilebase.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/modfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/modtag.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/modproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/itfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/itproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/s3mfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/s3mproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/xmfile.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/xmproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/libtag_c.so.0.0.0
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/libtag_c.so.0
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/libtag_c.so
+-- Set runtime path of "/ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/libtag_c.so.0.0.0" to ""
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tag_c.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/pkgconfig/taglib_c.pc
+make[1]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/taglib/build/i86/.installed
+(cd /ws/userland/src/components/desktop/taglib/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/desktop/taglib/build/prototype/i386  install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+make[2]: Entering directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+[ 98%] Built target tag
+make[3]: Entering directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+[100%] Built target tag_c
+make[2]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/bin/amd64/taglib-config
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/amd64/pkgconfig/taglib.pc
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/amd64/libtag.so.1.17.0
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/amd64/libtag.so.1
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/amd64/libtag.so
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tag.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/fileref.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/audioproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/taglib_export.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/taglib_config.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/taglib.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tstring.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tlist.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tlist.tcc
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tstringlist.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tbytevector.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tbytevectorlist.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tbytevectorstream.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tiostream.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tfilestream.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tmap.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tmap.tcc
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tpropertymap.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/trefcounter.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tdebuglistener.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mpegfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mpegproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mpegheader.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/xingheader.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v1tag.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v1genres.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2extendedheader.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2frame.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2header.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2synchdata.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2footer.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2framefactory.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/id3v2tag.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/attachedpictureframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/commentsframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/eventtimingcodesframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/generalencapsulatedobjectframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/ownershipframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/popularimeterframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/privateframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/relativevolumeframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/synchronizedlyricsframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/textidentificationframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/uniquefileidentifierframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/unknownframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/unsynchronizedlyricsframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/urllinkframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/chapterframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tableofcontentsframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/podcastframe.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/oggfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/oggpage.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/oggpageheader.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/xiphcomment.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/vorbisfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/vorbisproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/oggflacfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/speexfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/speexproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/opusfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/opusproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/flacfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/flacpicture.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/flacproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/flacmetadatablock.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/apefile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/apeproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/apetag.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/apefooter.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/apeitem.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mpcfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mpcproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/wavpackfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/wavpackproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/trueaudiofile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/trueaudioproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/rifffile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/aifffile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/aiffproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/wavfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/wavproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/infotag.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/asffile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/asfproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/asftag.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/asfattribute.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/asfpicture.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mp4file.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mp4atom.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mp4tag.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mp4item.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mp4properties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/mp4coverart.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/modfilebase.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/modfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/modtag.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/modproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/itfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/itproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/s3mfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/s3mproperties.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/xmfile.h
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/xmproperties.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/amd64/libtag_c.so.0.0.0
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/amd64/libtag_c.so.0
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/amd64/libtag_c.so
+-- Set runtime path of "/ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/amd64/libtag_c.so.0.0.0" to ""
+-- Up-to-date: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/include/taglib/tag_c.h
+-- Installing: /ws/userland/src/components/desktop/taglib/build/prototype/i386/usr/lib/amd64/pkgconfig/taglib_c.pc
+make[1]: Leaving directory '/ws/userland/src/components/desktop/taglib/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/taglib/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 taglib.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=1\\.11\\.1 -D COMPONENT_RE_VERSION=1\\.11\\.1 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/taglib -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="32884	" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="1.11.1" -D IPS_COMPONENT_VERSION="1.11.1" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://taglib.github.io/releases/taglib-1.11.1.tar.gz" -D COMPONENT_PROJECT_URL="https://taglib.github.io/" -D COMPONENT_NAME="taglib" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" taglib.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/taglib/build/manifest-i386-taglib.mogrified
+/bin/mkdir -p /ws/userland/src/components/desktop/taglib/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/taglib/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/taglib/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/taglib/build/prototype/i386 -d /ws/userland/src/components/desktop/taglib/build -d /ws/userland/src/components/desktop/taglib -d taglib-1.11.1 -d /ws/userland/src/licenses -m /ws/userland/src/components/desktop/taglib/build/manifest-i386-taglib.mogrified >/ws/userland/src/components/desktop/taglib/build/manifest-i386-taglib.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/taglib/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/taglib/build/prototype/i386 -d /ws/userland/src/components/desktop/taglib/build -d /ws/userland/src/components/desktop/taglib -d taglib-1.11.1 -d /ws/userland/src/licenses /ws/userland/src/components/desktop/taglib/build/manifest-i386-taglib.mangled >/ws/userland/src/components/desktop/taglib/build/manifest-i386-taglib.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/desktop/taglib/build/resolve.deps -m /ws/userland/src/components/desktop/taglib/build/manifest-i386-taglib.depend
+/usr/bin/touch /ws/userland/src/components/desktop/taglib/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/desktop/taglib/build/manifest-i386-taglib.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/desktop/taglib/build/prototype/i386/mangled /ws/userland/src/components/desktop/taglib/build/prototype/i386 /ws/userland/src/components/desktop/taglib/build /ws/userland/src/components/desktop/taglib taglib-1.11.1 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/desktop/taglib/build/manifest-i386-taglib.depend.res
+/usr/bin/touch /ws/userland/src/components/desktop/taglib/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/taglib/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/taglib/build/prototype/i386 -d /ws/userland/src/components/desktop/taglib/build -d /ws/userland/src/components/desktop/taglib -d taglib-1.11.1 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/desktop/taglib/build/manifest-i386-taglib.depend.res
+pkg://nightly/library/audio/taglib@1.11.1,5.11-11.4.0.0.1.14.0:20190727T225201Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/taglib/build/manifest-i386-taglib.depend.res >/ws/userland/src/components/desktop/taglib/build/manifest-i386-taglib.published
+/usr/bin/touch /ws/userland/src/components/desktop/taglib/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/desktop/taglib'
+
+real     3:11.2
+user     2:05.6
+sys        34.0

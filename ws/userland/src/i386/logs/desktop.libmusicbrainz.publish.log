@@ -1,0 +1,576 @@
+gmake: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz'
+/bin/rm -f -r /ws/userland/src/components/desktop/libmusicbrainz/libmusicbrainz-5.1.0
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  libmusicbrainz-5.1.0.tar.gz
+/usr/bin/touch /ws/userland/src/components/desktop/libmusicbrainz/libmusicbrainz-5.1.0/.unpacked
+/usr/bin/touch /ws/userland/src/components/desktop/libmusicbrainz/libmusicbrainz-5.1.0/.prep
+/bin/rm -f -r /ws/userland/src/components/desktop/libmusicbrainz/build/i86 ; /bin/mkdir -p /ws/userland/src/components/desktop/libmusicbrainz/build/i86
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/libmusicbrainz/libmusicbrainz-5.1.0 /ws/userland/src/components/desktop/libmusicbrainz/build/i86
+symlink cloning /ws/userland/src/components/desktop/libmusicbrainz/libmusicbrainz-5.1.0 to /ws/userland/src/components/desktop/libmusicbrainz/build/i86
+cd /ws/userland/src/components/desktop/libmusicbrainz/build/i86; echo Running cmake with -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m32 -O3 -mincoming-stack-boundary=2      -std=c++11" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m32  -O3 -mincoming-stack-boundary=2    " -DCMAKE_EXE_LINKER_FLAGS="-m32" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m32" -DCMAKE_SHARED_LINKER_FLAGS="-m32" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin" -DEXEC_INSTALL_DIR="/usr/lib" -DLIBEXEC_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_BINDIR="/usr/bin" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib" -DLIB_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_LIBDIR="/usr/lib" -DCMAKE_BUILD_TYPE=RelWithDebInfo ; /usr/bin/env - LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" /usr/bin/cmake -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m32 -O3 -mincoming-stack-boundary=2      -std=c++11" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m32  -O3 -mincoming-stack-boundary=2    " -DCMAKE_EXE_LINKER_FLAGS="-m32" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m32" -DCMAKE_SHARED_LINKER_FLAGS="-m32" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin" -DEXEC_INSTALL_DIR="/usr/lib" -DLIBEXEC_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_BINDIR="/usr/bin" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib" -DLIB_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_LIBDIR="/usr/lib" -DCMAKE_BUILD_TYPE=RelWithDebInfo  /ws/userland/src/components/desktop/libmusicbrainz/libmusicbrainz-5.1.0;  
+Running cmake with -DCMAKE_CXX_COMPILER=/usr/gcc/7/bin/g++ -DCMAKE_CXX_FLAGS= -m32 -O3 -mincoming-stack-boundary=2      -std=c++11 -DCMAKE_C_COMPILER=/usr/gcc/7/bin/gcc -DCMAKE_C_FLAGS=-m32  -O3 -mincoming-stack-boundary=2     -DCMAKE_EXE_LINKER_FLAGS=-m32 -DCMAKE_AR=/usr/bin/ar -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MODULE_LINKER_FLAGS=-m32 -DCMAKE_SHARED_LINKER_FLAGS=-m32 -DGETTEXT_MSGFMT_EXECUTABLE=/usr/gnu/bin/msgfmt -DBIN_INSTALL_DIR=/usr/bin -DEXEC_INSTALL_DIR=/usr/lib -DLIBEXEC_INSTALL_DIR=/usr/lib -DCMAKE_INSTALL_BINDIR=/usr/bin -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib -DLIB_INSTALL_DIR=/usr/lib -DCMAKE_INSTALL_LIBDIR=/usr/lib -DCMAKE_BUILD_TYPE=RelWithDebInfo
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: /usr/gcc/7/bin/gcc
+-- Check for working C compiler: /usr/gcc/7/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29") 
+-- Checking for module 'neon'
+--   Found neon, version 0.30.1
+-- Found Neon: /usr/lib/libneon.so  
+-- Checking for module 'libxml-2.0'
+--   Found libxml-2.0, version 2.9.5
+-- Found LibXml2: /usr/lib/libxml2.so  
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    EXEC_INSTALL_DIR
+    GETTEXT_MSGFMT_EXECUTABLE
+    LIBEXEC_INSTALL_DIR
+
+
+-- Build files have been written to: /ws/userland/src/components/desktop/libmusicbrainz/build/i86
+(cd /ws/userland/src/components/desktop/libmusicbrainz/build/i86; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+Scanning dependencies of target make-c-interface
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[  1%] Building CXX object src/CMakeFiles/make-c-interface.dir/make-c-interface.cc.o
+[  3%] Building CXX object src/CMakeFiles/make-c-interface.dir/xmlParser.cc.o
+[  4%] Linking CXX executable make-c-interface
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[  4%] Built target make-c-interface
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[  6%] Generating mb5_c.cc, mb5_c.h, ../include/musicbrainz5/mb5_c.h
+./make-c-interface /ws/userland/src/components/desktop/libmusicbrainz/libmusicbrainz-5.1.0/src cinterface.xml /ws/userland/src/components/desktop/libmusicbrainz/build/i86/src mb5_c.cc mb5_c.h 
+Generating '/ws/userland/src/components/desktop/libmusicbrainz/build/i86/src/mb5_c.cc' and '/ws/userland/src/components/desktop/libmusicbrainz/build/i86/src/mb5_c.h'
+Scanning dependencies of target musicbrainz5
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[  7%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Alias.cc.o
+[  9%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Annotation.cc.o
+[ 11%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Artist.cc.o
+[ 12%] Building CXX object src/CMakeFiles/musicbrainz5.dir/ArtistCredit.cc.o
+[ 14%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Attribute.cc.o
+[ 15%] Building CXX object src/CMakeFiles/musicbrainz5.dir/CDStub.cc.o
+[ 17%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Collection.cc.o
+[ 19%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Disc.cc.o
+[ 20%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Entity.cc.o
+[ 22%] Building CXX object src/CMakeFiles/musicbrainz5.dir/FreeDBDisc.cc.o
+[ 23%] Building CXX object src/CMakeFiles/musicbrainz5.dir/HTTPFetch.cc.o
+[ 25%] Building CXX object src/CMakeFiles/musicbrainz5.dir/ISRC.cc.o
+[ 26%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Label.cc.o
+[ 28%] Building CXX object src/CMakeFiles/musicbrainz5.dir/LabelInfo.cc.o
+[ 30%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Lifespan.cc.o
+[ 31%] Building CXX object src/CMakeFiles/musicbrainz5.dir/List.cc.o
+[ 33%] Building CXX object src/CMakeFiles/musicbrainz5.dir/mb5_c.cc.o
+[ 34%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Medium.cc.o
+[ 36%] Building CXX object src/CMakeFiles/musicbrainz5.dir/MediumList.cc.o
+[ 38%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Message.cc.o
+[ 39%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Metadata.cc.o
+[ 41%] Building CXX object src/CMakeFiles/musicbrainz5.dir/NameCredit.cc.o
+[ 42%] Building CXX object src/CMakeFiles/musicbrainz5.dir/NonMBTrack.cc.o
+[ 44%] Building CXX object src/CMakeFiles/musicbrainz5.dir/PUID.cc.o
+[ 46%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Query.cc.o
+[ 47%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Rating.cc.o
+[ 49%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Recording.cc.o
+[ 50%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Relation.cc.o
+[ 52%] Building CXX object src/CMakeFiles/musicbrainz5.dir/RelationList.cc.o
+[ 53%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Release.cc.o
+[ 55%] Building CXX object src/CMakeFiles/musicbrainz5.dir/ReleaseGroup.cc.o
+[ 57%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Tag.cc.o
+[ 58%] Building CXX object src/CMakeFiles/musicbrainz5.dir/TextRepresentation.cc.o
+[ 60%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Track.cc.o
+[ 61%] Building CXX object src/CMakeFiles/musicbrainz5.dir/UserRating.cc.o
+[ 63%] Building CXX object src/CMakeFiles/musicbrainz5.dir/UserTag.cc.o
+[ 65%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Work.cc.o
+[ 66%] Building CXX object src/CMakeFiles/musicbrainz5.dir/xmlParser.cc.o
+[ 68%] Building CXX object src/CMakeFiles/musicbrainz5.dir/RelationListList.cc.o
+[ 69%] Building CXX object src/CMakeFiles/musicbrainz5.dir/ISWCList.cc.o
+[ 71%] Building CXX object src/CMakeFiles/musicbrainz5.dir/ISWC.cc.o
+[ 73%] Building CXX object src/CMakeFiles/musicbrainz5.dir/SecondaryType.cc.o
+[ 74%] Building CXX object src/CMakeFiles/musicbrainz5.dir/SecondaryTypeList.cc.o
+[ 76%] Building CXX object src/CMakeFiles/musicbrainz5.dir/IPI.cc.o
+[ 77%] Linking CXX shared library libmusicbrainz5.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 77%] Built target musicbrainz5
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+Scanning dependencies of target ctest
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 79%] Building C object tests/CMakeFiles/ctest.dir/ctest.c.o
+[ 80%] Linking C executable ctest
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 80%] Built target ctest
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+Scanning dependencies of target mbtest
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 82%] Building CXX object tests/CMakeFiles/mbtest.dir/mbtest.cc.o
+[ 84%] Linking CXX executable mbtest
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 84%] Built target mbtest
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+Scanning dependencies of target search_c
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 85%] Building C object examples/CMakeFiles/search_c.dir/search_c.c.o
+[ 87%] Linking C executable search_c
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 87%] Built target search_c
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+Scanning dependencies of target collections
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 88%] Building CXX object examples/CMakeFiles/collections.dir/collections.cc.o
+[ 90%] Linking CXX executable collections
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 90%] Built target collections
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+Scanning dependencies of target search
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 92%] Building CXX object examples/CMakeFiles/search.dir/search.cc.o
+[ 93%] Linking CXX executable search
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 93%] Built target search
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+Scanning dependencies of target cdlookup_c
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 95%] Building C object examples/CMakeFiles/cdlookup_c.dir/cdlookup_c.c.o
+[ 96%] Linking C executable cdlookup_c
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 96%] Built target cdlookup_c
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+Scanning dependencies of target cdlookup
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 98%] Building CXX object examples/CMakeFiles/cdlookup.dir/cdlookup.cc.o
+[100%] Linking CXX executable cdlookup
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[100%] Built target cdlookup
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/libmusicbrainz/build/i86/.built
+/bin/rm -f -r /ws/userland/src/components/desktop/libmusicbrainz/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/desktop/libmusicbrainz/build/amd64
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/libmusicbrainz/libmusicbrainz-5.1.0 /ws/userland/src/components/desktop/libmusicbrainz/build/amd64
+symlink cloning /ws/userland/src/components/desktop/libmusicbrainz/libmusicbrainz-5.1.0 to /ws/userland/src/components/desktop/libmusicbrainz/build/amd64
+cd /ws/userland/src/components/desktop/libmusicbrainz/build/amd64; echo Running cmake with -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m64 -O3       -std=c++11" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m64  -O3     " -DCMAKE_EXE_LINKER_FLAGS="-m64" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m64" -DCMAKE_SHARED_LINKER_FLAGS="-m64" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin/amd64" -DEXEC_INSTALL_DIR="/usr/lib/amd64" -DLIBEXEC_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_BINDIR="/usr/bin/amd64" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib/amd64" -DLIB_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_LIBDIR="/usr/lib/amd64" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLIB_SUFFIX="/amd64"; /usr/bin/env - LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" /usr/bin/cmake -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m64 -O3       -std=c++11" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m64  -O3     " -DCMAKE_EXE_LINKER_FLAGS="-m64" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m64" -DCMAKE_SHARED_LINKER_FLAGS="-m64" -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin/amd64" -DEXEC_INSTALL_DIR="/usr/lib/amd64" -DLIBEXEC_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_BINDIR="/usr/bin/amd64" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib/amd64" -DLIB_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_LIBDIR="/usr/lib/amd64" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLIB_SUFFIX="/amd64" /ws/userland/src/components/desktop/libmusicbrainz/libmusicbrainz-5.1.0;  
+Running cmake with -DCMAKE_CXX_COMPILER=/usr/gcc/7/bin/g++ -DCMAKE_CXX_FLAGS= -m64 -O3       -std=c++11 -DCMAKE_C_COMPILER=/usr/gcc/7/bin/gcc -DCMAKE_C_FLAGS=-m64  -O3      -DCMAKE_EXE_LINKER_FLAGS=-m64 -DCMAKE_AR=/usr/bin/ar -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MODULE_LINKER_FLAGS=-m64 -DCMAKE_SHARED_LINKER_FLAGS=-m64 -DGETTEXT_MSGFMT_EXECUTABLE=/usr/gnu/bin/msgfmt -DBIN_INSTALL_DIR=/usr/bin/amd64 -DEXEC_INSTALL_DIR=/usr/lib/amd64 -DLIBEXEC_INSTALL_DIR=/usr/lib/amd64 -DCMAKE_INSTALL_BINDIR=/usr/bin/amd64 -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib/amd64 -DLIB_INSTALL_DIR=/usr/lib/amd64 -DCMAKE_INSTALL_LIBDIR=/usr/lib/amd64 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLIB_SUFFIX=/amd64
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: /usr/gcc/7/bin/gcc
+-- Check for working C compiler: /usr/gcc/7/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29") 
+-- Checking for module 'neon'
+--   Found neon, version 0.30.1
+-- Found Neon: /usr/lib/64/libneon.so  
+-- Checking for module 'libxml-2.0'
+--   Found libxml-2.0, version 2.9.5
+-- Found LibXml2: /usr/lib/64/libxml2.so  
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    EXEC_INSTALL_DIR
+    GETTEXT_MSGFMT_EXECUTABLE
+    LIBEXEC_INSTALL_DIR
+
+
+-- Build files have been written to: /ws/userland/src/components/desktop/libmusicbrainz/build/amd64
+(cd /ws/userland/src/components/desktop/libmusicbrainz/build/amd64; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+Scanning dependencies of target make-c-interface
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[  1%] Building CXX object src/CMakeFiles/make-c-interface.dir/make-c-interface.cc.o
+[  3%] Building CXX object src/CMakeFiles/make-c-interface.dir/xmlParser.cc.o
+[  4%] Linking CXX executable make-c-interface
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[  4%] Built target make-c-interface
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[  6%] Generating mb5_c.cc, mb5_c.h, ../include/musicbrainz5/mb5_c.h
+./make-c-interface /ws/userland/src/components/desktop/libmusicbrainz/libmusicbrainz-5.1.0/src cinterface.xml /ws/userland/src/components/desktop/libmusicbrainz/build/amd64/src mb5_c.cc mb5_c.h 
+Generating '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64/src/mb5_c.cc' and '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64/src/mb5_c.h'
+Scanning dependencies of target musicbrainz5
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[  7%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Alias.cc.o
+[  9%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Annotation.cc.o
+[ 11%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Artist.cc.o
+[ 12%] Building CXX object src/CMakeFiles/musicbrainz5.dir/ArtistCredit.cc.o
+[ 14%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Attribute.cc.o
+[ 15%] Building CXX object src/CMakeFiles/musicbrainz5.dir/CDStub.cc.o
+[ 17%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Collection.cc.o
+[ 19%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Disc.cc.o
+[ 20%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Entity.cc.o
+[ 22%] Building CXX object src/CMakeFiles/musicbrainz5.dir/FreeDBDisc.cc.o
+[ 23%] Building CXX object src/CMakeFiles/musicbrainz5.dir/HTTPFetch.cc.o
+[ 25%] Building CXX object src/CMakeFiles/musicbrainz5.dir/ISRC.cc.o
+[ 26%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Label.cc.o
+[ 28%] Building CXX object src/CMakeFiles/musicbrainz5.dir/LabelInfo.cc.o
+[ 30%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Lifespan.cc.o
+[ 31%] Building CXX object src/CMakeFiles/musicbrainz5.dir/List.cc.o
+[ 33%] Building CXX object src/CMakeFiles/musicbrainz5.dir/mb5_c.cc.o
+[ 34%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Medium.cc.o
+[ 36%] Building CXX object src/CMakeFiles/musicbrainz5.dir/MediumList.cc.o
+[ 38%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Message.cc.o
+[ 39%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Metadata.cc.o
+[ 41%] Building CXX object src/CMakeFiles/musicbrainz5.dir/NameCredit.cc.o
+[ 42%] Building CXX object src/CMakeFiles/musicbrainz5.dir/NonMBTrack.cc.o
+[ 44%] Building CXX object src/CMakeFiles/musicbrainz5.dir/PUID.cc.o
+[ 46%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Query.cc.o
+[ 47%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Rating.cc.o
+[ 49%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Recording.cc.o
+[ 50%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Relation.cc.o
+[ 52%] Building CXX object src/CMakeFiles/musicbrainz5.dir/RelationList.cc.o
+[ 53%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Release.cc.o
+[ 55%] Building CXX object src/CMakeFiles/musicbrainz5.dir/ReleaseGroup.cc.o
+[ 57%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Tag.cc.o
+[ 58%] Building CXX object src/CMakeFiles/musicbrainz5.dir/TextRepresentation.cc.o
+[ 60%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Track.cc.o
+[ 61%] Building CXX object src/CMakeFiles/musicbrainz5.dir/UserRating.cc.o
+[ 63%] Building CXX object src/CMakeFiles/musicbrainz5.dir/UserTag.cc.o
+[ 65%] Building CXX object src/CMakeFiles/musicbrainz5.dir/Work.cc.o
+[ 66%] Building CXX object src/CMakeFiles/musicbrainz5.dir/xmlParser.cc.o
+[ 68%] Building CXX object src/CMakeFiles/musicbrainz5.dir/RelationListList.cc.o
+[ 69%] Building CXX object src/CMakeFiles/musicbrainz5.dir/ISWCList.cc.o
+[ 71%] Building CXX object src/CMakeFiles/musicbrainz5.dir/ISWC.cc.o
+[ 73%] Building CXX object src/CMakeFiles/musicbrainz5.dir/SecondaryType.cc.o
+[ 74%] Building CXX object src/CMakeFiles/musicbrainz5.dir/SecondaryTypeList.cc.o
+[ 76%] Building CXX object src/CMakeFiles/musicbrainz5.dir/IPI.cc.o
+[ 77%] Linking CXX shared library libmusicbrainz5.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 77%] Built target musicbrainz5
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+Scanning dependencies of target ctest
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 79%] Building C object tests/CMakeFiles/ctest.dir/ctest.c.o
+[ 80%] Linking C executable ctest
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 80%] Built target ctest
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+Scanning dependencies of target mbtest
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 82%] Building CXX object tests/CMakeFiles/mbtest.dir/mbtest.cc.o
+[ 84%] Linking CXX executable mbtest
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 84%] Built target mbtest
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+Scanning dependencies of target search_c
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 85%] Building C object examples/CMakeFiles/search_c.dir/search_c.c.o
+[ 87%] Linking C executable search_c
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 87%] Built target search_c
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+Scanning dependencies of target collections
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 88%] Building CXX object examples/CMakeFiles/collections.dir/collections.cc.o
+[ 90%] Linking CXX executable collections
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 90%] Built target collections
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+Scanning dependencies of target search
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 92%] Building CXX object examples/CMakeFiles/search.dir/search.cc.o
+[ 93%] Linking CXX executable search
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 93%] Built target search
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+Scanning dependencies of target cdlookup_c
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 95%] Building C object examples/CMakeFiles/cdlookup_c.dir/cdlookup_c.c.o
+[ 96%] Linking C executable cdlookup_c
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 96%] Built target cdlookup_c
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+Scanning dependencies of target cdlookup
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 98%] Building CXX object examples/CMakeFiles/cdlookup.dir/cdlookup.cc.o
+[100%] Linking CXX executable cdlookup
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[100%] Built target cdlookup
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/libmusicbrainz/build/amd64/.built
+(cd /ws/userland/src/components/desktop/libmusicbrainz/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386  install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[  4%] Built target make-c-interface
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 77%] Built target musicbrainz5
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 80%] Built target ctest
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 84%] Built target mbtest
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 87%] Built target search_c
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 90%] Built target collections
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 93%] Built target search
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[ 96%] Built target cdlookup_c
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+[100%] Built target cdlookup
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Alias.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/AliasList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Annotation.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/AnnotationList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Artist.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ArtistCredit.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ArtistList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Attribute.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/AttributeList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/CDStub.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/CDStubList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Collection.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/CollectionList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Disc.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/DiscList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Entity.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/FreeDBDisc.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/FreeDBDiscList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/HTTPFetch.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/IPI.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/IPIList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ISRC.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ISRCList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ISWC.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ISWCList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Label.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/LabelInfo.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/LabelInfoList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/LabelList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Lifespan.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/List.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ListImpl.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Medium.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/MediumList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Message.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Metadata.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/NameCredit.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/NameCreditList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/NonMBTrack.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/NonMBTrackList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/PUID.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/PUIDList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Query.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Rating.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Recording.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/RecordingList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Relation.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/RelationList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/RelationListList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Release.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ReleaseGroup.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ReleaseGroupList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ReleaseList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/SecondaryType.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/SecondaryTypeList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Tag.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/TagList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/TextRepresentation.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Track.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/TrackList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/UserRating.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/UserTag.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/UserTagList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Work.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/WorkList.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/defines.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/xmlParser.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/mb5_c.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/lib/pkgconfig/libmusicbrainz5.pc
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/lib/libmusicbrainz5.so.1.0.0
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/lib/libmusicbrainz5.so.1
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/lib/libmusicbrainz5.so
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/libmusicbrainz/build/i86/.installed
+(cd /ws/userland/src/components/desktop/libmusicbrainz/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386  install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[  4%] Built target make-c-interface
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 77%] Built target musicbrainz5
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 80%] Built target ctest
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 84%] Built target mbtest
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 87%] Built target search_c
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 90%] Built target collections
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 93%] Built target search
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[ 96%] Built target cdlookup_c
+make[3]: Entering directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+[100%] Built target cdlookup
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Alias.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/AliasList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Annotation.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/AnnotationList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Artist.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ArtistCredit.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ArtistList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Attribute.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/AttributeList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/CDStub.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/CDStubList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Collection.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/CollectionList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Disc.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/DiscList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Entity.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/FreeDBDisc.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/FreeDBDiscList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/HTTPFetch.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/IPI.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/IPIList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ISRC.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ISRCList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ISWC.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ISWCList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Label.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/LabelInfo.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/LabelInfoList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/LabelList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Lifespan.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/List.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ListImpl.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Medium.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/MediumList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Message.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Metadata.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/NameCredit.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/NameCreditList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/NonMBTrack.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/NonMBTrackList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/PUID.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/PUIDList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Query.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Rating.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Recording.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/RecordingList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Relation.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/RelationList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/RelationListList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Release.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ReleaseGroup.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ReleaseGroupList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/ReleaseList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/SecondaryType.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/SecondaryTypeList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Tag.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/TagList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/TextRepresentation.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Track.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/TrackList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/UserRating.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/UserTag.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/UserTagList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/Work.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/WorkList.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/defines.h
+-- Up-to-date: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/xmlParser.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/include/musicbrainz5/mb5_c.h
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/lib/amd64/pkgconfig/libmusicbrainz5.pc
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/lib/amd64/libmusicbrainz5.so.1.0.0
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/lib/amd64/libmusicbrainz5.so.1
+-- Installing: /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/usr/lib/amd64/libmusicbrainz5.so
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/libmusicbrainz/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 libmusicbrainz.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=5\\.1\\.0 -D COMPONENT_RE_VERSION=5\\.1\\.0 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/libmusicbrainz -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="24461" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="5.1.0" -D IPS_COMPONENT_VERSION="5.1.0" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://github.com/metabrainz/libmusicbrainz/releases/download/release-5.1.0/libmusicbrainz-5.1.0.tar.gz" -D COMPONENT_PROJECT_URL="https://musicbrainz.org/" -D COMPONENT_NAME="libmusicbrainz" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" libmusicbrainz.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/libmusicbrainz/build/manifest-i386-libmusicbrainz.mogrified
+/bin/mkdir -p /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386 -d /ws/userland/src/components/desktop/libmusicbrainz/build -d /ws/userland/src/components/desktop/libmusicbrainz -d libmusicbrainz-5.1.0 -d /ws/userland/src/licenses -m /ws/userland/src/components/desktop/libmusicbrainz/build/manifest-i386-libmusicbrainz.mogrified >/ws/userland/src/components/desktop/libmusicbrainz/build/manifest-i386-libmusicbrainz.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386 -d /ws/userland/src/components/desktop/libmusicbrainz/build -d /ws/userland/src/components/desktop/libmusicbrainz -d libmusicbrainz-5.1.0 -d /ws/userland/src/licenses /ws/userland/src/components/desktop/libmusicbrainz/build/manifest-i386-libmusicbrainz.mangled >/ws/userland/src/components/desktop/libmusicbrainz/build/manifest-i386-libmusicbrainz.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/desktop/libmusicbrainz/build/resolve.deps -m /ws/userland/src/components/desktop/libmusicbrainz/build/manifest-i386-libmusicbrainz.depend
+/usr/bin/touch /ws/userland/src/components/desktop/libmusicbrainz/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/desktop/libmusicbrainz/build/manifest-i386-libmusicbrainz.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/mangled /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386 /ws/userland/src/components/desktop/libmusicbrainz/build /ws/userland/src/components/desktop/libmusicbrainz libmusicbrainz-5.1.0 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/desktop/libmusicbrainz/build/manifest-i386-libmusicbrainz.depend.res
+/usr/bin/touch /ws/userland/src/components/desktop/libmusicbrainz/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libmusicbrainz/build/prototype/i386 -d /ws/userland/src/components/desktop/libmusicbrainz/build -d /ws/userland/src/components/desktop/libmusicbrainz -d libmusicbrainz-5.1.0 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/desktop/libmusicbrainz/build/manifest-i386-libmusicbrainz.depend.res
+pkg://nightly/library/audio/libmusicbrainz5@5.1.0,5.11-11.4.0.0.1.14.0:20190727T212410Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/libmusicbrainz/build/manifest-i386-libmusicbrainz.depend.res >/ws/userland/src/components/desktop/libmusicbrainz/build/manifest-i386-libmusicbrainz.published
+/usr/bin/touch /ws/userland/src/components/desktop/libmusicbrainz/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/desktop/libmusicbrainz'
+
+real     1:53.7
+user     1:20.1
+sys        14.3

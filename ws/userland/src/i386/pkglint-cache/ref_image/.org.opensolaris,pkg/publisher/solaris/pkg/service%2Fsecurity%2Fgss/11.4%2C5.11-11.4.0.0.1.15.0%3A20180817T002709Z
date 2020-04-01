@@ -1,0 +1,31 @@
+set name=pkg.fmri value=pkg://solaris/service/security/gss@11.4,5.11-11.4.0.0.1.15.0:20180817T002709Z
+set name=variant.debug.osnet value=true value=false
+set name=org.opensolaris.smf.fmri value=svc:/network/rpc/gss:default value=svc:/network/rpc/gss
+set name=pkg.description value="Generic Security Service Application Program Interface, Version 2 - config"
+set name=info.classification value=org.opensolaris.category.2008:System/Security
+set name=pkg.summary value="GSSAPI CONFIG V2"
+set name=variant.arch value=sparc value=i386
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.opensolaris.zone value=global value=nonglobal
+depend fmri=pkg:/system/core-os@11.4-11.4.0.0.1.15 type=require
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=service/security/kerberos-5 type=require
+dir group=sys mode=0755 owner=root path=etc
+dir group=sys mode=0755 owner=root path=etc/gss
+dir group=bin mode=0755 owner=root path=lib
+dir group=bin mode=0755 owner=root path=lib/svc
+dir group=sys mode=0755 owner=root path=lib/svc/manifest
+dir group=sys mode=0755 owner=root path=lib/svc/manifest/network
+dir group=sys mode=0755 owner=root path=lib/svc/manifest/network/rpc
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man5
+file 0e4f891b38f71a2b71f9226e266a4552636142dc chash=954040fbc8fde193d289c8ef07076fe15bef744d group=sys mode=0644 original_name=SUNWgssc:etc/gss/mech overlay=allow owner=root path=etc/gss/mech pkg.content-hash=file:sha512t_256:c0d92e1e31a836846c6cab09bad1c32da43b9b22a289170dc5f1a3c70178168e pkg.content-hash=gzip:sha512t_256:bdd18b2eff26c6390788ee54098a78b456f2671c974dd4fb8d55475d0d71fa81 pkg.csize=322 pkg.size=456 preserve=renameold
+file 0490d08ee73f0a635f182f908452a3dc8b166eae chash=61d239b0019f8c377711aadab2ab4983227e08f4 group=sys mode=0644 original_name=SUNWgssc:etc/gss/qop owner=root path=etc/gss/qop pkg.content-hash=file:sha512t_256:238f414b6e6d8ae68d56584008b6866e5190b8e0acac8312af10842db03d66a5 pkg.content-hash=gzip:sha512t_256:4f1418949062fd3be8b9e62a73dbd25e6ae37a0f341b4725010c56d621b5d43d pkg.csize=304 pkg.size=409 preserve=true
+file d52f60cace7f1b59f247ade5455218e523d12126 chash=920b5aa12631e8d10339bfd91b9f2fa1327b75a5 group=sys mode=0444 owner=root path=lib/svc/manifest/network/rpc/gss.xml pkg.content-hash=file:sha512t_256:673a98c0295c1b7abb7c7cd8ff7c37fd2824b5677bf6705cf1ef3b5af78bf9bb pkg.content-hash=gzip:sha512t_256:02e7334cb4fe870d23d35641557b7aa66a9753e192d6ebf10339309cf705784d pkg.csize=996 pkg.size=2545 restart_fmri=svc:/system/manifest-import:default
+file 5e64e18eb8172e6c84d1144dc43d2af23f2bf151 chash=b7bdbe5f1b0279bda7088dd81bb59965ab705e8d facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man5/gsscred.conf.5 pkg.content-hash=file:sha512t_256:82cf1fe8542bc3b504b0ceea80ebdd78531e49631fb16978f7185500d362ac40 pkg.content-hash=gzip:sha512t_256:de9a2aeea8d5d9a716de1add4394965660da08df3cfbcf976b07203c4df2ca56 pkg.csize=630 pkg.size=1124
+file 7dd61b3608b98d88c96133636dff4845cecf81fd chash=f53753b61c1167ebdc9a59f1a8b3e8e0f7efba30 group=sys mode=0644 original_name=SUNWgssc:etc/gss/gsscred.conf owner=root path=etc/gss/gsscred.conf pkg.content-hash=file:sha512t_256:8ccf2b990138aa91d36d8e4e9b7a1378bb2ba86d21e78e16500037fef30ec637 pkg.content-hash=gzip:sha512t_256:2d956fe553d9430a0c4af12556e8a859fbd21c4a16e927f814c6f1333bf3f8ca pkg.csize=355 pkg.size=596 preserve=true
+file 855a042e66527584e12c89c9e25dccf1448af9ce chash=4f482eda46bcc95c3c78ea17ffcb0b482133dfbf facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man5/mech.5 pkg.content-hash=file:sha512t_256:f8dcc5ee9f7bd7afa7aa58d01a9ab7a15761f2a10adc828b2371219c3e62b5bd pkg.content-hash=gzip:sha512t_256:85dea18ef6f660ddd4f11c0e4e65a36b293d6ec2f7d0ab359900b7b06684e470 pkg.csize=1159 pkg.size=3005
+file 9f0e23a8a44e0519e89b0a5cb0124ba778f420df chash=6a49056d0d1e3e00ff97ce7e7c95de6689d18c17 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man5/qop.5 pkg.content-hash=file:sha512t_256:0e5d00a5b52fac0fe10aeceeb7ce40db97d80ed6481e2b0db94da13813a2d655 pkg.content-hash=gzip:sha512t_256:137ed7d90bb1a0460764f2886f0da7572d1a1118bc899fd35ce5fa5268a9b37e pkg.csize=36 pkg.size=16
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+legacy arch=sparc category=system desc="Generic Security Service Application Program Interface, Version 2 - config" hotline="Please contact your local service provider" name="GSSAPI CONFIG V2" pkg=SUNWgssc variant.arch=sparc vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+legacy arch=i386 category=system desc="Generic Security Service Application Program Interface, Version 2 - config" hotline="Please contact your local service provider" name="GSSAPI CONFIG V2" pkg=SUNWgssc variant.arch=i386 vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=2bbbbd80d209d31acebed7b26eb7df9405fb8665045a1f73aa9502db3134d8758f06747a8013f71be4556e89fa558d35cb99292536931d75867fcb59cf42ca4e073efd6d45d725d19920e790379d7760dd279ae53644ede67d139b9f2b1fc43debf1bacb3846f3a2421d3529c1da594479ae0b06b4a29483c77542e25f58611cddec5b84916a64dc93e0fac80efbc29728febf09d750af23ef43476316494ba5a31594ebed5fe371cb13391a9e72e6237d03a97959db2549d1472735e581b858540f4767966d1f9f79ea194f39503789ef4d5f9fed93578dabffd957b75fd2f3bbc83112782f7dfc4992edccf91144f3a84b1ea695d3908305cb3ae6b931531c version=0

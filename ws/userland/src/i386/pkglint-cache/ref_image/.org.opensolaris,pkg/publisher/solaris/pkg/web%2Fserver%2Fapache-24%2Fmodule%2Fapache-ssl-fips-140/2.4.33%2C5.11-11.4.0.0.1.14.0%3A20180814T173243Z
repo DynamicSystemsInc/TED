@@ -1,0 +1,23 @@
+set name=pkg.fmri value=pkg://solaris/web/server/apache-24/module/apache-ssl-fips-140@2.4.33,5.11-11.4.0.0.1.14.0:20180814T173243Z
+set name=com.oracle.info.name value=apache2
+set name=com.oracle.info.description value="the SSL FIPS 140-2 support plugins for Apache Web Server V2.4"
+set name=pkg.summary value="SSL FIPS 140-2 support plugin for Apache Web Server V2.4"
+set name=info.classification value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.tpno value=41981
+set name=org.opensolaris.arc-caseid value=PSARC/2015/007
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=info.upstream-url value=https://httpd.apache.org/
+set name=org.opensolaris.consolidation value=userland
+set name=info.source-url value=https://archive.apache.org/dist/httpd/httpd-2.4.33.tar.gz
+set name=com.oracle.info.version value=2.4.33
+set name=variant.arch value=i386 value=sparc
+depend fmri=pkg:/library/security/openssl/openssl-fips-140@2.0.13-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/web/server/apache-24@2.4.33-11.4.0.0.1.14.0 type=require
+file c45397022ef39d8f44ea0e4b627f6924f1cfad48 chash=6bd65ac6812508254600327a533bfc9bf0520e0e elfarch=sparc elfbits=64 elfhash=a67a26fa7661f496be4a09301050144179cfc20b group=bin mode=0444 owner=root path=usr/apache2/2.4/libexec/mod_ssl-fips-140.so pkg.content-hash=gelf:sha512t_256:9b9560935b19625a7840968cc11adbf9b0cdafe36a9528292a2adbeedb98a587 pkg.content-hash=gelf.unsigned:sha512t_256:d9d2ef8c4dab9ab786c43bcfef893738fe73c2536719cf323e0092d2ee965c68 pkg.content-hash=file:sha512t_256:dedcf6bc3d74cd978280e3b0632dd22f0a12cc0aafeeaa6ce92b6205f2768190 pkg.content-hash=gzip:sha512t_256:4216c091013e62a2e1d84b522827676022bdd736129df42aee7d6de93c9c6125 pkg.csize=141355 pkg.linted.userland.action001.2=true pkg.size=489792 variant.arch=sparc
+file 367c77da91ece339031a242aeb1b235be3f52807 chash=e95836cb11167f825cad0e760dd0a44a93f8b6a8 elfarch=i386 elfbits=64 elfhash=c0cc9cae58863935ce5c8f8406dd9a852b18ff33 group=bin mode=0444 owner=root path=usr/apache2/2.4/libexec/mod_ssl-fips-140.so pkg.content-hash=gelf:sha512t_256:d00aedab334e4542ff1f2653a82850d2fbd714a9ae1db0622005ae5241553581 pkg.content-hash=gelf.unsigned:sha512t_256:14766084c9f494c82d6ad8edcf286660bbd28304f50c096eb1fbafd9f7da3b60 pkg.content-hash=file:sha512t_256:57832e5fbbfef5f0eda686b9e85a70800641616f3a29e3f9fa7e821bbc037c9b pkg.content-hash=gzip:sha512t_256:042c0c028f23c437cacf0c06bda73e3dd20dcbfea03986ac43e3879ce26f3b05 pkg.csize=117805 pkg.linted.userland.action001.2=true pkg.size=455064 variant.arch=i386
+link mediator=openssl mediator-implementation=fips-140 path=usr/apache2/2.4/libexec/mod_ssl.so target=mod_ssl-fips-140.so
+license 25b9bf48e300d805c24489ef1f5b4f251e8eef7b chash=0f1d817cc163c5f9d486b459debd9e74e2d50152 license="Apache v2.0" pkg.content-hash=file:sha512t_256:5461b87c9b89d82ffdb4a09b92df09a6279b966ac460fa6ee56b497e0160ff2a pkg.content-hash=gzip:sha512t_256:644a0e6fe86da74137ca5d132aa0750ff1ccf2672232b79110bc4243d47326e7 pkg.csize=7845 pkg.size=26199
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=207822f053126e957a0d9638e386e07520461e80a3460e1906e31da2a59cf142a3d60f0fc3b8ccf31ab0614227b939c89fd8b9d36252c26c6518d809bb8bbc4209bd7c0abbc41e301edaf4e81ec1d1fcbec7614fa9151f8e9bbe8e6bd103d8cadeb40bf9b19192f5e1f68265fc166fafdc542018cc6fd938e707690ba059a7d136e7659c6edd04db8acc272fee8694ce58fb567e7b56073fdbab828afbce89d18677a56f12d32dcf38c9c778ab0b5fe952f491b1fca4bf38e816c5e52e1056cb1c3c31b7c57ecd9e5e0d73007d3254b36727a0ca46e95f7ae1c8db068584f5511120df9638cacfe7ce2d35139de98f622f16d3b1d24080ac050e9642e209b77f version=0

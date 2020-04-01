@@ -1,0 +1,17 @@
+set name=pkg.fmri value=pkg://solaris/group/feature/smartcard@11.4,5.11-11.4.0.0.1.14.0:20180814T163834Z
+set name=com.oracle.info.name value=meta-packages/group-feature
+set name=pkg.summary value="Two-Factor Authentication Smart Card Stack for Oracle Solaris"
+set name=pkg.description value="Provides a set of components for using two-factor authentication with smart cards on Oracle Solaris."
+set name=info.classification value="org.opensolaris.category.2008:Meta Packages/Group Packages" value=org.opensolaris.category.2008:System/Security
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.version value=11.4
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/security/pam/module/pam-pkcs11 type=group
+depend fmri=library/security/pcsc-lite/ccid type=group
+depend fmri=library/security/ocsp/openca-ocspd type=group
+depend fmri=library/security/pcsc/pcsclite type=group
+depend fmri=system/library/security/pkcs11_coolkey type=group
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=a76fa50c303f881b67e9c11bd3f10b86a9942599e116b0c617f4db40434fca672b48cb9ab6bb247eec42f60da1d7eb701b47da19549fa8add9fef6b5b8a4d6caa5988eadc38a20dff9690f2fe080dd1af67198f507260e56298316101b54e9eec6a2f7e1a407ec78b02a97cc2d0d24d0f5263a4d28c49b53cfd28dc1d0cc8e0766ea50dcd3ea8dba72a9695a9321210b48bdc8afc254e45d382b762081bb219d9434d8983f124a7e4d4e98cbc83b5926bddf26825c6e002da71e1e6428c8be4c0866fbec6784399fb4f1fc7240f145b4a47bd9748529bea6f944554cc9f2c8f78baff1f0f06217f2a187708e578f6ee1a41653740c3cb0acb10d5c99b3358823 version=0

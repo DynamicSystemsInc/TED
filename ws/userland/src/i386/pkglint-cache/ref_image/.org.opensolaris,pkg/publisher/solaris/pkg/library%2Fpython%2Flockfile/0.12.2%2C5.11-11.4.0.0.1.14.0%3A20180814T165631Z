@@ -1,0 +1,21 @@
+set name=pkg.fmri value=pkg://solaris/library/python/lockfile@0.12.2,5.11-11.4.0.0.1.14.0:20180814T165631Z
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.name value=lockfile
+set name=pkg.description value="The lockfile package provides a simple API for locking files. Unlike the Windows msvcrt.locking function, the fcntl.lockf and flock functions, and the deprecated posixfile module, the API is identical across both Unix and Windows platforms. The lock mechanism relies on the atomic nature of the link (on Unix) and mkdir (on Windows) system calls."
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=info.upstream-url value=https://github.com/smontanaro/pylockfile
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=info.upstream value="Skip Montanaro <skip@pobox.com>"
+set name=com.oracle.info.version value=0.12.2
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=PSARC/2014/028
+set name=pkg.summary value="File locking module for Python"
+set name=com.oracle.info.description value="lockfile, the Python file locking module"
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=info.source-url value=pypi:///lockfile==0.12.2
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/python/lockfile-35@0.12.2,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python-2/lockfil@0.9.1,5.12-5.12.0.0.0.44.0 type=optional
+depend fmri=library/python/lockfile-34@0.12.2,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/lockfile-27@0.12.2,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=3ce31d9585838366a935986569aa35e3e7efb61bd5ddbb159c8d171c787dfe245e678a315014e9d597912c40e7535cd568892cd031a1907b5c07c23e6b6b8c727f974477faa675bf877112504f5231526ee1cb099b14e53f2f2aca86d36799ec1a81d6b3d72d715c2b3b5370ed04396a62c4f08c077bfe6b1971d600fdede56109be8babb63f43f0ae3bd4d7d78cbb6308fc88f6e9bb665632040f81f29c14b2d5a3b7bac5db569fe4749ced1762dcff16ee91aadb17192c2ef7764294010829a93e408c208726bdd6aef9ad4e9245d754727aa751d25153d8b378f8dea5dcef8ac1b5a9864d8d4621a30d6cadc3c2702ee1ef11d8a1043d6a964091c7440b87 version=0

@@ -1,0 +1,413 @@
+This is a guide to explain various useful variables in Userland component
+Makefiles.  To distinguish these from the Makefile(s) that are part of each
+component distribution, the latter will be referred to as native Makefiles.
+
+The following are the basics that just about every Makefile should have.  Most
+have defaults, but can be overridden.
+
+* BUILD_ARCH declares which architecture this component should be built for;
+  possible values are: i386, sparc.  If not set, the component will be built
+  for both.
+
+* BUILD_BITS declares which bits this component should be built for and
+  which binaries are the preferred ones (i.e. should be installed in /usr/bin);
+  values are: 64, 64_and_32, 32, 32_and_64, and NO_ARCH.
+
+* COMPONENT_NAME is typically a short name (e.g., vim).
+
+* COMPONENT_VERSION is typically numbers separated by dots (e.g. 7.3).
+
+* COMPONENT_SRC is where the archive is extracted; it has a default value of
+  "$(COMPONENT_NAME)-$(COMPONENT_VERSION)".
+
+* COMPONENT_PROJECT_URL is the general web site for the component.
+
+* COMPONENT_ARCHIVE is the base name of the archive to be downloaded; it has
+  a default value of "$(COMPONENT_SRC).tar.gz".
+
+* COMPONENT_ARCHIVE_HASH is typically "sha256:" followed by the first output
+  field of `sha256sum $(COMPONENT_ARCHIVE)`.
+
+* COMPONENT_ARCHIVE_SRC defines what kind of object delivers the source.  This
+  can be "git", "hg", or "svn" if the source comes from an SCM repository, and
+  must be "none" if the source is checked into the Userland repository
+  directly.
+
+* COMPONENT_ARCHIVE_URL is where the archive can be downloaded from.  This is
+  typically constructed from $(COMPONENT_PROJECT_URL) and $(COMPONENT_ARCHIVE).
+
+* COMPONENT_BUGDB is the lower-case rendering of the BugDB cat/subcat; it has
+  a default value of "utility/$(COMPONENT_NAME)".
+
+* COMPONENT_ANITYA_ID is the project id for this software at
+  https://release-monitoring.org which is used to track when a new version
+  is available.  "N/A" specifies there is either no external upstream to
+  track, or that this instance should not be compared against upstream (such
+  as for the older versions of a component we ship multiple versions of).
+
+* COMPONENT_SIG_URL is the URL where the PGP signature for $(COMPONENT_ARCHIVE)
+  can be found.  This can be used in addition to the hash in
+  $(COMPONENT_ARCHIVE_HASH) to verify the correctness of the archive.  If
+  COMPONENT_SIG_URL is present, then COMPONENT_ARCHIVE_HASH needn't be, but its
+  presence is strongly encouraged to ensure that the archive contents don't
+  change silently.  Note that when merging, because
+  $WS/tools/.gnupg/pubring.gpg is a binary file, you will have to choose
+  the parent or child version.  Pick one, then run:
+	for cset in $(hg log -r 'parents()' -T '{node} '); do
+		hg cat -r $cset $WS/tools/.gnupg/pubring.gpg | \
+			gpg2 --homedir=$WS/tools/.gnupg --import;
+	done
+  before you 'hg commit' your merge.
+
+* COMPONENT_LABEL is an arbitrary string that will be used as part of
+  COMPONENT_SRC when building an archive from an SCM source repository.  It
+  defaults to COMPONENT_VERSION.  It may be set to empty if desired.  See
+  the relevant makefiles for the full composition.
+
+* GIT_REPO can be used in place of COMPONENT_ARCHIVE_URL to pull the component
+  source from the GIT repository referenced in the value.
+* GIT_REV is the tag or changeset that you wish to pull from GIT.
+
+* HG_REPO can be used in place of COMPONENT_ARCHIVE_URL to pull the component
+  source from the Mercurial repository referenced in the value.
+* HG_REV is the tag or changeset that you wish to pull from Mercurial.
+
+* SVN_REPO can be used in place of COMPONENT_ARCHIVE_URL to pull the component
+  source from the Subversion repository referenced in the value.
+* SVN_REV is the tag or changeset that you wish to pull from Subversion.
+
+* REQUIRED_PACKAGES is a list of packages required to build or run the
+  component and its tests; it includes "system/library" by default.
+
+The following are basic variables that must be set before including common.mk
+if overriding the default:
+
+* BUILD_STYLE declares what type of build process this component uses;
+  possible values are: ant, archive (extract and copy), attpackagemake, cmake,
+  configure, gnu-component, justmake, pkg (publish only), and setup.py.  See
+  the corresponding file in make-rules for details.  The default value is
+  'configure'.
+
+  Based on the value of BUILD_STYLE, other variables are affected as follows:
+
+  - If BUILD_STYLE is configure, CONFIGURE_ENV will automatically include
+    CFLAGS, CXXFLAGS, and LDFLAGS.
+  - If BUILD_STYLE is justmake, COMPONENT_BUILD_ENV will automatically include
+    CC, CXX, CFLAGS, CXXFLAGS, and LDFLAGS.
+
+* COMMON_TARGETS controls whether the standard build, configure, install,
+  test, system-test targets are provided automatically.  Possible values
+  are 'yes' and 'no'.  The default value is 'yes'.
+
+* BUILD_TARGET, INSTALL_TARGET, TEST_TARGET, SYSTEM_TEST_TARGET allow
+  overriding the default targets provided by COMMON_TARGETS.  If set to a
+  non-empty value, they act as an override.  If set to an empty value the
+  target will not be defined by common.mk.  Instead of overriding the standard
+  targets, it is suggested that the appropriate COMPONENT_PRE_*_ACTION or
+  COMPONENT_POST_*_ACTION variables be used instead.
+
+* BUILD_TARGET defaults to $(BUILD_$(BUILD_BITS))
+
+* INSTALL_TARGET defaults to $(INSTALL_$(BUILD_BITS))
+
+* TEST_TARGET defaults to $(TEST_$(BUILD_BITS))
+
+* SYSTEM_TEST_TARGET default is determined by $(TEST_TARGET); if TEST_TARGET
+  is not $(NO_TESTS) or $(SKIP_TEST), the default value is
+  $(SYSTEM_TESTS_NOT_IMPLEMENTED)
+
+* MAKEFILE_PREREQ is the default prerequisite for any target. It is not
+  intended to be used directly in Makefile but instead directly on the command
+  line. By default it is 'Makefile' so every time you change the Makefile
+  everything gets rebuilt. Sometimes it is handy to turn off this dependency.
+  For example, if you are working on 'gmake publish' (but works for other
+  targets too) and do not want to have your component rebuilt from scratch
+  every time you change REQUIRED_PACKAGES, you can do
+  $ gmake MAKEFILE_PREREQ= publish
+
+* PRIORITY_COMPONENTS is a variable which may be used on command line during
+  full build. It says which components should be build before the rest of the
+  components. There are two reasons one may wish to use this feature
+    - component is taking long to build. During paralel build if such component
+    is built as last one all other parallel tasks have nothing to do already.
+    If you run build of such component at the beginning it will happily build
+    in parallel with rest of the components.
+    - debugging full build problems. You are having a problem in some component
+    only during full build and do not want to wait till all previous components
+    are built. This can be partially achieved by specifying COMPONENT_DIRS on
+    command line, but that would mean only given component would be built.
+
+* SOLARIS_11_*_ONLY - variable limiting the rest of the line to only given
+  release allowing to use common source for multiple branches to ease
+  backporting. For example in the Makefile
+
+  $(SOLARIS_11_3_ONLY)REQUIRED_PACKAGES += library/openldap
+
+  The variable SOLARIS_11_3_ONLY is empty in 11.3, but contains comment mark '#'
+  in any other release. That way the line applies only when compiled in 11.3.
+  The variables are also defined in p5m manifests so the same principle can be
+  used there too. 
+
+The following variables alter the compilation or build process for components:
+
+* ASLR_MODE controls the application of Address Space Layout Randomization to
+  ELF binaries during the build.  The possible values are: $(ASLR_ENABLE),
+  $(ASLR_DISABLE), $(ASLR_NOT_APPLICABLE).  If $(BUILD_BITS) is $(NO_ARCH),
+  $(BUILD_STYLE) is 'ant', or $(COMPONENT_BUGDB) starts with 'library',
+  $(ASLR_NOT_APPLICABLE) is the default.  Otherwise, the default is
+  $(ASLR_ENABLE).
+
+When using a source code management system as the canonical source for a
+component, the build automatically generates a source archive for the
+component by pulling the source from the SCM and creating a tarball from
+the pulled source.  This allows us to automatically store a copy of the
+canonical source that we build from in our source archive cache and not
+continually hammer on the SCM repo for that component.  The source archive
+name is automatically generated from the COMPONENT_NAME, COMPONENT_VERSION,
+and {GIT|HG|SVN}_REV values.  Also, the source is archived and unpacked
+in a directory using these values.   You should also define a hash for
+this tarball in your Makefile similar to what you do with downloaded
+source archives.
+
+
+These two are both initialized in make-rules/shared-macros.mk rather than any
+component-level Makefile, but are frequently referenced from the latter.
+* COMPONENT_DIR is the top-level directory of the given component in question.
+* SOURCE_DIR is set to $(COMPONENT_DIR)/$(COMPONENT_SRC).
+
+Additional pre/post configure, build, or install actions can be specified in
+a component Makefile by setting them in one of the following macros.  None of
+these have default values.  These are mostly used for miscellaneous set-up or
+clean-up tweaks as their names suggest.
+* COMPONENT_PRE_CONFIGURE_ACTION is used by several components to clone a
+  source directory.
+* COMPONENT_POST_CONFIGURE_ACTION
+* COMPONENT_PRE_BUILD_ACTION
+* COMPONENT_POST_BUILD_ACTION
+* COMPONENT_PRE_INSTALL_ACTION
+* COMPONENT_POST_INSTALL_ACTION
+* COMPONENT_PRE_TEST_ACTION
+* COMPONENT_POST_TEST_ACTION
+
+If component specific make targets need to be used for build or install or
+test, they can be specified via the following.
+* COMPONENT_BUILD_TARGETS is not usually set because the default target of most
+  open source software is the equivalent of a 'build' target.  This needs to be
+  set when building the software requires a different target than the default.
+  You should not override make macros here, but in COMPONENT_BUILD_ARGS.
+* COMPONENT_INSTALL_TARGETS has a default value of "install".  Very few
+  components need to alter this.
+* COMPONENT_TEST_TARGETS has a default value of "check".  Several components
+  need to set this to "test".
+
+* COMPONENT_BUILD_ARGS is probably the mostly useful variable here for solving
+  subtle build issues.  When you need to override a MACRO set in the native
+  Makefile of a component, do so by adding something like:
+     COMPONENT_BUILD_ARGS += MKDIR="$(MKDIR)"
+  Quoting is often important because values with white-space can be split up,
+  yielding the wrong results.
+* COMPONENT_BUILD_ENV is for when you just need to override things in the
+  calling environment, like PATH.
+* COMPONENT_INSTALL_ARGS is mainly used for altering target directories;
+  there are also COMPONENT_INSTALL_ARGS.$(BITS) versions.
+* COMPONENT_INSTALL_ENV is mainly used for altering target directories.
+* COMPONENT_PUBLISH_ENV is so far only used to work around Python issues when
+  used by "pkgdepend generate", though the variable may be extended in the
+  future for general "gmake publish" usage.
+* COMPONENT_TEST_ARGS is little used.
+* COMPONENT_TEST_ENV is mainly used for altering PATH and friends.
+
+If your component needs to do some kind of cleanup after a "gmake test" run,
+such as kill processes after doing a "gmake test" run, then this can be done
+by setting COMPONENT_TEST_CLEANUP.
+
+If you have created master test results file(s) for your component in the
+COMPONENT_TEST_RESULTS_DIR directory, then in order to successfully compare
+your test results against that master results file, you might need to
+normalize some of the test output lines. This is done via a set of regular
+expressions that are applied to the test results. There are some global
+default ones in the COMPONENT_TEST_TRANSFORMS definition in shared-macros.mk,
+but your component Makefile might have to += some more for specific transforms
+that need to be applied to the test output for just this component.
+
+* SKIP_TEST_AT_TOP_LEVEL inclusion of this variable in a component Makefile
+  will cause that component's tests to be skipped when running "gmake test"
+  at the top level.  It's often used for excluding long-running tests
+  that may slow down comprehensive component testing.
+
+* COMPONENT_POST_UNPACK_ACTION is for making minor alterations to the unpacked
+  source directory before any patching has taken place.  It should almost never
+  be used.
+* COMPONENT_PREP_ACTION is used to make alterations to the unpacked and patched
+  source.  It should be used with care.
+
+For components that have a configure target, the following macros are used to
+control the options and arguments passed:
+
+* If BUILD_BITS is set before shared-macros.mk is included, the default directories
+  used for various configure options as documented below will change.  For
+  example:
+
+  if BUILD_BITS=64 or BUILD_BITS= 64_and_32 explicitly:
+  	32-bit binaries -> $(CONFIGURE_PREFIX)/bin/$(MACH32)
+	32-bit libraries -> $(CONFIGURE_PREFIX)/lib
+  	64-bit binaries -> $(CONFIGURE_PREFIX)/bin
+	64-bit libraries -> $(CONFIGURE_PREFIX)/lib/$(MACH64)
+
+  if BUILD_BITS=32 or BUILD_BITS=32_and_64 explicitly or BITS is unspecified:
+  	32-bit binaries -> $(CONFIGURE_PREFIX)/bin
+	32-bit libraries -> $(CONFIGURE_PREFIX)/lib
+  	64-bit binaries -> $(CONFIGURE_PREFIX)/bin/$(MACH64)
+	64-bit libraries -> $(CONFIGURE_PREFIX)/lib/$(MACH64)
+* CC_FOR_BUILD and CXX_FOR_BUILD is included in CONFIGURE_ENV by default to
+  ensure that 32-bit and 64-bit host detection works as expected for
+  autoconf-based components by specifying the exact compiler and relevant
+  $(CC_BITS) for the current build.  It can be set to "" to omit it from
+  CONFIGURE_ENV.
+* CONFIGURE_CPPFLAGS contains the default set of CPPFLAGS to be included in
+  CONFIGURE_ENV.  It can be set to "" to omit it from CONFIGURE_ENV.
+* CONFIGURE_DEFAULT_DIRS should be "yes" or "no".  A value of "yes" (the
+  default) will trigger the following being passed to CONFIGURE_OPTIONS as
+  parameters to corresponding options.
+  * CONFIGURE_BINDIR.$(BITS) is the value for the --bindir= option.
+  * CONFIGURE_LIBDIR.$(BITS) is the value for the --libdir= option.
+  * CONFIGURE_MANDIR.$(BITS) is the value for the --mandir= option.
+  * CONFIGURE_SBINDIR.$(BITS) is the value for the --sbindir= option.
+* CONFIGURE_ENV is mainly used for passing Makefile variables to configure.
+  When should this be used as opposed to CONFIGURE_OPTIONS and
+  COMPONENT_BUILD_{ARGS,ENV}?  In general, you want to tell configure how to
+  build the software using CONFIGURE_OPTIONS.  But sometimes you need to pass
+  values in via the calling environment.  On rare occasions, you still need to
+  do things like override MACRO settings in the generated Makefiles with
+  COMPONENT_BUILD_ARGS.
+* CONFIGURE_LOCALEDIR is a cousin of the other *DIR variables above, but
+  rarely used and hence not triggered by CONFIGURE_DEFAULT_DIRS.
+* CONFIGURE_OPTIONS is extremely useful, possibly our most used "add-on"
+  variable, for passing various options to configure.  These tend to vary per
+  component, but --enable-foo and --disable-foo for various values of foo are
+  quite common.
+* CONFIGURE_PREFIX is the prefix for the various *DIR variables above.  Its
+  default is "/usr"; set it if some other value (e.g., "/usr/gnu") is needed.
+* CONFIGURE_SCRIPT should be set if the default "$(SOURCE_DIR)/configure" is
+  unsuitable for whatever reason.
+
+To override or otherwise modify the default compilation flags used for
+components, the following macros are provided:
+
+* CFLAGS by default contains the preferred set of compilation flags for most
+  components, which usually includes optimization flags, language mode,
+  alignment flags, and multi-threading flags for the current COMPILER.
+  CFLAGS.$(COMPILER), CFLAGS.$(COMPILERS).$(BITS),
+  CFLAGS.$(COMPILERS).$(MACH), and CFLAGS.$(COMPILERS).$(MACH).$(BITS)
+  versions are also available for specifying additional flags or overriding
+  the default.
+* CXXFLAGS by default contains the preferred set of compilation flags for most
+  C++ components, which usually includes optimization flags, language mode,
+  alignment flags, and multi-threading flags for the current COMPILER.
+  CXXFLAGS.$(COMPILER), CXXFLAGS.$(COMPILERS).$(BITS),
+  CXXFLAGS.$(COMPILERS).$(MACH), and CXXFLAGS.$(COMPILERS).$(MACH).$(BITS)
+  versions are also available for specifying additional flags or overriding
+  the default.
+* gcc_OPT has a default value of "-O3".  Bugs in the optimizer have been found
+  which have required altering this to "-O2".
+* studio_OPT has a default value of "-xO4".  Occasional bugs in the optimizer
+  have been found which have required altering this to "-xO3".
+* There are also gcc_OPT.$(MACH).$(BITS) and studio_OPT.$(MACH).$(BITS)
+  versions of the above available if greater specificity is needed.
+
+For components that use pkg-config, the following macros are provided:
+
+* PKG_CONFIG_PATH contains the default system paths to use when looking for
+  pkg-config configuration files.  To specify additional paths to be searched,
+  use PKG_CONFIG_PATHS as follows:
+
+  PKG_CONFIG_PATHS += /path/to/pc/files
+
+Finally, for control of packaging-related operations and values used during
+publication, the following variables are available:
+
+* All variables named after the pattern COMPONENT_%(COMPONENT_NAME_%), such
+  as COMPONENT_ARCHIVE_URL, COMPONENT_ARCHIVE_URL_1, etc.  Refer to ips.mk
+  PKG_MACROS and PKG_VARS for a complete list.
+
+* DQ, SQ, Q: a set of convenience macros that expand to ", ', and "
+  respectively; $(Q) (or $Q) is simply the default quote with a short name
+  for convenience.  For use with values in package manifests where the
+  substituted value may contain whitespace.  For example:
+
+  set name=pkg.human-version value=$(DQ)$(HUMAN_VERSION)$(DQ)
+
+* PKG_MACROS: the list of makefile macros that should be exported as defines
+  for use in package manifests and pkgmogrify transform files.  Whitespace is
+  NOT supported; use of PKG_VARS is strongly preferred for this reason.  The
+  expected form each of entry is a key-value pair as follows:
+
+     PKG_MACROS += NAME=NO-WHITESPACE-VALUE
+
+* PKG_VARS: the list of variables that should be exported as defines for use in
+  package manifests and pkgmogrify transform files.  This list should generally
+  only be added to, not redefined, as follows:
+
+     PKG_VARS += VARIABLE_NAME
+
+  Variable values may contain whitespace, although the value must be quoted
+  appropriately in the package manifest if they do.  Variables must be assigned
+  before the inclusion of ips.mk.  Values containing whitespace should not be
+  quoted when declared in the Makefile; they should only be quoted using the
+  appropriate macros in the package manifest.  Values cannot currently contain
+  any characters that require shell escaping such as ", ', or *.
+
+* PYVER is defined when processing package manifest files whose name end in
+  -PYVER.p5m.  The package manifest will be processed for each version found in
+  PYTHON_VERSIONS.  MAYBE_PYVER_SPACE (e.g. '2.7 ') and MAYBE_SPACE_PYVER
+  (e.g. ' 2.7') are derived from PYVER if defined.  If PYVER is not defined
+  (such as when a generic unversioned Python package manifest is being
+  created), these are defined as ''.  perl and ruby follow the same pattern
+  and define PERLVER, PERL_VERSIONS, MAYBE_SPACE_PERLVER, MAYBE_PERLVER_SPACE
+  and RUBY_VERSION, RUBY_VERSIONS, MAYBE_RUBY_VERSION_SPACE,
+  MAYBE_SPACE_RUBY_VERSION respectively.
+
+* TPNO is the Third Party number (i.e., a numeric value): the License
+  Technology from the Product Lifecycle Suite tool.  This should be used
+  in the common case when there is just one TPNO for a component.  We
+  recommend that this be near the top of any Makefile, just below the
+  various COMPONENT_foo definitions.
+
+* TPNO_foo is for the rare case (~3% of components) when a component has
+  more than one TPNO.  Each one should have a separate short but descriptive
+  name substituted for "foo".  This likewise should be near the top of any
+  Makefile, just below the various COMPONENT_foo definitions, and it must
+  also be before the inclusion of ips.mk.  All variables named after the
+  pattern TPNO_% are automatically available for use in package manifests
+  and pkgmogrify transform files.
+
+* PKGREPO_REMOVE_BEFORE_PUBLISH allows automatic removal of previously
+  published components from PKG_REPO (including obsolete and renamed
+  versions). When set as PKGREPO_REMOVE_BEFORE_PUBLISH=yes removal
+  occurs immediately prior to pkgsend. default: "no"
+
+* PKGLINT points to the pkglint(1) executable.  PKGLINTVAR points to either
+  PKGLINT or /bin/true depending on the invocation: for individual component
+  builds, we run pkglint at the end of the publish phase.  But for top-down
+  builds, running pkglint for each component would cause locking issues, so
+  we skip that step and run pkglint once at the end.  There is also a pkglint:
+  target in components/Makefile that allows for the direction invocation of
+  this end-of-the-build-pkglint-everything-together step, which makes it much
+  easier to "finish off" a build where a small number of components failed.
+
+---
+
+Now switching from explaining the function of specific variables to a more
+general discussion about how to use them to solve problems.  One method that
+has served time and again is adding a level of indirection.  For example,
+when Python 3 came along, we decided to build it 64-bit only, which meant
+its various modules also needed to be built 64-bit only.  But many of them
+had BUILD_32_and_64 in their native Makefile.  So how to tweak that macro
+to do one thing for Python 2.x but another for 3.x?  JBeck spent an entire
+day trying various combinations that seemed right, but none of them worked.
+Then Norm pointed out that changing PYTHON_VERSIONS from "3.4 2.7 2.6" to
+$(PYTHON3_VERSIONS) and $(PYTHON2_VERSIONS) which in turn were "3.4" and
+"2.7 2.6" would do the trick.  I.e., adding a level of indirection solved
+the problem, as it allowed $(PYTHON_VERSIONS) to be used to specify 64-bit
+macros but $(PYTHON2_VERSIONS) to specify 32-bit macros.  There are many
+other places where constructs like this are used.

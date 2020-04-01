@@ -1,0 +1,21 @@
+set name=pkg.fmri value=pkg://solaris/library/python/cherrypy@5.1.0,5.11-11.4.0.0.1.14.0:20180814T165157Z
+set name=info.upstream value="CherryPy Team <team@cherrypy.org>"
+set name=com.oracle.info.name value=CherryPy
+set name=com.oracle.info.description value="the CherryPy object-oriented HTTP framework for Python"
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.summary value="Pythonic, object-oriented HTTP framework"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.upstream-url value=http://www.cherrypy.org/
+set name=info.source-url value=pypi:///CherryPy==5.1.0
+set name=info.classification value=org.opensolaris.category.2008:Development/Python value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
+set name=com.oracle.info.version value=5.1.0
+set name=pkg.description value="CherryPy is a Pythonic, object-oriented HTTP framework.  It includes a fast, HTTP/1.1-compliant, WSGI thread-pooled web server and also allows the use of any other WSGI-enabled web server or adapter including Apache, lighttpd, mod_python, FastCGI, and mod_wsgi. In addition to supporting a flexible plugin system, CherryPy includes built-in tools for caching, encoding, sessions, authorization, and static content."
+set name=org.opensolaris.arc-caseid value=PSARC/2011/259
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/python/cherrypy-35@5.1.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python-2/cherrypy@3.1.2,5.12-5.12.0.0.0.41.0 type=optional
+depend fmri=library/python/cherrypy-27@5.1.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+depend fmri=library/python/cherrypy-34@5.1.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=c393791580538d92e4b0f3d0a1e5d2cb1ba97b3ea10c85b4bc509ffcbd6c75f7c7181449f3f360f0991c397d397d47bcf561ede09cbcd7992f18496dd18b7dd0c4fc28a78942a0eaea79d253a3ae45b0f0e52248ce3548ffb0d18aebc765944a935fd7ed37ced7caee055886efd5c7f036637ed64a2672ffb636f80eece3c3e194e887c90546e090c266352ba44ea203ef5f391c5f52c1be01cde2d41b820b7f9799953857082ca1ec21148b32c635e4ef7e1336941ae1345166ec6af31304baa2f2fd6c55d85b154910ae510c0869af05a3c47e15f5635ac92da020e5fd2a77106570029e7b52cb4c14732a8761d283e35c9210ce5c64f8355a84a9136b4238 version=0

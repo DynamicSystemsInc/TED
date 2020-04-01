@@ -1,0 +1,29 @@
+set name=pkg.fmri value=pkg://solaris/desktop/window-manager/xcompmgr@1.1.7,5.11-11.4.0.0.1.14.0:20180814T160907Z
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=info.upstream-url value=https://www.x.org
+set name=pkg.summary value="xcompmgr - sample X compositing manager"
+set name=com.oracle.info.description value=xcompmgr
+set name=com.oracle.info.tpno value=39514
+set name=pkg.description value="xcompmgr is a sample compositing manager for X servers supporting the XFIXES, DAMAGE, RENDER, and COMPOSITE extensions.  It enables basic eye-candy effects."
+set name=com.oracle.info.name value=xcompmgr
+set name=com.oracle.info.version value=1.1.7
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=LSARC/2009/597
+set name=info.source-url value=https://www.x.org/releases/individual/app/xcompmgr-1.1.7.tar.bz2
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+set name=variant.arch value=i386 value=sparc
+depend fmri=pkg:/x11/library/libxrender@0.9.10-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libxfixes@5.0.3-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/x11/library/libxcomposite@0.4.4-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libx11@1.6.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libxext@1.3.3-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/x11/library/libxdamage@1.1.4-11.4.0.0.1.13.0 type=require
+file ff6cf1dad42f4f4338fba4676e17bf68559f4223 chash=f7d487934c687fd8a7cb5da65bb82188e51c33ab facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/xcompmgr.1 pkg.content-hash=file:sha512t_256:40e80a6c9ab3bb32a5193de43ab3f75a1b603988dbfbfcdb1f45271d51f672f1 pkg.content-hash=gzip:sha512t_256:bde39b3918ca9fdf54cea0ff2103fb0f315989a0dab503216b24fddfda1d3fa0 pkg.csize=1280 pkg.size=2771
+file 0c8ec35c3d456f679400e6c3638d57b13af67dca chash=b37ccc413f1b8a588139b305e5e9b83367d36523 elfarch=i386 elfbits=64 elfhash=aa326b33fdc8b4141fde4cf370d6d1cfdccf8572 group=bin mode=0555 owner=root path=usr/bin/xcompmgr pkg.content-hash=gelf:sha512t_256:a285081a496d5676deca4c39d07935c0aea91f83a97749235320b6c9602ce486 pkg.content-hash=gelf.unsigned:sha512t_256:fafb75f775ccfb724464aa606aec11465699bf7558316898ab62f20ee3dc993c pkg.content-hash=file:sha512t_256:93c9ca9ae33611a874d569fcf9ac0a398054348641edcaca76fb363c7d291202 pkg.content-hash=gzip:sha512t_256:2eeae13797bd73491d42b6d727c562bcc8a02d50f21dd43333e64dd0ec16a16c pkg.csize=28404 pkg.size=73184 variant.arch=i386
+file b91d7e651d6d81178070b4171d14ce0603582281 chash=f711f523ab6f89c20279f00c2f732ddf6f6dc413 elfarch=sparc elfbits=64 elfhash=12cf2daa1957088a444e5b7f00a374acbd6749a6 group=bin mode=0555 owner=root path=usr/bin/xcompmgr pkg.content-hash=gelf:sha512t_256:2a444233d6e2eefb1010a9618a92ba259760e553a447643ff5a0b1f84e7bdca3 pkg.content-hash=gelf.unsigned:sha512t_256:c9d91f7418554d942ffaa4c4af1878735b567676db53f0b74ad0e74b13061a63 pkg.content-hash=file:sha512t_256:ae0599a02d7fa481f04030648d274071519b7a455c22f385d7af469b4993e3ad pkg.content-hash=gzip:sha512t_256:9c82b21e5b6048dcab503dacb56e4370552e7880207c05cbf5be559b0bbb8c98 pkg.csize=32007 pkg.size=71536 variant.arch=sparc
+license aa9861a5d46fbb203a2e96df0dc3f619aa72bbd2 chash=82088e6a7d3dba341e3b0ca5d38718ccc09a2a8c license=MIT pkg.content-hash=file:sha512t_256:939228aac9ef6d0d0afe9306bedf19c848f784c6199a0005c10ab7174e5d0ba7 pkg.content-hash=gzip:sha512t_256:390dd25ad3460408a0c741f154edd38f0f1142e980a4ccbe2772889a90a38cc0 pkg.csize=633 pkg.size=1098
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=0169a5adb4fccab81813713016f43a114659555368b11b8ee65f9cd306eb0f3c9283e5e50c4e5da491acb6f9e29987912058817260db8993220669d9969f9fed880e2a39868f187cd10eaf2bc6e11e560d3bb8c653f6772db6138cc6ccdb352d9d068ae9e15cb543c7bae098a485d328f69aa77300b50b48ba14dadfbe13a813e385958fe3bbbd74cfc81f4ac4ad3704c617dceea534385bd2281faa3b5275609d41a50da47cdddb52eebb3153713c291611dde8c76b661995d9c2199cf768bf012bf111e45abaae38fb6387292a343766630afe1540399af61fc6050eb7d1335071697b8b3d4a4d69043bba124568e3a1f82bb65ef4a874d0a2fd1303005299 version=0

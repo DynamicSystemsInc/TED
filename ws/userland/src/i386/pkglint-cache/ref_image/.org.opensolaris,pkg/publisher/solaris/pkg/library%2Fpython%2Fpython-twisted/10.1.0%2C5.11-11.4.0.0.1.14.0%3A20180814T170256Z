@@ -1,0 +1,19 @@
+set name=pkg.fmri value=pkg://solaris/library/python/python-twisted@10.1.0,5.11-11.4.0.0.1.14.0:20180814T170256Z
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.summary value="Event-based framework for internet applications"
+set name=pkg.description value="Twisted is an event-driven, Python-based networking engine that supports many common network protocols, including SMTP, POP3, IMAP, SSHv2, and DNS."
+set name=com.oracle.info.description value="the Twisted event-based Python framework"
+set name=info.source-url value=pypi:///Twisted==10.1.0
+set name=com.oracle.info.name value=Twisted
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=org.opensolaris.arc-caseid value=PSARC/2008/121
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.version value=10.1.0
+set name=info.upstream-url value=http://twistedmatrix.com/trac/
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/python-2/python-twisted@10.1.0,5.12-5.12.0.0.0.41.0 type=optional
+depend facet.version-lock.library/python/python-twisted=true fmri=consolidation/desktop/desktop-incorporation@5.12-5.12.0.0.0.14.0 type=optional
+depend fmri=library/python/python-twisted-27@10.1.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=7ba6268df6ed2f98dc13fca346c23bd57abeecdae5427103711ce574e4d687ceeb2de9c32b70d9111c99f901db15a9f4151ccb44a25979cc7982a8d77fea3a6e083ef4179e2d5f4755956ac63756b3277c330a168b7cfa3fc1a9441b6f6b6171bb977a9a9d6972115127ed3822ec8558a12af746c99f866ac7c3dfd62f81fedca65d84a337f33a3f06321fda109de2b51885a251af1d6401ac7d01dde2e7559f3d8df7a0c67ba7771a20b248a2dbf73a6c4fb6b052e5c4fa34aa939d50db2cd2d6aafddf852f5658bfd92d8c72a87b80d0d32944b3296fab737c2823f3a69387ab3739737d9fc9fd61d4be3740a35c48dfc1b9cbdd30dce16fb2f90bd57bd192 version=0

@@ -1,0 +1,28 @@
+set name=pkg.fmri value=pkg://solaris/web/browser/links@2.14,5.11-11.4.0.0.1.14.0:20180814T173041Z
+set name=variant.arch value=i386 value=sparc
+set name=info.source-url value=http://links.twibright.com/download/links-2.14.tar.gz
+set name=info.upstream-url value=http://links.twibright.com/
+set name=org.opensolaris.arc-caseid value=LSARC/2008/322
+set name=pkg.human-version value=2.14
+set name=info.classification value=org.opensolaris.category.2008:Applications/Internet
+set name=pkg.summary value="Text based web browser"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.consolidation value=userland
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.version value=2.14
+set name=com.oracle.info.tpno value=34022
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.name value=links
+set name=com.oracle.info.description value="the links text based web browser"
+depend fmri=pkg:/library/libevent@2.0.22-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/compress/xz@5.2.3-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/compress/bzip2@1.0.6-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/security/openssl@1.0.2.15-11.4.0.0.1.13.0 predicate=pkg:/library/security/openssl/openssl-fips-140@2.0.13-11.4.0.0.1.13.0 type=conditional
+depend fmri=pkg:/library/zlib@1.2.11-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/library/security/openssl/openssl-fips-140@2.0.13-11.4.0.0.1.13.0 fmri=pkg:/library/security/openssl@1.0.2.15-11.4.0.0.1.13.0 type=require-any
+file d09629b0bde09fc824dfefb357a18e3794cb2885 chash=a08a3e73198a000f198f836c3e903e943c8bcf50 elfarch=i386 elfbits=64 elfhash=b6b63f558692622e33a4ffaef426da5a50832223 group=bin mode=0555 owner=root path=usr/bin/links pkg.content-hash=gelf:sha512t_256:2437e11691baeb9cbbfe268ec435c93ea86ae41552263e69ff11492352fefc40 pkg.content-hash=gelf.unsigned:sha512t_256:e7a9f39dfc4fccb327e03d628b4ff759325627dfa50ad1c0956bb366aa43a4d8 pkg.content-hash=file:sha512t_256:1930b40a4c64dbdbbc63f6ca615dcbbc5384fb8f45456607e0d507ebfc0cf8b6 pkg.content-hash=gzip:sha512t_256:27ab1095e08e85dc568ea8180191dc750ed70269e08026c9322e2cf7caa1d1ff pkg.csize=646986 pkg.size=1735656 variant.arch=i386
+file c0d6a7358d0ed55aef873adc7ba51393eed1f187 chash=2a3addb4a5426eead87fd7d9dc79ddd2f6ae2b4d elfarch=sparc elfbits=64 elfhash=1010c99c3ba5670a52d6efdfb8d68a05c6a4c298 group=bin mode=0555 owner=root path=usr/bin/links pkg.content-hash=gelf:sha512t_256:9734b620913df0840cc96240fc313dc6cf5604e45a4f77f8a5dfd19f5d604938 pkg.content-hash=gelf.unsigned:sha512t_256:30dff785190aa23b6faea2c7d73963d0d839de3459a0ba2b4043b202f2a6f651 pkg.content-hash=file:sha512t_256:90874b5fb6d828e214c848f314ce23226b8061e6e8dc395bbc6dfe6220eb832e pkg.content-hash=gzip:sha512t_256:a182b46d97ce5cfa1caa96850069e623a7ffd627e18aeda788be74c85ad0da06 pkg.csize=655466 pkg.size=1807656 variant.arch=sparc
+file f9e4b4322dd121d6d0deadbc60bbeb78d6b224d2 chash=e4374acc661992df3e90c650f37ef858d0509a5f facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/links.1 pkg.content-hash=file:sha512t_256:d56285fb48d338594bcd6dfed2bc3fbec8b2c045efaa0ad328057232bc9520be pkg.content-hash=gzip:sha512t_256:e6dd484bb3f573503b89f237b08ea7080f40e34dae15185e09e1551ed71be485 pkg.csize=6159 pkg.size=16671
+license 6400b98926b3b677544b3bf5c69554ae89163be1 chash=8e1e87a7572ce80f31a4f84b2b3b5b2809f52e7d license=GPLv2 pkg.content-hash=file:sha512t_256:9d624fa3c4450c1e658b778578d1e5cfa1dc91366b7de430572b8584a8582b03 pkg.content-hash=gzip:sha512t_256:0f3967e9997a523ed8ff5dbdd87c176441ca7d5e0ebc9f8f76948bfc12a7d027 pkg.csize=7043 pkg.size=18821
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=0b53aa01118ca8d930e91d450a9796314a521f6c92c4dcc8067c19db11c73951aefc5f3b02e6a4373b53211fe378aa88547a1d5089939150081946b7ae41bf24a79407aa0f298620829333e0f63157df689fd1bff7e4006072c13b8be6b219abde6d3c0daeb0a077671015cf20b39a4de3bed7c4ea666124bc3e8292441cbd1028dfccda13106137892f6fb4c329b60479df4762cfc225d8bb155c312a8a7de1cf5a471aef24c94decd53c3a8cc058900115734b2ccbe66db1c457df64eb2b3e7dc771e247ac4b787ad4997af61e4a1d3dbe56bf2a61f4904ba25c37ef73baeedebeb944efb89c1f38c3efe1f85de7a3d4a178a40aecc91feae0c7040f39da71 version=0

@@ -1,0 +1,22 @@
+set name=pkg.fmri value=pkg://solaris/driver/audio/audioixp@11.4,5.11-11.4.0.0.1.15.0:20180817T002415Z
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Media
+set name=org.opensolaris.consolidation value=osnet
+set name=pkg.description value="Audio device driver for ATI IXP400 southbridge integrated audio device."
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=pkg.summary value="ATI IXP audio driver"
+set name=variant.arch value=i386
+set name=variant.debug.osnet value=true value=false
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=pkg:/system/io/audio@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv/amd64 variant.opensolaris.zone=global
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man4d
+file c1a71edee598e9ebdb0aefe80fc6f402b837fd8b chash=6f003b4321132a0008d7f91b73105223f66c06ef facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4d/audioixp.4d pkg.content-hash=file:sha512t_256:546ebe9a044d4b02a214587868b7a0e47232635482da40adc8627b278bcdbf62 pkg.content-hash=gzip:sha512t_256:2cb143ad304eaf86f758fd634dd38b5e53f1ded325c86d4765f4b25e38a8a2d2 pkg.csize=663 pkg.size=1217
+file f28b5100d08b63f8f0877f6eb90f21e027afe351 chash=805d61244f084e69c73f7837db5105e9abfcb6ee elfarch=i386 elfbits=64 elfhash=648cec47cb50b14e17a5fe83545a9a22dadd697a group=sys mode=0755 owner=root path=kernel/drv/amd64/audioixp pkg.content-hash=gelf:sha512t_256:13dee509e37b53a18ec9aa9d1b57930d563c3b04f86d65043b61c12def2d96de pkg.content-hash=gelf.unsigned:sha512t_256:13dee509e37b53a18ec9aa9d1b57930d563c3b04f86d65043b61c12def2d96de pkg.content-hash=file:sha512t_256:cbd547707fa099058206412c0030dd18d35ce3d935b4c06563b792f305b92263 pkg.content-hash=gzip:sha512t_256:1ab92576f27a4fda834c23300d0ce87bed1cf9bb850c1c87f690dc771c7a6511 pkg.csize=6836 pkg.size=20720 reboot-needed=true variant.debug.osnet=true variant.opensolaris.zone=global
+file f0569c841b149d01767c3e21c2bf2b2fa2370648 chash=4d84905ababd5b27fcf5b024381a3955708c82d4 elfarch=i386 elfbits=64 elfhash=a58c873a7c2c7866a934b9d5e0417f6e37c15255 group=sys mode=0755 owner=root path=kernel/drv/amd64/audioixp pkg.content-hash=gelf:sha512t_256:3a55341eba9c885704211f872c192b6386f5cd85071814a459390be769e8a750 pkg.content-hash=gelf.unsigned:sha512t_256:3a55341eba9c885704211f872c192b6386f5cd85071814a459390be769e8a750 pkg.content-hash=file:sha512t_256:0885ea02c918be7d6cd75113cbd079a210f178936054d0cad1dc97c6a3d46224 pkg.content-hash=gzip:sha512t_256:79e7d5713789e8078068827df52cbd875a448cb28d6102ff5fb72e9627ead827 pkg.csize=6679 pkg.size=20080 reboot-needed=true variant.debug.osnet=false variant.opensolaris.zone=global
+driver alias=pci1002,4341 alias=pci1002,4361 alias=pci1002,4370 name=audioixp variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+legacy arch=i386 category=system desc="SunOS audio device driver for ATI IXP integrated audio hardware" hotline="Please contact your local service provider" name="SUNW Audio Driver for ATI IXP" pkg=SUNWadixp vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=2f42574b801c571900921778fa5b034ebfd5ed931d5ae806228bb20fa007c829c77300b0ae0cb527e00adf66680b902e51a9682705f7324691f052fe8901c96a401b282608bbe4bd8a1add4c974d5055bbf061f580915f730fe3d2b99a527c0eae642467832063ccae14c13f8abdc9f1a283dd3c2d9a8ab313ce95a38026b78339950c19e249d41641eef2aed157738a372866f2a6fb467c72e5503d43c19475889c1016d0573217aaa3a4cd53ac2940aac195ed614260991bb3c39961ab98287800f823e2495a0f91f7d17409e717cd55bd95e3e390aa9ce5d40b631945e37903e305ed69575ce6dab044807a102564a857b01d4b77a6a3783de52021424e8e version=0

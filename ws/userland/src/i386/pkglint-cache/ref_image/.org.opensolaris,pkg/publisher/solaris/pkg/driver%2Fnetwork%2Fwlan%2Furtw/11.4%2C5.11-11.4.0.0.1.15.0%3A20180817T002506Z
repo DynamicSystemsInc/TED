@@ -1,0 +1,28 @@
+set name=pkg.fmri value=pkg://solaris/driver/network/wlan/urtw@11.4,5.11-11.4.0.0.1.15.0:20180817T002506Z
+set name=com.oracle.info.tpno value=5908
+set name=variant.debug.osnet value=true value=false
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=com.oracle.info.version value=1.23
+set name=org.opensolaris.consolidation value=osnet
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Networking
+set name=variant.arch value=i386
+set name=com.oracle.info.description value="driver for RealTek  RTL8187L/RTL8187B USB Wireless devices"
+set name=pkg.description value="Wireless network device driver for Realtek RTL8187L/B chipset-based USB 802.11b/g NICs."
+set name=pkg.summary value="Realtek RTL8187L/B USB wireless NIC driver"
+set name=com.oracle.info.name value=urtw
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+depend fmri=pkg:/system/kernel@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=pkg:/system/io/usb@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv/amd64 variant.opensolaris.zone=global
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man4d
+file c5357f15d507e6b7e639326a269dd9eeaba351d6 chash=dcd0ff60bedae69b99e8df025649ad84ce7e94cb facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4d/urtw.4d pkg.content-hash=file:sha512t_256:e50c35868ee558de396589d3ead89e67e25863faac0d1cc8b5a41f2add223ada pkg.content-hash=gzip:sha512t_256:dbeceb5f243323433cd4f91d69c48da1fdd23359f6967bc14bee22996788ed49 pkg.csize=876 pkg.size=1571
+file ad1da8b7723c03e61c806fe9f87d98ff86935841 chash=01aca5a58256d2c6050d8de1143f2c6bcf956e4e elfarch=i386 elfbits=64 elfhash=a2192889f5fdd0ba1f7cac38a2f55a4bb1c05248 group=sys mode=0755 owner=root path=kernel/drv/amd64/urtw pkg.content-hash=gelf:sha512t_256:c940361f449f4a0bf5542d34124a8c824227985a5e535d2280ec9eb8e3182bd4 pkg.content-hash=gelf.unsigned:sha512t_256:c940361f449f4a0bf5542d34124a8c824227985a5e535d2280ec9eb8e3182bd4 pkg.content-hash=file:sha512t_256:61eb494776abe1f36c85e0fc350be27a64c027095f98643f3e605fbe0271d02d pkg.content-hash=gzip:sha512t_256:ea216550d3b76031349f7b7cea56d7acfe4284618e4902f29270a5bb97e43cb4 pkg.csize=35249 pkg.size=79336 reboot-needed=true variant.debug.osnet=true variant.opensolaris.zone=global
+file 588b8b23972a21f52c9dbe8a019c1621f72fc886 chash=2417806e54788e4cba09e96ad27979d9df610c2e elfarch=i386 elfbits=64 elfhash=e381053fec45d96b1db83c6bca96b94bc421f188 group=sys mode=0755 owner=root path=kernel/drv/amd64/urtw pkg.content-hash=gelf:sha512t_256:6c222a6375032c7c8e2fe73aae2d5ad3a7fa2192832873101c28a1b17df760e5 pkg.content-hash=gelf.unsigned:sha512t_256:6c222a6375032c7c8e2fe73aae2d5ad3a7fa2192832873101c28a1b17df760e5 pkg.content-hash=file:sha512t_256:3ba63583f791e1be4a508c3a86082fff5b5b3a1190a55685abdd59be21624660 pkg.content-hash=gzip:sha512t_256:bd986ce4bf0898bcffd23a9a217e01af7086e4e03079e3f8ccc4d6bca4a194f6 pkg.csize=32599 pkg.size=68992 reboot-needed=true variant.debug.osnet=false variant.opensolaris.zone=global
+driver alias=usb50d,705e alias=usb769,11f2 alias=usb789,10c alias=usb846,4260 alias=usb846,6a00 alias=usbbda,8187 alias=usbbda,8189 alias=usbbda,8197 alias=usbbda,8198 alias=usbdf6,28 alias=usb114b,150 alias=usb1371,9401 clone_perms="urtw 0666 root sys" name=urtw perms="* 0666 root sys" variant.opensolaris.zone=global
+license 9842bbf3bf5f43dd26f42ee151c6ca3936220223 chash=b6bd357d45aab8d506df2f8eac797f1f500a6488 license=usr/src/uts/common/io/urtw/THIRDPARTYLICENSE pkg.content-hash=file:sha512t_256:da5e5fc16d7f86081541810cf860cd0c99749e4ca68412054f1cb28494b6667a pkg.content-hash=gzip:sha512t_256:53c69267ede2fb2c39eac114a083dfb9151c5caae928e00b6d79f253c3fc0d29 pkg.csize=917 pkg.size=1789
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+legacy arch=i386 category=system desc="RealTek RTL8187L/B USB 802.11b/g Wireless Driver" hotline="Please contact your local service provider" name="RealTek RTL8187L/B USB 802.11b/g Wireless Driver" pkg=SUNWurtw vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=775f8ddb0ac4a05fe423f8a2ca5aa2b49e67f18f31546219be62153ee20cc84871440cc03e2224f14aabd616154bd0a80002c64fef8f65b84f3615a145a82db441f2c003ee52e8d24682137d750f99c4fa8c868e06dd5dbaac6b88bd14a71a90089306c9af6390d3408f7e072925d2ba196aa8d68f5c3f9ca0955735938e5e0e268c1bfae7c2e9e67fe1f2a1c746e794349a6b3f800c3320ca1f97a299bc7aeddbc229c60be65b6e4b6de5bb4d633bcfb1e31db1604d85efbf7069899f19e67c1a2cd348c6cd4a9d602f04ba935d2cc0a30663c609a08e46ab4e1b886dbaa29ff14c17428f6666f4206e309d8b10b3995f473bac7acb5b28a376edf5efe5621c version=0

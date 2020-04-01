@@ -1,0 +1,28 @@
+set name=pkg.fmri value=pkg://solaris/security/pinentry-gtk@0.9.7,5.11-11.4.0.0.1.14.0:20180814T172305Z
+set name=pkg.summary value="A small X11 utility for entering passwords."
+set name=pkg.description value="A X11 (GTK toolkit) dialog program that allows GnuPG to read passphrases and PIN numbers in a secure manner."
+set name=com.oracle.info.name value=pinentry
+set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
+set name=info.source-url value=https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-0.9.7.tar.bz2
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.consolidation value=userland
+set name=info.upstream-url value=http://www.gnupg.org/related_software/pinentry/
+set name=com.oracle.info.version value=0.9.7
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.tpno value=26271
+set name=org.opensolaris.arc-caseid value=PSARC/2009/397
+set name=com.oracle.info.description value="pinentry utility for X11 GTK"
+set name=variant.arch value=i386 value=sparc
+depend fmri=crypto/gnupg@2.0.17-0.169 type=optional
+depend fmri=pkg:/library/desktop/gtk2@2.24.31-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/glib2@2.52.0-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/security/libassuan@2.4.3-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/security/libgpg-error@1.27-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/security/pinentry@0.9.7-11.4.0.0.1.14.0 pkg.debug.reason=usr/lib/pinentry-gtk-2 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file 471cc072470c16bc170b98b9027f0ad415e289d4 chash=23ef56b45cd6ad6aee0b0c253878ec891e89d5e0 elfarch=sparc elfbits=64 elfhash=b13fea81334fd1d169799d826210b7109305ca75 group=bin mode=0555 owner=root path=usr/lib/pinentry-gtk-2 pkg.content-hash=gelf:sha512t_256:2ecbbd09e7668c5c4e76299689c39da281f49b3ee93a360537a6756264afbbb0 pkg.content-hash=gelf.unsigned:sha512t_256:039de736304446897ed2c4fc6ae93eb1c45e50a2b54cad958f010d0f2d1f18f9 pkg.content-hash=file:sha512t_256:d2d770dba9677faa756abdef11c6346f8c75fc5beacf4d7b6b33517b4dff9c6b pkg.content-hash=gzip:sha512t_256:08f53c2b3715406cbb9d21e47dba8af4a21c340e788c32cd5d2ea628b6b6d50d pkg.csize=50438 pkg.size=150032 variant.arch=sparc
+file 12c531283dac12aa8d9186a8f52ed14a4b99ffe0 chash=7e597464ff27ac74f9f5a5ae1e80a60d5147106e elfarch=i386 elfbits=64 elfhash=450c93b2c7c730720d504518a4028af8582429ad group=bin mode=0555 owner=root path=usr/lib/pinentry-gtk-2 pkg.content-hash=gelf:sha512t_256:10c90a5b020d170288bdeaa4bdf07446da5c961c1240cc4519c5efcce93f06e2 pkg.content-hash=gelf.unsigned:sha512t_256:ac566fdf7df0aaf66f66b93a77e95c5f1c8c7c7c2eb1daab23ec321e70d47395 pkg.content-hash=file:sha512t_256:b3d669d6053cb4a81932bda70b71c8049d0858dc4b619462aec443e8cf4ca967 pkg.content-hash=gzip:sha512t_256:cb5ecf82ba555448b7401b08b12d0c9acbb168dc1b151f3b0bfad94d3373d389 pkg.csize=45804 pkg.size=133248 variant.arch=i386
+link mediator=pinentry mediator-implementation=default mediator-priority=vendor path=usr/lib/pinentry target=pinentry-gtk-2
+license 5064f386824af149b45087ae8fc3ba9f83172e5a chash=7e52a1227a45ba1917a38617cc22ed31a9ae7397 license=GPLv2 pkg.content-hash=file:sha512t_256:261f8dd1246db681dd29ddb56cf57553cc8523ee54e3cb43db12a961f0db7ad9 pkg.content-hash=gzip:sha512t_256:4dd4fe843fd4c15896e2981a19850883d2efef7406ee56ebb0f8e1fc53556b7f pkg.csize=6879 pkg.size=18004
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=5ed439b0de61affe32b764f3d5cfc0d1949b5e8e98bbc392b9a981b8c47a8221bc4ca4d782c75f05f4df2d6374ad2f321c3a0ff0727934ca4e2c58a1249da82ec103021ae89280f9008f87ca537c8beb6e56c1384b367df89e8ffefc70fecd8da63d7239ea7478517a7c653a48a2fc2b504e2deb677aa5a83eaa0d74772a3a9170c44c9a872d8f2e7f216f65e8fd1f323e9dbd6e916b9fc20edeb0237b7d4df0cc48a01537dcd17afe59730ae59a278f32f7bf3c934f68d5937da4f6d0deea6511979c8ef36b572052bdbf0dfca948f9cafbb1a8e0e42ca361f1e5c1e1af810c10edad3e0fe60e2ff0d9b975e33beb642613097a35739f55a891e15b00a042b4 version=0

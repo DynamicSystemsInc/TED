@@ -1,0 +1,26 @@
+set name=pkg.fmri value=pkg://solaris/compress/pixz@1.0.6,5.11-11.4.0.0.1.14.0:20180814T153149Z
+set name=com.oracle.info.tpno value=27449
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.name value=pixz
+set name=pkg.summary value="parallel indexing version of XZ"
+set name=info.upstream-url value=https://github.com/vasi/pixz/
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.version value=1.0.6
+set name=info.source-url value=https://github.com/vasi/pixz/releases/download/v1.0.6/pixz-1.0.6.tar.gz
+set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=PSARC/2012/358
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.upstream value="Dave Vasilevsky <dave@vasilevsky.ca>"
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.description value="pixz compresses and decompresses files using multiple processors. If the input looks like a tar(1) archive, it also creates an index of all the files in the archive. This allows the extraction of only a small segment of the tarball, without needing to decompress the entire archive."
+set name=com.oracle.info.description value="parallel indexing version of XZ"
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/library/libarchive@3.3.1-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/compress/xz@5.2.3-11.4.0.0.1.13.0 type=require
+file 0cf6aa770118049ca4ce0e2859d40ff32e307515 chash=730022ce2c329005823b621b6fc30c4921c6b46f elfarch=sparc elfbits=64 elfhash=fc1984204425463cd6cea4856500f968f355240c group=bin mode=0555 owner=root path=usr/bin/pixz pkg.content-hash=gelf:sha512t_256:3d7db167d795a7185248356adba8ad3980cbbe0cf4407db7c0d2f17cb584be04 pkg.content-hash=gelf.unsigned:sha512t_256:1584e78b4b1be58efe67844e7ae26484442dfc5f9f68c93ed209e5f8718de16e pkg.content-hash=file:sha512t_256:b9332d26216c3653e5cc97a77b0b473baaf17f820e4adc13a52f7f7b3a913027 pkg.content-hash=gzip:sha512t_256:262c4c8ec98c3c453c782434c088a5b12e001cef33487a1a860229a6e7897b85 pkg.csize=33234 pkg.size=87656 variant.arch=sparc
+file f14340ed22c9003c0528c3580f6d45248cf58bee chash=53bfc070761488df3fb7e25033ff5c39b8629616 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/pixz.1 pkg.content-hash=file:sha512t_256:03649976f28efa3b7193d0d84e162e07a21fb8a4b18adcde8c0c3f78d2d55158 pkg.content-hash=gzip:sha512t_256:80238a12a82403a71775f6baf93e1fbcc7f445ff9105ef1b5d2a193cdbe7181b pkg.csize=1317 pkg.size=2818
+file 9989b5bd71d759b281491ee737b079441af2efae chash=242da4e44de583a62f424768880e008fbf52b6cd elfarch=i386 elfbits=64 elfhash=4fcd8877bf55e0e2d2768799098cd32b212b1c8b group=bin mode=0555 owner=root path=usr/bin/pixz pkg.content-hash=gelf:sha512t_256:37d851c11e8746ed36c3006b4c416e3a4e0904de048a45a03773cc9719c3ed20 pkg.content-hash=gelf.unsigned:sha512t_256:5b0c5bcebe841274fe451c55f26c087bc11711f3a7254016db78ab666dd7f860 pkg.content-hash=file:sha512t_256:9664a3c47ff870eae2260ccc3d5310fd7e5a30dc03db2d2fb09d0dbdc95f2a1a pkg.content-hash=gzip:sha512t_256:3cc379c43ed7bee21a7594b8afdbb48992996e32284101e65332e8436bf517c0 pkg.csize=29089 pkg.size=80672 variant.arch=i386
+license 7b7c7ab8daa25c1b35c4c213d4e2f0b287a49953 chash=374c820e6ff88a1fea3d2567af14695b3adbb9f6 license=BSD-like pkg.content-hash=file:sha512t_256:ab5a01a34e4cf182cc63fee8db6b321b121529954efa77b337a051ba9dbb9410 pkg.content-hash=gzip:sha512t_256:6d14c2b4c6b1f0fb8d7cefdffdd71b9d9fc3f77cdd1f6180b1edfef2cbd75b7b pkg.csize=693 pkg.size=1298
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=8db7e37a8c16f20bc1a72043f0ec26cccb45cfcb7ca1d462b8eefcb248a617c9b32d6603f39aa2bb3f32b63d3e5ef2664eed9e9aa6f0e9aa3235551bff3b83decf9d8e38be9f068563d11a1b119415c20cd1d9642f7de49fe5523788f8e16d9332a5799ffc860fc42c689ef73381ef9ef859797574e65178902db552df0c28d416e87a7f05ac7f3f55accf3628a3ffa21db5bd86a4571beb3eb485ed6a2c9c25a6215b88527468dc4af3293a561011e099fa335d3be96d03e2af2c24e9e027a3b0a5462177fd94f714b58747a6d93e85c50d753a861be9b6c9791cde469972c94528b41123f96fc272a07c3b415ac33a4b376f5ead93e74d1f9a8a4bc043b013 version=0

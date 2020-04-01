@@ -1,0 +1,72 @@
+set name=pkg.fmri value=pkg://solaris/database/oracle/instantclient/odbc-supplement-121@12.1.0.2.0,5.11-4:20171027T004526Z
+set name=pkg.summary value="Oracle Instant Client ODBC supplement"
+set name=info.classification value=org.opensolaris.category.2008:System/Databases
+set name=pkg.description value="This package provides dditional libraries for enabling ODBC applications with the Oracle Instant Client."
+set name=org.opensolaris.consolidation value=instantclient
+set name=variant.arch value=sparc value=i386
+depend fmri=pkg:/library/unixodbc@2.3.1-0.175.3.0.0.30.0 type=require
+depend fmri=consolidation/instantclient/instantclient-incorporation type=require
+depend fmri=pkg:/database/oracle/instantclient-121@12.1.0.2.0-4 type=require
+depend fmri=pkg:/system/library/math@0.5.11-0.175.3.13.0.1.0 type=require
+depend fmri=pkg:/system/library@0.5.11-0.175.3.25.0.1.0 type=require
+depend fmri=pkg:/system/linker@0.5.11-0.175.3.24.0.1.0 type=require
+depend fmri=pkg:/system/resource-mgmt/resource-pools@0.5.11-0.175.3.20.0.3.0 type=require
+dir group=bin mode=0755 owner=root path=usr/oracle
+dir group=bin mode=0755 owner=root path=usr/oracle/instantclient
+dir group=bin mode=0755 owner=root path=usr/oracle/instantclient/12.1
+dir group=bin mode=0755 owner=root path=usr/oracle/instantclient/12.1/help
+dir group=bin mode=0755 owner=root path=usr/oracle/instantclient/12.1/lib
+dir group=bin mode=0755 owner=root path=usr/oracle/instantclient/12.1/lib/amd64 variant.arch=i386
+dir group=bin mode=0755 owner=root path=usr/oracle/instantclient/12.1/lib/sparcv9 variant.arch=sparc
+file cdab2f3dba763e3db6219f7ce8be34e7c7388bc6 chash=38f030ee4f48eb7c180538ea8ff49d1aa7cb1c82 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/META-INF/MANIFEST.MF pkg.csize=89 pkg.size=71
+file 8cb938f28a07a96b9400099d8bde57c464c69b8f chash=3a3ff40e5a1a3e18c4d3bbacc8439224c772f918 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/cpyr.htm pkg.csize=2423 pkg.size=5620
+file 0ffb40ea083b5dc49cb845abf4ac389f8daa6174 chash=8154b7836709edd00595da7693086369a96ab1ac group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/img/odbcdrvarch.gif pkg.csize=16594 pkg.size=16950
+file 5cf10e6accc0d3ea73f7cc3638358bb6086b7a7c chash=d2d8d389f1ace6c1c8143b0c3df0f4a43a14ce85 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/blafdoc.css pkg.csize=1783 pkg.size=6126
+file f56b9c2efb1b18d5f27c789db86e4b837131a197 chash=c6819eb009851a13266a1e50ce49477bfeaa7413 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/img/odbcmodel.gif pkg.csize=12799 pkg.size=13107
+file 131d3001e3b81c7fc1614a71dd60d68e2e2298fd chash=e5718f6211055512cdc0589dc77268ecac72e9fd group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/img/setup_app.gif pkg.csize=26262 pkg.size=26457
+file 4a5310257b888cee2384f2af82c18f2d62b778db chash=d7fbdfc1d947a1951dade4acfdc641bc16f29435 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/img/setup_ora.gif pkg.csize=12970 pkg.size=13174
+file 53db579df2beaea39851cefdeeb2cb54712697ca chash=9f11bceac9a951eced557ad3bfd42a7a1ec9915b group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/img/setup_ssmig.gif pkg.csize=19746 pkg.size=19937
+file 7524f36c0f822f0a7147d4ec4e0746c53dbc9332 chash=8a8936fdb61fe85c84db3d3f39c227e41a4a4952 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/img/setup_work.gif pkg.csize=14282 pkg.size=14486
+file 8cccafa4996135278b6883895ad4bc1f95408b65 chash=fa4524fe7ae9ee32bb541b7fbc438af416334f06 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/img_text/odbcdrvarch.htm pkg.csize=1353 pkg.size=3315
+file 0b1759f51fef8ae84e84bc753590553cce4c15a2 chash=a82b7df03ace9cbfd6eb3f866254f8448a9534b5 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/img_text/odbcmodel.htm pkg.csize=792 pkg.size=1451
+file 54fb0310466da9c386ea14648fec8785791f450d chash=52664df612e7c9650e59b71c8bba649a2666f51a group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/img_text/setup_app.htm pkg.csize=711 pkg.size=1061
+file c7aff4aa7bddd9fce32ae3aed55958f716c81b72 chash=38d4eedecac5e8e5a5015eca9d26933463612c2d group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/img_text/setup_ora.htm pkg.csize=695 pkg.size=1043
+file 91e2af4306aeb846ddf0f46b1b23b8ccb5a76024 chash=4152d5742b2a59bf9896c26fdf17fef2fb7cdb0f group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/img_text/setup_ssmig.htm pkg.csize=708 pkg.size=1049
+file 037ec36cd2290103d24b5bd238fea5e25c836b9f chash=867a12e2e4d1f220d3ba564a068335a8e2cb8cf8 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/img_text/setup_work.htm pkg.csize=714 pkg.size=1057
+file 680ca3e115b78a70f1accd2f14c2f917d88d910d chash=ccc61f034f18cbeb72e0e2191ef17d0890e8d326 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/map.xml pkg.csize=1129 pkg.size=7389
+file c7114d4ec9954161bd031ce1fd1843062891c1a6 chash=b4315f79d907a84867c5544e1b6cb3f8d06d9b6d group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/oracle.gif pkg.csize=2054 pkg.size=2122
+file 1b1edbd59ff81d9595fe6cec2dd11777bd62bd21 chash=80dbdb0c5a75cb764cabe7fd13fe46cb62617f63 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/sqora.htm pkg.csize=43832 pkg.size=203275
+file c7f4142d8b91762553bf841aeb87320bb81300a4 chash=50d3a1ef623983ca1acd13f4f415660b03f092f0 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/ja/toc.htm pkg.csize=3015 pkg.size=9520
+file cdab2f3dba763e3db6219f7ce8be34e7c7388bc6 chash=38f030ee4f48eb7c180538ea8ff49d1aa7cb1c82 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/META-INF/MANIFEST.MF pkg.csize=89 pkg.size=71
+file 47bedebd625ec52271f2615834bc481b8c1e50e5 chash=0fd16b43525b8c4f41019125e3aa82b52fa5631c group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/blafdoc.css pkg.csize=1808 pkg.size=6181
+file b7722b9b6276ac451b633f4705b79bddd852f7ae chash=e8e1778ed946dc88084364204d800cfde1d2272a group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/cpyr.htm pkg.csize=1842 pkg.size=4649
+file 0ffb40ea083b5dc49cb845abf4ac389f8daa6174 chash=8154b7836709edd00595da7693086369a96ab1ac group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/img/odbcdrvarch.gif pkg.csize=16594 pkg.size=16950
+file f56b9c2efb1b18d5f27c789db86e4b837131a197 chash=c6819eb009851a13266a1e50ce49477bfeaa7413 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/img/odbcmodel.gif pkg.csize=12799 pkg.size=13107
+file 131d3001e3b81c7fc1614a71dd60d68e2e2298fd chash=e5718f6211055512cdc0589dc77268ecac72e9fd group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/img/setup_app.gif pkg.csize=26262 pkg.size=26457
+file 4a5310257b888cee2384f2af82c18f2d62b778db chash=d7fbdfc1d947a1951dade4acfdc641bc16f29435 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/img/setup_ora.gif pkg.csize=12970 pkg.size=13174
+file 53db579df2beaea39851cefdeeb2cb54712697ca chash=9f11bceac9a951eced557ad3bfd42a7a1ec9915b group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/img/setup_ssmig.gif pkg.csize=19746 pkg.size=19937
+file 7524f36c0f822f0a7147d4ec4e0746c53dbc9332 chash=8a8936fdb61fe85c84db3d3f39c227e41a4a4952 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/img/setup_work.gif pkg.csize=14282 pkg.size=14486
+file 80fefc7da96ac1c6bf994873ca4e63305433736b chash=6a9613315ab7df801c52047256a7adaeea962ea1 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/img_text/odbcdrvarch.htm pkg.csize=1169 pkg.size=2746
+file 767a737cee260febaf6e29a8db308630d9850215 chash=03fd1009f752742dd144d17f4ee1b528cbf6e977 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/img_text/odbcmodel.htm pkg.csize=691 pkg.size=1311
+file 60575e9ff59858304d8f7d97a3979c80da725e38 chash=f4d450a65954ac9938d1545a530909c4006f7e7b group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/img_text/setup_app.htm pkg.csize=604 pkg.size=1040
+file fe3387b69f5c8b3a9d6e81e65935bea5ff4222c9 chash=4e77abb41b2180adf04a51b2c4cd9b3bf4eed11b group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/img_text/setup_ora.htm pkg.csize=599 pkg.size=1035
+file 477c842fb1a00d8f6393d268f377cf903af97a19 chash=ffd1352d3c1ca70ed547b175d8a3371f413037f3 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/img_text/setup_ssmig.htm pkg.csize=611 pkg.size=1051
+file 10968f1b0c1ec40118739092f93f32324ac27af5 chash=75dfe749551addc863bdcbdece57fe8e770c2eed group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/img_text/setup_work.htm pkg.csize=616 pkg.size=1044
+file 2b496afd9d9cd03aacbb75a51cf0e88c543ce947 chash=6f5d2c5d64889002cae4d1ea425c1be4b0970f7e group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/map.xml pkg.csize=1137 pkg.size=7468
+file c7114d4ec9954161bd031ce1fd1843062891c1a6 chash=b4315f79d907a84867c5544e1b6cb3f8d06d9b6d group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/oracle.gif pkg.csize=2054 pkg.size=2122
+file 7ddc68d9cf291ffd9af7bb4bba87fe66a670d9be chash=21bcb956e5552c4c3bf0fed8fef58003154c4f36 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/sqora.htm pkg.csize=41240 pkg.size=180974
+file 7030a73bb2db2b5d400d0ede8bbfecd4ccd89b61 chash=886257d09447bc1eafa773b40b0421ed25e38e16 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/help/us/toc.htm pkg.csize=2688 pkg.size=9431
+file 31fbdc7e8d542d30c560df1ed8f52e139d0167a4 chash=bb47b054eb1d01dc4efc5fdfe10f51a2dcec153d group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.1/lib/odbc_update_ini.sh pkg.csize=1760 pkg.size=4236
+file 21edb8913d2c8537e03ea38e6890453f911f434b chash=c5809c7ff78335cad5416bb80de6126c34af15f7 elfarch=sparc elfbits=32 elfhash=17314e361a05753339768b6f1dab74b505709dd3 group=bin mode=0555 owner=root path=usr/oracle/instantclient/12.1/lib/libsqora.so.12.1 pkg.csize=316916 pkg.size=779952 variant.arch=sparc
+file 96e695657e10cf1e219642f259f71036ba82e943 chash=1c5a4f388a69243ead4732b6c8113278b71b2cc3 elfarch=sparc elfbits=64 elfhash=55baf3a2160cb18a5501daf543dfb16dc0aa1c50 group=bin mode=0555 owner=root path=usr/oracle/instantclient/12.1/lib/sparcv9/libsqora.so.12.1 pkg.csize=340624 pkg.size=886768 variant.arch=sparc
+file 7312ccbbd9be6f8d294d028f7b0c63ee5e467886 chash=870fea3137cfb2b8d0814946a3a9be627b532ab6 elfarch=i386 elfbits=32 elfhash=0b27cf9b0d5dfb0e6911026efea86becf000e351 group=bin mode=0555 owner=root path=usr/oracle/instantclient/12.1/lib/libsqora.so.12.1 pkg.csize=784326 pkg.size=3432736 variant.arch=i386
+file 83d1aaa1248f556882e8ebebea081ec703ec454c chash=69383181f6df75b7ba82ece5a501e5e7409222bc elfarch=i386 elfbits=64 elfhash=fb51842644c73ef2bfedd00247fc0d0402cea305 group=bin mode=0555 owner=root path=usr/oracle/instantclient/12.1/lib/amd64/libsqora.so.12.1 pkg.csize=904983 pkg.size=4105112 variant.arch=i386
+link path=usr/oracle/instantclient/12.1/lib/sparcv9/libsqora.so target=./libsqora.so.12.1 variant.arch=sparc
+link path=usr/oracle/instantclient/12.1/lib/sparcv9/libsqora.so.12 target=./libsqora.so.12.1 variant.arch=sparc
+link path=usr/oracle/instantclient/12.1/lib/libsqora.so target=./libsqora.so.12.1
+link path=usr/oracle/instantclient/12.1/lib/libsqora.so.12 target=./libsqora.so.12.1
+link path=usr/oracle/instantclient/12.1/lib/amd64/libsqora.so target=./libsqora.so.12.1 variant.arch=i386
+link path=usr/oracle/instantclient/12.1/lib/amd64/libsqora.so.12 target=./libsqora.so.12.1 variant.arch=i386
+license 00a39f951798d4d92ba08bbda4fbc649476beb9d chash=4d395ba9bb4af2376edc3005c9d91d5ceeeefcc0 license=cr_Sun pkg.csize=88 pkg.size=71
+set name=com.oracle.service.bugid value=25791608 value=26300939
+signature 235c7674d821032ae3eeda280c7837d1f1f4fdb5 algorithm=rsa-sha256 chain="8e422c1bb80b05f08f7a849f3d7ae90a976e048e 754665e03bd28ef63b05a416073eb6d649624781" chain.chashes="083e40bb50e6964834ebfd3c66b8720b46028068 f85dabbb0d56b37de3c3de98663dd8f27a12ff8e" chain.csizes="1273 1326" chain.sizes="1773 2061" chash=05654e46fc5cac3b9b9bd11c39512bc92bc85089 pkg.csize=1281 pkg.size=1753 value=082a64ed088cd12792684bf015c5ac4def8c0ebda3f643883c5f8a195b33a19a992533e08ce08e768631ee4bd292b74d8a456f370364521cbd47ef3c6befa1218a8c782399f1e35fb70a93063a1a95808971523b943577892f6ade31300f669001e88b6fbbf10c03bf41e249c78054f99e9a7b8aab0ab8da19336bc56addfb7320b31da63a103cb9218b93f7fd1d17faa46bc392b329595740d39de1a2a5b05026c5e6a9afbfdbe84cedc9083d94de4c31ce73261fca256085d55ffaf63a345cdccd74d955ee52986c499fafd084bd98303a65694df76314695da7f7d218f0a9fb7aa41ff6109d0c8934b1e7a811c2b1c7958555d282392e3cb1181af70e97c4 version=0

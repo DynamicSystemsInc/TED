@@ -1,0 +1,30 @@
+set name=pkg.fmri value=pkg://solaris/database/mysql-57/embedded@5.7.22,5.11-11.4.0.0.1.14.0:20180814T160227Z
+set name=variant.arch value=i386 value=sparc
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=info.source-url value=https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-boost-5.7.22.tar.gz
+set name=info.classification value=org.opensolaris.category.2008:Development/Databases
+set name=com.oracle.info.description value="MySQL 5.7 embedded library"
+set name=com.oracle.info.name value=mysql
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.arc-caseid value=PSARC/2015/501
+set name=com.oracle.info.tpno value=24164
+set name=com.oracle.info.version value=5.7.22
+set name=pkg.summary value="MySQL 5.7 embedded library"
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=info.upstream-url value=https://dev.mysql.com/
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/library/gcc/gcc-c-runtime@7.3.0-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library/gcc/gcc-c++-runtime@7.3.0-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+file fe4ee0b3b0ad96f76e567315d2553f1e59c6fe71 chash=66a7acea54126e3fd60c2920121283680951cd3b elfarch=sparc elfbits=64 elfhash=7f8ee19d5a13c1e2e9e7530fefb60539f28ec1db group=bin mode=0555 owner=root path=usr/mysql/5.7/lib/sparcv9/libmysqld.so.20.3.0 pkg.content-hash=gelf:sha512t_256:c2945360daadd991098390b62b71909248dd50fea96f96e34de4a77e7758e265 pkg.content-hash=gelf.unsigned:sha512t_256:4f8655f408e62eccc7f75a0b5303851d907fd162309909abaed27ef8b0a95144 pkg.content-hash=file:sha512t_256:d93d0dd57495bfb109e2445370b1856c7e456cb603ec75fa122282d65eb0d8a9 pkg.content-hash=gzip:sha512t_256:87401877288859dd9d610bcb2601a568cb050739ce0f1f0c26d53fde9cdc6b8d pkg.csize=65077912 pkg.size=195355648 variant.arch=sparc
+file 6244e0d3d745ea25c4799b951e869c0c6dcbba43 chash=12bc1ed3c27461ea775c445139fc82616c6a0b12 elfarch=i386 elfbits=64 elfhash=ec409cc15b1a188b4bd0d92f6f86ac26cc3721d7 group=bin mode=0555 owner=root path=usr/mysql/5.7/lib/amd64/libmysqld.so.20.3.0 pkg.content-hash=gelf:sha512t_256:8e71fed0234563890e9fe13c285626845ba80ef817917a6e782da82209aaf6fa pkg.content-hash=gelf.unsigned:sha512t_256:6cff4358c9f6b2fc3c201ea3ceac27bd39f37c0c192e772712083ed48f9e9263 pkg.content-hash=file:sha512t_256:66adbda719b81cf47aced42c0cc4d8a9aaa0bd97adabc92846aa05f1a127efbc pkg.content-hash=gzip:sha512t_256:491a451846abd0f21990a4ba943fab973a6e33cfce5849efac5bfcef32aea423 pkg.csize=63766228 pkg.size=202953568 variant.arch=i386
+link path=usr/mysql/5.7/lib/64 target=sparcv9 variant.arch=sparc
+link path=usr/mysql/5.7/lib/sparcv9/libmysqld.so.20 target=libmysqld.so.20.3.0 variant.arch=sparc
+link path=usr/mysql/5.7/lib/sparcv9/libmysqld.so target=libmysqld.so.20 variant.arch=sparc
+link path=usr/mysql/5.7/lib/amd64/libmysqld.so target=libmysqld.so.20 variant.arch=i386
+link path=usr/mysql/5.7/lib/64 target=amd64 variant.arch=i386
+link path=usr/mysql/5.7/lib/amd64/libmysqld.so.20 target=libmysqld.so.20.3.0 variant.arch=i386
+license 3cba29011be2b9d59f6204d6fa0a386b1b2dbd90 chash=4d9b19a4f30b4365cc346fbf602716834a8d8052 license="Boost Software License" pkg.content-hash=file:sha512t_256:61895d91bfc65e5ea3555286a3f6f96d38a32f97feababea10dcc9c68a1e2782 pkg.content-hash=gzip:sha512t_256:cac71f46291a4b90e1ff70940bdc58dc28a35aa92f9a4fa91a122d1f95cbbc03 pkg.csize=770 pkg.size=1338
+license 141a05dc3ea1cac4f6b33350048b917495881382 chash=86214325ed14bace45127e5568ed1c5f4a1fe174 license=GPLv2 pkg.content-hash=file:sha512t_256:4c933cf4bb58287160f76b8e5e1019fc7fe0407e141d01edbec941ebe8b855ba pkg.content-hash=gzip:sha512t_256:2b3ba89f8a66dd84b8e1b218fee36ed12cab37bb0dc6d3307f09c4848168ed65 pkg.csize=8641 pkg.size=24213
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=11b1422c4ef5f95b4c8dffed6bca29cb1a4ee33f30edaca91dbf4288f998b13d15b22f3e5fe827792f941dff64a62efc627e1d3a989b9bdd322f40b09ea9a6d55a9239d40b89a7b11e831f1328d6ddb10e4a6e002479f966d0ab5f4a4b6f299d6a93e12b427f92525cb9ce6c38c2c049c40ce42bcb3d0ca4902095ea39d67c22fa90e0d989056ab2ac0f0d8088a517397c4c83a3f6537625e1383dc35cafdba77d404c86c8210a91130d6268736d45515c26af6281f18e93df455a72dc0129527ef36f05ab7dafe1510e5b5e21f6b4af42722d87c3350337596ade5b884c04d0ce0573046b9308d1bf77032237521307e47c4d8d37ff3c4e529f2d14271cbfd8 version=0

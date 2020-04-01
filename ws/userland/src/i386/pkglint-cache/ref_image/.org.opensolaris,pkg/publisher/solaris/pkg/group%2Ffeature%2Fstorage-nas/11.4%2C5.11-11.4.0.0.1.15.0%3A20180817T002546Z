@@ -1,0 +1,14 @@
+set name=pkg.fmri value=pkg://solaris/group/feature/storage-nas@11.4,5.11-11.4.0.0.1.15.0:20180817T002546Z
+set name=variant.arch value=sparc value=i386
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=variant.debug.osnet value=true value=false
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Storage value="org.opensolaris.category.2008:Meta Packages/Group Packages"
+set name=org.opensolaris.consolidation value=osnet
+set name=pkg.summary value="Network attached storage group package"
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=system/storage/iscsi/iscsi-initiator type=group
+depend fmri=service/storage/virus-scan type=group
+depend fmri=service/file-system/nfs type=group
+depend fmri=service/file-system/smb type=group
+depend fmri=service/storage/ndmp type=group
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=352173c2764648ac56e4862b5c1ea23b14bea3005033b96d4d6b0512a3c8adf84d9e09e5007f4d61836408fe50430ffc59ea4b883722064369d6ca70f91f1448bbc9195fa315753ec600e8e59136a047162994d3d54a3f990621a39f500bcf8a01be66a31d53773f6d8e74755ce6cab4c81ee5027a556a4e7b983730c50b1ad41947e3f8357a0aa2828edc751fc229857ce76d1f6640e1b9a35721af7fcd52a93d65f52419ef37705bb37149afbed796531bf5ed07568f0560cb1973424d575c48eaaefa81410e8e160b0ecbc91fd661a2b589c01324d6b118eb1d76d057f66f0e3c8d37dd87c3ddaafc5e3cfda09045dea8384b8c181346811359938b146aa4 version=0

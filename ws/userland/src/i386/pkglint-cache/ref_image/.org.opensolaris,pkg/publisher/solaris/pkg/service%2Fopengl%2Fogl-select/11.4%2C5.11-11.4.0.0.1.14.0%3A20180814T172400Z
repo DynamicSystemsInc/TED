@@ -1,0 +1,74 @@
+set name=pkg.fmri value=pkg://solaris/service/opengl/ogl-select@11.4,5.11-11.4.0.0.1.14.0:20180814T172400Z
+set name=com.oracle.info.name value=ogl-select
+set name=pkg.summary value="ogl-select - boot time selection of OpenGL vendor files"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+set name=org.opensolaris.arc-caseid value=LSARC/2005/700
+set name=pkg.description value="ogl-select is a SMF service that determines at boot time which vendor supplied OpenGL headers and libraries will be used, based on the hardware and drivers installed in the system."
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.description value=ogl-select
+set name=com.oracle.info.version value=11.4
+set name=org.opensolaris.smf.fmri value=svc:/application/opengl/ogl-select:default value=svc:/application/opengl/ogl-select
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=variant.arch value=i386 value=sparc
+depend fmri=pkg:/x11/library/mesa type=require
+depend fmri=pkg:/shell/ksh93@93.21.1.20120801-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/core-os@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/diagnostic/constype type=require
+dir group=sys mode=0755 owner=root path=lib/svc/manifest/application/opengl
+file f5ef597294707e779df0b05f13cf53587307e9c1 chash=8ccdf3aa1bbb4e4b60df5841473abd74fe542379 group=bin mode=0555 owner=root path=lib/opengl/ogl_select/sun_vendor_select pkg.content-hash=file:sha512t_256:58bf83b00d269e1b9d07f1b2b9832b8b1b41a0451083ac3f70190e2b95d91eb5 pkg.content-hash=gzip:sha512t_256:2e3d37f0021b83907368ccdd933a82dafa960fd4775991b67dfe0e72e8d37d14 pkg.csize=1316 pkg.size=2735 restart_fmri=svc:/application/opengl/ogl-select:default variant.arch=sparc
+file b3013794f97e6677a98470af081b6a6091a14f0d chash=7aebf332358e7377934c09a15fdb3667f0b5f846 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/ogl-select.1 pkg.content-hash=file:sha512t_256:299f1c0e3e75ca1140675e60ccf6dd6e8fc29f2ec7160b8d6f110304db081eac pkg.content-hash=gzip:sha512t_256:14b7ec4b0399992f442bfbe9bf21f7ac34705e58fa268d0ef19de06e227f7084 pkg.csize=1891 pkg.size=4058
+file a8956dca30660fc38c752140ea61cbc6f6128c0b chash=5c30833250adc33606cfc0cac49b40e6f3587b8c group=bin mode=0555 owner=root path=lib/svc/method/ogl-select pkg.content-hash=file:sha512t_256:d24504fea8a9a1a9c3168742a7320cb19f3d4f4d6687baec9087280770c1c737 pkg.content-hash=gzip:sha512t_256:559e455699c1e5fff51daf6a193a0284fd0d741e3afcfaefbe19271c30728f3b pkg.csize=1682 pkg.size=3332
+file e74a9a8f13bcb9fe162f49351fb833f28fba9a21 chash=abe965b130b51e8eb162789bd33306c69767abea group=sys mode=0444 owner=root path=lib/svc/manifest/application/opengl/ogl-select.xml pkg.content-hash=file:sha512t_256:627dc862fa62d5606e67490f8599c832dcf9cfc5a59a3b1a80696aa199331994 pkg.content-hash=gzip:sha512t_256:774befa515a6563de58e3cde19d5cf2b9b5deb81b0aa8a552085506634f3c814 pkg.csize=1461 pkg.size=3190 restart_fmri=svc:/system/manifest-import:default
+file 26e4bad439fb46dce8c00cde7b0ed238e06371e8 chash=20305c2ba1ff427b84d82e92fb4ee8b1e56c70ed group=bin mode=0555 owner=root path=lib/opengl/ogl_select/mesa_vendor_select pkg.content-hash=file:sha512t_256:e29503c359ddb753ed2001c18e0e50b22eeca154fa102e2ffd110f11c891203e pkg.content-hash=gzip:sha512t_256:3f597a3cff95f81fddceca7b630ff10ace3476436ad16cb35510fe93c8bbb899 pkg.csize=1495 pkg.size=3761 restart_fmri=svc:/application/opengl/ogl-select:default
+file 652e70663ecb40793573eb3a6203c3e37a72ed24 chash=069f460bbe41434161016ae3058107e05fe3ff9f group=bin mode=0555 owner=root path=lib/opengl/ogl_select/nvidia_vendor_select pkg.content-hash=file:sha512t_256:3e0d293cec111363888e53c0542c9b7006a8260ba9e27fdbc54f3fec1d262010 pkg.content-hash=gzip:sha512t_256:b3a8e5af75f03e43affeee211a195f905fcff9e4d84314e4052603651c317f36 pkg.csize=1284 pkg.size=3180 restart_fmri=svc:/application/opengl/ogl-select:default variant.arch=i386
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/libGLESv1_CM.so.1 target=../../../../usr/lib/mesa/libGLESv1_CM.so.1
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/include/gl.h target=../../../../usr/include/mesa/gl.h
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/libGL.so.1 target=../../../../usr/lib/mesa/libGL.so.1
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/amd64/libGLESv2.so.2 target=../../../../../usr/lib/mesa/amd64/libGLESv2.so.2 variant.arch=i386
+link facet.devel=all path=usr/include/GL/glext.h target=../../../system/volatile/opengl/include/glext.h
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/amd64/libGLESv1_CM.so.1 target=../../../../../usr/lib/mesa/amd64/libGLESv1_CM.so.1 variant.arch=i386
+link facet.devel=all path=usr/include/GL/glx.h target=../../../system/volatile/opengl/include/glx.h
+link path=usr/X11/lib/GL target=../../lib/GL
+link path=usr/lib/amd64/libGL.so target=libGL.so.1 variant.arch=i386
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/server/libglx.so target=../../../../usr/lib/mesa/modules/extensions/libglx.so
+link path=usr/X11/lib/libGL.so.1 target=../../lib/GL/libGL.so.1
+link path=usr/lib/amd64/libGL.so.1 target=../GL/amd64/libGL.so.1 variant.arch=i386
+link path=usr/X11/lib/amd64/libGL.so target=libGL.so.1 variant.arch=i386
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/include/glext.h target=../../../../usr/include/mesa/glext.h
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/libEGL.so.1 target=../../../../usr/lib/mesa/libEGL.so.1
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/amd64/libEGL.so.1 target=../../../../../usr/lib/mesa/amd64/libEGL.so.1 variant.arch=i386
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/include/glxext.h target=../../../../usr/include/mesa/glxext.h
+link path=usr/X11/lib/amd64/libGL.so.1 target=../../../lib/GL/amd64/libGL.so.1 variant.arch=i386
+link path=usr/X11/lib/64 target=amd64 variant.arch=i386
+link facet.devel=all path=usr/include/GL/gl.h target=../../../system/volatile/opengl/include/gl.h
+link facet.devel=all path=usr/include/GL/glxext.h target=../../../system/volatile/opengl/include/glxext.h
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/amd64/libGL.so.1 target=../../../../../usr/lib/mesa/amd64/libGL.so.1 variant.arch=i386
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/64 target=amd64 variant.arch=i386
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/libGLESv2.so.2 target=../../../../usr/lib/mesa/libGLESv2.so.2
+link path=usr/X11/lib/libGL.so target=libGL.so.1
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/include/glx.h target=../../../../usr/include/mesa/glx.h
+link path=usr/lib/GL/sparcv9/libGL.so.1 target=../../../../system/volatile/opengl/lib/sparcv9/libGL.so.1 variant.arch=sparc
+link path=usr/lib/GL/sparcv9/libGL.so target=libGL.so.1 variant.arch=sparc
+link path=usr/lib/sparcv9/libGL.so.1 target=../GL/sparcv9/libGL.so.1 variant.arch=sparc
+link path=usr/lib/GL/64 target=sparcv9 variant.arch=sparc
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/sparcv9/libGL.so.1 target=../../../../../usr/lib/mesa/sparcv9/libGL.so.1 variant.arch=sparc
+link path=usr/lib/GL/64 target=amd64 variant.arch=i386
+link path=usr/lib/xorg/modules/extensions/libglx.so target=../../../../../system/volatile/opengl/server/libglx.so
+link path=usr/lib/GL/libGL.so target=libGL.so.1
+link path=usr/X11/lib/sparcv9/libGL.so target=libGL.so.1 variant.arch=sparc
+link path=usr/lib/GL/amd64/libGL.so target=libGL.so.1 variant.arch=i386
+link path=usr/lib/GL/amd64/libGL.so.1 target=../../../../system/volatile/opengl/lib/amd64/libGL.so.1 variant.arch=i386
+link path=usr/lib/GL/libGL.so.1 target=../../../system/volatile/opengl/lib/libGL.so.1
+link path=usr/X11/lib/64 target=sparcv9 variant.arch=sparc
+link path=usr/lib/libGL.so target=libGL.so.1
+link path=usr/X11/lib/sparcv9/libGL.so.1 target=../../../lib/GL/sparcv9/libGL.so.1 variant.arch=sparc
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/sparcv9/libEGL.so.1 target=../../../../../usr/lib/mesa/sparcv9/libEGL.so.1 variant.arch=sparc
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/64 target=sparcv9 variant.arch=sparc
+link path=usr/lib/libGL.so.1 target=GL/libGL.so.1
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/sparcv9/libGLESv2.so.2 target=../../../../../usr/lib/mesa/sparcv9/libGLESv2.so.2 variant.arch=sparc
+link path=usr/lib/sparcv9/libGL.so target=libGL.so.1 variant.arch=sparc
+link facet.optional.ogl-static-link=true path=system/volatile/opengl/lib/sparcv9/libGLESv1_CM.so.1 target=../../../../../usr/lib/mesa/sparcv9/libGLESv1_CM.so.1 variant.arch=sparc
+license 23ffa7dc0f4425d77687c8d5d5773ff842e84408 chash=0824fc1afaed05474b21a7f0e1f0f2947a7c00cd license=Oracle pkg.content-hash=file:sha512t_256:3a9e18847d1b95050e7057c722fca0088ecbab4b523f9bf1c4dcf1cc1ea2b984 pkg.content-hash=gzip:sha512t_256:1ac7f8c34c86aa77131b0835fecff570ae070ec3cbde5f934b2fbe296982f780 pkg.csize=700 pkg.size=1253
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=314b61b0529a954ad00509399c7e98c2759cc0be010c2a8ebd605c0e297b226cbe59560c89cb69b9b13226a235b425dd424ae82442661d53664c10770599ff969870d77b21a02a2e8e18f2e17cfa925ec54db27ac7fa2e6316ade5f8f635353ad1458084a401020f58092c281bac7637506dfe41d20355f288db6d6ddc8032e4e8a4fcb8e799135f31354dedad63fa0f75038cd90d705c112fd10c35037c33486229f43f56ce98a1bfac94ad9813f49c6541e7c947df2348e5bc45bf5e33ce16f04011c41c4b3064c740bc5c33c5fedc560fbd8f4206693c55bace44c850abda80eea791fe24285c7a9f45d740492d984a43a7d582f79c076e3649320a36df16 version=0

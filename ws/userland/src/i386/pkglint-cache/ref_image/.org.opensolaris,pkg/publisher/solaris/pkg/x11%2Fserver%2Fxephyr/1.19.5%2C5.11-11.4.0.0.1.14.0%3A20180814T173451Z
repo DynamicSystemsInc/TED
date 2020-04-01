@@ -1,0 +1,41 @@
+set name=pkg.fmri value=pkg://solaris/x11/server/xephyr@1.19.5,5.11-11.4.0.0.1.14.0:20180814T173451Z
+set name=com.oracle.info.tpno value=39514
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.upstream-url value=https://www.x.org
+set name=info.source-url value=https://www.x.org/releases/individual/xserver/xorg-server-1.19.5.tar.bz2
+set name=pkg.depend.runpath value=$PKGDEPEND_RUNPATH:usr/lib/mesa/sparcv9 variant.arch=sparc
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.version value=1.19.5
+set name=org.opensolaris.arc-caseid value=PSARC/2004/187 value=PSARC/2004/685 value=PSARC/2004/829 value=PSARC/2005/450 value=PSARC/2006/609 value=PSARC/2007/051 value=PSARC/2007/434 value=PSARC/2007/500 value=PSARC/2008/294 value=PSARC/2009/021 value=PSARC/2009/292 value=PSARC/2009/679 value=PSARC/2010/109 value=PSARC/2010/382 value=PSARC/2011/008 value=PSARC/2011/214 value=PSARC/2012/144 value=PSARC/2012/320 value=PSARC/2013/091 value=PSARC/2015/251 value=PSARC/2016/293 value=PSARC/2017/212
+set name=pkg.summary value="Xephyr - X server displaying to a window on a pre-existing X display"
+set name=com.oracle.info.name value=xorg-server
+set name=com.oracle.info.description value=xephyr
+set name=pkg.description value="Xephyr is a X11 server that outputs to a window on a pre-existing host X display. Think Xnest but with support for modern extensions like composite, damage and randr."
+set name=pkg.depend.runpath value=$PKGDEPEND_RUNPATH:usr/lib/mesa/amd64 variant.arch=i386
+set name=variant.arch value=i386 value=sparc
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+depend fmri=pkg:/system/hal@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/system/library/libdbus@1.10.22-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/graphics/pixman@0.34.0-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/keyboard/xkeyboard-config type=require
+depend fmri=pkg:/x11/library/xcb-util@0.4.0-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libxau@1.0.8-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/x11/keyboard/xkbcomp type=require
+depend fmri=pkg:/x11/library/mesa@13.0.6-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libxcb@1.12-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libxdmcp@1.1.2-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libxfont2@2.0.3-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library/security/crypto@11.4-11.4.0.0.1.12.2 type=require
+file 66a2729ff693b3310338814fa72b2e5d6f57aa2a chash=6bbcec3d09650cc7681288ff59bdba5d9adf0682 elfarch=i386 elfbits=64 elfhash=dedc07697a2bee710f92f981d137621270511bc8 group=bin mode=0555 owner=root path=usr/bin/Xephyr pkg.content-hash=gelf:sha512t_256:65d88c9b584db9adc642742562e1919fab921fcbc3b624c764a5d48ddcbf110e pkg.content-hash=gelf.unsigned:sha512t_256:9e833adb3d1aecf0b6568680f6f0c9ab7989b62a7493c283ee05228d1542db9f pkg.content-hash=file:sha512t_256:221c1790354094444fc7b5d0826232338170e98ba15a7c198f1116bb47c420d3 pkg.content-hash=gzip:sha512t_256:2c73a6690218397dc9a20f41cce273c8d44212d91e490c7c8a35c8ba244517b8 pkg.csize=1444091 pkg.size=5916832 variant.arch=i386
+file 689af00c66b6f22b97d70708442902be73cce39b chash=27025bf807558ce7149abe217fa6f07de8b16134 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/Xephyr.1 pkg.content-hash=file:sha512t_256:e57ae91b5f326bea9aa7a827742f8f8b90e964fe633c3bbb381636c43fcc85ad pkg.content-hash=gzip:sha512t_256:f4028be277f97c51895cfe878236704c3a11b239c9c3f7268ca4d63351193e9d pkg.csize=2020 pkg.size=3855
+file 4aeb9414bc04c25831c959033f101044839466c5 chash=1c44f3a82ee0570ce60e1928e5497a7e96ecf44b elfarch=sparc elfbits=64 elfhash=699aeee6dc1516fc0f617ce88eab6ad9663578cb group=bin mode=0555 owner=root path=usr/bin/Xephyr pkg.content-hash=gelf:sha512t_256:0742f90c5fade3fb43671f71e2e732da9869f62ab17eb3afbb5953a54fa3020f pkg.content-hash=gelf.unsigned:sha512t_256:84b3616a5c40979ca7a23e7ec353eac9418823f02ed1d94e6a85402b4390cc68 pkg.content-hash=file:sha512t_256:eae721ec75856e57d4a998bab094d08641e38c459a1f71de10aeb0f154771729 pkg.content-hash=gzip:sha512t_256:2f0ebbeea74971e7e3c9459bcdcf4d410eba3e3da72ed7e3ed6cafdd18424d31 pkg.csize=1872905 pkg.size=6973408 variant.arch=sparc
+link path=usr/bin/amd64/Xephyr target=../Xephyr variant.arch=i386
+link path=usr/lib/mdb/proc/amd64/Xephyr.so target=Xserver.so variant.arch=i386
+link path=usr/X11/bin/Xephyr target=../../bin/Xephyr
+link path=usr/lib/mdb/proc/sparcv9/Xephyr.so target=Xserver.so variant.arch=sparc
+license 27261c54ee01d58e496edf64e6730cc5948c6205 chash=d7f8657bc73615bae719c618956f75d9d78e76ad license=MIT pkg.content-hash=file:sha512t_256:e0a589ddecfd5b161fce0141d7864bf904d1af8e872828c0d2669e9ffb1b436e pkg.content-hash=gzip:sha512t_256:b3b6427e78bbd0fe10454b5244063d8af680f94b94d403f8e7d0f2d6dfcb75d9 pkg.csize=32082 pkg.size=483105
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=a74cc7d729413eb07354e419471413b4c42d9f2da509c32ef66a15d75cc734e690c324529284fd9282e63150d150e8f3c77ea1df6a23a8970869b08d0d3c66efe2857249d3a0c017b9695a5713d9cde4a9b109ca8cc9bce40c10e98465b4e94b1bf70fbbae7ae4ce32928c0fbdf832f0538cd2f95e0195a5e0b81360661f08aede073e556ef352a80d3982e54a77b297d0251d6498bb0abcd478d2af4808e7e3e7d4e3f7230ae3268293cbd45dddd5a67d917c5a441ed93a3b35bc505624f7b389b7233de7d7ab2dc03dcefbf24d7f5bc3f090f3bf923d72a5bf47c6e1fe57ef5d599bcd8141f2e09492c8a6b18d61b6e6abc778df73f46684f773dff75e2d4e version=0

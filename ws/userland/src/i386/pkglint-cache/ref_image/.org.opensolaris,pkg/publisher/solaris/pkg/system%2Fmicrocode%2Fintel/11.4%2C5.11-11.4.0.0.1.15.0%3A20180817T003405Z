@@ -1,0 +1,15 @@
+set name=pkg.fmri value=pkg://solaris/system/microcode/intel@11.4,5.11-11.4.0.0.1.15.0:20180817T003405Z
+set name=variant.debug.osnet value=true value=false
+set name=variant.arch value=i386
+set name=pkg.description value="Provides microcode update for Intel processors.  If the microcode version of the processors on the system is older than the one provided by this package, the microcode of the processors will be updated at boot time."
+set name=pkg.summary value="Microcode update file for Intel processors"
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=org.opensolaris.consolidation value=osnet
+set name=info.classification value=org.opensolaris.category.2008:System/Hardware
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+dir group=sys mode=0755 owner=root path=platform variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=platform/i86pc variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=platform/i86pc/ucode variant.opensolaris.zone=global
+file 42d7292af7d2c51bdb99b684c507b7cca0cab78d chash=f16931fc33d3d9b088d35e91a796c58e27938396 group=sys mode=0444 original_name=SUNWcakr:platform/i86pc/ucode/intel-ucode.txt owner=root path=platform/i86pc/ucode/intel-ucode.txt pkg.content-hash=file:sha512t_256:59d46532f10f2973438ffd42eaf1df9e2d03a460bec330293fb1aa0404d6831f pkg.content-hash=gzip:sha512t_256:d0ad66e7a6fdf0f2ffb941b15804414f9281b2f6cccc44989fbb65f3c6f6a3fa pkg.csize=3449674 pkg.size=7483163 preserve=true reboot-needed=true variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=a07d83d00ee78be603ecb6cf97d68a2bf90abe33a977af2b13cb5d5bcdc11795ac2efa28d170788b59b6a4350538c6f1718945812cc843bace73aa4c8cd3fdc80d5bcc2a6120307af79218c544e2521591af5d9adb912a46e2d20087b14f52775f824550f85cda195bea18efe0a7bf37a705e265b2a641d11740107ccd92d4c7a93188762a90674c5037fb2ede951a551b089a4528d011fcc8d77c0dfa838e5b34f4c04dee3b7764a072154c58ec5dd85ce692899db5f2aecd9f5afaad99f378ab6363de885e726eea9bbddd669d410053608577e1e28a2add6ba8c634e5d1b38ad16bfd070d384df25f6ef1006ebfc1583a64585e1e12b7330a65811a3473e8 version=0

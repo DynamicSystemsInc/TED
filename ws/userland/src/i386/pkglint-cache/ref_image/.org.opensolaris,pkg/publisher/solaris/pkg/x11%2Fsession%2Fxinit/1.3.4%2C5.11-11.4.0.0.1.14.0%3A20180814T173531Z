@@ -1,0 +1,38 @@
+set name=pkg.fmri value=pkg://solaris/x11/session/xinit@1.3.4,5.11-11.4.0.0.1.14.0:20180814T173531Z
+set name=variant.arch value=i386 value=sparc
+set name=info.source-url value=https://www.x.org/releases/individual/app/xinit-1.3.4.tar.bz2
+set name=pkg.description value="xinit and startx are used to start the X Window System server and clients when a display manager or other startup methods are not in use."
+set name=info.upstream-url value=https://www.x.org
+set name=com.oracle.info.version value=1.3.4
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=com.oracle.info.name value=xinit
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+set name=com.oracle.info.tpno value=39514
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=PSARC/2008/379 value=PSARC/2011/033
+set name=com.oracle.info.description value=xinit
+set name=pkg.summary value="xinit & startx - X Window System manual session startup"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+depend fmri=pkg:/system/keyboard/kbd_mode type=require
+depend fmri=pkg:/x11/library/libx11@1.6.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/desktop/window-manager/twm type=require
+depend fmri=pkg:/x11/session/xauth type=require
+depend fmri=pkg:/shell/ksh93@93.21.1.20120801-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/x11-server-utilities type=require
+depend fmri=pkg:/system/core-os@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/terminal/xterm type=require
+dir group=sys mode=0755 owner=root path=etc/X11
+dir group=sys mode=0755 owner=root path=etc/X11/xinit
+file ae1895c7febc70acfd1a7aeafada33b906db23d8 chash=0af63205969cebcd1eb0d9ae25f5fa4a913aaf61 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/startx.1 pkg.content-hash=file:sha512t_256:d7a28d0a83fa3c7dd08ef29dca7b5e707f7fe7c399644b818b20667ebbd189a7 pkg.content-hash=gzip:sha512t_256:9b142b2242f31d07a619e3f848c61890e88a4806bcba01563094121be441a4dd pkg.csize=2808 pkg.size=6457 variant.arch=sparc
+file f210e84d1ea0c298a0bc7e5db8706c573c8721e9 chash=0d19aad37e5e87675aad5241577b82b2eb9e9e0d elfarch=sparc elfbits=64 elfhash=06980aab1a2767d26355d01b04bc5ade350c77e0 group=bin mode=0555 owner=root path=usr/bin/xinit pkg.content-hash=gelf:sha512t_256:0aa98bb1509db4f48756e762f79d1de9812c8c7001df2bad59819cd3f8784362 pkg.content-hash=gelf.unsigned:sha512t_256:71231999a9c06e2ea24e54fcb21e3c4e99d1760fce91540871bacf2e7b8b3bbe pkg.content-hash=file:sha512t_256:d0aad1106862946142c734584456323d7910733e1841ad6d069c61b2f296f82e pkg.content-hash=gzip:sha512t_256:4d831ee05ddc4b0b65c3bd9349c7508075ce8a6e644e31c4e9057671386592c8 pkg.csize=11945 pkg.size=37552 variant.arch=sparc
+file 8cfe31eaffc74810b613c575d8149bf5c553df15 chash=048d7e165c7a7092799b856f3f41e4d59ba7a319 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/startx.1 pkg.content-hash=file:sha512t_256:c00437ee3b7095bf7473c7a13ce47f3db4493dc9b3bd7f040f4677685a66f194 pkg.content-hash=gzip:sha512t_256:06bbdba2426f789bd939625788d3bcc8ccd246dec99c7d2f7ae3917ace87d9db pkg.csize=2807 pkg.size=6453 variant.arch=i386
+file b382a4d08f45e5a425c0e2c0ab6bdf84572209cc chash=9ecfc3530381d7b0da70029c50f77d861f48ad20 group=bin mode=0555 owner=root path=usr/bin/startx pkg.content-hash=file:sha512t_256:2042679e9746d217389ef2c08694c09fe8fed77a6771be041b8aa0169d1cc2ba pkg.content-hash=gzip:sha512t_256:3d0d330e385ac1796e6d3375721106e93d846e8d35ab63b9de8e3939c77551a0 pkg.csize=1884 pkg.size=5059
+file dc5506a4c9d072f1ff014edc991b5317059350c4 chash=e2bcb5f0e681c81699cd53db763788dda0544088 elfarch=i386 elfbits=64 elfhash=a991104f0d77528b8e3af2d82941dd84d098aaf6 group=bin mode=0555 owner=root path=usr/bin/xinit pkg.content-hash=gelf:sha512t_256:7ae603e3340303099a95415efa457b32fb433aeafda08a37c8fea1125beacc51 pkg.content-hash=gelf.unsigned:sha512t_256:9fda2da25eed05a751bc17674fd7f9d31a3b69bf164d31e68b8abdd320e2b174 pkg.content-hash=file:sha512t_256:41bc418d13cdb9754858ef1ded8c89cefeb3ec8a12e696f4906b3218a0414158 pkg.content-hash=gzip:sha512t_256:5c6011d65f8a699fe7f6ef3de2c87ef0e5249f9b359d92b28251cabcc6bf07cf pkg.csize=10395 pkg.size=28328 variant.arch=i386
+file 74dcff62982292e9e57ea9b778c8bd8e87b51329 chash=e5902aec59026e1c5aa06b4dc289498e433f088c facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/xinit.1 pkg.content-hash=file:sha512t_256:0ea73600f2b04cb66a3526f34254490b145ab504c72ff9f63b8cf83bcf085c21 pkg.content-hash=gzip:sha512t_256:ef056f455c575038cc4426711071c2e4cfbd6d5d67aaa20f78ef15ae5e007b84 pkg.csize=3336 pkg.size=7782
+file 0b0ebcb1d14d7ff5a1db86da0725327cbaf0cda7 chash=1f360bd3f22999a761d5129311edac2c2100f7d8 group=bin mode=0444 owner=root path=etc/X11/xinit/xinitrc pkg.content-hash=file:sha512t_256:138e5f05e9b5978a69013aff13f35f196223a9aa0ba3c93dc60d609040cda256 pkg.content-hash=gzip:sha512t_256:14c3841227b993d96d661c4e22e78470220aaa2faea4e7e7393a60d0b265e655 pkg.csize=453 pkg.size=970 preserve=renamenew
+link path=usr/X11/bin/xinit target=../../bin/xinit
+link path=usr/X11/bin/startx target=../../bin/startx
+license 250db9d0bb70be7d9deaf3da89025047851703b9 chash=f94813826ef6714b3c775e8495970fec38515442 license=MIT pkg.content-hash=file:sha512t_256:90ec4452f23dd10c7a8a8f23178ff4521337bf15d1e72ca886b3391fc1394807 pkg.content-hash=gzip:sha512t_256:20b350e63673988ab6d9b8316a720e36a79759c49183bb626bbc3be88f51984d pkg.csize=966 pkg.size=2436
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=70f2caa685499f24d37a3c66481be53b55ae2e8d056fffc0dc3b6c7a559ba995ee4ecc69b2aa2a2c391d1277ea7152976fa571ff46afb4dcb03c6207d4e2c67402567f3bc8ceeca7aab3de24d058d75cdb4f8942b995d263b18ac5fb22c6e3b447f0c39fc8fc54c8309e77edc394ac530ee047595f41b5d00640d1f367d7e21c31413c7258b0a7bddf809b33c5a894f203cf2c87aaec8ce10d4b3e4d3dde67b147c05463f679e34234c972b09ffb6e31c5bbeec70a50fa94f697c9942f42004dd9ec81a89d63a4a14e7fed8fb7f171e5372754caf8a45ac287e6870ffcef66cf12d2d9fd05a3500445f7dd0468040836aa81a801416b7026fe90d7bd24b2e74b version=0

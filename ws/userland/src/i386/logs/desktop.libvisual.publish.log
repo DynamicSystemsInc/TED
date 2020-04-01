@@ -1,0 +1,1024 @@
+gmake: Entering directory '/ws/userland/src/components/desktop/libvisual'
+/bin/rm -f -r /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  libvisual-0.4.0.tar.gz
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 --strip=1 --backup --version-control=numbered < patches/libvisual-01-solaris.patch
+patching file libvisual/lv_types.h
+patching file configure.ac
+Hunk #2 succeeded at 89 (offset -17 lines).
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/.patched-libvisual-01-solaris.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 --strip=1 --backup --version-control=numbered < patches/libvisual-02-map.patch
+patching file libvisual/map.remove_all
+patching file map.remove_all
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/.patched-libvisual-02-map.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 --strip=1 --backup --version-control=numbered < patches/libvisual-03-amd64.patch
+patching file configure.ac
+Hunk #1 succeeded at 37 (offset 2 lines).
+Hunk #2 succeeded at 798 (offset 1 line).
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/.patched-libvisual-03-amd64.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 --strip=1 --backup --version-control=numbered < patches/libvisual-04-locale.patch
+patching file po/Makevars
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/.patched-libvisual-04-locale.patch
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/.patched
+(cd /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0; autoreconf -fiv)
+autoreconf: Entering directory `.'
+autoreconf: running: autopoint --force
+Copying file po/Makefile.in.in
+Copying file po/Makevars.template
+autoreconf: running: aclocal --force -I m4
+/usr/share/aclocal/aalib.m4:12: warning: underquoted definition of AM_PATH_AALIB
+/usr/share/aclocal/aalib.m4:12:   run info Automake 'Extending aclocal'
+/usr/share/aclocal/aalib.m4:12:   or see http://www.gnu.org/software/automake/manual/automake.html#Extending-aclocal
+configure.ac:294: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2661: _AC_LINK_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2678: AC_LINK_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2748: AC_RUN_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2764: AC_TRY_RUN is expanded from...
+configure.ac:294: the top level
+autoreconf: configure.ac: tracing
+configure.ac:294: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2661: _AC_LINK_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2678: AC_LINK_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2748: AC_RUN_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2764: AC_TRY_RUN is expanded from...
+configure.ac:294: the top level
+autoreconf: running: libtoolize --copy --force
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+/usr/share/aclocal/aalib.m4:12: warning: underquoted definition of AM_PATH_AALIB
+/usr/share/aclocal/aalib.m4:12:   run info Automake 'Extending aclocal'
+/usr/share/aclocal/aalib.m4:12:   or see http://www.gnu.org/software/automake/manual/automake.html#Extending-aclocal
+configure.ac:294: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2661: _AC_LINK_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2678: AC_LINK_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2748: AC_RUN_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2764: AC_TRY_RUN is expanded from...
+configure.ac:294: the top level
+autoreconf: running: /usr/bin/autoconf --force
+configure.ac:294: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2661: _AC_LINK_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2678: AC_LINK_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2748: AC_RUN_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2764: AC_TRY_RUN is expanded from...
+configure.ac:294: the top level
+autoreconf: running: /usr/bin/autoheader --force
+configure.ac:294: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2661: _AC_LINK_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2678: AC_LINK_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2748: AC_RUN_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2764: AC_TRY_RUN is expanded from...
+configure.ac:294: the top level
+autoreconf: running: automake --add-missing --copy --force-missing
+configure.ac:294: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2661: _AC_LINK_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2678: AC_LINK_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2748: AC_RUN_IFELSE is expanded from...
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:2764: AC_TRY_RUN is expanded from...
+configure.ac:294: the top level
+configure.ac:27: installing './compile'
+configure.ac:12: installing './missing'
+libvisual/Makefile.am:29: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+libvisual/Makefile.am: installing './depcomp'
+autoreconf: Leaving directory `.'
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/.prep
+(/bin/rm -f -rf /ws/userland/src/components/desktop/libvisual/build/i86 ; /bin/mkdir -p /ws/userland/src/components/desktop/libvisual/build/i86)
+(/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 /ws/userland/src/components/desktop/libvisual/build/i86)
+symlink cloning /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 to /ws/userland/src/components/desktop/libvisual/build/i86
+(cd /ws/userland/src/components/desktop/libvisual/build/i86 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/pkgconfig" CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++"  CC_FOR_BUILD="/usr/gcc/7/bin/gcc -m32" CXX_FOR_BUILD="/usr/gcc/7/bin/g++ -m32" CPPFLAGS="-m32" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m32 -O3 -mincoming-stack-boundary=2" CXXFLAGS="-m32 -O3 -mincoming-stack-boundary=2" LDFLAGS="" PATH=/usr/gnu/bin:/usr/bin:/usr/gnu/bin /bin/bash \
+	/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib   )
+checking for a BSD-compatible install... /usr/gnu/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/gnu/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking build system type... i386-pc-solaris2.11
+checking host system type... i386-pc-solaris2.11
+checking for gcc... /usr/gcc/7/bin/gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /usr/gcc/7/bin/gcc... gcc3
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for grep that handles long lines and -e... /usr/gnu/bin/grep
+checking for egrep... /usr/gnu/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking whether __i386 is declared... yes
+checking whether __amd64 is declared... no
+checking for Win32... no
+checking whether we are using the GNU C++ compiler... yes
+checking whether /usr/gcc/7/bin/g++ accepts -g... yes
+checking dependency style of /usr/gcc/7/bin/g++... gcc3
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking whether ln -s works... yes
+checking whether make sets $(MAKE)... (cached) yes
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/gnu/bin/sed
+checking for fgrep... /usr/gnu/bin/grep -F
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking the maximum length of command line arguments... 1572480
+checking how to convert i386-pc-solaris2.11 file names to i386-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert i386-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /usr/gcc/7/bin/gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/gnu/bin/dd
+checking how to truncate binary pipes... /usr/gnu/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/gcc/7/bin/gcc supports -fno-rtti -fno-exceptions... no
+checking for /usr/gcc/7/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/gcc static flag -static works... no
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/gcc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... yes
+checking whether a program can dlopen itself... yes
+checking whether a statically linked program can dlopen itself... yes
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking how to run the C++ preprocessor... /usr/gcc/7/bin/g++ -E
+checking for ld used by /usr/gcc/7/bin/g++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking for /usr/gcc/7/bin/g++ option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/g++ PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/g++ static flag -static works... no
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking for pkg-config... /usr/bin/pkg-config
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for ANSI C header files... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for sys/types.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking sys/sched.h usability... no
+checking sys/sched.h presence... no
+checking for sys/sched.h... no
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for size_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for ISO C99 varargs macros in C... yes
+checking for GNUC varargs macros... yes
+checking whether byte ordering is bigendian... no
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible realloc... (cached) yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking types of arguments for select... int,fd_set *,struct timeval *
+checking for gettimeofday... yes
+checking for usleep... yes
+checking for nanosleep... yes
+checking for select... yes
+checking for memset... yes
+checking for sqrt... yes
+checking for strdup... yes
+checking for strndup... yes
+checking for sysconf... yes
+checking for dlsym in -ldl... yes
+checking for sqrt in -lm... yes
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/gnu/bin/msgfmt
+checking for gmsgfmt... /usr/bin/gmsgfmt
+checking for xgettext... /usr/gnu/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for ld used by GCC... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for shared library run path origin... done
+checking whether NLS is requested... yes
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking whether to enable thread support... yes
+checking for thread implementation available... posix
+checking for pthread_create/pthread_join... yes
+checking thread related libraries... 
+checking size of short... 2
+checking size of int... 4
+checking size of long... 4
+checking size of size_t... 4
+checking for the appropriate definition for size_t... unsigned int
+checking whether to enable profiling... no
+checking whether to enable debug... no
+checking whether to enable extra optimizations... no
+checking whether to enable fast FP RNG... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating m4/Makefile
+config.status: creating po/Makefile.in
+config.status: WARNING:  'po/Makefile.in.in' seems to ignore the --datarootdir setting
+config.status: creating Makefile
+config.status: creating libvisual.pc
+config.status: creating libvisual/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing default-1 commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+config.status: executing libvisual/lvconfig.h commands
+
+=====================================================================
+LIBVISUAL, AN AUDIO VISUALISATION ABSTRACTION LIBRARY, VERSION 0.4.0
+=====================================================================
+
+install path                         : /usr/lib
+plugins base directory               : /usr/lib/libvisual-0.4
+compiler                             : /usr/gcc/7/bin/gcc
+debug enabled                        : no
+
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/build/i86/.configured
+(cd /ws/userland/src/components/desktop/libvisual/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86'
+Making all in m4
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86/m4'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86/m4'
+Making all in libvisual
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86/libvisual'
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_actor.lo -MD -MP -MF .deps/lv_actor.Tpo -c -o lv_actor.lo lv_actor.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_actor.lo -MD -MP -MF .deps/lv_actor.Tpo -c lv_actor.c  -fPIC -DPIC -o .libs/lv_actor.o
+mv -f .deps/lv_actor.Tpo .deps/lv_actor.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_input.lo -MD -MP -MF .deps/lv_input.Tpo -c -o lv_input.lo lv_input.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_input.lo -MD -MP -MF .deps/lv_input.Tpo -c lv_input.c  -fPIC -DPIC -o .libs/lv_input.o
+mv -f .deps/lv_input.Tpo .deps/lv_input.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_event.lo -MD -MP -MF .deps/lv_event.Tpo -c -o lv_event.lo lv_event.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_event.lo -MD -MP -MF .deps/lv_event.Tpo -c lv_event.c  -fPIC -DPIC -o .libs/lv_event.o
+mv -f .deps/lv_event.Tpo .deps/lv_event.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_bin.lo -MD -MP -MF .deps/lv_bin.Tpo -c -o lv_bin.lo lv_bin.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_bin.lo -MD -MP -MF .deps/lv_bin.Tpo -c lv_bin.c  -fPIC -DPIC -o .libs/lv_bin.o
+mv -f .deps/lv_bin.Tpo .deps/lv_bin.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_plugin.lo -MD -MP -MF .deps/lv_plugin.Tpo -c -o lv_plugin.lo lv_plugin.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_plugin.lo -MD -MP -MF .deps/lv_plugin.Tpo -c lv_plugin.c  -fPIC -DPIC -o .libs/lv_plugin.o
+mv -f .deps/lv_plugin.Tpo .deps/lv_plugin.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_video.lo -MD -MP -MF .deps/lv_video.Tpo -c -o lv_video.lo lv_video.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_video.lo -MD -MP -MF .deps/lv_video.Tpo -c lv_video.c  -fPIC -DPIC -o .libs/lv_video.o
+mv -f .deps/lv_video.Tpo .deps/lv_video.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_video_simd.lo -MD -MP -MF .deps/lv_video_simd.Tpo -c -o lv_video_simd.lo lv_video_simd.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_video_simd.lo -MD -MP -MF .deps/lv_video_simd.Tpo -c lv_video_simd.c  -fPIC -DPIC -o .libs/lv_video_simd.o
+mv -f .deps/lv_video_simd.Tpo .deps/lv_video_simd.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_mem.lo -MD -MP -MF .deps/lv_mem.Tpo -c -o lv_mem.lo lv_mem.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_mem.lo -MD -MP -MF .deps/lv_mem.Tpo -c lv_mem.c  -fPIC -DPIC -o .libs/lv_mem.o
+mv -f .deps/lv_mem.Tpo .deps/lv_mem.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_audio.lo -MD -MP -MF .deps/lv_audio.Tpo -c -o lv_audio.lo lv_audio.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_audio.lo -MD -MP -MF .deps/lv_audio.Tpo -c lv_audio.c  -fPIC -DPIC -o .libs/lv_audio.o
+mv -f .deps/lv_audio.Tpo .deps/lv_audio.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_fourier.lo -MD -MP -MF .deps/lv_fourier.Tpo -c -o lv_fourier.lo lv_fourier.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_fourier.lo -MD -MP -MF .deps/lv_fourier.Tpo -c lv_fourier.c  -fPIC -DPIC -o .libs/lv_fourier.o
+mv -f .deps/lv_fourier.Tpo .deps/lv_fourier.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_list.lo -MD -MP -MF .deps/lv_list.Tpo -c -o lv_list.lo lv_list.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_list.lo -MD -MP -MF .deps/lv_list.Tpo -c lv_list.c  -fPIC -DPIC -o .libs/lv_list.o
+mv -f .deps/lv_list.Tpo .deps/lv_list.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_log.lo -MD -MP -MF .deps/lv_log.Tpo -c -o lv_log.lo lv_log.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_log.lo -MD -MP -MF .deps/lv_log.Tpo -c lv_log.c  -fPIC -DPIC -o .libs/lv_log.o
+mv -f .deps/lv_log.Tpo .deps/lv_log.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_palette.lo -MD -MP -MF .deps/lv_palette.Tpo -c -o lv_palette.lo lv_palette.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_palette.lo -MD -MP -MF .deps/lv_palette.Tpo -c lv_palette.c  -fPIC -DPIC -o .libs/lv_palette.o
+mv -f .deps/lv_palette.Tpo .deps/lv_palette.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_libvisual.lo -MD -MP -MF .deps/lv_libvisual.Tpo -c -o lv_libvisual.lo lv_libvisual.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_libvisual.lo -MD -MP -MF .deps/lv_libvisual.Tpo -c lv_libvisual.c  -fPIC -DPIC -o .libs/lv_libvisual.o
+lv_libvisual.c: In function 'visual_init':
+lv_libvisual.c:315:2: warning: implicit declaration of function 'visual_cpu_initialize'; did you mean 'visual_mem_initialize'? [-Wimplicit-function-declaration]
+  visual_cpu_initialize ();
+  ^~~~~~~~~~~~~~~~~~~~~
+  visual_mem_initialize
+mv -f .deps/lv_libvisual.Tpo .deps/lv_libvisual.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_songinfo.lo -MD -MP -MF .deps/lv_songinfo.Tpo -c -o lv_songinfo.lo lv_songinfo.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_songinfo.lo -MD -MP -MF .deps/lv_songinfo.Tpo -c lv_songinfo.c  -fPIC -DPIC -o .libs/lv_songinfo.o
+mv -f .deps/lv_songinfo.Tpo .deps/lv_songinfo.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_morph.lo -MD -MP -MF .deps/lv_morph.Tpo -c -o lv_morph.lo lv_morph.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_morph.lo -MD -MP -MF .deps/lv_morph.Tpo -c lv_morph.c  -fPIC -DPIC -o .libs/lv_morph.o
+mv -f .deps/lv_morph.Tpo .deps/lv_morph.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_bmp.lo -MD -MP -MF .deps/lv_bmp.Tpo -c -o lv_bmp.lo lv_bmp.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_bmp.lo -MD -MP -MF .deps/lv_bmp.Tpo -c lv_bmp.c  -fPIC -DPIC -o .libs/lv_bmp.o
+mv -f .deps/lv_bmp.Tpo .deps/lv_bmp.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_param.lo -MD -MP -MF .deps/lv_param.Tpo -c -o lv_param.lo lv_param.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_param.lo -MD -MP -MF .deps/lv_param.Tpo -c lv_param.c  -fPIC -DPIC -o .libs/lv_param.o
+mv -f .deps/lv_param.Tpo .deps/lv_param.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_cpu.lo -MD -MP -MF .deps/lv_cpu.Tpo -c -o lv_cpu.lo lv_cpu.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_cpu.lo -MD -MP -MF .deps/lv_cpu.Tpo -c lv_cpu.c  -fPIC -DPIC -o .libs/lv_cpu.o
+In file included from lv_cpu.c:65:0:
+gettext.h:71:0: warning: "gettext_noop" redefined
+ #define gettext_noop(String) String
+ 
+gettext.h:49:0: note: this is the location of the previous definition
+ # define gettext_noop(Msgid) ((const char *) (Msgid))
+ 
+mv -f .deps/lv_cpu.Tpo .deps/lv_cpu.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_color.lo -MD -MP -MF .deps/lv_color.Tpo -c -o lv_color.lo lv_color.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_color.lo -MD -MP -MF .deps/lv_color.Tpo -c lv_color.c  -fPIC -DPIC -o .libs/lv_color.o
+lv_color.c: In function 'visual_color_to_uint32':
+lv_color.c:263:16: warning: result of '256 << 24' requires 34 bits to represent, but 'int' only has 32 bits [-Wshift-overflow=]
+  colors = (256 << 24) |
+                ^~
+mv -f .deps/lv_color.Tpo .deps/lv_color.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_time.lo -MD -MP -MF .deps/lv_time.Tpo -c -o lv_time.lo lv_time.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_time.lo -MD -MP -MF .deps/lv_time.Tpo -c lv_time.c  -fPIC -DPIC -o .libs/lv_time.o
+mv -f .deps/lv_time.Tpo .deps/lv_time.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_random.lo -MD -MP -MF .deps/lv_random.Tpo -c -o lv_random.lo lv_random.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_random.lo -MD -MP -MF .deps/lv_random.Tpo -c lv_random.c  -fPIC -DPIC -o .libs/lv_random.o
+mv -f .deps/lv_random.Tpo .deps/lv_random.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_error.lo -MD -MP -MF .deps/lv_error.Tpo -c -o lv_error.lo lv_error.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_error.lo -MD -MP -MF .deps/lv_error.Tpo -c lv_error.c  -fPIC -DPIC -o .libs/lv_error.o
+mv -f .deps/lv_error.Tpo .deps/lv_error.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_ui.lo -MD -MP -MF .deps/lv_ui.Tpo -c -o lv_ui.lo lv_ui.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_ui.lo -MD -MP -MF .deps/lv_ui.Tpo -c lv_ui.c  -fPIC -DPIC -o .libs/lv_ui.o
+mv -f .deps/lv_ui.Tpo .deps/lv_ui.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_thread.lo -MD -MP -MF .deps/lv_thread.Tpo -c -o lv_thread.lo lv_thread.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_thread.lo -MD -MP -MF .deps/lv_thread.Tpo -c lv_thread.c  -fPIC -DPIC -o .libs/lv_thread.o
+mv -f .deps/lv_thread.Tpo .deps/lv_thread.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_object.lo -MD -MP -MF .deps/lv_object.Tpo -c -o lv_object.lo lv_object.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_object.lo -MD -MP -MF .deps/lv_object.Tpo -c lv_object.c  -fPIC -DPIC -o .libs/lv_object.o
+mv -f .deps/lv_object.Tpo .deps/lv_object.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_transform.lo -MD -MP -MF .deps/lv_transform.Tpo -c -o lv_transform.lo lv_transform.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_transform.lo -MD -MP -MF .deps/lv_transform.Tpo -c lv_transform.c  -fPIC -DPIC -o .libs/lv_transform.o
+lv_transform.c: In function 'visual_transform_new':
+lv_transform.c:154:2: warning: implicit declaration of function 'visual_transform_init'; did you mean 'visual_transform_new'? [-Wimplicit-function-declaration]
+  visual_transform_init (transform, transformname);
+  ^~~~~~~~~~~~~~~~~~~~~
+  visual_transform_new
+mv -f .deps/lv_transform.Tpo .deps/lv_transform.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_rectangle.lo -MD -MP -MF .deps/lv_rectangle.Tpo -c -o lv_rectangle.lo lv_rectangle.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_rectangle.lo -MD -MP -MF .deps/lv_rectangle.Tpo -c lv_rectangle.c  -fPIC -DPIC -o .libs/lv_rectangle.o
+mv -f .deps/lv_rectangle.Tpo .deps/lv_rectangle.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_config.lo -MD -MP -MF .deps/lv_config.Tpo -c -o lv_config.lo lv_config.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_config.lo -MD -MP -MF .deps/lv_config.Tpo -c lv_config.c  -fPIC -DPIC -o .libs/lv_config.o
+mv -f .deps/lv_config.Tpo .deps/lv_config.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_ringbuffer.lo -MD -MP -MF .deps/lv_ringbuffer.Tpo -c -o lv_ringbuffer.lo lv_ringbuffer.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_ringbuffer.lo -MD -MP -MF .deps/lv_ringbuffer.Tpo -c lv_ringbuffer.c  -fPIC -DPIC -o .libs/lv_ringbuffer.o
+In file included from lv_ringbuffer.c:29:0:
+./gettext.h:71:0: warning: "gettext_noop" redefined
+ #define gettext_noop(String) String
+ 
+./gettext.h:49:0: note: this is the location of the previous definition
+ # define gettext_noop(Msgid) ((const char *) (Msgid))
+ 
+mv -f .deps/lv_ringbuffer.Tpo .deps/lv_ringbuffer.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_buffer.lo -MD -MP -MF .deps/lv_buffer.Tpo -c -o lv_buffer.lo lv_buffer.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_buffer.lo -MD -MP -MF .deps/lv_buffer.Tpo -c lv_buffer.c  -fPIC -DPIC -o .libs/lv_buffer.o
+mv -f .deps/lv_buffer.Tpo .deps/lv_buffer.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_cache.lo -MD -MP -MF .deps/lv_cache.Tpo -c -o lv_cache.lo lv_cache.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_cache.lo -MD -MP -MF .deps/lv_cache.Tpo -c lv_cache.c  -fPIC -DPIC -o .libs/lv_cache.o
+mv -f .deps/lv_cache.Tpo .deps/lv_cache.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_hashmap.lo -MD -MP -MF .deps/lv_hashmap.Tpo -c -o lv_hashmap.lo lv_hashmap.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_hashmap.lo -MD -MP -MF .deps/lv_hashmap.Tpo -c lv_hashmap.c  -fPIC -DPIC -o .libs/lv_hashmap.o
+mv -f .deps/lv_hashmap.Tpo .deps/lv_hashmap.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_hashlist.lo -MD -MP -MF .deps/lv_hashlist.Tpo -c -o lv_hashlist.lo lv_hashlist.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_hashlist.lo -MD -MP -MF .deps/lv_hashlist.Tpo -c lv_hashlist.c  -fPIC -DPIC -o .libs/lv_hashlist.o
+mv -f .deps/lv_hashlist.Tpo .deps/lv_hashlist.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_collection.lo -MD -MP -MF .deps/lv_collection.Tpo -c -o lv_collection.lo lv_collection.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_collection.lo -MD -MP -MF .deps/lv_collection.Tpo -c lv_collection.c  -fPIC -DPIC -o .libs/lv_collection.o
+mv -f .deps/lv_collection.Tpo .deps/lv_collection.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_utils.lo -MD -MP -MF .deps/lv_utils.Tpo -c -o lv_utils.lo lv_utils.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_utils.lo -MD -MP -MF .deps/lv_utils.Tpo -c lv_utils.c  -fPIC -DPIC -o .libs/lv_utils.o
+mv -f .deps/lv_utils.Tpo .deps/lv_utils.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_os.lo -MD -MP -MF .deps/lv_os.Tpo -c -o lv_os.lo lv_os.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_os.lo -MD -MP -MF .deps/lv_os.Tpo -c lv_os.c  -fPIC -DPIC -o .libs/lv_os.o
+mv -f .deps/lv_os.Tpo .deps/lv_os.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_math.lo -MD -MP -MF .deps/lv_math.Tpo -c -o lv_math.lo lv_math.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_math.lo -MD -MP -MF .deps/lv_math.Tpo -c lv_math.c  -fPIC -DPIC -o .libs/lv_math.o
+lv_math.c: In function 'visual_math_vectorized_multiplier_floats_const_float':
+lv_math.c:66:6: warning: implicit declaration of function 'visual_cpu_get_sse'; did you mean 'visual_mem_set32'? [-Wimplicit-function-declaration]
+  if (visual_cpu_get_sse () && n >= 16) {
+      ^~~~~~~~~~~~~~~~~~
+      visual_mem_set32
+lv_math.c:112:13: warning: implicit declaration of function 'visual_cpu_get_3dnow'; did you mean 'visual_object_new'? [-Wimplicit-function-declaration]
+  } else if (visual_cpu_get_3dnow ()) {
+             ^~~~~~~~~~~~~~~~~~~~
+             visual_object_new
+mv -f .deps/lv_math.Tpo .deps/lv_math.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m32 -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -MT lv_gl.lo -MD -MP -MF .deps/lv_gl.Tpo -c -o lv_gl.lo lv_gl.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m32 -DPLUGPATH=\"/usr/lib/libvisual-0.4\" -m32 -O3 -mincoming-stack-boundary=2 -MT lv_gl.lo -MD -MP -MF .deps/lv_gl.Tpo -c lv_gl.c  -fPIC -DPIC -o .libs/lv_gl.o
+mv -f .deps/lv_gl.Tpo .deps/lv_gl.Plo
+/bin/bash ../libtool  --tag=CC   --mode=link /usr/gcc/7/bin/gcc -DPLUGPATH="\"/usr/lib/libvisual-0.4\""  -m32 -O3 -mincoming-stack-boundary=2   -export-dynamic -no-undefined  -o libvisual-0.4.la -rpath /usr/lib lv_actor.lo lv_input.lo lv_event.lo lv_bin.lo lv_plugin.lo lv_video.lo lv_video_simd.lo lv_mem.lo lv_audio.lo lv_fourier.lo lv_list.lo lv_log.lo lv_palette.lo lv_libvisual.lo lv_songinfo.lo lv_morph.lo lv_bmp.lo lv_param.lo lv_cpu.lo lv_color.lo lv_time.lo lv_random.lo lv_error.lo lv_ui.lo lv_thread.lo lv_object.lo lv_transform.lo lv_rectangle.lo lv_config.lo lv_ringbuffer.lo lv_buffer.lo lv_cache.lo lv_hashmap.lo lv_hashlist.lo lv_collection.lo lv_utils.lo lv_os.lo lv_math.lo lv_gl.lo  -lm -ldl  -L. -L/usr/lib  
+libtool: link: /usr/gcc/7/bin/gcc -shared  -fPIC -DPIC -Wl,-z -Wl,text -Wl,-h -Wl,libvisual-0.4.so.0 -o .libs/libvisual-0.4.so.0.0.0  .libs/lv_actor.o .libs/lv_input.o .libs/lv_event.o .libs/lv_bin.o .libs/lv_plugin.o .libs/lv_video.o .libs/lv_video_simd.o .libs/lv_mem.o .libs/lv_audio.o .libs/lv_fourier.o .libs/lv_list.o .libs/lv_log.o .libs/lv_palette.o .libs/lv_libvisual.o .libs/lv_songinfo.o .libs/lv_morph.o .libs/lv_bmp.o .libs/lv_param.o .libs/lv_cpu.o .libs/lv_color.o .libs/lv_time.o .libs/lv_random.o .libs/lv_error.o .libs/lv_ui.o .libs/lv_thread.o .libs/lv_object.o .libs/lv_transform.o .libs/lv_rectangle.o .libs/lv_config.o .libs/lv_ringbuffer.o .libs/lv_buffer.o .libs/lv_cache.o .libs/lv_hashmap.o .libs/lv_hashlist.o .libs/lv_collection.o .libs/lv_utils.o .libs/lv_os.o .libs/lv_math.o .libs/lv_gl.o   -lm -ldl -L. -L/usr/lib  -m32 -O3 -mincoming-stack-boundary=2  
+libtool: link: (cd ".libs" && rm -f "libvisual-0.4.so.0" && ln -s "libvisual-0.4.so.0.0.0" "libvisual-0.4.so.0")
+libtool: link: (cd ".libs" && rm -f "libvisual-0.4.so" && ln -s "libvisual-0.4.so.0.0.0" "libvisual-0.4.so")
+libtool: link: ( cd ".libs" && rm -f "libvisual-0.4.la" && ln -s "../libvisual-0.4.la" "libvisual-0.4.la" )
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86/libvisual'
+Making all in po
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86/po'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86/po'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86'
+cp -f libvisual.pc libvisual-0.4.pc
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/build/i86/.built
+(/bin/rm -f -rf /ws/userland/src/components/desktop/libvisual/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/desktop/libvisual/build/amd64)
+(/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 /ws/userland/src/components/desktop/libvisual/build/amd64)
+symlink cloning /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 to /ws/userland/src/components/desktop/libvisual/build/amd64
+(cd /ws/userland/src/components/desktop/libvisual/build/amd64 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++" PATH="/usr/bin/amd64:/usr/bin:/usr/gnu/bin" CC_FOR_BUILD="/usr/gcc/7/bin/gcc -m64" CXX_FOR_BUILD="/usr/gcc/7/bin/g++ -m64" CPPFLAGS="-m64" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m64 -O3" CXXFLAGS="-m64 -O3" LDFLAGS="" PATH=/usr/gnu/bin:/usr/bin:/usr/gnu/bin /bin/bash \
+	/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin/amd64 --sbindir=/usr/sbin/amd64 --libdir=/usr/lib/amd64   )
+checking for a BSD-compatible install... /usr/gnu/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/gnu/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking build system type... x86_64-pc-solaris2.11
+checking host system type... x86_64-pc-solaris2.11
+checking for gcc... /usr/gcc/7/bin/gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /usr/gcc/7/bin/gcc... gcc3
+checking for Win32... no
+checking whether we are using the GNU C++ compiler... yes
+checking whether /usr/gcc/7/bin/g++ accepts -g... yes
+checking dependency style of /usr/gcc/7/bin/g++... gcc3
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking whether ln -s works... yes
+checking whether make sets $(MAKE)... (cached) yes
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/gnu/bin/sed
+checking for fgrep... /usr/gnu/bin/fgrep
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking the maximum length of command line arguments... 1572480
+checking how to convert x86_64-pc-solaris2.11 file names to x86_64-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert x86_64-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /usr/gcc/7/bin/gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/gnu/bin/dd
+checking how to truncate binary pipes... /usr/gnu/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/gcc/7/bin/gcc supports -fno-rtti -fno-exceptions... no
+checking for /usr/gcc/7/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/gcc static flag -static works... no
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/gcc linker (/usr/bin/ld -64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... yes
+checking whether a program can dlopen itself... yes
+checking whether a statically linked program can dlopen itself... yes
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking how to run the C++ preprocessor... /usr/gcc/7/bin/g++ -E
+checking for ld used by /usr/gcc/7/bin/g++... /usr/bin/ld -64
+checking if the linker (/usr/bin/ld -64) is GNU ld... no
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld -64) supports shared libraries... yes
+checking for /usr/gcc/7/bin/g++ option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/g++ PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/g++ static flag -static works... no
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld -64) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking for pkg-config... /usr/bin/pkg-config
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for ANSI C header files... no
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking sys/types.h usability... yes
+checking sys/types.h presence... yes
+checking for sys/types.h... yes
+checking stdlib.h usability... yes
+checking stdlib.h presence... yes
+checking for stdlib.h... yes
+checking string.h usability... yes
+checking string.h presence... yes
+checking for string.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking unistd.h usability... yes
+checking unistd.h presence... yes
+checking for unistd.h... yes
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking sys/sched.h usability... no
+checking sys/sched.h presence... no
+checking for sys/sched.h... no
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for size_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for ISO C99 varargs macros in C... yes
+checking for GNUC varargs macros... yes
+checking whether byte ordering is bigendian... no
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible realloc... (cached) yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking types of arguments for select... int,fd_set *,struct timeval *
+checking for gettimeofday... yes
+checking for usleep... yes
+checking for nanosleep... yes
+checking for select... yes
+checking for memset... yes
+checking for sqrt... yes
+checking for strdup... yes
+checking for strndup... yes
+checking for sysconf... yes
+checking for dlsym in -ldl... yes
+checking for sqrt in -lm... yes
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/gnu/bin/msgfmt
+checking for gmsgfmt... /usr/bin/gmsgfmt
+checking for xgettext... /usr/gnu/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for ld used by GCC... /usr/bin/ld -64
+checking if the linker (/usr/bin/ld -64) is GNU ld... no
+checking for shared library run path origin... done
+checking whether NLS is requested... yes
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking whether to enable thread support... yes
+checking for thread implementation available... posix
+checking for pthread_create/pthread_join... yes
+checking thread related libraries... 
+checking size of short... 2
+checking size of int... 4
+checking size of long... 8
+checking size of size_t... 8
+checking for the appropriate definition for size_t... unsigned long
+checking whether to enable profiling... no
+checking whether to enable debug... no
+checking whether to enable extra optimizations... no
+checking whether to enable fast FP RNG... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating m4/Makefile
+config.status: creating po/Makefile.in
+config.status: WARNING:  'po/Makefile.in.in' seems to ignore the --datarootdir setting
+config.status: creating Makefile
+config.status: creating libvisual.pc
+config.status: creating libvisual/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing default-1 commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+config.status: executing libvisual/lvconfig.h commands
+
+=====================================================================
+LIBVISUAL, AN AUDIO VISUALISATION ABSTRACTION LIBRARY, VERSION 0.4.0
+=====================================================================
+
+install path                         : /usr/lib
+plugins base directory               : /usr/lib/amd64/libvisual-0.4
+compiler                             : /usr/gcc/7/bin/gcc
+debug enabled                        : no
+
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/build/amd64/.configured
+(cd /ws/userland/src/components/desktop/libvisual/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64'
+Making all in m4
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64/m4'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64/m4'
+Making all in libvisual
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64/libvisual'
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_actor.lo -MD -MP -MF .deps/lv_actor.Tpo -c -o lv_actor.lo lv_actor.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_actor.lo -MD -MP -MF .deps/lv_actor.Tpo -c lv_actor.c  -fPIC -DPIC -o .libs/lv_actor.o
+mv -f .deps/lv_actor.Tpo .deps/lv_actor.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_input.lo -MD -MP -MF .deps/lv_input.Tpo -c -o lv_input.lo lv_input.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_input.lo -MD -MP -MF .deps/lv_input.Tpo -c lv_input.c  -fPIC -DPIC -o .libs/lv_input.o
+mv -f .deps/lv_input.Tpo .deps/lv_input.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_event.lo -MD -MP -MF .deps/lv_event.Tpo -c -o lv_event.lo lv_event.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_event.lo -MD -MP -MF .deps/lv_event.Tpo -c lv_event.c  -fPIC -DPIC -o .libs/lv_event.o
+mv -f .deps/lv_event.Tpo .deps/lv_event.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_bin.lo -MD -MP -MF .deps/lv_bin.Tpo -c -o lv_bin.lo lv_bin.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_bin.lo -MD -MP -MF .deps/lv_bin.Tpo -c lv_bin.c  -fPIC -DPIC -o .libs/lv_bin.o
+mv -f .deps/lv_bin.Tpo .deps/lv_bin.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_plugin.lo -MD -MP -MF .deps/lv_plugin.Tpo -c -o lv_plugin.lo lv_plugin.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_plugin.lo -MD -MP -MF .deps/lv_plugin.Tpo -c lv_plugin.c  -fPIC -DPIC -o .libs/lv_plugin.o
+mv -f .deps/lv_plugin.Tpo .deps/lv_plugin.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_video.lo -MD -MP -MF .deps/lv_video.Tpo -c -o lv_video.lo lv_video.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_video.lo -MD -MP -MF .deps/lv_video.Tpo -c lv_video.c  -fPIC -DPIC -o .libs/lv_video.o
+mv -f .deps/lv_video.Tpo .deps/lv_video.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_video_simd.lo -MD -MP -MF .deps/lv_video_simd.Tpo -c -o lv_video_simd.lo lv_video_simd.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_video_simd.lo -MD -MP -MF .deps/lv_video_simd.Tpo -c lv_video_simd.c  -fPIC -DPIC -o .libs/lv_video_simd.o
+mv -f .deps/lv_video_simd.Tpo .deps/lv_video_simd.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_mem.lo -MD -MP -MF .deps/lv_mem.Tpo -c -o lv_mem.lo lv_mem.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_mem.lo -MD -MP -MF .deps/lv_mem.Tpo -c lv_mem.c  -fPIC -DPIC -o .libs/lv_mem.o
+mv -f .deps/lv_mem.Tpo .deps/lv_mem.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_audio.lo -MD -MP -MF .deps/lv_audio.Tpo -c -o lv_audio.lo lv_audio.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_audio.lo -MD -MP -MF .deps/lv_audio.Tpo -c lv_audio.c  -fPIC -DPIC -o .libs/lv_audio.o
+mv -f .deps/lv_audio.Tpo .deps/lv_audio.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_fourier.lo -MD -MP -MF .deps/lv_fourier.Tpo -c -o lv_fourier.lo lv_fourier.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_fourier.lo -MD -MP -MF .deps/lv_fourier.Tpo -c lv_fourier.c  -fPIC -DPIC -o .libs/lv_fourier.o
+mv -f .deps/lv_fourier.Tpo .deps/lv_fourier.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_list.lo -MD -MP -MF .deps/lv_list.Tpo -c -o lv_list.lo lv_list.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_list.lo -MD -MP -MF .deps/lv_list.Tpo -c lv_list.c  -fPIC -DPIC -o .libs/lv_list.o
+mv -f .deps/lv_list.Tpo .deps/lv_list.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_log.lo -MD -MP -MF .deps/lv_log.Tpo -c -o lv_log.lo lv_log.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_log.lo -MD -MP -MF .deps/lv_log.Tpo -c lv_log.c  -fPIC -DPIC -o .libs/lv_log.o
+mv -f .deps/lv_log.Tpo .deps/lv_log.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_palette.lo -MD -MP -MF .deps/lv_palette.Tpo -c -o lv_palette.lo lv_palette.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_palette.lo -MD -MP -MF .deps/lv_palette.Tpo -c lv_palette.c  -fPIC -DPIC -o .libs/lv_palette.o
+mv -f .deps/lv_palette.Tpo .deps/lv_palette.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_libvisual.lo -MD -MP -MF .deps/lv_libvisual.Tpo -c -o lv_libvisual.lo lv_libvisual.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_libvisual.lo -MD -MP -MF .deps/lv_libvisual.Tpo -c lv_libvisual.c  -fPIC -DPIC -o .libs/lv_libvisual.o
+lv_libvisual.c: In function 'visual_init':
+lv_libvisual.c:315:2: warning: implicit declaration of function 'visual_cpu_initialize'; did you mean 'visual_mem_initialize'? [-Wimplicit-function-declaration]
+  visual_cpu_initialize ();
+  ^~~~~~~~~~~~~~~~~~~~~
+  visual_mem_initialize
+mv -f .deps/lv_libvisual.Tpo .deps/lv_libvisual.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_songinfo.lo -MD -MP -MF .deps/lv_songinfo.Tpo -c -o lv_songinfo.lo lv_songinfo.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_songinfo.lo -MD -MP -MF .deps/lv_songinfo.Tpo -c lv_songinfo.c  -fPIC -DPIC -o .libs/lv_songinfo.o
+mv -f .deps/lv_songinfo.Tpo .deps/lv_songinfo.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_morph.lo -MD -MP -MF .deps/lv_morph.Tpo -c -o lv_morph.lo lv_morph.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_morph.lo -MD -MP -MF .deps/lv_morph.Tpo -c lv_morph.c  -fPIC -DPIC -o .libs/lv_morph.o
+mv -f .deps/lv_morph.Tpo .deps/lv_morph.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_bmp.lo -MD -MP -MF .deps/lv_bmp.Tpo -c -o lv_bmp.lo lv_bmp.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_bmp.lo -MD -MP -MF .deps/lv_bmp.Tpo -c lv_bmp.c  -fPIC -DPIC -o .libs/lv_bmp.o
+lv_bmp.c: In function 'load_uncompressed':
+lv_bmp.c:75:33: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+     uint8_t *end = (uint8_t *) ((int)data & ~1);
+                                 ^
+lv_bmp.c:75:20: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     uint8_t *end = (uint8_t *) ((int)data & ~1);
+                    ^
+lv_bmp.c:96:33: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+     uint8_t *end = (uint8_t *) ((int)data & ~7);
+                                 ^
+lv_bmp.c:96:20: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     uint8_t *end = (uint8_t *) ((int)data & ~7);
+                    ^
+mv -f .deps/lv_bmp.Tpo .deps/lv_bmp.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_param.lo -MD -MP -MF .deps/lv_param.Tpo -c -o lv_param.lo lv_param.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_param.lo -MD -MP -MF .deps/lv_param.Tpo -c lv_param.c  -fPIC -DPIC -o .libs/lv_param.o
+mv -f .deps/lv_param.Tpo .deps/lv_param.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_cpu.lo -MD -MP -MF .deps/lv_cpu.Tpo -c -o lv_cpu.lo lv_cpu.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_cpu.lo -MD -MP -MF .deps/lv_cpu.Tpo -c lv_cpu.c  -fPIC -DPIC -o .libs/lv_cpu.o
+In file included from lv_cpu.c:65:0:
+gettext.h:71:0: warning: "gettext_noop" redefined
+ #define gettext_noop(String) String
+ 
+gettext.h:49:0: note: this is the location of the previous definition
+ # define gettext_noop(Msgid) ((const char *) (Msgid))
+ 
+mv -f .deps/lv_cpu.Tpo .deps/lv_cpu.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_color.lo -MD -MP -MF .deps/lv_color.Tpo -c -o lv_color.lo lv_color.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_color.lo -MD -MP -MF .deps/lv_color.Tpo -c lv_color.c  -fPIC -DPIC -o .libs/lv_color.o
+lv_color.c: In function 'visual_color_to_uint32':
+lv_color.c:263:16: warning: result of '256 << 24' requires 34 bits to represent, but 'int' only has 32 bits [-Wshift-overflow=]
+  colors = (256 << 24) |
+                ^~
+mv -f .deps/lv_color.Tpo .deps/lv_color.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_time.lo -MD -MP -MF .deps/lv_time.Tpo -c -o lv_time.lo lv_time.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_time.lo -MD -MP -MF .deps/lv_time.Tpo -c lv_time.c  -fPIC -DPIC -o .libs/lv_time.o
+mv -f .deps/lv_time.Tpo .deps/lv_time.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_random.lo -MD -MP -MF .deps/lv_random.Tpo -c -o lv_random.lo lv_random.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_random.lo -MD -MP -MF .deps/lv_random.Tpo -c lv_random.c  -fPIC -DPIC -o .libs/lv_random.o
+mv -f .deps/lv_random.Tpo .deps/lv_random.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_error.lo -MD -MP -MF .deps/lv_error.Tpo -c -o lv_error.lo lv_error.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_error.lo -MD -MP -MF .deps/lv_error.Tpo -c lv_error.c  -fPIC -DPIC -o .libs/lv_error.o
+mv -f .deps/lv_error.Tpo .deps/lv_error.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_ui.lo -MD -MP -MF .deps/lv_ui.Tpo -c -o lv_ui.lo lv_ui.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_ui.lo -MD -MP -MF .deps/lv_ui.Tpo -c lv_ui.c  -fPIC -DPIC -o .libs/lv_ui.o
+mv -f .deps/lv_ui.Tpo .deps/lv_ui.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_thread.lo -MD -MP -MF .deps/lv_thread.Tpo -c -o lv_thread.lo lv_thread.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_thread.lo -MD -MP -MF .deps/lv_thread.Tpo -c lv_thread.c  -fPIC -DPIC -o .libs/lv_thread.o
+mv -f .deps/lv_thread.Tpo .deps/lv_thread.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_object.lo -MD -MP -MF .deps/lv_object.Tpo -c -o lv_object.lo lv_object.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_object.lo -MD -MP -MF .deps/lv_object.Tpo -c lv_object.c  -fPIC -DPIC -o .libs/lv_object.o
+mv -f .deps/lv_object.Tpo .deps/lv_object.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_transform.lo -MD -MP -MF .deps/lv_transform.Tpo -c -o lv_transform.lo lv_transform.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_transform.lo -MD -MP -MF .deps/lv_transform.Tpo -c lv_transform.c  -fPIC -DPIC -o .libs/lv_transform.o
+lv_transform.c: In function 'visual_transform_new':
+lv_transform.c:154:2: warning: implicit declaration of function 'visual_transform_init'; did you mean 'visual_transform_new'? [-Wimplicit-function-declaration]
+  visual_transform_init (transform, transformname);
+  ^~~~~~~~~~~~~~~~~~~~~
+  visual_transform_new
+mv -f .deps/lv_transform.Tpo .deps/lv_transform.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_rectangle.lo -MD -MP -MF .deps/lv_rectangle.Tpo -c -o lv_rectangle.lo lv_rectangle.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_rectangle.lo -MD -MP -MF .deps/lv_rectangle.Tpo -c lv_rectangle.c  -fPIC -DPIC -o .libs/lv_rectangle.o
+mv -f .deps/lv_rectangle.Tpo .deps/lv_rectangle.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_config.lo -MD -MP -MF .deps/lv_config.Tpo -c -o lv_config.lo lv_config.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_config.lo -MD -MP -MF .deps/lv_config.Tpo -c lv_config.c  -fPIC -DPIC -o .libs/lv_config.o
+mv -f .deps/lv_config.Tpo .deps/lv_config.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_ringbuffer.lo -MD -MP -MF .deps/lv_ringbuffer.Tpo -c -o lv_ringbuffer.lo lv_ringbuffer.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_ringbuffer.lo -MD -MP -MF .deps/lv_ringbuffer.Tpo -c lv_ringbuffer.c  -fPIC -DPIC -o .libs/lv_ringbuffer.o
+In file included from lv_ringbuffer.c:29:0:
+./gettext.h:71:0: warning: "gettext_noop" redefined
+ #define gettext_noop(String) String
+ 
+./gettext.h:49:0: note: this is the location of the previous definition
+ # define gettext_noop(Msgid) ((const char *) (Msgid))
+ 
+mv -f .deps/lv_ringbuffer.Tpo .deps/lv_ringbuffer.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_buffer.lo -MD -MP -MF .deps/lv_buffer.Tpo -c -o lv_buffer.lo lv_buffer.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_buffer.lo -MD -MP -MF .deps/lv_buffer.Tpo -c lv_buffer.c  -fPIC -DPIC -o .libs/lv_buffer.o
+mv -f .deps/lv_buffer.Tpo .deps/lv_buffer.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_cache.lo -MD -MP -MF .deps/lv_cache.Tpo -c -o lv_cache.lo lv_cache.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_cache.lo -MD -MP -MF .deps/lv_cache.Tpo -c lv_cache.c  -fPIC -DPIC -o .libs/lv_cache.o
+mv -f .deps/lv_cache.Tpo .deps/lv_cache.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_hashmap.lo -MD -MP -MF .deps/lv_hashmap.Tpo -c -o lv_hashmap.lo lv_hashmap.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_hashmap.lo -MD -MP -MF .deps/lv_hashmap.Tpo -c lv_hashmap.c  -fPIC -DPIC -o .libs/lv_hashmap.o
+mv -f .deps/lv_hashmap.Tpo .deps/lv_hashmap.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_hashlist.lo -MD -MP -MF .deps/lv_hashlist.Tpo -c -o lv_hashlist.lo lv_hashlist.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_hashlist.lo -MD -MP -MF .deps/lv_hashlist.Tpo -c lv_hashlist.c  -fPIC -DPIC -o .libs/lv_hashlist.o
+mv -f .deps/lv_hashlist.Tpo .deps/lv_hashlist.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_collection.lo -MD -MP -MF .deps/lv_collection.Tpo -c -o lv_collection.lo lv_collection.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_collection.lo -MD -MP -MF .deps/lv_collection.Tpo -c lv_collection.c  -fPIC -DPIC -o .libs/lv_collection.o
+mv -f .deps/lv_collection.Tpo .deps/lv_collection.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_utils.lo -MD -MP -MF .deps/lv_utils.Tpo -c -o lv_utils.lo lv_utils.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_utils.lo -MD -MP -MF .deps/lv_utils.Tpo -c lv_utils.c  -fPIC -DPIC -o .libs/lv_utils.o
+mv -f .deps/lv_utils.Tpo .deps/lv_utils.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_os.lo -MD -MP -MF .deps/lv_os.Tpo -c -o lv_os.lo lv_os.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_os.lo -MD -MP -MF .deps/lv_os.Tpo -c lv_os.c  -fPIC -DPIC -o .libs/lv_os.o
+mv -f .deps/lv_os.Tpo .deps/lv_os.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_math.lo -MD -MP -MF .deps/lv_math.Tpo -c -o lv_math.lo lv_math.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_math.lo -MD -MP -MF .deps/lv_math.Tpo -c lv_math.c  -fPIC -DPIC -o .libs/lv_math.o
+lv_math.c: In function 'visual_math_vectorized_multiplier_floats_const_float':
+lv_math.c:66:6: warning: implicit declaration of function 'visual_cpu_get_sse'; did you mean 'visual_mem_set32'? [-Wimplicit-function-declaration]
+  if (visual_cpu_get_sse () && n >= 16) {
+      ^~~~~~~~~~~~~~~~~~
+      visual_mem_set32
+lv_math.c:112:13: warning: implicit declaration of function 'visual_cpu_get_3dnow'; did you mean 'visual_object_new'? [-Wimplicit-function-declaration]
+  } else if (visual_cpu_get_3dnow ()) {
+             ^~~~~~~~~~~~~~~~~~~~
+             visual_object_new
+mv -f .deps/lv_math.Tpo .deps/lv_math.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual  -m64 -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -MT lv_gl.lo -MD -MP -MF .deps/lv_gl.Tpo -c -o lv_gl.lo lv_gl.c
+libtool: compile:  /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0 -I/ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/libvisual -I.. -I../libvisual -m64 -DPLUGPATH=\"/usr/lib/amd64/libvisual-0.4\" -m64 -O3 -MT lv_gl.lo -MD -MP -MF .deps/lv_gl.Tpo -c lv_gl.c  -fPIC -DPIC -o .libs/lv_gl.o
+mv -f .deps/lv_gl.Tpo .deps/lv_gl.Plo
+/bin/bash ../libtool  --tag=CC   --mode=link /usr/gcc/7/bin/gcc -DPLUGPATH="\"/usr/lib/amd64/libvisual-0.4\""  -m64 -O3   -export-dynamic -no-undefined  -o libvisual-0.4.la -rpath /usr/lib/amd64 lv_actor.lo lv_input.lo lv_event.lo lv_bin.lo lv_plugin.lo lv_video.lo lv_video_simd.lo lv_mem.lo lv_audio.lo lv_fourier.lo lv_list.lo lv_log.lo lv_palette.lo lv_libvisual.lo lv_songinfo.lo lv_morph.lo lv_bmp.lo lv_param.lo lv_cpu.lo lv_color.lo lv_time.lo lv_random.lo lv_error.lo lv_ui.lo lv_thread.lo lv_object.lo lv_transform.lo lv_rectangle.lo lv_config.lo lv_ringbuffer.lo lv_buffer.lo lv_cache.lo lv_hashmap.lo lv_hashlist.lo lv_collection.lo lv_utils.lo lv_os.lo lv_math.lo lv_gl.lo  -lm -ldl  -L. -L/usr/lib/amd64  
+libtool: link: /usr/gcc/7/bin/gcc -shared  -fPIC -DPIC -Wl,-z -Wl,text -Wl,-h -Wl,libvisual-0.4.so.0 -o .libs/libvisual-0.4.so.0.0.0  .libs/lv_actor.o .libs/lv_input.o .libs/lv_event.o .libs/lv_bin.o .libs/lv_plugin.o .libs/lv_video.o .libs/lv_video_simd.o .libs/lv_mem.o .libs/lv_audio.o .libs/lv_fourier.o .libs/lv_list.o .libs/lv_log.o .libs/lv_palette.o .libs/lv_libvisual.o .libs/lv_songinfo.o .libs/lv_morph.o .libs/lv_bmp.o .libs/lv_param.o .libs/lv_cpu.o .libs/lv_color.o .libs/lv_time.o .libs/lv_random.o .libs/lv_error.o .libs/lv_ui.o .libs/lv_thread.o .libs/lv_object.o .libs/lv_transform.o .libs/lv_rectangle.o .libs/lv_config.o .libs/lv_ringbuffer.o .libs/lv_buffer.o .libs/lv_cache.o .libs/lv_hashmap.o .libs/lv_hashlist.o .libs/lv_collection.o .libs/lv_utils.o .libs/lv_os.o .libs/lv_math.o .libs/lv_gl.o   -lm -ldl -L. -L/usr/lib/amd64  -m64 -O3  
+libtool: link: (cd ".libs" && rm -f "libvisual-0.4.so.0" && ln -s "libvisual-0.4.so.0.0.0" "libvisual-0.4.so.0")
+libtool: link: (cd ".libs" && rm -f "libvisual-0.4.so" && ln -s "libvisual-0.4.so.0.0.0" "libvisual-0.4.so")
+libtool: link: ( cd ".libs" && rm -f "libvisual-0.4.la" && ln -s "../libvisual-0.4.la" "libvisual-0.4.la" )
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64/libvisual'
+Making all in po
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64/po'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64/po'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64'
+cp -f libvisual.pc libvisual-0.4.pc
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/build/amd64/.built
+(cd /ws/userland/src/components/desktop/libvisual/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/desktop/libvisual/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86'
+Making install in m4
+make[2]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86/m4'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86/m4'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86/m4'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86/m4'
+Making install in libvisual
+make[2]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86/libvisual'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86/libvisual'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib'
+ /bin/bash ../libtool   --mode=install /usr/gnu/bin/install -c   libvisual-0.4.la '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib'
+libtool: install: /usr/gnu/bin/install -c .libs/libvisual-0.4.so.0.0.0 /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/libvisual-0.4.so.0.0.0
+libtool: install: (cd /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib && { ln -s -f libvisual-0.4.so.0.0.0 libvisual-0.4.so.0 || { rm -f libvisual-0.4.so.0 && ln -s libvisual-0.4.so.0.0.0 libvisual-0.4.so.0; }; })
+libtool: install: (cd /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib && { ln -s -f libvisual-0.4.so.0.0.0 libvisual-0.4.so || { rm -f libvisual-0.4.so && ln -s libvisual-0.4.so.0.0.0 libvisual-0.4.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/libvisual-0.4.so.0.0.0
+libtool: install: /usr/gnu/bin/install -c .libs/libvisual-0.4.lai /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/libvisual-0.4.la
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/include/libvisual-0.4/libvisual'
+ /usr/gnu/bin/install -c -m 644 lvconfig.h libvisual.h lv_actor.h lv_audio.h lv_bin.h lv_common.h lv_fourier.h lv_input.h lv_event.h lv_keysym.h lv_list.h lv_log.h lv_palette.h lv_plugin.h lv_video.h lv_libvisual.h lv_songinfo.h lv_morph.h lv_bmp.h lv_param.h lv_mem.h lv_bits.h lv_cpu.h lv_color.h lv_time.h lv_random.h lv_error.h lv_ui.h lv_types.h lv_thread.h lv_object.h lv_transform.h lv_rectangle.h lv_ringbuffer.h lv_buffer.h lv_config.h lv_hashmap.h lv_hashlist.h lv_cache.h lv_collection.h '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/include/libvisual-0.4/libvisual'
+ /usr/gnu/bin/install -c -m 644 lv_utils.h lv_os.h lv_math.h lv_gl.h lv_defines.h '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/include/libvisual-0.4/libvisual'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86/libvisual'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86/libvisual'
+Making install in po
+make[2]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86/po'
+/bin/sh /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/mkinstalldirs /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share
+mkdir /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share
+mkdir /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/locale
+mkdir /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/locale/es_ES
+mkdir /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/locale/es_ES/LC_MESSAGES
+installing es_ES.gmo as /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/locale/es_ES/LC_MESSAGES/libvisual-0.4.mo
+mkdir /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/locale/es_AR
+mkdir /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/locale/es_AR/LC_MESSAGES
+installing es_AR.gmo as /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/locale/es_AR/LC_MESSAGES/libvisual-0.4.mo
+if test "libvisual" = "gettext-tools"; then \
+  /bin/sh /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/mkinstalldirs /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/gettext/po; \
+  for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+    /usr/gnu/bin/install -c -m 644 /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/po/$file \
+		    /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/gettext/po/$file; \
+  done; \
+  for file in Makevars; do \
+    rm -f /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86/po'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/i86'
+file=/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/include/libvisual-0.4/libvisual/lvconfig.h; \
+        if test -r $file && cmp -s libvisual/lvconfig.h $file; then :; \
+        else /usr/gnu/bin/install -c -m 644 libvisual/lvconfig.h $file; fi
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/pkgconfig'
+ /usr/gnu/bin/install -c -m 644 libvisual-0.4.pc '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/pkgconfig'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/build/i86/.installed
+(cd /ws/userland/src/components/desktop/libvisual/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/desktop/libvisual/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64'
+Making install in m4
+make[2]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64/m4'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64/m4'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64/m4'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64/m4'
+Making install in libvisual
+make[2]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64/libvisual'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64/libvisual'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/amd64'
+ /bin/bash ../libtool   --mode=install /usr/gnu/bin/install -c   libvisual-0.4.la '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/amd64'
+libtool: install: /usr/gnu/bin/install -c .libs/libvisual-0.4.so.0.0.0 /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/amd64/libvisual-0.4.so.0.0.0
+libtool: install: (cd /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/amd64 && { ln -s -f libvisual-0.4.so.0.0.0 libvisual-0.4.so.0 || { rm -f libvisual-0.4.so.0 && ln -s libvisual-0.4.so.0.0.0 libvisual-0.4.so.0; }; })
+libtool: install: (cd /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/amd64 && { ln -s -f libvisual-0.4.so.0.0.0 libvisual-0.4.so || { rm -f libvisual-0.4.so && ln -s libvisual-0.4.so.0.0.0 libvisual-0.4.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/amd64/libvisual-0.4.so.0.0.0
+libtool: install: /usr/gnu/bin/install -c .libs/libvisual-0.4.lai /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/amd64/libvisual-0.4.la
+libtool: warning: remember to run 'libtool --finish /usr/lib/amd64'
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/include/libvisual-0.4/libvisual'
+ /usr/gnu/bin/install -c -m 644 lvconfig.h libvisual.h lv_actor.h lv_audio.h lv_bin.h lv_common.h lv_fourier.h lv_input.h lv_event.h lv_keysym.h lv_list.h lv_log.h lv_palette.h lv_plugin.h lv_video.h lv_libvisual.h lv_songinfo.h lv_morph.h lv_bmp.h lv_param.h lv_mem.h lv_bits.h lv_cpu.h lv_color.h lv_time.h lv_random.h lv_error.h lv_ui.h lv_types.h lv_thread.h lv_object.h lv_transform.h lv_rectangle.h lv_ringbuffer.h lv_buffer.h lv_config.h lv_hashmap.h lv_hashlist.h lv_cache.h lv_collection.h '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/include/libvisual-0.4/libvisual'
+ /usr/gnu/bin/install -c -m 644 lv_utils.h lv_os.h lv_math.h lv_gl.h lv_defines.h '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/include/libvisual-0.4/libvisual'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64/libvisual'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64/libvisual'
+Making install in po
+make[2]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64/po'
+/bin/sh /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/mkinstalldirs /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share
+installing es_ES.gmo as /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/locale/es_ES/LC_MESSAGES/libvisual-0.4.mo
+installing es_AR.gmo as /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/locale/es_AR/LC_MESSAGES/libvisual-0.4.mo
+if test "libvisual" = "gettext-tools"; then \
+  /bin/sh /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/mkinstalldirs /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/gettext/po; \
+  for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+    /usr/gnu/bin/install -c -m 644 /ws/userland/src/components/desktop/libvisual/libvisual-0.4.0/po/$file \
+		    /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/gettext/po/$file; \
+  done; \
+  for file in Makevars; do \
+    rm -f /ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64/po'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libvisual/build/amd64'
+file=/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/include/libvisual-0.4/libvisual/lvconfig.h; \
+        if test -r $file && cmp -s libvisual/lvconfig.h $file; then :; \
+        else /usr/gnu/bin/install -c -m 644 libvisual/lvconfig.h $file; fi
+ /usr/gnu/bin/mkdir -p '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/amd64/pkgconfig'
+ /usr/gnu/bin/install -c -m 644 libvisual-0.4.pc '/ws/userland/src/components/desktop/libvisual/build/prototype/i386/usr/lib/amd64/pkgconfig'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libvisual/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 libvisual.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=0\\.4\\.0 -D COMPONENT_RE_VERSION=0\\.4\\.0 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/libvisual -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="9463" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="0.4.0" -D IPS_COMPONENT_VERSION="0.4.0" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://sourceforge.net/projects/libvisual/files/libvisual/libvisual-0.4.0/libvisual-0.4.0.tar.gz" -D COMPONENT_PROJECT_URL="http://libvisual.org/" -D COMPONENT_NAME="libvisual" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" libvisual.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/libvisual/build/manifest-i386-libvisual.mogrified
+/bin/mkdir -p /ws/userland/src/components/desktop/libvisual/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/libvisual/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libvisual/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libvisual/build/prototype/i386 -d /ws/userland/src/components/desktop/libvisual/build -d /ws/userland/src/components/desktop/libvisual -d libvisual-0.4.0 -d /ws/userland/src/licenses -m /ws/userland/src/components/desktop/libvisual/build/manifest-i386-libvisual.mogrified >/ws/userland/src/components/desktop/libvisual/build/manifest-i386-libvisual.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/libvisual/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libvisual/build/prototype/i386 -d /ws/userland/src/components/desktop/libvisual/build -d /ws/userland/src/components/desktop/libvisual -d libvisual-0.4.0 -d /ws/userland/src/licenses /ws/userland/src/components/desktop/libvisual/build/manifest-i386-libvisual.mangled >/ws/userland/src/components/desktop/libvisual/build/manifest-i386-libvisual.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/desktop/libvisual/build/resolve.deps -m /ws/userland/src/components/desktop/libvisual/build/manifest-i386-libvisual.depend
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/desktop/libvisual/build/manifest-i386-libvisual.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/desktop/libvisual/build/prototype/i386/mangled /ws/userland/src/components/desktop/libvisual/build/prototype/i386 /ws/userland/src/components/desktop/libvisual/build /ws/userland/src/components/desktop/libvisual libvisual-0.4.0 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/desktop/libvisual/build/manifest-i386-libvisual.depend.res
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/libvisual/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libvisual/build/prototype/i386 -d /ws/userland/src/components/desktop/libvisual/build -d /ws/userland/src/components/desktop/libvisual -d libvisual-0.4.0 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/desktop/libvisual/build/manifest-i386-libvisual.depend.res
+pkg://nightly/library/desktop/libvisual@0.4.0,5.11-11.4.0.0.1.14.0:20190727T213440Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/libvisual/build/manifest-i386-libvisual.depend.res >/ws/userland/src/components/desktop/libvisual/build/manifest-i386-libvisual.published
+/usr/bin/touch /ws/userland/src/components/desktop/libvisual/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/desktop/libvisual'
+
+real     1:21.4
+user       26.1
+sys         7.5

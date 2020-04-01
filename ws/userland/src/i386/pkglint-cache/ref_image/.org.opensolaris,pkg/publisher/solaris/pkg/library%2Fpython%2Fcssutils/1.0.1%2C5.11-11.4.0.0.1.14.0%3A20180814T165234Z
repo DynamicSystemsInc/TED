@@ -1,0 +1,20 @@
+set name=pkg.fmri value=pkg://solaris/library/python/cssutils@1.0.1,5.11-11.4.0.0.1.14.0:20180814T165234Z
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.version value=1.0.1
+set name=info.upstream-url value=https://pypi.python.org/pypi/cssutils/
+set name=com.oracle.info.description value="the cssutils Python module"
+set name=info.source-url value=pypi:///cssutils==1.0.1
+set name=pkg.summary value="A Python package to parse and build CSS Cascading Style Sheets."
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=LSARC/2008/658
+set name=com.oracle.info.name value=cssutils
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/python/cssutils-27@1.0.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+depend fmri=library/python/cssutils-35@1.0.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python-2/cssutils@0.9.6,5.12-5.12.0.0.0.41.0 type=optional
+depend fmri=library/python/cssutils-34@1.0.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend facet.version-lock.library/python/cssutils=true fmri=consolidation/desktop/desktop-incorporation@5.12-5.12.0.0.0.14.0 type=optional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=608b205a00ad881641508d7e1652f52d7528a32b7624c44c17943d79c7fa19659f55668fda70b75ab1f3f82c94045e67436f1c4effdef005218c16d2e2af4b394774ef4a04b3ed5cca4c8639dfbae0c21fb8b57b0b51a1dbf9598e3708262949e695d2e69236dffafd8eb6f9feacd851984a59275d163dc198f429e14ac8c43409d14885bd859b922f827469acb4507b3907be1dec465d9427b25d5719cc4b8537fb45b099502a54767410a3e16c4e92e866b221464caa2b58f18b9d0c743314a7bde0528c49a50cf2690eb3b646ce152bc5b01ccf65e6b449d684d0b544d7f6c1717711c9296e97104f578816519a7c54403e692f171c2d7b1e68f5d8d298e2 version=0

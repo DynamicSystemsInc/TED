@@ -1,0 +1,91 @@
+set name=pkg.fmri value=pkg://solaris/system/library/install/libinstzones@11.4,5.11-11.4.0.0.1.15.0:20180817T003132Z
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=org.opensolaris.consolidation value=osnet
+set name=pkg.summary value="Solaris Zones support library for System V Release 4 packaging"
+set name=info.classification value=org.opensolaris.category.2008:Development/System
+set name=variant.arch value=sparc value=i386
+set name=variant.debug.osnet value=true value=false
+depend fmri=pkg:/system/zones@11.4-11.4.0.0.1.15 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.15 type=require
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+dir group=sys mode=0755 owner=root path=usr
+dir group=bin mode=0755 owner=root path=usr/include
+dir group=bin mode=0755 owner=root path=usr/lib
+dir group=bin mode=0755 owner=root path=usr/lib/amd64 variant.arch=i386
+dir group=bin mode=0755 owner=root path=usr/lib/locale
+dir facet.locale.de_DE=true group=bin mode=0755 owner=root path=usr/lib/locale/de_DE.ISO8859-1
+dir facet.locale.de=true group=bin mode=0755 owner=root path=usr/lib/locale/de_DE.ISO8859-1/LC_MESSAGES
+dir facet.locale.de_DE=true group=bin mode=0755 owner=root path=usr/lib/locale/de_DE.UTF-8
+dir facet.locale.de=true group=bin mode=0755 owner=root path=usr/lib/locale/de_DE.UTF-8/LC_MESSAGES
+dir facet.locale.es_ES=true group=bin mode=0755 owner=root path=usr/lib/locale/es_ES.ISO8859-1
+dir facet.locale.es=true group=bin mode=0755 owner=root path=usr/lib/locale/es_ES.ISO8859-1/LC_MESSAGES
+dir facet.locale.es_ES=true group=bin mode=0755 owner=root path=usr/lib/locale/es_ES.UTF-8
+dir facet.locale.es=true group=bin mode=0755 owner=root path=usr/lib/locale/es_ES.UTF-8/LC_MESSAGES
+dir facet.locale.fr_FR=true group=bin mode=0755 owner=root path=usr/lib/locale/fr_FR.ISO8859-1
+dir facet.locale.fr=true group=bin mode=0755 owner=root path=usr/lib/locale/fr_FR.ISO8859-1/LC_MESSAGES
+dir facet.locale.fr_FR=true group=bin mode=0755 owner=root path=usr/lib/locale/fr_FR.UTF-8
+dir facet.locale.fr=true group=bin mode=0755 owner=root path=usr/lib/locale/fr_FR.UTF-8/LC_MESSAGES
+dir facet.locale.it_IT=true group=bin mode=0755 owner=root path=usr/lib/locale/it_IT.ISO8859-1
+dir facet.locale.it=true group=bin mode=0755 owner=root path=usr/lib/locale/it_IT.ISO8859-1/LC_MESSAGES
+dir facet.locale.it_IT=true group=bin mode=0755 owner=root path=usr/lib/locale/it_IT.UTF-8
+dir facet.locale.it=true group=bin mode=0755 owner=root path=usr/lib/locale/it_IT.UTF-8/LC_MESSAGES
+dir facet.locale.ja_JP=true group=bin mode=0755 owner=root path=usr/lib/locale/ja_JP.PCK
+dir facet.locale.ja=true group=bin mode=0755 owner=root path=usr/lib/locale/ja_JP.PCK/LC_MESSAGES
+dir facet.locale.ja_JP=true group=bin mode=0755 owner=root path=usr/lib/locale/ja_JP.UTF-8
+dir facet.locale.ja=true group=bin mode=0755 owner=root path=usr/lib/locale/ja_JP.UTF-8/LC_MESSAGES
+dir facet.locale.ja_JP=true group=bin mode=0755 owner=root path=usr/lib/locale/ja_JP.eucJP
+dir facet.locale.ja=true group=bin mode=0755 owner=root path=usr/lib/locale/ja_JP.eucJP/LC_MESSAGES
+dir facet.locale.ko_KR=true group=bin mode=0755 owner=root path=usr/lib/locale/ko_KR.EUC
+dir facet.locale.ko=true group=bin mode=0755 owner=root path=usr/lib/locale/ko_KR.EUC/LC_MESSAGES
+dir facet.locale.ko_KR=true group=bin mode=0755 owner=root path=usr/lib/locale/ko_KR.UTF-8
+dir facet.locale.ko=true group=bin mode=0755 owner=root path=usr/lib/locale/ko_KR.UTF-8/LC_MESSAGES
+dir facet.locale.pt_BR=true group=bin mode=0755 owner=root path=usr/lib/locale/pt_BR.ISO8859-1
+dir facet.locale.pt_BR=true group=bin mode=0755 owner=root path=usr/lib/locale/pt_BR.ISO8859-1/LC_MESSAGES
+dir facet.locale.pt_BR=true group=bin mode=0755 owner=root path=usr/lib/locale/pt_BR.UTF-8
+dir facet.locale.pt_BR=true group=bin mode=0755 owner=root path=usr/lib/locale/pt_BR.UTF-8/LC_MESSAGES
+dir facet.locale.zh_CN=true group=bin mode=0755 owner=root path=usr/lib/locale/zh_CN.EUC
+dir facet.locale.zh_CN=true group=bin mode=0755 owner=root path=usr/lib/locale/zh_CN.EUC/LC_MESSAGES
+dir facet.locale.zh_CN=true group=bin mode=0755 owner=root path=usr/lib/locale/zh_CN.GBK
+dir facet.locale.zh_CN=true group=bin mode=0755 owner=root path=usr/lib/locale/zh_CN.GBK/LC_MESSAGES
+dir facet.locale.zh_CN=true facet.locale.zh_SG=true group=bin mode=0755 owner=root path=usr/lib/locale/zh_CN.UTF-8
+dir facet.locale.zh_CN=true facet.locale.zh_SG=true group=bin mode=0755 owner=root path=usr/lib/locale/zh_CN.UTF-8/LC_MESSAGES
+dir facet.locale.zh_HK=true facet.locale.zh_TW=true group=bin mode=0755 owner=root path=usr/lib/locale/zh_TW.BIG5
+dir facet.locale.zh_HK=true facet.locale.zh_TW=true group=bin mode=0755 owner=root path=usr/lib/locale/zh_TW.BIG5/LC_MESSAGES
+dir facet.locale.zh_HK=true facet.locale.zh_TW=true group=bin mode=0755 owner=root path=usr/lib/locale/zh_TW.EUC
+dir facet.locale.zh_HK=true facet.locale.zh_TW=true group=bin mode=0755 owner=root path=usr/lib/locale/zh_TW.EUC/LC_MESSAGES
+dir facet.locale.zh_HK=true facet.locale.zh_TW=true group=bin mode=0755 owner=root path=usr/lib/locale/zh_TW.UTF-8
+dir facet.locale.zh_HK=true facet.locale.zh_TW=true group=bin mode=0755 owner=root path=usr/lib/locale/zh_TW.UTF-8/LC_MESSAGES
+dir group=bin mode=0755 owner=root path=usr/lib/sparcv9 variant.arch=sparc
+file 38a63ed0c5d1395ce78ae75944b6e0e98c97f3fc chash=634ac27fcbeab6d0ceca09d9ed30b58a99f41be4 facet.locale.ja=true group=bin mode=0444 owner=root path=usr/lib/locale/ja_JP.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo pkg.content-hash=file:sha512t_256:cb4810b88dd5c5484ca9ab0cb85d9d7b5dab4e6a92a0c46eae19a0ef998abb67 pkg.content-hash=gzip:sha512t_256:3527a4dace897a428c81def7b94b6892474fb1d5d9c1daa59072ed674a3fd161 pkg.csize=2622 pkg.size=7806
+file 0f2057961aa05f0adcae1ce31cfa2e5fa2640ae2 chash=e43ff57e110922e391273c5ede10fd72334f87f9 facet.locale.pt_BR=true group=bin mode=0444 owner=root path=usr/lib/locale/pt_BR.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo pkg.content-hash=file:sha512t_256:349596f09935c83ec49c883d6ae1ef01daa3efbed2c5df69ac46decba439ec6c pkg.content-hash=gzip:sha512t_256:7ce67c14fc7f31f4252e8052552a215a2c510cb01d032eecef83058e9a143a2e pkg.csize=2356 pkg.size=7097
+file 435a0fce9384338e48e08e84089a8ff16c7b5937 chash=082517a3e857d15b22b14f0fa2306e962165b5a0 facet.locale.ko=true group=bin mode=0444 owner=root path=usr/lib/locale/ko_KR.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo pkg.content-hash=file:sha512t_256:43cf9a525bd817c0d9170752a706babe0eafb2c946704fbdea845925a502906d pkg.content-hash=gzip:sha512t_256:8a3ad4a1bc3658b1390dd02da83da07ffe7a539ffc3cd90e4a321d8d84481d35 pkg.csize=2511 pkg.size=7247
+file 2376fb73efba41358a5fde6c83101a6cd6372784 chash=edd1f63f657cce7e667eb0b0283d78dcab145209 facet.locale.es=true group=bin mode=0444 owner=root path=usr/lib/locale/es_ES.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo pkg.content-hash=file:sha512t_256:5f05ef1ee651a152dabd5b2da7db3b33e267a45eab2df3c6f8293e88915af0c4 pkg.content-hash=gzip:sha512t_256:cc699434486c7793d76539b824dee9f0833871fe6f74eec4f069152d67c8f01a pkg.csize=2355 pkg.size=7197
+file aece5ee7b144cf2a56ece73f3e51a66af030791d chash=59111ace59ea6837ba0bf6f3ea3d2c398932ee1b facet.locale.de=true group=bin mode=0444 owner=root path=usr/lib/locale/de_DE.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo pkg.content-hash=file:sha512t_256:ac3cb7f6e005cf45e7d00b128cf85207a5996ce5ac9e31f73f494930ea589c40 pkg.content-hash=gzip:sha512t_256:c7c4ca9bb4933f8e1771634140a2527fb1070ae27cfbbf0d859e1ce13958476e pkg.csize=2375 pkg.size=7189
+file ddf9131cf990fb88518516185f8d80cdd4e14133 chash=72366a0807696c11d4971b39ce9c1ccc1d930069 elfarch=i386 elfbits=64 elfhash=1aa2866e781b8433b69218fb98c8dadf14582f84 group=bin mode=0755 owner=root path=usr/lib/amd64/libinstzones.so.1 pkg.content-hash=gelf:sha512t_256:90a99f2c0c8cb7b9b7ea145b75aba8cf5e0dbd8cce73f6ece7e4e9edcb4d2706 pkg.content-hash=gelf.unsigned:sha512t_256:46300943075bf448ed84a21375883eded88ca28145e5262a2f847dcf89113010 pkg.content-hash=file:sha512t_256:4aac94fb26a8138e6674073bf2f9d97f64a96edaec9299f1e07a1f094268a78a pkg.content-hash=gzip:sha512t_256:1d3b4ca8a0a80708909e694a94aa4b637abd77e978aecacf7e1f830e2b9019f9 pkg.csize=26196 pkg.size=69240 variant.arch=i386 variant.debug.osnet=false
+file 6a30be2aa078fd108268f2ef023ffa5c641c96d4 chash=0b38bc8af62b084f0527c12db4f7587a6a78ff33 facet.locale.it=true group=bin mode=0444 owner=root path=usr/lib/locale/it_IT.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo pkg.content-hash=file:sha512t_256:68ed7a483e5a494efc19b6c8040bc2f6f57b1864b44baf211e219a06b7fdc1c8 pkg.content-hash=gzip:sha512t_256:f6a5ec155410375d0170e9f1524a2f98c46062ec451e397c105c21fa70ffdbb0 pkg.csize=2334 pkg.size=7008
+file b820ab1dc7b4167702df16ff2c1add619c20259a chash=5ca84a004bcb0a32beb1735074b3fb2b9871c1e4 facet.locale.fr=true group=bin mode=0444 owner=root path=usr/lib/locale/fr_FR.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo pkg.content-hash=file:sha512t_256:fb6024daac239f6df3b353c32e355dc7f7c9d81ec94ad08a65870f5cb8be0a9b pkg.content-hash=gzip:sha512t_256:6d6f28af32b6f6fccc908f14b34fa43f34a82d2defc0b81a2fddcff7ac85c529 pkg.csize=2408 pkg.size=7233
+file 413d5abc0e917d50254a1eec031610b132e06de2 chash=93bb3b4ffb975a00eca233ac79552bc4bcc46b1b elfarch=sparc elfbits=64 elfhash=1f6a4a83b454a680b34041c96cb484dc7a450520 group=bin mode=0755 owner=root path=usr/lib/sparcv9/libinstzones.so.1 pkg.content-hash=gelf:sha512t_256:5fbf4c818175f203924a1d5f27761081f811e12db8b845fd5beb8174c6aeb240 pkg.content-hash=gelf.unsigned:sha512t_256:fafff93e4bafd184ce5367ae2e73a1b0ca9aacc48f45f22966415f1991708c4c pkg.content-hash=file:sha512t_256:367c6370ef1602ef3e6e5402b03a461c69c3107e779fe86b53945944f596cbc2 pkg.content-hash=gzip:sha512t_256:1155490f327a986bd68f4f0b62efc2590659360fa4f285537f948cbde1415aca pkg.csize=26863 pkg.size=71864 variant.arch=sparc variant.debug.osnet=false
+file 53f9a0552a1ec34903515f9d7c498ffb19f0f1d4 chash=e535442200b39601e9b005f6b1a6ed15c0d8c94d facet.locale.zh_CN=true facet.locale.zh_SG=true group=bin mode=0444 owner=root path=usr/lib/locale/zh_CN.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo pkg.content-hash=file:sha512t_256:11642784d575ce750a3e2cd0ed2d4199fb0e9982618e2a0e062ad6a7430122e8 pkg.content-hash=gzip:sha512t_256:4b4e5168d61e436a577dc19949f27ddd517ce20715e21d58dd2f2ede29827d5d pkg.csize=2419 pkg.size=6256
+file 00d650e3a0f656b9b3f9ab7c7aa610f2844b030a chash=5d9a46e73451563b0d343a29c06903eb5da7fe62 facet.locale.zh_HK=true facet.locale.zh_TW=true group=bin mode=0444 owner=root path=usr/lib/locale/zh_TW.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo pkg.content-hash=file:sha512t_256:95466297943a80f7ff961b406b70d2d53ed5edeb4cec9d06a8417a119df2882c pkg.content-hash=gzip:sha512t_256:e47cb623e7eb7cc6bc05c740d752a5a1d93f1a9603e2c2dd53050bf6e5846c5a pkg.csize=2444 pkg.size=6348
+file 0498f43f17f40862701049bb3d268b7f0be69926 chash=ac49ead9b8ff9a176babbfb381d51d036f2846cb elfarch=i386 elfbits=64 elfhash=b1c410b992fd5d77d610b58f0c0169b73c8568b7 group=bin mode=0755 owner=root path=usr/lib/amd64/libinstzones.so.1 pkg.content-hash=gelf:sha512t_256:e58eb1f1b943c6c6c7cd06b38c9c2d8f6560b110c538090a27f5420fe03781d9 pkg.content-hash=gelf.unsigned:sha512t_256:ee2d0640924310f610138f8d9d7bcd90ac102742c99dd59ca595d200a9d167ad pkg.content-hash=file:sha512t_256:e76febcb21cb5ddee15c089f07de638332510dfba2de094167784366f0b915ab pkg.content-hash=gzip:sha512t_256:11df4caa127de2657394ebc5fd946728a19435f8930a295c863034c342ce9a38 pkg.csize=26193 pkg.size=69240 variant.arch=i386 variant.debug.osnet=true
+file 731e81aaaae60e3d5bd3d3cf2e584b880eba0e58 chash=50f1bebd3bccfe354233c2c0d5d5b8478f22967d facet.devel=true group=bin mode=0644 owner=root path=usr/include/instzones_api.h pkg.content-hash=file:sha512t_256:f406eefa78fbacdabff7db81e830ea84b99048ef148bb47ad4dc420e3c4ace52 pkg.content-hash=gzip:sha512t_256:49b71d5d5b3e31cb9b9b6d0bb9d196d829d526041f9fd26bae7732f3f89d835b pkg.csize=1192 pkg.size=3420
+file b5ae8fe87c1964f504372a0750d1fd034edc130e chash=ddcdc91ed09cfc7c58491f01b9e53cf8045c62c9 elfarch=sparc elfbits=64 elfhash=dce5986a2aa1a6e5d83b9a354341f52b4903eb2f group=bin mode=0755 owner=root path=usr/lib/sparcv9/libinstzones.so.1 pkg.content-hash=gelf:sha512t_256:ab7c40756ef69e84fd5923344e7fae529928e469922bbced2bc0d55cf54a94de pkg.content-hash=gelf.unsigned:sha512t_256:2d42c48b62aab39280cb2e09a52886d1ebead3b3b843abd67db59e0d13162bfa pkg.content-hash=file:sha512t_256:2e850ebcd2f1d8adce68ecd48728532410960d3b109bf7240d21a8e4d4109786 pkg.content-hash=gzip:sha512t_256:91a73f0d97350ce9a3cd03916a13b766635f78144a8cb8b5ae5051a37c0d078c pkg.csize=26889 pkg.size=71864 variant.arch=sparc variant.debug.osnet=true
+link path=usr/lib/amd64/libinstzones.so target=./libinstzones.so.1 variant.arch=i386
+link facet.locale.es=true path=usr/lib/locale/es_ES.ISO8859-1/LC_MESSAGES/solaris_lib_libinstzones.mo target=../../es_ES.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo
+link facet.locale.fr=true path=usr/lib/locale/fr_FR.ISO8859-1/LC_MESSAGES/solaris_lib_libinstzones.mo target=../../fr_FR.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo
+link facet.locale.de=true path=usr/lib/locale/de_DE.ISO8859-1/LC_MESSAGES/solaris_lib_libinstzones.mo target=../../de_DE.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo
+link path=usr/lib/libinstzones.so target=./libinstzones.so.1
+link path=usr/lib/sparcv9/libinstzones.so target=./libinstzones.so.1 variant.arch=sparc
+link facet.locale.pt_BR=true path=usr/lib/locale/pt_BR.ISO8859-1/LC_MESSAGES/solaris_lib_libinstzones.mo target=../../pt_BR.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo
+link facet.locale.ja=true path=usr/lib/locale/ja_JP.PCK/LC_MESSAGES/solaris_lib_libinstzones.mo target=../../ja_JP.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo
+link facet.locale.ko=true path=usr/lib/locale/ko_KR.EUC/LC_MESSAGES/solaris_lib_libinstzones.mo target=../../ko_KR.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo
+link facet.locale.it=true path=usr/lib/locale/it_IT.ISO8859-1/LC_MESSAGES/solaris_lib_libinstzones.mo target=../../it_IT.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo
+link facet.locale.zh_CN=true path=usr/lib/locale/zh_CN.EUC/LC_MESSAGES/solaris_lib_libinstzones.mo target=../../zh_CN.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo
+link facet.locale.ja=true path=usr/lib/locale/ja_JP.eucJP/LC_MESSAGES/solaris_lib_libinstzones.mo target=../../ja_JP.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo
+link facet.locale.zh_CN=true path=usr/lib/locale/zh_CN.GBK/LC_MESSAGES/solaris_lib_libinstzones.mo target=../../zh_CN.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo
+link facet.locale.zh_HK=true facet.locale.zh_TW=true path=usr/lib/locale/zh_TW.EUC/LC_MESSAGES/solaris_lib_libinstzones.mo target=../../zh_TW.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo
+link facet.locale.zh_HK=true facet.locale.zh_TW=true path=usr/lib/locale/zh_TW.BIG5/LC_MESSAGES/solaris_lib_libinstzones.mo target=../../zh_TW.UTF-8/LC_MESSAGES/solaris_lib_libinstzones.mo
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+legacy arch=i386 category=system desc="Solaris Install internal files" hotline="Please contact your local service provider" name="Solaris Install Internal Files" pkg=SUNWinstallint variant.arch=i386 vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+legacy arch=sparc category=system desc="Solaris Install internal files" hotline="Please contact your local service provider" name="Solaris Install Internal Files" pkg=SUNWinstallint variant.arch=sparc vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=48613cb2e933e39ca9614b418db8fedd4de2193cffd9d292c3737ec6adcc5c24c58239b2a37901f4b60b429000108fb2ee83a37795cdc19683c6bcc22613ad01333e8d947d1a791a5ec81fa216d570c34fd17b7854d3e6420dd5c929677397fd922285db622a3887d64a488b75112d6ca32290e33579d86248029f667d1529e94e941e39f26d2acfb70f191f0d90b5216c61c5315cc60638b7a1212234dd5c70e03cda2f2b8319fc09c686c3d53156e32ddd6166bd7bdccc969a5c50660c5cd2fa3bb0adac8f087976bdb371129987461ba91f871367fa91e15b5a6645d96263d62dc0dfb5775530feb1ecf43a56a62ce369d9153e049fa15baf6dc91f0338d1 version=0

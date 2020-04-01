@@ -1,0 +1,27 @@
+set name=pkg.fmri value=pkg://solaris/library/python/pybonjour-34@1.1.1,5.11-11.4.0.0.1.14.0:20180814T170028Z
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.version value=1.1.1
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.description value="Python bindings for Bonjour / DNS-SD"
+set name=org.opensolaris.arc-caseid value=PSARC/2011/265
+set name=com.oracle.info.name value=pybonjour
+set name=pkg.description value="Pybonjour provides a pure-Python interface to Bonjour and compatible DNS-SD libraries (such as Avahi). It allows Python scripts to take advantage of Zero Configuration Networking (Zeroconf) to register, discover, and resolve services on both local and wide-area networks."
+set name=info.source-url value=https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/pybonjour/pybonjour-1.1.1.tar.gz
+set name=org.opensolaris.consolidation value=userland
+set name=pkg.summary value="Python bindings for Bonjour / DNS-SD"
+set name=info.upstream value="Christopher Stawarz <cstawarz@gmail.com>"
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=com.oracle.info.tpno value=4453
+set name=info.upstream-url value=http://code.google.com/p/pybonjour/
+depend fmri=service/network/dns/mdns type=require
+depend fmri=pkg:/runtime/python-34@3.4.8-11.4.0.0.1.13.0 type=require
+depend fmri=library/python/pybonjour@1.1.1,5.11-11.4.0.0.1.14.0 type=require
+file 55074e6e49e1a60a80c4c1ae4d60a4e85bd3f916 chash=46e8e22338eff6f881bf2a3b6e4afdbe4e42b885 group=bin mode=0444 owner=root path=usr/lib/python3.4/vendor-packages/pybonjour.py pkg.content-hash=file:sha512t_256:c65a1c1dcce50a65f2a0484c8091e2fd172510dbc0686b7cfb93bb103d7284a7 pkg.content-hash=gzip:sha512t_256:355229d94aac7d0d3ffb772537f30abd3c30c1baac88d48d9b0cf476ddff39f3 pkg.csize=13559 pkg.size=63868 timestamp=20180809T231752Z variant.arch=sparc
+file 4363e549da20aa3212410417123fd3ea36022be3 chash=b7321b0235fbcfc6334826b28ecfa085ac9cc744 group=bin mode=0444 owner=root path=usr/lib/python3.4/vendor-packages/__pycache__/pybonjour.cpython-34.pyc pkg.content-hash=file:sha512t_256:459aec89b318316d9bf256051e2f001182bd3e7b256d4637a0a2558818fd6efc pkg.content-hash=gzip:sha512t_256:ae04108372ae3ac6580a8fd65aad2f688b3e001cf3d9ff84668631abf7b0234d pkg.csize=16306 pkg.size=51274 variant.arch=sparc
+file 55074e6e49e1a60a80c4c1ae4d60a4e85bd3f916 chash=46e8e22338eff6f881bf2a3b6e4afdbe4e42b885 group=bin mode=0444 owner=root path=usr/lib/python3.4/vendor-packages/pybonjour.py pkg.content-hash=file:sha512t_256:c65a1c1dcce50a65f2a0484c8091e2fd172510dbc0686b7cfb93bb103d7284a7 pkg.content-hash=gzip:sha512t_256:355229d94aac7d0d3ffb772537f30abd3c30c1baac88d48d9b0cf476ddff39f3 pkg.csize=13559 pkg.size=63868 timestamp=20180810T044214Z variant.arch=i386
+file 6bddf848276dca1018cf3c0f506b475fe868a19e chash=0a552cb616f4de28c82ff8415fb4fa95792b8073 group=bin mode=0444 owner=root path=usr/lib/python3.4/vendor-packages/pybonjour-1.1.1-py3.4.egg-info pkg.content-hash=file:sha512t_256:421bdf484c39ee12d61fef7c865508330397bc3d78a3ba8c8b85c0dee576d9e7 pkg.content-hash=gzip:sha512t_256:616f20a4602e7dcbe0e3ea0a126fa2a05b8aa4ca10ce04e1a2f3dd048d7fd670 pkg.csize=631 pkg.size=1283
+file b9645f1dcee5b6f543e6b189985d12909bcb77c3 chash=e22bd7bbdbf01ab947ae9e258dfc9a191f0a1043 group=bin mode=0444 owner=root path=usr/lib/python3.4/vendor-packages/__pycache__/pybonjour.cpython-34.pyc pkg.content-hash=file:sha512t_256:ba7af9039038c235779a10a627e9b40558b231266863b419aa23a30649f95282 pkg.content-hash=gzip:sha512t_256:34eddccd64617fb72d69c9fdde155e58f9f1bf6b37da3ec1dea9a73454bb1f51 pkg.csize=16305 pkg.size=51274 variant.arch=i386
+license 91c9e7949dac417ce47d84c86e799a90fb133e5e chash=36e2b62596ada845c2c06c16fdf9e68a91ee481d license=BSD pkg.content-hash=file:sha512t_256:a6326449c9bfac01e3c653d7fb1b52d7cc2fbbbb57012263ec5899c000f3c4c0 pkg.content-hash=gzip:sha512t_256:d67d5260b522d5fe5ed9c81d29c1a9ed70a8070d52c6c6bbb3f5d49dfa7bc170 pkg.csize=653 pkg.size=1072
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=ab404f13dfe6500ad4f17482ee72bac6ee1fe1ce28c9ef4afaa3b4ce41e31015cb123430f54a70006ea49fb3ac66a9c849ff741908d8a864d45ce778faa11babcbe30a7e2bdc3e22675951932a2dc89d8bd7bc414a354e5bfc32a681cfd3295edf45876417c8c099b1517fc24cbe66809e4ea4db75326f613ad5d364a03b0cd7c40563b3eb0666bdf86b2b367d47fce09147d3beca072b3fe684b82cb4eff59d944646285601f8a4223d79864da705256ea9978279bd9495622273da95f8ab020eee684f15149ef83446e837849bf88d48b4f33f744c1ce90e1129a41be7a3d20b9ce8fe4160cbdb8ff42cf0158f43dc2f04a3ada1fb3b8c3fefd16fc044cd8a version=0

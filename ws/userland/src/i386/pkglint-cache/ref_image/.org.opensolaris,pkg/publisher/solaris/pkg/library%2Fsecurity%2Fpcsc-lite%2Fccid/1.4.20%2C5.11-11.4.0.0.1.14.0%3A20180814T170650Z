@@ -1,0 +1,29 @@
+set name=pkg.fmri value=pkg://solaris/library/security/pcsc-lite/ccid@1.4.20,5.11-11.4.0.0.1.14.0:20180814T170650Z
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.version value=1.4.20
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.tpno value=25483
+set name=info.source-url value=https://alioth.debian.org/frs/download.php/file/4140//ccid-1.4.20.tar.bz2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.description value="the CCID driver library"
+set name=org.opensolaris.arc-caseid value=PSARC/2016/217 value=PSARC/2016/218
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.classification value=org.opensolaris.category.2008:System/Libraries value=org.opensolaris.category.2008:System/Security
+set name=pkg.description value="Provides the driver functionality and library necessary to interact with smart card readers compliant with the PC/SC specification."
+set name=info.upstream-url value=https://pcsclite.alioth.debian.org/ccid.html
+set name=pkg.summary value="Provides smart card reader drivers for pcsclite (PC/SC)"
+set name=com.oracle.info.name value=ccid
+depend fmri=pkg:/library/libusb-1@1.0.21-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/library/security/pcsc/pcsclite@1.8.14-11.4.0.0.1.13.0 type=require
+dir group=bin mode=0755 owner=root path=usr/lib/amd64/pcsc/drivers/ifd-ccid.bundle/Contents variant.arch=i386
+dir group=bin mode=0755 owner=root path=usr/lib/amd64/pcsc/drivers/ifd-ccid.bundle/Contents/Solaris variant.arch=i386
+dir group=bin mode=0755 owner=root path=usr/lib/sparcv9/pcsc/drivers/ifd-ccid.bundle/Contents variant.arch=sparc
+dir group=bin mode=0755 owner=root path=usr/lib/sparcv9/pcsc/drivers/ifd-ccid.bundle/Contents/Solaris variant.arch=sparc
+file 7f76a5f3803644b7d02908ba3cb059e080753750 chash=a4fb047b6a7032d9eab7a8c04cb34adbd6f14296 group=bin mode=0444 owner=root path=usr/lib/amd64/pcsc/drivers/ifd-ccid.bundle/Contents/Info.plist pkg.content-hash=file:sha512t_256:68fbe4a6065362048d6a172559e790abee8f72d3586a741433e82b602c9a0308 pkg.content-hash=gzip:sha512t_256:56597189ddee5f78f38b80e6e7abe2d207d51f53d3fbcd24a8a37071273783f9 pkg.csize=6350 pkg.size=33870 variant.arch=i386
+file 42fdce202f72a8586b0d46420dc56f33c5f10542 chash=b4bf2098262f1ae7c9451be2f992e46dc565aa30 elfarch=i386 elfbits=64 elfhash=e63f84482d20f69c1f26e49365475931a2c6c0cf group=bin mode=0555 owner=root path=usr/lib/amd64/pcsc/drivers/ifd-ccid.bundle/Contents/Solaris/libccid.so pkg.content-hash=gelf:sha512t_256:5970619bf9dfe8b02f256b38391c6de33be8c1c1e2facecf4b683db6915cb4ec pkg.content-hash=gelf.unsigned:sha512t_256:803405692118eb2f39392722f78a3673ab0a55a49378a2a5a83d367e6c4a6721 pkg.content-hash=file:sha512t_256:ffbdbc0a26e78273cddd1b30b4fcf4b0a2502fdcf574a34e145b55c5aa75aa0c pkg.content-hash=gzip:sha512t_256:5bd82151c5a88b402ab017e526986ee98317e4305babba61756b6f8cd139c2df pkg.csize=70260 pkg.size=197608 variant.arch=i386
+file dfe474bad3e15040a47b49ea3e904b66d303d04e chash=2afe27886468f1a008fb17cf87270d2b8d02d391 elfarch=sparc elfbits=64 elfhash=42372ab0def5c45e5317b384db1016a371fc383c group=bin mode=0555 owner=root path=usr/lib/sparcv9/pcsc/drivers/ifd-ccid.bundle/Contents/Solaris/libccid.so pkg.content-hash=gelf:sha512t_256:53efe563ccc2a7a05b265d1207c3a07e5ef46b07c98b32040020b57682184972 pkg.content-hash=gelf.unsigned:sha512t_256:f16db5ebfa70ebfe5d41d0195cec5ea84a8136762063d6b6c83f2864d74c2986 pkg.content-hash=file:sha512t_256:cc70b9c2b2488989aa03cfd9a387e62d53a5b7288dfcbfde438094a8b7967d55 pkg.content-hash=gzip:sha512t_256:f37ba8d3e40c544430317711d0422c67ed3474e4144b3a04beafe9d94ec897bb pkg.csize=84463 pkg.size=209640 variant.arch=sparc
+file 7f76a5f3803644b7d02908ba3cb059e080753750 chash=a4fb047b6a7032d9eab7a8c04cb34adbd6f14296 group=bin mode=0444 owner=root path=usr/lib/sparcv9/pcsc/drivers/ifd-ccid.bundle/Contents/Info.plist pkg.content-hash=file:sha512t_256:68fbe4a6065362048d6a172559e790abee8f72d3586a741433e82b602c9a0308 pkg.content-hash=gzip:sha512t_256:56597189ddee5f78f38b80e6e7abe2d207d51f53d3fbcd24a8a37071273783f9 pkg.csize=6350 pkg.size=33870 variant.arch=sparc
+license 01a6b4bf79aca9b556822601186afab86e8c4fbf chash=41f2ea1b963df10ef71d110758b4f377f530e762 license="LGPL v.2.1" pkg.content-hash=file:sha512t_256:a15c3531cb526871a5a55ae9edf8c8b2466c225b0f70c82846c9d001a96bb6c2 pkg.content-hash=gzip:sha512t_256:cdc281e6944d20e6e52ac4a9094de75eaa44ff1fdf1964b97ddb6897bd85d99b pkg.csize=9357 pkg.size=26530
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=6fdecb3ddc056b30bf46d479ddd0198e4a549470d3e5e4be91ded57f74b1d93a76e542708de9e5fc5f45562e881260dcf6f275cb5b27a60dc3dbcc5eb5bb97df2fc78975a9f6234c13131ca4f87ebf6ea2109e700e4b789be5a6aee3af4f08176b919910b59c54952c48ff7df3443e1aa6fd7ac9deeeb8d43f6bd8b56d0475701e0500bb385e1591cca1cffd9bde298d7b8f9de7c2591b82a696714cc0dddba3221e2abdaa38a423eed7275e1efdfb844acd8900470099f09cad524c3b2f7b545d78b3ed92492c0b6453d025927128139d516cd972a7f6fcf39d6aabbc14545c0494b9e412a78d2671beeed0ae49a9b9091ac14901a9775b5afdc13f3966fd6c version=0

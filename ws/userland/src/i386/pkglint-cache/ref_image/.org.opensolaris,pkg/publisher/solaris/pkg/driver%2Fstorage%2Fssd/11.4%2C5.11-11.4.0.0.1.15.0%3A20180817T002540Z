@@ -1,0 +1,30 @@
+set name=pkg.fmri value=pkg://solaris/driver/storage/ssd@11.4,5.11-11.4.0.0.1.15.0:20180817T002540Z
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Storage
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.debug.osnet value=true value=false
+set name=pkg.summary value="SPARCstorage Array drivers"
+set name=pkg.description value="The ssd(4D) device driver supports Fibre Channel Arbitrated Loop (FC-AL) disk devices."
+set name=variant.arch value=sparc
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=pkg:/system/io/fc/fc-scsi@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+depend fmri=pkg:/system/kernel@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv/sparcv9 variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=usr variant.opensolaris.zone=global
+dir group=bin mode=0755 owner=root path=usr/include
+dir facet.devel=true group=bin mode=0755 owner=root path=usr/include/sys
+dir facet.devel=true group=bin mode=0755 owner=root path=usr/include/sys/scsi
+dir facet.devel=true group=bin mode=0755 owner=root path=usr/include/sys/scsi/targets
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man4d
+file ca3e27e8d594370e0d39ae15f80e5d5fa31ae282 chash=41d53b5673e59a190e45d665d2104e1a56649d03 elfarch=sparc elfbits=64 elfhash=130a76f82838228563b248ae8f5663b9594139e7 group=sys mode=0755 owner=root path=kernel/drv/sparcv9/ssd pkg.content-hash=gelf:sha512t_256:48ce9f0358e5e29ec24d358c525107c89f62106dd812116b2aa0b3f925d5fd19 pkg.content-hash=gelf.unsigned:sha512t_256:48ce9f0358e5e29ec24d358c525107c89f62106dd812116b2aa0b3f925d5fd19 pkg.content-hash=file:sha512t_256:629c9294909b6fccc604aceb6160e2f1ca8733f9f1596d2036caf86ecec509d7 pkg.content-hash=gzip:sha512t_256:c28fbc54ab80c11426feda1cc27fec329ce6bf98ea2d234f9b9682a0697a349b pkg.csize=136330 pkg.size=344528 reboot-needed=true variant.debug.osnet=false variant.opensolaris.zone=global
+file 2d4786aeaf4b4a8236ea8b1ac56a4bb0589f1410 chash=90e10abf7e67b0cfb220a873f59af3288e9df8e4 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4d/ssd.4d pkg.content-hash=file:sha512t_256:d72dcdf52f2e0a5c658d35eb906897e362982243e030239f4ded499cc12d3da5 pkg.content-hash=gzip:sha512t_256:de3a9ca36a2d87f59ad2664a592e648b456e1742da04ab30176be2e597b9e10c pkg.csize=4063 pkg.size=11239
+file b81247faf62070fae223100242d8e44d88d855bd chash=d58292c2f866731ce91630886de7a5bfdecc909d facet.devel=true group=bin mode=0644 owner=root path=usr/include/sys/scsi/targets/ssddef.h pkg.content-hash=file:sha512t_256:d928518a6213c070ed3a7a40d94055c6868eddf8d5bb67b1e71fac84605ec347 pkg.content-hash=gzip:sha512t_256:acce303295facc44b9ca23eb9b988a3f8e0b8384747764fdd9537b4893093ffd pkg.csize=321 pkg.size=514
+file f3d46b9ff5fed5ec5643368467cf92b5c6d7b6db chash=91433fd30ae23f6fa715469729c8b6939bb72dbe elfarch=sparc elfbits=64 elfhash=64cb71cd1139f98351d6bfb4157951fb323f17b4 group=sys mode=0755 owner=root path=kernel/drv/sparcv9/ssd pkg.content-hash=gelf:sha512t_256:b42fe5ff36df7f8f5935d58ccf40827c04d73307d01b6a8acfadf096a0b227a8 pkg.content-hash=gelf.unsigned:sha512t_256:b42fe5ff36df7f8f5935d58ccf40827c04d73307d01b6a8acfadf096a0b227a8 pkg.content-hash=file:sha512t_256:e23b76ced0f3d0f5270e1fda6eb0669551431d27e3b4a1e8ef82f1d5b51d2dbf pkg.content-hash=gzip:sha512t_256:e7db647349dfa9bfb8649067ccdbec5c341465aad8c177e03916ea1d0bf30463 pkg.csize=192959 pkg.size=583096 reboot-needed=true variant.debug.osnet=true variant.opensolaris.zone=global
+file 2cdfd5ed1fbc7748549ebf650e37f6c99e0adc39 chash=895c4250b5c6fe58286bbbd6dea811b78d116498 group=sys mode=0644 original_name=SUNWssad:kernel/drv/ssd.conf owner=root path=kernel/drv/ssd.conf pkg.content-hash=file:sha512t_256:f42d6b28e91610c327a883ff5901ac1d06f955507682e15e4e4b94226812e600 pkg.content-hash=gzip:sha512t_256:aab25926c094521d43a8ad554ebd47736ee43979e7dde2d9ee9416552a952c1d pkg.csize=256 pkg.size=355 reboot-needed=true variant.opensolaris.zone=global
+driver alias=SUNW,ssd alias=scsa,00.bfcp alias=scsa,00.bvhci name=ssd perms="* 0640 root sys" policy=tpd_member=true variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+legacy arch=sparc category=system desc="ssd kernel device driver" hotline="Please contact your local service provider" name="SPARCstorage Array Drivers" pkg=SUNWssad vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=835763163366268e259aca86044b9ee282962a22c1d01af3808b753dbcbb688d80348433be13c9f9a7396664bec3d906b11ab2f00bf1afe6f674115180a3b6ae0cd93cfd03021d50a261ff002b7d099c99ea6ecc6e955d206dc3c7ab8b6c9bb9d87d99d29430aec4a6ac44c14315121e1def08417fae1b20502162087c1b5ed270195c7bd11aa394aff9c953968b23f5dd2e49401bb9e9ca17737fdf8a7fc3b8f20adaaf0713b6f455b704a3c9a6643d055c4eaa26d929504963d04ec1c8d25603af612ea6150c1a50c36f55173a7d8d845f8853bc09c53a1492e61e0530300066f27ad5a6d2b7063d1ffa92bc43d326dde61fec558629b086636f475b416e50 version=0

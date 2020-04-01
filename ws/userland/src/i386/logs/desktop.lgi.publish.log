@@ -1,0 +1,317 @@
+gmake: Entering directory '/ws/userland/src/components/desktop/lgi'
+/bin/rm -f -r /ws/userland/src/components/desktop/lgi/lgi-0.9.0
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  lgi-0.9.0.tar.gz
+/usr/bin/touch /ws/userland/src/components/desktop/lgi/lgi-0.9.0/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/desktop/lgi/lgi-0.9.0 --strip=1 --backup --version-control=numbered < patches/01-lua-version.patch
+patching file lgi/Makefile
+patching file lgi/core.c
+patching file lgi/core.lua
+/usr/bin/touch /ws/userland/src/components/desktop/lgi/lgi-0.9.0/.patched-01-lua-version.patch
+/usr/bin/touch /ws/userland/src/components/desktop/lgi/lgi-0.9.0/.patched
+/usr/bin/touch /ws/userland/src/components/desktop/lgi/lgi-0.9.0/.prep
+/bin/rm -f -r /ws/userland/src/components/desktop/lgi/build/i86 ; /bin/mkdir -p /ws/userland/src/components/desktop/lgi/build/i86
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/lgi/lgi-0.9.0 /ws/userland/src/components/desktop/lgi/build/i86
+symlink cloning /ws/userland/src/components/desktop/lgi/lgi-0.9.0 to /ws/userland/src/components/desktop/lgi/build/i86
+(cd /ws/userland/src/components/desktop/lgi/build/i86; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++" CFLAGS="-m32 -O3 -mincoming-stack-boundary=2" CXXFLAGS="-m32 -O3 -mincoming-stack-boundary=2" LDFLAGS="-m32" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/lgi/build/i86'
+/usr/gnu/bin/make -C lgi
+make[2]: Entering directory '/ws/userland/src/components/desktop/lgi/build/i86/lgi'
+pkg-config --exists 'gobject-introspection-1.0 >= 0.10.8' --print-errors
+touch .depcheck
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m32 -O3 -mincoming-stack-boundary=2 -c -o buffer.o buffer.c
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m32 -O3 -mincoming-stack-boundary=2 -c -o callable.o callable.c
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m32 -O3 -mincoming-stack-boundary=2 -c -o core.o core.c
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m32 -O3 -mincoming-stack-boundary=2 -c -o gi.o gi.c
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m32 -O3 -mincoming-stack-boundary=2 -c -o marshal.o marshal.c
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m32 -O3 -mincoming-stack-boundary=2 -c -o object.o object.c
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m32 -O3 -mincoming-stack-boundary=2 -c -o record.o record.c
+/usr/gcc/7/bin/gcc -shared -m32 -o corelgilua52.so buffer.o callable.o core.o gi.o marshal.o object.o record.o -lgirepository-1.0 -lgobject-2.0 -lgmodule-2.0 -lglib-2.0 -lffi
+echo "return '0.9.0'" > version.lua
+make[2]: Leaving directory '/ws/userland/src/components/desktop/lgi/build/i86/lgi'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/lgi/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/lgi/build/i86/.built
+/bin/rm -f -r /ws/userland/src/components/desktop/lgi/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/desktop/lgi/build/amd64
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/lgi/lgi-0.9.0 /ws/userland/src/components/desktop/lgi/build/amd64
+symlink cloning /ws/userland/src/components/desktop/lgi/lgi-0.9.0 to /ws/userland/src/components/desktop/lgi/build/amd64
+(cd /ws/userland/src/components/desktop/lgi/build/amd64; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++" CFLAGS="-m64 -O3" CXXFLAGS="-m64 -O3" LDFLAGS="-m64" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/lgi/build/amd64'
+/usr/gnu/bin/make -C lgi
+make[2]: Entering directory '/ws/userland/src/components/desktop/lgi/build/amd64/lgi'
+pkg-config --exists 'gobject-introspection-1.0 >= 0.10.8' --print-errors
+touch .depcheck
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m64 -O3 -c -o buffer.o buffer.c
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m64 -O3 -c -o callable.o callable.c
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m64 -O3 -c -o core.o core.c
+core.c: In function 'lgi_type_get_repotype':
+core.c:170:33: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       lua_pushlightuserdata (L, (gpointer) gtype);
+                                 ^
+core.c: In function 'lgi_type_get_gtype':
+core.c:219:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       return (GType) lua_touserdata (L, narg);
+              ^
+core.c: In function 'core_gtype':
+core.c:273:29: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   lua_pushlightuserdata (L, (gpointer) lgi_type_get_gtype (L, 1));
+                             ^
+In file included from /usr/include/glib-2.0/glib/gthread.h:32:0,
+                 from /usr/include/glib-2.0/glib/gasyncqueue.h:32,
+                 from /usr/include/glib-2.0/glib.h:32,
+                 from lgi.h:32,
+                 from core.c:12:
+core.c: In function 'lgi_state_enter':
+/usr/include/glib-2.0/glib/gatomic.h:130:5: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     (gpointer) __atomic_load_4 ((atomic), __ATOMIC_SEQ_CST);                 \
+     ^
+core.c:355:17: note: in expansion of macro 'g_atomic_pointer_get'
+       wait_on = g_atomic_pointer_get (&mutex->mutex);
+                 ^~~~~~~~~~~~~~~~~~~~
+core.c: In function 'core_registerlock':
+/usr/include/glib-2.0/glib/gatomic.h:130:5: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     (gpointer) __atomic_load_4 ((atomic), __ATOMIC_SEQ_CST);                 \
+     ^
+core.c:444:13: note: in expansion of macro 'g_atomic_pointer_get'
+   wait_on = g_atomic_pointer_get (&mutex->mutex);
+             ^~~~~~~~~~~~~~~~~~~~
+/usr/include/glib-2.0/glib/gatomic.h:136:33: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+     __atomic_store_4 ((atomic), (gsize) (newval), __ATOMIC_SEQ_CST);         \
+                                 ^
+core.c:448:7: note: in expansion of macro 'g_atomic_pointer_set'
+       g_atomic_pointer_set (&mutex->mutex, &package_mutex);
+       ^~~~~~~~~~~~~~~~~~~~
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m64 -O3 -c -o gi.o gi.c
+gi.c: In function 'info_index':
+gi.c:281:32: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+      lua_pushlightuserdata (L, (void *) gtype);
+                                ^
+gi.c: In function 'gi_index':
+gi.c:761:21: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       GType gtype = (GType) lua_touserdata (L, 2);
+                     ^
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m64 -O3 -c -o marshal.o marshal.c
+In file included from /usr/include/glib-2.0/glib/gtypes.h:32:0,
+                 from /usr/include/glib-2.0/glib/galloca.h:32,
+                 from /usr/include/glib-2.0/glib.h:30,
+                 from lgi.h:32,
+                 from marshal.c:13:
+marshal.c: In function 'marshal_2c_int':
+/usr/lib/glib-2.0/include/glibconfig.h:90:29: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ #define GINT_TO_POINTER(i) ((gpointer) (gint) (i))
+                             ^
+marshal.c:50:6: note: in expansion of macro 'GINT_TO_POINTER'
+      G ## ptrconv ## _TO_POINTER ((pct) val->v_ ## namelow);     \
+      ^
+marshal.c:71:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(INT8, int8, INT, gint, -0x80, 0x7f, s);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:91:30: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ #define GUINT_TO_POINTER(u) ((gpointer) (guint) (u))
+                              ^
+marshal.c:50:6: note: in expansion of macro 'GUINT_TO_POINTER'
+      G ## ptrconv ## _TO_POINTER ((pct) val->v_ ## namelow);     \
+      ^
+marshal.c:72:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(UINT8, uint8, UINT, guint, 0, 0xff, u);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:90:29: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ #define GINT_TO_POINTER(i) ((gpointer) (gint) (i))
+                             ^
+marshal.c:50:6: note: in expansion of macro 'GINT_TO_POINTER'
+      G ## ptrconv ## _TO_POINTER ((pct) val->v_ ## namelow);     \
+      ^
+marshal.c:73:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(INT16, int16, INT, gint, -0x8000, 0x7fff, s);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:91:30: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ #define GUINT_TO_POINTER(u) ((gpointer) (guint) (u))
+                              ^
+marshal.c:50:6: note: in expansion of macro 'GUINT_TO_POINTER'
+      G ## ptrconv ## _TO_POINTER ((pct) val->v_ ## namelow);     \
+      ^
+marshal.c:74:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(UINT16, uint16, UINT, guint, 0, 0xffff, u);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:90:29: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ #define GINT_TO_POINTER(i) ((gpointer) (gint) (i))
+                             ^
+marshal.c:50:6: note: in expansion of macro 'GINT_TO_POINTER'
+      G ## ptrconv ## _TO_POINTER ((pct) val->v_ ## namelow);     \
+      ^
+marshal.c:75:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(INT32, int32, INT, gint, -0x80000000LL, 0x7fffffffLL, s);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:91:30: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ #define GUINT_TO_POINTER(u) ((gpointer) (guint) (u))
+                              ^
+marshal.c:50:6: note: in expansion of macro 'GUINT_TO_POINTER'
+      G ## ptrconv ## _TO_POINTER ((pct) val->v_ ## namelow);     \
+      ^
+marshal.c:76:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(UINT32, uint32, UINT, guint, 0, 0xffffffffUL, u);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:91:30: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ #define GUINT_TO_POINTER(u) ((gpointer) (guint) (u))
+                              ^
+marshal.c:50:6: note: in expansion of macro 'GUINT_TO_POINTER'
+      G ## ptrconv ## _TO_POINTER ((pct) val->v_ ## namelow);     \
+      ^
+marshal.c:77:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(UNICHAR, uint32, UINT, guint, 0, 0x7fffffffLL, u);
+       ^~~~~~~~~~
+marshal.c: In function 'marshal_2lua_int':
+/usr/lib/glib-2.0/include/glibconfig.h:87:37: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ #define GPOINTER_TO_INT(p) ((gint)  (gint) (p))
+                                     ^
+marshal.c:116:7: note: in expansion of macro 'GPOINTER_TO_INT'
+    ?  GPOINTER_TO_ ## ptrconv (val->v_pointer) \
+       ^~~~~~~~~~~~
+marshal.c:120:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(INT8, int8, INT, s);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:88:38: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ #define GPOINTER_TO_UINT(p) ((guint) (guint) (p))
+                                      ^
+marshal.c:116:7: note: in expansion of macro 'GPOINTER_TO_UINT'
+    ?  GPOINTER_TO_ ## ptrconv (val->v_pointer) \
+       ^~~~~~~~~~~~
+marshal.c:121:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(UINT8, uint8, UINT, u);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:87:37: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ #define GPOINTER_TO_INT(p) ((gint)  (gint) (p))
+                                     ^
+marshal.c:116:7: note: in expansion of macro 'GPOINTER_TO_INT'
+    ?  GPOINTER_TO_ ## ptrconv (val->v_pointer) \
+       ^~~~~~~~~~~~
+marshal.c:122:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(INT16, int16, INT, s);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:88:38: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ #define GPOINTER_TO_UINT(p) ((guint) (guint) (p))
+                                      ^
+marshal.c:116:7: note: in expansion of macro 'GPOINTER_TO_UINT'
+    ?  GPOINTER_TO_ ## ptrconv (val->v_pointer) \
+       ^~~~~~~~~~~~
+marshal.c:123:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(UINT16, uint16, UINT, u);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:87:37: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ #define GPOINTER_TO_INT(p) ((gint)  (gint) (p))
+                                     ^
+marshal.c:116:7: note: in expansion of macro 'GPOINTER_TO_INT'
+    ?  GPOINTER_TO_ ## ptrconv (val->v_pointer) \
+       ^~~~~~~~~~~~
+marshal.c:124:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(INT32, int32, INT, s);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:88:38: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ #define GPOINTER_TO_UINT(p) ((guint) (guint) (p))
+                                      ^
+marshal.c:116:7: note: in expansion of macro 'GPOINTER_TO_UINT'
+    ?  GPOINTER_TO_ ## ptrconv (val->v_pointer) \
+       ^~~~~~~~~~~~
+marshal.c:125:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(UINT32, uint32, UINT, u);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:88:38: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ #define GPOINTER_TO_UINT(p) ((guint) (guint) (p))
+                                      ^
+marshal.c:116:7: note: in expansion of macro 'GPOINTER_TO_UINT'
+    ?  GPOINTER_TO_ ## ptrconv (val->v_pointer) \
+       ^~~~~~~~~~~~
+marshal.c:126:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(UNICHAR, uint32, UINT, u);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:87:37: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ #define GPOINTER_TO_INT(p) ((gint)  (gint) (p))
+                                     ^
+marshal.c:116:7: note: in expansion of macro 'GPOINTER_TO_INT'
+    ?  GPOINTER_TO_ ## ptrconv (val->v_pointer) \
+       ^~~~~~~~~~~~
+marshal.c:127:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(INT64, int64, INT, s);
+       ^~~~~~~~~~
+/usr/lib/glib-2.0/include/glibconfig.h:88:38: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ #define GPOINTER_TO_UINT(p) ((guint) (guint) (p))
+                                      ^
+marshal.c:116:7: note: in expansion of macro 'GPOINTER_TO_UINT'
+    ?  GPOINTER_TO_ ## ptrconv (val->v_pointer) \
+       ^~~~~~~~~~~~
+marshal.c:128:7: note: in expansion of macro 'HANDLE_INT'
+       HANDLE_INT(UINT64, uint64, UINT, u);
+       ^~~~~~~~~~
+marshal.c: In function 'lgi_marshal_2c':
+/usr/lib/glib-2.0/include/glibconfig.h:90:29: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ #define GINT_TO_POINTER(i) ((gpointer) (gint) (i))
+                             ^
+marshal.c:901:21: note: in expansion of macro 'GINT_TO_POINTER'
+    arg->v_pointer = GINT_TO_POINTER (result);
+                     ^~~~~~~~~~~~~~~
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m64 -O3 -c -o object.o object.c
+/usr/gcc/7/bin/gcc -fPIC   -D_REENTRANT -DFFI_NO_RAW_API -I/usr/include/gobject-introspection-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pcre -I/usr/lib/libffi-3.2.1/include -m64 -O3 -c -o record.o record.c
+record.c: In function 'record_free':
+record.c:135:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       gtype = (GType) lua_touserdata (L, -1);
+               ^
+/usr/gcc/7/bin/gcc -shared -m64 -o corelgilua52.so buffer.o callable.o core.o gi.o marshal.o object.o record.o -lgirepository-1.0 -lgobject-2.0 -lgmodule-2.0 -lglib-2.0 -lffi
+echo "return '0.9.0'" > version.lua
+make[2]: Leaving directory '/ws/userland/src/components/desktop/lgi/build/amd64/lgi'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/lgi/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/lgi/build/amd64/.built
+(cd /ws/userland/src/components/desktop/lgi/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/desktop/lgi/build/prototype/i386  LUA_VERSION=5.2 PREFIX=/usr install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/lgi/build/i86'
+/usr/gnu/bin/make -C lgi install
+make[2]: Entering directory '/ws/userland/src/components/desktop/lgi/build/i86/lgi'
+mkdir -p /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/lib/lua/5.2/lgi
+cp corelgilua52.so /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/lib/lua/5.2/lgi
+mkdir -p /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/share/lua/5.2
+cp ../lgi.lua /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/share/lua/5.2
+mkdir -p /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/share/lua/5.2/lgi
+cp enum.lua record.lua namespace.lua version.lua log.lua class.lua core.lua ffi.lua component.lua init.lua package.lua version.lua /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/share/lua/5.2/lgi
+mkdir -p /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/share/lua/5.2/lgi/override
+cp override/PangoCairo.lua override/GLib-Variant.lua override/Gio-DBus.lua override/GLib-Error.lua override/GObject-Value.lua override/Gst.lua override/cairo.lua override/Gtk.lua override/Gdk.lua override/GObject-Closure.lua override/GLib.lua override/Gio.lua override/GLib-Timer.lua override/GLib-Bytes.lua override/GLib-Markup.lua override/GObject-Type.lua override/Pango.lua override/Clutter.lua override/GObject-Object.lua /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/share/lua/5.2/lgi/override
+make[2]: Leaving directory '/ws/userland/src/components/desktop/lgi/build/i86/lgi'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/lgi/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/lgi/build/i86/.installed
+(cd /ws/userland/src/components/desktop/lgi/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make LUA_LIBDIR=/usr/lib/lua/5.2/64 DESTDIR=/ws/userland/src/components/desktop/lgi/build/prototype/i386 LUA_LIBDIR=/usr/lib/lua/5.2/64 LUA_VERSION=5.2 PREFIX=/usr install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/lgi/build/amd64'
+/usr/gnu/bin/make -C lgi install
+make[2]: Entering directory '/ws/userland/src/components/desktop/lgi/build/amd64/lgi'
+mkdir -p /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/lib/lua/5.2/64/lgi
+cp corelgilua52.so /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/lib/lua/5.2/64/lgi
+mkdir -p /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/share/lua/5.2
+cp ../lgi.lua /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/share/lua/5.2
+mkdir -p /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/share/lua/5.2/lgi
+cp ffi.lua component.lua enum.lua record.lua namespace.lua version.lua core.lua log.lua class.lua init.lua package.lua version.lua /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/share/lua/5.2/lgi
+mkdir -p /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/share/lua/5.2/lgi/override
+cp override/PangoCairo.lua override/GLib-Variant.lua override/Gio-DBus.lua override/GLib-Error.lua override/GObject-Value.lua override/Gst.lua override/cairo.lua override/Gdk.lua override/GLib-Timer.lua override/Gtk.lua override/GLib.lua override/Gio.lua override/GObject-Object.lua override/GLib-Bytes.lua override/GLib-Markup.lua override/GObject-Type.lua override/Pango.lua override/Clutter.lua override/GObject-Closure.lua /ws/userland/src/components/desktop/lgi/build/prototype/i386/usr/share/lua/5.2/lgi/override
+make[2]: Leaving directory '/ws/userland/src/components/desktop/lgi/build/amd64/lgi'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/lgi/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/lgi/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 lgi.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=0\\.9\\.0 -D COMPONENT_RE_VERSION=0\\.9\\.0 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/lgi -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="27458" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="0.9.0" -D IPS_COMPONENT_VERSION="0.9.0" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://github.com/pavouk/lgi/archive/0.9.0.tar.gz" -D COMPONENT_PROJECT_URL="https://github.com/pavouk/lgi" -D COMPONENT_NAME="lgi" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" lgi.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/lgi/build/manifest-i386-lgi.mogrified
+/bin/mkdir -p /ws/userland/src/components/desktop/lgi/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/lgi/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/lgi/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/lgi/build/prototype/i386 -d /ws/userland/src/components/desktop/lgi/build -d /ws/userland/src/components/desktop/lgi -d lgi-0.9.0 -d /ws/userland/src/licenses -m /ws/userland/src/components/desktop/lgi/build/manifest-i386-lgi.mogrified >/ws/userland/src/components/desktop/lgi/build/manifest-i386-lgi.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/lgi/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/lgi/build/prototype/i386 -d /ws/userland/src/components/desktop/lgi/build -d /ws/userland/src/components/desktop/lgi -d lgi-0.9.0 -d /ws/userland/src/licenses /ws/userland/src/components/desktop/lgi/build/manifest-i386-lgi.mangled >/ws/userland/src/components/desktop/lgi/build/manifest-i386-lgi.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/desktop/lgi/build/resolve.deps -m /ws/userland/src/components/desktop/lgi/build/manifest-i386-lgi.depend
+/usr/bin/touch /ws/userland/src/components/desktop/lgi/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/desktop/lgi/build/manifest-i386-lgi.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/desktop/lgi/build/prototype/i386/mangled /ws/userland/src/components/desktop/lgi/build/prototype/i386 /ws/userland/src/components/desktop/lgi/build /ws/userland/src/components/desktop/lgi lgi-0.9.0 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/desktop/lgi/build/manifest-i386-lgi.depend.res
+/usr/bin/touch /ws/userland/src/components/desktop/lgi/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/lgi/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/lgi/build/prototype/i386 -d /ws/userland/src/components/desktop/lgi/build -d /ws/userland/src/components/desktop/lgi -d lgi-0.9.0 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/desktop/lgi/build/manifest-i386-lgi.depend.res
+pkg://nightly/library/lua/lgi-52@0.9.0,5.11-11.4.0.0.1.14.0:20190727T211544Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/lgi/build/manifest-i386-lgi.depend.res >/ws/userland/src/components/desktop/lgi/build/manifest-i386-lgi.published
+/usr/bin/touch /ws/userland/src/components/desktop/lgi/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/desktop/lgi'
+
+real       11.7
+user        6.4
+sys         2.0

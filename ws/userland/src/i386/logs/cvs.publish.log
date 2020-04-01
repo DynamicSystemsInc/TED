@@ -1,0 +1,1207 @@
+gmake: Entering directory '/ws/userland/src/components/cvs'
+/bin/rm -f -r /ws/userland/src/components/cvs/cvs-1.12.13
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  cvs-1.12.13.tar.bz2
+/usr/bin/touch /ws/userland/src/components/cvs/cvs-1.12.13/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/cvs/cvs-1.12.13 --strip=1 --backup --version-control=numbered < patches/CVE-2012-0804.patch
+patching file src/client.c
+/usr/bin/touch /ws/userland/src/components/cvs/cvs-1.12.13/.patched-CVE-2012-0804.patch
+/usr/bin/patch -d /ws/userland/src/components/cvs/cvs-1.12.13 --strip=1 --backup --version-control=numbered < patches/CVE-2017-12836.patch
+patching file src/rsh-client.c
+/usr/bin/touch /ws/userland/src/components/cvs/cvs-1.12.13/.patched-CVE-2017-12836.patch
+/usr/bin/touch /ws/userland/src/components/cvs/cvs-1.12.13/.patched
+/usr/bin/touch /ws/userland/src/components/cvs/cvs-1.12.13/.prep
+(/bin/rm -f -rf /ws/userland/src/components/cvs/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/cvs/build/amd64)
+(cd /ws/userland/src/components/cvs/build/amd64 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/opt/solarisstudio12.4/bin/cc" CXX="/opt/solarisstudio12.4/bin/CC" PATH="/usr/bin/amd64:/usr/bin:/usr/gnu/bin" CC_FOR_BUILD="/opt/solarisstudio12.4/bin/cc -m64" CXX_FOR_BUILD="/opt/solarisstudio12.4/bin/CC -m64" CPPFLAGS="-m64" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED" CXXFLAGS="-norunpath -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/cvs/cvs-1.12.13/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib/amd64    --with-external-zlib)
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for style of include used by make... GNU
+checking for gcc... /opt/solarisstudio12.4/bin/cc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... no
+checking whether /opt/solarisstudio12.4/bin/cc accepts -g... yes
+checking for /opt/solarisstudio12.4/bin/cc option to accept ANSI C... none needed
+checking dependency style of /opt/solarisstudio12.4/bin/cc... none
+checking how to run the C preprocessor... /opt/solarisstudio12.4/bin/cc -E
+checking for egrep... egrep
+checking for AIX... no
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking for gcc... (cached) /opt/solarisstudio12.4/bin/cc
+checking whether we are using the GNU C compiler... (cached) no
+checking whether /opt/solarisstudio12.4/bin/cc accepts -g... (cached) yes
+checking for /opt/solarisstudio12.4/bin/cc option to accept ANSI C... (cached) none needed
+checking dependency style of /opt/solarisstudio12.4/bin/cc... (cached) none
+checking whether /opt/solarisstudio12.4/bin/cc and cc understand -c and -o together... yes
+checking for library containing strerror... none required
+checking for ranlib... ranlib
+checking whether ln -s works... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for _LARGE_FILES value needed for large files... no
+checking for perl... /usr/bin/perl
+checking for csh... /usr/bin/csh
+checking for mktemp... /usr/bin/mktemp
+checking for sendmail... /usr/sbin/sendmail
+checking for pr... /usr/bin/pr
+checking for groff... /usr/bin/groff
+checking for ps2pdf... /usr/bin/ps2pdf
+checking for texi2dvi... /usr/bin/texi2dvi
+checking whether #! works in shell scripts... yes
+checking for BSD VPATH bug in make... no
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for ANSI C header files... (cached) yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking direct.h usability... no
+checking direct.h presence... no
+checking for direct.h... no
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking io.h usability... no
+checking io.h presence... no
+checking for io.h... no
+checking for memory.h... (cached) yes
+checking ndbm.h usability... yes
+checking ndbm.h presence... yes
+checking for ndbm.h... yes
+checking for stdint.h... (cached) yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking sys/bsdtypes.h usability... no
+checking sys/bsdtypes.h presence... no
+checking for sys/bsdtypes.h... no
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking for unistd.h... (cached) yes
+checking utime.h usability... yes
+checking utime.h presence... yes
+checking for utime.h... yes
+checking whether stat file-mode macros are broken... no
+checking for an ANSI C-conforming const... yes
+checking for uid_t in sys/types.h... yes
+checking for mode_t... yes
+checking for pid_t... yes
+checking return type of signal handlers... void
+checking for struct stat.st_blksize... yes
+checking for struct stat.st_rdev... yes
+checking for _LARGEFILE_SOURCE value needed for large files... no
+checking for fseeko... yes
+checking for waitpid... yes
+checking for fcntl.h... (cached) yes
+checking whether select hangs on /dev/null fd when timeout is NULL... no
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for long long... yes
+checking for long double... yes
+checking for C/C++ restrict keyword... restrict
+checking for IPv4 sockets... yes
+checking for IPv6 sockets... yes
+checking for inline... inline
+checking for library containing getaddrinfo... none required
+checking for getaddrinfo... yes
+checking for gai_strerror... yes
+checking for stdbool.h that conforms to C99... no
+checking for _Bool... yes
+checking for fchdir... yes
+checking for mempcpy... no
+checking for isascii... yes
+checking for __fsetlocking... yes
+checking for tcgetattr... yes
+checking for tcsetattr... yes
+checking for gettimeofday... yes
+checking for nanotime... no
+checking for getlogin_r... yes
+checking for getpwnam_r... yes
+checking for siginterrupt... yes
+checking for posix_memalign... yes
+checking for iswprint... yes
+checking for mbsinit... yes
+checking for isblank... yes
+checking for mbrtowc... yes
+checking for wcrtomb... yes
+checking for wcscoll... yes
+checking for mblen... yes
+checking for mbrlen... yes
+checking for tzset... yes
+checking for unistd.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for sys/param.h... (cached) yes
+checking stdio_ext.h usability... yes
+checking stdio_ext.h presence... yes
+checking for stdio_ext.h... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking sys/cdefs.h usability... no
+checking sys/cdefs.h presence... no
+checking for sys/cdefs.h... no
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking wctype.h usability... yes
+checking wctype.h presence... yes
+checking for wctype.h... yes
+checking for stdint.h... (cached) yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking whether memrchr is declared... no
+checking whether system is Windows or MSDOS... no
+checking whether strerror_r is declared... yes
+checking for strerror_r... yes
+checking whether strerror_r returns char *... no
+checking for mbstate_t... yes
+checking whether getcwd (NULL, 0) allocates memory for result... yes
+checking whether getcwd is declared... yes
+checking for d_ino member in directory struct... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for struct timespec... yes
+checking whether nanosleep is declared... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for library containing clock_gettime... none required
+checking for clock_gettime... yes
+checking for clock_settime... yes
+checking for struct tm.tm_gmtoff... no
+checking whether getdelim is declared... yes
+checking whether getlogin is declared... yes
+checking whether getlogin_r is declared... yes
+checking for ssize_t... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking for getopt_long_only... yes
+checking whether optreset is declared... no
+checking for working GNU getopt function... no
+checking whether getpass is declared... yes
+checking whether fflush_unlocked is declared... no
+checking whether flockfile is declared... yes
+checking whether fputs_unlocked is declared... no
+checking whether funlockfile is declared... yes
+checking whether putc_unlocked is declared... yes
+checking for d_type member in directory struct... no
+checking whether lstat dereferences a symlink specified with a trailing slash... yes
+checking for uint32_t... uint32_t
+checking for UINT32_MAX... yes
+checking whether byte ordering is bigendian... no
+checking whether <limits.h> defines MIN and MAX... no
+checking whether <sys/param.h> defines MIN and MAX... no
+checking whether getenv is declared... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unsigned long long... yes
+checking for stdlib.h... (cached) yes
+checking for sys/time.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for alarm... yes
+checking for working mktime... no
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking for MAP_ANONYMOUS... yes
+checking for nl_langinfo and CODESET... yes
+checking for inttypes.h... yes
+checking whether strdup is declared... yes
+checking for strftime... yes
+checking whether clearerr_unlocked is declared... no
+checking whether feof_unlocked is declared... no
+checking whether ferror_unlocked is declared... no
+checking whether fgets_unlocked is declared... no
+checking whether fputc_unlocked is declared... no
+checking whether fread_unlocked is declared... no
+checking whether fwrite_unlocked is declared... no
+checking whether getc_unlocked is declared... yes
+checking whether getchar_unlocked is declared... yes
+checking whether putchar_unlocked is declared... yes
+checking for EOVERFLOW... yes
+checking for signed... yes
+checking for wchar_t... yes
+checking for wint_t... yes
+checking for size_t... yes
+checking for intmax_t... yes
+checking for atexit... yes
+checking for string.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for resolvepath... yes
+checking for canonicalize_file_name... yes
+checking whether this system has a definition of PATH_MAX... yes
+checking for mempcpy... (cached) no
+checking for openat... yes
+checking for memrchr... no
+checking for dup2... yes
+checking for working POSIX fnmatch... yes
+checking for stdio_ext.h... (cached) yes
+checking for __fpending... yes
+checking whether __fpending is declared... yes
+checking for ftruncate... yes
+checking for library containing getaddrinfo... (cached) none required
+checking for getaddrinfo... (cached) yes
+checking for gai_strerror... (cached) yes
+checking whether getcwd handles long file names properly... yes
+checking for struct tm.tm_zone... no
+checking for tzname... yes
+checking for getdelim... yes
+checking for gethostname... yes
+checking whether getline is declared... yes
+checking for getline... yes
+checking for working getline function... yes
+checking for getlogin_r... (cached) yes
+checking OS.h usability... no
+checking OS.h presence... no
+checking for OS.h... no
+checking for getpagesize... (cached) yes
+checking whether gettimeofday clobbers localtime buffer... no
+checking glob.h usability... yes
+checking glob.h presence... yes
+checking for glob.h... yes
+checking for GNU glob interface version 1... no
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... (cached) yes
+checking for memchr... yes
+checking for memmove... yes
+checking for mempcpy... (cached) no
+checking for memrchr... (cached) no
+checking whether mkdir fails due to a trailing slash... no
+checking for mkstemp... yes
+checking for mkstemp limitations... no
+checking for library containing nanosleep... none required
+checking whether nanosleep works... yes
+checking for openat... (cached) yes
+checking for mbstate_t... (cached) yes
+checking whether mbrtowc and mbstate_t are properly declared... yes
+checking for readlink... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible realloc... (cached) yes
+checking for working re_compile_pattern... yes
+checking whether rename is broken... no
+checking for C/C++ restrict keyword... (cached) restrict
+checking for rpmatch... no
+checking for setenv... yes
+checking for unsetenv... yes
+checking for unsetenv() return type... int
+checking for stdint.h... (cached) yes
+checking for SIZE_MAX... yes
+checking for ssize_t... (cached) yes
+checking sys/inttypes.h usability... yes
+checking sys/inttypes.h presence... yes
+checking for sys/inttypes.h... yes
+checking for stdint.h... (cached) yes
+checking whether mbrtowc and mbstate_t are properly declared... (cached) yes
+checking for strncasecmp... yes
+checking for strdup... yes
+checking for strerror... yes
+checking whether mbrtowc and mbstate_t are properly declared... (cached) yes
+checking for strtol... yes
+checking for strtoul... yes
+checking whether localtime_r is compatible with its POSIX signature... yes
+checking for struct timespec... (cached) yes
+checking whether nanosleep is declared... (cached) yes
+checking whether tzset clobbers localtime buffer... no
+checking for vasnprintf... no
+checking for ptrdiff_t... yes
+checking for snprintf... yes
+checking for wcslen... yes
+checking for vasprintf... yes
+checking for stdint.h... (cached) yes
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/gnu/bin/msgfmt
+checking for gmsgfmt... /usr/bin/gmsgfmt
+checking for xgettext... /usr/gnu/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking build system type... i386-pc-solaris2.11
+checking host system type... i386-pc-solaris2.11
+checking for non-GNU ld... /usr/bin/amd64/ld
+checking if the linker (/usr/bin/amd64/ld) is GNU ld... no
+checking for shared library run path origin... done
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking whether NLS is requested... yes
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking whether strerror_r is declared... (cached) yes
+checking for strerror_r... (cached) yes
+checking whether strerror_r returns char *... (cached) no
+checking for glob.h... (cached) yes
+checking for GNU glob interface version 1... (cached) no
+checking for fchdir... (cached) yes
+checking for fchmod... yes
+checking for fsync... yes
+checking for ftime... yes
+checking for geteuid... yes
+checking for getgroups... yes
+checking for getpagesize... (cached) yes
+checking for gettimeofday... (cached) yes
+checking for initgroups... yes
+checking for login... no
+checking for logout... no
+checking for mknod... yes
+checking for regcomp... yes
+checking for regerror... yes
+checking for regexec... yes
+checking for regfree... yes
+checking for sigaction... yes
+checking for sigblock... no
+checking for sigprocmask... yes
+checking for sigsetmask... no
+checking for sigvec... no
+checking for timezone... yes
+checking for tzset... (cached) yes
+checking for vprintf... yes
+checking for wait3... yes
+checking for char... yes
+checking size of char... 1
+checking for uniquely sized char... yes(1)
+checking for short... yes
+checking size of short... 2
+checking for uniquely sized short... yes(2)
+checking for int... yes
+checking size of int... 4
+checking for uniquely sized int... yes(4)
+checking for long... yes
+checking size of long... 8
+checking for uniquely sized long... yes(8)
+checking for long long... (cached) yes
+checking size of long long... 8
+checking for uniquely sized long long... no
+checking for size_t... (cached) yes
+checking size of size_t... 8
+checking for uniquely sized size_t... no
+checking for ptrdiff_t... (cached) yes
+checking size of ptrdiff_t... 8
+checking for uniquely sized ptrdiff_t... no
+checking for wint_t... yes
+checking size of wint_t... 4
+checking for uniquely sized wint_t... no
+checking for intmax_t... yes
+checking size of intmax_t... 8
+checking for uniquely sized intmax_t... no
+checking for float... yes
+checking size of float... 4
+checking for uniquely sized float... yes(4)
+checking for double... yes
+checking size of double... 8
+checking for uniquely sized double... yes(8)
+checking for long double... yes
+checking size of long double... 16
+checking for uniquely sized long double... yes(16)
+checking for unistd.h... (cached) yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking whether closedir returns void... no
+checking for library containing getspnam... none required
+checking whether utime accepts a null argument... yes
+checking for long file names... yes
+checking whether printf supports %p... yes
+checking for main in -lnsl... yes
+checking for library containing connect... none required
+checking for library containing gethostbyname... none required
+checking for KRB4 in /usr/kerberos... 
+checking for krb.h... 
+checking for krb_get_err_text... no
+checking for GSSAPI... 
+checking gssapi.h usability... no
+checking gssapi.h presence... no
+checking for gssapi.h... no
+checking gssapi/gssapi.h usability... yes
+checking gssapi/gssapi.h presence... yes
+checking for gssapi/gssapi.h... yes
+checking krb5.h usability... no
+checking krb5.h presence... no
+checking for krb5.h... no
+checking for GSSAPI in /usr/kerberos... 
+checking gssapi.h usability... no
+checking gssapi.h presence... no
+checking for gssapi.h... no
+checking gssapi/gssapi.h usability... yes
+checking gssapi/gssapi.h presence... yes
+checking for gssapi/gssapi.h... yes
+checking krb5.h usability... no
+checking krb5.h presence... no
+checking for krb5.h... no
+checking for GSSAPI in /usr/cygnus/kerbnet... 
+checking gssapi.h usability... no
+checking gssapi.h presence... no
+checking for gssapi.h... no
+checking gssapi/gssapi.h usability... yes
+checking gssapi/gssapi.h presence... yes
+checking for gssapi/gssapi.h... yes
+checking krb5.h usability... no
+checking krb5.h presence... no
+checking for krb5.h... no
+checking for GSSAPI... no
+checking for external ZLIB... 
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+checking for external ZLIB... yes
+checking selected ZLIB... external
+configure: WARNING: Package ZLIB is more recent than requested external version
+           (1.2.3 > ).  configure with the --without-external-zlib
+           option to select the more recent version.
+checking that ZLIB library works... yes
+checking for ssh... ssh
+checking for vim... gedit
+checking for temporary directory... /tmp
+checking for library containing crypt... none required
+checking for a case sensitive file system... yes
+checking for cygwin32... no
+configure: creating ./config.status
+config.status: creating contrib/validate_repo
+config.status: creating contrib/clmerge
+config.status: creating contrib/cln_hist
+config.status: creating contrib/commit_prep
+config.status: creating contrib/cvs_acls
+config.status: creating contrib/log
+config.status: creating contrib/log_accum
+config.status: creating contrib/mfpipe
+config.status: creating contrib/pvcs2rcs
+config.status: creating contrib/rcs2log
+config.status: creating contrib/rcslock
+config.status: creating contrib/sccs2rcs
+config.status: creating doc/mkman
+config.status: creating src/cvsbug
+config.status: creating Makefile
+config.status: creating contrib/Makefile
+config.status: creating contrib/pam/Makefile
+config.status: creating cvs.spec
+config.status: creating diff/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/i18n/Makefile
+config.status: creating doc/i18n/pt_BR/Makefile
+config.status: creating emx/Makefile
+config.status: creating lib/Makefile
+config.status: creating maint-aux/Makefile
+config.status: creating man/Makefile
+config.status: creating os2/Makefile
+config.status: creating src/Makefile
+config.status: creating src/sanity.config.sh
+config.status: creating tools/Makefile
+config.status: creating vms/Makefile
+config.status: creating windows-NT/Makefile
+config.status: creating windows-NT/SCC/Makefile
+config.status: creating zlib/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+/usr/bin/touch /ws/userland/src/components/cvs/build/amd64/.configured
+(cd /ws/userland/src/components/cvs/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/cvs/build/amd64'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64'
+Making all in lib
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/lib'
+cp /ws/userland/src/components/cvs/cvs-1.12.13/lib/getopt_.h getopt.h-t
+mv getopt.h-t getopt.h
+cp /ws/userland/src/components/cvs/cvs-1.12.13/lib/glob_.h glob.h-t
+mv glob.h-t glob.h
+sed -e 's/@''HAVE__BOOL''@/1/g' \
+	< /ws/userland/src/components/cvs/cvs-1.12.13/lib/stdbool_.h > stdbool.h-t
+mv stdbool.h-t stdbool.h
+/usr/gnu/bin/make  all-am
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/lib'
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/sighandle.c' object='sighandle.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/sighandle.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/allocsa.c' object='allocsa.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/allocsa.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/cycle-check.c' object='cycle-check.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/cycle-check.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/basename.c' object='basename.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/basename.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/stripslash.c' object='stripslash.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/stripslash.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/getnline.c' object='getnline.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/getnline.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/strnlen1.c' object='strnlen1.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/strnlen1.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/xalloc-die.c' object='xalloc-die.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/xalloc-die.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/xgethostname.c' object='xgethostname.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/xgethostname.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/xreadlink.c' object='xreadlink.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/xreadlink.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/save-cwd.c' object='save-cwd.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/save-cwd.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/mktime.c' object='mktime.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/mktime.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/strftime.c' object='strftime.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/strftime.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/canon-host.c' object='canon-host.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/canon-host.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/canonicalize.c' object='canonicalize.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/canonicalize.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/chdir-long.c' object='chdir-long.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/chdir-long.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/mempcpy.c' object='mempcpy.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/mempcpy.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/memrchr.c' object='memrchr.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/memrchr.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/closeout.c' object='closeout.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/closeout.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/dirname.c' object='dirname.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/dirname.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/exitfail.c' object='exitfail.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/exitfail.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/filenamecat.c' object='filenamecat.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/filenamecat.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/getdate.c' object='getdate.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/getdate.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/getndelim2.c' object='getndelim2.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/getndelim2.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/getopt.c' object='getopt.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/getopt.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/getopt1.c' object='getopt1.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/getopt1.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/getpass.c' object='getpass.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/getpass.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/gettime.c' object='gettime.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/gettime.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/glob.c' object='glob.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/glob.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/mbchar.c' object='mbchar.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/mbchar.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/md5.c' object='md5.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/md5.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/pagealign_alloc.c' object='pagealign_alloc.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/pagealign_alloc.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/quotearg.c' object='quotearg.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/quotearg.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/regex.c' object='regex.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/regex.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/rpmatch.c' object='rpmatch.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/rpmatch.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/strcasecmp.c' object='strcasecmp.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/strcasecmp.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/strstr.c' object='strstr.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/strstr.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/dup-safer.c' object='dup-safer.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/dup-safer.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/fd-safer.c' object='fd-safer.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/fd-safer.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/pipe-safer.c' object='pipe-safer.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/pipe-safer.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/vasnprintf.c' object='vasnprintf.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/vasnprintf.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/printf-args.c' object='printf-args.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/printf-args.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/printf-parse.c' object='printf-parse.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/printf-parse.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/asnprintf.c' object='asnprintf.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/asnprintf.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/xmalloc.c' object='xmalloc.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/xmalloc.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/xgetcwd.c' object='xgetcwd.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/xgetcwd.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/lib/yesno.c' object='yesno.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I..   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/lib/yesno.c
+rm -f libcvs.a
+ar cru libcvs.a sighandle.o allocsa.o cycle-check.o basename.o stripslash.o getnline.o strnlen1.o xalloc-die.o xgethostname.o xreadlink.o save-cwd.o mktime.o strftime.o canon-host.o canonicalize.o chdir-long.o mempcpy.o memrchr.o closeout.o dirname.o exitfail.o filenamecat.o getdate.o getndelim2.o getopt.o getopt1.o getpass.o gettime.o glob.o mbchar.o md5.o pagealign_alloc.o quotearg.o regex.o rpmatch.o strcasecmp.o strstr.o dup-safer.o fd-safer.o pipe-safer.o vasnprintf.o printf-args.o printf-parse.o asnprintf.o xmalloc.o xgetcwd.o yesno.o 
+ranlib libcvs.a
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/lib'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/lib'
+Making all in diff
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/diff'
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/diff.c' object='diff.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/diff.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/diff3.c' object='diff3.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/diff3.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/analyze.c' object='analyze.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/analyze.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/cmpbuf.c' object='cmpbuf.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/cmpbuf.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/io.c' object='io.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/io.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/context.c' object='context.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/context.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/ed.c' object='ed.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/ed.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/normal.c' object='normal.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/normal.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/ifdef.c' object='ifdef.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/ifdef.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/util.c' object='util.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/util.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/dir.c' object='dir.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/dir.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/version.c' object='version.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/version.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/diff/side.c' object='side.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/diff -I.. -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/diff/side.c
+rm -f libdiff.a
+ar cru libdiff.a diff.o diff3.o analyze.o cmpbuf.o io.o context.o ed.o normal.o ifdef.o util.o dir.o version.o side.o 
+ranlib libdiff.a
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/diff'
+Making all in src
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/src'
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/add.c' object='add.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/add.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/admin.c' object='admin.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/admin.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/annotate.c' object='annotate.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/annotate.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/buffer.c' object='buffer.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/buffer.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/checkin.c' object='checkin.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/checkin.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/checkout.c' object='checkout.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/checkout.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/classify.c' object='classify.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/classify.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/client.c' object='client.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/client.c
+"/ws/userland/src/components/cvs/cvs-1.12.13/src/client.c", line 4365: warning: argument #1 is incompatible with prototype:
+	prototype: pointer to const char : "/ws/userland/src/components/cvs/cvs-1.12.13/src/client.c", line 3129
+	argument : pointer to unsigned char
+"/ws/userland/src/components/cvs/cvs-1.12.13/src/client.c", line 4418: warning: argument #1 is incompatible with prototype:
+	prototype: pointer to const char : "/ws/userland/src/components/cvs/cvs-1.12.13/src/client.c", line 3129
+	argument : pointer to unsigned char
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/commit.c' object='commit.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/commit.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/create_adm.c' object='create_adm.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/create_adm.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/cvsrc.c' object='cvsrc.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/cvsrc.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/diff.c' object='diff.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/diff.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/edit.c' object='edit.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/edit.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/entries.c' object='entries.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/entries.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/error.c' object='error.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/error.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/exithandle.c' object='exithandle.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/exithandle.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/expand_path.c' object='expand_path.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/expand_path.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/fileattr.c' object='fileattr.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/fileattr.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/filesubr.c' object='filesubr.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/filesubr.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/find_names.c' object='find_names.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/find_names.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/hardlink.c' object='hardlink.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/hardlink.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/hash.c' object='hash.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/hash.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/history.c' object='history.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/history.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/ignore.c' object='ignore.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/ignore.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/import.c' object='import.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/import.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/lock.c' object='lock.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/lock.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/log.c' object='log.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/log.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/log-buffer.c' object='log-buffer.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/log-buffer.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/login.c' object='login.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/login.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/logmsg.c' object='logmsg.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/logmsg.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/ls.c' object='ls.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/ls.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/main.c' object='main.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/main.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/mkmodules.c' object='mkmodules.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/mkmodules.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/modules.c' object='modules.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/modules.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/ms-buffer.c' object='ms-buffer.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/ms-buffer.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/myndbm.c' object='myndbm.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/myndbm.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/no_diff.c' object='no_diff.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/no_diff.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/parseinfo.c' object='parseinfo.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/parseinfo.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/patch.c' object='patch.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/patch.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/rcs.c' object='rcs.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/rcs.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/rcscmds.c' object='rcscmds.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/rcscmds.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/recurse.c' object='recurse.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/recurse.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/release.c' object='release.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/release.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/remove.c' object='remove.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/remove.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/repos.c' object='repos.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/repos.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/root.c' object='root.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/root.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/rsh-client.c' object='rsh-client.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/rsh-client.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/run.c' object='run.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/run.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/scramble.c' object='scramble.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/scramble.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/server.c' object='server.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/server.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/stack.c' object='stack.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/stack.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/status.c' object='status.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/status.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/subr.c' object='subr.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/subr.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/tag.c' object='tag.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/tag.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/update.c' object='update.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/update.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/version.c' object='version.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/version.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/vers_ts.c' object='vers_ts.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/vers_ts.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/watch.c' object='watch.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/watch.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/wrapper.c' object='wrapper.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/wrapper.c
+source='/ws/userland/src/components/cvs/cvs-1.12.13/src/zlib.c' object='zlib.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/cvs/cvs-1.12.13/src -I..  -I/ws/userland/src/components/cvs/cvs-1.12.13/lib -I../lib -I/ws/userland/src/components/cvs/cvs-1.12.13/diff  -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED -c /ws/userland/src/components/cvs/cvs-1.12.13/src/zlib.c
+/opt/solarisstudio12.4/bin/cc  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -D__ATTRIBUTE_DISABLED   -o cvs  add.o admin.o annotate.o buffer.o checkin.o checkout.o classify.o client.o commit.o create_adm.o cvsrc.o diff.o edit.o entries.o error.o exithandle.o expand_path.o fileattr.o filesubr.o find_names.o hardlink.o hash.o history.o ignore.o import.o lock.o log.o log-buffer.o login.o logmsg.o ls.o main.o mkmodules.o modules.o ms-buffer.o myndbm.o no_diff.o parseinfo.o patch.o rcs.o rcscmds.o recurse.o release.o remove.o repos.o root.o rsh-client.o run.o scramble.o server.o stack.o status.o subr.o tag.o update.o version.o vers_ts.o watch.o wrapper.o zlib.o  ../diff/libdiff.a ../lib/libcvs.a     -lnsl  -lz
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/src'
+Making all in man
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/man'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/man'
+Making all in doc
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc'
+Making all in i18n
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n'
+Making all in pt_BR
+make[5]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n/pt_BR'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n/pt_BR'
+make[5]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n'
+make[5]: Nothing to be done for 'all-am'.
+make[5]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n'
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n'
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc'
+sed -e "s/^@chapter /@appendixsec /" \
+    -e "s/^@section /@appendixsubsec /" \
+  </ws/userland/src/components/cvs/cvs-1.12.13/doc/getdate.texi >>getdate-cvs.tmp
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc'
+Making all in contrib
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/contrib'
+Making all in pam
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/contrib/pam'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/contrib/pam'
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/contrib'
+rm -f cvs2vendor
+cp /ws/userland/src/components/cvs/cvs-1.12.13/contrib/cvs2vendor.sh cvs2vendor
+chmod +x cvs2vendor
+rm -f debug_check_log
+cp /ws/userland/src/components/cvs/cvs-1.12.13/contrib/debug_check_log.sh debug_check_log
+chmod +x debug_check_log
+rm -f newcvsroot
+cp /ws/userland/src/components/cvs/cvs-1.12.13/contrib/newcvsroot.sh newcvsroot
+chmod +x newcvsroot
+rm -f rcs-to-cvs
+cp /ws/userland/src/components/cvs/cvs-1.12.13/contrib/rcs-to-cvs.sh rcs-to-cvs
+chmod +x rcs-to-cvs
+rm -f sandbox_status
+cp /ws/userland/src/components/cvs/cvs-1.12.13/contrib/sandbox_status.sh sandbox_status
+chmod +x sandbox_status
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/contrib'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/contrib'
+Making all in tools
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/tools'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/tools'
+Making all in windows-NT
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/windows-NT'
+Making all in SCC
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/windows-NT/SCC'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/windows-NT/SCC'
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/windows-NT'
+sed -e "s/%PACKAGE_STRING%/Concurrent Versions System (CVS) 1.12.13/" \
+    -e "s/%PACKAGE_BUGREPORT%/bug-cvs@nongnu.org/" \
+    </ws/userland/src/components/cvs/cvs-1.12.13/windows-NT/config.h.in >>config.tmp
+sed 's/@''HAVE__BOOL''@/0/' </ws/userland/src/components/cvs/cvs-1.12.13/lib/stdbool_.h \
+  >>stdbool.tmp
+sed 's/@''HAVE_LONG_64BIT''@/0/g;s/@''HAVE_LONG_LONG_64BIT@/0/g' \
+  </ws/userland/src/components/cvs/cvs-1.12.13/lib/stdint_.h >>stdint.tmp
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/windows-NT'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/windows-NT'
+Making all in os2
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/os2'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/os2'
+Making all in emx
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/emx'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/emx'
+Making all in vms
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/vms'
+sed "s/%PACKAGE_VERSION%/1.12.13/" </ws/userland/src/components/cvs/cvs-1.12.13/vms/config.h.in \
+  >>config.tmp
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/vms'
+Making all in maint-aux
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/maint-aux'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/maint-aux'
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/cvs/build/amd64'
+/usr/bin/touch /ws/userland/src/components/cvs/build/amd64/.built
+(cd /ws/userland/src/components/cvs/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/cvs/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/cvs/build/amd64'
+Making install in lib
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64/lib'
+/usr/gnu/bin/make  install-am
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/lib'
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/lib'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/lib'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/lib'
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/lib'
+Making install in diff
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64/diff'
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/diff'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/diff'
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/diff'
+Making install in src
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64/src'
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/src'
+test -z "/usr/bin" || /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/install-sh -d "/ws/userland/src/components/cvs/build/prototype/i386/usr/bin"
+  /usr/bin/ginstall -c 'cvs' '/ws/userland/src/components/cvs/build/prototype/i386/usr/bin/cvs'
+test -z "/usr/bin" || /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/install-sh -d "/ws/userland/src/components/cvs/build/prototype/i386/usr/bin"
+ /usr/bin/ginstall -c 'cvsbug' '/ws/userland/src/components/cvs/build/prototype/i386/usr/bin/cvsbug'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/src'
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/src'
+Making install in man
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64/man'
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/man'
+make[3]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/man/man5" || /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/install-sh -d "/ws/userland/src/components/cvs/build/prototype/i386/usr/share/man/man5"
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/cvs/cvs-1.12.13/man/cvs.5' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/man/man5/cvs.5'
+test -z "/usr/share/man/man8" || /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/install-sh -d "/ws/userland/src/components/cvs/build/prototype/i386/usr/share/man/man8"
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/cvs/cvs-1.12.13/man/cvsbug.8' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/man/man8/cvsbug.8'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/man'
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/man'
+Making install in doc
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc'
+Making install in i18n
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n'
+Making install in pt_BR
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n/pt_BR'
+make[5]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n/pt_BR'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n/pt_BR'
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n/pt_BR'
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n'
+make[5]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n'
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc/i18n'
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc'
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/doc'
+make[4]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/info" || /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/install-sh -d "/ws/userland/src/components/cvs/build/prototype/i386/usr/info"
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/cvs/cvs-1.12.13/doc/cvs.info' '/ws/userland/src/components/cvs/build/prototype/i386/usr/info/cvs.info'
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/cvs/cvs-1.12.13/doc/cvs.info-1' '/ws/userland/src/components/cvs/build/prototype/i386/usr/info/cvs.info-1'
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/cvs/cvs-1.12.13/doc/cvs.info-2' '/ws/userland/src/components/cvs/build/prototype/i386/usr/info/cvs.info-2'
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/cvs/cvs-1.12.13/doc/cvsclient.info' '/ws/userland/src/components/cvs/build/prototype/i386/usr/info/cvsclient.info'
+ install-info --info-dir='/ws/userland/src/components/cvs/build/prototype/i386/usr/info' '/ws/userland/src/components/cvs/build/prototype/i386/usr/info/cvs.info'
+ install-info --info-dir='/ws/userland/src/components/cvs/build/prototype/i386/usr/info' '/ws/userland/src/components/cvs/build/prototype/i386/usr/info/cvsclient.info'
+test -z "/usr/share/man/man1" || /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/install-sh -d "/ws/userland/src/components/cvs/build/prototype/i386/usr/share/man/man1"
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/cvs/cvs-1.12.13/doc/cvs.1' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/man/man1/cvs.1'
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc'
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/doc'
+Making install in contrib
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64/contrib'
+Making install in pam
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/contrib/pam'
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/contrib/pam'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/contrib/pam'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/contrib/pam'
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/contrib'
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/contrib'
+make[4]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/cvs/contrib" || /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/install-sh -d "/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib"
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/cvs/cvs-1.12.13/contrib/README' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/README'
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/cvs/cvs-1.12.13/contrib/intro.doc' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/intro.doc'
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/cvs/cvs-1.12.13/contrib/rcs-5.7-commitid.patch' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/rcs-5.7-commitid.patch'
+test -z "/usr/share/cvs/contrib" || /ws/userland/src/components/cvs/cvs-1.12.13/build-aux/install-sh -d "/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib"
+ /usr/bin/ginstall -c 'clmerge' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/clmerge'
+ /usr/bin/ginstall -c 'cln_hist' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/cln_hist'
+ /usr/bin/ginstall -c 'commit_prep' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/commit_prep'
+ /usr/bin/ginstall -c 'cvs2vendor' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/cvs2vendor'
+ /usr/bin/ginstall -c 'cvs_acls' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/cvs_acls'
+ /usr/bin/ginstall -c 'debug_check_log' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/debug_check_log'
+ /usr/bin/ginstall -c 'log' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/log'
+ /usr/bin/ginstall -c 'log_accum' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/log_accum'
+ /usr/bin/ginstall -c 'mfpipe' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/mfpipe'
+ /usr/bin/ginstall -c 'newcvsroot' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/newcvsroot'
+ /usr/bin/ginstall -c 'pvcs2rcs' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/pvcs2rcs'
+ /usr/bin/ginstall -c 'rcs-to-cvs' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/rcs-to-cvs'
+ /usr/bin/ginstall -c 'rcs2log' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/rcs2log'
+ /usr/bin/ginstall -c 'rcslock' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/rcslock'
+ /usr/bin/ginstall -c 'sandbox_status' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/sandbox_status'
+ /usr/bin/ginstall -c 'sccs2rcs' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/sccs2rcs'
+ /usr/bin/ginstall -c 'validate_repo' '/ws/userland/src/components/cvs/build/prototype/i386/usr/share/cvs/contrib/validate_repo'
+: FIXME - this path should be determined dynamically from bindir
+: and contribdir
+/ws/userland/src/components/cvs/cvs-1.12.13/build-aux/install-sh -d /ws/userland/src/components/cvs/build/prototype/i386/usr/bin
+test ! -f /ws/userland/src/components/cvs/build/prototype/i386/usr/bin/rcs2log
+  && cd /ws/userland/src/components/cvs/build/prototype/i386/usr/bin && ln -s ../share/cvs/contrib/rcs2log .
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/contrib'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/contrib'
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/contrib'
+Making install in tools
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64/tools'
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/tools'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/tools'
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/tools'
+Making install in windows-NT
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64/windows-NT'
+Making install in SCC
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/windows-NT/SCC'
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/windows-NT/SCC'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/windows-NT/SCC'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/windows-NT/SCC'
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/windows-NT'
+make[4]: Entering directory '/ws/userland/src/components/cvs/build/amd64/windows-NT'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/windows-NT'
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/windows-NT'
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/windows-NT'
+Making install in os2
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64/os2'
+make[2]: Nothing to be done for 'install'.
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/os2'
+Making install in emx
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64/emx'
+make[2]: Nothing to be done for 'install'.
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/emx'
+Making install in vms
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64/vms'
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/vms'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/vms'
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/vms'
+Making install in maint-aux
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64/maint-aux'
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64/maint-aux'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/maint-aux'
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64/maint-aux'
+make[2]: Entering directory '/ws/userland/src/components/cvs/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/cvs/build/amd64'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/cvs/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/cvs/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/cvs/build/amd64'
+/usr/bin/touch /ws/userland/src/components/cvs/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 cvs.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=1\\.12\\.13 -D COMPONENT_RE_VERSION=1\\.12\\.13 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/cvs -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="6323" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="1.12.13" -D IPS_COMPONENT_VERSION="1.12.13" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="http://ftp.gnu.org/non-gnu/cvs/source/feature/1.12.13/cvs-1.12.13.tar.bz2" -D COMPONENT_PROJECT_URL="http://www.nongnu.org/cvs/" -D COMPONENT_NAME="cvs" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" cvs.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/cvs/build/manifest-i386-cvs.mogrified
+/bin/mkdir -p /ws/userland/src/components/cvs/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/cvs/build/prototype/i386/mangled -d /ws/userland/src/components/cvs/build/prototype/i386/mangled -d /ws/userland/src/components/cvs/build/prototype/i386 -d /ws/userland/src/components/cvs/build -d /ws/userland/src/components/cvs -d cvs-1.12.13 -d /ws/userland/src/licenses -m /ws/userland/src/components/cvs/build/manifest-i386-cvs.mogrified >/ws/userland/src/components/cvs/build/manifest-i386-cvs.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/cvs/build/prototype/i386/mangled -d /ws/userland/src/components/cvs/build/prototype/i386 -d /ws/userland/src/components/cvs/build -d /ws/userland/src/components/cvs -d cvs-1.12.13 -d /ws/userland/src/licenses /ws/userland/src/components/cvs/build/manifest-i386-cvs.mangled >/ws/userland/src/components/cvs/build/manifest-i386-cvs.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/cvs/build/resolve.deps -m /ws/userland/src/components/cvs/build/manifest-i386-cvs.depend
+/usr/bin/touch /ws/userland/src/components/cvs/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/cvs/build/manifest-i386-cvs.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/cvs/build/prototype/i386/mangled /ws/userland/src/components/cvs/build/prototype/i386 /ws/userland/src/components/cvs/build /ws/userland/src/components/cvs cvs-1.12.13 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/cvs/build/manifest-i386-cvs.depend.res
+/usr/bin/touch /ws/userland/src/components/cvs/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/cvs/build/prototype/i386/mangled -d /ws/userland/src/components/cvs/build/prototype/i386 -d /ws/userland/src/components/cvs/build -d /ws/userland/src/components/cvs -d cvs-1.12.13 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/cvs/build/manifest-i386-cvs.depend.res
+pkg://nightly/developer/versioning/cvs@1.12.13,5.11-11.4.0.0.1.14.0:20190727T181207Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/cvs/build/manifest-i386-cvs.depend.res >/ws/userland/src/components/cvs/build/manifest-i386-cvs.published
+/usr/bin/touch /ws/userland/src/components/cvs/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/cvs'
+
+real     1:22.4
+user       30.3
+sys         9.5
