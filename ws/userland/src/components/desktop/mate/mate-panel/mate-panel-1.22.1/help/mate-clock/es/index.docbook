@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appletversion "1.10.1">
+<!ENTITY manrevision "2.8">
+<!ENTITY date "July 2015">
+<!ENTITY applet "Clock">
+]>
+<!--
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Feb 11, 2002
+
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="es">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo>
+	 <title lang="en">Clock Manual</title>
+     <copyright lang="en">
+      <year>2019</year>
+      <holder>MATE Documentation Project</holder>
+     </copyright>
+	 <copyright><year>2009</year> <year>2010</year> <holder>Paul Cutler</holder></copyright>
+	 <copyright><year>2002</year> <year>2003</year> <year>2004</year> <holder>Sun Microsystems</holder></copyright>
+	 <copyright lang="en">
+		<year>2000</year>
+		<holder>Dan Mueth</holder>
+	 </copyright>
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+	 <publisher role="maintainer">
+		<publishername>Proyecto de documentación de MATE</publishername>
+	 </publisher>
+	 <publisher>
+		<publishername>Proyecto de documentación de GNOME</publishername>
+	 </publisher>
+
+  <legalnotice id="legalnotice">
+	<para>Se concede permiso para copiar, distribuir o modificar este documento según las condiciones de la GNU Free Documentation License (GFDL), Versión 1.1 o cualquier versión posterior publicada por la Free Software Foundation sin Secciones invariantes, Textos de portada y Textos de contraportada. Encontrará una copia de la GFDL en este <ulink type="help" url="help:fdl">enlace</ulink> o en el archivo COPYING-DOCS distribuido con este manual.</para>
+         <para>Este manual es parte de la colección de manuales MATE distribuidos bajo el GFDL. Si quiere distribuir este manual separadamente de la colección, puede hacerlo añadiendo una copia de la licencia al manual, como está descrito en la sección 6 de la licencia.</para>
+
+	<para>Muchos de los nombres usados por empresas para distinguir sus productos y servicios se mencionan como marcas comerciales. Donde aparezcan dichos nombres en cualquier documentación MATE, y para que los miembros del proyecto de documentación reconozcan dichas marcas comerciales, dichos nombres se imprimen en mayúsculas o iniciales mayúsculas.</para>
+
+	<para>EL DOCUMENTO Y LAS VERSIONES MODIFICADAS DEL DOCUMENTO SE PROPORCIONAN BAJO LOS TÉRMINOS DE LA LICENCIA GRATUITA DE DOCUMENTACIÓN DE GNU CON EL ACUERDO ADICIONAL DE:<orderedlist>
+		<listitem>
+		  <para>EL DOCUMENTO SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, NI EXPLÍCITA NI IMPLÍCITA INCLUYENDO, SIN LIMITACIÓN, GARANTÍA DE QUE EL DOCUMENTO O VERSIÓN MODIFICADA DE ÉSTE CAREZCA DE DEFECTOS COMERCIALES, SEA ADECUADO A UN FIN CONCRETO O INCUMPLA ALGUNA NORMATIVA. TODO EL RIESGO RELATIVO A LA CALIDAD, PRECISIÓN Y UTILIDAD DEL DOCUMENTO O SU VERSIÓN MODIFICADA RECAE EN USTED. SI CUALQUIER DOCUMENTO O VERSIÓN MODIFICADA DE AQUÉL RESULTARA DEFECTUOSO EN CUALQUIER ASPECTO, USTED (Y NO EL REDACTOR INICIAL, AUTOR O CONTRIBUYENTE) ASUMIRÁ LOS COSTES DE TODA REPARACIÓN, MANTENIMIENTO O CORRECCIÓN NECESARIOS. ESTA RENUNCIA DE GARANTÍA ES UNA PARTE ESENCIAL DE ESTA LICENCIA. NO SE AUTORIZA EL USO DE NINGÚN DOCUMENTO NI VERSIÓN MODIFICADA DE ÉSTE POR EL PRESENTE, SALVO DENTRO DEL CUMPLIMIENTO DE LA RENUNCIA;Y</para>
+		</listitem>
+		<listitem>
+		  <para>BAJO NINGUNA CIRCUNSTANCIA NI BAJO NINGUNA TEORÍA LEGAL, SEA POR ERROR (INCLUYENDO NEGLIGENCIA), CONTRATO O DE ALGÚN OTRO MODO, EL AUTOR, EL ESCRITOR INICIAL, CUALQUIER CONTRIBUIDOR, O CUALQUIER DISTRIBUIDOR DEL DOCUMENTO O VERSIÓN MODIFICADA DEL DOCUMENTO, O CUALQUIER PROVEEDOR DE CUALQUIERA DE ESAS PARTES, SERÁ RESPONSABLE ANTE NINGUNA PERSONA POR NINGÚN DAÑO DIRECTO, INDIRECTO, ESPECIAL, INCIDENTAL O DERIVADO DE NINGÚN TIPO, INCLUYENDO, SIN LIMITACIÓN DAÑOS POR PÉRDIDA DE MERCANCÍAS, PARO TÉCNICO, FALLO INFORMÁTICO O MAL FUNCIONAMIENTO O CUALQUIER OTRO POSIBLE DAÑO O PÉRDIDAS DERIVADAS O RELACIONADAS CON EL USO DEL DOCUMENTO O SUS VERSIONES MODIFICADAS, AUNQUE DICHA PARTE HAYA SIDO INFORMADA DE LA POSIBILIDAD DE QUE SE PRODUJESEN DICHOS DAÑOS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+<!-- This file  contains link to license for the documentation (GNU FDL), and
+     other legal stuff such as "NO WARRANTY" statement. Please do not change
+     any of this. -->
+
+	 <authorgroup>
+		<author role="maintainer" lang="en">
+		  <firstname>MATE Documentation Project</firstname>
+		  <surname/>
+		  <affiliation><orgname>MATE Desktop</orgname></affiliation>
+		</author>
+		<author lang="en">
+		  <firstname>Paul </firstname>
+		  <surname> Cutler</surname>
+		  <affiliation>
+			 <orgname>GNOME Documentation Project</orgname>
+			 <address> <email>pcutler@gnome.org</email> </address>
+		  </affiliation>
+		</author>
+		<author lang="en">
+		  <firstname>Sun </firstname>
+		  <surname>Microsystems</surname>
+		  <affiliation>
+			 <orgname>GNOME Documentation Project</orgname>
+			 <address/>
+		  </affiliation>
+		</author>
+		<author lang="en">
+		  <firstname>Dan </firstname>
+		  <surname> Mueth</surname>
+		  <affiliation>
+			 <orgname>GNOME Documentation Project</orgname>
+			 <address> <email>d-mueth@uchicago.edu</email> </address>
+		  </affiliation>
+		</author>
+      <!-- This is appropriate place for other contributors: translators,
+           maintainers,  etc. Commented out by default.
+           <othercredit role="translator">
+	     <firstname>Latin</firstname>
+	     <surname>Translator 1</surname>
+	     <affiliation>
+	       <orgname>Latin Translation Team</orgname>
+	       <address> <email>translator@gnome.org</email> </address>
+	     </affiliation>
+	     <contrib>Latin translation</contrib>
+           </othercredit>
+-->
+	 </authorgroup>
+
+	 <releaseinfo revision="1.10.1" role="review">
+	 </releaseinfo>
+
+	 <revhistory>
+
+		<revision lang="en">
+		  <revnumber>Clock Applet Manual V2.8</revnumber>
+		  <date>July 2015</date>
+		  <revdescription>
+			 <para role="author" lang="en">MATE Documentation Team</para>
+			 <para role="publisher" lang="en">MATE Documentation Project</para>
+		  </revdescription>
+		</revision>
+		<revision lang="en">
+		  <revnumber>Clock Applet Manual V2.7;</revnumber>
+		  <date>July 2015</date>
+		  <revdescription>
+			 <para role="author" lang="en">Paul Cutler</para>
+			 <para role="publisher" lang="en">GNOME Documentation Project</para>
+		  </revdescription>
+		</revision>
+		<revision lang="en">
+		  <revnumber>Clock Applet Manual V2.6</revnumber>
+		  <date>July 2015</date>
+		  <revdescription>
+			 <para role="author" lang="en">Paul Cutler</para>
+			 <para role="publisher" lang="en">GNOME Documentation Project</para>
+		  </revdescription>
+		</revision>
+		<revision lang="en">
+		  <revnumber>Clock Applet Manual V2.5</revnumber>
+		  <date>February 2004</date>
+		  <revdescription>
+			 <para role="author" lang="en">Sun Microsystems</para>
+			 <para role="publisher" lang="en">GNOME Documentation Project</para>
+		  </revdescription>
+		</revision>
+		<revision lang="en">
+		  <revnumber>Clock Applet Manual V2.4</revnumber>
+		  <date>September 2003</date>
+		  <revdescription>
+			 <para role="author" lang="en">Sun Microsystems</para>
+			 <para role="publisher" lang="en">GNOME Documentation Project</para>
+		  </revdescription>
+		</revision>
+		<revision lang="en">
+		  <revnumber>Clock Applet Manual V2.3</revnumber>
+		  <date>January 2003</date>
+		  <revdescription>
+			 <para role="author" lang="en">Sun Microsystems</para>
+			 <para role="publisher" lang="en">GNOME Documentation Project</para>
+		  </revdescription>
+		</revision>
+		<revision lang="en">
+		  <revnumber>Clock Applet Manual V2.2</revnumber>
+		  <date>August 2002</date>
+		  <revdescription>
+			 <para role="author" lang="en">Sun Microsystems</para>
+			 <para role="publisher" lang="en">GNOME Documentation Project</para>
+		  </revdescription>
+		</revision>
+		<revision lang="en">
+		  <revnumber>Clock Applet Manual V2.1</revnumber>
+		  <date>June 2002</date>
+		  <revdescription>
+			 <para role="author" lang="en">Sun Microsystems</para>
+			 <para role="publisher" lang="en">GNOME Documentation Project</para>
+		  </revdescription>
+		</revision>
+		<revision lang="en">
+		  <revnumber>Clock Applet Manual V2.0</revnumber>
+		  <date>March 2002</date>
+		  <revdescription>
+			 <para role="author" lang="en">Sun Microsystems</para>
+			 <para role="publisher" lang="en">GNOME Documentation Project</para>
+		  </revdescription>
+		</revision>
+		<revision lang="en">
+		  <revnumber>Clock Applet Manual</revnumber>
+		  <date>April 2000</date>
+		  <revdescription>
+			 <para role="author" lang="en">Dan Mueth
+				<email>d-mueth@uchicago.edu</email></para>
+			 <para role="publisher" lang="en">GNOME Documentation Project</para>
+		  </revdescription>
+		</revision>
+	 </revhistory>
+	 <releaseinfo lang="en"> This manual describes version 1.10.1 of the Clock applet.
+		</releaseinfo>
+	 <legalnotice>
+		<title>Comentarios</title>
+		<para lang="en"> To report a bug or make a suggestion regarding the Clock applet or this manual, follow the directions in the <ulink url="help:mate-user-guide/feedback" type="help">MATE Feedback Page</ulink>. </para>
+
+	 </legalnotice>
+	 <abstract role="description">
+		<para lang="en">The <application>Clock</application> applet displays the date and time, and when clicked, displays a calendar.  The <application>Clock</application> can be customized to show seconds or a 12 or 24 hour clock.</para>
+	 </abstract>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Adolfo Jayme Barrientos</firstname>
+      </personname>
+      <email>fitojb@ubuntu.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2018</year>
+      
+      <holder>Adolfo Jayme Barrientos</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Jorge González</firstname>
+      </personname>
+      <email>jorgegonz@svn.gnome.org</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2007-2010</year>
+      
+      <holder>Jorge González</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Francisco Javier F. Serrador</firstname>
+      </personname>
+      <email>serrador@cvs.gnome.org</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2003-2006</year>
+      
+      <holder>Francisco Javier F. Serrador</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Pablo Gonzalo del Campo</firstname>
+      </personname>
+      <email>pablodc@bigfoot.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2002-2003</year>
+      
+      <holder>Pablo Gonzalo del Campo</holder>
+    </copyright>
+  </articleinfo>
+  <indexterm lang="en">
+	 <primary>Clock</primary>
+  </indexterm>
+<!-- ============= Document Body ============================= -->
+
+<!-- ============= Introduction ============================== -->
+
+  <sect1 id="clock-introduction">
+	 <title>Introducción</title>
+
+<!-- ==== Figure ============================================= -->
+	 <figure id="clock-fig">
+		<title lang="en">Clock Applet</title>
+		<screenshot>
+		  <mediaobject lang="en">
+			 <imageobject><imagedata fileref="figures/clock_applet.png" format="PNG"/>
+			 </imageobject>
+			 <textobject>
+				<phrase>Shows Clock applet.</phrase>
+			 </textobject>
+		  </mediaobject>
+		</screenshot>
+	 </figure>
+    <!-- ==== End of Figure ======================================= -->
+<para lang="en">
+The <application>Clock</application> applet displays the date and time, and when clicked, displays a calendar.  The <application>Clock</application> can be customized to show seconds or a 12 or 24 hour clock.
+</para>
+
+
+
+<sect2 id="clock-introduction-add">
+<title lang="en">To Add Clock to a Panel</title>
+  <para>Realice los siguientes pasos:</para>
+         <orderedlist>
+           <listitem>
+             <para>Haga clic derecho en el panel.</para>
+           </listitem>
+           <listitem>
+             <para>Elegir <guimenuitem>Añadir al Panel</guimenuitem>.</para>
+           </listitem>
+           <listitem>
+             <para lang="en">
+               Scroll down the list of items in the <guilabel>Add to Panel</guilabel> dialog, then select <guilabel>Clock</guilabel>.
+             </para>
+           </listitem>
+           <listitem>
+             <para>Clic <guibutton>Añadir</guibutton>.</para>
+           </listitem>
+         </orderedlist>
+    </sect2>
+</sect1>
+<!-- ================ Usage ================================ -->
+
+  <sect1 id="clock-usage">
+	 <title>Uso</title>
+
+	<sect2 id="clock-usage-calendar">
+	<title lang="en">To Show the Calendar</title>
+	<para lang="en">Click on the applet to open a small calendar showing the current month. To close the calendar, click again on the part of the applet that is in the panel.</para>
+
+	<para lang="en">You can change the month shown in the calendar by clicking the arrows to each side of the month and year text.</para>
+
+	<para lang="en">Double-click a day in the calendar to launch the <application>Evolution</application> groupware application.</para>
+	</sect2>
+
+	<sect2 id="clock-usage-copy">
+	<title lang="en">To Insert the Date or Time Into an Application</title>
+<para lang="en">The <application>Clock</application> applet takes the time from the system clock.
+</para>
+<para lang="en">
+	To insert the date or time from the <application>Clock</application> applet into an application, perform the following steps:</para>
+	<orderedlist>
+		<listitem>
+			<para lang="en">Right-click on the <application>Clock</application> applet.
+			</para>
+		</listitem>
+		<listitem>
+			<para lang="en">
+				Choose one of the following menu items from the applet popup menu:
+			</para>
+			<itemizedlist>
+				<listitem>
+					<para lang="en">
+					<guimenuitem>Copy Time</guimenuitem>
+					</para>
+				</listitem>
+				<listitem>
+					<para lang="en">
+					<guimenuitem>Copy Date</guimenuitem>
+					</para>
+				</listitem>
+			</itemizedlist>
+		</listitem>
+		<listitem>
+			<para lang="en">
+			Point to the location in your application where you want to insert the item.
+			</para>
+		</listitem>
+		<listitem>
+			<para lang="en">
+			Choose <menuchoice><guimenu>Edit</guimenu><guimenuitem>Paste</guimenuitem> </menuchoice> or middle-click to insert the item.
+			</para>
+		</listitem>
+		</orderedlist>
+	</sect2>
+
+</sect1>
+
+<!-- ============= Preferences ============================= -->
+
+<sect1 id="clock-settings">
+<title>Preferencias del reloj</title>
+	<para lang="en">
+	To configure the <application>Clock</application>, right-click on the applet, then choose <guimenuitem>Preferences</guimenuitem>. You will be presented with three tabs to change preferences for <guimenuitem>General</guimenuitem>,  <guimenuitem>Locations</guimenuitem> or <guimenuitem>Weather</guimenuitem>.</para>
+
+
+<sect2 id="generalprefs">
+	<title lang="en">General Preferences</title>
+	<variablelist>
+		  <varlistentry>
+			 <term lang="en"><guilabel>Clock Format</guilabel></term>
+			 <listitem>
+			 <para lang="en">Select one of the following options:</para>
+			 <itemizedlist>
+			 <listitem>
+			 <para lang="en"><guilabel>12 hour</guilabel></para>
+			 <para lang="en">Display the time in the a.m./p.m. format.</para>
+			 <note><para lang="en">This option is not shown if your session language does not use the 12 hour clock.
+			</para></note>
+			 </listitem>
+			 <listitem>
+			 <para lang="en"><guilabel>24 hour</guilabel></para>
+			 <para lang="en">Display the time in the 00.00 to 24.00 format.</para>
+			 </listitem>
+			 </itemizedlist>
+			 </listitem>
+		  </varlistentry>
+		  <varlistentry>
+			 <term lang="en"><guilabel>Show the date</guilabel></term>
+			 <listitem>
+			 <para lang="en">Select this option to display the date in the applet.</para>
+			 </listitem>
+		  </varlistentry>
+		  <varlistentry>
+			 <term lang="en"><guilabel>Show seconds</guilabel></term>
+			 <listitem>
+			 <para lang="en">Select this option to display seconds in the applet.</para>
+			 </listitem>
+		  </varlistentry>
+		  <varlistentry>
+			 <term lang="en"><guilabel>Show week numbers in calendar</guilabel></term>
+			 <listitem>
+			 <para lang="en">Select this option to display week numbers in the calendar.</para>
+			 </listitem>
+		  </varlistentry>
+		  <varlistentry>
+			 <term lang="en"><guilabel>Show the weather</guilabel></term>
+			 <listitem>
+			 <para lang="en">Select this option to display the the current weather forecast at your location.
+			The weather will be displayed as an icon for sunny, cloudy, rain or more.</para>
+			 </listitem>
+		  </varlistentry>
+		  <varlistentry>
+			 <term lang="en"><guilabel>Show temperature</guilabel></term>
+			 <listitem>
+			 <para lang="en">Select this option to display the temperature at your location.</para>
+			 </listitem>
+		  </varlistentry>
+
+	</variablelist>
+
+</sect2>
+
+<sect2 id="locationprefs">
+	<title lang="en">Location Preferences</title>
+
+	<variablelist>
+		  <varlistentry>
+			 <term lang="en"><guilabel>Locations</guilabel></term>
+			 <listitem>
+			 <para lang="en">You can add one or more locations and their local time to be displayed in the Clock.
+			To add a location:</para>
+			 <itemizedlist>
+			 <listitem>
+			 <para lang="en">Press <guilabel>Add</guilabel></para>
+			</listitem>
+			 <listitem>
+			 <para lang="en">Type the city, region or country name and as you type a list of options will appear
+			in a drop down box.  Select a match from the pop-up and the <guilabel>Timezone</guilabel>,
+			 <guilabel>Latitude</guilabel>, and <guilabel>Longitude</guilabel> entries will be
+			automatically filled in.</para>
+			 </listitem>
+			 </itemizedlist>
+			 </listitem>
+		  </varlistentry>
+	</variablelist>
+
+</sect2>
+
+
+<sect2 id="weatherprefs">
+	<title>Preferencias de meteorología</title>
+
+	<variablelist>
+		  <varlistentry>
+			 <term lang="en"><guilabel>Weather</guilabel></term>
+			 <listitem>
+			 <para lang="en">You can display the Temperature unit in one of the following options from the drop down box:
+			</para>
+			 <itemizedlist>
+			 <listitem>
+			 <para lang="en"><guilabel>F</guilabel> (Fahrenheit)</para>
+			</listitem>
+			 <listitem>
+			 <para lang="en"><guilabel>C</guilabel> (Celsius)</para>
+			</listitem>
+			 <listitem>
+			 <para lang="en"><guilabel>K</guilabel> (Kelvin)</para>
+			</listitem>
+			 <listitem>
+			 <para lang="en"><guilabel>Default</guilabel> The default display for your region.</para>
+			 </listitem>
+			 </itemizedlist>
+			 </listitem>
+		  </varlistentry>
+		  <varlistentry>
+			 <term lang="en"><guilabel>Wind speed unit</guilabel></term>
+			 <listitem>
+			 <para lang="en">You can display the Speed unit in one of the following options from the drop down box:
+			</para>
+			 <itemizedlist>
+			 <listitem>
+			 <para lang="en"><guilabel>Beaufort scale</guilabel></para>
+			</listitem>
+			 <listitem>
+			 <para lang="en"><guilabel>Knots</guilabel></para>
+			</listitem>
+			 <listitem>
+			 <para lang="en"><guilabel>mph</guilabel> (miles per hour)</para>
+			</listitem>
+			 <listitem>
+			 <para lang="en"><guilabel>km/h</guilabel> (kilometers per hour)</para>
+			</listitem>
+			 <listitem>
+			 <para lang="en"><guilabel>m/s</guilabel> (meters per second)</para>
+			</listitem>
+			 <listitem>
+			 <para lang="en"><guilabel>Default</guilabel> The default display for your region.</para>
+			 </listitem>
+			 </itemizedlist>
+			 </listitem>
+		  </varlistentry>
+	</variablelist>
+
+</sect2>
+
+<sect2 id="clock-usage-adjust">
+    <title lang="en">To Adjust the System Date or Time</title>
+    <para lang="en">To adjust the system date or time that the <application>Clock</application> applet displays, perform the following steps:</para>
+    <orderedlist>
+        <listitem>
+            <para lang="en">Press the <guibutton>Time Settings</guibutton> button in the Preferences dialog.
+            </para>
+        </listitem>
+        <listitem>
+            <para lang="en">Use the <guilabel>Date &amp; Time</guilabel> dialog to adjust the date and time.
+            </para>
+        </listitem>
+        <listitem>
+            <para lang="en">Press the <guibutton>Set System Time</guibutton> button, then the <application>mate-polkit</application> dialog prompts for the administration password. Enter the administration password and press the <guibutton>Authenticate</guibutton> button.
+            </para>
+        </listitem>
+    </orderedlist>
+</sect2>
+
+</sect1>
+
+</article>

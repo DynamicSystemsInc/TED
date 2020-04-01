@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appletversion "1.10.1">
+<!ENTITY manrevision "2.8">
+<!ENTITY date "July 2015">
+<!ENTITY applet "Clock">
+]>
+<!--
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Feb 11, 2002
+
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="ca">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo>
+	 <title>Manual del rellotge</title>
+     <copyright lang="en">
+      <year>2019</year>
+      <holder>MATE Documentation Project</holder>
+     </copyright>
+	 <copyright><year>2009</year> <year>2010</year> <holder>Paul Cutler</holder></copyright>
+	 <copyright><year>2002</year> <year>2003</year> <year>2004</year> <holder>Sun Microsystems</holder></copyright>
+	 <copyright><year>2000</year> <holder>Dan Mueth</holder></copyright>
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+	 <publisher role="maintainer">
+		<publishername>Projecte de documentació de MATE</publishername>
+	 </publisher>
+	 <publisher>
+		<publishername>Projecte de documentació de GNOME</publishername>
+	 </publisher>
+
+  <legalnotice id="legalnotice">
+	<para>Es concedeix el permís per copiar, distribuir i / o modificar aquest document sota els termes de la GFDL (GNU Free Documentation License), versió 1.1 o qualsevol versió posterior publicada per la Free Software Foundation que tinguin les seccions invariants, i sense cap text a la portada. Podeu trobar una còpia de la GFDL en aquest <ulink type="help" url="help:fdl">enllaç</ulink> o bé al fitxer COPYING-DOCS que es distribueix amb aquest manual.</para>
+         <para>Aquest manual forma part d'una col·lecció de manuals de MATE que estan distribuïts sota la GFDL. Si voleu distribuir aquest manual per separat de la col·lecció, podeu fer-ho afegint una còpia de la llicència al manual, tal com es descriu a la secció 6 de la llicència.</para>
+
+	<para>Molts dels noms utilitzats per les empreses per distingir els seus productes i serveis es consideren marques comercials. Quan aquests noms apareixen en qualsevol documentació de MATE, i els membres del projecte de documentació de MATE en són conscients, els noms tenen lletres majúscules o bé comencen en majúscules.</para>
+
+	<para>EL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT S'OFEREIXEN SOTA ELS TERMES DE LA LLICÈNCIA DE DOCUMENTACIÓ LLIURE DE GNU, TENINT EN COMPTE QUE: <orderedlist>
+		<listitem>
+		  <para>EL DOCUMENT S'OFEREIX «TAL COM ÉS», SENSE CAP TIPUS DE GARANTIA, NI EXPLÍCITA NI IMPLÍCITA; AIXÒ INCLOU, SENSE LIMITAR-S'HI, LES GARANTIES QUE EL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT NO TINGUI DEFECTES, SIGUI COMERCIALITZABLE, SIGUI ADEQUAT PER A UN ÚS CONCRET O NO INFRINGEIXI CAP LLEI. TOT EL RISC PEL QUE FA A LA QUALITAT, EXACTITUD I RENDIMENT DEL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT ÉS VOSTRE. EN CAS QUE EL DOCUMENT RESULTÉS DEFECTUÓS EN QUALSEVOL ASPECTE, VÓS (NO PAS L'ESCRIPTOR INICIAL, L'AUTOR O CAP ALTRE COL·LABORADOR) ASSUMIU TOT EL COST DE MANTENIMENT, REPARACIÓ O CORRECCIÓ. AQUESTA RENÚNCIA DE GARANTIA CONSTITUEIX UNA PART ESSENCIAL D'AQUESTA LLICÈNCIA. NO S'AUTORITZA L'ÚS DE CAP DOCUMENT O VERSIÓ MODIFICADA DEL DOCUMENT EXCEPTE SOTA AQUESTA RENÚNCIA DE GARANTIA; I</para>
+		</listitem>
+		<listitem>
+		  <para>EN CAP CAS I SOTA CAP INTERPRETACIÓ LEGAL, JA SIGUI PER AGREUJAMENT (INCLOENT-HI LA NEGLIGÈNCIA), CONTRACTE O ALTRE CAS, L'AUTOR, L'ESCRIPTOR ORIGINAL, QUALSEVOL DELS COL·LABORADORS O DISTRIBUÏDORS DEL DOCUMENT O UNA VERSIÓ MODIFICADA DEL DOCUMENT NI CAP PROVEÏDOR D'AQUESTES PARTS NO SERAN RESPONSABLES DAVANT DE NINGÚ PER CAP DANY DIRECTE, INDIRECTE, ESPECIAL, ACCIDENTAL O CONSECUTIU DE QUALSEVOL TIPUS; AIXÒ INCLOU, SENSE LIMITAR-S'HI, ELS DANYS PER PÈRDUA DE CLIENTS, INTERRUPCIONS DE LA FEINA, FALLADA O MALFUNCIONAMENT DE L'ORDINADOR, O QUALSEVOL ALTRA PÈRDUA O DANY RELACIONAT AMB L'ÚS DEL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT, FINS I TOT SI S'HA INFORMAT AQUESTA PART DE LA POSSIBILITAT D'AQUESTS DANYS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+<!-- This file  contains link to license for the documentation (GNU FDL), and
+     other legal stuff such as "NO WARRANTY" statement. Please do not change
+     any of this. -->
+
+	 <authorgroup>
+		<author role="maintainer"><firstname>Projecte de documentació de MATE</firstname> <surname/> <affiliation><orgname>Escriptori MATE</orgname></affiliation></author>
+		<author><firstname>Paul </firstname> <surname> Cutler</surname> <affiliation> <orgname>Projecte de documentació de GNOME</orgname> <address> <email>pcutler@gnome.org</email> </address> </affiliation></author>
+		<author><firstname>Sun </firstname> <surname>Microsystems</surname> <affiliation> <orgname>Projecte de documentació de GNOME</orgname> <address/> </affiliation></author>
+		<author><firstname>Dan </firstname> <surname> Mueth</surname> <affiliation> <orgname>Projecte de documentació de GNOME</orgname> <address> <email>d-mueth@uchicago.edu</email> </address> </affiliation></author>
+      <!-- This is appropriate place for other contributors: translators,
+           maintainers,  etc. Commented out by default.
+           <othercredit role="translator">
+	     <firstname>Latin</firstname>
+	     <surname>Translator 1</surname>
+	     <affiliation>
+	       <orgname>Latin Translation Team</orgname>
+	       <address> <email>translator@gnome.org</email> </address>
+	     </affiliation>
+	     <contrib>Latin translation</contrib>
+           </othercredit>
+-->
+	 </authorgroup>
+
+	 <releaseinfo revision="1.10.1" role="review">
+	 </releaseinfo>
+
+	 <revhistory>
+
+		<revision><revnumber>Versió 2.8 del manual de la miniaplicació Rellotge</revnumber> <date>Juliol de 2015</date> <revdescription>
+			 <para role="author">Equip de documentació de MATE</para>
+			 <para role="publisher">Projecte de documentació de MATE</para>
+		  </revdescription></revision>
+		<revision><revnumber>Versió 2.7 del manual de la miniaplicació Rellotge</revnumber> <date>Juliol de 2015</date> <revdescription>
+			 <para role="author">Paul Cutler</para>
+			 <para role="publisher">Projecte de documentació de GNOME</para>
+		  </revdescription></revision>
+		<revision><revnumber>Versió 2.6 del manual de la miniaplicació Rellotge</revnumber> <date>Juliol de 2015</date> <revdescription>
+			 <para role="author">Paul Cutler</para>
+			 <para role="publisher">Projecte de documentació de GNOME</para>
+		  </revdescription></revision>
+		<revision><revnumber>Versió 2.5 del manual de la miniaplicació Rellotge</revnumber> <date>Febrer de 2004</date> <revdescription>
+			 <para role="author">Sun Microsystems</para>
+			 <para role="publisher">Projecte de documentació de GNOME</para>
+		  </revdescription></revision>
+		<revision><revnumber>Versió 2.4 del manual de la miniaplicació Rellotge</revnumber> <date>Setembre de 2003</date> <revdescription>
+			 <para role="author">Sun Microsystems</para>
+			 <para role="publisher">Projecte de documentació de GNOME</para>
+		  </revdescription></revision>
+		<revision><revnumber>Versió 2.3 del manual de la miniaplicació Rellotge</revnumber> <date>Gener de 2003</date> <revdescription>
+			 <para role="author">Sun Microsystems</para>
+			 <para role="publisher">Projecte de documentació de GNOME</para>
+		  </revdescription></revision>
+		<revision><revnumber>Versió 2.2 del manual de la miniaplicació Rellotge</revnumber> <date>Agost de 2002</date> <revdescription>
+			 <para role="author">Sun Microsystems</para>
+			 <para role="publisher">Projecte de documentació de GNOME</para>
+		  </revdescription></revision>
+		<revision><revnumber>Versió 2.1 del manual de la miniaplicació Rellotge</revnumber> <date>Juny de 2002</date> <revdescription>
+			 <para role="author">Sun Microsystems</para>
+			 <para role="publisher">Projecte de documentació de GNOME</para>
+		  </revdescription></revision>
+		<revision><revnumber>Versió 2.0 del manual de la miniaplicació Rellotge</revnumber> <date>Març de 2002</date> <revdescription>
+			 <para role="author">Sun Microsystems</para>
+			 <para role="publisher">Projecte de documentació de GNOME</para>
+		  </revdescription></revision>
+		<revision><revnumber>Manual de la miniaplicació Rellotge</revnumber> <date>Abril de 2000</date> <revdescription>
+			 <para role="author">Dan Mueth <email>d-mueth@uchicago.edu</email></para>
+			 <para role="publisher">Projecte de documentació de GNOME</para>
+		  </revdescription></revision>
+	 </revhistory>
+	 <releaseinfo>Aquest manual descriu la versió 1.10.1 de la miniaplicació del rellotge.</releaseinfo>
+	 <legalnotice>
+		<title>Retroacció</title>
+		<para>Per informar d'un error o fer un suggeriment sobre la miniaplicació Rellotge o d'aquest manual, seguiu les instruccions de la <ulink url="help:mate-user-guide/feedback" type="help">pàgina de retroacció de MATE</ulink>.</para>
+
+	 </legalnotice>
+	 <abstract role="description">
+		<para>La miniaplicació <application>Rellotge</application> mostra la data i l'hora, i quan es fa clic, mostra un calendari. El <application>Rellotge</application> es pot personalitzar per mostrar els segons o un rellotge de 12 o 24 hores.</para>
+	 </abstract>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Robert Antoni Buj Gelonch</firstname>
+      </personname>
+      <email>rbuj@fedoraproject.org</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2018</year>
+      
+        <year>2019</year>
+      
+      <holder>Robert Antoni Buj Gelonch</holder>
+    </copyright>
+  </articleinfo>
+  <indexterm><primary>Rellotge</primary></indexterm>
+<!-- ============= Document Body ============================= -->
+
+<!-- ============= Introduction ============================== -->
+
+  <sect1 id="clock-introduction">
+	 <title>Introducció</title>
+
+<!-- ==== Figure ============================================= -->
+	 <figure id="clock-fig">
+		<title>Miniaplicació Rellotge</title>
+		<screenshot>
+		  <mediaobject><imageobject><imagedata fileref="figures/clock_applet.png" format="PNG"/> </imageobject> <textobject> <phrase>Mostra la miniaplicació Rellotge.</phrase> </textobject></mediaobject>
+		</screenshot>
+	 </figure>
+    <!-- ==== End of Figure ======================================= -->
+<para>La miniaplicació <application>Rellotge</application> mostra la data i l'hora, i quan es fa clic, mostra un calendari. El <application>Rellotge</application> es pot personalitzar per mostrar els segons o un rellotge de 12 o 24 hores.</para>
+
+
+
+<sect2 id="clock-introduction-add">
+<title>Com afegir el rellotge a un tauler</title>
+  <para>Realitzeu els passos següents:</para>
+         <orderedlist>
+           <listitem>
+             <para>Feu clic dret al tauler.</para>
+           </listitem>
+           <listitem>
+             <para>Trieu <guimenuitem>Afegeix al tauler</guimenuitem>.</para>
+           </listitem>
+           <listitem>
+             <para>Desplaceu-vos cap avall per la llista d'elements del diàleg <guilabel>Afegeix al tauler</guilabel>, després seleccioneu <guilabel>Rellotge</guilabel>.</para>
+           </listitem>
+           <listitem>
+             <para>Feu clic a <guibutton>Afegeix</guibutton>.</para>
+           </listitem>
+         </orderedlist>
+    </sect2>
+</sect1>
+<!-- ================ Usage ================================ -->
+
+  <sect1 id="clock-usage">
+	 <title>Utilització</title>
+
+	<sect2 id="clock-usage-calendar">
+	<title>Com veure el calendari</title>
+	<para>Feu clic a la miniaplicació per obrir un petit calendari que mostra el mes actual. Per tancar el calendari, feu clic de nou a la part de la miniaplicació que hi ha al tauler.</para>
+
+	<para>Podeu canviar el mes que es mostra al calendari en fer clic a les fletxes a cada costat del text del mes i any.</para>
+
+	<para>Feu doble clic a un dia al calendari per iniciar l'aplicació de programari en grup <application>Evolution</application>.</para>
+	</sect2>
+
+	<sect2 id="clock-usage-copy">
+	<title>Com inserir la data o hora en una aplicació</title>
+<para>La miniaplicació <application>Rellotge</application> agafa l'hora del rellotge del sistema.</para>
+<para>Per inserir la data o l'hora des de la miniaplicació <application>Rellotge</application> a una aplicació, realitzeu els passos següents:</para>
+	<orderedlist>
+		<listitem>
+			<para>Feu clic amb el botó dret a la miniaplicació <application>Rellotge</application>.</para>
+		</listitem>
+		<listitem>
+			<para>Trieu un dels següents elements del menú des del menú emergent de la miniaplicació:</para>
+			<itemizedlist>
+				<listitem>
+					<para><guimenuitem>Copia l'hora</guimenuitem></para>
+				</listitem>
+				<listitem>
+					<para><guimenuitem>Copia la data</guimenuitem></para>
+				</listitem>
+			</itemizedlist>
+		</listitem>
+		<listitem>
+			<para>Indiqueu la ubicació de la vostra aplicació on voleu inserir l'element.</para>
+		</listitem>
+		<listitem>
+			<para>Trieu <menuchoice><guimenu>Edita</guimenu><guimenuitem>Enganxa</guimenuitem> </menuchoice> o feu clic amb el botó central per inserir l'element.</para>
+		</listitem>
+		</orderedlist>
+	</sect2>
+
+</sect1>
+
+<!-- ============= Preferences ============================= -->
+
+<sect1 id="clock-settings">
+<title>Preferències del rellotge</title>
+	<para>Per configurar el <application>Rellotge</application>, feu clic amb el botó dret a la miniaplicació i, a continuació, trieu <guimenuitem>Preferències</guimenuitem>. Se us presentaran tres pestanyes per canviar les preferències <guimenuitem>Generals</guimenuitem>, de les <guimenuitem>Ubicacions</guimenuitem> o de la <guimenuitem>Informació meteorològica</guimenuitem>.</para>
+
+
+<sect2 id="generalprefs">
+	<title>Preferències generals</title>
+	<variablelist>
+		  <varlistentry>
+			 <term><guilabel>Format del rellotge</guilabel></term>
+			 <listitem>
+			 <para>Seleccioneu una les opcions següents:</para>
+			 <itemizedlist>
+			 <listitem>
+			 <para><guilabel>12 hores</guilabel></para>
+			 <para>Mostra l'hora en format AM / PM.</para>
+			 <note><para>Aquesta opció no es mostra si l'idioma de la vostra sessió no utilitza el rellotge de 12 hores.</para></note>
+			 </listitem>
+			 <listitem>
+			 <para><guilabel>24 hores</guilabel></para>
+			 <para>Mostra l'hora en format 00.00 fins a 24.00.</para>
+			 </listitem>
+			 </itemizedlist>
+			 </listitem>
+		  </varlistentry>
+		  <varlistentry>
+			 <term><guilabel>Mostra la data</guilabel></term>
+			 <listitem>
+			 <para>Seleccioneu aquesta opció per mostrar la data a la miniaplicació.</para>
+			 </listitem>
+		  </varlistentry>
+		  <varlistentry>
+			 <term><guilabel>Mostra els segons</guilabel></term>
+			 <listitem>
+			 <para>Seleccioneu aquesta opció per mostrar els segons a la miniaplicació.</para>
+			 </listitem>
+		  </varlistentry>
+		  <varlistentry>
+			 <term><guilabel>Mostra els números de les setmanes al calendari</guilabel></term>
+			 <listitem>
+			 <para>Seleccioneu aquesta opció per mostrar els números de les setmanes al calendari.</para>
+			 </listitem>
+		  </varlistentry>
+		  <varlistentry>
+			 <term><guilabel>Mostra la informació meteorològica</guilabel></term>
+			 <listitem>
+			 <para>Seleccioneu aquesta opció per mostrar la previsió meteorològica actual a la vostra ubicació. El temps es mostrarà amb una icona assolellat, ennuvolat, pluja o altres.</para>
+			 </listitem>
+		  </varlistentry>
+		  <varlistentry>
+			 <term><guilabel>Mostra la temperatura</guilabel></term>
+			 <listitem>
+			 <para>Seleccioneu aquesta opció per mostrar la temperatura a la vostra ubicació.</para>
+			 </listitem>
+		  </varlistentry>
+
+	</variablelist>
+
+</sect2>
+
+<sect2 id="locationprefs">
+	<title>Preferències de la ubicació</title>
+
+	<variablelist>
+		  <varlistentry>
+			 <term><guilabel>Ubicacions</guilabel></term>
+			 <listitem>
+			 <para>Podeu afegir una o més ubicacions i la vostra hora local per mostrar-les al rellotge. Per afegir una ubicació:</para>
+			 <itemizedlist>
+			 <listitem>
+			 <para>Premeu <guilabel>Afegeix</guilabel></para>
+			</listitem>
+			 <listitem>
+			 <para>Teclegeu el nom de la ciutat, regió o país i, mentre teclegeu, apareixerà una llista d'opcions en un quadre desplegable. Seleccioneu una coincidència del menú emergent i les entrades <guilabel>Zona horària</guilabel>, <guilabel>Latitud</guilabel>, i <guilabel>Longitud</guilabel> s'emplenaran automàticament.</para>
+			 </listitem>
+			 </itemizedlist>
+			 </listitem>
+		  </varlistentry>
+	</variablelist>
+
+</sect2>
+
+
+<sect2 id="weatherprefs">
+	<title>Preferències de la informació meteorològica</title>
+
+	<variablelist>
+		  <varlistentry>
+			 <term><guilabel>Informació meteorològica</guilabel></term>
+			 <listitem>
+			 <para>Podeu mostrar la unitat de temperatura utilitzant una de les opcions següents del quadre desplegable:</para>
+			 <itemizedlist>
+			 <listitem>
+			 <para><guilabel>F</guilabel> (Fahrenheit)</para>
+			</listitem>
+			 <listitem>
+			 <para><guilabel>C</guilabel> (Celsius)</para>
+			</listitem>
+			 <listitem>
+			 <para><guilabel>K</guilabel> (Kelvin)</para>
+			</listitem>
+			 <listitem>
+			 <para><guilabel>Predeterminada</guilabel> La visualització predeterminada per a la vostra regió.</para>
+			 </listitem>
+			 </itemizedlist>
+			 </listitem>
+		  </varlistentry>
+		  <varlistentry>
+			 <term><guilabel>Unitat de velocitat del vent</guilabel></term>
+			 <listitem>
+			 <para>Podeu mostrar la unitat de velocitat utilitzant una de les opcions següents del quadre desplegable:</para>
+			 <itemizedlist>
+			 <listitem>
+			 <para><guilabel>Escala de Beaufort</guilabel></para>
+			</listitem>
+			 <listitem>
+			 <para><guilabel>Nusos</guilabel></para>
+			</listitem>
+			 <listitem>
+			 <para><guilabel>mph</guilabel> (milles per hora)</para>
+			</listitem>
+			 <listitem>
+			 <para><guilabel>km/h</guilabel> (quilòmetres per hora)</para>
+			</listitem>
+			 <listitem>
+			 <para><guilabel>m/s</guilabel> (metres per segon)</para>
+			</listitem>
+			 <listitem>
+			 <para><guilabel>Predeterminada</guilabel> La visualització predeterminada per a la vostra regió.</para>
+			 </listitem>
+			 </itemizedlist>
+			 </listitem>
+		  </varlistentry>
+	</variablelist>
+
+</sect2>
+
+<sect2 id="clock-usage-adjust">
+    <title>Com ajustar la data o hora del sistema</title>
+    <para>Per ajustar la data o hora del sistema que mostra la miniaplicació <application>Rellotge</application>, realitzeu els passos següents:</para>
+    <orderedlist>
+        <listitem>
+            <para>Premeu el botó <guibutton>Ajusts de l'hora</guibutton> al diàleg de preferències.</para>
+        </listitem>
+        <listitem>
+            <para>Utilitzeu el diàleg <guilabel>Data i hora</guilabel> per ajustar la data i l'hora.</para>
+        </listitem>
+        <listitem>
+            <para>Premeu el botó <guibutton>Estableix l'hora del sistema</guibutton>, després el diàleg <application>mate-polkit</application> sol·licita la contrasenya d'administració. Introduïu la contrasenya d'administració i premeu el botó <guibutton>Autentifica</guibutton>.</para>
+        </listitem>
+    </orderedlist>
+</sect2>
+
+</sect1>
+
+</article>
