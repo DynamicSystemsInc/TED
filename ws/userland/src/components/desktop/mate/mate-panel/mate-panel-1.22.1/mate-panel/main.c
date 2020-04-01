@@ -77,6 +77,7 @@ main (int argc, char **argv)
 	const gchar    *resource;
 	guint          priority;
 
+
 	bindtextdomain (GETTEXT_PACKAGE, MATELOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);

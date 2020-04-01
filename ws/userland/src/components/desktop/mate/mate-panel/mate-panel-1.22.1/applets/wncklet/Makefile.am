@@ -6,6 +6,7 @@ AM_CPPFLAGS =							\
 	-I$(top_srcdir)/libmate-panel-applet				\
 	-I$(top_builddir)/libmate-panel-applet			\
 	-DMATELOCALEDIR=\""$(prefix)/$(DATADIRNAME)/locale"\"	\
+	-DHAVE_LIBGNOMETSOL \
 	$(DISABLE_DEPRECATED_CFLAGS)
 
 AM_CFLAGS = $(WARN_CFLAGS)
@@ -21,6 +22,8 @@ WNCKLET_SOURCES = \
 	workspace-switcher.h \
 	showdesktop.c \
 	showdesktop.h \
+	wnck-tsol.c \
+	wnck-tsol.h \
 	$(BUILT_SOURCES)
 
 WNCKLET_LDADD =						\

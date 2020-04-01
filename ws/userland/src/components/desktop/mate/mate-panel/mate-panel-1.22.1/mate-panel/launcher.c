@@ -47,6 +47,8 @@
 static gboolean
 launcher_properties_enabled (void);
 
+static void panel_recheck_launcher (Launcher *launcher);
+
 static GdkScreen *
 launcher_get_screen (Launcher *launcher)
 {
@@ -107,6 +109,9 @@ launch_url (Launcher *launcher)
 	g_return_if_fail (launcher != NULL);
 	g_return_if_fail (launcher->key_file != NULL);
 
+	if (panel_lockdown_is_forbidden_launcher (launcher))
+		return;
+
 	/* FIXME panel_ditem_launch() should be enough for this! */
 	url = panel_key_file_get_string (launcher->key_file, "URL");
 
@@ -137,6 +142,9 @@ launcher_launch (Launcher  *launcher,
 
 	g_return_if_fail (launcher != NULL);
 	g_return_if_fail (launcher->key_file != NULL);
+
+	if (panel_lockdown_is_forbidden_launcher (launcher))
+		return;
 
 	if (action == NULL) {
 		type = panel_key_file_get_string (launcher->key_file, "Type");
@@ -252,6 +260,8 @@ free_launcher (gpointer data)
 	if (launcher->location != NULL)
 		g_free (launcher->location);
 	launcher->location = NULL;
+
+	panel_lockdown_notify_remove (G_CALLBACK (panel_recheck_launcher), launcher);
 
 	g_free (launcher);
 }
@@ -432,6 +442,19 @@ clicked_cb (Launcher  *launcher,
 	}
 }
 
+static void
+panel_recheck_launcher (Launcher *launcher)
+{
+        if (!launcher || !launcher->button)
+                return;
+
+    if (panel_lockdown_is_forbidden_launcher (launcher)) {
+        gtk_widget_hide (launcher->button);
+    } else {
+            gtk_widget_show (launcher->button);
+    }
+}
+
 static Launcher *
 create_launcher (const char *location)
 {
@@ -510,7 +533,11 @@ create_launcher (const char *location)
 					      FALSE,
 					      PANEL_ORIENTATION_TOP);
 
-	gtk_widget_show (launcher->button);
+	if (panel_lockdown_is_forbidden_launcher (launcher)) {
+		gtk_widget_hide (launcher->button);
+	} else {
+		gtk_widget_show (launcher->button);
+	}
 
 	/*gtk_drag_dest_set (GTK_WIDGET (launcher->button),
 			   GTK_DEST_DEFAULT_ALL,
@@ -536,6 +563,8 @@ create_launcher (const char *location)
 			g_signal_connect (launcher->button, "destroy",
 					  G_CALLBACK (destroy_launcher),
 					  launcher);
+
+	panel_lockdown_notify_add (G_CALLBACK (panel_recheck_launcher), launcher);	
 
 	return launcher;
 }
@@ -877,6 +906,12 @@ load_launcher_applet (const char       *location,
 	/* setup button according to ditem */
 	setup_button (launcher);
 
+	if (panel_lockdown_is_forbidden_launcher (launcher)) {
+		gtk_widget_hide (launcher->button);
+	} else {
+		gtk_widget_show (launcher->button);
+	}
+
 	return launcher;
 }
 
@@ -971,6 +1006,10 @@ ask_about_launcher (const char  *file,
 	if (file != NULL)
 		panel_key_file_set_string (key_file, "Exec", file);
 	panel_key_file_set_string (key_file, "Type", "Application");
+
+	if (panel_lockdown_is_forbidden_key_file (key_file))
+		return; /* Application being dragged is forbidden so just return */
+
 	panel_ditem_editor_sync_display (PANEL_DITEM_EDITOR (dialog));
 
 	panel_ditem_register_save_uri_func (PANEL_DITEM_EDITOR (dialog),
@@ -1027,6 +1066,7 @@ panel_launcher_create_from_info (PanelToplevel *toplevel,
 	location = panel_make_unique_desktop_uri (NULL, exec_or_uri);
 
 	error = NULL;
+    if (!panel_lockdown_is_forbidden_key_file (key_file)) {
 	if (panel_key_file_to_file (key_file, location, &error)) {
 		panel_launcher_create (toplevel, position, location);
 	} else {
@@ -1037,6 +1077,7 @@ panel_launcher_create_from_info (PanelToplevel *toplevel,
 				    error->message);
 		g_error_free (error);
 	}
+    }
 
 	g_key_file_free (key_file);
 }

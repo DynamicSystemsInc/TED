@@ -75,6 +75,9 @@ panel_struts_get_monitor_geometry (GdkScreen *screen,
 				   int       *width,
 				   int       *height)
 {
+	Display		*xdisplay;
+	int		stripe_height;
+
         *x      = panel_multiscreen_x      (screen, monitor);
         *y      = panel_multiscreen_y      (screen, monitor);
         *width  = panel_multiscreen_width  (screen, monitor);

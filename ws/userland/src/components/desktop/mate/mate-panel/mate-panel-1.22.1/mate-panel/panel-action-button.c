@@ -32,6 +32,7 @@
 
 #include <glib/gi18n.h>
 #include <gio/gio.h>
+#include "panel-solaris.h"
 
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-desktop-utils.h>
@@ -271,6 +272,14 @@ panel_action_search (GtkWidget *widget)
 	GdkScreen *screen;
 
 	screen = gtk_widget_get_screen (widget);
+
+    if (gnome_desktop_tsol_is_multi_label_session ()) {
+        char *cmd = g_strdup_printf ("%d:gnome-search-tool", gdk_screen_get_number (screen));
+        gnome_desktop_tsol_proxy_app_launch (cmd);
+        g_free (cmd);
+        return;
+    }   
+
 	panel_launch_desktop_file_with_fallback ("mate-search-tool.desktop",
 						 "mate-search-tool",
 						 screen, NULL);
@@ -296,6 +305,13 @@ panel_action_connect_server (GtkWidget *widget)
 
 	screen = gtk_widget_get_screen (GTK_WIDGET (widget));
 	error = NULL;
+
+   if (gnome_desktop_tsol_is_multi_label_session ()) {
+        char *cmd = g_strdup_printf ("%d:caja-connect-server", gdk_screen_get_number (screen));
+        gnome_desktop_tsol_proxy_app_launch (cmd);
+        g_free (cmd);
+        return;
+    }
 
 	if (panel_is_program_in_path ("caja-connect-server"))
 		command = g_strdup ("caja-connect-server");

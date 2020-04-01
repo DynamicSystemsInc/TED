@@ -53,6 +53,7 @@
 #include "panel-icon-names.h"
 #include "panel-schemas.h"
 #include "panel-stock-icons.h"
+#include "panel-solaris.h"
 
 typedef struct {
 	PanelWidget *panel_widget;
@@ -376,6 +377,7 @@ static GSList *
 panel_addto_query_applets (GSList *list)
 {
 	GList *applet_list, *l;
+	char  *location;
 
 	applet_list = mate_panel_applets_manager_get_applets ();
 
@@ -390,10 +392,43 @@ panel_addto_query_applets (GSList *list)
 		name = mate_panel_applet_info_get_name (info);
 		description = mate_panel_applet_info_get_description (info);
 		icon = mate_panel_applet_info_get_icon (info);
+		location = mate_panel_applet_info_get_location (info);
 
-		if (!name || panel_lockdown_is_applet_disabled (iid)) {
+                if (filter_with_rbac (location, FALSE)) {
+                        continue;
+                }
+
+		if (!name || panel_lockdown_is_applet_disabled (iid, location)) {
 			continue;
 		}
+
+	        /* TJDS - if MLS and has not admin_high clearance do not
+                 * display the following applets in the mnenu list.
+                 */
+                if (gnome_desktop_tsol_is_multi_label_session () &&
+                    !gnome_desktop_tsol_is_clearance_admin_high() &&
+                    (strcmp (iid, "OAFIID:MATE_StickyNotesApplet")==0 ||
+                     strcmp (iid, "OAFIID:Deskbar_Applet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_WebEyes")==0 ||
+                     strcmp (iid, "OAFIID:MATE_MailcheckApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_Panel_TrashApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_TSClientApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_QuickLoungeApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_FastUserSwitchApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_VinagreApplet")==0 ||
+                     strcmp (iid, "OAFIID:Hamster_Applet")==0 ||
+                     strcmp (iid, "OAFIID:CommandAssistantApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_MultiLoadApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_NetstatusApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_Panel_WirelessApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_DictionaryApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_MixerApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_MateWeatherApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_NotificationAreaApplet")==0 ||
+                     strcmp (iid, "OAFIID:Invest_Applet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_ContactLookupApplet")==0 ||
+                     strcmp (iid, "OAFIID:MATE_PilotApplet")==0))
+                        continue;
 
 		applet = g_new0 (PanelAddtoItemInfo, 1);
 		applet->type = PANEL_ADDTO_APPLET;

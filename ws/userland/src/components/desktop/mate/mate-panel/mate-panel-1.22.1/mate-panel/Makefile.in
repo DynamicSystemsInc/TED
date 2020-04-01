@@ -149,7 +149,7 @@ am__mate_panel_SOURCES_DIST = panel-typebuiltins.c \
 	panel-bindings.c panel-layout.c panel-profile.c \
 	panel-force-quit.c panel-lockdown.c panel-addto.c \
 	panel-ditem-editor.c panel-modules.c panel-applet-info.c \
-	panel-reset.c \
+	panel-reset.c panel-solaris.c \
 	wayland-protocols/wlr-layer-shell-unstable-v1-protocol.c \
 	wayland-protocols/xdg-shell-protocol.c panel-types.h \
 	panel-widget.h panel-globals.h button-widget.h xstuff.h \
@@ -167,7 +167,7 @@ am__mate_panel_SOURCES_DIST = panel-typebuiltins.c \
 	panel-enums.h panel-force-quit.h panel-lockdown.h \
 	panel-addto.h panel-ditem-editor.h panel-icon-names.h \
 	panel-modules.h panel-applet-info.h panel-reset.h \
-	panel-schemas.h \
+	panel-schemas.h panel-solaris.h \
 	wayland-protocols/wlr-layer-shell-unstable-v1-client-protocol.h \
 	wayland-protocols/xdg-shell-client-protocol.h
 am__objects_1 = mate_panel-panel-typebuiltins.$(OBJEXT) \
@@ -215,7 +215,8 @@ am__objects_3 = $(am__objects_1) mate_panel-main.$(OBJEXT) \
 	mate_panel-panel-ditem-editor.$(OBJEXT) \
 	mate_panel-panel-modules.$(OBJEXT) \
 	mate_panel-panel-applet-info.$(OBJEXT) \
-	mate_panel-panel-reset.$(OBJEXT) $(am__objects_2)
+	mate_panel-panel-reset.$(OBJEXT) \
+	mate_panel-panel-solaris.$(OBJEXT) $(am__objects_2)
 am__objects_4 =
 am__objects_5 = $(am__objects_4)
 am_mate_panel_OBJECTS = $(am__objects_3) $(am__objects_5)
@@ -619,7 +620,7 @@ panel_sources = $(mate_panel_BUILT_SOURCES) main.c panel-widget.c \
 	panel-bindings.c panel-layout.c panel-profile.c \
 	panel-force-quit.c panel-lockdown.c panel-addto.c \
 	panel-ditem-editor.c panel-modules.c panel-applet-info.c \
-	panel-reset.c $(am__append_1)
+	panel-reset.c panel-solaris.c $(am__append_1)
 panel_headers = panel-types.h panel-widget.h panel-globals.h \
 	button-widget.h xstuff.h panel-session.h panel.h applet.h \
 	drawer.h drawer-private.h panel-util.h \
@@ -636,7 +637,7 @@ panel_headers = panel-types.h panel-widget.h panel-globals.h \
 	panel-enums.h panel-force-quit.h panel-lockdown.h \
 	panel-addto.h panel-ditem-editor.h panel-icon-names.h \
 	panel-modules.h panel-applet-info.h panel-reset.h \
-	panel-schemas.h $(am__append_2)
+	panel-schemas.h panel-solaris.h $(am__append_2)
 mate_panel_SOURCES = \
 	$(panel_sources) \
 	$(panel_headers)
@@ -647,8 +648,8 @@ mate_panel_CPPFLAGS = $(AM_CPPFLAGS) $(XRANDR_CFLAGS) \
 mate_panel_LDADD = $(top_builddir)/mate-panel/libegg/libegg.la \
 	$(top_builddir)/mate-panel/libmate-panel-applet-private/libmate-panel-applet-private.la \
 	$(top_builddir)/mate-panel/libpanel-util/libpanel-util.la \
-	$(PANEL_LIBS) $(DCONF_LIBS) $(XRANDR_LIBS) $(X_LIBS) -lm \
-	$(am__append_4)
+	$(PANEL_LIBS) $(DCONF_LIBS) $(XRANDR_LIBS) $(X_LIBS) -lXtsol \
+	-lm $(am__append_4)
 mate_panel_LDFLAGS = -export-dynamic
 mate_desktop_item_edit_SOURCES = \
 	mate-desktop-item-edit.c \
@@ -870,6 +871,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-separator.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-session.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-shell.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-solaris.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-stock-icons.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-struts.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-toplevel.Po@am__quote@
@@ -1570,6 +1572,20 @@ mate_panel-panel-reset.obj: panel-reset.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='panel-reset.c' object='mate_panel-panel-reset.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_panel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mate_panel-panel-reset.obj `if test -f 'panel-reset.c'; then $(CYGPATH_W) 'panel-reset.c'; else $(CYGPATH_W) '$(srcdir)/panel-reset.c'; fi`
+
+mate_panel-panel-solaris.o: panel-solaris.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_panel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mate_panel-panel-solaris.o -MD -MP -MF $(DEPDIR)/mate_panel-panel-solaris.Tpo -c -o mate_panel-panel-solaris.o `test -f 'panel-solaris.c' || echo '$(srcdir)/'`panel-solaris.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/mate_panel-panel-solaris.Tpo $(DEPDIR)/mate_panel-panel-solaris.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='panel-solaris.c' object='mate_panel-panel-solaris.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_panel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mate_panel-panel-solaris.o `test -f 'panel-solaris.c' || echo '$(srcdir)/'`panel-solaris.c
+
+mate_panel-panel-solaris.obj: panel-solaris.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_panel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mate_panel-panel-solaris.obj -MD -MP -MF $(DEPDIR)/mate_panel-panel-solaris.Tpo -c -o mate_panel-panel-solaris.obj `if test -f 'panel-solaris.c'; then $(CYGPATH_W) 'panel-solaris.c'; else $(CYGPATH_W) '$(srcdir)/panel-solaris.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/mate_panel-panel-solaris.Tpo $(DEPDIR)/mate_panel-panel-solaris.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='panel-solaris.c' object='mate_panel-panel-solaris.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_panel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mate_panel-panel-solaris.obj `if test -f 'panel-solaris.c'; then $(CYGPATH_W) 'panel-solaris.c'; else $(CYGPATH_W) '$(srcdir)/panel-solaris.c'; fi`
 
 mate_panel-wlr-layer-shell-unstable-v1-protocol.o: wayland-protocols/wlr-layer-shell-unstable-v1-protocol.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_panel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mate_panel-wlr-layer-shell-unstable-v1-protocol.o -MD -MP -MF $(DEPDIR)/mate_panel-wlr-layer-shell-unstable-v1-protocol.Tpo -c -o mate_panel-wlr-layer-shell-unstable-v1-protocol.o `test -f 'wayland-protocols/wlr-layer-shell-unstable-v1-protocol.c' || echo '$(srcdir)/'`wayland-protocols/wlr-layer-shell-unstable-v1-protocol.c

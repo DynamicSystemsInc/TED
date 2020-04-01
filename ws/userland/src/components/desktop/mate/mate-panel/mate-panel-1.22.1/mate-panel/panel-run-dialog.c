@@ -40,6 +40,8 @@
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 #include <gdk/gdkkeysyms.h>
+#include "panel-solaris.h"
+
 #include <matemenu-tree.h>
 
 #define MATE_DESKTOP_USE_UNSTABLE_API
@@ -393,11 +395,21 @@ panel_run_dialog_launch_command (PanelRunDialog *dialog,
 	int         argc;
 	char       *display_name;
 	GPid        pid;
+	char	   *tsolcmd;
+
+	screen = gtk_window_get_screen (GTK_WINDOW (dialog->run_dialog));
+
+    if (gnome_desktop_tsol_is_multi_label_session ()) {
+            tsolcmd = g_strdup_printf ("%d:%s",
+                                       gdk_screen_get_number (screen), command);
+            gnome_desktop_tsol_proxy_app_launch (tsolcmd);
+            g_free (tsolcmd);
+            return TRUE;
+    }
 
 	if (!command_is_executable (locale_command, &argc, &argv))
 		return FALSE;
 
-	screen = gtk_window_get_screen (GTK_WINDOW (dialog->run_dialog));
 
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->terminal_checkbox)))
 		mate_desktop_prepend_terminal_to_vector (&argc, &argv);

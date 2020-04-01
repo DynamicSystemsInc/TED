@@ -96,6 +96,7 @@ _mate_panel_applets_manager_get_applet_info (GKeyFile    *applet_file,
 	char             *comment;
 	char             *icon;
 	char            **old_ids;
+	char		*location;
 
 	iid = g_strdup_printf ("%s::%s", factory_id, group);
 	name = g_key_file_get_locale_string (applet_file, group,
@@ -106,13 +107,17 @@ _mate_panel_applets_manager_get_applet_info (GKeyFile    *applet_file,
 	/* MateComponent compatibility */
 	old_ids = g_key_file_get_string_list (applet_file, group,
 					      "MateComponentId", NULL, NULL);
+	//location = g_key_file_get_string (applet_file, group, "Location", NULL);
+	location = g_key_file_get_string (applet_file, MATE_PANEL_APPLET_FACTORY_GROUP, "Location", NULL);
 
-	info = mate_panel_applet_info_new (iid, name, comment, icon, (const char **) old_ids);
+	info = mate_panel_applet_info_new (iid, name, comment,
+		icon, location, (const char **) old_ids);
 
 	g_free (iid);
 	g_free (name);
 	g_free (comment);
 	g_free (icon);
+	g_free (location);
 	g_strfreev (old_ids);
 
 	return info;
