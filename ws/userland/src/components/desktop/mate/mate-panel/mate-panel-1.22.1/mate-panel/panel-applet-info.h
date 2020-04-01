@@ -35,6 +35,7 @@ MatePanelAppletInfo *mate_panel_applet_info_new                             (con
 								    const gchar  *name,
 								    const gchar  *comment,
 								    const gchar  *icon,
+								    const gchar  *location,
 								    const gchar **old_ids);
 void             mate_panel_applet_info_free                            (MatePanelAppletInfo *info);
 
@@ -42,6 +43,7 @@ const gchar     *mate_panel_applet_info_get_iid                         (MatePan
 const gchar     *mate_panel_applet_info_get_name                        (MatePanelAppletInfo *info);
 const gchar     *mate_panel_applet_info_get_description                 (MatePanelAppletInfo *info);
 const gchar     *mate_panel_applet_info_get_icon                        (MatePanelAppletInfo *info);
+const gchar     *mate_panel_applet_info_get_location                        (MatePanelAppletInfo *info);
 const gchar * const *mate_panel_applet_info_get_old_ids                 (MatePanelAppletInfo *info);
 
 #ifdef __cplusplus

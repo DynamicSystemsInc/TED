@@ -994,6 +994,9 @@ mate_panel_applet_frame_load (const gchar *iid,
 			 gboolean     exactpos,
 			 const char  *id)
 {
+	MatePanelAppletInfo *info;
+	char *location;
+
 	MatePanelAppletFrameActivating *frame_act;
 
 	g_return_if_fail (iid != NULL);
@@ -1006,7 +1009,9 @@ mate_panel_applet_frame_load (const gchar *iid,
 		return;
 	}
 
-	if (panel_lockdown_is_applet_disabled (iid)) {
+	info = (MatePanelAppletInfo *)mate_panel_applets_manager_get_applet_info (iid);
+	location = mate_panel_applet_info_get_location (info);
+	if (panel_lockdown_is_applet_disabled (iid, location)) {
 		mate_panel_applet_stop_loading (id);
 		return;
 	}

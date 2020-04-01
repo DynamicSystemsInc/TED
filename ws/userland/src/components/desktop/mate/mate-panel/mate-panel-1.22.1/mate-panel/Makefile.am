@@ -63,7 +63,8 @@ panel_sources = \
 	panel-ditem-editor.c \
 	panel-modules.c \
 	panel-applet-info.c \
-	panel-reset.c
+	panel-reset.c \
+	panel-solaris.c
 
 if ENABLE_WAYLAND
 panel_sources += \
@@ -121,7 +122,8 @@ panel_headers = \
 	panel-modules.h \
 	panel-applet-info.h \
 	panel-reset.h \
-	panel-schemas.h
+	panel-schemas.h \
+	panel-solaris.h
 
 if ENABLE_WAYLAND
 panel_headers += \
@@ -153,6 +155,7 @@ mate_panel_LDADD = \
 	$(DCONF_LIBS) \
 	$(XRANDR_LIBS) \
 	$(X_LIBS) \
+	-lXtsol \
 	-lm
 
 if ENABLE_WAYLAND

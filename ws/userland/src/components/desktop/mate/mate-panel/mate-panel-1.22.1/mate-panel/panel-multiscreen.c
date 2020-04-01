@@ -161,6 +161,7 @@ panel_multiscreen_get_randr_monitors_for_screen (GdkScreen     *screen,
 		    output->crtc != 0) {
 			XRRCrtcInfo  *crtc;
 			GdkRectangle  rect;
+			int   stripe_height;
 
 			crtc = XRRGetCrtcInfo (xdisplay, resources,
 					       output->crtc);
@@ -169,6 +170,12 @@ panel_multiscreen_get_randr_monitors_for_screen (GdkScreen     *screen,
 			rect.y      = crtc->y / scale;
 			rect.width  = crtc->width / scale;
 			rect.height = crtc->height / scale;
+
+			if (gnome_desktop_tsol_is_multi_label_session ()) {
+				XTSOLgetSSHeight (xdisplay,
+				    gdk_screen_get_number (screen), &stripe_height);
+				rect.height -= stripe_height;
+			}
 
 			XRRFreeCrtcInfo (crtc);
 

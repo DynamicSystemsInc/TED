@@ -27,6 +27,7 @@
 
 #include <glib.h>
 #include <glib-object.h>
+#include "launcher.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,12 +42,38 @@ gboolean panel_lockdown_get_disable_lock_screen  (void);
 gboolean panel_lockdown_get_disable_log_out      (void);
 gboolean panel_lockdown_get_disable_force_quit   (void);
 
-gboolean panel_lockdown_is_applet_disabled (const char *iid);
+gboolean panel_lockdown_is_applet_disabled (const char *iid, const char *id);
 
 void panel_lockdown_notify_add    (GCallback callback_func,
                                    gpointer  user_data);
 void panel_lockdown_notify_remove (GCallback callback_func,
                                    gpointer  user_data);
+gchar *panel_lockdown_get_stripped_exec               (const gchar *full_exec);
+gboolean panel_lockdown_is_disabled_command_line      (const gchar *term_cmd);
+
+/**
+  * Returns true if the command line corresponds to an application whose use
+  * has been disallowed by the administrator.
+  */
+gboolean panel_lockdown_is_forbidden_command           (const gchar *command);
+
+/**
+  * Returns true if the launcher application has been disallowed by the administrator.
+  */
+gboolean panel_lockdown_is_forbidden_launcher          (Launcher *launcher);
+
+/**
+  * Returns true if the key_file application has been disallowed by the administrator.
+  */
+gboolean panel_lockdown_is_forbidden_key_file (GKeyFile *key_file);
+
+/**
+ * Returns true if the user is the root user, has the root role or has the
+  * Primary Administrator or System Administrator profile.
+  */
+gboolean panel_lockdown_is_user_authorized(void);
+#define SYSTEM_ADMINISTRATOR_PROF "System Administrator"
+#define ROOT_ROLE "root"
 
 #ifdef __cplusplus
 }

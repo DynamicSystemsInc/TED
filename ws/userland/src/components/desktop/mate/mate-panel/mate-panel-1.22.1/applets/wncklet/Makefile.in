@@ -145,14 +145,15 @@ am__DEPENDENCIES_2 =  \
 @WNCKLET_INPROCESS_TRUE@	$(am__DEPENDENCIES_2)
 am__libwnck_applet_la_SOURCES_DIST = wncklet.c wncklet.h window-menu.c \
 	window-menu.h window-list.c window-list.h workspace-switcher.c \
-	workspace-switcher.h showdesktop.c showdesktop.h \
-	wncklet-resources.c wncklet-resources.h
+	workspace-switcher.h showdesktop.c showdesktop.h wnck-tsol.c \
+	wnck-tsol.h wncklet-resources.c wncklet-resources.h
 am__objects_1 = libwnck_applet_la-wncklet-resources.lo
 am__objects_2 = libwnck_applet_la-wncklet.lo \
 	libwnck_applet_la-window-menu.lo \
 	libwnck_applet_la-window-list.lo \
 	libwnck_applet_la-workspace-switcher.lo \
-	libwnck_applet_la-showdesktop.lo $(am__objects_1)
+	libwnck_applet_la-showdesktop.lo \
+	libwnck_applet_la-wnck-tsol.lo $(am__objects_1)
 @WNCKLET_INPROCESS_TRUE@am_libwnck_applet_la_OBJECTS =  \
 @WNCKLET_INPROCESS_TRUE@	$(am__objects_2)
 libwnck_applet_la_OBJECTS = $(am_libwnck_applet_la_OBJECTS)
@@ -169,14 +170,15 @@ libwnck_applet_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 PROGRAMS = $(libexec_PROGRAMS)
 am__wnck_applet_SOURCES_DIST = wncklet.c wncklet.h window-menu.c \
 	window-menu.h window-list.c window-list.h workspace-switcher.c \
-	workspace-switcher.h showdesktop.c showdesktop.h \
-	wncklet-resources.c wncklet-resources.h
+	workspace-switcher.h showdesktop.c showdesktop.h wnck-tsol.c \
+	wnck-tsol.h wncklet-resources.c wncklet-resources.h
 am__objects_3 = wnck_applet-wncklet-resources.$(OBJEXT)
 am__objects_4 = wnck_applet-wncklet.$(OBJEXT) \
 	wnck_applet-window-menu.$(OBJEXT) \
 	wnck_applet-window-list.$(OBJEXT) \
 	wnck_applet-workspace-switcher.$(OBJEXT) \
-	wnck_applet-showdesktop.$(OBJEXT) $(am__objects_3)
+	wnck_applet-showdesktop.$(OBJEXT) \
+	wnck_applet-wnck-tsol.$(OBJEXT) $(am__objects_3)
 @WNCKLET_INPROCESS_FALSE@am_wnck_applet_OBJECTS = $(am__objects_4)
 wnck_applet_OBJECTS = $(am_wnck_applet_OBJECTS)
 @WNCKLET_INPROCESS_FALSE@wnck_applet_DEPENDENCIES =  \
@@ -470,6 +472,7 @@ AM_CPPFLAGS = \
 	-I$(top_srcdir)/libmate-panel-applet				\
 	-I$(top_builddir)/libmate-panel-applet			\
 	-DMATELOCALEDIR=\""$(prefix)/$(DATADIRNAME)/locale"\"	\
+	-DHAVE_LIBGNOMETSOL \
 	$(DISABLE_DEPRECATED_CFLAGS)
 
 AM_CFLAGS = $(WARN_CFLAGS)
@@ -484,6 +487,8 @@ WNCKLET_SOURCES = \
 	workspace-switcher.h \
 	showdesktop.c \
 	showdesktop.h \
+	wnck-tsol.c \
+	wnck-tsol.h \
 	$(BUILT_SOURCES)
 
 WNCKLET_LDADD = \
@@ -674,12 +679,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-showdesktop.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-window-list.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-window-menu.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-wnck-tsol.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-wncklet-resources.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-wncklet.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-workspace-switcher.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-showdesktop.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-window-list.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-window-menu.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-wnck-tsol.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-wncklet-resources.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-wncklet.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-workspace-switcher.Po@am__quote@
@@ -739,6 +746,13 @@ libwnck_applet_la-showdesktop.lo: showdesktop.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='showdesktop.c' object='libwnck_applet_la-showdesktop.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwnck_applet_la_CFLAGS) $(CFLAGS) -c -o libwnck_applet_la-showdesktop.lo `test -f 'showdesktop.c' || echo '$(srcdir)/'`showdesktop.c
+
+libwnck_applet_la-wnck-tsol.lo: wnck-tsol.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwnck_applet_la_CFLAGS) $(CFLAGS) -MT libwnck_applet_la-wnck-tsol.lo -MD -MP -MF $(DEPDIR)/libwnck_applet_la-wnck-tsol.Tpo -c -o libwnck_applet_la-wnck-tsol.lo `test -f 'wnck-tsol.c' || echo '$(srcdir)/'`wnck-tsol.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libwnck_applet_la-wnck-tsol.Tpo $(DEPDIR)/libwnck_applet_la-wnck-tsol.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='wnck-tsol.c' object='libwnck_applet_la-wnck-tsol.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwnck_applet_la_CFLAGS) $(CFLAGS) -c -o libwnck_applet_la-wnck-tsol.lo `test -f 'wnck-tsol.c' || echo '$(srcdir)/'`wnck-tsol.c
 
 libwnck_applet_la-wncklet-resources.lo: wncklet-resources.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwnck_applet_la_CFLAGS) $(CFLAGS) -MT libwnck_applet_la-wncklet-resources.lo -MD -MP -MF $(DEPDIR)/libwnck_applet_la-wncklet-resources.Tpo -c -o libwnck_applet_la-wncklet-resources.lo `test -f 'wncklet-resources.c' || echo '$(srcdir)/'`wncklet-resources.c
@@ -816,6 +830,20 @@ wnck_applet-showdesktop.obj: showdesktop.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='showdesktop.c' object='wnck_applet-showdesktop.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(wnck_applet_CFLAGS) $(CFLAGS) -c -o wnck_applet-showdesktop.obj `if test -f 'showdesktop.c'; then $(CYGPATH_W) 'showdesktop.c'; else $(CYGPATH_W) '$(srcdir)/showdesktop.c'; fi`
+
+wnck_applet-wnck-tsol.o: wnck-tsol.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(wnck_applet_CFLAGS) $(CFLAGS) -MT wnck_applet-wnck-tsol.o -MD -MP -MF $(DEPDIR)/wnck_applet-wnck-tsol.Tpo -c -o wnck_applet-wnck-tsol.o `test -f 'wnck-tsol.c' || echo '$(srcdir)/'`wnck-tsol.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/wnck_applet-wnck-tsol.Tpo $(DEPDIR)/wnck_applet-wnck-tsol.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='wnck-tsol.c' object='wnck_applet-wnck-tsol.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(wnck_applet_CFLAGS) $(CFLAGS) -c -o wnck_applet-wnck-tsol.o `test -f 'wnck-tsol.c' || echo '$(srcdir)/'`wnck-tsol.c
+
+wnck_applet-wnck-tsol.obj: wnck-tsol.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(wnck_applet_CFLAGS) $(CFLAGS) -MT wnck_applet-wnck-tsol.obj -MD -MP -MF $(DEPDIR)/wnck_applet-wnck-tsol.Tpo -c -o wnck_applet-wnck-tsol.obj `if test -f 'wnck-tsol.c'; then $(CYGPATH_W) 'wnck-tsol.c'; else $(CYGPATH_W) '$(srcdir)/wnck-tsol.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/wnck_applet-wnck-tsol.Tpo $(DEPDIR)/wnck_applet-wnck-tsol.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='wnck-tsol.c' object='wnck_applet-wnck-tsol.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(wnck_applet_CFLAGS) $(CFLAGS) -c -o wnck_applet-wnck-tsol.obj `if test -f 'wnck-tsol.c'; then $(CYGPATH_W) 'wnck-tsol.c'; else $(CYGPATH_W) '$(srcdir)/wnck-tsol.c'; fi`
 
 wnck_applet-wncklet-resources.o: wncklet-resources.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(wnck_applet_CFLAGS) $(CFLAGS) -MT wnck_applet-wncklet-resources.o -MD -MP -MF $(DEPDIR)/wnck_applet-wncklet-resources.Tpo -c -o wnck_applet-wncklet-resources.o `test -f 'wncklet-resources.c' || echo '$(srcdir)/'`wncklet-resources.c

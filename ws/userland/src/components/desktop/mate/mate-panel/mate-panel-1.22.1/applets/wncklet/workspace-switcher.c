@@ -26,6 +26,10 @@
 #include <gio/gio.h>
 
 #include <libmate-desktop/mate-gsettings.h>
+#ifdef HAVE_LIBGNOMETSOL
+#include "wnck-tsol.h"
+#endif
+
 
 #include "workspace-switcher.h"
 
@@ -44,6 +48,8 @@
 #define WORKSPACE_NAME "name-1"
 
 #define WORKSPACE_SWITCHER_ICON "mate-panel-workspace-switcher"
+
+gboolean ugly_showing_lbuilder_global_which_sucks_fix_me = FALSE;
 
 typedef enum {
 	PAGER_WM_MARCO,
@@ -85,6 +91,21 @@ typedef struct {
 
 	GSettings* settings;
 } PagerData;
+
+#ifdef HAVE_LIBGNOMETSOL
+static void tsol_workspace_created (WnckScreen *screen,
+				       WnckWorkspace *workspace,
+				       gpointer  data);
+static void role_changed (WnckWorkspace *workspace,
+				       gpointer data);
+static void changed_workspace (WnckScreen *screen,
+				       WnckWorkspace *previously_active_space,
+				       gpointer data);
+static void workspace_label_dialog    (GtkAction *action,
+				       PagerData *pager);
+#endif
+
+static GtkActionGroup* action_group;
 
 static void display_properties_dialog(GtkAction* action, PagerData* pager);
 static void display_help_dialog(GtkAction* action, PagerData* pager);
@@ -205,6 +226,44 @@ static void applet_realized(MatePanelApplet* applet, PagerData* pager)
 
 	window_manager_changed(pager->screen, pager);
 	wncklet_connect_while_alive(pager->screen, "window_manager_changed", G_CALLBACK(window_manager_changed), pager, pager->applet);
+#ifdef HAVE_LIBGNOMETSOL
+	if (_applet_use_trusted_extensions ()) {
+		/*
+		 * Monitor all events that might require the workspace label menu
+		 * to be hidden/unhidden.
+		 */
+		int i, wscount;
+		WnckWorkspace *space;
+		wscount = wnck_screen_get_workspace_count (pager->screen);
+		for (i = 0; i < wscount; i++) {
+			space = wnck_screen_get_workspace (pager->screen, i);
+			wncklet_connect_while_alive (G_OBJECT (space), "role_changed",
+						     G_CALLBACK (role_changed),
+						     (gpointer) pager,
+						     pager->applet);
+		}
+
+		wncklet_connect_while_alive (G_OBJECT (pager->screen),
+					     "workspace_created",
+					     G_CALLBACK (tsol_workspace_created),
+					     (gpointer) pager,
+					     pager->applet);
+		wncklet_connect_while_alive (G_OBJECT (pager->screen),
+					     "active_workspace_changed",
+					     G_CALLBACK (changed_workspace),
+					     (gpointer) pager,
+					     pager->applet);
+	}
+
+	/* 
+	 * Trigger the active_workspace_changed callback function manually
+	 * to set up the initial hidden/unhidden state of the ChangeWorkspaceLabel
+	 * menu item.
+	 */
+	changed_workspace (pager->screen,
+			   wnck_screen_get_active_workspace (pager->screen),
+			   (gpointer) pager);
+#endif
 }
 
 static void applet_unrealized(MatePanelApplet* applet, PagerData* pager)
@@ -407,6 +466,17 @@ static const GtkActionEntry pager_menu_actions[] = {
 		NULL,
 		G_CALLBACK(display_about_dialog)
 	}
+#ifdef HAVE_LIBGNOMETSOL
+		,
+	{
+		"ChangeWorkspaceLabel",
+		"gnome-run",
+		N_("_Change Workspace Label..."),
+		NULL,
+		NULL,
+		G_CALLBACK(workspace_label_dialog)
+	}
+#endif
 };
 
 static void num_rows_changed(GSettings* settings, gchar* key, PagerData* pager)
@@ -516,7 +586,7 @@ static void setup_gsettings(PagerData* pager)
 gboolean workspace_switcher_applet_fill(MatePanelApplet* applet)
 {
 	PagerData* pager;
-	GtkActionGroup* action_group;
+//	GtkActionGroup* action_group;
 	gboolean display_names;
 
 	pager = g_new0(PagerData, 1);
@@ -604,7 +674,6 @@ gboolean workspace_switcher_applet_fill(MatePanelApplet* applet)
 	}
 
 	g_object_unref(action_group);
-
 	return TRUE;
 }
 
@@ -1009,3 +1078,237 @@ static void destroy_pager(GtkWidget* widget, PagerData* pager)
 		gtk_widget_destroy(pager->properties_dialog);
 	g_free(pager);
 }
+#ifdef HAVE_LIBGNOMETSOL
+/* WARNING
+ * DON'T ever call this from outside any code that has first done
+ * a runtime trusted extension check!!! There is no point anyway.
+ */
+
+void
+lbuilder_response_cb (GtkDialog *dialog, gint id, gpointer data)
+{
+	int error;
+	m_label_t *sl = NULL;
+	char *label;
+    WnckWorkspace *space;
+
+	if (!_applet_use_trusted_extensions ())
+		return;
+/* 
+ * Stops the GNOME_LABEL_BUILDER cast calling 
+ * gnome_label_builder_get_type() directly
+ */
+#define GNOME_TYPE_LABEL_BUILDER (libgnometsol_gnome_label_builder_get_type ())
+
+	GnomeLabelBuilder *lbuilder = GNOME_LABEL_BUILDER (dialog);
+	space = WNCK_WORKSPACE (data);
+
+	switch (id) {
+		case GTK_RESPONSE_OK:
+			g_object_get (G_OBJECT (lbuilder), "sl", &sl, NULL);
+
+			/* I should probably check the return code here but the label is
+			 * coming from an internal function */
+			error = libtsol_label_to_str (sl, &label, M_INTERNAL, LONG_NAMES);
+			if (label != NULL) {
+				wnck_workspace_change_label (space, label);
+			}
+			g_free (label);
+			libtsol_m_label_free (sl);
+			gtk_widget_destroy (GTK_WIDGET (lbuilder));
+			ugly_showing_lbuilder_global_which_sucks_fix_me = FALSE;
+			break;
+		case GTK_RESPONSE_HELP:
+			/* show help and return control */
+			break;
+		case GTK_RESPONSE_CANCEL:
+			/* We dont want to change the workspace label so bye-bye */
+			gtk_widget_destroy (GTK_WIDGET (lbuilder));
+			ugly_showing_lbuilder_global_which_sucks_fix_me = FALSE;
+			break;
+		default:
+			/* We shouldn't really have got here */
+			break;	
+	}
+		
+    return;
+}
+
+static void
+tsol_workspace_created (WnckScreen *screen,
+			   WnckWorkspace *space,
+			   gpointer data)
+{
+	if (!_applet_use_trusted_extensions ())
+		return;
+	g_signal_connect (G_OBJECT (space), "role_changed",
+				G_CALLBACK (role_changed),
+				data);
+}
+
+static void
+role_changed (WnckWorkspace *workspace,
+			   gpointer data)
+{
+	PagerData *pager;
+	int rolewsindex;
+	int activewsindex;
+
+	if (!_applet_use_trusted_extensions ())
+		return;
+
+	pager = (PagerData *) data;
+	rolewsindex = wnck_workspace_get_number (workspace);
+	activewsindex = wnck_workspace_get_number (wnck_screen_get_active_workspace (pager->screen));
+	/*
+	 * Ignore role changes that occured outside the active workspace. 
+	 * The menu item is always relative to the active workspace
+	 */
+	if (rolewsindex == activewsindex)
+	        changed_workspace (pager->screen,
+                        wnck_screen_get_active_workspace (pager->screen),
+                        pager); 
+}
+
+static void
+changed_workspace (WnckScreen *screen,
+                           WnckWorkspace *previously_active_space,
+			   gpointer data)
+{
+	GtkAction *action;
+	PagerData *pager;
+	WnckWorkspace *workspace;
+	m_label_t *lower_sl = NULL;
+	m_label_t *upper_clear = NULL;
+	char *lower_bound = NULL;
+	char *upper_bound = NULL;
+	int error;
+	int menusensitivity  = 1;
+
+	if (!_applet_use_trusted_extensions ()) {
+		action = gtk_action_group_get_action(action_group, "ChangeWorkspaceLabel");
+		gtk_action_set_sensitive(action, FALSE);
+		return;
+	}
+
+	pager = (PagerData *) data;
+
+	workspace = wnck_screen_get_active_workspace (screen);
+	error = wnck_workspace_get_label_range (workspace, &lower_bound,
+							&upper_bound);
+	if (error != 0)
+		return;
+
+	/* Convert the lower and upper bounds to internal binary labels */
+	if (libtsol_str_to_label (lower_bound, &lower_sl, MAC_LABEL, L_DEFAULT,
+	  	  &error) < 0) {
+        g_warning ("Workspace has invalid label range min value");
+		g_free (lower_bound);
+		g_free (upper_bound);
+		return;
+	}
+	g_free (lower_bound);
+
+	if (libtsol_str_to_label (upper_bound, &upper_clear, USER_CLEAR, L_DEFAULT, 
+	    	&error) < 0) {
+		g_warning ("Workspace has invalid label range clearance value");
+		g_free (upper_bound);
+		libtsol_m_label_free (lower_sl);
+		return;
+	}
+	g_free (upper_bound);
+
+	/* Hide/Unhide the "Change Workspace Label" menu */
+	if (libtsol_blequal (lower_sl, upper_clear))
+		menusensitivity = 0;
+
+	libtsol_m_label_free (lower_sl);
+	libtsol_m_label_free (upper_clear);
+
+	action = gtk_action_group_get_action(action_group, "ChangeWorkspaceLabel");
+	gtk_action_set_sensitive(action, menusensitivity ? TRUE : FALSE);
+}
+
+static void
+workspace_label_dialog (GtkAction *action, PagerData  *pager)
+{
+	int error = 0;
+	const char *cur_ws_label;
+	char *lower_bound = NULL;
+	char *upper_bound = NULL;
+
+	m_label_t *ws_sl = NULL;
+	m_label_t *lower_sl = NULL;
+	m_label_t *upper_clear = NULL;
+	GtkWidget *lbuilder = NULL;
+	WnckWorkspace *wspace = NULL;
+	WnckScreen *screen = pager->screen;
+
+	if (ugly_showing_lbuilder_global_which_sucks_fix_me) return;
+    
+	wspace = wnck_screen_get_active_workspace (screen);
+	error = wnck_workspace_get_label_range (wspace, &lower_bound,
+							&upper_bound);
+	if (error != 0)
+		return;
+
+	/* Convert the lower and upper bounds to internal binary labels */
+	if (libtsol_str_to_label (lower_bound, &lower_sl, MAC_LABEL, L_DEFAULT,
+	    	&error) < 0) {
+        g_warning ("Workspace has invalid label range minimum label");
+		g_free (lower_bound);
+		g_free (upper_bound);
+		return;
+	}
+	g_free (lower_bound);
+
+	if (libtsol_str_to_label (upper_bound, &upper_clear, USER_CLEAR, L_DEFAULT, 
+	    	&error) < 0) {
+		g_warning ("Workspace has invalid label range");
+		g_free (upper_bound);
+		libtsol_m_label_free (lower_sl);
+		return;
+	}
+	g_free (upper_bound);
+    
+	/* Get the current workspace label. */
+	cur_ws_label = wnck_workspace_get_label (wspace);
+	if (cur_ws_label != NULL) {
+		/* Convert the workspace's current label to binary type */
+    	if (libtsol_str_to_label (cur_ws_label, &ws_sl, MAC_LABEL, L_DEFAULT,
+		    	&error) < 0) {
+			g_warning ("Workspace has an invalid label");
+			return;
+		}
+	} else {
+		g_warning ("No workspace label - defaulting to lowest in range");
+		libtsol_m_label_dup (&ws_sl, lower_sl);
+	}
+
+
+	if (!_applet_use_trusted_extensions ())
+		return;
+
+	/* SUN_BRANDING */
+	lbuilder = libgnometsol_gnome_label_builder_new(_("Changing Workspace Label"),
+					   upper_clear, lower_sl,
+					   LBUILD_MODE_SL);
+	if (gtk_widget_has_screen (pager->applet)) {
+		gtk_window_set_screen (GTK_WINDOW (lbuilder),
+				gtk_widget_get_screen (pager->applet));
+	}
+
+	g_signal_connect (G_OBJECT (lbuilder), "response",
+		    G_CALLBACK (lbuilder_response_cb), (gpointer) wspace);
+
+	gtk_widget_show_all (lbuilder);
+	ugly_showing_lbuilder_global_which_sucks_fix_me = TRUE;
+
+	/* GAH, why do I have to do this after the show? */
+	g_object_set (G_OBJECT (lbuilder), "sl", ws_sl, NULL);
+	libtsol_m_label_free (ws_sl);
+	libtsol_m_label_free (lower_sl);
+	libtsol_m_label_free (upper_clear);
+}
+#endif
+

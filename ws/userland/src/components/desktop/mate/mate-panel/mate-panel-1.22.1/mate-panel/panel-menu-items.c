@@ -39,6 +39,8 @@
 #include <string.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
+#include "panel-solaris.h"
+
 #include <libmate-desktop/mate-gsettings.h>
 
 #include <libpanel-util/panel-error.h>
@@ -128,6 +130,19 @@ static void
 activate_home_uri (GtkWidget *menuitem,
 		   gpointer   data)
 {
+    char *cmd;
+    GdkScreen *screen;
+
+    if (gnome_desktop_tsol_is_multi_label_session ()) {
+        screen = gtk_window_get_screen (GTK_WINDOW (menuitem));
+        cmd = g_strdup_printf ("%d:caja file://%s",
+                             gdk_screen_get_number (screen),
+                             g_get_home_dir ());
+        gnome_desktop_tsol_proxy_app_launch (cmd);
+        g_free (cmd);
+        return;
+    }
+
 	activate_path (menuitem, g_get_home_dir ());
 }
 
@@ -135,6 +150,19 @@ static void
 activate_desktop_uri (GtkWidget *menuitem,
 		      gpointer   data)
 {
+        char *cmd;
+        GdkScreen *screen;
+
+        if (gnome_desktop_tsol_is_multi_label_session ()) {
+                screen = gtk_window_get_screen (GTK_WINDOW (menuitem));
+                cmd = g_strdup_printf ("%d:caja file://%s",
+                             gdk_screen_get_number (screen),
+                             g_get_user_special_dir (G_USER_DIRECTORY_DESKTOP));
+                gnome_desktop_tsol_proxy_app_launch (cmd);
+                g_free (cmd);
+                return;
+        }
+
 	activate_path (menuitem,
 		       g_get_user_special_dir (G_USER_DIRECTORY_DESKTOP));
 }
@@ -190,6 +218,13 @@ panel_menu_items_append_from_desktop (GtkWidget *menu,
 	}
 
 	if (!loaded) {
+		g_key_file_free (key_file);
+		if (path_freeme)
+			g_free (path_freeme);
+		return;
+	}
+
+	if (panel_lockdown_is_forbidden_key_file(key_file)) {
 		g_key_file_free (key_file);
 		if (path_freeme)
 			g_free (path_freeme);
@@ -1068,8 +1103,10 @@ panel_place_menu_item_create_menu (PanelPlaceMenuItem *place_item)
 		g_free (uri);
 	}
 
-	panel_place_menu_item_append_gtk_bookmarks (places_menu, g_settings_get_uint (place_item->priv->menubar_settings, PANEL_MENU_BAR_MAX_ITEMS_OR_SUBMENU));
-	add_menu_separator (places_menu);
+        if (!gnome_desktop_tsol_is_multi_label_session ()) {
+		panel_place_menu_item_append_gtk_bookmarks (places_menu, g_settings_get_uint (place_item->priv->menubar_settings, PANEL_MENU_BAR_MAX_ITEMS_OR_SUBMENU));
+		add_menu_separator (places_menu);
+	}
 
 	if (place_item->priv->caja_desktop_settings != NULL)
 		gsettings_name = g_settings_get_string (place_item->priv->caja_desktop_settings,
@@ -1089,8 +1126,10 @@ panel_place_menu_item_create_menu (PanelPlaceMenuItem *place_item)
 	if (gsettings_name)
 		g_free (gsettings_name);
 
-	panel_place_menu_item_append_local_gio (place_item, places_menu);
-	add_menu_separator (places_menu);
+        if (!gnome_desktop_tsol_is_multi_label_session ()) {
+		panel_place_menu_item_append_local_gio (place_item, places_menu);
+		add_menu_separator (places_menu);
+	}
 
 	panel_menu_items_append_place_item (
 			PANEL_ICON_NETWORK, NULL,
@@ -1659,5 +1698,62 @@ void
 panel_menu_item_activate_desktop_file (GtkWidget  *menuitem,
 				       const char *path)
 {
-	panel_launch_desktop_file (path, menuitem_to_screen (menuitem), NULL);
+        if (gnome_desktop_tsol_is_multi_label_session ()) {
+		GKeyFile  *key_file;
+		gboolean   loaded;
+		char      *full_path;
+		char 	  *cmd;
+		char      *path_freeme;
+
+		key_file = g_key_file_new ();
+
+		if (g_path_is_absolute (path)) {
+			loaded = g_key_file_load_from_file (key_file, path,
+							    G_KEY_FILE_NONE, NULL);
+			full_path = path;
+		} else {
+			char *lookup_file;
+			char *desktop_path;
+
+			if (!g_str_has_suffix (path, ".desktop")) {
+				desktop_path = g_strconcat (path, ".desktop", NULL);
+			} else {
+				desktop_path = path;
+			}
+
+			lookup_file = g_strconcat ("applications", G_DIR_SEPARATOR_S,
+						   desktop_path, NULL);
+			loaded = g_key_file_load_from_data_dirs (key_file, lookup_file,
+								 &path_freeme,
+								 G_KEY_FILE_NONE,
+								 NULL);
+			full_path = path_freeme;
+			g_free (lookup_file);
+
+			if (desktop_path != path)
+				g_free (desktop_path);
+		}
+
+		if (!loaded) {
+			g_key_file_free (key_file);
+			if (path_freeme)
+				g_free (path_freeme);
+			return;
+		}
+
+		if (panel_lockdown_is_forbidden_key_file(key_file)) {
+			g_key_file_free (key_file);
+			if (path_freeme)
+				g_free (path_freeme);
+			return;
+		}
+		cmd = panel_key_file_get_string(key_file, "Exec");
+		g_key_file_free (key_file);
+		if (path_freeme)
+			g_free (path_freeme);
+		gnome_desktop_tsol_proxy_app_launch (cmd);
+        } else {
+		panel_launch_desktop_file (path, menuitem_to_screen (menuitem), NULL);
+	}
+
 }

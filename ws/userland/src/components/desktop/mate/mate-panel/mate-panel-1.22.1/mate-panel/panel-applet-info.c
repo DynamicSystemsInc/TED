@@ -30,6 +30,7 @@ struct _MatePanelAppletInfo {
 	gchar  *name;
 	gchar  *comment;
 	gchar  *icon;
+	gchar  *location;
 
 	gchar **old_ids;
 };
@@ -39,6 +40,7 @@ mate_panel_applet_info_new (const gchar  *iid,
 		       const gchar  *name,
 		       const gchar  *comment,
 		       const gchar  *icon,
+		       const gchar  *location,
 		       const gchar **old_ids)
 {
 	MatePanelAppletInfo *info;
@@ -50,6 +52,7 @@ mate_panel_applet_info_new (const gchar  *iid,
 	info->name = g_strdup (name);
 	info->comment = g_strdup (comment);
 	info->icon = g_strdup (icon);
+	info->location = g_strdup (location);
 
 	/* MateComponent compatibility */
 	if (old_ids != NULL) {
@@ -77,6 +80,7 @@ mate_panel_applet_info_free (MatePanelAppletInfo *info)
 	g_free (info->name);
 	g_free (info->comment);
 	g_free (info->icon);
+	g_free (info->location);
 	g_strfreev (info->old_ids);
 
 	g_slice_free (MatePanelAppletInfo, info);
@@ -104,6 +108,12 @@ const gchar *
 mate_panel_applet_info_get_icon (MatePanelAppletInfo *info)
 {
 	return info->icon;
+}
+
+const gchar *
+mate_panel_applet_info_get_location (MatePanelAppletInfo *info)
+{
+	return info->location;
 }
 
 const gchar * const *

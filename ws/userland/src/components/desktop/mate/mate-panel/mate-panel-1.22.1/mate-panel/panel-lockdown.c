@@ -29,6 +29,24 @@
 #include <string.h>
 #include <gio/gio.h>
 #include "panel-schemas.h"
+#include "launcher.h"
+#include <sys/types.h>
+#include <unistd.h>
+#include <exec_attr.h>
+#include <user_attr.h>
+#include <secdb.h>
+#include <pwd.h>
+
+#include "panel-solaris.h"
+
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-desktop-utils.h>
+
+#include <libpanel-util/panel-error.h>
+#include <libpanel-util/panel-glib.h>
+#include <libpanel-util/panel-gtk.h>
+#include <libpanel-util/panel-keyfile.h>
+#include <libpanel-util/panel-show.h>
 
 typedef struct {
         guint   initialized : 1;
@@ -38,14 +56,23 @@ typedef struct {
         guint   disable_lock_screen : 1;
         guint   disable_log_out : 1;
         guint   disable_force_quit : 1;
+	guint	restrict_application_launching : 1;
 
         gchar **disabled_applets;
 
+        GSList *allowed_applications;
         GSList *closures;
 
         GSettings *panel_settings;
         GSettings *lockdown_settings;
 } PanelLockdown;
+
+static const gchar *command_line_execs[] = {
+    "/usr/bin/mate-terminal",
+    "/usr/bin/xterm"
+};
+
+#define	NUMBER_COMMAND_LINE_EXECS 2
 
 static PanelLockdown panel_lockdown = { 0, };
 
@@ -66,6 +93,20 @@ locked_down_notify (GSettings     *settings,
 {
         lockdown->locked_down = g_settings_get_boolean (settings, key);
         panel_lockdown_invoke_closures (lockdown);
+}
+
+gboolean
+panel_lockdown_is_allowed_application (const gchar *app)
+{
+        GSList *l;
+
+        g_assert (panel_lockdown.initialized != FALSE);
+
+        for (l = panel_lockdown.allowed_applications; l; l = l->next)
+                if (!strcmp (l->data, app))
+                        return TRUE;
+
+        return FALSE;
 }
 
 static void
@@ -266,7 +307,7 @@ panel_lockdown_get_disable_force_quit (void)
 }
 
 gboolean
-panel_lockdown_is_applet_disabled (const char *iid)
+panel_lockdown_is_applet_disabled (const char *iid, const char *location)
 {
         gint i;
 
@@ -275,7 +316,10 @@ panel_lockdown_is_applet_disabled (const char *iid)
         if (panel_lockdown.disabled_applets)
                 for (i = 0; panel_lockdown.disabled_applets[i]; i++)
                         if (!strcmp (panel_lockdown.disabled_applets[i], iid))
-                                return TRUE;
+			      return TRUE;
+
+        if (filter_with_rbac (location, FALSE))
+                return TRUE;
 
         return FALSE;
 }
@@ -348,4 +392,171 @@ panel_lockdown_notify_remove (GCallback callback_func,
                                                   closure);
 
         g_closure_unref (closure);
+}
+
+gchar *
+panel_lockdown_get_stripped_exec (const gchar *full_exec)
+{
+        gchar *str1, *str2, *retval, *p;
+
+        str1 = g_strdup (full_exec);
+        p = strtok (str1, " ");
+
+        if (p != NULL)
+               str2 = g_strdup (p);
+        else
+                str2 = g_strdup (full_exec);
+
+        g_free (str1);
+
+        if (g_path_is_absolute (str2))
+                retval = g_strdup (str2);
+        else
+                retval = g_strdup (g_find_program_in_path ((const gchar *)str2));
+        g_free (str2);
+
+        return retval;
+}
+
+gboolean
+panel_lockdown_is_disabled_command_line (const gchar *term_cmd)
+{
+        int i = 0;
+        gboolean retval = FALSE;
+
+        for (i=0; i<NUMBER_COMMAND_LINE_EXECS; i++) {
+                if (!strcmp (command_line_execs [i], term_cmd)) {
+                        retval = TRUE;
+                        break;
+                }
+        }
+
+        return retval;
+}
+gboolean
+
+panel_lockdown_get_restrict_application_launching (void)
+{
+        g_assert (panel_lockdown.initialized != FALSE);
+
+        return panel_lockdown.restrict_application_launching;
+}
+
+
+
+gboolean
+panel_lockdown_is_forbidden_command (const char *command)
+{
+        g_return_val_if_fail (command != NULL, TRUE) ;
+        return panel_lockdown_get_restrict_application_launching () &&
+                !panel_lockdown_is_allowed_application (command) ;
+}
+
+
+gboolean
+panel_lockdown_is_forbidden_launcher (Launcher *launcher)
+{
+	return (panel_lockdown_is_forbidden_key_file(launcher->key_file));
+}
+
+gboolean
+panel_lockdown_is_forbidden_key_file (GKeyFile *key_file)
+{
+	gchar *full_exec;		/* Executable including possible arguments */
+	gchar *stripped_exec;	/* Executable with arguments stripped away */
+	gboolean retval = FALSE;
+
+	if (key_file != NULL)
+	{
+		full_exec = panel_key_file_get_string (key_file, "Exec");
+        if (full_exec != NULL) {
+        	stripped_exec = panel_lockdown_get_stripped_exec (full_exec);
+
+		if (filter_with_rbac ((char *)stripped_exec, FALSE))
+			return TRUE;
+
+		retval = panel_lockdown_is_forbidden_command (stripped_exec);
+                g_free (stripped_exec);
+                if (retval == TRUE) {
+                        retval = panel_lockdown_is_forbidden_command (full_exec);
+                }
+		}
+	}
+
+    /* If restrict_application_launching not set on return TRUE */
+    if (!panel_lockdown_get_restrict_application_launching ()) {
+        return FALSE;
+    }
+
+	return retval;
+}
+
+static gboolean
+has_root_role (char *username)
+{
+    userattr_t *userattr = NULL;
+    gchar *rolelist = NULL;
+    gchar *rolename = NULL;
+    static gboolean ret_val = FALSE;
+    static gboolean cached_root = FALSE;
+
+    if (cached_root == FALSE && (userattr = getusernam(username)) != NULL)
+    {
+        rolelist = kva_match(userattr->attr, USERATTR_ROLES_KW);
+        rolename = strtok(rolelist, ",");
+        while (rolename != NULL) {
+            if (strcmp (rolename, ROOT_ROLE) == 0) {
+                ret_val = TRUE;
+                break;
+            }
+            rolename = strtok(NULL, ",");
+        }
+     
+        free_userattr(userattr);
+        cached_root = TRUE;
+    }
+
+    return ret_val;
+}
+
+static gboolean
+has_admin_profile (char *username)
+{
+    execattr_t *execattr = NULL;
+    static gboolean ret_val = FALSE;
+    static gboolean cached_admin = FALSE;
+
+    if (cached_admin == FALSE && (execattr = getexecuser (username, NULL, NULL, GET_ALL)) != NULL)
+    {
+        while (execattr != NULL) {
+            if (strcmp (execattr->name, SYSTEM_ADMINISTRATOR_PROF) == 0)
+            {
+                ret_val = TRUE;
+                break;
+            }
+            execattr = execattr->next;
+        }
+        free_execattr (execattr);
+        cached_admin = TRUE;
+    }
+    return ret_val;
+}
+
+gboolean panel_lockdown_is_user_authorized(void) {
+    uid_t uid = getuid();
+    struct passwd *pw;
+
+    if ((pw = getpwuid(uid)) == NULL)
+        return FALSE;
+
+    if (has_admin_profile (pw->pw_name))
+        return TRUE;
+
+    if (has_root_role (pw->pw_name))
+        return TRUE;
+
+    if (uid == 0)
+        return TRUE;
+
+    return FALSE;
 }
