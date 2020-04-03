@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "1.10.1">
+<!ENTITY manrevision "1.2">
+<!ENTITY date "July 2015">
+<!ENTITY app "<application>Atril Document Viewer</application>">
+<!ENTITY appname "Atril Document Viewer">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="ca">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual del visualitzador de documents Atril</title>       
+    <abstract role="description">
+      <para>L'aplicació Visualitzador de documents Atril us permet visualitzar documents en diversos formats, per exemple fitxers (Portable Document Format) i PostScript</para>
+    </abstract>
+    <copyright lang="en">
+      <year>2019</year>
+      <holder>MATE Documentation Project</holder>
+    </copyright>
+    <copyright><year>2005</year> <holder>Nickolay V. Shmyrev</holder></copyright>
+    <copyright><year>2004</year> <holder>Sun Microsystems</holder></copyright>
+
+<!-- translators: uncomment this:
+    <copyright>
+      <year>2002</year>
+      <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+    </copyright>
+-->
+
+    <publisher> 
+      <publishername>Projecte de documentació de MATE</publishername> 
+    </publisher>
+    <publisher>
+      <publishername>Projecte de documentació de GNOME</publishername>
+    </publisher> 
+
+      <legalnotice id="legalnotice">
+	<para>Es concedeix el permís per copiar, distribuir i / o modificar aquest document sota els termes de la GFDL (GNU Free Documentation License), versió 1.1 o qualsevol versió posterior publicada per la Free Software Foundation que tinguin les seccions invariants, i sense cap text a la portada. Podeu trobar una còpia de la GFDL en aquest <ulink type="help" url="help:fdl">enllaç</ulink> o bé al fitxer COPYING-DOCS que es distribueix amb aquest manual.</para>
+         <para>Aquest manual forma part d'una col·lecció de manuals de MATE que estan distribuïts sota la GFDL. Si voleu distribuir aquest manual per separat de la col·lecció, podeu fer-ho afegint una còpia de la llicència al manual, tal com es descriu a la secció 6 de la llicència.</para>
+
+	<para>Molts dels noms utilitzats per les empreses per distingir els seus productes i serveis es consideren marques comercials. Quan aquests noms apareixen en qualsevol documentació de MATE, i els membres del projecte de documentació de MATE en són conscients, els noms tenen lletres majúscules o bé comencen en majúscules.</para>
+
+	<para>EL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT S'OFEREIXEN SOTA ELS TERMES DE LA LLICÈNCIA DE DOCUMENTACIÓ LLIURE DE GNU, TENINT EN COMPTE QUE: <orderedlist>
+		<listitem>
+		  <para>EL DOCUMENT S'OFEREIX «TAL COM ÉS», SENSE CAP TIPUS DE GARANTIA, NI EXPLÍCITA NI IMPLÍCITA; AIXÒ INCLOU, SENSE LIMITAR-S'HI, LES GARANTIES QUE EL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT NO TINGUI DEFECTES, SIGUI COMERCIALITZABLE, SIGUI ADEQUAT PER A UN ÚS CONCRET O NO INFRINGEIXI CAP LLEI. TOT EL RISC PEL QUE FA A LA QUALITAT, EXACTITUD I RENDIMENT DEL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT ÉS VOSTRE. EN CAS QUE EL DOCUMENT RESULTÉS DEFECTUÓS EN QUALSEVOL ASPECTE, VÓS (NO PAS L'ESCRIPTOR INICIAL, L'AUTOR O CAP ALTRE COL·LABORADOR) ASSUMIU TOT EL COST DE MANTENIMENT, REPARACIÓ O CORRECCIÓ. AQUESTA RENÚNCIA DE GARANTIA CONSTITUEIX UNA PART ESSENCIAL D'AQUESTA LLICÈNCIA. NO S'AUTORITZA L'ÚS DE CAP DOCUMENT O VERSIÓ MODIFICADA DEL DOCUMENT EXCEPTE SOTA AQUESTA RENÚNCIA DE GARANTIA; I</para>
+		</listitem>
+		<listitem>
+		  <para>EN CAP CAS I SOTA CAP INTERPRETACIÓ LEGAL, JA SIGUI PER AGREUJAMENT (INCLOENT-HI LA NEGLIGÈNCIA), CONTRACTE O ALTRE CAS, L'AUTOR, L'ESCRIPTOR ORIGINAL, QUALSEVOL DELS COL·LABORADORS O DISTRIBUÏDORS DEL DOCUMENT O UNA VERSIÓ MODIFICADA DEL DOCUMENT NI CAP PROVEÏDOR D'AQUESTES PARTS NO SERAN RESPONSABLES DAVANT DE NINGÚ PER CAP DANY DIRECTE, INDIRECTE, ESPECIAL, ACCIDENTAL O CONSECUTIU DE QUALSEVOL TIPUS; AIXÒ INCLOU, SENSE LIMITAR-S'HI, ELS DANYS PER PÈRDUA DE CLIENTS, INTERRUPCIONS DE LA FEINA, FALLADA O MALFUNCIONAMENT DE L'ORDINADOR, O QUALSEVOL ALTRA PÈRDUA O DANY RELACIONAT AMB L'ÚS DEL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT, FINS I TOT SI S'HA INFORMAT AQUESTA PART DE LA POSSIBILITAT D'AQUESTS DANYS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+    <!-- This file  contains link to license for the documentation (GNU FDL), and 
+         other legal stuff such as "NO WARRANTY" statement. Please do not change 
+	 any of this. -->
+
+    <authorgroup> 
+      <author role="maintainer"><firstname>Projecte de documentació de MATE</firstname> <surname/> <affiliation><orgname>Escriptori MATE</orgname></affiliation></author>
+      <author><firstname>Sun</firstname> <surname>Equip de documentació de GNOME</surname> <affiliation><orgname>Sun Microsystems</orgname></affiliation></author>
+      <author><firstname>Nickolay V. </firstname> <surname>Shmyrev</surname> <affiliation> <orgname>projecte de documentació de GNOME</orgname> <address> <email>nshmyrev@yandex.ru</email> </address> </affiliation></author> 
+
+<!-- This is appropriate place for other contributors: translators,
+     maintainers,  etc. Commented out by default.
+      <othercredit role="translator">
+	<firstname>Latin</firstname> 
+	<surname>Translator 1</surname> 
+	<affiliation> 
+          <orgname>Latin Translation Team</orgname> 
+  	  <address> <email>translator@gnome.org</email> </address> 
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision><revnumber>Versió 1.2 del manual del visualitzador de documents Atril</revnumber> <date>Juliol de 2015</date> <revdescription>
+          <para role="author">Equip de documentació de MATE</para>
+          <para role="publisher">Projecte de documentació de MATE</para>
+        </revdescription></revision>
+      <revision><revnumber>Versió 1.1 del manual del visualitzador de documents Atril</revnumber> <date>05-04-2008</date> <revdescription>
+          <para role="author">Niels Giesen</para>
+          <para role="author">Claude Paroz</para>
+          <para role="publisher">Projecte de documentació de GNOME</para>
+        </revdescription></revision> 
+      <revision><revnumber>Versió 1.0 del manual del visualitzador de documents Atril</revnumber> <date>06-04-2005</date> <revdescription>
+          <para role="author">Nickolay V. Shmyrev</para>
+          <para role="publisher">Projecte de documentació de GNOME</para>
+        </revdescription></revision> 
+    </revhistory> 
+
+    <releaseinfo>Aquest manual descriu la versió 1.10.1 del visualitzador de documents Atril</releaseinfo> 
+    <legalnotice> 
+      <title>Retroacció</title> 
+      <para>Per informar d'un error o fer un suggeriment sobre l'aplicació del visualitzador de documents Atril o d'aquest manual, seguiu les instruccions de la <ulink url="help:mate-feedback" type="help">pàgina de retroacció de MATE</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Robert Antoni Buj Gelonch</firstname>
+      </personname>
+      <email>rbuj@fedoraproject.org</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2018</year>
+      
+        <year>2019</year>
+      
+      <holder>Robert Antoni Buj Gelonch</holder>
+    </copyright>
+  </articleinfo> 
+
+  <indexterm zone="index"><primary>Visualitzador de documents Atril</primary></indexterm> 
+  <indexterm zone="index"><primary>atril</primary></indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<!-- Use the Introduction section to give a brief overview of what
+     the application is and what it does. -->
+  <sect1 id="atril-introduction"> 
+    <title>Introducció</title> 
+    <para>El <application>visualitzador de documents Atril</application> us permet visualitzar documents en diversos formats, per exemple fitxers PDF (Portable Document Format) i PostScript. El <application>visualitzador de documents Atril</application> segueix els estàndards de Freedesktop.org i de MATE per proporcionar la integració amb l'entorn d'escriptori.</para>
+  </sect1>
+
+<!-- =========== Getting Started ============================== -->
+
+  <sect1 id="atril-getting-started"> 
+    <title>Primers passos</title> 
+
+    <sect2 id="atril-start">
+    <title>Com iniciar el visualitzador de documents Atril</title>
+    <para>El <application>visualitzador de documents Atril</application> s'inicia quan obriu un document, per exemple un fitxer PDF o PostScript.</para>
+    <para>Alternativament, podeu iniciar el <application>visualitzador de documents Atril</application> des de la línia d'ordres, amb l'ordre: <command>atril</command>.</para>
+    
+    </sect2>
+
+    <sect2 id="atril-when-start">
+    <title>Quan inicieu el visualitzador de documents Atril</title>
+    <para>Quan inicieu <application>visualitzador de documents Atril</application>, es mostra la finestra següent.</para>
+
+    <!-- ==== Figure ==== -->
+      <figure id="mainwindow-fig"> 
+	<title>Finestra del visualitzador de documents Atril</title> 
+	<screenshot> 
+	  <mediaobject><imageobject><imagedata fileref="figures/atril_start_window.png" format="PNG"/> </imageobject> <textobject> <phrase>Mostra la finestra principal del visualitzador de documents Atril. Conté la barra de títol, la barra de menús, la barra d'eines i l'àrea de visualització. La barra de menús conté els menús Fitxer, Edita, Vista, Vés i Ajuda. </phrase> </textobject></mediaobject> 
+	</screenshot> 
+      </figure>
+
+    <para>La finestra del <application>visualitzador de documents Atril</application> conté els elements següents:</para>
+      <variablelist>
+	<varlistentry>
+  	  <term>Barra de menús</term>
+ 	  <listitem>
+	    <para>Els menús de la barra de menús contenen totes les ordres que necessiteu per treballar amb documents al <application>visualitzador de documents Atril</application>.</para>
+	  </listitem>
+ 	</varlistentry>
+	<varlistentry>
+	  <term>Barra d'eines</term>
+	  <listitem>
+	    <para>La barra d'eines conté un subconjunt de les ordres que podeu accedir des de la barra de menús.</para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term>Àrea de visualització</term>
+	  <listitem>
+ 	    <para>L'àrea de visualització mostra el document.</para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+
+      <para>Al <application>visualitzador de documents Atril</application>, podeu realitzar la mateixa acció de diverses maneres. Per exemple, podeu obrir un document de les maneres següents: <informaltable frame="all">
+                    <tgroup cols="2" colsep="1" rowsep="1">
+                      <colspec colname="COLSPEC0" colwidth="50*"/>
+                      <colspec colname="COLSPEC1" colwidth="50*"/>
+                      <thead>
+                        <row valign="top">
+                          <entry colname="COLSPEC0">
+                            <para>Component UI</para></entry>
+                          <entry colname="COLSPEC1" align="left"> 
+                            <para>Acció</para></entry>
+                        </row>
+                      </thead>
+                      <tbody>
+                        <row valign="top">               
+                          <entry><para>Finestra</para></entry>
+                          <entry>
+                            <itemizedlist>
+                              <listitem>
+                                <para>Arrossegueu un fitxer a la finestra del <application>visualitzador de documents Atril</application> des d'una altra aplicació, per exemple un gestor de fitxers.</para>
+                              </listitem>
+                              <listitem>
+                                <para>Feu doble clic al nom de fitxer al gestor de fitxers</para>
+                              </listitem>
+                            </itemizedlist>
+                          </entry>
+                        </row>
+                        <row valign="top">               
+                          <entry><para>Barra de menús</para></entry>
+                          <entry><para>Seleccioneu <menuchoice><guimenu>Fitxer</guimenu><guimenuitem>Obre</guimenuitem></menuchoice>.</para>
+</entry>
+                        </row>
+                        <row valign="top">               
+                          <entry><para>Tecles de la drecera</para></entry>
+                          <entry><para>Premeu <keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>.</para></entry>
+                        </row>
+                      </tbody>
+                    </tgroup>
+                  </informaltable></para>
+      <para>Aquest manual documenta la funcionalitat des de la barra de menús.</para>
+    </sect2>
+  </sect1>
+
+<!-- ================ Usage ================================ -->
+  <sect1 id="atril-usage"> 
+    <title>Utilització</title> 
+
+    <!-- ================ Usage Subsection ================================ -->
+    <sect2 id="atril-open-file"> 
+      <title>Com obrir un document</title> 
+      <para>Per obrir un document, realitzeu els passos següents:</para>
+      <orderedlist>
+        <listitem>
+          <para>Seleccioneu <menuchoice> <guimenu>Fitxer</guimenu><guimenuitem>Obre</guimenuitem> </menuchoice>.</para>
+        </listitem>
+        <listitem>
+          <para>Al diàleg <guilabel>Obre un document</guilabel>, seleccioneu el fitxer que voleu obrir.</para>
+        </listitem>
+        <listitem>
+          <para>Feu clic a <guibutton>Obre</guibutton>. El <application>visualitzador de documents Atril</application> mostra el nom del document a la barra de títol de la finestra.</para>
+        </listitem>
+      </orderedlist>
+      <para>Per obrir un altre document, seleccioneu <menuchoice> <guimenu>Fitxer</guimenu><guimenuitem>Obre</guimenuitem> </menuchoice> una altra vegada. El <application>visualitzador de documents Atril</application> obre cadascun dels fitxers en una finestra nova.</para>
+      <para>Si proveu d'obrir un document amb un format que no reconeix el <application>visualitzador de documents Atril</application>, l'aplicació mostra un missatge d'error.</para>
+    </sect2>
+
+    <sect2 id="atril-navigate-file">
+    <title>Com navegar a través d'un document</title>
+      <para>Podeu navegar a través d'un fitxer de les següents maneres:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Per veure la pàgina següent, seleccioneu <menuchoice> <guimenu>Vés</guimenu> <guimenuitem>Pàgina següent</guimenuitem> </menuchoice>.</para>
+        </listitem>
+	<listitem>
+	  <para>Per veure la pàgina anterior, seleccioneu <menuchoice> <guimenu>Vés</guimenu> <guimenuitem>Pàgina anterior</guimenuitem> </menuchoice>.</para>
+        </listitem>
+	<listitem>
+	  <para>Per veure la primera pàgina del document, seleccioneu <menuchoice> <guimenu>Vés</guimenu> <guimenuitem>Primera pàgina</guimenuitem> </menuchoice>.</para>
+        </listitem>
+	<listitem>
+	  <para>Per veure l'última pàgina del document, seleccioneu <menuchoice> <guimenu>Vés</guimenu> <guimenuitem>Última pàgina</guimenuitem> </menuchoice>.</para>
+        </listitem>
+	<listitem>
+	  <para>Per veure una pàgina en concret, introduïu el número de pàgina o l'etiqueta de la pàgina al quadre de text de la barra d'eines, després premeu <keycap>Retorn</keycap>.</para>
+        </listitem>
+      </itemizedlist>
+    </sect2>
+
+    <!-- ================ Usage Subsection ================================ -->
+    <sect2 id="atril-scroll-page"> 
+      <title>Com desplaçar una pàgina</title> 
+      <para>Per mostrar el contingut d'una pàgina que no s'està mostrant actualment a l'àrea de visualització, utilitzeu els mètodes següents:</para> 
+        <itemizedlist> 
+	  <listitem> 
+  	    <para>Utilitzeu les tecles de les fletxes o la tecla d'espai del teclat.</para> 
+  	  </listitem> 
+	  <listitem> 
+  	    <para>Arrossegueu l'àrea de visualització en fer clic amb el botó central del ratolí en qualsevol lloc del document i després moveu el ratolí. Per exemple, per desplaçar cap avall la pàgina, arrossegueu l'àrea de visualització cap amunt a la finestra.</para> 
+	  </listitem> 
+	  <listitem> 
+	    <para>Utilitzeu les barres de desplaçament de la finestra.</para> 
+  	  </listitem> 
+      </itemizedlist> 
+    </sect2>
+
+    <!-- ================ Usage Subsection ================================ -->
+	 <sect2 id="atril-manipulate-zoom-factor"> 
+      <title>Com canviar la mida de la pàgina</title> 
+      <para>Podeu utilitzar els mètodes següents per redimensionar una pàgina a l'àrea de visualització del <application>visualitzador de documents Atril</application>:</para> 
+      <itemizedlist> 
+	<listitem> 
+	  <para>Per incrementar la mida de la pàgina, seleccioneu <menuchoice> <guimenu>Vista</guimenu> <guimenuitem>Augmenta el zoom</guimenuitem> </menuchoice>.</para> 
+	</listitem> 
+	<listitem> 
+	  <para>Per reduir la mida de la pàgina, seleccioneu <menuchoice><guimenu>Vista</guimenu><guimenuitem>Disminueix el zoom</guimenuitem></menuchoice>.</para> 
+	</listitem> 
+	<listitem> 
+	  <para>Per redimensionar la pàgina perquè tingui la mateixa amplada que l'àrea de visualització del <application>visualitzador de documents Atril</application>, seleccioneu <menuchoice> <guimenu>Vista</guimenu> <guimenuitem>Ajusta a l'amplada</guimenuitem> </menuchoice>.</para> 
+	</listitem> 
+	<listitem> 
+	  <para>Per redimensionar la pàgina perquè s'ajusti a l'àrea de visualització del <application>visualitzador de documents Atril</application>, seleccioneu <menuchoice> <guimenu>Vista</guimenu> <guimenuitem>Ajusta a la pàgina</guimenuitem> </menuchoice>.</para> 
+	</listitem> 
+	<listitem> 
+	  <para>Per redimensionar la finestra del <application>visualitzador de documents Atril</application> perquè tingui la mateixa amplada i alçada que la pantalla, seleccioneu <menuchoice> <guimenu>Vista</guimenu> <guimenuitem>Pantalla completa</guimenuitem> </menuchoice>. Per redimensionar la finestra del <application>visualitzador de documents Atril</application> a la seva mida original, feu clic al botó <guibutton>Surt de la pantalla completa</guibutton>.</para> 
+	</listitem> 
+      </itemizedlist> 
+    </sect2> 
+
+    <sect2 id="atril-view-pages">
+      <title>Com visualitzar l'estructura de pàgines o del document</title>
+      <para>Per veure marcadors o pàgines, realitzeu els passos següents:</para>
+      <orderedlist>
+        <listitem>
+          <para>Seleccioneu <menuchoice><guimenu>Vista</guimenu><guimenuitem>Plafó lateral</guimenuitem></menuchoice> o premeu <keycap>F9</keycap>.</para>
+        </listitem>
+        <listitem>
+          <para>Utilitzeu la llista desplegable en la capçalera del plafó lateral per seleccionar si voleu visualitzar l'estructura del document o les pàgines al plafó lateral.</para>
+        </listitem>
+        <listitem>
+          <para>Utilitzeu les barres de desplaçament del plafó lateral per visualitzar la pàgina o element desitjat al plafó lateral.</para>
+        </listitem>
+        <listitem>
+          <para>Feu clic a una entrada per navegar a aquesta ubicació del document. Feu clic a una pàgina per navegar a aquesta pàgina del document.</para>
+        </listitem>
+      </orderedlist>
+    </sect2> 
+
+    <sect2 id="atril-view-properties">
+      <title>Com visualitzar les propietats d'un document</title>
+      <para>Per veure les propietats d'un document, seleccioneu <menuchoice> <guimenu>Fitxer</guimenu> <guimenuitem>Propietats</guimenuitem> </menuchoice>.</para>
+      <para>El diàleg <guilabel>Propietats</guilabel> mostra tota la informació disponible</para>
+    </sect2>
+
+    <sect2 id="atril-print-file">
+      <title>Com imprimir un document</title>
+      <para>Per imprimir un document, seleccioneu <menuchoice> <guimenu>Fitxer</guimenu> <guimenuitem>Imprimeix</guimenuitem> </menuchoice>.</para>
+      <note>
+        <para>Si no podeu seleccionar l'element de menú <guimenuitem>Imprimeix</guimenuitem>, l'autor del document ha inhabilitat l'opció d'impressió per aquest document. Per habilitar l'opció d'impressió, heu d'introduir la contrasenya mestra quan obriu el document. Consulteu <xref linkend="atril-password"/> per a més informació quant als fitxers protegits per contrasenya.</para>
+      </note>
+      <para>El diàleg <guilabel>Imprimeix</guilabel> té les seccions amb pestanyes següents:</para>
+      <itemizedlist>
+        <listitem>
+          <para><link linkend="print-dialog-job">Treball</link></para>
+        </listitem>
+        <listitem>
+          <para><link linkend="print-dialog-printer">Impressora</link></para>
+        </listitem>
+        <listitem>
+          <para><link linkend="print-dialog-paper">Paper</link></para>
+        </listitem>
+      </itemizedlist>
+
+      <sect3 id="print-dialog-job">
+      <title>Treball</title>
+	<variablelist>
+	  <varlistentry> <term><guilabel>Interval d'impressió</guilabel></term> 
+	    <listitem> 
+	      <para>Seleccioneu una de les opcions següents per determinar quantes pàgines s'han d'imprimir:</para>
+	      <itemizedlist>
+		<listitem>
+		  <para><guilabel>Tot</guilabel></para>
+		  <para>Seleccioneu aquesta opció per imprimir totes les pàgines del document.</para>
+		</listitem>
+		<listitem>
+		  <para><guilabel>Pàgines de</guilabel></para>
+		  <para>Seleccioneu aquesta opció per imprimir l'interval seleccionat de pàgines del document. Utilitzeu els quadres de selecció de valors per especificar la primera i última pàgina de l'interval.</para>
+		</listitem>							
+	      </itemizedlist>
+	    </listitem>
+	  </varlistentry>
+        </variablelist>  
+      </sect3>
+		
+	<sect3 id="print-dialog-printer">
+	<title>Impressora</title>
+	<variablelist>
+	  <varlistentry> <term><guilabel>Impressora</guilabel></term> 
+	    <listitem> 
+	      <para>Utilitzeu aquesta llista desplegable per seleccionar la impressora a la qual voleu imprimir el document.</para>
+              <note>
+              <para>L'opció <guilabel>Crea un document PDF</guilabel> no està implementada en aquesta versió del <application>visualitzador de documents Atril</application>.</para>
+              </note>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Ajusts</guilabel></term> 
+	    <listitem> 
+	      <para>Utilitzeu la llista desplegable per seleccionar els ajusts de la impressora.</para>
+	      <para>Per configurar la impressora, feu clic a <guibutton>Configura</guibutton>. Per exemple, podeu habilitar o inhabilitar la impressió a doble cara, o la impressió amb retard planificat, si la impressora admet aquesta opció.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Ubicació</guilabel></term> 
+	    <listitem> 
+	      <para>Utilitzeu aquesta llista desplegable per seleccionar una de les següents ubicacions d'impressió:</para>
+	      <variablelist>
+	        <varlistentry>
+	          <term><guilabel>CUPS</guilabel></term>
+	          <listitem>
+	            <para>Imprimeix el document a una impressora CUPS.</para>
+	            <note>
+	              <para>Si la impressora seleccionada és una impressora CUPS, <guilabel>CUPS</guilabel> és l'única entrada en aquesta llista desplegable.</para>
+	            </note>
+	          </listitem>
+	        </varlistentry>
+	        <varlistentry>
+	          <term><guilabel>lpr</guilabel></term>
+	          <listitem>
+	            <para>Imprimeix el document a una impressora.</para>
+	          </listitem>
+	        </varlistentry>
+	        <varlistentry>
+	          <term><guilabel>Fitxer</guilabel></term>
+	          <listitem>
+	            <para>Imprimeix el document a un fitxer PostScript.</para>
+	            <para>Feu clic a <guibutton>Anomena i desa</guibutton> per mostrar el diàleg on podeu especificar el nom i la ubicació del fitxer PostScript.</para>
+	          </listitem>
+	        </varlistentry>
+	        <varlistentry>
+	          <term><guilabel>Personalitzada</guilabel></term>
+	          <listitem>
+	            <para>Utilitza l'ordre específica per imprimir el document.</para>
+	            <para>Teclegeu el nom de l'ordre al quadre de text. Incloent-hi tots els arguments de la línia d'ordres.</para>
+	          </listitem>
+	        </varlistentry>
+	      </variablelist>
+            </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Estat</guilabel></term> 
+	    <listitem> 
+	      <para>Aquesta funcionalitat no està implementada en aquesta versió del <application>visualitzador de documents Atril</application>.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Tipus</guilabel></term> 
+	    <listitem> 
+	      <para>Aquesta funcionalitat no està implementada en aquesta versió del <application>visualitzador de documents Atril</application>.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Comentari</guilabel></term> 
+	    <listitem> 
+	      <para>Aquesta funcionalitat no està implementada en aquesta versió del <application>visualitzador de documents Atril</application>.</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+	</sect3>
+		
+	<sect3 id="print-dialog-paper">
+	<title>Paper</title>
+	<variablelist>
+	  <varlistentry> <term><guilabel>Tipus</guilabel></term> 
+	    <listitem> 
+	      <para>Utilitzeu aquesta llista desplegable per seleccionar la mida del paper a la que voleu imprimir el document.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Amplada</guilabel></term> 
+	    <listitem> 
+	      <para>Utilitzeu aquest quadre de selecció de valors per especificar l'amplada del paper. Utilitzeu la llista desplegable adjacent per canviar les unitats de mesura.</para>
+	    </listitem>
+	  </varlistentry>
+	    <varlistentry> <term><guilabel>Alçada</guilabel></term> 
+	    <listitem> 
+	      <para>Utilitzeu aquest quadre de selecció de valors per especificar l'alçada del paper.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Orientació de l'alimentació</guilabel></term> 
+	    <listitem> 
+	      <para>Utilitzeu aquesta llista desplegable per seleccionar l'orientació del paper a la impressora.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Orientació del paper</guilabel></term> 
+	    <listitem> 
+	      <para>Utilitzeu aquesta llista desplegable per seleccionar l'orientació de la pàgina.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Disposició</guilabel></term> 
+	    <listitem> 
+	      <para>Utilitzeu aquesta llista desplegable per seleccionar la disposició de la pàgina. En l'àrea de <guilabel>vista prèvia</guilabel> es mostra una vista prèvia de cada disposició que seleccioneu.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Safata de paper</guilabel></term> 
+	    <listitem> 
+	      <para>Utilitzeu aquesta llista desplegable per seleccionar la safata de paper.</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </sect3>
+    </sect2>
+
+    <!-- ================ Usage Subsection ================================ -->
+    <sect2 id="atril-copy-file"> 
+      <title>Com copiar un document</title> 
+      <para>Per copiar un fitxer, realitzeu els passos següents:</para>
+      <orderedlist>
+        <listitem>
+          <para>Seleccioneu <menuchoice> <guimenu>Fitxer</guimenu> <guimenuitem>Desa'n una còpia</guimenuitem> </menuchoice>.</para> 
+        </listitem>
+        <listitem>
+          <para>Teclegeu el nom de fitxer nou al quadre de text <guilabel>Nom de fitxer</guilabel> al diàleg <guilabel>Desa'n una còpia</guilabel>.</para> 
+          <para>Si és necessari, especifiqueu la ubicació del document copiat. Per defecte, les còpies es desen al vostre directori d'usuari.</para> 
+        </listitem>
+        <listitem>
+          <para>Feu clic a <guibutton>Desa</guibutton>.</para> 
+        </listitem>
+      </orderedlist>
+    </sect2>
+
+    <!-- this id must be kept in sync with atril-persist-file.cc/atril-persist-stream.cc -->
+    <sect2 id="atril-password">
+      <title>Com treballar amb documents protegits per contrasenya</title>
+      <para>Un autor pot utilitzar els següents nivells de contrasenya per protegir un document:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Contrasenya d'usuari per permetre als altres només llegir el document.</para>
+        </listitem>        
+        <listitem>
+          <para>Contrasenya mestra que permet als altres realitzar accions addicionals, com ara imprimir el document.</para>
+        </listitem>        
+      </itemizedlist>
+      <para>Quan intenteu obrir un document protegit per contrasenya, el <application>visualitzador de documents Atril</application> mostra un diàleg de seguretat. Teclegeu la contrasenya d'usuari o la contrasenya mestra al quadre de text <guilabel>Introduïu la contrasenya del document</guilabel>, després feu clic a <guibutton>Obre el document</guibutton>.</para>
+    </sect2>
+
+    <!-- ================ Usage Subsection ================================ -->
+    <sect2 id="atril-close-file"> 
+      <title>Com tancar un document</title> 
+      <para>Per tancar un document, seleccioneu <menuchoice> <guimenu>Fitxer</guimenu> <guimenuitem>Tanca</guimenuitem> </menuchoice>.</para> 
+      <para>Si la finestra és l'última finestra oberta del <application>visualitzador de documents Atril</application>, es tanca l'aplicació.</para> 
+    </sect2> 
+
+  </sect1>
+
+  <!-- ================ Shortcuts ================================ -->
+  <sect1 id="atril-shortcuts"> 
+    <title>Dreceres</title> 
+    <para>Aquí sota hi ha una llista de totes les dreceres presents al <application>visualitzador de documents Atril</application>:</para>
+    <informaltable frame="all">
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="COLSPEC0" colwidth="50*"/>
+        <colspec colname="COLSPEC1" colwidth="50*"/>
+        <thead>
+          <row valign="top">
+            <entry colname="COLSPEC0">
+            <para>Drecera</para></entry>
+            <entry colname="COLSPEC1" align="left"> 
+            <para>Acció</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row valign="middle">               
+            <entry><para><keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo></para></entry>
+            <entry><para>Obre un document existent</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo></para></entry>
+            <entry><para>Desa una còpia del document actual</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></para></entry>
+            <entry><para>Imprimeix un document</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></para></entry>
+            <entry><para>Tanca la finestra</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo></para></entry>
+            <entry><para>Copia la selecció</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></para></entry>
+            <entry><para>Selecciona-ho tot</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+              <para><keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo></para>
+              <para><keycap>/</keycap> (barra inclinada)</para>
+            </entry>
+            <entry><para>Cerca una paraula o frase al document</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+              <para><keycombo><keycap>Ctrl</keycap><keycap>G</keycap></keycombo></para>
+              <para><keycap>F3</keycap></para> 
+            </entry>
+            <entry><para>Cerca la següent</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+              <para><keycombo><keycap>Ctrl</keycap><keycap>+</keycap></keycombo> (signe de suma)</para>
+              <para><keycap>+</keycap></para>
+              <para><keycap>=</keycap></para>
+            </entry>
+            <entry><para>Augmenta el zoom</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+              <para><keycombo><keycap>Ctrl</keycap><keycap>-</keycap></keycombo> (signe de resta)</para>
+              <para><keycap>-</keycap></para>
+            </entry>
+            <entry><para>Disminueix el zoom</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></para></entry>
+            <entry><para>Torna a carregar el document</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+            <para><keycap>Re. Pàg.</keycap></para></entry>
+            <entry><para>Vés a la pàgina anterior</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycap>Av. Pàg.</keycap></para></entry>
+            <entry><para>Vés a la pàgina següent</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+              <para><keycap>Espai</keycap></para>
+              <para><keycombo><keycap>Maj</keycap><keycap>Retrocés</keycap></keycombo></para>
+              <para><keycap>Retorn</keycap></para>
+            </entry>
+            <entry><para>Desplaça endavant</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+              <para><keycombo><keycap>Maj</keycap><keycap>Espai</keycap></keycombo></para>
+              <para><keycap>Retrocés</keycap></para>
+              <para><keycombo><keycap>Maj</keycap><keycap>Retorn</keycap></keycombo></para>
+            </entry>
+            <entry><para>Desplaça enrere</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+            <para><keycombo><keycap>Maj</keycap><keycap>Re. Pàg.</keycap></keycombo></para></entry>
+            <entry><para>Vés unes quantes pàgines amunt</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycombo><keycap>Maj</keycap><keycap>Av. Pàg.</keycap></keycombo></para></entry>
+            <entry><para>Vés unes quantes pàgines avall</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycap>Inici</keycap></para></entry>
+            <entry><para>Vés a la primera pàgina</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycap>Fi</keycap></para></entry>
+            <entry><para>Vés a l'última pàgina</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycombo><keycap>Ctrl</keycap><keycap>L</keycap></keycombo></para></entry>
+            <entry><para>Vés a la pàgina per número o etiqueta</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycap>F1</keycap></para></entry>
+            <entry><para>Ajuda</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycap>F5</keycap></para></entry>
+            <entry><para>Reprodueix el document com a presentació</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycap>F9</keycap></para></entry>
+            <entry><para>Mostra o oculta el plafó lateral</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycap>F11</keycap></para></entry>
+            <entry><para>Commuta el mode de pantalla completa</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </sect1>
+
+</article>

@@ -1,0 +1,2511 @@
+diff --git a/applets/wncklet/Makefile.am b/applets/wncklet/Makefile.am
+index 84682ee..dc3a75e 100644
+--- a/applets/wncklet/Makefile.am
++++ b/applets/wncklet/Makefile.am
+@@ -6,6 +6,7 @@ AM_CPPFLAGS =							\
+ 	-I$(top_srcdir)/libmate-panel-applet				\
+ 	-I$(top_builddir)/libmate-panel-applet			\
+ 	-DMATELOCALEDIR=\""$(prefix)/$(DATADIRNAME)/locale"\"	\
++	-DHAVE_LIBGNOMETSOL \
+ 	$(DISABLE_DEPRECATED_CFLAGS)
+ 
+ AM_CFLAGS = $(WARN_CFLAGS)
+@@ -21,6 +22,8 @@ WNCKLET_SOURCES = \
+ 	workspace-switcher.h \
+ 	showdesktop.c \
+ 	showdesktop.h \
++	wnck-tsol.c \
++	wnck-tsol.h \
+ 	$(BUILT_SOURCES)
+ 
+ WNCKLET_LDADD =						\
+diff --git a/applets/wncklet/Makefile.in b/applets/wncklet/Makefile.in
+index 418d7a4..77419c4 100644
+--- a/applets/wncklet/Makefile.in
++++ b/applets/wncklet/Makefile.in
+@@ -145,14 +145,15 @@ am__DEPENDENCIES_2 =  \
+ @WNCKLET_INPROCESS_TRUE@	$(am__DEPENDENCIES_2)
+ am__libwnck_applet_la_SOURCES_DIST = wncklet.c wncklet.h window-menu.c \
+ 	window-menu.h window-list.c window-list.h workspace-switcher.c \
+-	workspace-switcher.h showdesktop.c showdesktop.h \
+-	wncklet-resources.c wncklet-resources.h
++	workspace-switcher.h showdesktop.c showdesktop.h wnck-tsol.c \
++	wnck-tsol.h wncklet-resources.c wncklet-resources.h
+ am__objects_1 = libwnck_applet_la-wncklet-resources.lo
+ am__objects_2 = libwnck_applet_la-wncklet.lo \
+ 	libwnck_applet_la-window-menu.lo \
+ 	libwnck_applet_la-window-list.lo \
+ 	libwnck_applet_la-workspace-switcher.lo \
+-	libwnck_applet_la-showdesktop.lo $(am__objects_1)
++	libwnck_applet_la-showdesktop.lo \
++	libwnck_applet_la-wnck-tsol.lo $(am__objects_1)
+ @WNCKLET_INPROCESS_TRUE@am_libwnck_applet_la_OBJECTS =  \
+ @WNCKLET_INPROCESS_TRUE@	$(am__objects_2)
+ libwnck_applet_la_OBJECTS = $(am_libwnck_applet_la_OBJECTS)
+@@ -169,14 +170,15 @@ libwnck_applet_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+ PROGRAMS = $(libexec_PROGRAMS)
+ am__wnck_applet_SOURCES_DIST = wncklet.c wncklet.h window-menu.c \
+ 	window-menu.h window-list.c window-list.h workspace-switcher.c \
+-	workspace-switcher.h showdesktop.c showdesktop.h \
+-	wncklet-resources.c wncklet-resources.h
++	workspace-switcher.h showdesktop.c showdesktop.h wnck-tsol.c \
++	wnck-tsol.h wncklet-resources.c wncklet-resources.h
+ am__objects_3 = wnck_applet-wncklet-resources.$(OBJEXT)
+ am__objects_4 = wnck_applet-wncklet.$(OBJEXT) \
+ 	wnck_applet-window-menu.$(OBJEXT) \
+ 	wnck_applet-window-list.$(OBJEXT) \
+ 	wnck_applet-workspace-switcher.$(OBJEXT) \
+-	wnck_applet-showdesktop.$(OBJEXT) $(am__objects_3)
++	wnck_applet-showdesktop.$(OBJEXT) \
++	wnck_applet-wnck-tsol.$(OBJEXT) $(am__objects_3)
+ @WNCKLET_INPROCESS_FALSE@am_wnck_applet_OBJECTS = $(am__objects_4)
+ wnck_applet_OBJECTS = $(am_wnck_applet_OBJECTS)
+ @WNCKLET_INPROCESS_FALSE@wnck_applet_DEPENDENCIES =  \
+@@ -470,6 +472,7 @@ AM_CPPFLAGS = \
+ 	-I$(top_srcdir)/libmate-panel-applet				\
+ 	-I$(top_builddir)/libmate-panel-applet			\
+ 	-DMATELOCALEDIR=\""$(prefix)/$(DATADIRNAME)/locale"\"	\
++	-DHAVE_LIBGNOMETSOL \
+ 	$(DISABLE_DEPRECATED_CFLAGS)
+ 
+ AM_CFLAGS = $(WARN_CFLAGS)
+@@ -484,6 +487,8 @@ WNCKLET_SOURCES = \
+ 	workspace-switcher.h \
+ 	showdesktop.c \
+ 	showdesktop.h \
++	wnck-tsol.c \
++	wnck-tsol.h \
+ 	$(BUILT_SOURCES)
+ 
+ WNCKLET_LDADD = \
+@@ -674,12 +679,14 @@ distclean-compile:
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-showdesktop.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-window-list.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-window-menu.Plo@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-wnck-tsol.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-wncklet-resources.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-wncklet.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_applet_la-workspace-switcher.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-showdesktop.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-window-list.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-window-menu.Po@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-wnck-tsol.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-wncklet-resources.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-wncklet.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wnck_applet-workspace-switcher.Po@am__quote@
+@@ -740,6 +747,13 @@ libwnck_applet_la-showdesktop.lo: showdesktop.c
+ @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwnck_applet_la_CFLAGS) $(CFLAGS) -c -o libwnck_applet_la-showdesktop.lo `test -f 'showdesktop.c' || echo '$(srcdir)/'`showdesktop.c
+ 
++libwnck_applet_la-wnck-tsol.lo: wnck-tsol.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwnck_applet_la_CFLAGS) $(CFLAGS) -MT libwnck_applet_la-wnck-tsol.lo -MD -MP -MF $(DEPDIR)/libwnck_applet_la-wnck-tsol.Tpo -c -o libwnck_applet_la-wnck-tsol.lo `test -f 'wnck-tsol.c' || echo '$(srcdir)/'`wnck-tsol.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libwnck_applet_la-wnck-tsol.Tpo $(DEPDIR)/libwnck_applet_la-wnck-tsol.Plo
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='wnck-tsol.c' object='libwnck_applet_la-wnck-tsol.lo' libtool=yes @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwnck_applet_la_CFLAGS) $(CFLAGS) -c -o libwnck_applet_la-wnck-tsol.lo `test -f 'wnck-tsol.c' || echo '$(srcdir)/'`wnck-tsol.c
++
+ libwnck_applet_la-wncklet-resources.lo: wncklet-resources.c
+ @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwnck_applet_la_CFLAGS) $(CFLAGS) -MT libwnck_applet_la-wncklet-resources.lo -MD -MP -MF $(DEPDIR)/libwnck_applet_la-wncklet-resources.Tpo -c -o libwnck_applet_la-wncklet-resources.lo `test -f 'wncklet-resources.c' || echo '$(srcdir)/'`wncklet-resources.c
+ @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libwnck_applet_la-wncklet-resources.Tpo $(DEPDIR)/libwnck_applet_la-wncklet-resources.Plo
+@@ -817,6 +831,20 @@ wnck_applet-showdesktop.obj: showdesktop.c
+ @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(wnck_applet_CFLAGS) $(CFLAGS) -c -o wnck_applet-showdesktop.obj `if test -f 'showdesktop.c'; then $(CYGPATH_W) 'showdesktop.c'; else $(CYGPATH_W) '$(srcdir)/showdesktop.c'; fi`
+ 
++wnck_applet-wnck-tsol.o: wnck-tsol.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(wnck_applet_CFLAGS) $(CFLAGS) -MT wnck_applet-wnck-tsol.o -MD -MP -MF $(DEPDIR)/wnck_applet-wnck-tsol.Tpo -c -o wnck_applet-wnck-tsol.o `test -f 'wnck-tsol.c' || echo '$(srcdir)/'`wnck-tsol.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/wnck_applet-wnck-tsol.Tpo $(DEPDIR)/wnck_applet-wnck-tsol.Po
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='wnck-tsol.c' object='wnck_applet-wnck-tsol.o' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(wnck_applet_CFLAGS) $(CFLAGS) -c -o wnck_applet-wnck-tsol.o `test -f 'wnck-tsol.c' || echo '$(srcdir)/'`wnck-tsol.c
++
++wnck_applet-wnck-tsol.obj: wnck-tsol.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(wnck_applet_CFLAGS) $(CFLAGS) -MT wnck_applet-wnck-tsol.obj -MD -MP -MF $(DEPDIR)/wnck_applet-wnck-tsol.Tpo -c -o wnck_applet-wnck-tsol.obj `if test -f 'wnck-tsol.c'; then $(CYGPATH_W) 'wnck-tsol.c'; else $(CYGPATH_W) '$(srcdir)/wnck-tsol.c'; fi`
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/wnck_applet-wnck-tsol.Tpo $(DEPDIR)/wnck_applet-wnck-tsol.Po
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='wnck-tsol.c' object='wnck_applet-wnck-tsol.obj' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(wnck_applet_CFLAGS) $(CFLAGS) -c -o wnck_applet-wnck-tsol.obj `if test -f 'wnck-tsol.c'; then $(CYGPATH_W) 'wnck-tsol.c'; else $(CYGPATH_W) '$(srcdir)/wnck-tsol.c'; fi`
++
+ wnck_applet-wncklet-resources.o: wncklet-resources.c
+ @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(wnck_applet_CFLAGS) $(CFLAGS) -MT wnck_applet-wncklet-resources.o -MD -MP -MF $(DEPDIR)/wnck_applet-wncklet-resources.Tpo -c -o wnck_applet-wncklet-resources.o `test -f 'wncklet-resources.c' || echo '$(srcdir)/'`wncklet-resources.c
+ @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/wnck_applet-wncklet-resources.Tpo $(DEPDIR)/wnck_applet-wncklet-resources.Po
+diff --git a/applets/wncklet/wnck-tsol.c b/applets/wncklet/wnck-tsol.c
+new file mode 100644
+index 0000000..adb84e9
+--- /dev/null
++++ b/applets/wncklet/wnck-tsol.c
+@@ -0,0 +1,231 @@
++#include  <config.h>
++#ifdef HAVE_LIBGNOMETSOL
++
++#include <stdlib.h>
++#include <string.h>
++#include <dlfcn.h>
++#include <link.h>
++#include <glib.h>
++#include <mate-panel-applet.h>
++#include "wnck-tsol.h"
++#define WNCK_I_KNOW_THIS_IS_UNSTABLE
++#include <libwnck/libwnck.h>
++
++static
++void * dlopen_tsol (void)
++{
++   void  *handle = NULL;
++
++   /*
++    * No 32-bit version of libwnck so we can get away with hardcoding
++    * to a single path on this occasion
++    */
++   if ((handle = dlopen ("/usr/lib/amd64/libtsol.so.2", RTLD_LAZY)) != NULL)
++       return handle;
++   
++   return handle;
++}
++
++static
++void * dlopen_xtsol (void)
++{
++   void  *handle = NULL;
++
++   if ((handle = dlopen ("/usr/lib/amd64/libXtsol.so.1", RTLD_LAZY)) != NULL)
++       return handle;
++
++   return handle;
++}
++
++static
++void * dlopen_gnometsol (void)
++{
++   void  *handle = NULL;
++
++   if ((handle = dlopen ("/usr/lib/amd64/libgnometsol.so", RTLD_LAZY)) != NULL)
++       return handle;
++   
++   return handle;
++}
++
++
++gboolean
++_applet_use_trusted_extensions (void)
++{
++  static int trusted = -1;
++
++  /*
++   * Sun Trusted Extensions (tm) for Solaris (tm) support. (Damn I should be a lawyer).
++   *
++   * It is necessary to use dlopen because the label aware extensions to libwnck work
++   * only on systems with the trusted extensions installed and with the SUN_TSOL
++   * xserver extension present
++   */
++
++    if (trusted < 0) {
++        static gpointer tsol_handle = NULL;
++        static gpointer xtsol_handle = NULL;
++        static gpointer gnometsol_handle = NULL;
++
++      if (getenv ("TRUSTED_SESSION") == NULL) {
++        trusted = 0;
++        return 0;
++      }   	
++
++        tsol_handle = dlopen_tsol ();
++        if (tsol_handle != NULL)
++            xtsol_handle = dlopen_xtsol ();
++        if (tsol_handle && xtsol_handle) {
++
++           /* libtsol functions */
++           libtsol_blequal = (tsol_blequal) dlsym (tsol_handle, "blequal");
++           libtsol_label_to_str = (tsol_label_to_str) dlsym (tsol_handle, "label_to_str");
++           libtsol_str_to_label = (tsol_str_to_label) dlsym (tsol_handle, "str_to_label");
++           libtsol_m_label_dup = (tsol_m_label_dup) dlsym (tsol_handle, "m_label_dup");
++           libtsol_m_label_free = (tsol_m_label_free) dlsym (tsol_handle, "m_label_free");
++
++           /* Other misc. libtsol functions */
++           libtsol_blminimum = (tsol_blminimum) dlsym (tsol_handle, "blminimum");
++           libtsol_blmaximum = (tsol_blmaximum) dlsym (tsol_handle, "blmaximum");
++           libtsol_blinrange = (tsol_blinrange) dlsym (tsol_handle, "blinrange");
++           libtsol_getuserrange = (tsol_getuserrange) dlsym (tsol_handle, "getuserrange");
++           libtsol_blabel_alloc = (tsol_blabel_alloc) dlsym (tsol_handle, "blabel_alloc");
++           libtsol_blabel_free  = (tsol_blabel_free)  dlsym (tsol_handle, "blabel_free");
++           libtsol_bsllow  = (tsol_bsllow)  dlsym (tsol_handle, "bsllow");
++           libtsol_bslhigh = (tsol_bslhigh) dlsym (tsol_handle, "bslhigh");
++
++           /* libXtsol functions */
++           libxtsol_XTSOLgetClientLabel = (xtsol_XTSOLgetClientLabel) dlsym (xtsol_handle,
++                                     "XTSOLgetClientLabel");
++           libxtsol_XTSOLIsWindowTrusted = (xtsol_XTSOLIsWindowTrusted) dlsym (xtsol_handle,
++                                      "XTSOLIsWindowTrusted");
++
++           if (libtsol_label_to_str == NULL ||
++               libtsol_str_to_label == NULL ||
++               libtsol_m_label_dup == NULL ||
++               libtsol_m_label_free == NULL ||
++               libtsol_blminimum == NULL ||
++               libtsol_blmaximum == NULL ||
++               libtsol_blinrange == NULL ||
++               libtsol_getuserrange == NULL ||
++               libtsol_blabel_alloc == NULL ||
++               libtsol_blabel_free  == NULL ||
++               libtsol_bsllow  == NULL ||
++               libtsol_bslhigh == NULL ||
++               libxtsol_XTSOLgetClientLabel == NULL ||
++               libxtsol_XTSOLIsWindowTrusted == NULL) {
++               dlclose (tsol_handle);
++               dlclose (xtsol_handle);
++               tsol_handle = NULL;
++               xtsol_handle = NULL;
++            }
++        }
++		gnometsol_handle = dlopen_gnometsol ();
++		if (gnometsol_handle != NULL) {
++			libgnometsol_gnome_label_builder_new = 
++				(gnometsol_gnome_label_builder_new) dlsym (gnometsol_handle, 
++				"gnome_label_builder_new");
++			libgnometsol_gnome_label_builder_get_type =
++				(gnometsol_gnome_label_builder_get_type) dlsym (gnometsol_handle,
++				"gnome_label_builder_get_type");
++			if (libgnometsol_gnome_label_builder_new == NULL ||
++			libgnometsol_gnome_label_builder_get_type == NULL)
++				gnometsol_handle = NULL;
++		}
++    trusted = ((tsol_handle != NULL) && (xtsol_handle != NULL) && (gnometsol_handle != NULL)) ? 1 : 0;
++    }
++    return trusted ? TRUE : FALSE;
++}
++
++const char *
++_wnck_get_min_label ()
++{
++    static char *min_label = NULL;
++
++    if (!min_label) {
++        min_label = (char *) getenv ("USER_MIN_SL");
++    }
++    return min_label;
++}
++
++const char*
++_wnck_get_max_label()
++{
++    static char *max_label = NULL;
++
++    if (!max_label) {
++        max_label = (char *) getenv ("USER_MAX_SL");
++    }
++    return max_label;
++}
++
++
++/* window selector part */
++
++static gboolean tsol_win_selector_label_expose_event (GtkWidget        *widget,
++						      cairo_t   	*cr,
++						      gpointer          data)
++{
++  WnckWindow *window = (WnckWindow *) data;
++
++  /*
++  GdkGC *tmp_gc = gdk_gc_new (widget->window);
++  gdk_gc_set_rgb_fg_color (tmp_gc, wnck_window_get_label_color (window));
++
++  gdk_draw_rectangle (widget->window, 
++		      widget->style->black_gc,
++		      FALSE,
++		      event->area.x, event->area.y,
++		      event->area.width - 1, event->area.height - 1);
++  
++  gdk_draw_rectangle (widget->window, 
++		      tmp_gc,
++		      TRUE,
++		      event->area.x + 1, event->area.y + 1,
++		      event->area.width - 2, event->area.height - 2);
++
++  g_object_unref (tmp_gc);
++  */
++  GdkRectangle	area;
++  GdkRGBA	*label_color;
++  GdkRGBA	black;
++
++  gtk_widget_get_allocation(widget, &area);
++  gdk_rgba_parse(&black, "black");
++  label_color = wnck_window_get_label_color(window);
++  cairo_set_source_rgb(cr, black.red, black.green, black.blue);
++  cairo_rectangle(cr, area.x, area.y, area.width - 1, area.height - 1);
++  cairo_fill(cr);
++
++  cairo_set_source_rgb(cr, label_color->red, label_color->green, label_color->blue);
++  cairo_rectangle(cr, area.x + 1, area.y + 1, area.width - 2, area.height - 2);
++  cairo_fill(cr);
++  
++  return FALSE;
++}
++
++GtkWidget *
++window_menu_create_label_indicator (WnckWindow *window, 
++				    GtkWidget  *image)
++{
++  GtkWidget *da, *hbox;
++  da = gtk_drawing_area_new ();
++  
++  g_signal_connect (G_OBJECT (da), "draw",  
++		    G_CALLBACK (tsol_win_selector_label_expose_event), 
++		    window);
++  
++  gtk_widget_set_size_request (da, 5, -1);
++  
++  hbox = gtk_hbox_new (FALSE, 4);
++  
++  gtk_container_add (GTK_CONTAINER (hbox), da);
++  gtk_container_add (GTK_CONTAINER (hbox), image);
++  
++  gtk_widget_show (da);
++  gtk_widget_show (hbox);
++  gtk_widget_show (image);
++
++  return hbox;
++}
++#endif /* HAVE_LIBGNOMETSOL */
+diff --git a/applets/wncklet/wnck-tsol.h b/applets/wncklet/wnck-tsol.h
+new file mode 100644
+index 0000000..6bce499
+--- /dev/null
++++ b/applets/wncklet/wnck-tsol.h
+@@ -0,0 +1,83 @@
++#ifndef __WNCK_TSOL_H__
++#define __WNCK_TSOL_H__
++
++#include <config.h>
++
++#ifdef HAVE_LIBGNOMETSOL
++#include <glib-2.0/glib.h>
++#include <mate-panel-applet.h>
++#include <tsol/label.h>
++#include <sys/tsol/label_macro.h>
++#include <X11/Xlib.h>
++#include <X11/extensions/Xtsol.h>
++#include <libgnometsol/label_builder.h>
++#define WNCK_I_KNOW_THIS_IS_UNSTABLE
++#include <libwnck/libwnck.h>
++
++/* Libtsol functions */
++
++typedef int     (*tsol_blequal) (const m_label_t *label1, const m_label_t *label2);
++typedef int     (*tsol_label_to_str) (const m_label_t *label, char **string,
++                 const m_label_str_t conversion_type,
++                 uint_t flags);
++typedef int		(*tsol_str_to_label) (const char *string, m_label_t **label,
++                 const m_label_type_t label_type, uint_t flags,
++                 int *error);
++typedef void (*tsol_m_label_dup) (m_label_t **dst, const m_label_t *src);
++typedef void	(*tsol_m_label_free) (m_label_t *label);
++
++/* Other misc. libtsol functions that seem to be stable */
++typedef blrange_t*		(*tsol_getuserrange) (const char *username);
++typedef int				(*tsol_blinrange) (const m_label_t *label,
++                         const blrange_t *range);
++typedef void			(*tsol_blminimum) (m_label_t *minimum_label,
++                         const m_label_t *bounding_label);
++typedef void			(*tsol_blmaximum) (m_label_t *maximum_label,
++                         const m_label_t *bounding_label);
++typedef m_label_t*		(*tsol_blabel_alloc) (void);
++typedef void			(*tsol_blabel_free)  (m_label_t *label_p);
++typedef void			(*tsol_bsllow)  (m_label_t *label);
++typedef void			(*tsol_bslhigh) (m_label_t *label);
++
++/* libXtsol functions */
++typedef Status	(*xtsol_XTSOLgetClientLabel) (Display *dpy, XID xid,
++                 bslabel_t *sl);
++typedef Bool	(*xtsol_XTSOLIsWindowTrusted) (Display *dpy, Window win);
++
++extern gboolean _trusted_extensions_initialised;
++
++/* libgnometsol functions */
++typedef GtkWidget*	(*gnometsol_gnome_label_builder_new) (char *msg,
++              blevel_t *upper, blevel_t *lower, int mode);
++typedef GType     	(*gnometsol_gnome_label_builder_get_type) (void);
++
++/* libtsol functions */
++tsol_blequal		libtsol_blequal;
++tsol_label_to_str	libtsol_label_to_str;
++tsol_str_to_label	libtsol_str_to_label;
++tsol_m_label_dup libtsol_m_label_dup;
++tsol_m_label_free	libtsol_m_label_free;
++/* Other misc. libtsol functions */
++tsol_blminimum		libtsol_blminimum;
++tsol_blmaximum		libtsol_blmaximum;
++tsol_blinrange      libtsol_blinrange;
++tsol_getuserrange	libtsol_getuserrange;
++tsol_blabel_alloc	libtsol_blabel_alloc;
++tsol_blabel_free	libtsol_blabel_free;
++tsol_bsllow			libtsol_bsllow;
++tsol_bslhigh		libtsol_bslhigh;
++
++xtsol_XTSOLgetClientLabel	libxtsol_XTSOLgetClientLabel;
++xtsol_XTSOLIsWindowTrusted	libxtsol_XTSOLIsWindowTrusted;
++
++gnometsol_gnome_label_builder_new libgnometsol_gnome_label_builder_new;
++gnometsol_gnome_label_builder_get_type libgnometsol_gnome_label_builder_get_type;
++
++gboolean _applet_use_trusted_extensions ();
++const char* _wnck_get_min_label ();
++const char* _wnck_get_max_label ();
++
++GtkWidget* window_menu_create_label_indicator (WnckWindow *window, 
++					       GtkWidget  *image);
++#endif /* HAVE_LIBGNOMETSOL */
++#endif
+diff --git a/applets/wncklet/workspace-switcher-menu.xml b/applets/wncklet/workspace-switcher-menu.xml
+index d7354eb..d3afa5b 100644
+--- a/applets/wncklet/workspace-switcher-menu.xml
++++ b/applets/wncklet/workspace-switcher-menu.xml
+@@ -1,6 +1,5 @@
+ <menuitem name="Pager Preferences Item" action="PagerPreferences" />
+ <menuitem name="Pager Help Item" action="PagerHelp" />
+ <menuitem name="Pager About Item" action="PagerAbout" />
+-
+-
++<menuitem name="Pager Change Workspace Label Item" action="ChangeWorkspaceLabel" />
+ 
+diff --git a/applets/wncklet/workspace-switcher.c b/applets/wncklet/workspace-switcher.c
+index 4089c85..13f0ae2 100644
+--- a/applets/wncklet/workspace-switcher.c
++++ b/applets/wncklet/workspace-switcher.c
+@@ -26,6 +26,10 @@
+ #include <gio/gio.h>
+ 
+ #include <libmate-desktop/mate-gsettings.h>
++#ifdef HAVE_LIBGNOMETSOL
++#include "wnck-tsol.h"
++#endif
++
+ 
+ #include "workspace-switcher.h"
+ 
+@@ -45,6 +49,8 @@
+ 
+ #define WORKSPACE_SWITCHER_ICON "mate-panel-workspace-switcher"
+ 
++gboolean ugly_showing_lbuilder_global_which_sucks_fix_me = FALSE;
++
+ typedef enum {
+ 	PAGER_WM_MARCO,
+ 	PAGER_WM_METACITY,
+@@ -86,6 +92,21 @@ typedef struct {
+ 	GSettings* settings;
+ } PagerData;
+ 
++#ifdef HAVE_LIBGNOMETSOL
++static void tsol_workspace_created (WnckScreen *screen,
++				       WnckWorkspace *workspace,
++				       gpointer  data);
++static void role_changed (WnckWorkspace *workspace,
++				       gpointer data);
++static void changed_workspace (WnckScreen *screen,
++				       WnckWorkspace *previously_active_space,
++				       gpointer data);
++static void workspace_label_dialog    (GtkAction *action,
++				       PagerData *pager);
++#endif
++
++static GtkActionGroup* action_group;
++
+ static void display_properties_dialog(GtkAction* action, PagerData* pager);
+ static void display_help_dialog(GtkAction* action, PagerData* pager);
+ static void display_about_dialog(GtkAction* action, PagerData* pager);
+@@ -205,6 +226,44 @@ static void applet_realized(MatePanelApplet* applet, PagerData* pager)
+ 
+ 	window_manager_changed(pager->screen, pager);
+ 	wncklet_connect_while_alive(pager->screen, "window_manager_changed", G_CALLBACK(window_manager_changed), pager, pager->applet);
++#ifdef HAVE_LIBGNOMETSOL
++	if (_applet_use_trusted_extensions ()) {
++		/*
++		 * Monitor all events that might require the workspace label menu
++		 * to be hidden/unhidden.
++		 */
++		int i, wscount;
++		WnckWorkspace *space;
++		wscount = wnck_screen_get_workspace_count (pager->screen);
++		for (i = 0; i < wscount; i++) {
++			space = wnck_screen_get_workspace (pager->screen, i);
++			wncklet_connect_while_alive (G_OBJECT (space), "role_changed",
++						     G_CALLBACK (role_changed),
++						     (gpointer) pager,
++						     pager->applet);
++		}
++
++		wncklet_connect_while_alive (G_OBJECT (pager->screen),
++					     "workspace_created",
++					     G_CALLBACK (tsol_workspace_created),
++					     (gpointer) pager,
++					     pager->applet);
++		wncklet_connect_while_alive (G_OBJECT (pager->screen),
++					     "active_workspace_changed",
++					     G_CALLBACK (changed_workspace),
++					     (gpointer) pager,
++					     pager->applet);
++	}
++
++	/* 
++	 * Trigger the active_workspace_changed callback function manually
++	 * to set up the initial hidden/unhidden state of the ChangeWorkspaceLabel
++	 * menu item.
++	 */
++	changed_workspace (pager->screen,
++			   wnck_screen_get_active_workspace (pager->screen),
++			   (gpointer) pager);
++#endif
+ }
+ 
+ static void applet_unrealized(MatePanelApplet* applet, PagerData* pager)
+@@ -407,6 +466,17 @@ static const GtkActionEntry pager_menu_actions[] = {
+ 		NULL,
+ 		G_CALLBACK(display_about_dialog)
+ 	}
++#ifdef HAVE_LIBGNOMETSOL
++		,
++	{
++		"ChangeWorkspaceLabel",
++		"gnome-run",
++		N_("_Change Workspace Label..."),
++		NULL,
++		NULL,
++		G_CALLBACK(workspace_label_dialog)
++	}
++#endif
+ };
+ 
+ static void num_rows_changed(GSettings* settings, gchar* key, PagerData* pager)
+@@ -516,7 +586,7 @@ static void setup_gsettings(PagerData* pager)
+ gboolean workspace_switcher_applet_fill(MatePanelApplet* applet)
+ {
+ 	PagerData* pager;
+-	GtkActionGroup* action_group;
++//	GtkActionGroup* action_group;
+ 	gboolean display_names;
+ 
+ 	pager = g_new0(PagerData, 1);
+@@ -604,7 +674,6 @@ gboolean workspace_switcher_applet_fill(MatePanelApplet* applet)
+ 	}
+ 
+ 	g_object_unref(action_group);
+-
+ 	return TRUE;
+ }
+ 
+@@ -1009,3 +1078,237 @@ static void destroy_pager(GtkWidget* widget, PagerData* pager)
+ 		gtk_widget_destroy(pager->properties_dialog);
+ 	g_free(pager);
+ }
++#ifdef HAVE_LIBGNOMETSOL
++/* WARNING
++ * DON'T ever call this from outside any code that has first done
++ * a runtime trusted extension check!!! There is no point anyway.
++ */
++
++void
++lbuilder_response_cb (GtkDialog *dialog, gint id, gpointer data)
++{
++	int error;
++	m_label_t *sl = NULL;
++	char *label;
++    WnckWorkspace *space;
++
++	if (!_applet_use_trusted_extensions ())
++		return;
++/* 
++ * Stops the GNOME_LABEL_BUILDER cast calling 
++ * gnome_label_builder_get_type() directly
++ */
++#define GNOME_TYPE_LABEL_BUILDER (libgnometsol_gnome_label_builder_get_type ())
++
++	GnomeLabelBuilder *lbuilder = GNOME_LABEL_BUILDER (dialog);
++	space = WNCK_WORKSPACE (data);
++
++	switch (id) {
++		case GTK_RESPONSE_OK:
++			g_object_get (G_OBJECT (lbuilder), "sl", &sl, NULL);
++
++			/* I should probably check the return code here but the label is
++			 * coming from an internal function */
++			error = libtsol_label_to_str (sl, &label, M_INTERNAL, LONG_NAMES);
++			if (label != NULL) {
++				wnck_workspace_change_label (space, label);
++			}
++			g_free (label);
++			libtsol_m_label_free (sl);
++			gtk_widget_destroy (GTK_WIDGET (lbuilder));
++			ugly_showing_lbuilder_global_which_sucks_fix_me = FALSE;
++			break;
++		case GTK_RESPONSE_HELP:
++			/* show help and return control */
++			break;
++		case GTK_RESPONSE_CANCEL:
++			/* We dont want to change the workspace label so bye-bye */
++			gtk_widget_destroy (GTK_WIDGET (lbuilder));
++			ugly_showing_lbuilder_global_which_sucks_fix_me = FALSE;
++			break;
++		default:
++			/* We shouldn't really have got here */
++			break;	
++	}
++		
++    return;
++}
++
++static void
++tsol_workspace_created (WnckScreen *screen,
++			   WnckWorkspace *space,
++			   gpointer data)
++{
++	if (!_applet_use_trusted_extensions ())
++		return;
++	g_signal_connect (G_OBJECT (space), "role_changed",
++				G_CALLBACK (role_changed),
++				data);
++}
++
++static void
++role_changed (WnckWorkspace *workspace,
++			   gpointer data)
++{
++	PagerData *pager;
++	int rolewsindex;
++	int activewsindex;
++
++	if (!_applet_use_trusted_extensions ())
++		return;
++
++	pager = (PagerData *) data;
++	rolewsindex = wnck_workspace_get_number (workspace);
++	activewsindex = wnck_workspace_get_number (wnck_screen_get_active_workspace (pager->screen));
++	/*
++	 * Ignore role changes that occured outside the active workspace. 
++	 * The menu item is always relative to the active workspace
++	 */
++	if (rolewsindex == activewsindex)
++	        changed_workspace (pager->screen,
++                        wnck_screen_get_active_workspace (pager->screen),
++                        pager); 
++}
++
++static void
++changed_workspace (WnckScreen *screen,
++                           WnckWorkspace *previously_active_space,
++			   gpointer data)
++{
++	GtkAction *action;
++	PagerData *pager;
++	WnckWorkspace *workspace;
++	m_label_t *lower_sl = NULL;
++	m_label_t *upper_clear = NULL;
++	char *lower_bound = NULL;
++	char *upper_bound = NULL;
++	int error;
++	int menusensitivity  = 1;
++
++	if (!_applet_use_trusted_extensions ()) {
++		action = gtk_action_group_get_action(action_group, "ChangeWorkspaceLabel");
++		gtk_action_set_sensitive(action, FALSE);
++		return;
++	}
++
++	pager = (PagerData *) data;
++
++	workspace = wnck_screen_get_active_workspace (screen);
++	error = wnck_workspace_get_label_range (workspace, &lower_bound,
++							&upper_bound);
++	if (error != 0)
++		return;
++
++	/* Convert the lower and upper bounds to internal binary labels */
++	if (libtsol_str_to_label (lower_bound, &lower_sl, MAC_LABEL, L_DEFAULT,
++	  	  &error) < 0) {
++        g_warning ("Workspace has invalid label range min value");
++		g_free (lower_bound);
++		g_free (upper_bound);
++		return;
++	}
++	g_free (lower_bound);
++
++	if (libtsol_str_to_label (upper_bound, &upper_clear, USER_CLEAR, L_DEFAULT, 
++	    	&error) < 0) {
++		g_warning ("Workspace has invalid label range clearance value");
++		g_free (upper_bound);
++		libtsol_m_label_free (lower_sl);
++		return;
++	}
++	g_free (upper_bound);
++
++	/* Hide/Unhide the "Change Workspace Label" menu */
++	if (libtsol_blequal (lower_sl, upper_clear))
++		menusensitivity = 0;
++
++	libtsol_m_label_free (lower_sl);
++	libtsol_m_label_free (upper_clear);
++
++	action = gtk_action_group_get_action(action_group, "ChangeWorkspaceLabel");
++	gtk_action_set_sensitive(action, menusensitivity ? TRUE : FALSE);
++}
++
++static void
++workspace_label_dialog (GtkAction *action, PagerData  *pager)
++{
++	int error = 0;
++	const char *cur_ws_label;
++	char *lower_bound = NULL;
++	char *upper_bound = NULL;
++
++	m_label_t *ws_sl = NULL;
++	m_label_t *lower_sl = NULL;
++	m_label_t *upper_clear = NULL;
++	GtkWidget *lbuilder = NULL;
++	WnckWorkspace *wspace = NULL;
++	WnckScreen *screen = pager->screen;
++
++	if (ugly_showing_lbuilder_global_which_sucks_fix_me) return;
++    
++	wspace = wnck_screen_get_active_workspace (screen);
++	error = wnck_workspace_get_label_range (wspace, &lower_bound,
++							&upper_bound);
++	if (error != 0)
++		return;
++
++	/* Convert the lower and upper bounds to internal binary labels */
++	if (libtsol_str_to_label (lower_bound, &lower_sl, MAC_LABEL, L_DEFAULT,
++	    	&error) < 0) {
++        g_warning ("Workspace has invalid label range minimum label");
++		g_free (lower_bound);
++		g_free (upper_bound);
++		return;
++	}
++	g_free (lower_bound);
++
++	if (libtsol_str_to_label (upper_bound, &upper_clear, USER_CLEAR, L_DEFAULT, 
++	    	&error) < 0) {
++		g_warning ("Workspace has invalid label range");
++		g_free (upper_bound);
++		libtsol_m_label_free (lower_sl);
++		return;
++	}
++	g_free (upper_bound);
++    
++	/* Get the current workspace label. */
++	cur_ws_label = wnck_workspace_get_label (wspace);
++	if (cur_ws_label != NULL) {
++		/* Convert the workspace's current label to binary type */
++    	if (libtsol_str_to_label (cur_ws_label, &ws_sl, MAC_LABEL, L_DEFAULT,
++		    	&error) < 0) {
++			g_warning ("Workspace has an invalid label");
++			return;
++		}
++	} else {
++		g_warning ("No workspace label - defaulting to lowest in range");
++		libtsol_m_label_dup (&ws_sl, lower_sl);
++	}
++
++
++	if (!_applet_use_trusted_extensions ())
++		return;
++
++	/* SUN_BRANDING */
++	lbuilder = libgnometsol_gnome_label_builder_new(_("Changing Workspace Label"),
++					   upper_clear, lower_sl,
++					   LBUILD_MODE_SL);
++	if (gtk_widget_has_screen (pager->applet)) {
++		gtk_window_set_screen (GTK_WINDOW (lbuilder),
++				gtk_widget_get_screen (pager->applet));
++	}
++
++	g_signal_connect (G_OBJECT (lbuilder), "response",
++		    G_CALLBACK (lbuilder_response_cb), (gpointer) wspace);
++
++	gtk_widget_show_all (lbuilder);
++	ugly_showing_lbuilder_global_which_sucks_fix_me = TRUE;
++
++	/* GAH, why do I have to do this after the show? */
++	g_object_set (G_OBJECT (lbuilder), "sl", ws_sl, NULL);
++	libtsol_m_label_free (ws_sl);
++	libtsol_m_label_free (lower_sl);
++	libtsol_m_label_free (upper_clear);
++}
++#endif
++
+diff --git a/mate-panel/Makefile.am b/mate-panel/Makefile.am
+index c37bbd7..0023929 100644
+--- a/mate-panel/Makefile.am
++++ b/mate-panel/Makefile.am
+@@ -63,7 +63,8 @@ panel_sources = \
+ 	panel-ditem-editor.c \
+ 	panel-modules.c \
+ 	panel-applet-info.c \
+-	panel-reset.c
++	panel-reset.c \
++	panel-solaris.c
+ 
+ if ENABLE_WAYLAND
+ panel_sources += \
+@@ -121,7 +122,8 @@ panel_headers = \
+ 	panel-modules.h \
+ 	panel-applet-info.h \
+ 	panel-reset.h \
+-	panel-schemas.h
++	panel-schemas.h \
++	panel-solaris.h
+ 
+ if ENABLE_WAYLAND
+ panel_headers += \
+@@ -153,6 +155,7 @@ mate_panel_LDADD = \
+ 	$(DCONF_LIBS) \
+ 	$(XRANDR_LIBS) \
+ 	$(X_LIBS) \
++	-lXtsol \
+ 	-lm
+ 
+ if ENABLE_WAYLAND
+diff --git a/mate-panel/Makefile.in b/mate-panel/Makefile.in
+index f309fd7..2701f1d 100644
+--- a/mate-panel/Makefile.in
++++ b/mate-panel/Makefile.in
+@@ -149,7 +149,7 @@ am__mate_panel_SOURCES_DIST = panel-typebuiltins.c \
+ 	panel-bindings.c panel-layout.c panel-profile.c \
+ 	panel-force-quit.c panel-lockdown.c panel-addto.c \
+ 	panel-ditem-editor.c panel-modules.c panel-applet-info.c \
+-	panel-reset.c \
++	panel-reset.c panel-solaris.c \
+ 	wayland-protocols/wlr-layer-shell-unstable-v1-protocol.c \
+ 	wayland-protocols/xdg-shell-protocol.c panel-types.h \
+ 	panel-widget.h panel-globals.h button-widget.h xstuff.h \
+@@ -167,7 +167,7 @@ am__mate_panel_SOURCES_DIST = panel-typebuiltins.c \
+ 	panel-enums.h panel-force-quit.h panel-lockdown.h \
+ 	panel-addto.h panel-ditem-editor.h panel-icon-names.h \
+ 	panel-modules.h panel-applet-info.h panel-reset.h \
+-	panel-schemas.h \
++	panel-schemas.h panel-solaris.h \
+ 	wayland-protocols/wlr-layer-shell-unstable-v1-client-protocol.h \
+ 	wayland-protocols/xdg-shell-client-protocol.h
+ am__objects_1 = mate_panel-panel-typebuiltins.$(OBJEXT) \
+@@ -215,7 +215,8 @@ am__objects_3 = $(am__objects_1) mate_panel-main.$(OBJEXT) \
+ 	mate_panel-panel-ditem-editor.$(OBJEXT) \
+ 	mate_panel-panel-modules.$(OBJEXT) \
+ 	mate_panel-panel-applet-info.$(OBJEXT) \
+-	mate_panel-panel-reset.$(OBJEXT) $(am__objects_2)
++	mate_panel-panel-reset.$(OBJEXT) \
++	mate_panel-panel-solaris.$(OBJEXT) $(am__objects_2)
+ am__objects_4 =
+ am__objects_5 = $(am__objects_4)
+ am_mate_panel_OBJECTS = $(am__objects_3) $(am__objects_5)
+@@ -619,7 +620,7 @@ panel_sources = $(mate_panel_BUILT_SOURCES) main.c panel-widget.c \
+ 	panel-bindings.c panel-layout.c panel-profile.c \
+ 	panel-force-quit.c panel-lockdown.c panel-addto.c \
+ 	panel-ditem-editor.c panel-modules.c panel-applet-info.c \
+-	panel-reset.c $(am__append_1)
++	panel-reset.c panel-solaris.c $(am__append_1)
+ panel_headers = panel-types.h panel-widget.h panel-globals.h \
+ 	button-widget.h xstuff.h panel-session.h panel.h applet.h \
+ 	drawer.h drawer-private.h panel-util.h \
+@@ -636,7 +637,7 @@ panel_headers = panel-types.h panel-widget.h panel-globals.h \
+ 	panel-enums.h panel-force-quit.h panel-lockdown.h \
+ 	panel-addto.h panel-ditem-editor.h panel-icon-names.h \
+ 	panel-modules.h panel-applet-info.h panel-reset.h \
+-	panel-schemas.h $(am__append_2)
++	panel-schemas.h panel-solaris.h $(am__append_2)
+ mate_panel_SOURCES = \
+ 	$(panel_sources) \
+ 	$(panel_headers)
+@@ -647,8 +648,8 @@ mate_panel_CPPFLAGS = $(AM_CPPFLAGS) $(XRANDR_CFLAGS) \
+ mate_panel_LDADD = $(top_builddir)/mate-panel/libegg/libegg.la \
+ 	$(top_builddir)/mate-panel/libmate-panel-applet-private/libmate-panel-applet-private.la \
+ 	$(top_builddir)/mate-panel/libpanel-util/libpanel-util.la \
+-	$(PANEL_LIBS) $(DCONF_LIBS) $(XRANDR_LIBS) $(X_LIBS) -lm \
+-	$(am__append_4)
++	$(PANEL_LIBS) $(DCONF_LIBS) $(XRANDR_LIBS) $(X_LIBS) -lXtsol \
++	-lm $(am__append_4)
+ mate_panel_LDFLAGS = -export-dynamic
+ mate_desktop_item_edit_SOURCES = \
+ 	mate-desktop-item-edit.c \
+@@ -870,6 +871,7 @@ distclean-compile:
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-separator.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-session.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-shell.Po@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-solaris.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-stock-icons.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-struts.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_panel-panel-toplevel.Po@am__quote@
+@@ -1571,6 +1573,20 @@ mate_panel-panel-reset.obj: panel-reset.c
+ @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_panel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mate_panel-panel-reset.obj `if test -f 'panel-reset.c'; then $(CYGPATH_W) 'panel-reset.c'; else $(CYGPATH_W) '$(srcdir)/panel-reset.c'; fi`
+ 
++mate_panel-panel-solaris.o: panel-solaris.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_panel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mate_panel-panel-solaris.o -MD -MP -MF $(DEPDIR)/mate_panel-panel-solaris.Tpo -c -o mate_panel-panel-solaris.o `test -f 'panel-solaris.c' || echo '$(srcdir)/'`panel-solaris.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/mate_panel-panel-solaris.Tpo $(DEPDIR)/mate_panel-panel-solaris.Po
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='panel-solaris.c' object='mate_panel-panel-solaris.o' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_panel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mate_panel-panel-solaris.o `test -f 'panel-solaris.c' || echo '$(srcdir)/'`panel-solaris.c
++
++mate_panel-panel-solaris.obj: panel-solaris.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_panel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mate_panel-panel-solaris.obj -MD -MP -MF $(DEPDIR)/mate_panel-panel-solaris.Tpo -c -o mate_panel-panel-solaris.obj `if test -f 'panel-solaris.c'; then $(CYGPATH_W) 'panel-solaris.c'; else $(CYGPATH_W) '$(srcdir)/panel-solaris.c'; fi`
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/mate_panel-panel-solaris.Tpo $(DEPDIR)/mate_panel-panel-solaris.Po
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='panel-solaris.c' object='mate_panel-panel-solaris.obj' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_panel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mate_panel-panel-solaris.obj `if test -f 'panel-solaris.c'; then $(CYGPATH_W) 'panel-solaris.c'; else $(CYGPATH_W) '$(srcdir)/panel-solaris.c'; fi`
++
+ mate_panel-wlr-layer-shell-unstable-v1-protocol.o: wayland-protocols/wlr-layer-shell-unstable-v1-protocol.c
+ @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_panel_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mate_panel-wlr-layer-shell-unstable-v1-protocol.o -MD -MP -MF $(DEPDIR)/mate_panel-wlr-layer-shell-unstable-v1-protocol.Tpo -c -o mate_panel-wlr-layer-shell-unstable-v1-protocol.o `test -f 'wayland-protocols/wlr-layer-shell-unstable-v1-protocol.c' || echo '$(srcdir)/'`wayland-protocols/wlr-layer-shell-unstable-v1-protocol.c
+ @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/mate_panel-wlr-layer-shell-unstable-v1-protocol.Tpo $(DEPDIR)/mate_panel-wlr-layer-shell-unstable-v1-protocol.Po
+diff --git a/mate-panel/launcher.c b/mate-panel/launcher.c
+index 67746b0..ecfc195 100644
+--- a/mate-panel/launcher.c
++++ b/mate-panel/launcher.c
+@@ -47,6 +47,8 @@
+ static gboolean
+ launcher_properties_enabled (void);
+ 
++static void panel_recheck_launcher (Launcher *launcher);
++
+ static GdkScreen *
+ launcher_get_screen (Launcher *launcher)
+ {
+@@ -107,6 +109,9 @@ launch_url (Launcher *launcher)
+ 	g_return_if_fail (launcher != NULL);
+ 	g_return_if_fail (launcher->key_file != NULL);
+ 
++	if (panel_lockdown_is_forbidden_launcher (launcher))
++		return;
++
+ 	/* FIXME panel_ditem_launch() should be enough for this! */
+ 	url = panel_key_file_get_string (launcher->key_file, "URL");
+ 
+@@ -138,6 +143,9 @@ launcher_launch (Launcher  *launcher,
+ 	g_return_if_fail (launcher != NULL);
+ 	g_return_if_fail (launcher->key_file != NULL);
+ 
++	if (panel_lockdown_is_forbidden_launcher (launcher))
++		return;
++
+ 	if (action == NULL) {
+ 		type = panel_key_file_get_string (launcher->key_file, "Type");
+ 	} else {
+@@ -253,6 +261,8 @@ free_launcher (gpointer data)
+ 		g_free (launcher->location);
+ 	launcher->location = NULL;
+ 
++	panel_lockdown_notify_remove (G_CALLBACK (panel_recheck_launcher), launcher);
++
+ 	g_free (launcher);
+ }
+ 
+@@ -432,6 +442,19 @@ clicked_cb (Launcher  *launcher,
+ 	}
+ }
+ 
++static void
++panel_recheck_launcher (Launcher *launcher)
++{
++        if (!launcher || !launcher->button)
++                return;
++
++    if (panel_lockdown_is_forbidden_launcher (launcher)) {
++        gtk_widget_hide (launcher->button);
++    } else {
++            gtk_widget_show (launcher->button);
++    }
++}
++
+ static Launcher *
+ create_launcher (const char *location)
+ {
+@@ -510,7 +533,11 @@ create_launcher (const char *location)
+ 					      FALSE,
+ 					      PANEL_ORIENTATION_TOP);
+ 
+-	gtk_widget_show (launcher->button);
++	if (panel_lockdown_is_forbidden_launcher (launcher)) {
++		gtk_widget_hide (launcher->button);
++	} else {
++		gtk_widget_show (launcher->button);
++	}
+ 
+ 	/*gtk_drag_dest_set (GTK_WIDGET (launcher->button),
+ 			   GTK_DEST_DEFAULT_ALL,
+@@ -537,6 +564,8 @@ create_launcher (const char *location)
+ 					  G_CALLBACK (destroy_launcher),
+ 					  launcher);
+ 
++	panel_lockdown_notify_add (G_CALLBACK (panel_recheck_launcher), launcher);	
++
+ 	return launcher;
+ }
+ 
+@@ -877,6 +906,12 @@ load_launcher_applet (const char       *location,
+ 	/* setup button according to ditem */
+ 	setup_button (launcher);
+ 
++	if (panel_lockdown_is_forbidden_launcher (launcher)) {
++		gtk_widget_hide (launcher->button);
++	} else {
++		gtk_widget_show (launcher->button);
++	}
++
+ 	return launcher;
+ }
+ 
+@@ -971,6 +1006,10 @@ ask_about_launcher (const char  *file,
+ 	if (file != NULL)
+ 		panel_key_file_set_string (key_file, "Exec", file);
+ 	panel_key_file_set_string (key_file, "Type", "Application");
++
++	if (panel_lockdown_is_forbidden_key_file (key_file))
++		return; /* Application being dragged is forbidden so just return */
++
+ 	panel_ditem_editor_sync_display (PANEL_DITEM_EDITOR (dialog));
+ 
+ 	panel_ditem_register_save_uri_func (PANEL_DITEM_EDITOR (dialog),
+@@ -1027,6 +1066,7 @@ panel_launcher_create_from_info (PanelToplevel *toplevel,
+ 	location = panel_make_unique_desktop_uri (NULL, exec_or_uri);
+ 
+ 	error = NULL;
++    if (!panel_lockdown_is_forbidden_key_file (key_file)) {
+ 	if (panel_key_file_to_file (key_file, location, &error)) {
+ 		panel_launcher_create (toplevel, position, location);
+ 	} else {
+@@ -1037,6 +1077,7 @@ panel_launcher_create_from_info (PanelToplevel *toplevel,
+ 				    error->message);
+ 		g_error_free (error);
+ 	}
++    }
+ 
+ 	g_key_file_free (key_file);
+ }
+diff --git a/mate-panel/libmate-panel-applet-private/panel-applets-manager-dbus.c b/mate-panel/libmate-panel-applet-private/panel-applets-manager-dbus.c
+index 43263da..da02d8b 100644
+--- a/mate-panel/libmate-panel-applet-private/panel-applets-manager-dbus.c
++++ b/mate-panel/libmate-panel-applet-private/panel-applets-manager-dbus.c
+@@ -96,6 +96,7 @@ _mate_panel_applets_manager_get_applet_info (GKeyFile    *applet_file,
+ 	char             *comment;
+ 	char             *icon;
+ 	char            **old_ids;
++	char		*location;
+ 
+ 	iid = g_strdup_printf ("%s::%s", factory_id, group);
+ 	name = g_key_file_get_locale_string (applet_file, group,
+@@ -106,13 +107,17 @@ _mate_panel_applets_manager_get_applet_info (GKeyFile    *applet_file,
+ 	/* MateComponent compatibility */
+ 	old_ids = g_key_file_get_string_list (applet_file, group,
+ 					      "MateComponentId", NULL, NULL);
++	//location = g_key_file_get_string (applet_file, group, "Location", NULL);
++	location = g_key_file_get_string (applet_file, MATE_PANEL_APPLET_FACTORY_GROUP, "Location", NULL);
+ 
+-	info = mate_panel_applet_info_new (iid, name, comment, icon, (const char **) old_ids);
++	info = mate_panel_applet_info_new (iid, name, comment,
++		icon, location, (const char **) old_ids);
+ 
+ 	g_free (iid);
+ 	g_free (name);
+ 	g_free (comment);
+ 	g_free (icon);
++	g_free (location);
+ 	g_strfreev (old_ids);
+ 
+ 	return info;
+diff --git a/mate-panel/main.c b/mate-panel/main.c
+index 343747c..0420fc0 100644
+--- a/mate-panel/main.c
++++ b/mate-panel/main.c
+@@ -77,6 +77,7 @@ main (int argc, char **argv)
+ 	const gchar    *resource;
+ 	guint          priority;
+ 
++
+ 	bindtextdomain (GETTEXT_PACKAGE, MATELOCALEDIR);
+ 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+ 	textdomain (GETTEXT_PACKAGE);
+diff --git a/mate-panel/panel-action-button.c b/mate-panel/panel-action-button.c
+index e0612b2..7271fb2 100644
+--- a/mate-panel/panel-action-button.c
++++ b/mate-panel/panel-action-button.c
+@@ -32,6 +32,7 @@
+ 
+ #include <glib/gi18n.h>
+ #include <gio/gio.h>
++#include "panel-solaris.h"
+ 
+ #define MATE_DESKTOP_USE_UNSTABLE_API
+ #include <libmate-desktop/mate-desktop-utils.h>
+@@ -271,6 +272,14 @@ panel_action_search (GtkWidget *widget)
+ 	GdkScreen *screen;
+ 
+ 	screen = gtk_widget_get_screen (widget);
++
++    if (gnome_desktop_tsol_is_multi_label_session ()) {
++        char *cmd = g_strdup_printf ("%d:gnome-search-tool", gdk_screen_get_number (screen));
++        gnome_desktop_tsol_proxy_app_launch (cmd);
++        g_free (cmd);
++        return;
++    }   
++
+ 	panel_launch_desktop_file_with_fallback ("mate-search-tool.desktop",
+ 						 "mate-search-tool",
+ 						 screen, NULL);
+@@ -297,6 +306,13 @@ panel_action_connect_server (GtkWidget *widget)
+ 	screen = gtk_widget_get_screen (GTK_WIDGET (widget));
+ 	error = NULL;
+ 
++   if (gnome_desktop_tsol_is_multi_label_session ()) {
++        char *cmd = g_strdup_printf ("%d:caja-connect-server", gdk_screen_get_number (screen));
++        gnome_desktop_tsol_proxy_app_launch (cmd);
++        g_free (cmd);
++        return;
++    }
++
+ 	if (panel_is_program_in_path ("caja-connect-server"))
+ 		command = g_strdup ("caja-connect-server");
+ 	else if (panel_is_program_in_path ("nautilus-connect-server"))
+diff --git a/mate-panel/panel-addto.c b/mate-panel/panel-addto.c
+index dfebba2..ad0a26a 100644
+--- a/mate-panel/panel-addto.c
++++ b/mate-panel/panel-addto.c
+@@ -53,6 +53,7 @@
+ #include "panel-icon-names.h"
+ #include "panel-schemas.h"
+ #include "panel-stock-icons.h"
++#include "panel-solaris.h"
+ 
+ typedef struct {
+ 	PanelWidget *panel_widget;
+@@ -376,6 +377,7 @@ static GSList *
+ panel_addto_query_applets (GSList *list)
+ {
+ 	GList *applet_list, *l;
++	char  *location;
+ 
+ 	applet_list = mate_panel_applets_manager_get_applets ();
+ 
+@@ -390,11 +392,44 @@ panel_addto_query_applets (GSList *list)
+ 		name = mate_panel_applet_info_get_name (info);
+ 		description = mate_panel_applet_info_get_description (info);
+ 		icon = mate_panel_applet_info_get_icon (info);
++		location = mate_panel_applet_info_get_location (info);
+ 
+-		if (!name || panel_lockdown_is_applet_disabled (iid)) {
++                if (filter_with_rbac (location, FALSE)) {
++                        continue;
++                }
++
++		if (!name || panel_lockdown_is_applet_disabled (iid, location)) {
+ 			continue;
+ 		}
+ 
++	        /* TJDS - if MLS and has not admin_high clearance do not
++                 * display the following applets in the mnenu list.
++                 */
++                if (gnome_desktop_tsol_is_multi_label_session () &&
++                    !gnome_desktop_tsol_is_clearance_admin_high() &&
++                    (strcmp (iid, "OAFIID:MATE_StickyNotesApplet")==0 ||
++                     strcmp (iid, "OAFIID:Deskbar_Applet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_WebEyes")==0 ||
++                     strcmp (iid, "OAFIID:MATE_MailcheckApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_Panel_TrashApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_TSClientApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_QuickLoungeApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_FastUserSwitchApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_VinagreApplet")==0 ||
++                     strcmp (iid, "OAFIID:Hamster_Applet")==0 ||
++                     strcmp (iid, "OAFIID:CommandAssistantApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_MultiLoadApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_NetstatusApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_Panel_WirelessApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_DictionaryApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_MixerApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_MateWeatherApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_NotificationAreaApplet")==0 ||
++                     strcmp (iid, "OAFIID:Invest_Applet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_ContactLookupApplet")==0 ||
++                     strcmp (iid, "OAFIID:MATE_PilotApplet")==0))
++                        continue;
++
+ 		applet = g_new0 (PanelAddtoItemInfo, 1);
+ 		applet->type = PANEL_ADDTO_APPLET;
+ 		applet->name = g_strdup (name);
+diff --git a/mate-panel/panel-applet-frame.c b/mate-panel/panel-applet-frame.c
+index 5b4b96c..629e126 100644
+--- a/mate-panel/panel-applet-frame.c
++++ b/mate-panel/panel-applet-frame.c
+@@ -994,6 +994,9 @@ mate_panel_applet_frame_load (const gchar *iid,
+ 			 gboolean     exactpos,
+ 			 const char  *id)
+ {
++	MatePanelAppletInfo *info;
++	char *location;
++
+ 	MatePanelAppletFrameActivating *frame_act;
+ 
+ 	g_return_if_fail (iid != NULL);
+@@ -1006,7 +1009,9 @@ mate_panel_applet_frame_load (const gchar *iid,
+ 		return;
+ 	}
+ 
+-	if (panel_lockdown_is_applet_disabled (iid)) {
++	info = (MatePanelAppletInfo *)mate_panel_applets_manager_get_applet_info (iid);
++	location = mate_panel_applet_info_get_location (info);
++	if (panel_lockdown_is_applet_disabled (iid, location)) {
+ 		mate_panel_applet_stop_loading (id);
+ 		return;
+ 	}
+diff --git a/mate-panel/panel-applet-info.c b/mate-panel/panel-applet-info.c
+index 10023ea..d0ca98d 100644
+--- a/mate-panel/panel-applet-info.c
++++ b/mate-panel/panel-applet-info.c
+@@ -30,6 +30,7 @@ struct _MatePanelAppletInfo {
+ 	gchar  *name;
+ 	gchar  *comment;
+ 	gchar  *icon;
++	gchar  *location;
+ 
+ 	gchar **old_ids;
+ };
+@@ -39,6 +40,7 @@ mate_panel_applet_info_new (const gchar  *iid,
+ 		       const gchar  *name,
+ 		       const gchar  *comment,
+ 		       const gchar  *icon,
++		       const gchar  *location,
+ 		       const gchar **old_ids)
+ {
+ 	MatePanelAppletInfo *info;
+@@ -50,6 +52,7 @@ mate_panel_applet_info_new (const gchar  *iid,
+ 	info->name = g_strdup (name);
+ 	info->comment = g_strdup (comment);
+ 	info->icon = g_strdup (icon);
++	info->location = g_strdup (location);
+ 
+ 	/* MateComponent compatibility */
+ 	if (old_ids != NULL) {
+@@ -77,6 +80,7 @@ mate_panel_applet_info_free (MatePanelAppletInfo *info)
+ 	g_free (info->name);
+ 	g_free (info->comment);
+ 	g_free (info->icon);
++	g_free (info->location);
+ 	g_strfreev (info->old_ids);
+ 
+ 	g_slice_free (MatePanelAppletInfo, info);
+@@ -106,6 +110,12 @@ mate_panel_applet_info_get_icon (MatePanelAppletInfo *info)
+ 	return info->icon;
+ }
+ 
++const gchar *
++mate_panel_applet_info_get_location (MatePanelAppletInfo *info)
++{
++	return info->location;
++}
++
+ const gchar * const *
+ mate_panel_applet_info_get_old_ids (MatePanelAppletInfo *info)
+ {
+diff --git a/mate-panel/panel-applet-info.h b/mate-panel/panel-applet-info.h
+index fafef8b..b2c029f 100644
+--- a/mate-panel/panel-applet-info.h
++++ b/mate-panel/panel-applet-info.h
+@@ -35,6 +35,7 @@ MatePanelAppletInfo *mate_panel_applet_info_new                             (con
+ 								    const gchar  *name,
+ 								    const gchar  *comment,
+ 								    const gchar  *icon,
++								    const gchar  *location,
+ 								    const gchar **old_ids);
+ void             mate_panel_applet_info_free                            (MatePanelAppletInfo *info);
+ 
+@@ -42,6 +43,7 @@ const gchar     *mate_panel_applet_info_get_iid                         (MatePan
+ const gchar     *mate_panel_applet_info_get_name                        (MatePanelAppletInfo *info);
+ const gchar     *mate_panel_applet_info_get_description                 (MatePanelAppletInfo *info);
+ const gchar     *mate_panel_applet_info_get_icon                        (MatePanelAppletInfo *info);
++const gchar     *mate_panel_applet_info_get_location                        (MatePanelAppletInfo *info);
+ const gchar * const *mate_panel_applet_info_get_old_ids                 (MatePanelAppletInfo *info);
+ 
+ #ifdef __cplusplus
+diff --git a/mate-panel/panel-lockdown.c b/mate-panel/panel-lockdown.c
+index 212f66f..1bbd1ec 100644
+--- a/mate-panel/panel-lockdown.c
++++ b/mate-panel/panel-lockdown.c
+@@ -29,6 +29,24 @@
+ #include <string.h>
+ #include <gio/gio.h>
+ #include "panel-schemas.h"
++#include "launcher.h"
++#include <sys/types.h>
++#include <unistd.h>
++#include <exec_attr.h>
++#include <user_attr.h>
++#include <secdb.h>
++#include <pwd.h>
++
++#include "panel-solaris.h"
++
++#define MATE_DESKTOP_USE_UNSTABLE_API
++#include <libmate-desktop/mate-desktop-utils.h>
++
++#include <libpanel-util/panel-error.h>
++#include <libpanel-util/panel-glib.h>
++#include <libpanel-util/panel-gtk.h>
++#include <libpanel-util/panel-keyfile.h>
++#include <libpanel-util/panel-show.h>
+ 
+ typedef struct {
+         guint   initialized : 1;
+@@ -38,15 +56,24 @@ typedef struct {
+         guint   disable_lock_screen : 1;
+         guint   disable_log_out : 1;
+         guint   disable_force_quit : 1;
++	guint	restrict_application_launching : 1;
+ 
+         gchar **disabled_applets;
+ 
++        GSList *allowed_applications;
+         GSList *closures;
+ 
+         GSettings *panel_settings;
+         GSettings *lockdown_settings;
+ } PanelLockdown;
+ 
++static const gchar *command_line_execs[] = {
++    "/usr/bin/mate-terminal",
++    "/usr/bin/xterm"
++};
++
++#define	NUMBER_COMMAND_LINE_EXECS 2
++
+ static PanelLockdown panel_lockdown = { 0, };
+ 
+ 
+@@ -68,6 +95,20 @@ locked_down_notify (GSettings     *settings,
+         panel_lockdown_invoke_closures (lockdown);
+ }
+ 
++gboolean
++panel_lockdown_is_allowed_application (const gchar *app)
++{
++        GSList *l;
++
++        g_assert (panel_lockdown.initialized != FALSE);
++
++        for (l = panel_lockdown.allowed_applications; l; l = l->next)
++                if (!strcmp (l->data, app))
++                        return TRUE;
++
++        return FALSE;
++}
++
+ static void
+ disable_command_line_notify (GSettings     *settings,
+                              gchar         *key,
+@@ -266,7 +307,7 @@ panel_lockdown_get_disable_force_quit (void)
+ }
+ 
+ gboolean
+-panel_lockdown_is_applet_disabled (const char *iid)
++panel_lockdown_is_applet_disabled (const char *iid, const char *location)
+ {
+         gint i;
+ 
+@@ -275,7 +316,10 @@ panel_lockdown_is_applet_disabled (const char *iid)
+         if (panel_lockdown.disabled_applets)
+                 for (i = 0; panel_lockdown.disabled_applets[i]; i++)
+                         if (!strcmp (panel_lockdown.disabled_applets[i], iid))
+-                                return TRUE;
++			      return TRUE;
++
++        if (filter_with_rbac (location, FALSE))
++                return TRUE;
+ 
+         return FALSE;
+ }
+@@ -349,3 +393,170 @@ panel_lockdown_notify_remove (GCallback callback_func,
+ 
+         g_closure_unref (closure);
+ }
++
++gchar *
++panel_lockdown_get_stripped_exec (const gchar *full_exec)
++{
++        gchar *str1, *str2, *retval, *p;
++
++        str1 = g_strdup (full_exec);
++        p = strtok (str1, " ");
++
++        if (p != NULL)
++               str2 = g_strdup (p);
++        else
++                str2 = g_strdup (full_exec);
++
++        g_free (str1);
++
++        if (g_path_is_absolute (str2))
++                retval = g_strdup (str2);
++        else
++                retval = g_strdup (g_find_program_in_path ((const gchar *)str2));
++        g_free (str2);
++
++        return retval;
++}
++
++gboolean
++panel_lockdown_is_disabled_command_line (const gchar *term_cmd)
++{
++        int i = 0;
++        gboolean retval = FALSE;
++
++        for (i=0; i<NUMBER_COMMAND_LINE_EXECS; i++) {
++                if (!strcmp (command_line_execs [i], term_cmd)) {
++                        retval = TRUE;
++                        break;
++                }
++        }
++
++        return retval;
++}
++gboolean
++
++panel_lockdown_get_restrict_application_launching (void)
++{
++        g_assert (panel_lockdown.initialized != FALSE);
++
++        return panel_lockdown.restrict_application_launching;
++}
++
++
++
++gboolean
++panel_lockdown_is_forbidden_command (const char *command)
++{
++        g_return_val_if_fail (command != NULL, TRUE) ;
++        return panel_lockdown_get_restrict_application_launching () &&
++                !panel_lockdown_is_allowed_application (command) ;
++}
++
++
++gboolean
++panel_lockdown_is_forbidden_launcher (Launcher *launcher)
++{
++	return (panel_lockdown_is_forbidden_key_file(launcher->key_file));
++}
++
++gboolean
++panel_lockdown_is_forbidden_key_file (GKeyFile *key_file)
++{
++	gchar *full_exec;		/* Executable including possible arguments */
++	gchar *stripped_exec;	/* Executable with arguments stripped away */
++	gboolean retval = FALSE;
++
++	if (key_file != NULL)
++	{
++		full_exec = panel_key_file_get_string (key_file, "Exec");
++        if (full_exec != NULL) {
++        	stripped_exec = panel_lockdown_get_stripped_exec (full_exec);
++
++		if (filter_with_rbac ((char *)stripped_exec, FALSE))
++			return TRUE;
++
++		retval = panel_lockdown_is_forbidden_command (stripped_exec);
++                g_free (stripped_exec);
++                if (retval == TRUE) {
++                        retval = panel_lockdown_is_forbidden_command (full_exec);
++                }
++		}
++	}
++
++    /* If restrict_application_launching not set on return TRUE */
++    if (!panel_lockdown_get_restrict_application_launching ()) {
++        return FALSE;
++    }
++
++	return retval;
++}
++
++static gboolean
++has_root_role (char *username)
++{
++    userattr_t *userattr = NULL;
++    gchar *rolelist = NULL;
++    gchar *rolename = NULL;
++    static gboolean ret_val = FALSE;
++    static gboolean cached_root = FALSE;
++
++    if (cached_root == FALSE && (userattr = getusernam(username)) != NULL)
++    {
++        rolelist = kva_match(userattr->attr, USERATTR_ROLES_KW);
++        rolename = strtok(rolelist, ",");
++        while (rolename != NULL) {
++            if (strcmp (rolename, ROOT_ROLE) == 0) {
++                ret_val = TRUE;
++                break;
++            }
++            rolename = strtok(NULL, ",");
++        }
++     
++        free_userattr(userattr);
++        cached_root = TRUE;
++    }
++
++    return ret_val;
++}
++
++static gboolean
++has_admin_profile (char *username)
++{
++    execattr_t *execattr = NULL;
++    static gboolean ret_val = FALSE;
++    static gboolean cached_admin = FALSE;
++
++    if (cached_admin == FALSE && (execattr = getexecuser (username, NULL, NULL, GET_ALL)) != NULL)
++    {
++        while (execattr != NULL) {
++            if (strcmp (execattr->name, SYSTEM_ADMINISTRATOR_PROF) == 0)
++            {
++                ret_val = TRUE;
++                break;
++            }
++            execattr = execattr->next;
++        }
++        free_execattr (execattr);
++        cached_admin = TRUE;
++    }
++    return ret_val;
++}
++
++gboolean panel_lockdown_is_user_authorized(void) {
++    uid_t uid = getuid();
++    struct passwd *pw;
++
++    if ((pw = getpwuid(uid)) == NULL)
++        return FALSE;
++
++    if (has_admin_profile (pw->pw_name))
++        return TRUE;
++
++    if (has_root_role (pw->pw_name))
++        return TRUE;
++
++    if (uid == 0)
++        return TRUE;
++
++    return FALSE;
++}
+diff --git a/mate-panel/panel-lockdown.h b/mate-panel/panel-lockdown.h
+index a2e3703..df7e68f 100644
+--- a/mate-panel/panel-lockdown.h
++++ b/mate-panel/panel-lockdown.h
+@@ -27,6 +27,7 @@
+ 
+ #include <glib.h>
+ #include <glib-object.h>
++#include "launcher.h"
+ 
+ #ifdef __cplusplus
+ extern "C" {
+@@ -41,12 +42,38 @@ gboolean panel_lockdown_get_disable_lock_screen  (void);
+ gboolean panel_lockdown_get_disable_log_out      (void);
+ gboolean panel_lockdown_get_disable_force_quit   (void);
+ 
+-gboolean panel_lockdown_is_applet_disabled (const char *iid);
++gboolean panel_lockdown_is_applet_disabled (const char *iid, const char *id);
+ 
+ void panel_lockdown_notify_add    (GCallback callback_func,
+                                    gpointer  user_data);
+ void panel_lockdown_notify_remove (GCallback callback_func,
+                                    gpointer  user_data);
++gchar *panel_lockdown_get_stripped_exec               (const gchar *full_exec);
++gboolean panel_lockdown_is_disabled_command_line      (const gchar *term_cmd);
++
++/**
++  * Returns true if the command line corresponds to an application whose use
++  * has been disallowed by the administrator.
++  */
++gboolean panel_lockdown_is_forbidden_command           (const gchar *command);
++
++/**
++  * Returns true if the launcher application has been disallowed by the administrator.
++  */
++gboolean panel_lockdown_is_forbidden_launcher          (Launcher *launcher);
++
++/**
++  * Returns true if the key_file application has been disallowed by the administrator.
++  */
++gboolean panel_lockdown_is_forbidden_key_file (GKeyFile *key_file);
++
++/**
++ * Returns true if the user is the root user, has the root role or has the
++  * Primary Administrator or System Administrator profile.
++  */
++gboolean panel_lockdown_is_user_authorized(void);
++#define SYSTEM_ADMINISTRATOR_PROF "System Administrator"
++#define ROOT_ROLE "root"
+ 
+ #ifdef __cplusplus
+ }
+diff --git a/mate-panel/panel-menu-items.c b/mate-panel/panel-menu-items.c
+index 79314b2..6da1858 100644
+--- a/mate-panel/panel-menu-items.c
++++ b/mate-panel/panel-menu-items.c
+@@ -39,6 +39,8 @@
+ #include <string.h>
+ #include <glib/gi18n.h>
+ #include <gio/gio.h>
++#include "panel-solaris.h"
++
+ #include <libmate-desktop/mate-gsettings.h>
+ 
+ #include <libpanel-util/panel-error.h>
+@@ -128,6 +130,19 @@ static void
+ activate_home_uri (GtkWidget *menuitem,
+ 		   gpointer   data)
+ {
++    char *cmd;
++    GdkScreen *screen;
++
++    if (gnome_desktop_tsol_is_multi_label_session ()) {
++        screen = gtk_window_get_screen (GTK_WINDOW (menuitem));
++        cmd = g_strdup_printf ("%d:caja file://%s",
++                             gdk_screen_get_number (screen),
++                             g_get_home_dir ());
++        gnome_desktop_tsol_proxy_app_launch (cmd);
++        g_free (cmd);
++        return;
++    }
++
+ 	activate_path (menuitem, g_get_home_dir ());
+ }
+ 
+@@ -135,6 +150,19 @@ static void
+ activate_desktop_uri (GtkWidget *menuitem,
+ 		      gpointer   data)
+ {
++        char *cmd;
++        GdkScreen *screen;
++
++        if (gnome_desktop_tsol_is_multi_label_session ()) {
++                screen = gtk_window_get_screen (GTK_WINDOW (menuitem));
++                cmd = g_strdup_printf ("%d:caja file://%s",
++                             gdk_screen_get_number (screen),
++                             g_get_user_special_dir (G_USER_DIRECTORY_DESKTOP));
++                gnome_desktop_tsol_proxy_app_launch (cmd);
++                g_free (cmd);
++                return;
++        }
++
+ 	activate_path (menuitem,
+ 		       g_get_user_special_dir (G_USER_DIRECTORY_DESKTOP));
+ }
+@@ -196,6 +224,13 @@ panel_menu_items_append_from_desktop (GtkWidget *menu,
+ 		return;
+ 	}
+ 
++	if (panel_lockdown_is_forbidden_key_file(key_file)) {
++		g_key_file_free (key_file);
++		if (path_freeme)
++			g_free (path_freeme);
++		return;
++	}
++
+ 	/* For Application desktop files, respect TryExec */
+ 	type = panel_key_file_get_string (key_file, "Type");
+ 	if (!type) {
+@@ -1068,8 +1103,10 @@ panel_place_menu_item_create_menu (PanelPlaceMenuItem *place_item)
+ 		g_free (uri);
+ 	}
+ 
+-	panel_place_menu_item_append_gtk_bookmarks (places_menu, g_settings_get_uint (place_item->priv->menubar_settings, PANEL_MENU_BAR_MAX_ITEMS_OR_SUBMENU));
+-	add_menu_separator (places_menu);
++        if (!gnome_desktop_tsol_is_multi_label_session ()) {
++		panel_place_menu_item_append_gtk_bookmarks (places_menu, g_settings_get_uint (place_item->priv->menubar_settings, PANEL_MENU_BAR_MAX_ITEMS_OR_SUBMENU));
++		add_menu_separator (places_menu);
++	}
+ 
+ 	if (place_item->priv->caja_desktop_settings != NULL)
+ 		gsettings_name = g_settings_get_string (place_item->priv->caja_desktop_settings,
+@@ -1089,8 +1126,10 @@ panel_place_menu_item_create_menu (PanelPlaceMenuItem *place_item)
+ 	if (gsettings_name)
+ 		g_free (gsettings_name);
+ 
+-	panel_place_menu_item_append_local_gio (place_item, places_menu);
+-	add_menu_separator (places_menu);
++        if (!gnome_desktop_tsol_is_multi_label_session ()) {
++		panel_place_menu_item_append_local_gio (place_item, places_menu);
++		add_menu_separator (places_menu);
++	}
+ 
+ 	panel_menu_items_append_place_item (
+ 			PANEL_ICON_NETWORK, NULL,
+@@ -1659,5 +1698,62 @@ void
+ panel_menu_item_activate_desktop_file (GtkWidget  *menuitem,
+ 				       const char *path)
+ {
+-	panel_launch_desktop_file (path, menuitem_to_screen (menuitem), NULL);
++        if (gnome_desktop_tsol_is_multi_label_session ()) {
++		GKeyFile  *key_file;
++		gboolean   loaded;
++		char      *full_path;
++		char 	  *cmd;
++		char      *path_freeme;
++
++		key_file = g_key_file_new ();
++
++		if (g_path_is_absolute (path)) {
++			loaded = g_key_file_load_from_file (key_file, path,
++							    G_KEY_FILE_NONE, NULL);
++			full_path = path;
++		} else {
++			char *lookup_file;
++			char *desktop_path;
++
++			if (!g_str_has_suffix (path, ".desktop")) {
++				desktop_path = g_strconcat (path, ".desktop", NULL);
++			} else {
++				desktop_path = path;
++			}
++
++			lookup_file = g_strconcat ("applications", G_DIR_SEPARATOR_S,
++						   desktop_path, NULL);
++			loaded = g_key_file_load_from_data_dirs (key_file, lookup_file,
++								 &path_freeme,
++								 G_KEY_FILE_NONE,
++								 NULL);
++			full_path = path_freeme;
++			g_free (lookup_file);
++
++			if (desktop_path != path)
++				g_free (desktop_path);
++		}
++
++		if (!loaded) {
++			g_key_file_free (key_file);
++			if (path_freeme)
++				g_free (path_freeme);
++			return;
++		}
++
++		if (panel_lockdown_is_forbidden_key_file(key_file)) {
++			g_key_file_free (key_file);
++			if (path_freeme)
++				g_free (path_freeme);
++			return;
++		}
++		cmd = panel_key_file_get_string(key_file, "Exec");
++		g_key_file_free (key_file);
++		if (path_freeme)
++			g_free (path_freeme);
++		gnome_desktop_tsol_proxy_app_launch (cmd);
++        } else {
++		panel_launch_desktop_file (path, menuitem_to_screen (menuitem), NULL);
++	}
++
+ }
+diff --git a/mate-panel/panel-multiscreen.c b/mate-panel/panel-multiscreen.c
+index 04f4266..e6ca2b4 100644
+--- a/mate-panel/panel-multiscreen.c
++++ b/mate-panel/panel-multiscreen.c
+@@ -161,6 +161,7 @@ panel_multiscreen_get_randr_monitors_for_screen (GdkScreen     *screen,
+ 		    output->crtc != 0) {
+ 			XRRCrtcInfo  *crtc;
+ 			GdkRectangle  rect;
++			int   stripe_height;
+ 
+ 			crtc = XRRGetCrtcInfo (xdisplay, resources,
+ 					       output->crtc);
+@@ -170,6 +171,12 @@ panel_multiscreen_get_randr_monitors_for_screen (GdkScreen     *screen,
+ 			rect.width  = crtc->width / scale;
+ 			rect.height = crtc->height / scale;
+ 
++			if (gnome_desktop_tsol_is_multi_label_session ()) {
++				XTSOLgetSSHeight (xdisplay,
++				    gdk_screen_get_number (screen), &stripe_height);
++				rect.height -= stripe_height;
++			}
++
+ 			XRRFreeCrtcInfo (crtc);
+ 
+ 			if (_panel_multiscreen_output_should_be_first (xdisplay,
+diff --git a/mate-panel/panel-run-dialog.c b/mate-panel/panel-run-dialog.c
+index 5a0b55b..b32f6ff 100644
+--- a/mate-panel/panel-run-dialog.c
++++ b/mate-panel/panel-run-dialog.c
+@@ -40,6 +40,8 @@
+ #include <glib/gi18n.h>
+ #include <gio/gio.h>
+ #include <gdk/gdkkeysyms.h>
++#include "panel-solaris.h"
++
+ #include <matemenu-tree.h>
+ 
+ #define MATE_DESKTOP_USE_UNSTABLE_API
+@@ -393,11 +395,21 @@ panel_run_dialog_launch_command (PanelRunDialog *dialog,
+ 	int         argc;
+ 	char       *display_name;
+ 	GPid        pid;
++	char	   *tsolcmd;
++
++	screen = gtk_window_get_screen (GTK_WINDOW (dialog->run_dialog));
++
++    if (gnome_desktop_tsol_is_multi_label_session ()) {
++            tsolcmd = g_strdup_printf ("%d:%s",
++                                       gdk_screen_get_number (screen), command);
++            gnome_desktop_tsol_proxy_app_launch (tsolcmd);
++            g_free (tsolcmd);
++            return TRUE;
++    }
+ 
+ 	if (!command_is_executable (locale_command, &argc, &argv))
+ 		return FALSE;
+ 
+-	screen = gtk_window_get_screen (GTK_WINDOW (dialog->run_dialog));
+ 
+ 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->terminal_checkbox)))
+ 		mate_desktop_prepend_terminal_to_vector (&argc, &argv);
+diff --git a/mate-panel/panel-solaris.c b/mate-panel/panel-solaris.c
+new file mode 100644
+index 0000000..589b720
+--- /dev/null
++++ b/mate-panel/panel-solaris.c
+@@ -0,0 +1,530 @@
++/*
++ * Note that the following code is in three patches:
++ * - gnome-panel-XX-rbac.diff (filter_with_rbac)
++ * - gnome-menus-XX-rbac.diff (filter_with_rbac)
++ * - glib-XX-gio-rbac.diff    (get_gksu_role)
++ * - gnome-session-XX-rbac.diff (get_gksu_role)
++ *
++ * So if there is a need to fix this code, it is probably necessary to fix the
++ * code in these other two places as well.  Though the functions are a bit
++ * different.
++ */
++#include <config.h>
++#include <gdk/gdk.h>
++#include <gdk/gdkx.h>
++#include <stdlib.h>
++#include <string.h>
++#include <dlfcn.h>
++#include <link.h>
++#include <user_attr.h>
++#include <exec_attr.h>
++#include <secdb.h>
++
++#include "panel-solaris.h"
++
++#define ATOM "_LABEL_EXEC_COMMAND"
++
++typedef Status (*xtsol_XTSOLgetWorkstationOwner) (Display *xpdy, uid_t *uidp);
++
++static
++void * dlopen_tsol (void)
++{
++   void  *handle = NULL;
++
++   /*
++    * No 32-bit version of libwnck so we can get away with hardcoding
++    * to a single path on this occasion
++    */
++   if ((handle = dlopen ("/usr/lib/amd64/libtsol.so.2", RTLD_LAZY)) != NULL)
++       return handle;
++
++   return handle;
++}
++
++static
++void * dlopen_xtsol (void)
++{
++   void  *handle = NULL;
++
++   if ((handle = dlopen ("/usr/lib/amd64/libXtsol.so.1", RTLD_LAZY)) != NULL)
++       return handle;
++
++   return handle;
++}
++
++static
++void * dlopen_gnometsol (void)
++{
++   void  *handle = NULL;
++
++   if ((handle = dlopen ("/usr/lib/amd64/libgnometsol.so", RTLD_LAZY)) != NULL)
++       return handle;
++
++   return handle;
++}
++
++static
++void * dlopen_libwnck (void)
++{
++   void  *handle = NULL;
++
++   if ((handle = dlopen ("/usr/lib/amd64/libwnck-3.so", RTLD_LAZY)) != NULL)
++       return handle;
++
++   return handle;
++}
++
++gboolean
++use_trusted_extensions (void)
++{
++    static int trusted = -1;
++
++    /*
++     * Sun Trusted Extensions (tm) for Solaris (tm) support. (Damn I should be a lawyer).
++     *
++     * It is necessary to use dlopen because the label aware extensions to libwnck work
++     * only on systems with the trusted extensions installed and with the SUN_TSOL
++     * xserver extension present
++     */
++
++    if (trusted < 0) {
++        static gpointer tsol_handle = NULL;
++        static gpointer xtsol_handle = NULL;
++        static gpointer gnometsol_handle = NULL;
++        static gpointer libwnck_handle = NULL;
++
++        if (getenv ("TRUSTED_SESSION") == NULL) {
++            trusted = 0;
++            return 0;
++        }
++
++	libwnck_handle = dlopen_libwnck ();
++        if (libwnck_handle != NULL)
++            tsol_handle = dlopen_tsol ();
++        if (tsol_handle != NULL)
++            xtsol_handle = dlopen_xtsol ();
++        if (libwnck_handle && tsol_handle && xtsol_handle) {
++
++           libmenu_wnck_screen_get_default = (menu_wnck_screen_get_default) dlsym (libwnck_handle, "wnck_screen_get_default");
++           libmenu_wnck_screen_get_active_workspace = (menu_wnck_screen_get_active_workspace) dlsym (libwnck_handle, "wnck_screen_get_active_workspace");
++           libmenu_wnck_workspace_get_role = (menu_wnck_workspace_get_role) dlsym (libwnck_handle, "wnck_workspace_get_role");
++           libmenu_wnck_workspace_get_label = (menu_wnck_workspace_get_label) dlsym (libwnck_handle, "wnck_workspace_get_label");
++
++           /* libtsol functions */
++           libtsol_blequal = (tsol_blequal) dlsym (tsol_handle, "blequal");
++           libtsol_label_to_str = (tsol_label_to_str) dlsym (tsol_handle, "label_to_str");
++           libtsol_str_to_label = (tsol_str_to_label) dlsym (tsol_handle, "str_to_label");
++           libtsol_m_label_dup = (tsol_m_label_dup) dlsym (tsol_handle, "m_label_dup");
++           libtsol_m_label_free = (tsol_m_label_free) dlsym (tsol_handle, "m_label_free");
++
++           /* Other misc. libtsol functions */
++           libtsol_blminimum = (tsol_blminimum) dlsym (tsol_handle, "blminimum");
++           libtsol_blmaximum = (tsol_blmaximum) dlsym (tsol_handle, "blmaximum");
++           libtsol_blinrange = (tsol_blinrange) dlsym (tsol_handle, "blinrange");
++           libtsol_getuserrange = (tsol_getuserrange) dlsym (tsol_handle, "getuserrange");
++           libtsol_blabel_alloc = (tsol_blabel_alloc) dlsym (tsol_handle, "blabel_alloc");
++           libtsol_blabel_free  = (tsol_blabel_free)  dlsym (tsol_handle, "blabel_free");
++           libtsol_bsllow  = (tsol_bsllow)  dlsym (tsol_handle, "bsllow");
++           libtsol_bslhigh = (tsol_bslhigh) dlsym (tsol_handle, "bslhigh");
++	   libtsol_getzonerootbylabel = (char *) dlsym (tsol_handle, "getzonerootbylabel");
++
++           /* libXtsol functions */
++           libxtsol_XTSOLgetClientLabel = (xtsol_XTSOLgetClientLabel) dlsym (xtsol_handle,
++                                     "XTSOLgetClientLabel");
++           libxtsol_XTSOLIsWindowTrusted = (xtsol_XTSOLIsWindowTrusted) dlsym (xtsol_handle,
++                                      "XTSOLIsWindowTrusted");
++
++           if (libtsol_label_to_str == NULL ||
++               libtsol_str_to_label == NULL ||
++               libtsol_m_label_dup == NULL ||
++               libtsol_m_label_free == NULL ||
++               libtsol_blminimum == NULL ||
++               libtsol_blmaximum == NULL ||
++               libtsol_blinrange == NULL ||
++               libtsol_getuserrange == NULL ||
++               libtsol_blabel_alloc == NULL ||
++               libtsol_blabel_free  == NULL ||
++               libtsol_bsllow  == NULL ||
++               libtsol_bslhigh == NULL ||
++               libxtsol_XTSOLgetClientLabel == NULL ||
++               libxtsol_XTSOLIsWindowTrusted == NULL ||
++               libmenu_wnck_screen_get_default == NULL ||
++               libmenu_wnck_screen_get_active_workspace == NULL ||
++               libmenu_wnck_workspace_get_role == NULL ||
++               libmenu_wnck_workspace_get_label == NULL) {
++               dlclose (tsol_handle);
++               dlclose (xtsol_handle);
++               dlclose (libwnck_handle);
++               tsol_handle = NULL;
++               xtsol_handle = NULL;
++               libwnck_handle = NULL;
++            }
++        }
++
++        gnometsol_handle = dlopen_gnometsol ();
++        if (gnometsol_handle != NULL)
++            {
++               libgnometsol_gnome_label_builder_new =
++                               (gnometsol_gnome_label_builder_new) dlsym (gnometsol_handle,
++                               "gnome_label_builder_new");
++              libgnometsol_gnome_label_builder_get_type =
++                               (gnometsol_gnome_label_builder_get_type) dlsym (gnometsol_handle,
++                               "gnome_label_builder_get_type");
++              if (libgnometsol_gnome_label_builder_new == NULL ||
++                  libgnometsol_gnome_label_builder_get_type == NULL)
++                  gnometsol_handle = NULL;
++            }
++        trusted = ((tsol_handle != NULL) && (xtsol_handle != NULL) && (gnometsol_handle != NULL) && (libwnck_handle != NULL)) ? 1 : 0;
++    }
++    return trusted ? TRUE : FALSE;
++}
++
++static gchar *
++get_stripped_exec (const gchar *full_exec, gboolean use_global)
++{
++	gchar *str1, *str2, *retval, *p;
++	char *zoneroot = NULL;
++	gboolean trusted;
++
++	str1 = g_strdup (full_exec);
++	p = strtok (str1, " ");
++
++	if (p != NULL)
++		str2 = g_strdup (p);
++	else
++		str2 = g_strdup (full_exec);
++
++	g_free (str1);
++
++	trusted = use_trusted_extensions ();
++	if (trusted && use_global == FALSE) {
++		zoneroot = get_zoneroot ();
++	}
++
++	if (g_path_is_absolute (str2)) {
++		if (zoneroot != NULL) {
++			retval = g_strdup_printf ("%s/%s", zoneroot, str2);
++		} else {
++			retval = g_strdup (str2);
++		}
++	} else {
++		if (zoneroot != NULL) {
++			/*
++			 * If the desktop file doesn't specify the full path
++			 * and in Trusted mode, then check the zone's /usr/bin
++			 * directory.
++			 */
++			retval = g_strdup_printf ("%s/usr/bin/%s", zoneroot, str2);
++		} else {
++			retval = g_strdup (g_find_program_in_path ((const gchar *)str2));
++
++			/*
++			 * If a program is not installed in the global zone,
++			 * then assume it is installed in /usr/bin.
++			 */
++			if (use_global == TRUE && retval == NULL) {
++				retval = g_strdup_printf ("/usr/bin/%s", str2);
++			}
++		}
++	}
++	g_free (str2);
++
++	return retval;
++}
++
++/*
++ * Checks RBAC to see if the user can run the command.
++ */
++gboolean
++filter_with_rbac (gchar *command, gboolean use_global)
++{
++	execattr_t *exec;
++	gchar *stripped_cmd;
++	gchar *real_cmd;
++	char *path;
++	const char *username = NULL;
++	userattr_t *user;
++	int        i;
++	gboolean   program_has_profile;
++	gboolean   rc;
++	gboolean   trusted;
++
++	rc = TRUE;
++
++	stripped_cmd = get_stripped_exec (command, TRUE);
++	real_cmd     = get_stripped_exec (command, use_global);
++
++	trusted = use_trusted_extensions ();
++	if (trusted) {
++		/*
++		 * In trusted mode, use the single role associated with
++		 * the workspace.
++		 */
++		gpointer wnckscreen = NULL;
++		gpointer wnckworkspace = NULL;
++
++		wnckscreen = libmenu_wnck_screen_get_default ();
++		if (wnckscreen != NULL)
++			wnckworkspace = libmenu_wnck_screen_get_active_workspace (wnckscreen);
++
++		if (wnckworkspace != NULL)
++			username = libmenu_wnck_workspace_get_role (wnckworkspace);
++	}
++
++	if (username == NULL) {
++		username = g_get_user_name ();
++	}
++
++	/* If the command does not exist, do not show it. */
++	if (real_cmd == NULL || stripped_cmd == NULL) {
++		goto out;
++	}
++
++	path = g_find_program_in_path (g_strstrip (real_cmd));
++	if (path == NULL)
++		goto out;
++
++	/*
++	 * All programs should be available to root.  This check is done after
++	 * verifying the binary is in path.
++	 */
++	if (strcmp (username, "root") == 0) {
++		rc = FALSE;
++		goto out;
++	}
++
++	/* Check if the program is in any profile. */
++	program_has_profile = FALSE;
++	exec = getexecprof (NULL, KV_COMMAND, stripped_cmd, GET_ONE);
++	if (exec == NULL) {
++		goto out;
++	}
++
++	while (exec != NULL) {
++		if (exec->attr != NULL) {
++			program_has_profile = TRUE;
++			break;
++		}
++		exec = exec->next;
++	}
++
++	free_execattr (exec);
++
++	/* Check if the user can run the command.  If not filter it. */
++	exec = getexecuser (username, KV_COMMAND, stripped_cmd, GET_ONE);
++
++	/*
++	 * If the program is not associated with any profile, then do not
++	 * show it.
++	 */
++	if (exec == NULL)
++		goto out;
++
++	/*
++	 * If getexecuser does not return NULL and the program is not
++	 * associated with any profile, then show it.  Otherwise, more
++	 * tests are needed.
++	 */
++	if (use_global == TRUE || program_has_profile == FALSE) {
++		rc = FALSE;
++		free_execattr (exec);
++		goto out;
++	}
++
++	/*
++	 * If the user has a profile that can run the command, then it can
++	 * be shown.
++	 */
++	while (exec != NULL) {
++		if (exec->attr != NULL) {
++			rc = FALSE;
++			break;
++		}
++		exec = exec->next;
++	}
++
++	free_execattr (exec);
++
++	if (rc == FALSE)
++		goto out;
++
++	if (!trusted) {
++		/* If no gksu is available, then do not try to use it */
++	        path = g_find_program_in_path ("/usr/bin/gksu");
++		if (path == NULL)
++			goto out;
++	}
++
++	/* Check if the user is in a role that can run the command. */
++	/* If so, use gksu with that role */
++	if ((user = getusernam (username)) != NULL) {
++		const char *rolelist = NULL;
++		char **v = NULL;
++		char *role = NULL;
++
++		if (trusted && username != NULL) {
++			/* In trusted mode, use role associated with workspace */
++			rolelist = username;
++		} else {
++			/* Otherwise use roles associated with the user. */
++			rolelist = kva_match (user->attr, USERATTR_ROLES_KW);
++		}
++
++		if (rolelist != NULL)
++			v = g_strsplit (rolelist, ",", -1);
++
++		for (i=0; v != NULL && v[i] != NULL; i++) {
++			role = g_strdup (v[i]);
++			g_strstrip (role);
++
++			exec = getexecuser (role, KV_COMMAND, stripped_cmd, GET_ONE);
++			while (exec != NULL) {
++				if ((strcmp (role, "root") == 0) ||
++				    (exec->attr != NULL)) {
++					rc = FALSE;
++					break;
++				}
++				exec = exec->next;
++			}
++
++			g_free (role);
++			free_execattr (exec);
++
++			if (rc == FALSE) {
++				break;
++			}
++		}
++		if (v != NULL)
++			g_strfreev (v);
++	}
++
++out:
++	if (stripped_cmd)
++		g_free (stripped_cmd);
++	if (real_cmd)
++		g_free (real_cmd);
++
++	return (rc);
++}
++
++/* Function to return the zone root directory for the current workspace. */
++char *
++get_zoneroot (void)
++{
++  gpointer    wnckscreen    = NULL;
++  gpointer    wnckworkspace = NULL;
++  const char *zonelabelstr  = NULL;
++  m_label_t  *zonelabel     = NULL;
++  char       *zoneroot      = NULL;
++  int         err;
++
++  wnckscreen = libmenu_wnck_screen_get_default ();
++  if (wnckscreen != NULL)
++    wnckworkspace = libmenu_wnck_screen_get_active_workspace (wnckscreen);
++
++  if (wnckworkspace != NULL)
++    zonelabelstr = libmenu_wnck_workspace_get_label (wnckworkspace);
++
++  if (zonelabelstr != NULL)
++    libtsol_str_to_label (zonelabelstr, &zonelabel, MAC_LABEL, L_NO_CORRECTION, &err);
++
++  if (zonelabel != NULL)
++    zoneroot = libtsol_getzonerootbylabel (zonelabel);
++
++  return zoneroot;
++}
++gboolean
++gnome_desktop_tsol_is_clearance_admin_high (void)
++{
++        userattr_t      *uattr;
++        char            *value = NULL;
++
++        uattr = getuseruid (getuid ());
++
++        if (uattr) {
++                value = kva_match (uattr->attr, USERATTR_CLEARANCE);
++                if (value)
++                        if (strncasecmp ("admin_high", value, 10) == 0 ||
++                            strncasecmp ("ADMIN_HIGH", value, 10) == 0)
++                                return TRUE;
++        }
++        return FALSE;
++}
++
++gboolean
++gnome_desktop_tsol_is_multi_label_session (void)
++{
++        static int trusted = -1; 
++
++        if (trusted < 0) {
++                if (getenv ("TRUSTED_SESSION")) {
++                        trusted = 1;
++                } else {
++                        trusted = 0;
++                }
++        }
++
++        return trusted ? TRUE : FALSE;
++}
++
++gboolean
++gnome_desktop_tsol_user_is_workstation_owner (void)
++{
++        uid_t uid;
++        gpointer handle;
++        Display *xdpy;
++        static int ret = -1;
++        xtsol_XTSOLgetWorkstationOwner libxtsol_XTSOLgetWorkstationOwner= NULL;
++
++        if (ret == -1) {
++                if (!(handle = dlopen ("/usr/lib/libXtsol.so.1", RTLD_LAZY)) ||
++                    !(libxtsol_XTSOLgetWorkstationOwner =
++                        (xtsol_XTSOLgetWorkstationOwner) dlsym (handle,
++                                                "XTSOLgetWorkstationOwner"))) {
++                        ret = 0;
++                        return FALSE;
++                }
++
++                xdpy = GDK_DISPLAY_XDISPLAY (gdk_display_get_default ());
++
++                libxtsol_XTSOLgetWorkstationOwner (xdpy, &uid);
++
++                if (uid == getuid ()) {
++                        ret = 1;
++                } else {
++                        ret = 0;
++                }
++        }
++
++        return ret ? TRUE : FALSE;
++}
++
++void
++gnome_desktop_tsol_proxy_app_launch (char *command)
++{
++        GdkDisplay *dpy;
++        Display *xdpy;
++        Window root;
++        Atom atom, utf8_string;
++
++        if (!command) return;
++
++        dpy = gdk_display_get_default ();
++        xdpy = GDK_DISPLAY_XDISPLAY (dpy);
++
++        utf8_string = XInternAtom (xdpy, "UTF8_STRING", FALSE);
++
++        root = DefaultRootWindow (xdpy);
++
++        atom = XInternAtom (xdpy, ATOM, FALSE);
++
++        gdk_error_trap_push ();
++
++        XChangeProperty (xdpy, root, atom, utf8_string, 8, PropModeReplace,
++                         command, strlen (command));
++
++        XSync (xdpy, False);
++
++        gdk_error_trap_pop ();
++}
++
+diff --git a/mate-panel/panel-solaris.h b/mate-panel/panel-solaris.h
+new file mode 100644
+index 0000000..706a176
+--- /dev/null
++++ b/mate-panel/panel-solaris.h
+@@ -0,0 +1,96 @@
++
++#ifndef __MENU_SOLARIS_H__
++#define __MENU_SOLARIS_H__
++
++#include <tsol/label.h>
++#include <sys/tsol/label_macro.h>
++#include <X11/Xlib.h>
++#include <X11/extensions/Xtsol.h>
++
++#include <glib.h>
++#include <glib-object.h>
++
++G_BEGIN_DECLS
++
++gboolean use_trusted_extensions (void);
++gboolean filter_with_rbac (gchar *, gboolean);
++gboolean gnome_desktop_tsol_is_clearance_admin_high (void);
++gboolean gnome_desktop_tsol_is_multi_label_session (void);
++void gnome_desktop_tsol_proxy_app_launch (char *command);
++gboolean gnome_desktop_tsol_user_is_workstation_owner (void);
++char * get_zoneroot (void);
++
++/* Libtsol functions */
++
++typedef int     (*tsol_blequal) (const m_label_t *label1, const m_label_t *label2);
++typedef int     (*tsol_label_to_str) (const m_label_t *label, char **string,
++                 const m_label_str_t conversion_type,
++                 uint_t flags);
++typedef int            (*tsol_str_to_label) (const char *string, m_label_t **label,
++                 const m_label_type_t label_type, uint_t flags,
++                 int *error);
++typedef void (*tsol_m_label_dup) (m_label_t **dst, const m_label_t *src);
++typedef void   (*tsol_m_label_free) (m_label_t *label);
++
++/* Other misc. libtsol functions that seem to be stable */
++typedef blrange_t*             (*tsol_getuserrange) (const char *username);
++typedef int                            (*tsol_blinrange) (const m_label_t *label,
++                         const blrange_t *range);
++typedef void                   (*tsol_blminimum) (m_label_t *minimum_label,
++                         const m_label_t *bounding_label);
++typedef void                   (*tsol_blmaximum) (m_label_t *maximum_label,
++                         const m_label_t *bounding_label);
++typedef m_label_t*             (*tsol_blabel_alloc) (void);
++typedef void                   (*tsol_blabel_free)  (m_label_t *label_p);
++typedef void                   (*tsol_bsllow)  (m_label_t *label);
++typedef void                   (*tsol_bslhigh) (m_label_t *label);
++typedef char *			(*tsol_getzonerootbylabel) (const m_label_t *label);
++
++/* libXtsol functions */
++typedef Status (*xtsol_XTSOLgetClientLabel) (Display *dpy, XID xid,
++                 bslabel_t *sl);
++typedef Bool   (*xtsol_XTSOLIsWindowTrusted) (Display *dpy, Window win);
++
++/* libgnometsol functions */
++typedef gpointer       (*gnometsol_gnome_label_builder_new) (char *msg,
++                        blevel_t *upper, blevel_t *lower, int mode);
++typedef GType          (*gnometsol_gnome_label_builder_get_type) (void);
++
++/* libwnck functions */
++typedef gpointer        (*menu_wnck_screen_get_default) (void);
++typedef gpointer        (*menu_wnck_screen_get_active_workspace) (gpointer);
++typedef const char*     (*menu_wnck_workspace_get_role) (gpointer);
++typedef const char*     (*menu_wnck_workspace_get_label) (gpointer);
++
++/* libtsol functions */
++tsol_blequal           libtsol_blequal;
++tsol_label_to_str      libtsol_label_to_str;
++tsol_str_to_label      libtsol_str_to_label;
++tsol_m_label_dup libtsol_m_label_dup;
++tsol_m_label_free      libtsol_m_label_free;
++/* Other misc. libtsol functions */
++tsol_blminimum         libtsol_blminimum;
++tsol_blmaximum         libtsol_blmaximum;
++tsol_blinrange      libtsol_blinrange;
++tsol_getuserrange      libtsol_getuserrange;
++tsol_blabel_alloc      libtsol_blabel_alloc;
++tsol_blabel_free       libtsol_blabel_free;
++tsol_bsllow                    libtsol_bsllow;
++tsol_bslhigh           libtsol_bslhigh;
++tsol_getzonerootbylabel      libtsol_getzonerootbylabel;
++
++xtsol_XTSOLgetClientLabel      libxtsol_XTSOLgetClientLabel;
++xtsol_XTSOLIsWindowTrusted     libxtsol_XTSOLIsWindowTrusted;
++
++gnometsol_gnome_label_builder_new libgnometsol_gnome_label_builder_new;
++gnometsol_gnome_label_builder_get_type libgnometsol_gnome_label_builder_get_type;
++
++/* libwnck functions */
++menu_wnck_screen_get_default          libmenu_wnck_screen_get_default;
++menu_wnck_screen_get_active_workspace libmenu_wnck_screen_get_active_workspace;
++menu_wnck_workspace_get_role          libmenu_wnck_workspace_get_role;
++menu_wnck_workspace_get_label         libmenu_wnck_workspace_get_label;
++
++G_END_DECLS
++
++#endif /* __MENU_SOLARIS_H__ */
+diff --git a/mate-panel/panel-struts.c b/mate-panel/panel-struts.c
+index d5adccc..e642434 100644
+--- a/mate-panel/panel-struts.c
++++ b/mate-panel/panel-struts.c
+@@ -75,6 +75,9 @@ panel_struts_get_monitor_geometry (GdkScreen *screen,
+ 				   int       *width,
+ 				   int       *height)
+ {
++	Display		*xdisplay;
++	int		stripe_height;
++
+         *x      = panel_multiscreen_x      (screen, monitor);
+         *y      = panel_multiscreen_y      (screen, monitor);
+         *width  = panel_multiscreen_width  (screen, monitor);
