@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "1.10.1">
+<!ENTITY manrevision "1.2">
+<!ENTITY date "July 2015">
+<!ENTITY app "<application>Atril Document Viewer</application>">
+<!ENTITY appname "Atril Document Viewer">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="tr">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Atril Belge Görüntüleyicisi Kılavuzu</title>       
+    <abstract role="description">
+      <para>Atril Belge Görüntüleyici uygulaması Taşınabilir Belge Formatı (PDF) dosyaları ve PostScript dosyaları gibi çeşitli biçimlerdeki belgeleri görüntülemenizi sağlar</para>
+    </abstract>
+    <copyright lang="en">
+      <year>2019</year>
+      <holder>MATE Documentation Project</holder>
+    </copyright>
+    <copyright><year>2005</year> <holder>Nickolay V. Shmyrev</holder></copyright>
+    <copyright><year>2004</year> <holder>Sun Microsystems</holder></copyright>
+
+<!-- translators: uncomment this:
+    <copyright>
+      <year>2002</year>
+      <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+    </copyright>
+-->
+
+    <publisher> 
+      <publishername>MATE Belgelendirme Projesi</publishername> 
+    </publisher>
+    <publisher>
+      <publishername>GNOME Belgelendirme Projesi</publishername>
+    </publisher> 
+
+      <legalnotice id="legalnotice">
+	<para>Bu belgeyi kopyalama, dağıtma ve/veya değiştirme izni, değişmez bölümsüz, ön kapak metinsiz ve arka kapak metinsiz şekilde GNU Free Documentation License (GNU Özgür Belgeleme Lisansı, GFDL), sürüm 1.1 ya da Free Software Foundation tarafından yayınlanan daha yeni bir sürüm kapsamında verilmiştir. GFDL'in bir kopyasını bu <ulink type="help" url="help:fdl">bağlantıda</ulink> ya da bu kılavuzla dağıtılan COPYING-DOCS dosyasında bulabilirsiniz.</para>
+         <para>Bu kılavuz, GFDL (GNU Özgür Belgelendirme Lisansı) kapsamında yayınlanan MATE kılavuzları koleksiyonunun bir parçasıdır. Bu kılavuzu koleksiyondan ayrı bir biçimde dağıtmak istiyorsanız, lisansın 6. bölümünde açıklandığı gibi kılavuza lisansın bir kopyasını ilave ederek yapabilirsiniz.</para>
+
+	<para>Firmalar tarafından ürün ve hizmetlerinin ayırt edilmeleri için kullandıkları isimlerin birçoğu tescilli marka olarak ayrılmıştır. Bu isimlerin MATE belgelendirilmesinde yer alması ve MATE Belgelendirme Projesi mensupları bu tescilli markalardan haberdar edildikleri durumda, isimlerin ilk harfi ya da tamamı büyük harflerle yazılır.</para>
+
+	<para>BELGE VE BELGENİN DEĞİŞTİRİLMİŞ SÜRÜMLERİ GNU FREE DOCUMENTATION LICENSE (YANİ GNU ÖZGÜR BELGE LİSANSI) KAPSAMINDA, ŞU KONULARDA ANLAŞMAYLA SUNULMUŞTUR: <orderedlist>
+		<listitem>
+		  <para>BELGE OLDUĞU GİBİ, AÇIK VEYA ZIMNİ HİÇBİR TÜRLÜ GARANTİ OLMADAN SUNULMUŞTUR, Kİ BUNA SINIRLAMA OLMAKSIZIN BELGE VEYA BELGENİN DEĞİŞTİRİLMİŞ SÜRÜMLERİNİN BELLİ BİR AMACA UYGUN OLMALARI, KUSURDAN ARINMIŞ OLMALARI VEYA HAK İHLALİNDE BULUNMAMALARI GARANTİLERİ OLMAMASI DA DAHİLDİR. BELGE VE BELGENİN DEĞİŞTİRİLMİŞ SÜRÜMLERİNİN KALİTESİ, DOĞRULUĞU VE PERFORMANSINA İLİŞKİN TÜM RİSK SİZE AİTTİR. HERHANGİ BİR BELGE VEYA BELGENİN DEĞİŞTİRİLMİŞ SÜRÜMÜNÜN KUSURLU OLMASI HALİNDE, GEREKLİ SERVİS, ONARIM VE DÜZELTMENİN ÜCRETİNİ SİZ ÜSTLENİRSİNİZ (İLK YAZAR, HAZIRLAYAN VEYA HERHANGİ BİR KATILIMCI DEĞİL). BU GARANTİ REDDİ BU LİSANSIN TEMEL BİR PARÇASINI OLUŞTURMAKTADIR. HERHANGİ BİR BELGENİN VEYA BELGENİN DEĞİŞTİRİLMİŞ BİR SÜRÜMÜNÜN KULLANIMINA SADECE BU GARANTİ REDDİ ALTINDA İZİN VERİLMİŞTİR; VE</para>
+		</listitem>
+		<listitem>
+		  <para>HİÇBİR KOŞULDA VE HİÇBİR YASAL TEORİDE, Kİ BU TAZMİNAT YÜKÜMLÜLÜĞÜ (İHMAK DE DAHİL), KONTRATO VEYA BAŞKA BİR ŞEKİLİ DE İÇERİR, BELGEYİ VE BELGENİN DEĞİŞTİRİLMİŞ SÜRÜMLERİNİ İLK YAZAN, YAZAR, HERHANGİ BİR KATKIDA BULUNAN, DAĞITAN VEYA BU TARAFLARIN HERHANGİ BİR TEDARİKÇİSİ HERHANGİ DOĞRUDAN, DOLAYLI, ÖZEL, ARIZİ  ZARARLARDAN HERHANGİ BİR KİŞİ SORUMLU DEĞİLDİR, Kİ BUNA BU TÜR KAYIPLAR HAKKINDA BU TARFAFIN BİLGİLENDİRİLMİŞ OLMASI GEREKSE BİLE SINIRLANMAMIŞ OLMAK ÜZERE ŞEREFİYE KAYBI, İŞ DURMASI, BİLGİSAYAR BOZULMASI VE YANLIŞ ÇALIŞMASI VEYA BELGENİN VE BELGENİN DEĞİŞTİRİLMİŞ SÜRÜMLERİNİN KULLANIMINDAN VEYA KULLANIMIYLA İLİŞKİLİ TÜM KAYIPLAR DAHİLDİR.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+    <!-- This file  contains link to license for the documentation (GNU FDL), and 
+         other legal stuff such as "NO WARRANTY" statement. Please do not change 
+	 any of this. -->
+
+    <authorgroup> 
+      <author role="maintainer"><firstname>MATE Belgeleme Projesi</firstname> <surname/> <affiliation><orgname>MATE Masaüstü</orgname></affiliation></author>
+      <author><firstname>Sun</firstname> <surname>GNOME Belgelendirme Takımı</surname> <affiliation><orgname>Sun Microsystems</orgname></affiliation></author>
+      <author><firstname>Nickolay V. </firstname> <surname>Shmyrev</surname> <affiliation> <orgname>GNOME Belgeleme Projesi</orgname> <address> <email>nshmyrev@yandex.ru</email> </address> </affiliation></author> 
+
+<!-- This is appropriate place for other contributors: translators,
+     maintainers,  etc. Commented out by default.
+      <othercredit role="translator">
+	<firstname>Latin</firstname> 
+	<surname>Translator 1</surname> 
+	<affiliation> 
+          <orgname>Latin Translation Team</orgname> 
+  	  <address> <email>translator@gnome.org</email> </address> 
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision><revnumber>Atril Belge Görüntüleyici Kılavuzu V1.2</revnumber> <date>Temmuz 2015</date> <revdescription>
+          <para role="author">MATE Belgelendirme Projesi</para>
+          <para role="publisher">MATE Belgelendirme Projesi</para>
+        </revdescription></revision>
+      <revision><revnumber>Atril Belge Görüntüleyici Kılavuzu V1.1</revnumber> <date>2008-04-05</date> <revdescription>
+          <para role="author">Niels Giesen</para>
+          <para role="author">Claude Paroz</para>
+          <para role="publisher">GNOME Belgelendirme Projesi</para>
+        </revdescription></revision> 
+      <revision><revnumber>Atril Belge Görüntüleyici Kılavuzu V1.0</revnumber> <date>2005-04-06</date> <revdescription>
+          <para role="author">Nickolay V. Shmyrev</para>
+          <para role="publisher">GNOME Belgelendirme Projesi</para>
+        </revdescription></revision> 
+    </revhistory> 
+
+    <releaseinfo>Bu kılavuzda Atril Belge Görüntüleyicinin 1.10.1 sürümü açıklanmaktadır.</releaseinfo> 
+    <legalnotice> 
+      <title>Geri bildirim</title> 
+      <para>Atril Belge Görüntüleyici uygulaması veya bu kılavuzla ilgili bir hata bildirmek veya bir öneride bulunmak için, <ulink url="help:mate-user-guide/feedback" type="help">MATE Geri Bildirim Sayfası</ulink>ndaki talimatları izleyin.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Fatih Demir</firstname>
+      </personname>
+      <email>kabalak@kabalak.net</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2000.</year>
+      
+      <holder>Fatih Demir</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Görkem Çetin</firstname>
+      </personname>
+      <email>gorkem@gelecek.com.tr</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2002/2003.</year>
+      
+      <holder>Görkem Çetin</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Barış Çicek</firstname>
+      </personname>
+      <email>baris@teamforce.name.tr</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2004</year>
+      
+        <year>2008</year>
+      
+        <year>2009.</year>
+      
+      <holder>Barış Çicek</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Muhammet Kara</firstname>
+      </personname>
+      <email>muhammet.k@gmail.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2011.</year>
+      
+      <holder>Muhammet Kara</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>hsngrms</firstname>
+      </personname>
+      <email>dead-bodies-everywhere@hotmail.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2012</year>
+      
+      <holder>hsngrms</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Atilla Öntaş</firstname>
+      </personname>
+      <email>tarakbumba@gmail.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2014</year>
+      
+      <holder>Atilla Öntaş</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Emre FIRAT</firstname>
+      </personname>
+      <email>emrefirat93@gmail.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2013</year>
+      
+        <year>2014</year>
+      
+        <year>2015</year>
+      
+      <holder>Emre FIRAT</holder>
+    </copyright>
+  </articleinfo> 
+
+  <indexterm zone="index"><primary>Atril Belge Görüntüleyici</primary></indexterm> 
+  <indexterm zone="index"><primary>atril</primary></indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<!-- Use the Introduction section to give a brief overview of what
+     the application is and what it does. -->
+  <sect1 id="atril-introduction"> 
+    <title>Başlangıç</title> 
+    <para><application>Atril Belge Görüntüleyici</application> uygulaması, Portable Document Format (PDF) dosyaları ve PostScript dosyaları gibi çeşitli formatlardaki belgeleri görüntülemenizi sağlar. <application>Atril Belge Görüntüleyici</application>, Masaüstü Ortamı ile entegrasyon sağlamak için Freedesktop.org ve MATE standartlarını takip eder.</para>
+  </sect1>
+
+<!-- =========== Getting Started ============================== -->
+
+  <sect1 id="atril-getting-started"> 
+    <title>Başlangıç</title> 
+
+    <sect2 id="atril-start">
+    <title>Atril Belge Görüntüleyici'yi Başlatmak için</title>
+    <para><application>Atril Belge Görüntüleyici</application>, PDF veya PostScript dosyası gibi bir belgeyi açtığınızda başlar.</para>
+    <para>Alternatif olarak, <application>Atril Belge Görüntüleyici</application>'yi komut satırından başlatabilirsiniz: <command>atril</command>.</para>
+    
+    </sect2>
+
+    <sect2 id="atril-when-start">
+    <title>Atril Belge Görüntüleyici'yi Başlattığınızda</title>
+    <para><application>Atril Belge Görüntüleyici</application>'yi başlattığınızda, aşağıdaki pencere görüntülenir.</para>
+
+    <!-- ==== Figure ==== -->
+      <figure id="mainwindow-fig"> 
+	<title>Atril Belge Görüntüleyici Penceresi</title> 
+	<screenshot> 
+	  <mediaobject><imageobject><imagedata fileref="figures/atril_start_window.png" format="PNG"/> </imageobject> <textobject> <phrase>Atril Belge Görüntüleyici ana penceresini gösterir. Başlık çubuğu, menü çubuğu, araç çubuğu ve ekran alanı içerir. Menü çubuğu, Dosya, Düzenle, Görüntüle, Git ve Yardım menülerini içerir. </phrase> </textobject></mediaobject> 
+	</screenshot> 
+      </figure>
+
+    <para><application>Atril Belge Görüntüleyici</application> penceresi aşağıdaki öğeleri içerir:</para>
+      <variablelist>
+	<varlistentry>
+  	  <term>Menü Çubuğu</term>
+ 	  <listitem>
+	    <para>Menü çubuğundaki menüler, <application>Atril Belge Görüntüleyici</application>'deki belgelerle çalışmak için ihtiyaç duyduğunuz tüm komutları içerir.</para>
+	  </listitem>
+ 	</varlistentry>
+	<varlistentry>
+	  <term>Araç Çubuğu</term>
+	  <listitem>
+	    <para>Araç çubuğu, menü çubuğundan erişebileceğiniz komutların bir alt kümesini içerir.</para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term>Ekran alanı</term>
+	  <listitem>
+ 	    <para>Ekran alanı belgeyi görüntüler.</para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+
+      <para><application>Atril Belge Görüntüleyici</application>'de aynı işlemi birkaç şekilde gerçekleştirebilirsiniz. Örneğin, bir belgeyi aşağıdaki şekillerde açabilirsiniz: <informaltable frame="all">
+                    <tgroup cols="2" colsep="1" rowsep="1">
+                      <colspec colname="COLSPEC0" colwidth="50*"/>
+                      <colspec colname="COLSPEC1" colwidth="50*"/>
+                      <thead>
+                        <row valign="top">
+                          <entry colname="COLSPEC0">
+                            <para>Arayüz Bileşeni</para></entry>
+                          <entry colname="COLSPEC1" align="left"> 
+                            <para>Eylem</para></entry>
+                        </row>
+                      </thead>
+                      <tbody>
+                        <row valign="top">               
+                          <entry><para>Pencere</para></entry>
+                          <entry>
+                            <itemizedlist>
+                              <listitem>
+                                <para>Bir dosyayı, dosya yöneticisi gibi başka bir uygulamadan <application>Atril Belge Görüntüleyici</application> penceresine sürükleyin.</para>
+                              </listitem>
+                              <listitem>
+                                <para>Dosya yöneticisindeki dosya adına çift tıklayın</para>
+                              </listitem>
+                            </itemizedlist>
+                          </entry>
+                        </row>
+                        <row valign="top">               
+                          <entry><para>Menü Çubuğu</para></entry>
+                          <entry><para><menuchoice><guimenu>Dosya</guimenu> <guimenuitem>Aç</guimenuitem></menuchoice>'ı seçin.</para>
+</entry>
+                        </row>
+                        <row valign="top">               
+                          <entry><para>Kısayol tuşları</para></entry>
+                          <entry><para><keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo> tuşlarına basın.</para></entry>
+                        </row>
+                      </tbody>
+                    </tgroup>
+                  </informaltable></para>
+      <para>Bu kılavuz menü çubuğundan gelen işlevselliği belgeler.</para>
+    </sect2>
+  </sect1>
+
+<!-- ================ Usage ================================ -->
+  <sect1 id="atril-usage"> 
+    <title>Kullanım</title> 
+
+    <!-- ================ Usage Subsection ================================ -->
+    <sect2 id="atril-open-file"> 
+      <title>Belge Açmak İçin</title> 
+      <para>Bir belgeyi açmak için aşağıdaki adımları izleyin:</para>
+      <orderedlist>
+        <listitem>
+          <para><menuchoice><guimenu>Dosya</guimenu><guimenuitem> Aç</guimenuitem></menuchoice> seçin.</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>Belgeyi Aç</guilabel> iletişim kutusunda açmak istediğiniz dosyayı seçin.</para>
+        </listitem>
+        <listitem>
+          <para><guibutton>Aç</guibutton>'a tıklayın. <application>Atril Belge Görüntüleyici</application>,  belgenin adını pencerenin başlık çubuğunda görüntüler.</para>
+        </listitem>
+      </orderedlist>
+      <para>Başka bir belge açmak için tekrar <menuchoice><guimenu>Dosya</guimenu><guimenuitem> Aç</guimenuitem></menuchoice>'ı seçin. <application>Atril Belge Görüntüleyici</application> her dosyayı yeni bir pencerede açar.</para>
+      <para><application>Atril Belge Görüntüleyici</application>'nin tanımadığı bir belge açmaya çalışırsanız, uygulama bir hata mesajı görüntüler.</para>
+    </sect2>
+
+    <sect2 id="atril-navigate-file">
+    <title>Belge Üzerinde Gezinmek İçin</title>
+      <para>Bir dosyada aşağıdaki gibi gezinebilirsiniz:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Bir sonraki sayfayı görüntülemek için <menuchoice><guimenuitem>Sonraki Sayfa</guimenuitem>ya <guimenu>Git</guimenu></menuchoice>'i seçin.</para>
+        </listitem>
+	<listitem>
+	  <para>Önceki sayfayı görüntülemek için <menuchoice><guimenuitem>Önceki Sayfa</guimenuitem>ya <guimenu>Git</guimenu></menuchoice>'i seçin.</para>
+        </listitem>
+	<listitem>
+	  <para>Belgedeki ilk sayfayı görüntülemek için, <menuchoice><guimenu>İlk Sayfa</guimenu>ya <guimenuitem>Git</guimenuitem>'i seçin </menuchoice>.</para>
+        </listitem>
+	<listitem>
+	  <para>Belgedeki son sayfayı görüntülemek için <menuchoice><guimenuitem>Son Sayfa</guimenuitem>ya <guimenu>Git</guimenu></menuchoice>'i seçin.</para>
+        </listitem>
+	<listitem>
+	  <para>Belirli bir sayfayı görüntülemek için, araç çubuğundaki metin kutusuna sayfa numarasını veya sayfa etiketini girin ve ardından <keycap>Geri Dön</keycap> düğmesine basın.</para>
+        </listitem>
+      </itemizedlist>
+    </sect2>
+
+    <!-- ================ Usage Subsection ================================ -->
+    <sect2 id="atril-scroll-page"> 
+      <title>Sayfayı Kaydırmak İçin</title> 
+      <para>Görüntülenme alanında görüntülenmeyen sayfa içeriğini görüntülemek için aşağıdaki yöntemleri kullanın:</para> 
+        <itemizedlist> 
+	  <listitem> 
+  	    <para>Klavyedeki ok tuşlarını veya boşluk tuşunu kullanın.</para> 
+  	  </listitem> 
+	  <listitem> 
+  	    <para>Belgedeki herhangi bir yerde orta fare düğmesine tıklayarak ve ardından fareyi hareket ettirerek görüntüleme alanını sürükleyin. Örneğin, sayfayı aşağı kaydırmak için penceredeki ekran alanını yukarı sürükleyin.</para> 
+	  </listitem> 
+	  <listitem> 
+	    <para>Penceredeki kaydırma çubuklarını kullanın.</para> 
+  	  </listitem> 
+      </itemizedlist> 
+    </sect2>
+
+    <!-- ================ Usage Subsection ================================ -->
+	 <sect2 id="atril-manipulate-zoom-factor"> 
+      <title>Sayfa Boyutunu Değiştirmek İçin</title> 
+      <para>Atril Belge Görüntüleyici görüntüleme alanındaki bir sayfayı yeniden boyutlandırmak için aşağıdaki yöntemleri kullanabilirsiniz:</para> 
+      <itemizedlist> 
+	<listitem> 
+	  <para>Sayfa boyutunu büyütmek için <menuchoice><guimenuitem>Yakınlaştırmayı</guimenuitem> <guimenu>Göster</guimenu></menuchoice>'i seçin.</para> 
+	</listitem> 
+	<listitem> 
+	  <para>Sayfa boyutunu küçültmek için Uzaklaştırmayı Göster'i seçin.</para> 
+	</listitem> 
+	<listitem> 
+	  <para>Bir sayfayı <application>Atril Belge Görüntüleyici</application> görüntüleme alanı ile aynı genişliğe sahip olacak şekilde yeniden boyutlandırmak için <menuchoice><guimenu>Görünüm</guimenu>ü sayfa genişliğine <guimenuitem>Sığdır</guimenuitem></menuchoice> seçin.</para> 
+	</listitem> 
+	<listitem> 
+	  <para>Atril Belge Görüntüleyici görüntüleme alanına sığacak bir sayfayı yeniden boyutlandırmak için, <menuchoice> <guimenuitem>En Uygun</guimenuitem> <guimenu>Görünüm</guimenu> </menuchoice>'ü seçin.</para> 
+	</listitem> 
+	<listitem> 
+	  <para lang="en">
+            To resize the <application>Atril Document Viewer</application> window to have the same width and height as the screen, choose <menuchoice> <guimenu>View</guimenu> <guimenuitem>Full Screen</guimenuitem> </menuchoice>. To resize the <application>Atril Document Viewer</application> window to the original size, click on the <guibutton>Exit Full Screen</guibutton> button.
+          </para> 
+	</listitem> 
+      </itemizedlist> 
+    </sect2> 
+
+    <sect2 id="atril-view-pages">
+      <title lang="en">To View Pages or Document Structure</title>
+      <para lang="en">To view bookmarks or pages, perform the following steps:
+      </para>
+      <orderedlist>
+        <listitem>
+          <para lang="en">
+	    Choose <menuchoice> <guimenu>View</guimenu> <guimenuitem>Sidebar</guimenuitem> </menuchoice> or press <keycap>F9</keycap>.
+          </para>
+        </listitem>
+        <listitem>
+          <para lang="en">
+	    Use the drop-down list in the side-pane header to select whether to display document structure or pages in the side pane.
+          </para>
+        </listitem>
+        <listitem>
+          <para lang="en">
+	    Use the side-pane scrollbars to display the required item or page in the side pane.
+          </para>
+        </listitem>
+        <listitem>
+          <para lang="en">Click on an entry to navigate to that location in the document. Click on a page to navigate to that page in the document.</para>
+        </listitem>
+      </orderedlist>
+    </sect2> 
+
+    <sect2 id="atril-view-properties">
+      <title lang="en">To View the Properties of a Document</title>
+      <para lang="en">To view the properties of a document, choose 
+        <menuchoice>
+          <guimenu>File</guimenu>
+          <guimenuitem>Properties</guimenuitem>
+        </menuchoice>. 
+      </para>
+      <para lang="en">
+        The <guilabel>Properties</guilabel> dialog displays all information available
+      </para>
+    </sect2>
+
+    <sect2 id="atril-print-file">
+      <title lang="en">To Print a Document</title>
+      <para lang="en">
+        To print a Document, choose <menuchoice> <guimenu>File</guimenu> <guimenuitem>Print</guimenuitem> </menuchoice>.
+      </para>
+      <note>
+        <para lang="en">
+          If you cannot choose the <guimenuitem>Print</guimenuitem> menu item, the author of the document has disabled the print option for this document. To enable the print option, you must enter the master password when you open the document. See <xref linkend="atril-password"/> for more information about password-protected files.
+        </para>
+      </note>
+      <para lang="en">
+        The <guilabel>Print</guilabel> dialog has the following tabbed sections:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para lang="en">
+            <link linkend="print-dialog-job">Job</link>
+          </para>
+        </listitem>
+        <listitem>
+          <para><link linkend="print-dialog-printer">Yazıcı</link></para>
+        </listitem>
+        <listitem>
+          <para lang="en">
+            <link linkend="print-dialog-paper">Paper</link>
+          </para>
+        </listitem>
+      </itemizedlist>
+
+      <sect3 id="print-dialog-job">
+      <title>İş</title>
+	<variablelist>
+	  <varlistentry> <term lang="en"><guilabel>Print range</guilabel> </term> 
+	    <listitem> 
+	      <para lang="en">Select one of the following options to determine how many pages to print:</para>
+	      <itemizedlist>
+		<listitem>
+		  <para lang="en"><guilabel>All</guilabel></para>
+		  <para lang="en">Select this option to print all of the pages in the document.</para>
+		</listitem>
+		<listitem>
+		  <para lang="en"><guilabel>Pages From</guilabel></para>
+		  <para lang="en">Select this option to print the selected range of pages in the document. Use the spin boxes to specify the first page and last page of the range.
+                  </para>
+		</listitem>							
+	      </itemizedlist>
+	    </listitem>
+	  </varlistentry>
+        </variablelist>  
+      </sect3>
+		
+	<sect3 id="print-dialog-printer">
+	<title>Yazıcı</title>
+	<variablelist>
+	  <varlistentry> <term lang="en"><guilabel>Printer</guilabel> </term> 
+	    <listitem> 
+	      <para lang="en">Use this drop-down list to select the printer to which you want to print the document.</para>
+              <note>
+              <para lang="en">
+                The <guilabel>Create a PDF document</guilabel> option is not supported in this version of <application>Atril Document Viewer</application>.
+              </para>
+              </note>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Ayarlar</guilabel></term> 
+	    <listitem> 
+	      <para lang="en">Use this drop-down list to select the printer settings. 
+              </para>
+	      <para lang="en">To configure the printer, click <guibutton>Configure</guibutton>. For example, you can enable or disable duplex printing, or schedule delayed printing, if this functionality is supported by the printer.
+              </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Konum</guilabel></term> 
+	    <listitem> 
+	      <para lang="en">
+                Use this drop-down list to select one of the following print destinations: 
+	      </para>
+	      <variablelist>
+	        <varlistentry>
+	          <term lang="en"><guilabel>CUPS</guilabel></term>
+	          <listitem>
+	            <para lang="en">
+                      Print the document to a CUPS printer. 
+	            </para>
+	            <note>
+	              <para lang="en">
+                        If the selected printer is a CUPS printer, <guilabel>CUPS</guilabel> is the only entry in this drop-down list. 
+	              </para>
+	            </note>
+	          </listitem>
+	        </varlistentry>
+	        <varlistentry>
+	          <term lang="en"><guilabel>lpr</guilabel></term>
+	          <listitem>
+	            <para lang="en">
+                      Print the document to a printer. 
+	            </para>
+	          </listitem>
+	        </varlistentry>
+	        <varlistentry>
+	          <term><guilabel>Dosya</guilabel></term>
+	          <listitem>
+	            <para lang="en">
+                      Print the document to a PostScript file. 
+	            </para>
+	            <para lang="en">
+                      Click <guibutton>Save As</guibutton> to display a dialog where you specify the name and location of the PostScript file.
+	            </para>
+	          </listitem>
+	        </varlistentry>
+	        <varlistentry>
+	          <term lang="en"><guilabel>Custom</guilabel></term>
+	          <listitem>
+	            <para lang="en">
+                      Use the specified command to print the document.
+	            </para>
+	            <para lang="en">
+                      Type the name of the command in the text box. Include all command-line arguments.
+	            </para>
+	          </listitem>
+	        </varlistentry>
+	      </variablelist>
+            </listitem>
+	  </varlistentry>
+	  <varlistentry> <term lang="en"><guilabel>State</guilabel> </term> 
+	    <listitem> 
+	      <para lang="en">This functionality is not supported in this version of <application>Atril Document Viewer</application>.
+              </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term><guilabel>Tür</guilabel></term> 
+	    <listitem> 
+	      <para lang="en">This functionality is not supported in this version of <application>Atril Document Viewer</application>.
+              </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term lang="en"><guilabel>Comment</guilabel> </term> 
+	    <listitem> 
+	      <para lang="en">This functionality is not supported in this version of <application>Atril Document Viewer</application>.
+              </para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+	</sect3>
+		
+	<sect3 id="print-dialog-paper">
+	<title lang="en">Paper</title>
+	<variablelist>
+	  <varlistentry> <term lang="en"><guilabel>Paper size</guilabel> </term> 
+	    <listitem> 
+	      <para lang="en">Use this drop-down list to select the size of the paper to which you want to print the document.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term lang="en"><guilabel>Width</guilabel> </term> 
+	    <listitem> 
+	      <para lang="en">Use this spin box to specify the width of the paper. Use the adjacent drop-down list to change the measurement unit.</para>
+	    </listitem>
+	  </varlistentry>
+	    <varlistentry> <term lang="en"><guilabel>Height</guilabel> </term> 
+	    <listitem> 
+	      <para lang="en">Use this spin box to specify the height of the paper.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term lang="en"><guilabel>Feed orientation</guilabel> </term> 
+	    <listitem> 
+	      <para lang="en">Use this drop-down list to select the orientation of the paper in the printer.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term lang="en"><guilabel>Page orientation</guilabel> </term> 
+	    <listitem> 
+	      <para lang="en">Use this drop-down list to select the page orientation.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term lang="en"><guilabel>Layout</guilabel> </term> 
+	    <listitem> 
+	      <para lang="en">Use this drop-down list to select the page layout. A preview of each layout that you select is displayed in the <guilabel>Preview</guilabel> area.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry> <term lang="en"><guilabel>Paper Tray</guilabel> </term> 
+	    <listitem> 
+	      <para lang="en">Use this drop-down list to select the paper tray.
+              </para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </sect3>
+    </sect2>
+
+    <!-- ================ Usage Subsection ================================ -->
+    <sect2 id="atril-copy-file"> 
+      <title lang="en">To Copy a Document</title> 
+      <para lang="en">To copy a file, perform the following steps:
+      </para>
+      <orderedlist>
+        <listitem>
+          <para lang="en">
+            Choose <menuchoice> <guimenu>File</guimenu> <guimenuitem>Save a Copy</guimenuitem> </menuchoice>. 
+          </para> 
+        </listitem>
+        <listitem>
+          <para lang="en"> 
+            Type the new filename in the <guilabel>Filename</guilabel> text box in the <guilabel>Save a Copy</guilabel> dialog.
+          </para> 
+          <para lang="en"> 
+            If necessary, specify the location of the copied document. By default, copies are saved in your home directory.
+          </para> 
+        </listitem>
+        <listitem>
+          <para lang="en"> 
+            Click <guibutton>Save</guibutton>.
+          </para> 
+        </listitem>
+      </orderedlist>
+    </sect2>
+
+    <!-- this id must be kept in sync with atril-persist-file.cc/atril-persist-stream.cc -->
+    <sect2 id="atril-password">
+      <title lang="en">To Work With Password-Protected Documents</title>
+      <para lang="en">
+        An author can use the following password levels to protect a document:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para lang="en">User password that allows others only to read the document.
+          </para>
+        </listitem>        
+        <listitem>
+          <para lang="en">Master password that allows others to perform additional actions, such as print the document.
+          </para>
+        </listitem>        
+      </itemizedlist>
+      <para lang="en">
+        When you try to open a password-protected document, <application>Atril Document Viewer</application> displays a security dialog. Type either the user password or the master password in the <guilabel>Enter document password</guilabel> text box, then click <guibutton>Open Document</guibutton>.
+      </para>
+    </sect2>
+
+    <!-- ================ Usage Subsection ================================ -->
+    <sect2 id="atril-close-file"> 
+      <title lang="en">To Close a Document</title> 
+      <para lang="en">To close a document, choose <menuchoice> <guimenu>File</guimenu> <guimenuitem>Close</guimenuitem> </menuchoice>. 
+      </para> 
+      <para lang="en"> 
+        If the window is the last <application>Atril Document Viewer</application> window open, the application exits.
+      </para> 
+    </sect2> 
+
+  </sect1>
+
+  <!-- ================ Shortcuts ================================ -->
+  <sect1 id="atril-shortcuts"> 
+    <title lang="en">Shortcuts</title> 
+    <para lang="en">Below is a list of all shortcuts present in <application>Atril Document Viewer</application>:</para>
+    <informaltable frame="all">
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="COLSPEC0" colwidth="50*"/>
+        <colspec colname="COLSPEC1" colwidth="50*"/>
+        <thead>
+          <row valign="top">
+            <entry colname="COLSPEC0">
+            <para>Kısayol</para></entry>
+            <entry colname="COLSPEC1" align="left"> 
+            <para>Eylem</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row valign="middle">               
+            <entry><para lang="en"><keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo></para></entry>
+            <entry><para>Mevcut bir belgeyi aç</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo></para></entry>
+            <entry><para>Mevcut belgenin bir kopyasını kaydet</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></para></entry>
+            <entry><para lang="en">Print document</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></para></entry>
+            <entry><para>Pencereyi kapat</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo></para></entry>
+            <entry><para lang="en">Copy selection</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></para></entry>
+            <entry><para>Tümünü Seç</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+              <para lang="en"><keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo></para>
+              <para lang="en"><keycap>/</keycap> (slash)</para>
+            </entry>
+            <entry><para>Doküman içinde kelime ya da deyim ara</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+              <para lang="en"><keycombo><keycap>Ctrl</keycap><keycap>G</keycap></keycombo></para>
+              <para lang="en"><keycap>F3</keycap></para> 
+            </entry>
+            <entry><para lang="en">Find next</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+              <para lang="en"><keycombo><keycap>Ctrl</keycap><keycap>+</keycap></keycombo> (plus sign)</para>
+              <para lang="en"><keycap>+</keycap></para>
+              <para lang="en"><keycap>=</keycap></para>
+            </entry>
+            <entry><para>Yakınlaştır</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+              <para lang="en"><keycombo><keycap>Ctrl</keycap><keycap>-</keycap></keycombo> (minus sign)</para>
+              <para lang="en"><keycap>-</keycap></para>
+            </entry>
+            <entry><para>Uzaklaştır</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></para></entry>
+            <entry><para>Belgeyi yeniden yükle</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+            <para lang="en"><keycap>Page Up</keycap></para></entry>
+            <entry><para>Önceki sayfaya git</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycap>Page Down</keycap></para></entry>
+            <entry><para>Sonraki sayfaya git</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+              <para lang="en"><keycap>Space</keycap></para>
+              <para lang="en"><keycombo><keycap>Shift</keycap><keycap>Backspace</keycap></keycombo></para>
+              <para lang="en"><keycap>Return</keycap></para>
+            </entry>
+            <entry><para lang="en">Scroll forward</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+              <para lang="en"><keycombo><keycap>Shift</keycap><keycap>Space</keycap></keycombo></para>
+              <para lang="en"><keycap>Backspace</keycap></para>
+              <para lang="en"><keycombo><keycap>Shift</keycap><keycap>Return</keycap></keycombo></para>
+            </entry>
+            <entry><para lang="en">Scroll backward</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry>
+            <para lang="en"><keycombo><keycap>Shift</keycap><keycap>Page Up</keycap></keycombo></para></entry>
+            <entry><para lang="en">Go a bunch of pages up</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycombo><keycap>Shift</keycap><keycap>Page Down</keycap></keycombo></para></entry>
+            <entry><para lang="en">Go a bunch of pages down</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycap>Home</keycap></para></entry>
+            <entry><para>İlk sayfaya git</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycap>End</keycap></para></entry>
+            <entry><para>Son sayfaya git</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycombo><keycap>Ctrl</keycap><keycap>L</keycap></keycombo></para></entry>
+            <entry><para lang="en">Go to page by number or label</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para><keycap>F1</keycap></para></entry>
+            <entry><para>Yardım</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycap>F5</keycap></para></entry>
+            <entry><para lang="en">Run document as presentation</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycap>F9</keycap></para></entry>
+            <entry><para>Yan paneli göster ya da gizle</para></entry>
+          </row>
+          <row valign="middle">               
+            <entry><para lang="en"><keycap>F11</keycap></para></entry>
+            <entry><para>Tam ekran kipini aç veya kapat</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </sect1>
+
+</article>
