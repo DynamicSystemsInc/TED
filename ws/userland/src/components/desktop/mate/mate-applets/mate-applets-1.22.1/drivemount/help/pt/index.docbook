@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY appversion "1.10.2">
+<!ENTITY manrevision "2.12">
+<!ENTITY date "July 2015">
+<!ENTITY app "<application>Disk Mounter</application>">
+<!ENTITY applet "Disk Mounter">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="pt">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual do Montador de Discos</title>
+    <abstract role="description">
+      <para>A mini-aplicação Montador de Discos permite montar e desmontar vários tipos de drives e sistemas de ficheiros de um painel.</para>
+    </abstract>
+    <copyright lang="en">
+      <year>2019</year>
+      <holder>MATE Documentation Project</holder>
+    </copyright>
+    <copyright><year>2005</year> <holder>Trent Lloyd</holder></copyright>
+    <copyright><year>2004</year> <holder>Sun Microsystems</holder></copyright>
+    <copyright><year>2002</year> <holder>John Fleck</holder></copyright> 
+    <copyright><year>2000</year> <holder>Dan Mueth</holder></copyright>
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+    <publisher role="maintainer"> 
+      <publishername>Projeto de Documentação do MATE</publishername> 
+    </publisher> 
+    <publisher>
+      <publishername>Projecto de Documentação do GNOME</publishername>
+    </publisher>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <authorgroup> 
+      <author><firstname>Equipa de Documentação MATE</firstname> <surname/> <affiliation> <orgname>MATE Desktop</orgname> </affiliation></author>
+      <author><firstname>Trent</firstname> <surname>Lloyd</surname> <affiliation> <orgname>Projeto de Documentação GNOME</orgname> <address><email>lathiat@bur.st</email></address> </affiliation></author>
+      <author><firstname>Sun</firstname> <surname>GNOME Documentation Team</surname> <affiliation><orgname>Sun Microsystems</orgname></affiliation></author>
+      <author><firstname>John </firstname> <surname> Fleck</surname> <affiliation> <orgname>Projeto de Documentação GNOME</orgname> <address> <email>jfleck@inkstain.net</email> </address> </affiliation></author> 
+      <author><firstname>Dan </firstname> <surname> Mueth</surname> <affiliation> <orgname>Projeto de Documentação GNOME</orgname> <address> <email>muet@alumni.uchicago.edu</email> </address> </affiliation></author> 
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+	<firstname>Latin</firstname> 
+	<surname>Translator 1</surname> 
+	<affiliation> 
+	  <orgname>Latin Translation Team</orgname> 
+	  <address> <email>translator@gnome.org</email> </address> 
+	</affiliation>
+	<contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+	
+	<releaseinfo revision="1.10.2" role="review"/>
+
+
+    <revhistory>
+      <revision><revnumber>Manual da Mini-Aplicação Montador de Discos V2.12</revnumber> <date>Julho de 2015</date> <revdescription> 
+          <para role="author">Equipa de Documentação do MATE</para>
+          <para role="publisher">Projeto de Documentação do MATE</para>
+	</revdescription></revision> 
+      <revision><revnumber>Manual da Mini-Aplicação Montador de Discos V2.11</revnumber> <date>Julho de 2015</date> <revdescription>
+          <para role="author">Trent Lloyd</para>
+          <para role="publisher">Projecto de Documentação do GNOME</para>
+	</revdescription></revision>
+      <revision><revnumber>Manual da Mini-Aplicação Montador de Discos V2.10</revnumber> <date>Fevereiro 2004</date> <revdescription> 
+          <para role="author">Equipa de Documentação Sun GNOME</para>
+          <para role="publisher">Projecto de Documentação do GNOME</para>
+	</revdescription></revision> 
+      <revision><revnumber>Manual da Mini-Aplicação Montador de Discos V2.0</revnumber> <date>Março 2002</date> <revdescription> 
+	  <para role="author">John Fleck <email>jfleck@inkstain.net</email></para>
+	  <para role="publisher">Projecto de Documentação do GNOME</para>
+	</revdescription></revision> 
+      <revision><revnumber>Manual da Mini-Aplicação Montador de Drives</revnumber> <date>Abril de 2000</date> <revdescription> 
+	  <para role="author">Dan Mueth <email>muet@alumni.uchicago.edu</email></para>
+	  <para role="publisher">Projecto de Documentação do GNOME</para>
+	</revdescription></revision> 
+    </revhistory> 
+
+    <releaseinfo>Este manual descreve a versão 1.10.2 do Montador de Discos.</releaseinfo>
+    <legalnotice>
+      <title>Opinião</title>
+      <para>Para reportar um erro ou fazer uma sugestão sobre o <application>Montador de Discos</application> ou sobre este manual, siga as indicações na <ulink url="help:mate-user-guide/feedback" type="help">Página de Opiniões do MATE</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo> 
+
+  <indexterm zone="index"><primary>Montador de Discos</primary></indexterm> 
+  
+
+  <!-- ============= Introduction  ================================ -->
+  <sect1 id="drivemountapplet-intro">
+    <title>Introdução</title>
+
+    <figure id="drivemountapplet-fig"> 
+      <title>Montador de Discos</title>
+      <screenshot> 
+        <mediaobject><imageobject><imagedata fileref="figures/drivemount-applet_example.png" format="PNG"/> </imageobject> <textobject> <phrase>A mini-aplicação Montador de Discos.</phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure>
+
+    <para>O <application>Montador de Discos</application> permite montar e desmontar rapidamente vários tipos de unidades de armazenamento e sistemas de ficheiros.</para>
+    <para>Para que o <application>Montador de Discos</application> funcione corretamente, o seu administrador de sistema tem de configurar o seu sistema de forma apropriada. Veja o <ulink url="man:fstab" type="man"><citerefentry><refentrytitle>fstab</refentrytitle><manvolnum>5</manvolnum></citerefentry></ulink> para saber mais informações sobre as tarefas de administração do sistema necessárias.</para>
+
+    <sect2 id="drivemount-intro-add">
+      <title>Para Adicionar o Montador de Discos a um Painel</title>
+      <para>Para adicionar o <application>Montador de Discos</application> a um painel, realize os seguintes passos:</para>
+      <orderedlist>
+        <listitem>
+          <para>Clique com o botão direito do rato no painel.</para>
+        </listitem>
+        <listitem>
+          <para>Escolha <guimenuitem>Adicionar ao Painel</guimenuitem>.</para>
+        </listitem>
+        <listitem>
+          <para>Deslize para baixo a lista de itens na janela de <guilabel>Adicionar ao Painel</guilabel> e então selecionar <guilabel>Montador de Discos</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Clique em <guibutton>Adicionar</guibutton>.</para>
+        </listitem>
+      </orderedlist>
+    </sect2>
+ 
+    <sect2 id="drivemount-intro-mount">
+      <title>Montar e Desmontar Manualmente Sistemas de Ficheiros</title>
+      <para>Muitos sistemas de ficheiros em Linux e outros sistemas do tipo Unix têm de ser montados e desmontados manualmente.</para>
+      <para>Quando um sistema de ficheiros é montado, pode ler e gravar para o sistema de ficheiros. Quando termina o trabalho num sistema de ficheiros, deve desmontar esse sistema de ficheiros.</para>
+      <para>Deve desmontar unidades de armazenamento removíveis, como disquetes e disquetes Zip, antes de remover a unidade de armazenamento, porque o Linux e sistemas do tipo Unix muitas vezes não gravam as alterações imediatamente. Tais sistemas gravam em ficheiros temporários (buffer) as alterações a fazer no disco rígido interno antes de gravar na unidade externa, por forma a melhorar o desempenho do sistema.</para>
+      <para>As partições em unidades de armazenamento fixas, como as do seu disco rígido, são normalmente montadas automaticamente quando o seu computador é ligado, e é desmontado quando este é desligado. As unidades de armazenamento removíveis tem de ser montada e desmontada manualmente, por exemplo utilizando a aplicação <application>Montador de Discos</application>.</para>
+      <para>Alguns sistemas podem também montar automaticamente algumas unidades de armazenamento removíveis (como os discos ligados por  USB ou IEEE1394). Estes dispositivos também podem ter o <application>Montador de Discos</application> para que possa desmontá-las quando terminar de as usar e fornecem um indicador visual de ques estão presentes.</para>
+    </sect2>
+
+  </sect1>
+
+  <!-- ============= Usage  ================================ -->
+  <sect1 id="drivemount-usage">
+    <title>Utilização</title>
+
+    <sect2 id="drivemount-usage-tooltip">
+    <title>Para Mostrar o Nome e o Estado de Montagem de uma Unidade de Armazenamento</title>
+      <para>Para mostrar o nome e o estado de montagem de uma unidade de armazenamento, mova o ponteiro do rato para o ícone da unidade de armazenamento no painel. É mostrada uma dica de contexto que indica o nome e o estado da montagem da unidade de armazenamento.</para>
+      <screenshot><mediaobject><imageobject>
+       <imagedata fileref="figures/drivemount-applet_status.png" format="PNG"/>
+      </imageobject></mediaobject></screenshot>
+    </sect2>
+
+    <sect2 id="drivemount-usage-mount">
+    <title>Para Montar, Desmontar ou Ejetar uma Unidade de Armazenamento</title>
+      <para>Para montar uma unidade de armazenamento, clique no ícone da unidade de armazenamento no painel e então selecione a opção <guimenuitem>Montar Unidade de Armazenamento</guimenuitem> option.</para>
+      <screenshot><mediaobject><imageobject>
+       <imagedata fileref="figures/drivemount-applet_mount.png" format="PNG"/>
+      </imageobject></mediaobject></screenshot>
+      <para>Para desmontar uma unidade de armazenamento, clique no ícone da unidade de armazenamento no painel e então selecione a opção <guimenuitem>Desmontar Unidade de Armazenamento</guimenuitem>, ou se o dispositivo for uma unidade de CD-ROM, pode aparecer como <guimenuitem>Ejetar Unidade de Armazenamento</guimenuitem></para>
+      <screenshot><mediaobject><imageobject>
+       <imagedata fileref="figures/drivemount-applet_eject.png" format="PNG"/>
+      </imageobject></mediaobject></screenshot>
+    </sect2>
+
+    <sect2 id="drivemount-usage-browse">
+    <title>Para Explorar os Conteúdos de uma Unidade de Armazenamento</title>
+      <para>Para usar o gestor de ficheiros para explorar os conteúdos de uma unidade de armazenamento, clique no ícone da unidade de armazenamento e então escolha <guimenuitem>Abrir Unidade de Armazenamento</guimenuitem>.</para>
+      <screenshot><mediaobject><imageobject>
+       <imagedata fileref="figures/drivemount-applet_open.png" format="PNG"/>
+      </imageobject></mediaobject></screenshot>
+      <para>Apenas pode explorar os conteúdos de uma unidade de armazenamento montada.</para>
+    </sect2>
+  </sect1>
+</article>

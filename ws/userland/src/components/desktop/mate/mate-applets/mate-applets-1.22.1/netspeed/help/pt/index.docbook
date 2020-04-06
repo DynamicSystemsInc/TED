@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!ENTITY appletversion "1.10.1">
+<!ENTITY manrevision "1.3">
+<!ENTITY date "July 2015">
+<!ENTITY applet "Netspeed Applet">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the GNOME Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Mar 12, 2002
+  
+-->
+<article id="index" lang="pt">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual da Mini-Aplicação Velocidade da Rede V1.3</title>
+	<abstract role="description">
+      <para>A mini-aplicação Velocidade da Rede mostra a quantidade de tráfego que ocorre num dispositivo de rede específico.</para>
+    </abstract>
+	 <copyright lang="en">
+		<year>2019</year>
+		<holder>MATE Documentation Project</holder> </copyright>
+    <copyright><year>2002</year> <holder>Jörgen Scheibengruber</holder></copyright>
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+-->
+    <publisher role="maintainer">
+      <publishername>Projeto de Documentação do MATE</publishername>
+    </publisher>
+    <publisher> 
+      <publishername>Projecto de Documentação do GNOME</publishername> 
+    </publisher>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+    
+    <authorgroup>
+	  <author role="maintainer"><firstname>Projeto de Documentação do MATE</firstname> <surname/> <affiliation> <orgname>MATE Desktop</orgname> </affiliation></author>
+      <author><firstname>Jörgen</firstname> <surname>Scheibengruber</surname> <affiliation> <orgname>Projeto GNOME</orgname> </affiliation> <email>mfcn@gmx.de</email></author>
+      
+       <author><firstname>Pedro</firstname> <surname>Villavicencio Garrido</surname> <affiliation> <orgname>Projeto GNOME</orgname> </affiliation> <email>pvillavi@gnome.org</email></author>
+<!--  This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+      <othercredit role="translator">
+	<firstname>Latin</firstname> 
+	<surname>Translator 1</surname> 
+	<affiliation> 
+	  <orgname>Latin Translation Team</orgname>
+	  <address> <email>translator@gnome.org</email> </address>
+	</affiliation>
+	<contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+    
+    <revhistory>
+
+	<revision><revnumber>1.3</revnumber> <date>Julho de 2015</date> <author>
+	<firstname>MATE Documentation Project</firstname>
+	<surname/>
+    </author></revision>
+
+	<revision><revnumber>1.2</revnumber> <date>2006</date> <author>
+	<firstname>Jörgen</firstname> 
+	<surname>Scheibengruber</surname>
+    <email>mfcn@gmx.de</email>
+    </author></revision>
+
+	<revision><revnumber>1.1</revnumber> <date>2005</date> <author>
+	<firstname>Pedro</firstname>
+	<surname>Villavicencio Garrido</surname>
+    <email>pvillavi@gnome.org</email>
+    </author></revision>
+    
+	<revision><revnumber>1.0</revnumber> <date>2002</date> <author>
+	<firstname>Jörgen</firstname> 
+	<surname>Scheibengruber</surname>
+    <email>mfcn@gmx.de</email>
+    </author></revision>
+    
+	</revhistory>
+    
+	<releaseinfo>Este manual descreve a versão 1.10.1 da Mini-Aplicação Velocidade da Rede.</releaseinfo>
+    <legalnotice>
+      <title>Opinião</title>
+      <para>Para reportar um erro ou fazer uma sugestão sobre a aplicação 'Velocidade da Rede' ou sobre este manual, siga as indicações na <ulink url="help:mate-user-guide/feedback" type="help">Página de Opiniões do MATE</ulink>.</para>
+
+<!-- Translators may also add here feedback address for translations -->
+
+    </legalnotice>
+  </articleinfo>
+  <indexterm><primary>Mini-Aplicação Velocidade da Rede</primary></indexterm>
+
+<!-- ============= Document Body ============================= -->
+<sect1 id="netspeed_applet-about"> 
+<title>Sobre a Mini-Aplicação Velocidade da Rede</title>
+    <figure id="netspeed_applet-fig">
+      <title>Velocidade da Rede</title>
+      <screenshot>
+	<mediaobject><imageobject><imagedata fileref="figures/netspeed_applet.png" format="PNG"/> </imageobject> <textobject> <phrase>Velocidade da Rede.</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <figure id="netspeed_applet-fig2">
+      <title>'Velocidade da Rede' a mostrar a soma num painel de 48px.</title>
+      <screenshot>
+	<mediaobject><imageobject><imagedata fileref="figures/eth_sum_48.png" format="PNG"/> </imageobject> <textobject> <phrase>'Velocidade da Rede' a mostrar a soma num painel de 48px.</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <para>O <application>Velocidade da Rede</application> mostra o tráfego na rede num dispositivo específico como eth0, ppp0, plip0, etc. Para alem disso fornece informação sobre a configuração do dispositivo de rede.</para>
+    <sect2 id="netspeed-introduction-icons">	
+      <title>Ícones do Velocidade da Rede no Painel</title>
+      <informaltable frame="all">
+	<tgroup cols="2" colsep="1" rowsep="1">
+	  <colspec colname="COLSPEC0" colwidth="50*"/>
+	  <colspec colname="COLSPEC1" colwidth="50*"/>
+	  <thead>
+	    <row valign="top">
+	      <entry colname="COLSPEC0"><para>Ícone</para></entry>
+	      <entry colname="COLSPEC1"><para>Descrição</para></entry>
+	    </row>
+	  </thead>
+	  <tbody>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/loopback.png" format="PNG"/> </imageobject><textobject> <phrase>Loopback</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>A interface Loopback.</para></entry>
+	    </row>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/ethernet.png" format="PNG"/> </imageobject><textobject> <phrase>Ethernet</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Ligação Ethernet.</para></entry>
+	    </row>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/ppp.png" format="PNG"/> </imageobject><textobject> <phrase>PPP</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Ligação Ponto-a-Ponto.</para></entry>
+	    </row>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/wavelan.png" format="PNG"/> </imageobject><textobject> <phrase>Sem Fios</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Ligação Sem Fios</para></entry>
+	    </row>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/plip.png" format="PNG"/> </imageobject><textobject> <phrase>PLIP</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Ligação do Protocolo de Internet de Linha Paralela.</para></entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </informaltable>
+    </sect2>
+    <sect2>
+      <title>Para adicionar a mini-aplicação Velocidade da Rede a um Painel.</title>
+      <para>Para adicionar a <application>mini-aplicação Velocidade da Rede</application> a um painel, realize os seguintes passos:</para>
+      <orderedlist>
+        <listitem>
+          <para>Clique com o botão direito do rato no painel.</para>
+        </listitem>
+        <listitem>
+          <para>Escolha <guimenuitem>Adicionar ao Painel</guimenuitem>.</para>
+        </listitem>
+        <listitem>
+          <para>Deslize para baixo na lista de itens na janela <guilabel>Adicionar ao Painel</guilabel> e depois selecione <guilabel>mini-aplicação Velocidade da Rede</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Clique em <guibutton>Adicionar</guibutton>.</para>
+        </listitem>
+      </orderedlist>
+    </sect2>
+  </sect1>
+  <sect1 id="netspeed_applet-settings"> 
+    <title>Definições</title>
+    <figure id="netspeed_applet_settings-fig">
+      <title>Definições da Mini-Aplicação Velocidade da Rede</title>
+      <screenshot>
+	<mediaobject><imageobject><imagedata fileref="figures/settings.png" format="PNG"/> </imageobject> <textobject> <phrase>Definições da Mini-Aplicação Velocidade da Rede.</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <para>Nesta janela pode alterar as configurações da mini-aplicação Velocidade da Rede:</para>
+    <itemizedlist mark="bullet">
+      <listitem><para><guilabel>Dispositivo de Rede:</guilabel> escolha o dispositivo de rede que a mini-aplicação deve monitorizar na lista deslizante da caixa de combinação. Normalmente são mostrados todos os dispositivos disponíveis, no entanto, também pode adicionar um se assim o quiser.</para></listitem>
+      <listitem><para><guilabel>Intervalo de atualização:</guilabel> introduza o tempo entre 2 atualizações da mini-aplicação.</para></listitem>
+      <listitem><para><guilabel>Tamanho do tipo de letra da etiqueta:</guilabel> introduza o tamanho do texto mostrado na mini-aplicação.</para></listitem>
+      <listitem><para><guilabel>Mostrar soma em vez de entrada e saída:</guilabel> se ativar esta caixa a mini-aplicação irá mostrar a soma do valor de entrada e saída. Neste caso a mini-aplicação irá ocupar apenas metade do espaço no painel.</para></listitem>
+      <listitem><para><guilabel>Mostrar bits (b/s) em vez de bytes (B/s):</guilabel> ative isto se quiser que a mini-aplicação mostre a velocidade em bits por segundo em vez de bytes por segundo.</para></listitem>
+      <listitem><para><guilabel>Alterar o ícone de acordo com o dispositivo selecionado:</guilabel> Normalmente a mini-aplicação irá mostrar um ícone representando o tipo de dispositivo de rede. Mostra um telefone para ligações Ponto-a-Ponto (ppp - modems, etc.), uma placa de rede para Ethernet (eth), etc. Quando isto está desativado, a mini-aplicação irá mostrar sempre o ícone da placa de rede, independentemente do dispositivo a monitorizar.</para></listitem>
+      <listitem><para><guilabel>Monitorizar sempre um dispositivo ligado, se possível:</guilabel> quando a sua ligação estiver desligada, a mini-aplicação de Velocidade da Rede irá procurar por uma que esteja a ser executada para monitorizar.</para></listitem>
+    </itemizedlist> 
+  </sect1>
+  <sect1 id="netspeed_applet-details"> 
+    <title>A janela de detalhes</title>
+    <figure id="netspeed_applet_details-fig">
+      <title>A janela de detalhes</title>
+      <screenshot>
+	<mediaobject><imageobject><imagedata fileref="figures/details.png" format="PNG"/> </imageobject> <textobject> <phrase>A janela de detalhes</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <para>Esta janela mostra alguma informação útil sobre a configuração do dispositivo de rede.</para>
+    <itemizedlist mark="bullet">
+      <listitem><para><guilabel>Endereço na Internet:</guilabel> o endereço IP (Protocolo de Internet) do dispositivo de rede.</para></listitem>
+      <listitem><para><guilabel>Máscara de rede:</guilabel> a máscara de rede que depende do tamanho da sua LAN (Rede de Área Local). O valor usual é 255.255.255.0 (uma rede da classe C).</para></listitem>
+      <listitem><para><guilabel>Endereço de Equipamento (hardware):</guilabel> por vezes também chamado de endereço físico ou endereço MAC (Controlo do Acesso a Media). Um identificador mundial da sua placa de rede.</para></listitem>
+      <listitem><para><guilabel>Endereço P-a-P:</guilabel> o endereço de Internet para o "outro lado" da sua ligação PPP (Protocolo Ponto-a-Ponto).</para></listitem>
+      <listitem><para><guilabel>Entrada em Bytes:</guilabel> a quantidade de bytes que o dispositivo de rede recebeu desde que foi ligado à rede.</para></listitem>
+      <listitem><para><guilabel>Saída em Bytes:</guilabel>  a quantidade de bytes que o dispositivo de rede enviou desde que foi ligado à rede.</para></listitem>
+    </itemizedlist> 
+  </sect1>  
+</article>

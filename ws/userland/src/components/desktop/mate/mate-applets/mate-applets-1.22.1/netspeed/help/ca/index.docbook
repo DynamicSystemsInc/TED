@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!ENTITY appletversion "1.10.1">
+<!ENTITY manrevision "1.3">
+<!ENTITY date "July 2015">
+<!ENTITY applet "Netspeed Applet">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the GNOME Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Mar 12, 2002
+  
+-->
+<article id="index" lang="ca">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Versió 1.3 del manual de la miniaplicació Netspeed</title>
+	<abstract role="description">
+      <para>La miniaplicació Netspeed mostra la quantitat de trànsit que es produeix en un dispositiu concret de xarxa.</para>
+    </abstract>
+	 <copyright lang="en">
+		<year>2019</year>
+		<holder>MATE Documentation Project</holder> </copyright>
+    <copyright><year>2002</year> <holder>Jörgen Scheibengruber</holder></copyright>
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+-->
+    <publisher role="maintainer">
+      <publishername>Projecte de documentació de MATE</publishername>
+    </publisher>
+    <publisher> 
+      <publishername>Projecte de documentació de GNOME</publishername> 
+    </publisher>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+    
+    <authorgroup>
+	  <author role="maintainer"><firstname>Projecte de documentació de MATE</firstname> <surname/> <affiliation> <orgname>Escriptori MATE</orgname> </affiliation></author>
+      <author><firstname>Jörgen</firstname> <surname>Scheibengruber</surname> <affiliation> <orgname>Projecte GNOME</orgname> </affiliation> <email>mfcn@gmx.de</email></author>
+      
+       <author><firstname>Pedro</firstname> <surname>Villavicencio Garrido</surname> <affiliation> <orgname>Projecte GNOME</orgname> </affiliation> <email>pvillavi@gnome.org</email></author>
+<!--  This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+      <othercredit role="translator">
+	<firstname>Latin</firstname> 
+	<surname>Translator 1</surname> 
+	<affiliation> 
+	  <orgname>Latin Translation Team</orgname>
+	  <address> <email>translator@gnome.org</email> </address>
+	</affiliation>
+	<contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+    
+    <revhistory>
+
+	<revision><revnumber>1.3</revnumber> <date>Juliol de 2015</date> <author>
+	<firstname>MATE Documentation Project</firstname>
+	<surname/>
+    </author></revision>
+
+	<revision><revnumber>1.2</revnumber> <date>2006</date> <author>
+	<firstname>Jörgen</firstname> 
+	<surname>Scheibengruber</surname>
+    <email>mfcn@gmx.de</email>
+    </author></revision>
+
+	<revision><revnumber>1.1</revnumber> <date>2005</date> <author>
+	<firstname>Pedro</firstname>
+	<surname>Villavicencio Garrido</surname>
+    <email>pvillavi@gnome.org</email>
+    </author></revision>
+    
+	<revision><revnumber>1.0</revnumber> <date>2002</date> <author>
+	<firstname>Jörgen</firstname> 
+	<surname>Scheibengruber</surname>
+    <email>mfcn@gmx.de</email>
+    </author></revision>
+    
+	</revhistory>
+    
+	<releaseinfo>Aquest manual descriu la versió 1.10.1 de la miniaplicació Netspeed.</releaseinfo>
+    <legalnotice>
+      <title>Retroacció</title>
+      <para>Per informar d'un error o fer un suggeriment sobre la miniaplicació Netspeed o d'aquest manual, seguiu les instruccions de la <ulink url="help:mate-user-guide/feedback" type="help">pàgina de retroacció de MATE</ulink>.</para>
+
+<!-- Translators may also add here feedback address for translations -->
+
+    </legalnotice>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Robert Antoni Buj Gelonch</firstname>
+      </personname>
+      <email>rbuj@fedoraproject.org</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2018</year>
+      
+        <year>2019</year>
+      
+      <holder>Robert Antoni Buj Gelonch</holder>
+    </copyright>
+  </articleinfo>
+  <indexterm><primary>Miniaplicació Netspeed</primary></indexterm>
+
+<!-- ============= Document Body ============================= -->
+<sect1 id="netspeed_applet-about"> 
+<title>Quant a la miniaplicació Netspeed</title>
+    <figure id="netspeed_applet-fig">
+      <title>Netspeed</title>
+      <screenshot>
+	<mediaobject><imageobject><imagedata fileref="figures/netspeed_applet.png" format="PNG"/> </imageobject> <textobject> <phrase>Netspeed.</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <figure id="netspeed_applet-fig2">
+      <title>Netspeed mostrant la suma en un tauler de 48 píxels.</title>
+      <screenshot>
+	<mediaobject><imageobject><imagedata fileref="figures/eth_sum_48.png" format="PNG"/> </imageobject> <textobject> <phrase>Netspeed mostrant la suma en un tauler de 48 píxels.</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <para>La <application>miniaplicació Netspeed</application> mostra el trànsit de xarxa en un dispositiu concret, com ara eth0, ppp0, plip0, etc. A més, proporciona informació sobre la configuració del dispositiu de xarxa.</para>
+    <sect2 id="netspeed-introduction-icons">	
+      <title>Icones de Netspeed al tauler</title>
+      <informaltable frame="all">
+	<tgroup cols="2" colsep="1" rowsep="1">
+	  <colspec colname="COLSPEC0" colwidth="50*"/>
+	  <colspec colname="COLSPEC1" colwidth="50*"/>
+	  <thead>
+	    <row valign="top">
+	      <entry colname="COLSPEC0"><para>Icona</para></entry>
+	      <entry colname="COLSPEC1"><para>Descripció</para></entry>
+	    </row>
+	  </thead>
+	  <tbody>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/loopback.png" format="PNG"/> </imageobject><textobject> <phrase>Loopback</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>La interfície loopback.</para></entry>
+	    </row>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/ethernet.png" format="PNG"/> </imageobject><textobject> <phrase>Ethernet</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Connexió Ethernet.</para></entry>
+	    </row>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/ppp.png" format="PNG"/> </imageobject><textobject> <phrase>PPP</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Connexió protocol punt a punt.</para></entry>
+	    </row>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/wavelan.png" format="PNG"/> </imageobject><textobject> <phrase>Xarxa sense fil</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Connexió de xarxa sense fil.</para></entry>
+	    </row>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/plip.png" format="PNG"/> </imageobject><textobject> <phrase>PLIP</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Connexió PLIP (Parallel Line Internet Protocol).</para></entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </informaltable>
+    </sect2>
+    <sect2>
+      <title>Com afegir la miniaplicació Netspeed a un tauler</title>
+      <para>Per afegir la <application>miniaplicació Netspeed</application> a un tauler, realitzeu els passos següents:</para>
+      <orderedlist>
+        <listitem>
+          <para>Feu clic dret al tauler.</para>
+        </listitem>
+        <listitem>
+          <para>Trieu <guimenuitem>Afegeix al tauler</guimenuitem>.</para>
+        </listitem>
+        <listitem>
+          <para>Desplaceu-vos cap avall per la llista d'elements del diàleg <guilabel>Afegeix al tauler</guilabel>, i seleccioneu <guilabel>Miniaplicació Netspeed</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Feu clic a <guibutton>Afegeix</guibutton>.</para>
+        </listitem>
+      </orderedlist>
+    </sect2>
+  </sect1>
+  <sect1 id="netspeed_applet-settings"> 
+    <title>Ajusts</title>
+    <figure id="netspeed_applet_settings-fig">
+      <title>Ajusts de la miniaplicació Netspeed</title>
+      <screenshot>
+	<mediaobject><imageobject><imagedata fileref="figures/settings.png" format="PNG"/> </imageobject> <textobject> <phrase>Ajusts de la miniaplicació Netspeed.</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <para>En aquest diàleg, podeu canviar els ajusts de la miniaplicació Netspeed:</para>
+    <itemizedlist mark="bullet">
+      <listitem><para><guilabel>Dispositiu de xarxa:</guilabel> trieu el dispositiu de xarxa que ha de controlar la miniaplicació des de la llista desplegable del quadre de selecció. En general, es mostren tots els dispositius disponibles, però també podeu introduir-ne un.</para></listitem>
+      <listitem><para><guilabel>Interval d'actualització:</guilabel> introduïu el temps entre dues actualitzacions de la miniaplicació.</para></listitem>
+      <listitem><para><guilabel>Mida de la lletra de l'etiqueta:</guilabel> introduïu la mida del text que es mostra a la miniaplicació.</para></listitem>
+      <listitem><para><guilabel>Mostra la suma en lloc de l'entrada i la sortida:</guilabel> si marqueu aquesta casella, la miniaplicació mostrarà la suma de la taxa d'entrada i sortida. En aquest cas, la miniaplicació només ocuparà la meitat de l'espai al tauler.</para></listitem>
+      <listitem><para><guilabel>Mostra bits/s (b/s) en lloc de bytes/s (B/s):</guilabel> marqueu-ho si voleu que la miniaplicació mostri bits per segon en comptes de bytes/s.</para></listitem>
+      <listitem><para><guilabel>Canvia la icona d'acord amb el dispositiu seleccionat:</guilabel> En general, la miniaplicació mostrarà una icona que representa el tipus de dispositiu de xarxa que monitoreu. Per tant, mostrarà un telèfon per a connexions punt a punt (ppp - mòdems, etc.), una targeta de xarxa per a Ethernet (eth), etc. Quan aquesta casella no està marcada, la miniaplicació mostrarà sempre la icona d'una targeta de xarxa, independentment del dispositiu que monitoreu.</para></listitem>
+      <listitem><para><guilabel>Monitora sempre un dispositiu connectat, si és possible:</guilabel> quan la connexió estigui desactivada, la miniaplicació Netspeed en cercarà una d'activa per al monitoratge.</para></listitem>
+    </itemizedlist> 
+  </sect1>
+  <sect1 id="netspeed_applet-details"> 
+    <title>El diàleg dels detalls</title>
+    <figure id="netspeed_applet_details-fig">
+      <title>El diàleg dels detalls</title>
+      <screenshot>
+	<mediaobject><imageobject><imagedata fileref="figures/details.png" format="PNG"/> </imageobject> <textobject> <phrase>El diàleg dels detalls</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <para>Aquest diàleg mostra informació útil sobre la configuració del vostre dispositiu de xarxa.</para>
+    <itemizedlist mark="bullet">
+      <listitem><para><guilabel>Adreça d'Internet:</guilabel> l'adreça IP (Internet Protocol) del dispositiu de xarxa.</para></listitem>
+      <listitem><para><guilabel>Màscara de xarxa:</guilabel> la màscara de xarxa depèn de la mida de la vostra LAN (Local Area Network). Un valor habitual és 255.255.255.0 (una xarxa de classe C).</para></listitem>
+      <listitem><para><guilabel>Adreça de maquinari:</guilabel> sovint també es coneix com adreça física o MAC (Media Access Control). Un identificador únic a nivell mundial per a la vostra targeta de xarxa.</para></listitem>
+      <listitem><para><guilabel>Adreça P-t-P:</guilabel> l'adreça d'Internet de l'altre costat de la vostra connexió PPP (Point to Point Protocol).</para></listitem>
+      <listitem><para><guilabel>Bytes d'entrada:</guilabel> la quantitat de bytes que el dispositiu de xarxa ha rebut des de què s'ha connectat a la xarxa.</para></listitem>
+      <listitem><para><guilabel>Bytes de sortida:</guilabel> la quantitat de bytes que el dispositiu de xarxa ha enviat des de què s'ha connectat a la xarxa.</para></listitem>
+    </itemizedlist> 
+  </sect1>  
+</article>

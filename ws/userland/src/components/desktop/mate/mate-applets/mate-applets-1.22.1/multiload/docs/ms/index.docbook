@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY appletversion "1.10.2">
+<!ENTITY manrevision "2.12">
+<!ENTITY date "July 2015">
+<!ENTITY applet "System Monitor">
+]>
+<!--
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="ms">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo>
+    <title>Panduan Pemantau Sistem</title>
+    <abstract role="description">
+      <para>Pemantau sistem memaparkan maklumat beban sistem berformat grafik di dalam panel.</para>
+    </abstract>
+    <copyright lang="en">
+     <year>2019</year>
+     <holder>MATE Documentation Project</holder>
+    </copyright>
+    <copyright><year>2005</year> <holder>Davyd Madeley</holder></copyright>
+    <copyright><year>2004</year> <holder>Sun Microsystems</holder></copyright>
+    <copyright><year>2003</year> <year>2004</year> <holder>Chee Bin HOH</holder></copyright>
+
+<!-- translators: uncomment this:
+    <copyright>
+    <year>2002</year>
+    <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+    </copyright>
+-->
+
+    <publisher role="maintainer">
+      <publishername>Projek Dokumentasi MATE</publishername>
+    </publisher>
+    <publisher>
+      <publishername>Projek Dokumentasi GNOME</publishername>
+    </publisher>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <authorgroup>
+
+      <author><firstname>Pasukan Dokumentasi MATE</firstname><surname/><affiliation> <orgname>Desktop MATE </orgname> </affiliation></author>
+
+      <author><firstname>Angela</firstname> <surname>Boyle</surname> <affiliation><address> <email>aboyle@aboyle.com</email> </address></affiliation></author>
+
+      <author><firstname>Chee Bin</firstname> <surname>HOH</surname> <affiliation> <orgname>Projek Dokumentasi GNOME</orgname> <address><email>cbhoh@mimos.my</email></address> </affiliation></author>
+
+      <author><firstname>Davyd</firstname><surname>Madeley</surname> <affiliation> <orgname>Projek GNOME</orgname> <address><email>davyd@madeley.id.au</email></address> </affiliation></author>
+
+      <!-- This is appropriate place for other contributors: translators,
+           maintainers,  etc. Commented out by default.
+      <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+	<releaseinfo revision="1.10.2" role="review"/>
+
+    <revhistory>
+      <revision><revnumber>Pemantau Sistem V2.12</revnumber> <date>Julai 2015</date> <revdescription>
+          <para role="author">Pasukan Dokumentasi MATE</para>
+          <para role="publisher">Projek Dokumentasi MATE</para>
+        </revdescription></revision>
+
+      <revision><revnumber>Versi 2.10</revnumber> <date>Mac 2005</date> <revdescription>
+	  <para role="author">Davyd Madeley</para>
+	</revdescription></revision>
+
+      <revision><revnumber>Versi 2.8</revnumber> <date>Ogos 2004</date> <revdescription>
+          <para role="author">Angela Boyle</para>
+          <para role="publisher">Projek Dokumentasi GNOME</para>
+	</revdescription></revision>
+
+      <revision><revnumber>Panduan Aplet Pemantau Sistem V2.1</revnumber> <date>Februari 2004</date> <revdescription>
+          <para role="author">Pasukan Dokumentasi Sun GNOME</para>
+          <para role="publisher">Projek Dokumentasi GNOME</para>
+	</revdescription></revision>
+
+      <revision><revnumber>Panduan Aplet Pemantau Sistem V2.0</revnumber> <date>Julai 2003</date> <revdescription>
+	  <para role="author">Chee Bin HOH <email>cbhoh@mimos.my</email></para>
+	  <para role="publisher">Projek Dokumentasi GNOME</para>
+	</revdescription></revision>
+
+    </revhistory>
+
+    <releaseinfo>Panduan ini menerangkan versi 1.10.2 bagi Pemantau Sistem.</releaseinfo>
+    <legalnotice>
+      <title>Maklumbalas</title>
+      <para>Untuk melaporkan pepijat atau membuat saranan berkenaan aplet Pemantau Sistem atau panduan ini, ikuti arahan di dalam <ulink url="help:mate-user-guide/feedback" type="help">Halaman Maklumbalas MATE</ulink>.</para>
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index"><primary>Aplet Pemantau Sistem</primary></indexterm>
+  <indexterm zone="index"><primary>Pemantau Sistem</primary></indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+  <sect1 id="multiload-introduction">
+    <title>Pengenalan</title>
+
+      <!-- ==== Figure ============================================= -->
+      <figure id="system-monitor-applet-fig">
+        <title>Pemantau Sistem</title>
+        <screenshot>
+        <mediaobject><imageobject><imagedata fileref="figures/system-monitor-applet_window.png" format="PNG"/> </imageobject> <textobject> <phrase>Menunjukkan Paparan Sistem. Paparan graf beban CPU sistem. </phrase> </textobject></mediaobject>
+	</screenshot>
+      </figure>
+      <!-- ==== End of Figure ======================================= -->
+
+      <para><application>Pemantau Sistem</application> memaparkan maklumat beban sistem berformat grafik di dalam panel. Anda boleh konfigur <application>Pemantau Sistem</application> untuk paparkan maklumat berikut bagi sistem anda:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Penggunaan masa CPU (unit pemproses pusat)</para>
+        </listitem>
+        <listitem>
+          <para>Penggunaan ingatan</para>
+        </listitem>
+        <listitem>
+          <para>Trafik rangkaian</para>
+        </listitem>
+        <listitem>
+          <para>Penggunaan ruang silih</para>
+        </listitem>
+        <listitem>
+          <para>Purata beban sistem</para>
+        </listitem>
+	<listitem><para>Beban cakera</para></listitem>
+      </itemizedlist>
+
+    <sect2 id="multiload-introduction-add">
+      <title>Menambah Pemantau Sistem ke dalam Panel</title>
+      <para>Untuk menambah <application>Pemantau Sistem</application> ke dalam panel, buat langkah-langkah berikut:</para>
+      <orderedlist>
+        <listitem>
+          <para>Klik-kanan pada panel.</para>
+        </listitem>
+        <listitem>
+          <para>Pilih <guimenuitem>Tambah ke dalam Panel</guimenuitem>.</para>
+        </listitem>
+        <listitem>
+          <para>Tatal ke bawah senarai item di dalam dialog <guilabel>Tambah ke Panel</guilabel>, kemudian pilih <guilabel>Pemantau Sistem</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik <guibutton>Tambah</guibutton>.</para>
+        </listitem>
+      </orderedlist>
+      <para>Bentangan aplet <application>Pemantau Sistem</application> berbeza kerana mengikut saiz dan jenis panel yang aplet duduki.</para>
+    </sect2>
+
+  </sect1>
+
+<!-- ================ Usage ================================ -->
+<!-- Use this section to describe how to use the applet to perform the tasks for
+     which the applet is designed. -->
+  <sect1 id="multiload-usage">
+    <title>Melihat Graf</title>
+	<!-- ================ displaying addistional graphics======================== -->
+    <sect2 id="multiload-usage-graphs">
+      <title>Memaparkan Graf Tambahan</title>
+      <para>Untuk konfigur aplet <application>Pemantau Sistem</application>, klik-kanan pada aplet, kemudian pilih <guimenuitem>Keutamaan</guimenuitem>. Di bawah <guilabel>Sumber Dipantau</guilabel> anda boleh pilih grafik yang mahu dipaparkan:</para>
+          <itemizedlist>
+            <listitem>
+              <para><guilabel>Pemproses</guilabel></para>
+              <para>Pilih pilihan ini untuk paparkan graf untuk penggunaan CPU.</para>
+            </listitem>
+            <listitem>
+              <para><guilabel>Ingatan</guilabel></para>
+              <para>Pilih pilihan ini untuk paparkan graf untuk penggunaan ingatan.</para>
+            </listitem>
+            <listitem>
+              <para><guilabel>Rangkaian</guilabel></para>
+              <para>Pilih pilihan ini untuk paparkan graf untuk trafik rangkaian.</para>
+            </listitem>
+            <listitem>
+              <para><guilabel>Ruang Silih</guilabel></para>
+              <para>Pilih pilihan ini untuk paparkan graf untuk penggunaan ruang-silih.</para>
+            </listitem>
+            <listitem>
+              <para><guilabel>Beban</guilabel></para>
+              <para>Pilih pilihan ini untuk paparkan graf untuk purata beban sistem.</para>
+            </listitem>
+	    <listitem>
+	     <para><guilabel>Cakera keras</guilabel></para>
+	     <para>Pilih pilihan ini untuk paparkan graf untuk penggunaan cakera.</para>
+	    </listitem>
+          </itemizedlist>
+    </sect2>
+	<!-- ================ displaying current usage of system resources================== -->
+    <sect2 id="multiload-usage-current">
+      <title>Memaparkan Penggunaan Semasa bagi Sumber Sistem</title>
+      <para>Untuk memaparkan penggunaan semasa sumber sistem, letak penuding tetikus di atas graf berkenaan pada aplet. Satu tip alat akan memaparkan penggunaan semasa sebagai peratus.</para>
+    </sect2>
+	<!-- ================ displaying additional info================== -->
+    <sect2 id="multiload-usage-extra">
+      <title>Memaparkan Maklumat Pemantau Sistem Tambahan</title>
+      <para>Untuk memaparkan maklumat pemantau sistem tambahan, klik-kanan pada aplet, kemudian pilih <guimenuitem>Buka Pemantau Sistem</guimenuitem> untuk memulakan aplikasi <application>Pemantau Sistem</application>.</para>
+      <para>Aplikasi <application>Pemantau Sistem</application> membolehkan anda pantau proses sistem dan penggunaan sumber sistem. Anda boleh guna aplikasi <application>Pemantau Sistem</application> untuk mengubahsuai kelakukan sistem anda.</para>
+    </sect2>
+
+  </sect1>
+
+<!-- ============= Preferences =========================== -->
+  <sect1 id="multiload-prefs">
+    <title>Menyuaikan Penampilan</title>
+      <figure id="system-monitor-prefs-fig">
+        <title>Dialog Keutamaan</title>
+        <screenshot>
+        <mediaobject><imageobject><imagedata fileref="figures/multiload-preferences.png" format="PNG"/> </imageobject> <textobject> <phrase>Dialog Keutamaan</phrase> </textobject></mediaobject>
+	</screenshot>
+      </figure>
+    <sect2 id="multiload-size">
+        <title> Mengubah Lebar</title>
+              <para>Dalam menu klik-kanan, pergi ke <guimenuitem>Keutamaan</guimenuitem>. Di bawah <guilabel>Pilihan</guilabel>, guna kota angka <guilabel>Lebar pemantau sistem</guilabel> untuk tentukan lebar bagi setiap graf <application>Pemantau Sistem</application> dalam bentuk piksel.</para>
+  </sect2>
+  <sect2 id="multiload-update">
+        <title>Mengemaskini pada Sela Nalar</title>
+              <para>Dalam menu klik-kanan, pergi ke <guimenuitem>Keutamaan</guimenuitem>. Di bawah <guilabel>Pilihan</guilabel>, guna kota angka Sela <guilabel>kemaskini pemantau sistem</guilabel> untuk tentukan sela kemaskini graf dalam milisaat.</para>
+    </sect2>
+	<!-- ================ changing graph colors======================== -->
+    <sect2 id="multiload-usage-colors">
+      <title>Mengubah Warna dalam Graf</title>
+      <para>Untuk mengubah warna dalam graf, buat langkah-langkah berikut:</para>
+      <orderedlist>
+        <listitem>
+          <para>Klik-kanan pada aplet, kemudian pilih <guimenuitem>Keutamaan</guimenuitem>.</para>
+        </listitem>
+        <listitem>
+          <para>Pilih tab berkaitan di dalam kawasan <guilabel>Warna</guilabel> bagi dialog <guilabel>Keutamaan Pemantau Sistem</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik pada butang pemilih warna berkaitan di dalam seksyen bertab yang dipilih.</para>
+        </listitem>
+        <listitem>
+          <para>Pada dialog <guilabel>Pilih satu Warna</guilabel>, gunakan roda warna atau kotak angka untuk memilih warna garisan bagi parameter terpilih.</para>
+        </listitem>
+        <listitem>
+          <para>Klik <guibutton>OK</guibutton>.</para>
+        </listitem>
+      </orderedlist>
+      <para>Seksyen bertab bagi setiap sumber menyediakan butang pemilihan warna yang anda boleh gunakan untuk mengubah warna parameter bagi setiap sumber.</para>
+          <itemizedlist>
+            <listitem>
+              <para><guilabel>Pemproses</guilabel></para>
+              <para>Pilih tab ini untuk paparkan butang warna bagi parameter berikut:</para>
+              <informaltable frame="all">
+                <tgroup cols="2" colsep="1" rowsep="1">
+                  <colspec colname="COLSPEC0" colwidth="50*"/>
+                  <colspec colname="COLSPEC1" colwidth="50*"/>
+                  <thead>
+                    <row valign="top">
+                      <entry colname="COLSPEC0">
+                        <para>Parameter</para></entry>
+                      <entry colname="COLSPEC1">
+                        <para>Keterangan</para></entry>
+                    </row>
+                  </thead>
+                  <tbody>
+                    <row valign="top">
+                      <entry><para><guilabel>Pengguna</guilabel></para></entry>
+                      <entry><para>Masa pemproses digunakan oleh aktiviti bukan-kernel</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Sistem</guilabel></para></entry>
+                      <entry><para>Masa pemproses digunakan oleh aktiviti kernel</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Elok</guilabel></para></entry>
+                      <entry><para>Masa pemproses digunakan oleh proses prioriti-rendah</para></entry>
+                    </row>
+		    <row valign="top">
+		      <entry><para><guilabel>IOWait</guilabel></para></entry>
+		      <entry>
+		       <para>Masa pemproses digunakan menunggu I/O</para>
+		      </entry>
+		    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Melahu</guilabel></para></entry>
+                      <entry><para>Kapasiti pemproses belum digunakan</para></entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable>
+            </listitem>
+            <listitem>
+              <para><guilabel>Ingatan</guilabel></para>
+              <para>Pilih tab ini untuk paparkan butang warna bagi parameter berikut:</para>
+              <informaltable frame="all">
+                <tgroup cols="2" colsep="1" rowsep="1">
+                  <colspec colname="COLSPEC0" colwidth="50*"/>
+                  <colspec colname="COLSPEC1" colwidth="50*"/>
+                  <thead>
+                    <row valign="top">
+                      <entry colname="COLSPEC0">
+                        <para>Parameter</para></entry>
+                      <entry colname="COLSPEC1">
+                        <para>Keterangan</para></entry>
+                    </row>
+                  </thead>
+                  <tbody>
+                    <row valign="top">
+                      <entry><para><guilabel>Pengguna</guilabel></para></entry>
+                      <entry><para>Ingatan digunakan oleh aktiviti bukan-kernel</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Dikongsi</guilabel></para></entry>
+                      <entry><para>Ingatan digunakan lebih dari satu aplikasi</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Penimbal</guilabel></para></entry>
+                      <entry><para>Ingatan digunakan untuk simpan data dihantar atau diterima buat sementara</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Disimpan</guilabel></para></entry>
+                      <entry><para>Ingatan digunakan untuk simpan data untuk capaian pantas</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Bebas</guilabel></para></entry>
+                      <entry><para>Ingatan tidak digunakan buat masa ini</para></entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable>
+            </listitem>
+            <listitem>
+              <para><guilabel>Rangkaian</guilabel></para>
+              <para>Pilih tab ini untuk paparkan butang warna bagi parameter berikut:</para>
+              <informaltable frame="all">
+                <tgroup cols="2" colsep="1" rowsep="1">
+                  <colspec colname="COLSPEC0" colwidth="50*"/>
+                  <colspec colname="COLSPEC1" colwidth="50*"/>
+                  <thead>
+                    <row valign="top">
+                      <entry colname="COLSPEC0">
+                        <para>Parameter</para></entry>
+                      <entry colname="COLSPEC1">
+                        <para>Keterangan</para></entry>
+                    </row>
+                  </thead>
+                  <tbody>
+                    <row valign="top">
+                      <entry><para><guilabel>Masuk</guilabel></para></entry>
+                      <entry><para>Trafik masuk</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Keluar</guilabel></para></entry>
+                      <entry><para>Trafik keluar</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Setempat</guilabel></para></entry>
+                      <entry><para>Trafik melalui gelung</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Latar belakang</guilabel></para></entry>
+                      <entry><para>Warna latar belakang graf</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Garisan grid</guilabel></para></entry>
+                      <entry><para>Warna garisan grid mengufuk ketika skalakan graf</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Penunjuk</guilabel></para></entry>
+                      <entry><para>Warna penunjuk memaparkan ambang manakah telah dicapai</para></entry>
+                    </row>
+
+                  </tbody>
+                </tgroup>
+              </informaltable>
+            </listitem>
+            <listitem>
+              <para><guilabel>Ruang Silih</guilabel></para>
+              <para>Pilih tab ini untuk paparkan butang warna bagi parameter berikut:</para>
+              <informaltable frame="all">
+                <tgroup cols="2" colsep="1" rowsep="1">
+                  <colspec colname="COLSPEC0" colwidth="50*"/>
+                  <colspec colname="COLSPEC1" colwidth="50*"/>
+                  <thead>
+                    <row valign="top">
+                      <entry colname="COLSPEC0">
+                        <para>Parameter</para></entry>
+                      <entry colname="COLSPEC1">
+                        <para>Keterangan</para></entry>
+                    </row>
+                  </thead>
+                  <tbody>
+                    <row valign="top">
+		     <entry><para><guilabel>Digunakan</guilabel></para></entry>
+		     <entry>
+		      <para>Ruang silih telah digunakan oleh sistem</para>
+		     </entry>
+		    </row>
+		    <row valign="top">
+		     <entry><para><guilabel>Bebas</guilabel></para></entry>
+		     <entry>
+		      <para>Ruang silih yang masih bebas</para>
+		     </entry>
+		    </row>
+		  </tbody>
+		</tgroup>
+              </informaltable>
+            </listitem>
+            <listitem>
+              <para><guilabel>Beban</guilabel></para>
+              <para>Pilih tab ini untuk paparkan butang warna bagi parameter berikut:</para>
+              <informaltable frame="all">
+                <tgroup cols="2" colsep="1" rowsep="1">
+                  <colspec colname="COLSPEC0" colwidth="50*"/>
+                  <colspec colname="COLSPEC1" colwidth="50*"/>
+                  <thead>
+                    <row valign="top">
+                      <entry colname="COLSPEC0">
+                        <para>Parameter</para></entry>
+                      <entry colname="COLSPEC1">
+                        <para>Keterangan</para></entry>
+                    </row>
+                  </thead>
+                  <tbody>
+                    <row valign="top">
+		     <entry><para><guilabel>Purata</guilabel></para></entry>
+		     <entry><para>Beban Sistem</para></entry>
+		    </row>
+		    <row valign="top">
+		     <entry><para><guilabel>Latar belakang</guilabel></para></entry>
+		     <entry><para>iaitu, tiada beban</para></entry>
+		    </row>
+		    <row valign="top">
+		     <entry><para><guilabel>Garisan grid</guilabel></para></entry>
+		     <entry><para>Warna garisan grid</para></entry>
+		    </row>
+		  </tbody>
+		</tgroup>
+	      </informaltable>
+            </listitem>
+            <listitem>
+              <para><guilabel>Cakera keras</guilabel></para>
+              <para>Pilih tab ini untuk paparkan butang warna bagi parameter berikut:</para>
+              <informaltable frame="all">
+                <tgroup cols="2" colsep="1" rowsep="1">
+                  <colspec colname="COLSPEC0" colwidth="50*"/>
+                  <colspec colname="COLSPEC1" colwidth="50*"/>
+                  <thead>
+                    <row valign="top">
+                      <entry colname="COLSPEC0">
+                        <para>Parameter</para></entry>
+                      <entry colname="COLSPEC1">
+                        <para>Keterangan</para></entry>
+                    </row>
+                  </thead>
+                  <tbody>
+                    <row valign="top">
+                      <entry><para><guilabel>Baca</guilabel></para></entry>
+                      <entry><para>Kadar baca cakera</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Tulis</guilabel></para></entry>
+                      <entry><para>Kadar tulis cakera</para></entry>
+                    </row>
+                    <row valign="top">
+                      <entry><para><guilabel>Latar belakang</guilabel></para></entry>
+                      <entry><para>Masa cakera melahu</para></entry>
+                    </row>
+		  </tbody>
+		</tgroup>
+	      </informaltable>
+	    </listitem>
+          </itemizedlist>
+    </sect2>
+    <!-- ================ Explaining thresholds======================== -->
+    <sect2 id="network thresholds">
+        <title>Ambang kelajuan rangkaian</title>
+        <para>Ambang bersama-sama dengan penunjuk membolehkan graf rangkaian diskalakan dan menunjukkan beban kerja yang sebenar. Jika trafik rangkaian tergabung (masuk + keluar + gelung) di bawah ambang1, tiada penunjuk ditunjukkan, paksi-y pada graf rangkaian bermula dari 0 sehingga ke ambang1. Ketika trafik melebihi ambang1, satu penunjuk akan memaparkan paksi-y bermula dari 0 sehingga ambang2. Ketika ambang2 dicapai, tiga penunjuk dipaparkan dan paksi-y dari 0 sehingga nilai maksimum semasa di dalam graf.</para>
+        <para>Garisan grid sukar dijelaskan, hanya perhati, dan anda ketahui dengan jelas.</para>
+    </sect2>
+  </sect1>
+</article>

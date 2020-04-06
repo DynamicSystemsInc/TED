@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY appletversion "1.10.2">
+<!ENTITY applet "CPU Frequency Scaling Monitor">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Feb 06, 2003
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="tr">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+	<title>İşlemci Frekans Ölçekleme İzleyicisi Kılavuzu</title> 
+        <abstract role="description">
+	  <para>İşlemci Frekans Ölçekleme İzleyicisi, işlemcinin güncel hızını gösterir ve eğer işlemci destekliyorsa bu hızı değiştirmek için bir arayüz sağlar.</para>
+	</abstract>
+	<copyright lang="en">
+	  <year>2019</year>
+	  <holder>MATE Documentation Project</holder>
+	</copyright>
+	<copyright><year>2005</year> <holder>Davyd Madeley</holder></copyright>
+        <copyright><year>2004</year> <holder>GNOME Vakfı</holder></copyright>
+
+<!-- translators: uncomment this:
+  <copyright>
+   <year>2003</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+   -->
+
+	 <publisher role="maintainer"> 
+		<publishername>MATE Belgelendirme Projesi</publishername> 
+	 </publisher>
+	 <publisher>
+		<publishername>GNOME Belgelendirme Projesi</publishername>
+	 </publisher> 
+
+	 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+	 <authorgroup> 
+            <author><firstname>MATE Belgelendirme Takımı</firstname> <surname/> <affiliation> <orgname>MATE  Masaüstü</orgname> </affiliation></author>
+            <author><firstname>Carlos</firstname> <surname>Garcia Campos</surname> <affiliation> <orgname>GNOME Projesi</orgname> <address><email>carlosgc@gnome.org</email></address> </affiliation></author>
+	    <author><firstname>Davyd</firstname> <surname>Madeley</surname> <affiliation> <orgname>GNOME Projesi</orgname> <address><email>davyd@madeley.id.au</email></address> </affiliation></author>
+      <!-- This is appropriate place for other contributors: translators,
+           maintainers,  etc. Commented out by default.
+        <othercredit role="translator">
+	      <firstname>Latin</firstname> 
+	      <surname>Translator 1</surname> 
+	      <affiliation> 
+	      	<orgname>Latin Translation Team</orgname> 
+	       	<address> <email>translator@gnome.org</email> </address> 
+	      </affiliation>
+	      <contrib>Latin translation</contrib>
+        </othercredit>
+-->
+	 </authorgroup>
+	 
+	 <releaseinfo revision="1.10.2" role="review"/>
+
+	 <revhistory>
+	   <revision><revnumber>İşlemci Frekans Ölçekleme İzleyicisi Uygulamacık Kılavuzu V0.6</revnumber> <date>Temmuz 2015</date> <revdescription>
+	      <para role="author">MATE Belgelendirme Projesi</para>
+	      <para role="publisher">MATE Belgelendirme Projesi</para>
+	     </revdescription></revision>
+	   <revision><revnumber>İşlemci Frekans Ölçekleme İzleyicisi Uygulamacık Kılavuzu V0.5</revnumber> <date>Ağustos 2005</date> <revdescription>
+	      <para role="author">Davyd Madeley</para>
+	     </revdescription></revision>
+	   <revision><revnumber>İşlemci Frekans Ölçekleme İzleyicisi Uygulamacık Kılavuzu V0.4</revnumber> <date>Mart 2005</date> <revdescription>
+	      <para role="author">Davyd Madeley</para>
+	     </revdescription></revision>
+		<revision><revnumber>İşlemci Frekans Ölçekleme İzleyicisi Uygulamacık Kılavuzu V0.3</revnumber> <date>Ekim 2004</date> <revdescription> 
+                    <para role="author">Carlos Garcia Campos</para>
+                    <para role="publisher">GNOME Belgelendirme Projesi</para>
+		  </revdescription></revision> 
+	 </revhistory> 
+
+	 <releaseinfo>Bu kılavuz, İşlemci Frekans Ölçekleme İzleyicisinin 1.10.2 sürümünü tasvir eder.</releaseinfo> 
+
+		<legalnotice>
+		<title>Geri bildirim</title>
+		<para>İşlemci Frekans Ölçekleme İzleyicisi uygulamacığı veya bu kılavuz hakkında hata raporlamak ya da öneride bulunmak için <ulink url="help:mate-user-guide/feedback" type="help">MATE Geribildirim Sayfasındaki</ulink> yönergeleri takip edin.</para>
+	     </legalnotice>
+
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Fatih Demir</firstname>
+      </personname>
+      <email>kabalak@kabalak.net</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2000.</year>
+      
+      <holder>Fatih Demir</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Görkem Çetin</firstname>
+      </personname>
+      <email>gorkem@gelecek.com.tr</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2002/2003.</year>
+      
+      <holder>Görkem Çetin</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Barış Çicek</firstname>
+      </personname>
+      <email>baris@teamforce.name.tr</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2004</year>
+      
+        <year>2008</year>
+      
+        <year>2009.</year>
+      
+      <holder>Barış Çicek</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Muhammet Kara</firstname>
+      </personname>
+      <email>muhammet.k@gmail.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2011.</year>
+      
+      <holder>Muhammet Kara</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>hsngrms</firstname>
+      </personname>
+      <email>dead-bodies-everywhere@hotmail.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2012</year>
+      
+      <holder>hsngrms</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Atilla Öntaş</firstname>
+      </personname>
+      <email>tarakbumba@gmail.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2014</year>
+      
+      <holder>Atilla Öntaş</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Emre FIRAT</firstname>
+      </personname>
+      <email>emrefirat93@gmail.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2013</year>
+      
+        <year>2014</year>
+      
+        <year>2015</year>
+      
+      <holder>Emre FIRAT</holder>
+    </copyright>
+  </articleinfo> 
+
+  <indexterm zone="index"><primary>İşlemci Frekans Ölçekleme İzleyicisi</primary></indexterm>
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<sect1 id="cpufreq-applet-introduction"> 
+	 <title>Başlangıç</title> 
+	 <figure id="cpufreq-applet-figure"> 
+	    <title>İşlemci Frekansı Seviyesi İzleyicisi</title> 
+		<screenshot> 
+		  <mediaobject> 
+		     <imageobject>
+			<imagedata fileref="figures/cpufreq-applet.png" format="PNG"/> 
+		     </imageobject>
+		  </mediaobject>
+	       </screenshot>
+	 </figure> 
+    <!-- ==== End of Figure ======================================= -->
+    <para><application>İşlemci Frekans Ölçekleme İzleyicisi</application>, her işlemci için İşlemcinin Frekansını Ölçekleme amacıyla uygun bir yol sağlar.</para>
+
+      <para><application>İşlemci Frekans Ölçekleme İzleyicisini</application> bir panele eklemek için aşağıdaki adımları gerçekleştirin:</para>
+      <orderedlist>
+        <listitem>
+          <para>Panele sağ tıklayın.</para>
+        </listitem>
+        <listitem>
+          <para><guimenuitem>Panele Ekle</guimenuitem> unsurunu seçin.</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>Panele ekle</guilabel> diyaloğundaki unsurları aşağıya doğru kaydırın, ardından <guilabel>İşlemci Frekans Seviyesi İzleyici</guilabel>  unsurunu seçin.</para>
+        </listitem>
+        <listitem>
+          <para><guibutton>Ekle</guibutton> düğmesine tıklayın.</para>
+        </listitem>
+      </orderedlist>
+
+    <note><para>Maalesef, işlemci frekans seviyesi güncel olarak sadece çekirdekte desteği bulunan Linux makinelerinde izlenebilir. Bununla beraber, çekirdekteki birçok frekans ölçekleme arayüzü neslini destekler.</para></note>
+   
+   <para>Sistemde işlemci frekansını ölçekleme desteği olmadığında, İşlemci Frekans Seviye İzleyicisi sadece güncel frekansı görüntüler.</para>
+   <para>Sistemde işlemci frekansını ölçekleme desteği bulunduğunda, İşlemci Frekans Seviyeyi İzleyici işlemci ikonunu bir ilerleme çubuğu ile görüntüler. İlerleme çubuğunun durumu, azami frekansa göre işlemcinin güncel frekansını temsil eder.</para>
+   <para>Varsayılan değer olarak İşlemci Frekans Ölçekleme İzleyicisi güncel işlemci frekansını Hertz biriminde (standart frekans ölçme birimi) bir değer olarak görüntüler fakat bunun yerine bir yüzde görüntüleyecek şekilde yapılandırılabilir. İşlemci Frekans Ölçekleme İzleyicisini nasıl yapılandırabileceğiniz hakkında daha fazla bilgi için <xref linkend="cpufreq-applet-prefs"/> sayfasına bakın.</para>
+   <para>İşlemci Frekans Ölçekleme İzleyicisinin her bir örneklemesi sadece bir işlemciyi izleyebilir. Çoklu işlemcili bir sistem (SMP) kullanıyorsanız, izlemek istediğiniz her işlemci için İşlemci Frekans Ölçekleme İzleyicisinin yeni bir örneklemesini başlatmanız gerekir.</para>
+
+   <sect2 id="mate-cpufreq-icons">
+     <title>İkonları Anlamak</title>
+     <para>İşlemci Frekans Ölçekleme İzleyicisi, izlediğiniz işlemcinin güncel ölçekleme seviyesini grafik olarak temsil eden bir dizi ikona sahiptir. Bunlar, şunlardır:</para>
+      <informaltable frame="all">
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="COLSPEC0" colwidth="50*"/>
+          <colspec colname="COLSPEC1" colwidth="50*"/>
+          <thead>
+            <row valign="top">
+              <entry colname="COLSPEC0">
+                <para>İkon</para></entry>
+              <entry colname="COLSPEC1">
+                <para>Tanımlama</para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row valign="top">
+              <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/cpufreq-100.png" format="PNG"/> </imageobject><textobject> <phrase>%100 Güç</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>İşlemci, %100 veya yakın bir değerde çalışıyor</para></entry>
+	    </row>
+            <row valign="top">
+              <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/cpufreq-75.png" format="PNG"/> </imageobject><textobject> <phrase>%75 Güç</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>İşlemci, %75 veya yakın bir değerde çalışıyor</para>
+	      </entry>
+	    </row>
+            <row valign="top">
+              <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/cpufreq-50.png" format="PNG"/> </imageobject><textobject> <phrase>%50 Güç</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>İşlemci, %50 veya yakın bir değerde çalışıyor</para></entry>
+	    </row>
+            <row valign="top">
+              <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/cpufreq-25.png" format="PNG"/> </imageobject><textobject> <phrase>%25 Güç</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>İşlemci, %25 veya yakın bir değerde çalışıyor</para></entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </informaltable>
+   </sect2>
+   
+   <sect2 id="mate-cpufreq-selector">
+      <title>Frekans ve Kip Seçici</title>
+      <warning><para>Frekans Seçici işlevi varsayılan değer olarak MATE masaüstünde mevcut olmayabilir. Lütfen sistem yöneticinize, satıcı belgelerine veya bu yazılımla sağlanan belgelendirmeye danışın.</para></warning>
+      <para>İşlemci frekansını ayarlamak için izleyiciye (sol) tıklayın, bir menü görüntülenecektir. Bu menü size makinenizde mevcut frekansların ve/veya frekans kiplerinin listesini gösterecektir.</para>
+      <tip><para>Mevcut frekanları mı yoksa kipleri mi göstermek istediğinizi <guilabel>Tercihler</guilabel> penceresinde seçebilirsiniz. Daha fazla bilgi için <xref linkend="cpufreq-applet-prefs"/> sayfasına bakın.</para></tip>
+
+      <figure id="cpufreq-applet-selector-img">
+	 <title>Sadece frekansları gösteren frekans seçici</title>
+	 <screenshot>
+	    <mediaobject>
+	       <imageobject>
+		  <imagedata fileref="figures/cpufreq-applet-selector.png" format="PNG"/>
+	       </imageobject>
+	    </mediaobject>
+	</screenshot>
+      </figure>
+
+      <figure id="cpufreq-applet-selector-both-img">
+	 <title>Hem frekansları, hem de kipleri gösteren frekans seçici</title>
+	 <screenshot>
+	    <mediaobject>
+	       <imageobject>
+		  <imagedata fileref="figures/cpufreq-applet-selector-both.png" format="PNG"/>
+	       </imageobject>
+	    </mediaobject>
+	</screenshot>
+      </figure>
+   </sect2>
+</sect1>
+
+<!-- ============= Customization ============================= -->
+<!-- Use this section to describe how to customize the applet. -->
+<sect1 id="cpufreq-applet-prefs"> 
+	 <title>Tercihler</title> 
+	 <para><application>İşlemci Frekans Ölçekleme İzleycisini</application> yapılandırmak için uygulamacığa sağ tıklayın, ardından açılan pencereden <guimenuitem>Terichler</guimenuitem> unsurunu seçin.</para> 
+	 <para><guimenuitem>Tercihlre</guimenuitem> diyaloğu aşağıdaki bileşenleri içerir:</para> 
+	 <figure id="cpufreq-applet-preferences">
+	    <title>İşlemci Frekans Ölçekleme İzleyicisi Tercihler Diyaloğu</title>
+	    <screenshot>
+	       <mediaobject><imageobject><imagedata fileref="figures/cpufreq-applet-preferences.png" format="PNG"/> </imageobject> <textobject> <phrase>İşlemci Frekans Ölçekleme İzleyicisi tercihler diyaloğu</phrase> </textobject></mediaobject>
+	    </screenshot>
+	 </figure>
+
+	 <variablelist> 
+	   <varlistentry> 
+	      <term><guilabel>İzlenen işlemci (sadece çoklu işlemcili sistemlerde)</guilabel></term> 
+	     <listitem> 
+		<para>Bu açılır listeyi izlemek istediğiniz işlemciyi seçmek için kullanın.</para>
+	 <figure id="cpufreq-applet-preferences-smp">
+	    <title>İzlenecek işlemcinin seçimi</title>
+	    <screenshot>
+	       <mediaobject><imageobject><imagedata fileref="figures/cpufreq-applet-preferences-smp.png" format="PNG"/> </imageobject> <textobject> <phrase>İşlemci Frekans Ölçekleme İzleyicisi tercihler diyaloğu işlemci seçicisi</phrase> </textobject></mediaobject>
+	    </screenshot>
+	 </figure>
+	<note><para><guilabel>İzlenen İşlemci</guilabel> seçeneği sadece çoklu işlemcili sistemlerde (SMP) görüntülenecektir.</para></note>
+	 
+	     </listitem>
+	   </varlistentry> 
+	   <varlistentry> 
+	      <term><guilabel>Görünüm</guilabel></term> 
+	     <listitem> 
+		<para>Bu açılır listeyi uygulamacığı hangi kipte görüntülemek istediğinizi seçmek için kullanın. Mevcut kipler şunlardır: Grafik, Metin ve Grafik ve Metin. </para> 
+	    </listitem>
+	 </varlistentry>
+	 <varlistentry>
+	    <term><guilabel>İşlemci frekansını frekans olarak göster</guilabel></term>
+	    <listitem>
+	       <para>Bu şıkkı güncel işlemci frekansını görüntülemek için kullanın.</para>
+	    </listitem>
+	 </varlistentry>
+	 <varlistentry>
+	    <term><guilabel>Frekans birimlerini göster</guilabel></term>
+	    <listitem>
+	       <para>Bu şıkkı frekans kipinde frekans birimlerini görüntülemek veya görüntülememek için kullanın.</para>
+	    </listitem>
+	 </varlistentry>
+	  <varlistentry>
+	     <term><guilabel>İşlemci frekansını yüzde olarak göster</guilabel></term>
+	     <listitem>
+		<para>Bu şıkkı güncel işlemcinin frekansını yüzde olarak görüntülemek için seçin.</para>
+	     </listitem>
+	  </varlistentry>
+
+	  <varlistentry><term><guilabel>Menüyü göster</guilabel></term>
+	   <listitem>
+	    <para>Bu seçenek, frekans seçici açılır menüsünde ne kadar bilginin gösterileceğini seçmenize imkân verir (<xref linkend="mate-cpufreq-selector"/> sayfasına bakın). <guilabel>Frekansları</guilabel>, <guilabel>Kipleri</guilabel> veya her ikisini yani <guilabel>Frekansları ve Kipleri</guilabel> görüntülemeyi seçebilirsiniz. <figure id="cpufreq-applet-selector-both-2">
+	    <title>Frekans ve Kip olarak yapılandırılmış seçici</title>
+	    <screenshot>
+	       <mediaobject><imageobject><imagedata fileref="figures/cpufreq-applet-selector-both.png" format="PNG"/> </imageobject> <textobject> <phrase>İşlemci kip seçici</phrase> </textobject></mediaobject>
+	    </screenshot>
+	 </figure></para>
+	  </listitem></varlistentry>
+       </variablelist>
+  </sect1>
+
+</article>

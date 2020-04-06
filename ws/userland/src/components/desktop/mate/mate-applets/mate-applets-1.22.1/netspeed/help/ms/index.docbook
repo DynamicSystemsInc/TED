@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!ENTITY appletversion "1.10.1">
+<!ENTITY manrevision "1.3">
+<!ENTITY date "July 2015">
+<!ENTITY applet "Netspeed Applet">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the GNOME Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Mar 12, 2002
+  
+-->
+<article id="index" lang="ms">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Panduan Aplet Netspeed V1.3</title>
+	<abstract role="description">
+      <para>Aplet Netspeed menunjukkan pergerakan trafik yang berlaku pada peranti rangkaian tertentu.</para>
+    </abstract>
+	 <copyright lang="en">
+		<year>2019</year>
+		<holder>MATE Documentation Project</holder> </copyright>
+    <copyright><year>2002</year> <holder>Jörgen Scheibengruber</holder></copyright>
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+-->
+    <publisher role="maintainer">
+      <publishername>Projek Dokumentasi MATE</publishername>
+    </publisher>
+    <publisher> 
+      <publishername>Projek Dokumentasi GNOME</publishername> 
+    </publisher>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+    
+    <authorgroup>
+	  <author role="maintainer"><firstname>Projek Dokumentasi MATE</firstname><surname/><affiliation> <orgname>Desktop MATE </orgname> </affiliation></author>
+      <author><firstname>Jörgen</firstname> <surname>Scheibengruber</surname> <affiliation> <orgname>Projek GNOME</orgname> </affiliation> <email>mfcn@gmx.de</email></author>
+      
+       <author><firstname>Pedro</firstname> <surname>Villavicencio Garrido</surname> <affiliation> <orgname>Projek GNOME</orgname> </affiliation> <email>pvillavi@gnome.org</email></author>
+<!--  This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+      <othercredit role="translator">
+	<firstname>Latin</firstname> 
+	<surname>Translator 1</surname> 
+	<affiliation> 
+	  <orgname>Latin Translation Team</orgname>
+	  <address> <email>translator@gnome.org</email> </address>
+	</affiliation>
+	<contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+    
+    <revhistory>
+
+	<revision><revnumber>1.3</revnumber> <date>Julai 2015</date> <author>
+	<firstname>MATE Documentation Project</firstname>
+	<surname/>
+    </author></revision>
+
+	<revision><revnumber>1.2</revnumber> <date>2006</date> <author>
+	<firstname>Jörgen</firstname> 
+	<surname>Scheibengruber</surname>
+    <email>mfcn@gmx.de</email>
+    </author></revision>
+
+	<revision><revnumber>1.1</revnumber> <date>2005</date> <author>
+	<firstname>Pedro</firstname>
+	<surname>Villavicencio Garrido</surname>
+    <email>pvillavi@gnome.org</email>
+    </author></revision>
+    
+	<revision><revnumber>1.0</revnumber> <date>2002</date> <author>
+	<firstname>Jörgen</firstname> 
+	<surname>Scheibengruber</surname>
+    <email>mfcn@gmx.de</email>
+    </author></revision>
+    
+	</revhistory>
+    
+	<releaseinfo>Panduan ini menerangkan versi 1.10.1 bagi Aplet Netspeed.</releaseinfo>
+    <legalnotice>
+      <title>Maklumbalas</title>
+      <para>Untuk melaporkan pepijat atau membuat saranan berkenaan Aplet Netspeed atau panduan ini, ikuti arahan di dalam <ulink url="help:mate-user-guide/feedback" type="help">Halaman Maklumbalas MATE</ulink>.</para>
+
+<!-- Translators may also add here feedback address for translations -->
+
+    </legalnotice>
+  </articleinfo>
+  <indexterm><primary>Aplet Netspeed</primary></indexterm>
+
+<!-- ============= Document Body ============================= -->
+<sect1 id="netspeed_applet-about"> 
+<title>Perihal Aplet Netspeed</title>
+    <figure id="netspeed_applet-fig">
+      <title>Netspeed</title>
+      <screenshot>
+	<mediaobject><imageobject><imagedata fileref="figures/netspeed_applet.png" format="PNG"/> </imageobject> <textobject> <phrase>Netspeed.</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <figure id="netspeed_applet-fig2">
+      <title>Netspeed menunjukkan jumlah dalam panel 48px.</title>
+      <screenshot>
+	<mediaobject><imageobject><imagedata fileref="figures/eth_sum_48.png" format="PNG"/> </imageobject> <textobject> <phrase>Netspeed menunjukkan jumlah dalam panel 48px.</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <para><application>Aplet Netspeed</application> memaparkan trafik rangkaian pada peranti tertentu seperti eth0, ppp0, plip0, dll. Selain itu ia menyediakan maklumat berkenaan konfigurasi peranti rangkaian.</para>
+    <sect2 id="netspeed-introduction-icons">	
+      <title>Ikon Netspeed dalam Panel</title>
+      <informaltable frame="all">
+	<tgroup cols="2" colsep="1" rowsep="1">
+	  <colspec colname="COLSPEC0" colwidth="50*"/>
+	  <colspec colname="COLSPEC1" colwidth="50*"/>
+	  <thead>
+	    <row valign="top">
+	      <entry colname="COLSPEC0"><para>Ikon</para></entry>
+	      <entry colname="COLSPEC1"><para>Keterangan</para></entry>
+	    </row>
+	  </thead>
+	  <tbody>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/loopback.png" format="PNG"/> </imageobject><textobject> <phrase>Gelung Balik</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Antaramuka Gelung Balik.</para></entry>
+	    </row>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/ethernet.png" format="PNG"/> </imageobject><textobject> <phrase>Ethernet</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Sambungan Ethernet.</para></entry>
+	    </row>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/ppp.png" format="PNG"/> </imageobject><textobject> <phrase>PPP</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Sambungan Protokol Titik ke Titik.</para></entry>
+	    </row>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/wavelan.png" format="PNG"/> </imageobject><textobject> <phrase>Tanpa Wayar</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Sambungan tanpa wayar.</para></entry>
+	    </row>
+	    <row valign="top">
+	      <entry><para><inlinemediaobject><imageobject> <imagedata fileref="figures/plip.png" format="PNG"/> </imageobject><textobject> <phrase>PLIP</phrase> </textobject></inlinemediaobject></para></entry>
+	      <entry><para>Sambungan Protokol Internet Talian Selari</para></entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </informaltable>
+    </sect2>
+    <sect2>
+      <title>Menambah Aplet Netspeed ke dalam Panel</title>
+      <para>Untuk menambah <application>Aplet Netspeed</application> ke dalam panel, buat langkah-langkah berikut:</para>
+      <orderedlist>
+        <listitem>
+          <para>Klik-kanan pada panel.</para>
+        </listitem>
+        <listitem>
+          <para>Pilih <guimenuitem>Tambah ke dalam Panel</guimenuitem>.</para>
+        </listitem>
+        <listitem>
+          <para>Tatal ke bawah senarai item di dalam dialog <guilabel>Tambah ke Panel</guilabel>, kemudian pilih <guilabel>Aplet Netspeed</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik <guibutton>Tambah</guibutton>.</para>
+        </listitem>
+      </orderedlist>
+    </sect2>
+  </sect1>
+  <sect1 id="netspeed_applet-settings"> 
+    <title>Tetapan</title>
+    <figure id="netspeed_applet_settings-fig">
+      <title>Tetapan Aplet Netspeed</title>
+      <screenshot>
+	<mediaobject><imageobject><imagedata fileref="figures/settings.png" format="PNG"/> </imageobject> <textobject> <phrase>Tetapan Aplet Netspeed.</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <para>Dalam dialog ini anda boleh ubah tetapan Aplet Netspeed:</para>
+    <itemizedlist mark="bullet">
+      <listitem><para><guilabel>Peranti rangkaian:</guilabel> Pilih peranti rangkaian yang mana aplet patut pantau melalui senarai timbul-turun kotak kombo. Biasanya semua peranti yang ada tersenarai, namun anda boleh masukkan sendiri jua.</para></listitem>
+      <listitem><para><guilabel>Sela kemaskini:</guilabel> Masukkan tempoh antara dua kemaskini aplet.</para></listitem>
+      <listitem><para><guilabel>Saiz fon label:</guilabel> Masukkan saiz teks yang dipaparkan di dalam aplet.</para></listitem>
+      <listitem><para><guilabel>Menunjukkan jumlah selain dari masuk dan keluar:</guilabel> Jika anda tanda kotak ini maka aplet akan menunjukkan jumlah bagi kadar masuk dan keluar. Aplet hanya mengambil separuh ruang dalam panel sahaja.</para></listitem>
+      <listitem><para><guilabel>Tunjuk bit/s (b/s) selain dari bait/s (B/s):</guilabel> Tanda ini jika anda mahu aplet memaparkan bit per saat selain dari bait/s.</para></listitem>
+      <listitem><para><guilabel>Ubah ikon berdasarkan peranti terpilih:</guilabel> Biasanya aplet akan menunjukkan satu ikon yang mewakili jenis peranti rangkaian yang anda pantau. Jadi ia akan menunjukkan rupa telefon untuk sambungan Titik ke Titik (ppp - modem, dll), kad rangkaian untuk Ethernet (eth), dll. Jika ini dinyahtanda, aplet akan sentiasa tunjukkan ikon kad rangkaian, tidak kira peranti apakah yang anda pantau.</para></listitem>
+      <listitem><para><guilabel>Sentiasa pantau peranti bersambung, jika boleh:</guilabel> Bila sambungan anda terputus atau bermasalah, Aplet Netspeed akan mencari yang lain untuk dipantau.</para></listitem>
+    </itemizedlist> 
+  </sect1>
+  <sect1 id="netspeed_applet-details"> 
+    <title>Dialog perincian</title>
+    <figure id="netspeed_applet_details-fig">
+      <title>Dialog perincian</title>
+      <screenshot>
+	<mediaobject><imageobject><imagedata fileref="figures/details.png" format="PNG"/> </imageobject> <textobject> <phrase>Dialog perincian</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <para>Dialog ini menunjukkan beberapa maklumat berguna pada konfigurasi peranti rangkaian anda.</para>
+    <itemizedlist mark="bullet">
+      <listitem><para><guilabel>Alamat Internet:</guilabel> Alamat IP (Protokol Internet) bagi peranti rangkaian.</para></listitem>
+      <listitem><para><guilabel>Topeng Internet:</guilabel> Topeng Internet yang bergantung pada saiz LAN anda (Local Area Network). Nilai biasa ialah 255.255.255.0 (bsgi rangkaian kelas C).</para></listitem>
+      <listitem><para><guilabel>Alamat Perkakasan:</guilabel> Biasanya dirujuk sebagai alamat fizikal atau MAC (Media Access Control). Pengecam unik sejagat untuk kad rangkaian anda.</para></listitem>
+      <listitem><para><guilabel>Alamat P-t-P:</guilabel> Alamat internet bagi "sisi lain" sambungan PPP (Point to Point Protocol) anda.</para></listitem>
+      <listitem><para><guilabel>Bait masuk:</guilabel> Amaun bait yang mana peranti rangkaian terima semenjak ia bersambung dengan rangkaian.</para></listitem>
+      <listitem><para><guilabel>Bait keluar:</guilabel> Amaun bait yang mana peranti rangkaian telah hantar semenjak ia bersambung dengan rangkaian.</para></listitem>
+    </itemizedlist> 
+  </sect1>  
+</article>

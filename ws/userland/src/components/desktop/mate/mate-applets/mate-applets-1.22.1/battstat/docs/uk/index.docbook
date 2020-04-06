@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY appletversion "1.10.2">
+<!ENTITY applet "Battery Charge Monitor">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="uk">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Керівництво по індикатору стану батареї</title> 
+    <abstract role="description">
+      <para>Індикатор стану батареї показує поточний заряд акумулятора й показує сповіщення у випадку, якщо заряд знижується нижче певної межі.</para>
+    </abstract>
+    <copyright lang="en">
+      <year>2019</year>
+      <holder>MATE Documentation Project</holder>
+    </copyright>
+    <copyright><year>2005</year> <holder>Давід Мейдлі</holder></copyright>
+    <copyright><year>2004</year> <holder>Анґела Бойл</holder></copyright>
+    <copyright><year>2004</year> <holder>Sun Microsystems</holder></copyright>
+    <copyright><year>2002</year> <holder>Тревор Кертіс</holder></copyright>
+    <copyright><year>1999</year> <year>2000</year> <holder>Йорген Пхорсон</holder></copyright>
+<!-- translators: uncomment this:
+
+    <copyright>
+     <year>2002</year>
+     <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+    </copyright>
+
+   -->
+
+    <publisher role="maintainer"> 
+      <publishername>Проєкт документування MATE</publishername> 
+    </publisher> 
+    <publisher>
+      <publishername>Проєкт документування GNOME</publishername>
+    </publisher>
+  
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <authorgroup>
+      <author><firstname>Команда документування MATE</firstname> <surname/></author>
+      <author><firstname>Sun</firstname> <surname>Команда документування GNOME</surname> <affiliation><orgname>Sun Microsystems</orgname></affiliation></author>
+      <author><firstname>Тревор</firstname> <surname>Кертіс</surname> <affiliation> <orgname>Проєкт документування GNOME</orgname> <address> <email>tcurtis@somaradio.ca</email> </address> </affiliation></author>
+      <author><firstname>Йорген </firstname> <surname> Пхорсон</surname> <affiliation> <orgname>Проєкт документування GNOME</orgname> <address> <email>jp@spektr.eu.org</email> </address> </affiliation></author> 
+      <author><firstname>Анґела</firstname> <surname>Бойл</surname> <affiliation> <orgname>Проєкт документування GNOME</orgname> </affiliation></author>
+      <author><firstname>Давід</firstname> <surname>Мейдлі</surname> <affiliation> <orgname>Проєкт GNOME</orgname> </affiliation></author>
+        <!-- This is appropriate place for other contributors: translators,
+             maintainers,  etc. Commented out by default.
+             <othercredit role="translator">
+	       <firstname>Latin</firstname> 
+	       <surname>Translator 1</surname> 
+	       <affiliation> 
+	         <orgname>Latin Translation Team</orgname> 
+	         <address> <email>translator@gnome.org</email> </address> 
+	       </affiliation>
+	       <contrib>Latin translation</contrib>
+             </othercredit>
+-->
+
+    </authorgroup>
+	
+	<releaseinfo revision="1.10.2" role="review"/>
+
+    <revhistory>
+      <revision><revnumber>Версія 2.13</revnumber> <date>Липень 2015</date> <revdescription>
+	  <para role="author">Команда документування MATE</para>
+	  <para role="publisher">Проєкт документування MATE</para>
+	</revdescription></revision>
+      <revision><revnumber>Версія 2.12</revnumber> <date>Вересень 2005</date> <revdescription>
+	  <para role="author">Давід Мейдлі</para>
+	</revdescription></revision>
+      <revision><revnumber>Версія 2.10</revnumber> <date>Березень 2005</date> <revdescription>
+	 <para role="author">Давід Мейдлі</para>
+	</revdescription></revision>
+      <revision><revnumber>Версія 2.8</revnumber> <date>Вересень 2004</date> <revdescription>
+	  <para role="author">Анґела Бойл</para>
+	  <para role="publisher">Проєкт документування GNOME</para>
+	</revdescription></revision>
+      <revision><revnumber>Керівництво по аплету індикатора стану батареї V2.2</revnumber> <date>Серпень 2004</date> <revdescription>
+          <para role="author">Сан Команда документування GNOME </para>
+          <para role="publisher">Проєкт документування GNOME</para>
+        </revdescription></revision>
+      <revision><revnumber>Керівництво по аплету індикатора стану батареї V2.0</revnumber> <date>Травень 2002</date> <revdescription>
+          <para role="author">Тревор Кертіс <email>tcurtis@somaradio.ca</email></para>
+          <para role="author">Йорген Пхорсон <email>jp@spektr.eu.org</email></para>
+          <para role="publisher">Проєкт документування GNOME</para>
+        </revdescription></revision>
+    </revhistory>
+                                                                                                  
+    <releaseinfo>Це керівництво дає опис версії 1.10.2 індикатора стану батареї.</releaseinfo>
+                                                                                                  
+    <legalnotice>
+      <title>Зворотній зв'язок</title>
+      <para>Щоб повідомити про помилку чи внести пропозицію стосовно аплета індикатора стану батареї або цього керівництва, дотримуйтесь вказівок на <ulink url="help:mate-user-guide/feedback" type="help">сторінці зворотнього зв'язку MATE</ulink>.</para>
+    </legalnotice>
+  </articleinfo> 
+
+  <indexterm zone="index"><primary>Аплет індикатора стану батареї</primary></indexterm> 
+
+  <indexterm zone="index" lang="en"> 
+	 <primary>Battstat Applet</primary> 
+  </indexterm> 
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+  <sect1 id="battstat-introduction"> 
+    <title>Вступ</title> 
+
+    <figure id="battstat-applet-fig"> 
+      <title>Аплет індикатора стану батареї</title> 
+      <screenshot> 
+        <mediaobject><imageobject><imagedata fileref="figures/battstat-applet.png" format="PNG"/> </imageobject> <textobject> <phrase>Аплет індикатора стану батареї.</phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure>
+
+    <para><application>Індикатор стану батареї</application> показує стан акумуляторів вашого ноутбука. Він може як показувати рівень лишку заряду візуально й у відсотках, так і прогнозувати залишок часу роботи комп'ютера з врахуванням його поточного використання.</para>
+
+    <sect2 id="battstat-introduction-add">
+      <title>Додавання індикатора стану батареї на панель</title>
+      <para>Щоб додати <application>Індикатор зарядження батареї</application> до панелі виконайте такі кроки:</para>
+      <orderedlist>
+        <listitem>
+          <para>Клацніть правою кнопкою миші на панелі.</para>
+        </listitem>
+        <listitem>
+          <para>Виберіть <guimenuitem>Додати до панелі</guimenuitem>.</para>
+        </listitem>
+        <listitem>
+          <para lang="en">
+            Scroll down the list of items in the <guilabel>Add to Panel</guilabel>
+            dialog, then select <guilabel>Battery Charge Monitor</guilabel>.
+          </para>
+        </listitem>
+        <listitem>
+          <para>Натисніть <guibutton>Додати</guibutton>.</para>
+        </listitem>
+      </orderedlist>
+      <para>Компонування аплета <application>Індикатор стану батареї</application> може змінюватися у залежности від розміру й типу панелі, на яку він поміщений.</para>
+    </sect2>
+
+    <sect2 id="battstat-power-backends">
+     <title>Бекенди керування живленням</title>
+
+     <para lang="en">
+       The battery monitor supports a number of power management backends.
+       If it is available, the monitor will attempt to use the freedesktop.org
+       <ulink url="http://upower.freedesktop.org/">upower</ulink> interface.
+       If it is unavailable or unsupported on your platform, it will fall back
+       to the freedesktop.org
+       <ulink url="http://freedesktop.org/Software/hal">HAL (Hardware
+       Abstraction Layer)</ulink>. If that is also not available, the
+       battery monitor will attempt direct access to the power management system
+     </para>
+     <para>Не усі бекенди керування живленням доступні від усіх виробників, й деякі виробники додають власні додаткові бекенди для специфічних плятформ та пристроїв. Якщо індикатор стану батареї отримує неправильну інформацію про акумулятор, дивіться<xref linkend="battstat-troubleshooting"/>.</para>
+    </sect2>
+
+    <sect2 id="battstat-getting-help">
+      <title>Отримання допомоги</title>
+      <para>Якщо індикатор стану батареї не працює, дивіться додаткові ресурси:</para>
+      <itemizedlist>
+       <listitem><para><xref linkend="battstat-troubleshooting"/>;</para></listitem>
+       <listitem><para><ulink url="http://ml.mate-desktop.org/listinfo/">Переліки поштової розсилки MATE</ulink></para></listitem>
+      </itemizedlist>
+    </sect2>
+
+</sect1>
+
+<!-- ================ Customizing the Appearance ========================= -->
+
+  <sect1 id="battstat-appearance">
+    <title>Параметри</title>
+          <para>Щоб отримати доступ до параметрів індикатора, клацніть правою кнопкою на ньому в панелі та виберіть <guimenuitem>Параметри</guimenuitem></para>
+    <figure id="battstat-applet-prefs-menu"> 
+      <title>Контекстне меню (по клацу правою кнопкою) індикатора стану батареї</title> 
+      <screenshot> 
+        <mediaobject><imageobject><imagedata fileref="figures/context-menu.png" format="PNG"/> </imageobject> <textobject> <phrase>Контекстне меню індикатора стану батареї</phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure>
+    <figure id="battstat-applet-prefs"> 
+      <title>Діялоґове вікно параметрів</title> 
+      <screenshot> 
+        <mediaobject><imageobject><imagedata fileref="figures/battstat-preferences.png" format="PNG"/> </imageobject> <textobject> <phrase>Діялоґове вікно параметрів</phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure>
+      <variablelist>
+        <varlistentry>
+          <term><guilabel>Зовнішній вигляд</guilabel></term>
+	  <listitem>
+	  <variablelist>
+	    <varlistentry>
+	      <term><guilabel>Компактний вигляд</guilabel></term>
+	      <listitem><para>В цьому режимі на панелі показується лише індикатор у вигляді батарейки, що показує рівень залишку заряду, або піктограма у вигляді виделки, що вказує, що ноутбук під'єднаний до зовнішнього джерела живлення. <figure id="battstat-applet-compact"> 
+      <title>Компактний вигляд</title> 
+      <screenshot> 
+        <mediaobject><imageobject><imagedata fileref="figures/battstat-applet.png" format="PNG"/> </imageobject> <textobject> <phrase>Компактний вигляд</phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure></para>
+	      <para>Компактний вигляд використовується типово, починаючи з MATE 2.12.</para></listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><guilabel>Розширений вид</guilabel></term>
+	      <listitem><para>Розширений вид використовувався у попередніх версіях MATE. Тут показується більша діяграмма заряду, так і окремий значок, що показує стан батареї. <figure id="battstat-applet-expanded"> 
+      <title>Розширений вид</title> 
+      <screenshot> 
+        <mediaobject><imageobject><imagedata fileref="figures/battstat-applet-expanded.png" format="PNG"/> </imageobject> <textobject> <phrase>Розширений вид</phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure></para></listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><guilabel>Показувати позначку часу/відсотків</guilabel></term>
+	      <listitem><para>При встановленні цього прапорця буде показуватися один з двох типів інформації. <guilabel>Показувати лишок часу</guilabel> повідомляє, скільки годин та хвилин залишається до повного розряду або перезаряджання акумулятора. <guilabel>Показувати залишковий відсоток заряду</guilabel> показує лишок заряду акумулятора у відсотках.</para></listitem>
+	    </varlistentry>
+	  </variablelist>
+	  </listitem>
+        </varlistentry>
+	<varlistentry>
+	 <term><guilabel>Сповіщення</guilabel></term>
+	  <listitem>
+	  <itemizedlist>
+	   <listitem><para><guilabel> Попереджати, коли заряд знижується до </guilabel></para>
+	   <para>При встановленні цього прапорця буде з'являтися попередження, коли заряд акумулятора досягне заданого значення, або у відсотках, або у хвилинах залишку часу. Це сповістить вас про те, що заряд батареї критично малий. Ви можете самі закрити це попереджувальне діялоґове вікно, або воно зникне самочинно при під'єднанні ноутбука до електромережі.</para>
+	   </listitem>
+	   <listitem>
+	    <para><guilabel> Сповіщати про повний розряд </guilabel></para>
+	    <para>При вмиканні цієї опції ви отримаєте сповіщення, коли акумулятор повністю розрядиться. Якщо ви скомпілювали індикатор стану батареї з підтримкою libnotify, то ненав'язливе сповіщення з'явиться біля індикатора на панелі.</para>
+	   </listitem>
+	  </itemizedlist>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+   </sect1>
+
+   <sect1 id="battstat-troubleshooting">
+    <title>Усунення проблем</title>
+    
+    <para>З-за складности керування живленням й великих відмінностей між доступними системами керування живленням, зневадження помилок в індикаторі стану батареї може бути достатньо складним. Необхідно визначити, чи виникла помилка в самому індикаторі або ж в інформації, надаваною комп'ютером.</para>
+    <para>Наступні відомости можуть бути корисними для вирішення проблем з індикатором стану батареї. Їх ні в якому разі не потрібно вважати вичерпними. Якщо ви виявили помилку в індикаторі стану батареї (не викликану отриманням помилкової інформації від ACPI), будь ласка, <ulink url="http://bugzilla.mate.org/">повідомте про неї</ulink>.</para>
+
+    <sect2 id="battstat-troubleshooting-backends">
+     <title>Визначення бекенду</title>
+     <para>Якщо використовується інтерфейс upower або Hardware Abstraction Layer (див.<xref linkend="battstat-power-backends"/>, то це буде вказано у діялозі відомостей про аплет шляхом розташування зірочки поряд з іменем автора бекенду HAL.  <figure id="battstat-credits-hal"> 
+      <title>Визначення того, що використовується бекенд HAL</title> 
+      <screenshot> 
+        <mediaobject><imageobject><imagedata fileref="figures/battstat-credits-hal.png" format="PNG"/> </imageobject> <textobject> <phrase>Розширений вид</phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure></para>
+
+     <para lang="en">
+      Other backends do not currently give indication they are being used, so
+      you will have to guess based on your hardware. Most modern PC laptops are
+      using ACPI as the backend. This is also the backend with the largest
+      number of inconsistencies.
+     </para>
+    </sect2>
+
+    <sect2 id="battstat-troubleshooting-acpi">
+      <title>Перевірка інформації від ACPI</title>
+      <para>Якщо на вашому комп'ютері індикатор стану батареї використовує бекенд ACPI, важливо перевірити, чи правильну інформацію надає ACPI. Якщо ні, то вам, можливо, знадобиться оновити DSDT чи щось ще, пов'язане з ACPI.</para>
+      <example><title>Приклад виводу ACPI</title>
+       <screen>
+[rupert@laptop ~]$ cat /proc/acpi/battery/BAT1/info
+present:                 yes
+design capacity:         41040 mWh
+last full capacity:      37044 mWh
+battery technology:      rechargeable
+design voltage:          10800 mV
+design capacity warning: 745 mWh
+design capacity low:     0 mWh
+capacity granularity 1:  10 mWh
+capacity granularity 2:  10 mWh
+model number:            G71C00056110
+serial number:           0000000008
+battery type:            Li-ION
+OEM info:
+[rupert@laptop ~]$ cat /proc/acpi/battery/BAT1/state
+present:                 yes
+capacity state:          ok
+charging state:          discharging
+present rate:            11232 mW
+remaining capacity:      27140 mWh
+present voltage:         11400 mV
+[rupert@laptop ~]$</screen>
+      </example>
+      <para>Можна швидко вирахувати відсоток залишку заряду, поділивши <guilabel>remaining capacity</guilabel> на <guilabel>last full capacity</guilabel>. Залишок часу можна вирахувати, поділивши <guilabel>remaining capacity</guilabel> на <guilabel>present rate</guilabel>.</para>
+    </sect2>
+
+    <sect2 id="battstat-troubleshooting-nohal">
+      <title>Hardware Abstraction Layer</title>
+      <para>Ви можете перевірити, чи визначає HAL ваш акумулятор, за допомогою команди <command>hal-device-manager</command>. Якщо акумулятором не визначається HAL або виводиться неправильна інформація про нього, можете спробувати відімкнути бекенд HAL, вказавши відповідний ключ в GSettings.</para>
+      <para lang="en">
+       Select <guimenuitem>Configuration Editor</guimenuitem> from the
+       <guimenu>Applications</guimenu> menu, under
+       <guisubmenu>System Tools</guisubmenu>. Search for the key value
+       <prompt>OAFIID:MATE_BattstatApplet</prompt> which should be located in
+       the path <filename>/apps/panel/applets</filename>.
+      </para>
+      <para lang="en">
+       Assuming the path is <filename>/apps/panel/applets/applet_1</filename>.
+       In <filename>/apps/panel/applets/applet_1/prefs</filename> add a
+       <guimenuitem>New Key...</guimenuitem> called <guilabel>no_hal</guilabel>
+       and set it to the boolean value of true. This will disable the usage of
+       HAL (see <xref linkend="battstat-troubleshooting-backends"/> to learn how
+       to check this).
+      </para>
+    </sect2>
+    
+   </sect1>
+
+</article>

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY appletversion "1.10.2">
+<!ENTITY applet "Battery Charge Monitor">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="pt">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual do Monitor de Carga da Bateria</title> 
+    <abstract role="description">
+      <para>O Monitor de Carga da Bateria mostra a carga atual da bateria e fornece notificações se a carga for inferior a um certo limiar.</para>
+    </abstract>
+    <copyright lang="en">
+      <year>2019</year>
+      <holder>MATE Documentation Project</holder>
+    </copyright>
+    <copyright><year>2005</year> <holder>Davyd Madeley</holder></copyright>
+    <copyright><year>2004</year> <holder>Angela Boyle</holder></copyright>
+    <copyright><year>2004</year> <holder>Sun Microsystems</holder></copyright>
+    <copyright><year>2002</year> <holder>Trevor Curtis</holder></copyright>
+    <copyright><year>1999</year> <year>2000</year> <holder>Jorgen Pehrson</holder></copyright>
+<!-- translators: uncomment this:
+
+    <copyright>
+     <year>2002</year>
+     <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+    </copyright>
+
+   -->
+
+    <publisher role="maintainer"> 
+      <publishername>Projeto de Documentação do MATE</publishername> 
+    </publisher> 
+    <publisher>
+      <publishername>Projecto de Documentação do GNOME</publishername>
+    </publisher>
+  
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <authorgroup>
+      <author><firstname>Equipa de Documentação do MATE</firstname> <surname/></author>
+      <author><firstname>Sun</firstname> <surname>GNOME Documentation Team</surname> <affiliation><orgname>Sun Microsystems</orgname></affiliation></author>
+      <author><firstname>Trevor</firstname> <surname>Curtis</surname> <affiliation> <orgname>Projeto de Documentação GNOME</orgname> <address> <email>tcurtis@somaradio.ca</email> </address> </affiliation></author>
+      <author><firstname>Jorgen </firstname> <surname> Pehrson</surname> <affiliation> <orgname>Projeto de Documentação GNOME</orgname> <address> <email>jp@spektr.eu.org</email> </address> </affiliation></author> 
+      <author><firstname>Angela</firstname> <surname>Boyle</surname> <affiliation> <orgname>Projeto de Documentação GNOME</orgname> </affiliation></author>
+      <author><firstname>Davyd</firstname> <surname>Madeley</surname> <affiliation> <orgname>Projeto GNOME</orgname> </affiliation></author>
+        <!-- This is appropriate place for other contributors: translators,
+             maintainers,  etc. Commented out by default.
+             <othercredit role="translator">
+	       <firstname>Latin</firstname> 
+	       <surname>Translator 1</surname> 
+	       <affiliation> 
+	         <orgname>Latin Translation Team</orgname> 
+	         <address> <email>translator@gnome.org</email> </address> 
+	       </affiliation>
+	       <contrib>Latin translation</contrib>
+             </othercredit>
+-->
+
+    </authorgroup>
+	
+	<releaseinfo revision="1.10.2" role="review"/>
+
+    <revhistory>
+      <revision><revnumber>Versão 2.13</revnumber> <date>Julho de 2015</date> <revdescription>
+	  <para role="author">Equipa de Documentação do MATE</para>
+	  <para role="publisher">Projeto de Documentação do MATE</para>
+	</revdescription></revision>
+      <revision><revnumber>Versão 2.12</revnumber> <date>Setembro de 2005</date> <revdescription>
+	  <para role="author">Davyd Madeley</para>
+	</revdescription></revision>
+      <revision><revnumber>Versão 2.10</revnumber> <date>Março de 2005</date> <revdescription>
+	 <para role="author">Davyd Madeley</para>
+	</revdescription></revision>
+      <revision><revnumber>Versão 2.8</revnumber> <date>Setembro de 2004</date> <revdescription>
+	  <para role="author">Angela Boyle</para>
+	  <para role="publisher">Projecto de Documentação do GNOME</para>
+	</revdescription></revision>
+      <revision><revnumber>Manual da mini-aplicação Monitor de Carga da Bateria V2.2</revnumber> <date>Agosto de 2004</date> <revdescription>
+          <para role="author">Equipa de Documentação Sun GNOME</para>
+          <para role="publisher">Projecto de Documentação do GNOME</para>
+        </revdescription></revision>
+      <revision><revnumber>Manual da mini-aplicação Monitor de Carga da Bateria V2.0</revnumber> <date>Maio de 2002</date> <revdescription>
+          <para role="author">Trevor Curtis <email>tcurtis@somaradio.ca</email></para>
+          <para role="author">Jorgen Pehrson <email>jp@spektr.eu.org</email></para>
+          <para role="publisher">Projecto de Documentação do GNOME</para>
+        </revdescription></revision>
+    </revhistory>
+                                                                                                  
+    <releaseinfo>Este manual descreve a versão 1.10.2 do Monitor de Carga da Bateria.</releaseinfo>
+                                                                                                  
+    <legalnotice>
+      <title>Opinião</title>
+      <para>Para reportar um erro ou fazer uma sugestão sobre a mini-aplicação Monitor de Carga da Bateria ou sobre este manual, siga as indicações na <ulink url="help:mate-user-guide/feedback" type="help">Página de Opiniões do MATE</ulink>.</para>
+    </legalnotice>
+  </articleinfo> 
+
+  <indexterm zone="index"><primary>Mini-Aplicação Monitor de Carga da Bateria</primary></indexterm> 
+
+  <indexterm zone="index"><primary>Mini-Aplicação Battstat</primary></indexterm> 
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+  <sect1 id="battstat-introduction"> 
+    <title>Introdução</title> 
+
+    <figure id="battstat-applet-fig"> 
+      <title>Mini-Aplicação Monitor de Carga da Bateria</title> 
+      <screenshot> 
+        <mediaobject><imageobject><imagedata fileref="figures/battstat-applet.png" format="PNG"/> </imageobject> <textobject> <phrase>A mini-aplicação Monitor de Carga da Bateria.</phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure>
+
+    <para>O <application>Monitor de Carga da Bateria</application> mostra o estado de qualquer bateria no computador portátil. O monitor pode indicar a capacidade restante tanto visualmente como em percentagem, assim como fornece uma estimativa do tempo restante baseada na utilização atual.</para>
+
+    <sect2 id="battstat-introduction-add">
+      <title>Para Adicionar o Monitor de Carga da Bateria a um Painel</title>
+      <para>Para adicionar o <application>Monitor de Carga da Bateria</application> a um painel, realize os seguintes passos:</para>
+      <orderedlist>
+        <listitem>
+          <para>Clique com o botão direito do rato no painel.</para>
+        </listitem>
+        <listitem>
+          <para>Escolha <guimenuitem>Adicionar ao Painel</guimenuitem>.</para>
+        </listitem>
+        <listitem>
+          <para>Deslize para baixo na lista de itens na janela <guilabel>Adicionar ao Painel</guilabel> e depois selecione <guilabel>Monitor de Carga da Bateria</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Clique em <guibutton>Adicionar</guibutton>.</para>
+        </listitem>
+      </orderedlist>
+      <para>O esquema da mini-aplicação <application>Monitor de Carga da Bateria</application> varia dependendo do tamanho e o tipo de painel em que a mini-aplicação reside.</para>
+    </sect2>
+
+    <sect2 id="battstat-power-backends">
+     <title lang="en">Power Management Backends</title>
+
+     <para lang="en">
+       The battery monitor supports a number of power management backends.
+       If it is available, the monitor will attempt to use the freedesktop.org
+       <ulink url="http://upower.freedesktop.org/">upower</ulink> interface.
+       If it is unavailable or unsupported on your platform, it will fall back
+       to the freedesktop.org
+       <ulink url="http://freedesktop.org/Software/hal">HAL (Hardware
+       Abstraction Layer)</ulink>. If that is also not available, the
+       battery monitor will attempt direct access to the power management system
+     </para>
+     <para lang="en">
+      Not all power management backends are available from all vendors, and some
+      vendors add their own additional backends for specific platforms and
+      hardware. If the battery monitor is misreporting information from your
+      battery see <xref linkend="battstat-troubleshooting"/>.
+     </para>
+    </sect2>
+
+    <sect2 id="battstat-getting-help">
+      <title>Obter Ajuda</title>
+      <para>Se o monitor de carga da bateria não funcionar, veja estes recursos adicionais:</para>
+      <itemizedlist>
+       <listitem><para><xref linkend="battstat-troubleshooting"/>;</para></listitem>
+       <listitem><para><ulink url="http://ml.mate-desktop.org/listinfo/">listas de discussão do MATE</ulink></para></listitem>
+      </itemizedlist>
+    </sect2>
+
+</sect1>
+
+<!-- ================ Customizing the Appearance ========================= -->
+
+  <sect1 id="battstat-appearance">
+    <title>Preferências</title>
+          <para lang="en">To bring up the preferences for the monitor, right-click on
+	  the monitor in the panel and then choose
+	  <guimenuitem>Preferences</guimenuitem></para>
+    <figure id="battstat-applet-prefs-menu"> 
+      <title>Menu de contexto (clique com o botão direito do rato) do Monitor de Carga da Bateria</title> 
+      <screenshot> 
+        <mediaobject><imageobject><imagedata fileref="figures/context-menu.png" format="PNG"/> </imageobject> <textobject> <phrase>Menu de contexto do Monitor de Carga da Bateria</phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure>
+    <figure id="battstat-applet-prefs"> 
+      <title>Janela de Preferências</title> 
+      <screenshot> 
+        <mediaobject><imageobject><imagedata fileref="figures/battstat-preferences.png" format="PNG"/> </imageobject> <textobject> <phrase>Janela de Preferências</phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure>
+      <variablelist>
+        <varlistentry>
+          <term><guilabel>Aparência</guilabel></term>
+	  <listitem>
+	  <variablelist>
+	    <varlistentry>
+	      <term><guilabel>Vista compacta</guilabel></term>
+	      <listitem><para lang="en">
+	       This view shows only a single graphic in the panel, either an
+	       upright battery to indicate remaining capacity or a plug to
+	       indicate your laptop is connected to an external power source.
+    <figure id="battstat-applet-compact"> 
+      <title lang="en">Compact view</title> 
+      <screenshot> 
+        <mediaobject lang="en"> 
+          <imageobject><imagedata fileref="figures/battstat-applet.png" format="PNG"/> 
+          </imageobject>
+          <textobject> 
+            <phrase>Compact View</phrase>
+          </textobject> 
+        </mediaobject> 
+      </screenshot> 
+    </figure>
+              </para>
+	      <para>A vista compacta é a vista predefinida para o monitor desde o MATE 2.12.</para></listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><guilabel>Vista expandida</guilabel></term>
+	      <listitem><para>A vista expandida é a vista antiga das versões anteriores do MATE. Tem um gráfico maior para a bateria e um gráfico separado para indicar em que estado a bateria se encontra. <figure id="battstat-applet-expanded"> 
+      <title>Vista expandida</title> 
+      <screenshot> 
+        <mediaobject><imageobject><imagedata fileref="figures/battstat-applet-expanded.png" format="PNG"/> </imageobject> <textobject> <phrase>Vista Expandida</phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure></para></listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><guilabel>Mostrar tempo/percentagem</guilabel></term>
+	      <listitem><para>Selecionar esta opção irá mostrar 1 ou 2 peças de informação. <guilabel>Mostrar tempo restante</guilabel> indica quantas horas e minutos restam para que a bateria esteja descarregada ou recarregada. <guilabel>Mostrar percentagem restante</guilabel> indica a percentagem de carga que resta na bateria.</para></listitem>
+	    </varlistentry>
+	  </variablelist>
+	  </listitem>
+        </varlistentry>
+	<varlistentry>
+	 <term><guilabel>Notificações</guilabel></term>
+	  <listitem>
+	  <itemizedlist>
+	   <listitem><para><guilabel> Avisar quando a carga da bateria for inferior a </guilabel></para>
+	   <para>Selecionar esta opção irá mostrar um aviso sempre que a carga da bateria do computador portátil chegar a um determinado valor, quer como percentagem restante quer como minutos restantes. Isto indica que a quantidade de carga da bateria está muito baixa. Pode descartar o aviso, caso contrário este irá desaparecer automaticamente quando ligar o computador portátil à corrente elétrica.</para>
+	   </listitem>
+	   <listitem>
+	    <para><guilabel> Notificar quando a bateria está carregada </guilabel></para>
+	    <para>Selecionar esta opção ativa a notificação quando a bateria estiver completamente recarregada. Se compilou o Monitor de Carga da Bateria com suporte a libnotify, irá aparecer uma notificação não-intrusiva a partir do monitor no painel.</para>
+	   </listitem>
+	  </itemizedlist>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+   </sect1>
+
+   <sect1 id="battstat-troubleshooting">
+    <title>Resolução de problemas</title>
+    
+    <para>Devido às complexidades de gestão de energia e às vastas diferenças entre cada um dos sistemas de gestão de energia disponíveis, pode ser difícil depurar erros no monitor de bateria. Terá de determinar se o erro existe no monitor de bateria ou é um erro na informação fernecida pela sua máquina.</para>
+    <para>A seguinte informação pode ser útil para resolução de problemas com o seu monitor de bateria. Não é de forma alguma exaustivo. Se encontrar um erro no Monitor de Carga da Bateria (que não seja causado por informação errada reportada pela ACPI), por favor <ulink url="http://bugzilla.mate.org/">reporte o erro</ulink>.</para>
+
+    <sect2 id="battstat-troubleshooting-backends">
+     <title lang="en">Determining the backend</title>
+     <para lang="en">
+       If you are using the upower interface, or the Hardware
+       Abstraction Layer (see <xref linkend="battstat-power-backends"/>) then
+       that will be indicated in the about dialog by placing a star next to the
+       author of the HAL backend.
+    <figure id="battstat-credits-hal"> 
+      <title lang="en">Check you're using the HAL backend</title> 
+      <screenshot> 
+        <mediaobject lang="en"> 
+          <imageobject><imagedata fileref="figures/battstat-credits-hal.png" format="PNG"/> 
+          </imageobject>
+          <textobject> 
+            <phrase>Expanded View</phrase>
+          </textobject> 
+        </mediaobject> 
+      </screenshot> 
+    </figure>
+     </para>
+
+     <para lang="en">
+      Other backends do not currently give indication they are being used, so
+      you will have to guess based on your hardware. Most modern PC laptops are
+      using ACPI as the backend. This is also the backend with the largest
+      number of inconsistencies.
+     </para>
+    </sect2>
+
+    <sect2 id="battstat-troubleshooting-acpi">
+      <title>Verificar a informação ACPI</title>
+      <para lang="en">
+        If you are using the ACPI backend for the Battery Charge Monitor, it is important to
+	check that ACPI is giving you the right information. If it isn't, then
+	you will need to look into upgrading your DSDT or something else related
+	to ACPI.
+      </para>
+      <example><title>Exemplo de saída ACPI</title>
+       <screen lang="en">
+[rupert@laptop ~]$ cat /proc/acpi/battery/BAT1/info
+present:                 yes
+design capacity:         41040 mWh
+last full capacity:      37044 mWh
+battery technology:      rechargeable
+design voltage:          10800 mV
+design capacity warning: 745 mWh
+design capacity low:     0 mWh
+capacity granularity 1:  10 mWh
+capacity granularity 2:  10 mWh
+model number:            G71C00056110
+serial number:           0000000008
+battery type:            Li-ION
+OEM info:
+[rupert@laptop ~]$ cat /proc/acpi/battery/BAT1/state
+present:                 yes
+capacity state:          ok
+charging state:          discharging
+present rate:            11232 mW
+remaining capacity:      27140 mWh
+present voltage:         11400 mV
+[rupert@laptop ~]$</screen>
+      </example>
+      <para>Pode calcular rapidamente a percentagem restante utilizando a <guilabel>capacidade restante</guilabel> dividida pela <guilabel>capacidade da última carga completa</guilabel>. Pode determinar o tempo restante utilizando a <guilabel>capacidade restante</guilabel> dividida pelo <guilabel>rácio atual</guilabel>.</para>
+    </sect2>
+
+    <sect2 id="battstat-troubleshooting-nohal">
+      <title>Camada de Abstração do Hardware</title>
+      <para lang="en">
+        You can check that your battery is detected by HAL using the command
+	<command>hal-device-manager</command>. If your battery is not detected
+	by HAL or the wrong information is being reported, you can attempt to
+	disable the HAL backend by setting a GSettings key.
+      </para>
+      <para>Selecione <guimenuitem>Editor de Configuração</guimenuitem> no menu de <guimenu>Aplicações</guimenu> em <guisubmenu>Ferramentas do Sistema</guisubmenu>. Procure pelo valor da chave <prompt>OAFIID:MATE_BattstatApplet</prompt> que deve estar localizada  no caminho <filename>/apps/panel/applets</filename>.</para>
+      <para lang="en">
+       Assuming the path is <filename>/apps/panel/applets/applet_1</filename>.
+       In <filename>/apps/panel/applets/applet_1/prefs</filename> add a
+       <guimenuitem>New Key...</guimenuitem> called <guilabel>no_hal</guilabel>
+       and set it to the boolean value of true. This will disable the usage of
+       HAL (see <xref linkend="battstat-troubleshooting-backends"/> to learn how
+       to check this).
+      </para>
+    </sect2>
+    
+   </sect1>
+
+</article>
