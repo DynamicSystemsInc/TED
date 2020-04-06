@@ -1,0 +1,98 @@
+--- lightdm-1.26.0/liblightdm-gobject/power.c	2018-06-01 20:51:13.240325293 +0000
++++ lightdm-1.26.0/liblightdm-gobject/power.c.new	2018-06-01 23:31:21.650022888 +0000
+@@ -11,6 +11,7 @@
+ #include <config.h>
+ 
+ #include <string.h>
++#include <stdlib.h>
+ #include <gio/gio.h>
+ 
+ #include "lightdm/power.h"
+@@ -116,6 +116,10 @@ ck_call_function (const gchar *function,
+ gboolean
+ lightdm_get_can_suspend (void)
+ {
++    /* It is not local X11 session */
++    if (!getenv("XDG_VTNR"))
++        return FALSE;
++    
+     g_autoptr(GVariant) r = login1_call_function ("CanSuspend", NULL, NULL);
+     gboolean can_suspend = FALSE;
+     if (r)
+@@ -158,6 +158,10 @@ lightdm_get_can_suspend (void)
+ gboolean
+ lightdm_suspend (GError **error)
+ {
++    /* It is not local X11 session */
++    if (!getenv("XDG_VTNR"))
++        return FALSE;
++
+     g_autoptr(GError) login1_error = NULL;
+     g_autoptr(GVariant) login1_result = login1_call_function ("Suspend", g_variant_new("(b)", FALSE), &login1_error);
+     if (login1_result)
+@@ -186,6 +186,10 @@ lightdm_suspend (GError **error)
+ gboolean
+ lightdm_get_can_hibernate (void)
+ {
++    /* It is not local X11 session */
++    if (!getenv("XDG_VTNR"))
++        return FALSE;
++
+     g_autoptr(GVariant) r = login1_call_function ("CanHibernate", NULL, NULL);
+     gboolean can_hibernate = FALSE;
+     if (r)
+@@ -228,6 +228,10 @@ lightdm_get_can_hibernate (void)
+ gboolean
+ lightdm_hibernate (GError **error)
+ {
++    /* It is not local X11 session */
++    if (!getenv("XDG_VTNR"))
++        return FALSE;
++
+     g_autoptr(GError) login1_error = NULL;
+     g_autoptr(GVariant) login1_result = login1_call_function ("Hibernate", g_variant_new("(b)", FALSE), &login1_error);
+     if (login1_result)
+@@ -256,6 +256,10 @@ lightdm_hibernate (GError **error)
+ gboolean
+ lightdm_get_can_restart (void)
+ {
++    /* It is not local X11 session */
++    if (!getenv("XDG_VTNR"))
++        return FALSE;
++
+     g_autoptr(GVariant) r = login1_call_function ("CanReboot", NULL, NULL);
+     gboolean can_restart = FALSE;
+     if (r)
+@@ -288,6 +288,10 @@ lightdm_get_can_restart (void)
+ gboolean
+ lightdm_restart (GError **error)
+ {
++    /* It is not local X11 session */
++    if (!getenv("XDG_VTNR"))
++        return FALSE;
++
+     g_autoptr(GError) login1_error = NULL;
+     g_autoptr(GVariant) login1_result = login1_call_function ("Reboot", g_variant_new("(b)", FALSE), &login1_error);
+     if (login1_result)
+@@ -307,6 +307,10 @@ lightdm_restart (GError **error)
+ gboolean
+ lightdm_get_can_shutdown (void)
+ {
++    /* It is not local X11 session */
++    if (!getenv("XDG_VTNR"))
++        return FALSE;
++
+     g_autoptr(GVariant) r = login1_call_function ("CanPowerOff", NULL, NULL);
+     gboolean can_shutdown = FALSE;
+     if (r)
+@@ -339,6 +339,10 @@ lightdm_get_can_shutdown (void)
+ gboolean
+ lightdm_shutdown (GError **error)
+ {
++    /* It is not local X11 session */
++    if (!getenv("XDG_VTNR"))
++        return FALSE;
++
+     g_autoptr(GError) login1_error = NULL;
+     g_autoptr(GVariant) login1_result = login1_call_function ("PowerOff", g_variant_new("(b)", FALSE), &login1_error);
+     if (login1_result)
