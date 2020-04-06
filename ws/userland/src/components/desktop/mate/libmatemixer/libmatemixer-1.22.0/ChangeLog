@@ -1,0 +1,3040 @@
+commit 79ab5450054ec06a0b20f9660d05513752d9b190
+Author: raveit65 <mate@raveit.de>
+Date:   Sat Feb 23 14:31:59 2019 +0100
+
+    release 1.22.0
+
+ NEWS         | 5 +++++
+ configure.ac | 2 +-
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+
+commit 2027e61cb9cad13d50b7de53c74f99637797a311
+Author: raveit65 <mate@raveit.de>
+Date:   Sat Feb 23 14:08:59 2019 +0100
+
+    tx: sync with transifex
+
+ po/af.po          |   5 +-
+ po/am.po          |   5 +-
+ po/ar.po          |   8 +-
+ po/as.po          |   5 +-
+ po/ast.po         |   6 +-
+ po/az.po          |   5 +-
+ po/be.po          |   5 +-
+ po/bg.po          |   6 +-
+ po/bn.po          |   5 +-
+ po/bn_IN.po       |   5 +-
+ po/br.po          |   5 +-
+ po/bs.po          |   5 +-
+ po/ca.po          |   5 +-
+ po/ca@valencia.po |   5 +-
+ po/cmn.po         |   5 +-
+ po/crh.po         |   5 +-
+ po/cs.po          |   6 +-
+ po/cy.po          |   6 +-
+ po/da.po          |   5 +-
+ po/de.po          |   8 +-
+ po/dz.po          |   5 +-
+ po/el.po          |   7 +-
+ po/en_AU.po       |   5 +-
+ po/en_CA.po       |   5 +-
+ po/en_GB.po       |   6 +-
+ po/eo.po          |   6 +-
+ po/es.po          |   9 +-
+ po/es_CL.po       |   5 +-
+ po/es_CO.po       |   7 +-
+ po/es_MX.po       |   6 +-
+ po/et.po          |   6 +-
+ po/eu.po          |   7 +-
+ po/fa.po          |   5 +-
+ po/fi.po          |   6 +-
+ po/fr.po          |   6 +-
+ po/fr_CA.po       |   5 +-
+ po/frp.po         |   5 +-
+ po/fur.po         |   5 +-
+ po/fy.po          |   5 +-
+ po/ga.po          |   5 +-
+ po/gl.po          | 240 +++++++++++++++++++++++++++---------------------------
+ po/gu.po          |   5 +-
+ po/he.po          |   7 +-
+ po/hi.po          |   7 +-
+ po/hr.po          |   5 +-
+ po/hu.po          |   9 +-
+ po/hy.po          |   5 +-
+ po/ia.po          |   5 +-
+ po/id.po          |   6 +-
+ po/is.po          |   6 +-
+ po/it.po          |   7 +-
+ po/ja.po          |   7 +-
+ po/jv.po          |   5 +-
+ po/ka.po          |   5 +-
+ po/kk.po          |   5 +-
+ po/kn.po          |   5 +-
+ po/ko.po          |   6 +-
+ po/ku.po          |   5 +-
+ po/ku_IQ.po       |   5 +-
+ po/ky.po          |   6 +-
+ po/lt.po          |   7 +-
+ po/lv.po          |   5 +-
+ po/mai.po         |   5 +-
+ po/mg.po          |   5 +-
+ po/mk.po          |   6 +-
+ po/ml.po          |   5 +-
+ po/mn.po          |   5 +-
+ po/mr.po          |   6 +-
+ po/ms.po          |   5 +-
+ po/nb.po          |   6 +-
+ po/nds.po         |   5 +-
+ po/ne.po          |   6 +-
+ po/nl.po          |   6 +-
+ po/nn.po          |   5 +-
+ po/nso.po         |   5 +-
+ po/oc.po          |   5 +-
+ po/or.po          |   5 +-
+ po/pa.po          |   5 +-
+ po/pl.po          |   8 +-
+ po/pms.po         |   5 +-
+ po/ps.po          |   5 +-
+ po/pt.po          |   8 +-
+ po/pt_BR.po       |  12 ++-
+ po/ro.po          |   7 +-
+ po/ru.po          |  12 ++-
+ po/rw.po          |   5 +-
+ po/si.po          |   5 +-
+ po/sk.po          |   7 +-
+ po/sl.po          |   5 +-
+ po/sq.po          |   8 +-
+ po/sr.po          |   5 +-
+ po/sr@latin.po    |   5 +-
+ po/sv.po          |   8 +-
+ po/ta.po          |   5 +-
+ po/te.po          |   5 +-
+ po/th.po          |   5 +-
+ po/tk.po          |   5 +-
+ po/tr.po          |   8 +-
+ po/ug.po          |   5 +-
+ po/uk.po          |  10 ++-
+ po/ur.po          |   5 +-
+ po/uz.po          |   5 +-
+ po/vi.po          |   5 +-
+ po/wa.po          |   5 +-
+ po/xh.po          |   5 +-
+ po/zh_CN.po       |   8 +-
+ po/zh_HK.po       |   5 +-
+ po/zh_TW.po       |   5 +-
+ po/zu.po          |   5 +-
+ 109 files changed, 642 insertions(+), 228 deletions(-)
+
+commit 4d4520c2ade30de92e2afda0fd02d0b496362a3b
+Author: raveit65 <mate@raveit.de>
+Date:   Tue Feb 19 17:51:18 2019 +0100
+
+    Enable Travis CI for all branches
+
+ .travis.yml | 6 ------
+ 1 file changed, 6 deletions(-)
+
+commit 8653076116538a9891cf30f5df1fa009ebf0eb07
+Author: raveit65 <mate@raveit.de>
+Date:   Tue Feb 19 16:48:14 2019 +0100
+
+    Initialize Travis CI support
+
+ .travis.yml | 86 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 86 insertions(+)
+
+commit ae503695a8ca9902b8f52ccdf9828b640261f6a3
+Author: raveit65 <mate@raveit.de>
+Date:   Wed Jun 27 08:45:32 2018 +0200
+
+    add missing po file
+
+ po/zu.po | 558 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 558 insertions(+)
+
+commit 61606cf9f813c045a8aa4a5719348f309bc1cc8e
+Author: raveit65 <mate@raveit.de>
+Date:   Fri Jun 22 10:11:22 2018 +0200
+
+    release 1.21.0
+
+ NEWS | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit af5d296d82568c40bfee481dbe982551b848703f
+Author: raveit65 <mate@raveit.de>
+Date:   Fri Jun 22 10:07:17 2018 +0200
+
+    sync with transifex
+
+ po/LINGUAS        |  53 ++++++
+ po/af.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/am.po          |  12 +-
+ po/ar.po          |  73 ++++---
+ po/as.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ast.po         | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/az.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/be.po          |  12 +-
+ po/bg.po          |  14 +-
+ po/bn.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/bn_IN.po       | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/br.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/bs.po          |  16 +-
+ po/ca.po          |  14 +-
+ po/ca@valencia.po |  12 +-
+ po/cmn.po         | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/crh.po         | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/cs.po          |  15 +-
+ po/cy.po          |  15 +-
+ po/da.po          |  12 +-
+ po/de.po          |  15 +-
+ po/dz.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/el.po          |  14 +-
+ po/en_AU.po       |  12 +-
+ po/en_CA.po       | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/en_GB.po       |  13 +-
+ po/eo.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es.po          |  16 +-
+ po/es_CL.po       | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_CO.po       |  14 +-
+ po/es_MX.po       |  13 +-
+ po/et.po          |  13 +-
+ po/eu.po          |  15 +-
+ po/fa.po          |  14 +-
+ po/fi.po          |  50 ++---
+ po/fr.po          |  13 +-
+ po/fr_CA.po       |  12 +-
+ po/frp.po         |  12 +-
+ po/fur.po         | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/fy.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ga.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/gl.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/gu.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/he.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/hi.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/hr.po          |  12 +-
+ po/hu.po          |  17 +-
+ po/hy.po          |  12 +-
+ po/ia.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/id.po          |  13 +-
+ po/is.po          |  19 +-
+ po/it.po          |  14 +-
+ po/ja.po          |  14 +-
+ po/jv.po          |  14 +-
+ po/ka.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/kk.po          |  14 +-
+ po/kn.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ko.po          |  13 +-
+ po/ku.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ku_IQ.po       |  16 +-
+ po/ky.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/lt.po          |  18 +-
+ po/lv.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mai.po         | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mg.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mk.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ml.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mn.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mr.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ms.po          |  12 +-
+ po/nb.po          |  13 +-
+ po/nds.po         | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ne.po          |  22 +--
+ po/nl.po          |  14 +-
+ po/nn.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/nso.po         | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/oc.po          |  12 +-
+ po/or.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pa.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pl.po          |  15 +-
+ po/pms.po         |  14 +-
+ po/ps.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pt.po          |  16 +-
+ po/pt_BR.po       |  21 +-
+ po/ro.po          |  15 +-
+ po/ru.po          |  22 +--
+ po/rw.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/si.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sk.po          |  19 +-
+ po/sl.po          |  12 +-
+ po/sq.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sr.po          |  14 +-
+ po/sr@latin.po    | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sv.po          |  15 +-
+ po/ta.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/te.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/th.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/tk.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/tr.po          |  14 +-
+ po/ug.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/uk.po          |  20 +-
+ po/ur.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/uz.po          |  14 +-
+ po/vi.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/wa.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/xh.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/zh_CN.po       |  14 +-
+ po/zh_HK.po       | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/zh_TW.po       |  12 +-
+ 109 files changed, 29488 insertions(+), 488 deletions(-)
+
+commit 3c87f8929bce6f3a76c4a62b9f418fbb917f3e71
+Author: raveit65 <mate@raveit.de>
+Date:   Wed Jun 13 11:35:27 2018 +0200
+
+    pre-bump version
+
+ NEWS         | 2 ++
+ configure.ac | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit d6a79fd134a9bf15654b91657621ea25f4edc1a2
+Author: monsta <monsta@inbox.ru>
+Date:   Fri May 18 13:55:05 2018 +0300
+
+    require PulseAudio 5.0 and drop some old code
+
+ backends/pulse/pulse-device.c | 11 -----------
+ configure.ac                  |  2 +-
+ 2 files changed, 1 insertion(+), 12 deletions(-)
+
+commit 99d6d9c8467c65e4e2fac1c45bf93544bb0b4cf4
+Author: raveit65 <mate@raveit.de>
+Date:   Fri Mar 23 12:35:02 2018 +0100
+
+    tx: update config with branch specific resoures
+
+ .tx/config | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 27b66bb51897f2d792f42b600a44e6f73a4f8eb9
+Author: raveit65 <mate@raveit.de>
+Date:   Thu Mar 15 12:02:42 2018 +0100
+
+    tx: create a executable makepot
+    
+    and move libmatemixer.pot to srcdir
+
+ po/libmatemixer.pot => libmatemixer.pot | 0
+ makepot                                 | 5 +++++
+ 2 files changed, 5 insertions(+)
+
+commit 9009154ad0e97a008026c78f53e3e60f54292b00
+Author: raveit65 <mate@raveit.de>
+Date:   Wed Mar 14 10:00:06 2018 +0100
+
+    tx: add libmatemixer.pot for auto-update translations
+
+ po/libmatemixer.pot | 556 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 556 insertions(+)
+
+commit e6a551879816596e1c762503d2338848a95294c2
+Author: raveit65 <mate@raveit.de>
+Date:   Sun Mar 11 16:54:58 2018 +0100
+
+    transifex: set minimum_perc and type in config file
+
+ .tx/config | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 30d69141b070a65b535cfe340904079e108cac49
+Author: raveit65 <mate@raveit.de>
+Date:   Tue Feb 6 20:46:23 2018 +0100
+
+    update News for 1.20 release
+
+ NEWS | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 23298e4fab23ac3d742fda65c412930a5a2938e0
+Author: raveit65 <mate@raveit.de>
+Date:   Sat Jan 27 14:32:55 2018 +0100
+
+    building: bump required glib version to 2.50.0
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 43afd2c23918fc3f989714ad9af3c084294ffdae
+Author: raveit65 <mate@raveit.de>
+Date:   Fri Jan 26 20:05:41 2018 +0100
+
+    release 1.20
+
+ NEWS         | 4 ++++
+ configure.ac | 2 +-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+commit b28076149fc4dc2efb33075d812b79f97feda976
+Author: raveit65 <mate@raveit.de>
+Date:   Fri Jan 26 20:02:28 2018 +0100
+
+    sync with transifex
+
+ po/LINGUAS        |   1 +
+ po/am.po          | 256 ++++++++++++-------------
+ po/ar.po          | 273 +++++++++++++-------------
+ po/be.po          | 256 ++++++++++++-------------
+ po/bg.po          | 256 ++++++++++++-------------
+ po/bs.po          | 256 ++++++++++++-------------
+ po/ca.po          | 256 ++++++++++++-------------
+ po/ca@valencia.po | 258 ++++++++++++-------------
+ po/cs.po          | 256 ++++++++++++-------------
+ po/cy.po          | 256 ++++++++++++-------------
+ po/da.po          | 256 ++++++++++++-------------
+ po/de.po          | 256 ++++++++++++-------------
+ po/el.po          | 256 ++++++++++++-------------
+ po/en_AU.po       | 256 ++++++++++++-------------
+ po/en_GB.po       | 256 ++++++++++++-------------
+ po/es.po          | 287 ++++++++++++++--------------
+ po/es_CO.po       | 256 ++++++++++++-------------
+ po/es_MX.po       | 256 ++++++++++++-------------
+ po/et.po          | 278 +++++++++++++--------------
+ po/eu.po          | 256 ++++++++++++-------------
+ po/fa.po          | 256 ++++++++++++-------------
+ po/fi.po          | 256 ++++++++++++-------------
+ po/fr.po          | 256 ++++++++++++-------------
+ po/fr_CA.po       | 256 ++++++++++++-------------
+ po/frp.po         | 256 ++++++++++++-------------
+ po/hr.po          | 256 ++++++++++++-------------
+ po/hu.po          | 256 ++++++++++++-------------
+ po/hy.po          | 256 ++++++++++++-------------
+ po/id.po          | 256 ++++++++++++-------------
+ po/is.po          | 256 ++++++++++++-------------
+ po/it.po          | 256 ++++++++++++-------------
+ po/ja.po          | 256 ++++++++++++-------------
+ po/jv.po          | 256 ++++++++++++-------------
+ po/kk.po          | 256 ++++++++++++-------------
+ po/ko.po          | 260 ++++++++++++-------------
+ po/ku_IQ.po       | 256 ++++++++++++-------------
+ po/lt.po          | 256 ++++++++++++-------------
+ po/ms.po          | 256 ++++++++++++-------------
+ po/nb.po          | 256 ++++++++++++-------------
+ po/ne.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/nl.po          | 256 ++++++++++++-------------
+ po/oc.po          | 256 ++++++++++++-------------
+ po/pl.po          | 256 ++++++++++++-------------
+ po/pms.po         | 256 ++++++++++++-------------
+ po/pt.po          | 256 ++++++++++++-------------
+ po/pt_BR.po       | 256 ++++++++++++-------------
+ po/ro.po          | 256 ++++++++++++-------------
+ po/ru.po          | 258 ++++++++++++-------------
+ po/sk.po          | 256 ++++++++++++-------------
+ po/sl.po          | 256 ++++++++++++-------------
+ po/sr.po          | 256 ++++++++++++-------------
+ po/sv.po          | 275 +++++++++++++--------------
+ po/tr.po          | 256 ++++++++++++-------------
+ po/uk.po          | 256 ++++++++++++-------------
+ po/uz.po          | 256 ++++++++++++-------------
+ po/zh_CN.po       | 256 ++++++++++++-------------
+ po/zh_TW.po       | 256 ++++++++++++-------------
+ 57 files changed, 7649 insertions(+), 7087 deletions(-)
+
+commit b7fbced454c3e8e7f89afeda4ae41b8ac12215ac
+Author: raveit65 <mate@raveit.de>
+Date:   Sun Oct 22 20:06:55 2017 +0200
+
+    release 1.19.0
+
+ NEWS | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit a50cf64afbf7281aef5316241d8076dc84d6e713
+Author: raveit65 <mate@raveit.de>
+Date:   Sun Oct 22 20:04:17 2017 +0200
+
+    sync with transifex
+
+ po/LINGUAS |   2 +
+ po/fi.po   | 558 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/kk.po   | 558 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 1118 insertions(+)
+
+commit 43158df9ca1f443e6d25217c9523c9e92a3f6566
+Author: monsta <monsta@inbox.ru>
+Date:   Sun Oct 8 21:35:22 2017 +0300
+
+    sync with Transifex
+
+ po/am.po          |   2 +-
+ po/ar.po          |   2 +-
+ po/be.po          |   2 +-
+ po/bg.po          |   2 +-
+ po/bs.po          |   2 +-
+ po/ca.po          |   2 +-
+ po/ca@valencia.po |   2 +-
+ po/cs.po          |   2 +-
+ po/cy.po          |   2 +-
+ po/da.po          |   2 +-
+ po/de.po          |   2 +-
+ po/el.po          |   2 +-
+ po/en_AU.po       |   2 +-
+ po/en_GB.po       |   2 +-
+ po/es.po          |  28 +++++-----
+ po/es_CO.po       |   2 +-
+ po/es_MX.po       |   2 +-
+ po/et.po          |  18 +++----
+ po/eu.po          |   2 +-
+ po/fa.po          |   2 +-
+ po/fr.po          |   2 +-
+ po/fr_CA.po       |   2 +-
+ po/frp.po         |   2 +-
+ po/hr.po          |   2 +-
+ po/hu.po          |   6 +--
+ po/hy.po          |   2 +-
+ po/id.po          |   2 +-
+ po/is.po          |   2 +-
+ po/it.po          |   2 +-
+ po/ja.po          |   2 +-
+ po/jv.po          |   2 +-
+ po/ko.po          |   2 +-
+ po/ku_IQ.po       |   2 +-
+ po/lt.po          |   2 +-
+ po/ms.po          |   2 +-
+ po/nb.po          |   2 +-
+ po/nl.po          | 159 +++++++++++++++++++++++++++---------------------------
+ po/oc.po          |   2 +-
+ po/pl.po          | 147 +++++++++++++++++++++++++-------------------------
+ po/pms.po         |   2 +-
+ po/pt.po          |   8 +--
+ po/pt_BR.po       |   7 +--
+ po/ro.po          |  25 ++++-----
+ po/ru.po          |   4 +-
+ po/sk.po          |   2 +-
+ po/sl.po          |   2 +-
+ po/sr.po          |   2 +-
+ po/sv.po          |   2 +-
+ po/tr.po          |   2 +-
+ po/uk.po          |   2 +-
+ po/uz.po          |   2 +-
+ po/zh_CN.po       |   2 +-
+ po/zh_TW.po       |   2 +-
+ 53 files changed, 247 insertions(+), 243 deletions(-)
+
+commit 801fb6cf05f3bae92c1c44efd8d0f0dd4ed8a6b0
+Author: raveit65 <mate@raveit.de>
+Date:   Tue Jul 18 14:54:51 2017 +0200
+
+    update issue_template
+
+ .github/issue_template.md | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit e99e78d7f2fd789b604ebcb2b322ab853dc7aca8
+Author: raveit65 <mate@raveit.de>
+Date:   Thu Jun 8 18:48:36 2017 +0200
+
+    create issue_template.md
+
+ .github/issue_template.md | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+commit d929c043b3b10edb098b5db952fb2c114490240c
+Author: raveit65 <mate@raveit.de>
+Date:   Thu Mar 30 16:38:46 2017 +0200
+
+    pre-bump version
+
+ NEWS         | 2 ++
+ configure.ac | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit f905ac3353b16a93293812669ae53c8f8e2c70a1
+Author: raveit65 <mate@raveit.de>
+Date:   Sun Mar 12 16:31:59 2017 +0100
+
+    release 1.18.0
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3976fc82737cecf45dbc06b8cd0f39d25c90ceb7
+Author: raveit65 <mate@raveit.de>
+Date:   Sun Mar 12 16:30:50 2017 +0100
+
+    sync with transifex
+
+ po/am.po | 174 +++++++++++++++++++++++++++++++--------------------------------
+ po/el.po |   4 +-
+ po/hr.po |  14 ++---
+ po/hu.po |   2 +-
+ po/ja.po |  80 ++++++++++++++---------------
+ po/oc.po | 142 +++++++++++++++++++++++++--------------------------
+ po/pl.po |  13 ++---
+ po/tr.po |   4 +-
+ po/uk.po |  25 ++++-----
+ 9 files changed, 230 insertions(+), 228 deletions(-)
+
+commit fe0ba4977b4bf4710a12229b265557d8f8f167dd
+Author: monsta <monsta@inbox.ru>
+Date:   Sun Mar 12 14:34:34 2017 +0300
+
+    update NEWS for 1.18
+
+ NEWS | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+commit dd5f0d6489ce7a2b4156b3a6b44da09eb1336611
+Author: Martin Wimpress <martin@mate-desktop.org>
+Date:   Fri Jan 13 16:13:03 2017 +0000
+
+    Update libmatemixer NEWS to use consistent, project wide, markdown-like formatting. This will make generating release announcements easier.
+
+ NEWS | 68 ++++++++++++++++++++++++++------------------------------------------
+ 1 file changed, 26 insertions(+), 42 deletions(-)
+
+commit 7707b567e5a9384ea5a526a39c026ba4ee520d88
+Author: monsta <monsta@inbox.ru>
+Date:   Mon Nov 28 12:56:06 2016 +0300
+
+    po: actually add new languages from Transifex
+
+ po/LINGUAS | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit e81869dc35f08a320e86727e9926b0571392ada3
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Nov 22 14:19:38 2016 +0100
+
+    release 1.17.0
+
+ NEWS         | 6 ++++++
+ configure.ac | 2 +-
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+commit f85f72fcf33f165f64d3728b0115f7ee0b85e295
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Nov 22 14:18:17 2016 +0100
+
+    sync with transiflex
+
+ po/bs.po          | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ca@valencia.po | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/hu.po          |   2 +-
+ po/ja.po          |   2 +-
+ po/ku_IQ.po       | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/nb.po          |   4 +-
+ po/pt_BR.po       |   2 +-
+ po/ro.po          |   2 +-
+ po/sv.po          |  22 +--
+ 9 files changed, 1691 insertions(+), 17 deletions(-)
+
+commit e24e3498cdf42aeda052db335c67211a29fc460b
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Sun Sep 18 08:20:54 2016 +0200
+
+    release 1.16.0
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3df18c625347c4a7f9991cd2ca0898c7ba75778c
+Author: monsta <monsta@inbox.ru>
+Date:   Sat Sep 17 22:28:29 2016 +0300
+
+    update NEWS for 1.16
+
+ NEWS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 551973a73213c1fecba069f39079208f458b1139
+Author: monsta <monsta@inbox.ru>
+Date:   Sat Sep 17 22:11:31 2016 +0300
+
+    sync with Transifex
+
+ po/ar.po    |  7 ++++---
+ po/ca.po    | 11 ++++++-----
+ po/en_AU.po |  2 +-
+ po/es_CO.po |  9 +++++----
+ 4 files changed, 16 insertions(+), 13 deletions(-)
+
+commit 520d9c7b8532ca73dfcdce551af92c9757f153b5
+Author: monsta <monsta@inbox.ru>
+Date:   Tue Jun 21 18:09:01 2016 +0300
+
+    po: actually add new languages from Transifex
+
+ po/LINGUAS | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit c612cfc92ca56c97d17d10458f132e439432d87c
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Jun 7 13:20:39 2016 +0200
+
+    release 1.15.0
+
+ NEWS         | 6 ++++++
+ configure.ac | 2 +-
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+commit 6787ab60451b650e84d1ea9e02b3ce7f1aad70ef
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Jun 7 13:17:23 2016 +0200
+
+    sync with Transiflex
+
+ po/bg.po    | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ca.po    |  12 +-
+ po/el.po    |  43 ++---
+ po/frp.po   |   4 +-
+ po/hr.po    |   8 +-
+ po/hu.po    |   2 +-
+ po/lt.po    |   2 +-
+ po/pms.po   | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pt_BR.po |   2 +-
+ po/ro.po    |  15 +-
+ po/ru.po    |   2 +-
+ po/tr.po    |   8 +-
+ po/uz.po    | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 13 files changed, 1724 insertions(+), 48 deletions(-)
+
+commit f5b40cb7126eaf7dd60f225e66bb70a1f09362e2
+Author: monsta <monsta@inbox.ru>
+Date:   Thu Apr 7 14:57:51 2016 +0300
+
+    po: add missing languages to LINGUAS
+
+ po/LINGUAS | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit 342af260a082a7f2af3a22cd5539c0f1d673fb26
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Apr 5 13:20:11 2016 +0200
+
+    add new languages to Linguas
+
+ po/LINGUAS | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+commit ca5a9c20a01d0cf6a9f051eaf99fccd087032a57
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Apr 5 13:04:27 2016 +0200
+
+    release 1.14.0
+
+ NEWS         | 3 ++-
+ configure.ac | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit be4bbf35edbb66dcd0b3c5b08746df52a785e69d
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Apr 5 13:02:37 2016 +0200
+
+    add Changelog from git
+
+ ChangeLog   |  2 ++
+ Makefile.am | 10 ++++++++++
+ 2 files changed, 12 insertions(+)
+
+commit 0c3de5d4fc53424ae018f49e70a788a365295fa2
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Apr 5 12:59:55 2016 +0200
+
+    add new languages from transiflex
+
+ po/cy.po    | 557 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_CO.po | 557 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_MX.po | 557 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/fa.po    | 558 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/frp.po   | 558 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/is.po    | 557 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/nb.po    | 559 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/oc.po    | 558 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 8 files changed, 4461 insertions(+)
+
+commit 54c7ccf2775a7197ff47681a8e349ee89c3f07f8
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Apr 5 12:18:04 2016 +0200
+
+    sync with transiflex
+
+ po/be.po    |  12 ++--
+ po/cs.po    |   4 +-
+ po/et.po    | 119 +++++++++++++++++++--------------------
+ po/hu.po    |  10 ++--
+ po/it.po    |   2 +-
+ po/ko.po    |   2 +-
+ po/lt.po    |   4 +-
+ po/nl.po    |   2 +-
+ po/pt.po    |  13 +++--
+ po/pt_BR.po | 181 ++++++++++++++++++++++++++++++------------------------------
+ po/ro.po    |  14 ++---
+ po/ru.po    |   4 +-
+ po/sk.po    |  13 +++--
+ po/sv.po    |  94 +++++++++++++++----------------
+ po/tr.po    |  15 ++---
+ po/uk.po    |  96 ++++++++++++++++----------------
+ po/zh_CN.po |   8 +--
+ 17 files changed, 298 insertions(+), 295 deletions(-)
+
+commit 0b0ea5014fef783568b97cd73483b293d96f752e
+Author: monsta <monsta@inbox.ru>
+Date:   Mon Apr 4 17:51:28 2016 +0300
+
+    update NEWS
+
+ NEWS | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+commit 090fa90993e08a4ccbbe20cf6bd90277fd12e991
+Author: Martin Wimpress <code@flexion.org>
+Date:   Fri Feb 19 14:17:38 2016 +0000
+
+    Sync with Transifex
+
+ po/ca.po | 247 ++++++++++++++++++++++++++++++++-------------------------------
+ po/hr.po |  10 +--
+ po/hy.po | 126 ++++++++++++++++----------------
+ po/it.po |  15 ++--
+ po/lt.po |  40 +++++------
+ po/ru.po |  14 ++--
+ 6 files changed, 228 insertions(+), 224 deletions(-)
+
+commit ae700e0c1bedcb67d24b9c957033f395c78e63b8
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Sun Jan 24 05:43:11 2016 +0100
+
+    release 1.13.0
+
+ NEWS | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 1935f2b687162a103bebca7c7bc38c3ab32ce7be
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Tue Jan 5 11:22:44 2016 +0100
+
+    pulse: Do not set default sink/source to NULL while waiting for their info
+
+ backends/pulse/pulse-backend.c | 36 ++++++++++++++++++------------------
+ 1 file changed, 18 insertions(+), 18 deletions(-)
+
+commit 851c4a0b3615234ff3930389dd666205c2863c64
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Tue Jan 5 11:14:12 2016 +0100
+
+    pulse: Turn a macro into a function and provide error checking
+
+ backends/pulse/pulse-sink-control.c   |  4 ++--
+ backends/pulse/pulse-source-control.c |  6 +++---
+ backends/pulse/pulse-source-output.c  |  2 +-
+ backends/pulse/pulse-stream-control.c | 17 ++++++++++++++++-
+ backends/pulse/pulse-stream-control.h | 32 +++++++++++++++-----------------
+ backends/pulse/pulse-stream.c         |  2 +-
+ 6 files changed, 38 insertions(+), 25 deletions(-)
+
+commit c03e76c83ed49335390cdb9e3a8e63df4d73e0c5
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Jan 4 21:50:08 2016 +0100
+
+    pulse: Use own PulseAudio connection in stream controls
+
+ backends/pulse/pulse-sink-control.c   | 19 +++++++++++--------
+ backends/pulse/pulse-sink-control.h   |  5 +++--
+ backends/pulse/pulse-sink-input.c     | 16 ++++++++++------
+ backends/pulse/pulse-sink-input.h     |  5 +++--
+ backends/pulse/pulse-sink.c           |  9 +++++++--
+ backends/pulse/pulse-source-control.c | 17 ++++++++++-------
+ backends/pulse/pulse-source-control.h |  5 +++--
+ backends/pulse/pulse-source-output.c  | 17 ++++++++++-------
+ backends/pulse/pulse-source-output.h  |  5 +++--
+ backends/pulse/pulse-source.c         |  8 ++++++--
+ backends/pulse/pulse-stream-control.h |  2 --
+ 11 files changed, 66 insertions(+), 42 deletions(-)
+
+commit 299e1a26e5eb5d6625feba2a9db017f43d9d853c
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Tue Jan 5 02:09:38 2016 +0100
+
+    pre-bump version to 1.13.0
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 44f5c4d6c55389e427916c86a963de20191ad86b
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Jan 4 20:48:42 2016 +0100
+
+    Make sure each stream has a default control to match documented behaviour
+
+ libmatemixer/matemixer-stream.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+commit 0de529565d045e51200a111c9d2bee71e5d20af6
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Jan 4 20:44:40 2016 +0100
+
+    oss: Improve code dealing with stream control volumes
+
+ backends/oss/oss-stream-control.c | 128 ++++++++++++++++++++++----------------
+ 1 file changed, 74 insertions(+), 54 deletions(-)
+
+commit 9772797c31ebed2417b42a9389caae1b16847e86
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Jan 4 20:31:14 2016 +0100
+
+    Improve error checking in many places
+
+ backends/alsa/alsa-stream-control.c        |  8 ++++++++
+ backends/alsa/alsa-stream-input-control.c  | 16 +++++++++++-----
+ backends/alsa/alsa-stream-output-control.c | 15 ++++++++++-----
+ backends/alsa/alsa-stream.c                |  8 +++++++-
+ backends/alsa/alsa-switch-option.c         |  3 +++
+ backends/alsa/alsa-toggle.c                |  8 ++++++++
+ backends/oss/oss-backend.c                 | 16 ++++++++++------
+ backends/oss/oss-device.c                  | 12 +++++++++++-
+ backends/oss/oss-stream-control.c          | 18 +++++++++++++++++-
+ backends/oss/oss-stream.c                  | 10 +++++++++-
+ backends/oss/oss-switch-option.c           |  3 +++
+ backends/oss/oss-switch.c                  | 11 +++++++++--
+ backends/pulse/pulse-connection.c          | 12 ++++++++++++
+ backends/pulse/pulse-device-switch.c       |  4 ++++
+ backends/pulse/pulse-device.c              |  1 +
+ backends/pulse/pulse-ext-stream.c          |  8 ++++++--
+ backends/pulse/pulse-helpers.c             |  2 ++
+ backends/pulse/pulse-sink-input.c          |  8 ++++++--
+ backends/pulse/pulse-sink-switch.c         |  5 +++++
+ backends/pulse/pulse-sink.c                |  6 ++++++
+ backends/pulse/pulse-source-output.c       |  8 ++++++--
+ backends/pulse/pulse-source-switch.c       |  5 +++++
+ backends/pulse/pulse-source.c              |  6 ++++++
+ backends/pulse/pulse-stream-control.c      | 14 +++++++++-----
+ backends/pulse/pulse-stream-control.h      |  3 ++-
+ libmatemixer/matemixer-backend.c           |  2 ++
+ libmatemixer/matemixer-device.c            |  6 ++++++
+ libmatemixer/matemixer-stream-control.c    |  2 ++
+ libmatemixer/matemixer-switch.c            |  1 +
+ 29 files changed, 187 insertions(+), 34 deletions(-)
+
+commit d32ca3f420d036cd750fc1aad7f95da40559cc5d
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Dec 10 13:52:46 2015 +0100
+
+    Add description to libmatemixer.pc
+
+ data/libmatemixer.pc.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b824b6aab1320762e6ffaaf2e8a12eb021762d98
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Dec 10 13:50:33 2015 +0100
+
+    alsa/oss: Correctly disconnect device signals
+
+ backends/alsa/alsa-backend.c | 10 ++++++++--
+ backends/oss/oss-backend.c   |  6 +++---
+ 2 files changed, 11 insertions(+), 5 deletions(-)
+
+commit d62f85c3dc4f8de5fe5a59908cef705b9d0a3440
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Dec 10 02:17:45 2015 +0100
+
+    pulse: Fix volume limits as described on the PulseAudio wiki
+
+ NEWS                                  |  6 ++++++
+ backends/pulse/pulse-ext-stream.c     |  2 +-
+ backends/pulse/pulse-sink-input.c     | 27 +++++++++++++++++++++------
+ backends/pulse/pulse-source-output.c  | 27 +++++++++++++++++++++------
+ backends/pulse/pulse-stream-control.c | 19 +++++++++++++++++--
+ 5 files changed, 66 insertions(+), 15 deletions(-)
+
+commit a64722f0eff22f9ba8af3999bfb168d9b020ddd8
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Dec 10 02:08:16 2015 +0100
+
+    Fix distclean in docs
+
+ docs/reference/Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3d0ebc39eae3cc2a80380fa6ea62f40673f045c9
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Dec 10 02:06:20 2015 +0100
+
+    Replace leading spaces in Makefiles with tabs
+
+ Makefile.am                |  46 +++++++++----------
+ backends/alsa/Makefile.am  |  70 ++++++++++++++---------------
+ backends/null/Makefile.am  |  18 ++++----
+ backends/oss/Makefile.am   |  50 ++++++++++-----------
+ backends/pulse/Makefile.am | 110 ++++++++++++++++++++++-----------------------
+ docs/reference/Makefile.am |  32 ++++++-------
+ examples/Makefile.am       |   8 ++--
+ libmatemixer/Makefile.am   |  92 ++++++++++++++++++-------------------
+ 8 files changed, 213 insertions(+), 213 deletions(-)
+
+commit b3952a0d4fb8afb4716ccdd5313cfc53c506ec64
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Dec 10 01:54:45 2015 +0100
+
+    Improve and tidy configure.ac
+
+ configure.ac             | 114 +++++++++++++++++++++++++++--------------------
+ libmatemixer/Makefile.am |   2 +-
+ 2 files changed, 67 insertions(+), 49 deletions(-)
+
+commit 4e18483c922a6782610aa9878a5f49f9d94953cd
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Dec 10 00:18:03 2015 +0100
+
+    alsa: Remove an invalid warning
+
+ backends/alsa/alsa-backend.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
+
+commit fd7bf59716421c96a7f7c2c6f3ae60636ef24d3d
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Dec 10 00:16:15 2015 +0100
+
+    Require PulseAudio 2.0 or newer
+
+ backends/pulse/pulse-connection.c    |  8 --------
+ backends/pulse/pulse-device.c        |  2 --
+ backends/pulse/pulse-sink-input.c    | 26 ++++++++------------------
+ backends/pulse/pulse-source-output.c | 19 -------------------
+ configure.ac                         |  2 +-
+ 5 files changed, 9 insertions(+), 48 deletions(-)
+
+commit 461ef5c17262f573c4006010ed421fa364548e19
+Author: Monsta <monsta@inbox.ru>
+Date:   Sun Nov 29 21:19:24 2015 +0300
+
+    Bump version to 1.12.1
+
+ NEWS         | 6 ++++++
+ configure.ac | 2 +-
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+commit 6635e52c5f2e5d09b3279d065869dd72ab610d0a
+Author: Clement Lefebvre <clement.lefebvre@linuxmint.com>
+Date:   Tue Nov 3 14:54:26 2015 +0000
+
+    Sync translations with transifex
+
+ po/ca.po    | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/fr_CA.po | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/jv.po    | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 1674 insertions(+)
+
+commit 46da37d66d815df1377da158361b0fe4a6a4368d
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Sun Nov 1 16:39:33 2015 +0100
+
+    Sync translations with transifex
+
+ po/LINGUAS  |   1 +
+ po/am.po    | 103 ++++++-----
+ po/ar.po    | 119 +++++++------
+ po/be.po    |  95 +++++------
+ po/cs.po    | 326 ++++++++++++++++++-----------------
+ po/da.po    |  93 +++++-----
+ po/de.po    |  94 +++++-----
+ po/el.po    |  93 +++++-----
+ po/en_AU.po |  95 +++++------
+ po/en_GB.po |  93 +++++-----
+ po/es.po    |  94 +++++-----
+ po/et.po    | 105 ++++++------
+ po/eu.po    | 112 ++++++------
+ po/fr.po    | 110 ++++++------
+ po/hr.po    |  87 +++++-----
+ po/hu.po    | 120 +++++++------
+ po/hy.po    | 558 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/id.po    |  95 +++++------
+ po/it.po    |  93 +++++-----
+ po/ja.po    | 108 ++++++------
+ po/ko.po    |  95 +++++------
+ po/lt.po    | 202 +++++++++++-----------
+ po/ms.po    |  93 +++++-----
+ po/nl.po    |  95 +++++------
+ po/pl.po    |  88 +++++-----
+ po/pt.po    | 103 ++++++-----
+ po/ro.po    | 157 +++++++++--------
+ po/ru.po    | 100 ++++++-----
+ po/sk.po    |  93 +++++-----
+ po/sl.po    |  91 +++++-----
+ po/sr.po    |  91 +++++-----
+ po/tr.po    |  93 +++++-----
+ po/zh_CN.po |  92 +++++-----
+ po/zh_TW.po |  89 +++++-----
+ 34 files changed, 2275 insertions(+), 1801 deletions(-)
+
+commit 8c4f5fae3878915a329123a02b721dd6286728a7
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Sat Oct 31 12:31:54 2015 +0100
+
+    release 1.12.0
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 63e0601fdee1f2f18294601b8ea3e993b0b38fd7
+Author: monsta <monsta@inbox.ru>
+Date:   Fri Oct 30 14:57:07 2015 +0300
+
+    update NEWS for 1.12
+
+ NEWS | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit f067c0cf33dac6882d1bb3a61fbdff520f457151
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Oct 15 16:13:03 2015 +0200
+
+    Don't mention nonexistent INSTALL file in README (fixes #2)
+    
+    The included file was supposed to be the common GNU INSTALL file, but
+    this file is not commonly distributed in MATE packages and the
+    installation procedure is the same as in other MATE packages.
+
+ README | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit e983564fc87a8980362570014d5231c9b67ed264
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Thu Oct 8 16:21:00 2015 +0200
+
+    release 1.11.0
+
+ NEWS | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit df4b7a7cbf52b029a983b3ccf56eec043675e0e3
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Oct 6 17:00:59 2015 +0200
+
+    pre-bump version to 1.11.0
+
+ NEWS         | 4 ++++
+ configure.ac | 2 +-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+commit cd7b540d979581f7a36096624d88e9720eea418b
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Sep 26 20:50:04 2015 +0200
+
+    oss: Only use modify counter for polling on Linux, it is broken on BSDs
+
+ backends/oss/oss-device.c | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+commit 10a0b2193303063167a297f542c4de0952a4cd25
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Sep 26 16:59:13 2015 +0200
+
+    alsa: Fix FTBFS with old versions of ALSA (fixes #4)
+
+ backends/alsa/Makefile.am                  |  1 +
+ backends/alsa/alsa-compat.h                | 26 ++++++++++++++++++++++++++
+ backends/alsa/alsa-constants.c             | 13 +++++++++++--
+ backends/alsa/alsa-device.c                |  3 +++
+ backends/alsa/alsa-stream-input-control.c  | 22 ++++++++++++++++++++--
+ backends/alsa/alsa-stream-output-control.c | 22 ++++++++++++++++++++--
+ configure.ac                               |  3 ++-
+ 7 files changed, 83 insertions(+), 7 deletions(-)
+
+commit 06b3b936980f2b12aabf4aff64230c86e81e8cff
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Sep 26 16:37:51 2015 +0200
+
+    alsa: Fix fade
+
+ backends/alsa/alsa-stream-control.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 8670d95c61f0ba3709e7558197f1dc9c466a450c
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Fri Jun 12 09:35:42 2015 +0200
+
+    Sync translations with transifex
+
+ po/pt_BR.po |  9 +++++----
+ po/sv.po    | 45 +++++++++++++++++++++++----------------------
+ po/uk.po    | 12 ++++++------
+ 3 files changed, 34 insertions(+), 32 deletions(-)
+
+commit 0cc648d84d6153370220ed5a37b56c0b2644d239
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Apr 5 19:51:34 2015 +0200
+
+    Bump version to 1.10.0
+
+ NEWS         | 6 ++++++
+ configure.ac | 4 ++--
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+commit 8d614c3a18a6b1a2966583f46089955c1918c7d9
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Sun Apr 5 18:11:56 2015 +0200
+
+    Sync translations with transifex
+
+ po/LINGUAS |   4 +
+ po/ar.po   | 562 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/be.po   | 118 ++++++-------
+ po/cs.po   | 561 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/el.po   |  10 +-
+ po/et.po   |  16 +-
+ po/eu.po   | 561 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/hu.po   |  15 +-
+ po/lt.po   |  34 ++--
+ po/pt.po   |  99 +++++------
+ po/ro.po   | 119 ++++++-------
+ po/ru.po   |  25 +--
+ po/sl.po   | 561 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 13 files changed, 2469 insertions(+), 216 deletions(-)
+
+commit 79547829d23453840d05ad6f37799ba8ffba72c0
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue Feb 24 19:48:55 2015 +0100
+
+    Bump version to 1.9.90
+
+ NEWS         | 6 +++---
+ configure.ac | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+commit ea714934b09f340a9e8df83f1abf70dcd8e6531d
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Tue Feb 24 19:48:37 2015 +0100
+
+    Sync translations with transifex
+
+ po/am.po |  22 ++++++------
+ po/hu.po | 123 ++++++++++++++++++++++++++++++++-------------------------------
+ po/ja.po |  75 +++++++++++++++++++-------------------
+ po/pt.po |   4 +--
+ po/ru.po |  31 ++++++++--------
+ po/tr.po |  57 ++++++++++++++---------------
+ 6 files changed, 158 insertions(+), 154 deletions(-)
+
+commit 5c867e88aadb94f47994746e3200030984d4b424
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Tue Jan 20 18:35:32 2015 +0100
+
+    Sync translations with transifex
+
+ po/LINGUAS  |   4 +
+ po/en_AU.po |  11 +-
+ po/en_GB.po |   4 +-
+ po/es.po    | 187 ++++++++++----------
+ po/et.po    |   4 +-
+ po/lt.po    |  43 ++---
+ po/ms.po    |  10 +-
+ po/nl.po    |  17 +-
+ po/pt.po    |  99 +++++------
+ po/ro.po    | 561 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ru.po    |  17 +-
+ po/sk.po    | 561 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sr.po    | 561 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sv.po    | 561 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/uk.po    |  26 +--
+ po/zh_CN.po | 185 ++++++++++----------
+ 16 files changed, 2554 insertions(+), 297 deletions(-)
+
+commit 7d287d78564fc8a641d6f7f71c881c3bdaf43e0f
+Merge: 41e50fd 01e7b2d
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Jan 12 16:05:28 2015 +0100
+
+    Merge pull request #1 from monsta/cleanup
+    
+    drop support for GLib < 2.36
+
+commit 01e7b2dc543b51b9484d20f47f3989499513b1a9
+Author: Monsta <monsta@inbox.ru>
+Date:   Mon Jan 12 17:05:02 2015 +0300
+
+    drop support for GLib < 2.36
+
+ configure.ac             | 2 +-
+ libmatemixer/matemixer.c | 4 ----
+ 2 files changed, 1 insertion(+), 5 deletions(-)
+
+commit 41e50fd68e5b78a9982501eda767572a2ce56c26
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Nov 22 11:55:16 2014 +0100
+
+    Bump version to 1.9.2
+
+ NEWS         | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 62274f2eb7115619116d16c2339dbf616c70af14
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Sat Nov 22 11:49:49 2014 +0100
+
+    Sync translations with transifex
+
+ po/LINGUAS  |   3 +
+ po/de.po    |  59 +++----
+ po/hr.po    |  18 +-
+ po/lt.po    | 561 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/nl.po    | 561 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pt.po    |  42 ++---
+ po/pt_BR.po |   9 +-
+ po/ru.po    |   7 +-
+ po/uk.po    |   4 +-
+ po/zh_CN.po | 561 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 10 files changed, 1757 insertions(+), 68 deletions(-)
+
+commit dcfd02b63f5d90b84d20e8b068df340ba8857ecc
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Nov 20 20:43:42 2014 +0100
+
+    pulse: Optimize conversion of channel constants
+
+ backends/pulse/pulse-ext-stream.c     | 15 +++---
+ backends/pulse/pulse-helpers.c        | 91 ++++++++++++++++-------------------
+ backends/pulse/pulse-helpers.h        |  6 +--
+ backends/pulse/pulse-stream-control.c | 15 +++---
+ 4 files changed, 61 insertions(+), 66 deletions(-)
+
+commit 700e96a656a0fdd8893b1a280f6e2f685ff43daf
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Nov 20 19:37:53 2014 +0100
+
+    pulse: Use property for ext-stream's MateMixerAppInfo
+
+ backends/pulse/pulse-ext-stream.c | 24 +++++++++++++++++++++---
+ 1 file changed, 21 insertions(+), 3 deletions(-)
+
+commit eab574a3b8362cceafc0417eab66b62edd2399e3
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Nov 20 16:55:56 2014 +0100
+
+    alsa: Emit "stream-added" after the stream element is added and the stream is gettable
+    
+    Fixes mate_mixer_context_get_stream() not working when the signal is received
+
+ backends/alsa/alsa-device.c | 28 ++++++++++++++++------------
+ 1 file changed, 16 insertions(+), 12 deletions(-)
+
+commit fba7bd8e24abd215bbce6c704d4c112014f23a82
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Nov 20 15:30:15 2014 +0100
+
+    pulse: Do not hide monitor sources
+    
+    Apart from being useful in some cases, application inputs may get moved to these sources (for example when changing profiles or from another application), and then the library loses track of these controls
+
+ backends/pulse/pulse-backend.c | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 249bddc5abe70fc6281303c76ce0d059e09d4976
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Nov 20 04:42:17 2014 +0100
+
+    pulse: Rename a function to a better name
+
+ backends/pulse/pulse-backend.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+commit 14ae6e0d97fc73fbc516442ed37862523189596b
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Nov 20 04:28:29 2014 +0100
+
+    pulse: Correctly remove sink inputs/source outputs
+
+ backends/pulse/pulse-backend.c | 43 ++++++++++++++++++++++++++++++------------
+ 1 file changed, 31 insertions(+), 12 deletions(-)
+
+commit 6edbe3e6c6cd8d817c68d581b67eb12dfdab9937
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Nov 20 03:56:17 2014 +0100
+
+    pulse: Use GUINT_TO_POINTER universally
+
+ backends/pulse/pulse-sink.c   | 8 ++++----
+ backends/pulse/pulse-source.c | 8 ++++----
+ 2 files changed, 8 insertions(+), 8 deletions(-)
+
+commit 2b5cbdee5398665116ed747e3c4f5e914c6ae3fb
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Nov 20 03:55:39 2014 +0100
+
+    pulse: Rename private variables with confusing names
+
+ backends/pulse/pulse-backend.c | 36 ++++++++++++++++++------------------
+ 1 file changed, 18 insertions(+), 18 deletions(-)
+
+commit c0667a0f64eb0f928ff7c58f884b6e9854f38091
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Nov 20 03:48:46 2014 +0100
+
+    pulse: Improve handling of sink inputs/source outputs, mainly to catch moves to another parents
+
+ backends/pulse/pulse-backend.c | 70 ++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 60 insertions(+), 10 deletions(-)
+
+commit f68d57c1d453abad6948ea892240a66cb73e7eaa
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Nov 20 03:27:28 2014 +0100
+
+    Remove a useless debugging message
+
+ backends/pulse/pulse-backend.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 6487cd3fd490cfb1c5d0a035cd3fb6621f4ab248
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Wed Nov 12 20:54:53 2014 +0100
+
+    alsa: Remove remnants of device switches
+
+ backends/alsa/alsa-device.c | 67 +--------------------------------------------
+ 1 file changed, 1 insertion(+), 66 deletions(-)
+
+commit 589b0a149349dc849585e4d3c97d05ad9bc8f62d
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Mon Nov 10 12:03:38 2014 +0100
+
+    Sync translations with transifex
+
+ po/et.po |  4 ++--
+ po/id.po | 11 ++++++-----
+ po/tr.po | 31 ++++++++++++++++---------------
+ 3 files changed, 24 insertions(+), 22 deletions(-)
+
+commit 782078cdb25fa9fa4c9e8654f44708356b844ffe
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Nov 10 11:45:48 2014 +0100
+
+    Provide a debug option in the example program
+
+ examples/monitor.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 38a6d46a1058cd98466589427d5da704db7bfe09
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Nov 10 11:40:06 2014 +0100
+
+    Change MateMixerSwitchFlags into MateMixerStreamSwitchFlags
+
+ backends/alsa/alsa-toggle.c              |  2 +-
+ docs/reference/libmatemixer-sections.txt |  4 ++--
+ libmatemixer/matemixer-enum-types.c      | 24 ++++++++++----------
+ libmatemixer/matemixer-enum-types.h      |  6 ++---
+ libmatemixer/matemixer-enums.h           | 24 ++++++++++----------
+ libmatemixer/matemixer-stream-switch.c   | 39 ++++++++++++++++++++++++++++++--
+ libmatemixer/matemixer-stream-switch.h   |  7 +++---
+ libmatemixer/matemixer-switch.c          | 35 ----------------------------
+ libmatemixer/matemixer-switch.h          |  1 -
+ 9 files changed, 71 insertions(+), 71 deletions(-)
+
+commit 6c1be9a4ad08f84235d4a1fcd4597bff910f59c4
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Nov 10 11:28:44 2014 +0100
+
+    Change MateMixerToggle into MateMixerStreamToggle and adapt ALSA
+
+ backends/alsa/alsa-device.c                        |  83 +++++++------
+ backends/alsa/alsa-toggle.c                        |  13 +-
+ backends/alsa/alsa-toggle.h                        |   7 +-
+ docs/reference/libmatemixer-docs.xml               |   2 +-
+ docs/reference/libmatemixer-sections.txt           |  40 +++---
+ libmatemixer/Makefile.am                           |   6 +-
+ ...atemixer-toggle.c => matemixer-stream-toggle.c} | 138 ++++++++++-----------
+ libmatemixer/matemixer-stream-toggle.h             |  81 ++++++++++++
+ libmatemixer/matemixer-toggle.h                    |  80 ------------
+ libmatemixer/matemixer-types.h                     |   2 +-
+ libmatemixer/matemixer.h                           |   2 +-
+ 11 files changed, 231 insertions(+), 223 deletions(-)
+
+commit 44f3cd7ba3b672e67a91358fb0f6e3370c62301a
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Nov 8 23:27:16 2014 +0100
+
+    Bump version
+
+ NEWS         | 6 ++++++
+ configure.ac | 2 +-
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+commit fae2085e39de4e49b692e334c6482442f6c83007
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Nov 8 23:19:34 2014 +0100
+
+    Return MateMixerDeviceSwitch and MateMixerStreamSwitch from functions when feasible and include docs of the new classes
+
+ docs/reference/libmatemixer-docs.xml |  2 ++
+ libmatemixer/matemixer-device.c      | 17 +++++++++--------
+ libmatemixer/matemixer-device.h      | 32 ++++++++++++++++----------------
+ libmatemixer/matemixer-stream.c      | 13 +++++++++----
+ libmatemixer/matemixer-stream.h      |  4 ++--
+ 5 files changed, 38 insertions(+), 30 deletions(-)
+
+commit 44651c5d2334da5dd295eca9c2e530b99348bdd6
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Nov 8 23:04:31 2014 +0100
+
+    Split MateMixerSwitchRole into MateMixerDeviceSwitchRole and MateMixerStreamSwitchRole
+
+ backends/alsa/alsa-constants.c           | 54 ++++++++++++++++----------------
+ backends/alsa/alsa-constants.h           |  6 ++--
+ backends/alsa/alsa-device.c              | 46 +++++++++++++--------------
+ backends/alsa/alsa-switch.c              | 10 +++---
+ backends/alsa/alsa-switch.h              | 10 +++---
+ backends/alsa/alsa-toggle.c              | 12 +++----
+ backends/alsa/alsa-toggle.h              | 12 +++----
+ backends/oss/oss-switch.c                |  2 +-
+ backends/pulse/pulse-device-switch.c     |  2 +-
+ backends/pulse/pulse-sink-switch.c       |  2 +-
+ backends/pulse/pulse-source-switch.c     |  2 +-
+ docs/reference/libmatemixer-sections.txt |  6 ++--
+ examples/monitor.c                       | 24 +++++++++-----
+ libmatemixer/matemixer-device-switch.c   | 38 +++++++++++++++++++++-
+ libmatemixer/matemixer-device-switch.h   |  5 +--
+ libmatemixer/matemixer-enum-types.c      | 29 +++++++++++++----
+ libmatemixer/matemixer-enum-types.h      |  7 +++--
+ libmatemixer/matemixer-enums.h           | 31 +++++++++++-------
+ libmatemixer/matemixer-stream-switch.c   | 38 +++++++++++++++++++++-
+ libmatemixer/matemixer-stream-switch.h   |  5 +--
+ libmatemixer/matemixer-switch.c          | 35 ---------------------
+ libmatemixer/matemixer-switch.h          |  1 -
+ 22 files changed, 228 insertions(+), 149 deletions(-)
+
+commit 068d95e1c28b0e20e692c5ecb24f044542e82ae9
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Nov 8 22:18:34 2014 +0100
+
+    alsa: Use MateMixerStreamSwitch
+    
+    Also introduce alsa-types.h and move instance typedefs there to fix cross referencing introduced by this change
+
+ backends/alsa/Makefile.am                  |  3 ++-
+ backends/alsa/alsa-backend.h               |  3 ++-
+ backends/alsa/alsa-device.c                |  3 ++-
+ backends/alsa/alsa-device.h                |  3 +--
+ backends/alsa/alsa-element.h               |  3 ++-
+ backends/alsa/alsa-stream-control.h        |  3 ++-
+ backends/alsa/alsa-stream-input-control.h  |  3 +--
+ backends/alsa/alsa-stream-output-control.h |  3 +--
+ backends/alsa/alsa-stream.c                | 13 ++++++-----
+ backends/alsa/alsa-stream.h                |  5 +----
+ backends/alsa/alsa-switch-option.h         |  3 ++-
+ backends/alsa/alsa-switch.c                | 12 ++++++++--
+ backends/alsa/alsa-switch.h                | 10 +++++----
+ backends/alsa/alsa-toggle.h                |  3 +--
+ backends/alsa/alsa-types.h                 | 36 ++++++++++++++++++++++++++++++
+ 15 files changed, 76 insertions(+), 30 deletions(-)
+
+commit e72c6f834323e65a41f2ab50047d6fd98f1e09db
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Nov 8 21:57:57 2014 +0100
+
+    alsa: Always assign switches to streams and never to devices
+
+ backends/alsa/alsa-device.c | 134 +++++++++++++++++++++-----------------------
+ 1 file changed, 64 insertions(+), 70 deletions(-)
+
+commit 6d156916d8455cb8edef0e90020026d395dd82a0
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Nov 8 20:31:26 2014 +0100
+
+    oss: Use MateMixerStreamSwitch
+
+ backends/oss/oss-stream.c |  3 ++-
+ backends/oss/oss-switch.c | 16 ++++++++++------
+ backends/oss/oss-switch.h |  7 ++++---
+ 3 files changed, 16 insertions(+), 10 deletions(-)
+
+commit 69b3a5c03321071ebc640d66e98bbf41c709938a
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Nov 8 20:30:24 2014 +0100
+
+    pulse: Use MateMixerDeviceSwitch and MateMixerStreamSwitch
+
+ backends/pulse/pulse-device-switch.c | 103 +++--------------------------------
+ backends/pulse/pulse-device-switch.h |   6 +-
+ backends/pulse/pulse-port-switch.c   |  85 ++---------------------------
+ backends/pulse/pulse-port-switch.h   |   4 +-
+ 4 files changed, 17 insertions(+), 181 deletions(-)
+
+commit a204a29e71d918e2e9e11f1a6e031c71ab3d3f63
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Nov 8 20:28:46 2014 +0100
+
+    Add MateMixerDeviceSwitch and MateMixerStreamSwitch classes
+
+ docs/reference/libmatemixer-sections.txt |  36 ++++++++
+ libmatemixer/Makefile.am                 |   4 +
+ libmatemixer/matemixer-device-switch.c   | 144 +++++++++++++++++++++++++++++++
+ libmatemixer/matemixer-device-switch.h   |  76 ++++++++++++++++
+ libmatemixer/matemixer-stream-switch.c   | 144 +++++++++++++++++++++++++++++++
+ libmatemixer/matemixer-stream-switch.h   |  76 ++++++++++++++++
+ libmatemixer/matemixer-types.h           |   2 +
+ libmatemixer/matemixer.h                 |   2 +
+ 8 files changed, 484 insertions(+)
+
+commit b5ea9fe947cbf15ea3490cfdfa813046adf42d62
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Nov 8 19:04:36 2014 +0100
+
+    alsa: Improve list of known elements
+
+ backends/alsa/alsa-constants.c | 46 ++++++++++++++++++++++--------------------
+ 1 file changed, 24 insertions(+), 22 deletions(-)
+
+commit de7f887269b6332ba0d1ccbb458c652bfc5ae0ec
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Wed Nov 5 22:31:45 2014 +0100
+
+    Sync translations with transifex
+
+ po/LINGUAS  |   2 +
+ po/am.po    | 561 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/en_GB.po |  11 +-
+ po/es.po    |  47 ++---
+ po/hu.po    |  24 +--
+ po/ko.po    |  11 +-
+ po/pl.po    |  10 +-
+ po/tr.po    | 560 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 8 files changed, 1176 insertions(+), 50 deletions(-)
+
+commit de6e5b25ef5082ee7a8e218c28853dc52c6d944f
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Nov 3 16:14:47 2014 +0100
+
+    Rename static port switch labels to "Connector" to match MVC
+
+ backends/oss/oss-stream.c     | 2 +-
+ backends/pulse/pulse-sink.c   | 2 +-
+ backends/pulse/pulse-source.c | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 8331d79eae9391b6d158009dab4bb2798ce0ebc3
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Nov 3 16:07:36 2014 +0100
+
+    oss: Fix order of switch options to match priority list
+    
+    Also remove obsolete items from the input priority list
+
+ backends/oss/oss-device.c | 29 ++++++++++++-----------------
+ 1 file changed, 12 insertions(+), 17 deletions(-)
+
+commit b4d7066dfb7e76c16f3a8179be186d10af082224
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Nov 3 14:29:37 2014 +0100
+
+    oss: Fix GCC warning
+
+ backends/oss/oss-device.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit e59883bea6be9611358e9e6aa2aa62ce08d1bb36
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Nov 3 14:16:07 2014 +0100
+
+    oss: Prefer custom list of OSS device directions when assigning controls to streams
+
+ backends/oss/oss-device.c | 23 +++++++++++++++++++++--
+ 1 file changed, 21 insertions(+), 2 deletions(-)
+
+commit 720ae7991c68ccc73b9ae133194a9e99f2658b42
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Sun Nov 2 17:49:16 2014 +0100
+
+    Sync translations with transifex
+
+ po/LINGUAS  |   4 +
+ po/be.po    | 262 +++++++++++++++-------------
+ po/da.po    | 192 +++++++++++----------
+ po/de.po    | 194 +++++++++++----------
+ po/el.po    | 194 +++++++++++----------
+ po/en_AU.po | 194 +++++++++++----------
+ po/en_GB.po | 561 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es.po    | 561 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/et.po    | 196 +++++++++++----------
+ po/fr.po    | 192 +++++++++++----------
+ po/hr.po    | 194 +++++++++++----------
+ po/hu.po    | 194 +++++++++++----------
+ po/id.po    | 194 +++++++++++----------
+ po/it.po    | 192 +++++++++++----------
+ po/ja.po    | 561 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ko.po    | 194 +++++++++++----------
+ po/ms.po    | 194 +++++++++++----------
+ po/pl.po    | 194 +++++++++++----------
+ po/pt.po    | 562 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pt_BR.po | 194 +++++++++++----------
+ po/ru.po    | 318 ++++++++++++++++++----------------
+ po/uk.po    | 314 +++++++++++++++++----------------
+ po/zh_TW.po | 192 +++++++++++----------
+ 23 files changed, 4292 insertions(+), 1755 deletions(-)
+
+commit dc19f6dfa6b7c3fe951b6d5e7f3b77080802fb74
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Oct 31 22:00:03 2014 +0100
+
+    oss: Fix debugging message
+
+ backends/oss/oss-switch.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+commit 20afadff90fb6a866d3e361b2b294a67775da95e
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Oct 31 14:50:29 2014 +0100
+
+    Remove ability to have no active switch option and fix OSS to correctly handle such case
+
+ backends/oss/oss-switch.c           | 113 +++++++++++++++++++++++++++---------
+ libmatemixer/matemixer-enum-types.c |   1 -
+ libmatemixer/matemixer-enums.h      |   5 +-
+ libmatemixer/matemixer-switch.c     |   8 +--
+ 4 files changed, 91 insertions(+), 36 deletions(-)
+
+commit 1897445a80677ec89e7eef9f2a76e630fd088588
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Oct 31 14:39:11 2014 +0100
+
+    oss: Improve *_list_streams functions and handling of device streams
+    
+    Makes the functions compatible with the ALSA code. As streams in OSS are not dynamic elements, they are removed as soon as they are known to be useless.
+
+ backends/oss/oss-backend.c | 20 +++++++-------
+ backends/oss/oss-device.c  | 68 ++++++++++++++++++++++++++++------------------
+ 2 files changed, 51 insertions(+), 37 deletions(-)
+
+commit b839e8ca0c73f9715654497e241d4aa3e3042125
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Oct 31 14:33:16 2014 +0100
+
+    alsa: Improve *_list_streams functions
+    
+    Avoids including useless streams in the list and optimizes GList construction.
+
+ backends/alsa/alsa-backend.c | 20 ++++++++++----------
+ backends/alsa/alsa-device.c  | 17 +++++++++++------
+ 2 files changed, 21 insertions(+), 16 deletions(-)
+
+commit 9d928d858194db5bb65535f521e4f9e169f1b2d9
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Oct 27 22:50:54 2014 +0100
+
+    alsa: Add a few more known elements
+
+ backends/alsa/alsa-constants.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit 6c765c7d702dbaa8fbb1606ba4f5d90482df9778
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Oct 27 21:43:34 2014 +0100
+
+    alsa: Do not unnecessarily return values from functions
+    
+    Also add a missing prototype and move 2 functions
+
+ backends/alsa/alsa-device.c | 130 +++++++++++++++++++++-----------------------
+ 1 file changed, 62 insertions(+), 68 deletions(-)
+
+commit c01a3b2c1c4e6f82d45c5f66c5d97cce704c7371
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Oct 27 21:31:47 2014 +0100
+
+    alsa: Make sure not to create empty switches
+
+ backends/alsa/alsa-device.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit 9f2c0bedf4cbe4152e449454d659ea907fa00246
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Oct 25 12:43:57 2014 +0200
+
+    alsa: Make sure the global volume is correct after changing a single channel volume and that the channel volume is within limits
+
+ backends/alsa/alsa-stream-control.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+commit 9a5abbc4d30d833f6731a2f86f9882797d4af0ee
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Fri Oct 24 11:21:24 2014 +0200
+
+    Fix autotools
+
+ Makefile.am  | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 062bdbae1e4a6cb37bd3ace3e75098b5e7adb7df
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Fri Oct 24 11:06:01 2014 +0200
+
+    Sync translations with transifex
+
+ po/hu.po | 42 +++++++++++++++++++++---------------------
+ po/uk.po |  4 ++--
+ 2 files changed, 23 insertions(+), 23 deletions(-)
+
+commit 362eabb3d753983bd8be533c0e14507967686294
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Oct 23 22:23:57 2014 +0200
+
+    Improve styling in header files
+
+ backends/alsa/alsa-stream-control.h |  6 +++---
+ backends/pulse/pulse-sink.h         | 21 +++++++++++----------
+ backends/pulse/pulse-stream.h       |  6 +++---
+ 3 files changed, 17 insertions(+), 16 deletions(-)
+
+commit 09c9b73913574a6862135bbcb9d7c2da1f3eea23
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Oct 23 22:02:39 2014 +0200
+
+    Fix memory management problems
+
+ backends/pulse/pulse-backend.c       | 47 ++++++++++++++-----------
+ backends/pulse/pulse-device-switch.c | 14 +++++---
+ backends/pulse/pulse-device.c        | 31 +++++++----------
+ backends/pulse/pulse-port-switch.c   | 16 +++++++++
+ backends/pulse/pulse-sink.c          | 67 ++++++++++++++++++++++++++----------
+ backends/pulse/pulse-sink.h          |  2 +-
+ backends/pulse/pulse-source.c        | 65 +++++++++++++++++++++++++---------
+ backends/pulse/pulse-source.h        |  2 +-
+ 8 files changed, 163 insertions(+), 81 deletions(-)
+
+commit b9e004261b979b885e7348484e302176b30d5b54
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Oct 23 15:21:55 2014 +0200
+
+    pulse: Fully process asynchronous sink/source updates
+    
+    Fixes asynchronous updates of mute and volume
+
+ backends/pulse/pulse-sink.c   | 2 ++
+ backends/pulse/pulse-source.c | 2 ++
+ 2 files changed, 4 insertions(+)
+
+commit 58813dced7af24f5fe5228481e6c12ada56cb1a5
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Thu Oct 23 10:48:27 2014 +0200
+
+    Sync translations with transifex
+
+ po/LINGUAS  |  20 +++
+ po/be.po    | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/da.po    | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/de.po    | 546 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/el.po    | 546 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/en_AU.po | 544 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/et.po    | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/fr.po    | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/hr.po    | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/hu.po    | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/id.po    | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/it.po    | 546 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ko.po    | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ms.po    | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pl.po    | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pt_BR.po | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ru.po    | 546 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/uk.po    | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/zh_TW.po | 545 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 19 files changed, 9833 insertions(+)
+
+commit 6ebec18ce35e1e9c88c9904905cf3499c30d26e8
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Oct 23 10:47:29 2014 +0200
+
+    Add transifex config file
+
+ .tx/config | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit 807dc138ebe241338633d0485d26ff03150add2e
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Wed Oct 22 23:14:56 2014 +0200
+
+    Improve the example program
+
+ examples/monitor.c | 355 ++++++++++++++++++++++++++---------------------------
+ 1 file changed, 175 insertions(+), 180 deletions(-)
+
+commit ca66b33b825c155fd8cb0cc3c6ab31873e02a7c1
+Author: infirit <infirit@gmail.com>
+Date:   Wed Oct 15 16:50:57 2014 +0200
+
+    Fix includes directory and pkg-config file
+
+ data/libmatemixer.pc.in  | 2 +-
+ libmatemixer/Makefile.am | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit c02b2892a421b5a2aed7a3619f5ac1b3ce0548fd
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue Oct 14 10:51:08 2014 +0200
+
+    pulse: Fix assertion if pulseaudio is not running
+
+ backends/pulse/pulse-connection.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 526fdf477edc40452c18b51e13cbdffaa69de52b
+Merge: b4695e8 0ab6649
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Oct 9 15:59:09 2014 +0200
+
+    Merge branch 'after-gsoc'
+
+commit b4695e82ae0cc3183e9d3be4fca191394292609f
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Oct 9 15:17:12 2014 +0200
+
+    Improve autotools files
+    
+    Remove also some autogenerated files
+
+ ABOUT-NLS      | 1327 --------------------------------------------------------
+ INSTALL        |  370 ----------------
+ configure.ac   |    5 +-
+ git.mk         |  318 --------------
+ gtk-doc.make   |  289 ------------
+ m4/gtk-doc.m4  |   88 ----
+ omf.make       |   65 ---
+ po/ChangeLog   |   12 -
+ po/LINGUAS     |    0
+ po/Makevars    |   41 --
+ po/POTFILES.in |    9 +
+ xmldocs.make   |  101 -----
+ 12 files changed, 11 insertions(+), 2614 deletions(-)
+
+commit 0ab66491e3847f6de92fc5358e9687c6d2f458ce
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Tue Sep 9 00:51:33 2014 +0200
+
+    Add README file content
+
+ README | 36 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
+
+commit e9b479383e1ba9736502dc6859cad383a791a0c3
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sun Sep 7 23:10:29 2014 +0200
+
+    Add missed ext-stream flags
+
+ backends/pulse/pulse-ext-stream.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit bbc396a44ab07df63e1a755c36ef7c210475d7c5
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sun Sep 7 23:08:24 2014 +0200
+
+    Fix PulseAudio channel constant conversion
+
+ backends/pulse/pulse-stream-control.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3c4f6e0bfbc6fdca6f0e18c83a02fbfd050d1083
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sun Sep 7 23:07:49 2014 +0200
+
+    Turn MateMixerStoredControl into an abstract class
+
+ backends/pulse/pulse-ext-stream.c        | 522 +++++++++++++++++++++++++------
+ backends/pulse/pulse-ext-stream.h        |   4 +-
+ docs/reference/libmatemixer-sections.txt |  10 +-
+ libmatemixer/matemixer-stored-control.c  | 108 ++++++-
+ libmatemixer/matemixer-stored-control.h  |  41 ++-
+ 5 files changed, 553 insertions(+), 132 deletions(-)
+
+commit 5997585cc046956479feffea7c414bea2814d403
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Sep 6 19:09:41 2014 +0200
+
+    Minor code and styling improvements
+
+ libmatemixer/matemixer-app-info.h       |   1 -
+ libmatemixer/matemixer-backend-module.c |   7 +-
+ libmatemixer/matemixer-backend.c        |  38 +++--
+ libmatemixer/matemixer-backend.h        |  56 ++++----
+ libmatemixer/matemixer-context.c        |  60 ++++----
+ libmatemixer/matemixer-device.c         |  19 +--
+ libmatemixer/matemixer-private.h        |   4 +-
+ libmatemixer/matemixer-stream-control.c | 236 +++++++++++++-------------------
+ libmatemixer/matemixer-stream-control.h | 195 +++++++++++++-------------
+ libmatemixer/matemixer-stream.c         |  22 ++-
+ libmatemixer/matemixer-stream.h         |   1 +
+ libmatemixer/matemixer-switch.c         |  15 +-
+ libmatemixer/matemixer-switch.h         |  12 +-
+ libmatemixer/matemixer-toggle.c         |   5 +-
+ libmatemixer/matemixer.c                |   4 +-
+ 15 files changed, 323 insertions(+), 352 deletions(-)
+
+commit 1a9410a38aebb6ce05d43433c020e198416761df
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Sep 5 16:36:05 2014 +0200
+
+    Documentation additions and fixes
+
+ docs/reference/libmatemixer-sections.txt | 20 +++++++----
+ libmatemixer/matemixer-context.c         | 60 +++++++++++++++++++++++++++-----
+ libmatemixer/matemixer-device.c          | 19 ++++++----
+ libmatemixer/matemixer-enums.h           | 33 +++++++++++++-----
+ libmatemixer/matemixer-switch-option.c   | 35 +++++++++++++++++++
+ libmatemixer/matemixer-switch.c          | 43 +++++++++++++++++++++++
+ libmatemixer/matemixer-toggle.c          | 43 ++++++++++++++++++++---
+ libmatemixer/matemixer.c                 | 30 ++++++++++++++--
+ 8 files changed, 246 insertions(+), 37 deletions(-)
+
+commit b100e0045c0cb0b60bc381bc99dca18db82f3eba
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Aug 29 00:27:08 2014 +0200
+
+    Include missing enum values in enum-types
+
+ libmatemixer/matemixer-enum-types.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 652eb260c2574312664c35acd10893d7a6460426
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Aug 29 00:01:41 2014 +0200
+
+    Include backend flags in backend info and add a flag indicating stored controls support
+
+ backends/alsa/alsa-backend.c            | 10 ++++++----
+ backends/null/null-backend.c            | 10 ++++++----
+ backends/oss/oss-backend.c              | 10 ++++++----
+ backends/pulse/pulse-backend.c          | 18 +++++++++---------
+ libmatemixer/matemixer-backend-module.h |  1 +
+ libmatemixer/matemixer-backend.c        | 16 ----------------
+ libmatemixer/matemixer-backend.h        |  3 ---
+ libmatemixer/matemixer-context.c        |  5 ++++-
+ libmatemixer/matemixer-enums.h          | 23 ++++++++++++++---------
+ 9 files changed, 46 insertions(+), 50 deletions(-)
+
+commit e67e02993cb8c1827659e1b3ddd693d347b8cf96
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Aug 28 23:44:41 2014 +0200
+
+    Cosmetic fixes
+
+ libmatemixer/matemixer-app-info.c |  4 ++++
+ libmatemixer/matemixer-context.c  | 12 ++++++------
+ libmatemixer/matemixer-device.c   |  8 ++++----
+ libmatemixer/matemixer-types.h    |  3 +--
+ 4 files changed, 15 insertions(+), 12 deletions(-)
+
+commit 4f089f8489e292ced05a89ec7d761b9bc6533b84
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Aug 28 23:39:33 2014 +0200
+
+    Documentation additions and fixes
+
+ docs/reference/Makefile.am               |   3 +-
+ docs/reference/libmatemixer-sections.txt |   8 +-
+ libmatemixer/matemixer-app-info.c        |  78 +++++++++++
+ libmatemixer/matemixer-backend-module.c  |   2 +-
+ libmatemixer/matemixer-context.c         | 225 ++++++++++++++++++++-----------
+ libmatemixer/matemixer-device.c          | 117 +++++++++++++++-
+ libmatemixer/matemixer-enums.h           | 119 +++++++++++++++-
+ libmatemixer/matemixer-switch.c          |   2 +-
+ libmatemixer/matemixer.c                 |   2 +-
+ 9 files changed, 467 insertions(+), 89 deletions(-)
+
+commit b6955dd78085d642f10325ec6d929e7421224d74
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Aug 21 17:11:44 2014 +0200
+
+    Fix memory problems in ALSA and MateMixerToggle and rename toggle option properties
+
+ backends/alsa/alsa-backend.c    | 10 +++++----
+ backends/alsa/alsa-device.c     |  2 +-
+ backends/alsa/alsa-toggle.c     |  4 ++--
+ backends/oss/oss-backend.c      |  1 +
+ libmatemixer/matemixer-toggle.c | 45 ++++++++++++++++++++++++-----------------
+ 5 files changed, 36 insertions(+), 26 deletions(-)
+
+commit 3a99c51bb0bcba28d0d38bbed937c2071d9666b2
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Wed Aug 20 22:59:43 2014 +0200
+
+    Fix a typo and some compiler warnings
+
+ backends/pulse/pulse-backend.c          | 3 +--
+ backends/pulse/pulse-stream.c           | 5 +----
+ libmatemixer/matemixer-stream-control.c | 2 +-
+ 3 files changed, 3 insertions(+), 7 deletions(-)
+
+commit 4a2da6bcb81e407dbaa40d053cdda2e03a696c68
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Wed Aug 20 22:55:54 2014 +0200
+
+    Remember the value and notify after changing balance or fade
+
+ libmatemixer/matemixer-stream-control.c | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+
+commit 757af51e610632bfbe507f3b644014467b417d61
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Wed Aug 20 22:49:43 2014 +0200
+
+    Corrections to gtk-doc
+
+ docs/reference/Makefile.am               |  10 +-
+ docs/reference/libmatemixer-docs.xml     |  11 +-
+ docs/reference/libmatemixer-sections.txt | 339 ++++++++++++++++++-------------
+ libmatemixer/matemixer-app-info.c        |  14 +-
+ libmatemixer/matemixer-context.h         |   3 +-
+ libmatemixer/matemixer-device.h          |   3 +-
+ libmatemixer/matemixer-enums.h           |  45 +++-
+ libmatemixer/matemixer-stored-control.h  |   3 +-
+ libmatemixer/matemixer-stream-control.c  |  15 ++
+ libmatemixer/matemixer-stream-control.h  |   3 +-
+ libmatemixer/matemixer-stream.c          |   2 +
+ libmatemixer/matemixer-stream.h          |   3 +-
+ libmatemixer/matemixer-switch-option.c   |   5 +-
+ libmatemixer/matemixer-switch-option.h   |   3 +-
+ libmatemixer/matemixer-switch.c          |   2 +
+ libmatemixer/matemixer-switch.h          |   3 +-
+ libmatemixer/matemixer-toggle.c          |   2 +
+ libmatemixer/matemixer-toggle.h          |   3 +-
+ 18 files changed, 294 insertions(+), 175 deletions(-)
+
+commit 73fda4e84189528df38d5a37dec90621e2060bc0
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Wed Aug 20 21:40:57 2014 +0200
+
+    Return correct result after muting
+
+ libmatemixer/matemixer-stream-control.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0325b6223a23ebd75fbd8c9244baab00facec126
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Wed Aug 20 18:53:26 2014 +0200
+
+    Fix some refcounting and stream control parent setting issues
+
+ backends/pulse/pulse-backend.c          | 10 +++++-----
+ backends/pulse/pulse-device.c           |  9 +++++++--
+ backends/pulse/pulse-ext-stream.c       | 12 +++++++++---
+ backends/pulse/pulse-port-switch.c      | 20 +++++---------------
+ backends/pulse/pulse-sink.c             |  2 +-
+ backends/pulse/pulse-source.c           |  2 +-
+ libmatemixer/matemixer-stream-control.c | 30 +++++++++---------------------
+ libmatemixer/matemixer-stream.c         |  3 +--
+ 8 files changed, 38 insertions(+), 50 deletions(-)
+
+commit 9956b2a9465c538c8792235c1ee02d2f90b84641
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Wed Aug 20 17:43:30 2014 +0200
+
+    Notify on mute from main library and add a debug message
+
+ backends/alsa/alsa-stream-control.c     |  2 --
+ libmatemixer/matemixer-stream-control.c | 22 +++++++++++++++-------
+ 2 files changed, 15 insertions(+), 9 deletions(-)
+
+commit 5f20ab328add9442082277a57c23273a3a2125ed
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Aug 18 20:49:17 2014 +0200
+
+    Global update
+
+ ABOUT-NLS                                          | 1327 ++++++++++++++++++++
+ AUTHORS                                            |    1 -
+ Makefile.am                                        |    5 +-
+ NEWS                                               |    5 +
+ autogen.sh                                         |    1 +
+ backends/alsa/Makefile.am                          |    1 +
+ backends/alsa/alsa-backend.c                       |  333 ++---
+ backends/alsa/alsa-constants.c                     |  189 ++-
+ backends/alsa/alsa-constants.h                     |   21 +
+ backends/alsa/alsa-device.c                        |  690 ++++++----
+ backends/alsa/alsa-device.h                        |    4 +
+ backends/alsa/alsa-element.c                       |   16 +
+ backends/alsa/alsa-element.h                       |    3 +
+ backends/alsa/alsa-stream-control.c                |  110 +-
+ backends/alsa/alsa-stream-control.h                |    6 -
+ backends/alsa/alsa-stream-input-control.c          |   12 +-
+ backends/alsa/alsa-stream-input-control.h          |    4 +-
+ backends/alsa/alsa-stream-output-control.c         |   12 +-
+ backends/alsa/alsa-stream-output-control.h         |    4 +-
+ backends/alsa/alsa-stream.c                        |  335 +++--
+ backends/alsa/alsa-stream.h                        |   41 +-
+ backends/alsa/alsa-switch-option.c                 |    3 +-
+ backends/alsa/alsa-switch-option.h                 |   12 +-
+ backends/alsa/alsa-switch.c                        |   47 +-
+ backends/alsa/alsa-switch.h                        |    7 +-
+ backends/alsa/alsa-toggle.c                        |   37 +-
+ backends/alsa/alsa-toggle.h                        |   11 +-
+ backends/null/Makefile.am                          |    1 +
+ backends/null/null-backend.c                       |    3 +
+ backends/oss/Makefile.am                           |    8 +-
+ backends/oss/oss-backend.c                         |  367 ++++--
+ backends/oss/oss-backend.h                         |    8 +-
+ backends/oss/oss-device.c                          |  665 +++++++---
+ backends/oss/oss-device.h                          |   12 +-
+ backends/oss/oss-stream-control.c                  |  200 +--
+ backends/oss/oss-stream-control.h                  |   23 +-
+ backends/oss/oss-stream.c                          |  251 ++--
+ backends/oss/oss-stream.h                          |   32 +-
+ backends/oss/oss-switch-option.c                   |   72 ++
+ backends/oss/oss-switch-option.h                   |   69 +
+ backends/oss/oss-switch.c                          |  203 +++
+ backends/oss/oss-switch.h                          |   70 ++
+ backends/oss/oss-types.h                           |   32 +
+ backends/pulse/Makefile.am                         |   24 +-
+ backends/pulse/pulse-backend.c                     | 1078 +++++++---------
+ backends/pulse/pulse-backend.h                     |    9 +-
+ backends/pulse/pulse-client-stream.c               |  433 -------
+ backends/pulse/pulse-client-stream.h               |   94 --
+ backends/pulse/pulse-connection.c                  |   39 +-
+ backends/pulse/pulse-connection.h                  |    5 +-
+ backends/pulse/pulse-device-profile.c              |   88 ++
+ backends/pulse/pulse-device-profile.h              |   69 +
+ backends/pulse/pulse-device-switch.c               |  261 ++++
+ backends/pulse/pulse-device-switch.h               |   77 ++
+ backends/pulse/pulse-device.c                      |  575 +++------
+ backends/pulse/pulse-device.h                      |   33 +-
+ backends/pulse/pulse-ext-stream.c                  |  374 +++---
+ backends/pulse/pulse-ext-stream.h                  |   30 +-
+ backends/pulse/pulse-helpers.c                     |   27 +-
+ backends/pulse/pulse-helpers.h                     |    9 +-
+ backends/pulse/pulse-monitor.c                     |   52 +-
+ backends/pulse/pulse-monitor.h                     |   10 +-
+ backends/pulse/pulse-port-switch.c                 |  241 ++++
+ backends/pulse/pulse-port-switch.h                 |   77 ++
+ backends/pulse/pulse-port.c                        |   89 ++
+ backends/pulse/pulse-port.h                        |   70 ++
+ backends/pulse/pulse-sink-control.c                |  161 +++
+ backends/pulse/pulse-sink-control.h                |   67 +
+ backends/pulse/pulse-sink-input.c                  |  321 ++---
+ backends/pulse/pulse-sink-input.h                  |   22 +-
+ backends/pulse/pulse-sink-switch.c                 |   76 ++
+ backends/pulse/pulse-sink-switch.h                 |   62 +
+ backends/pulse/pulse-sink.c                        |  382 +++---
+ backends/pulse/pulse-sink.h                        |   24 +-
+ backends/pulse/pulse-source-control.c              |  154 +++
+ backends/pulse/pulse-source-control.h              |   67 +
+ backends/pulse/pulse-source-output.c               |  306 ++---
+ backends/pulse/pulse-source-output.h               |   37 +-
+ backends/pulse/pulse-source-switch.c               |   76 ++
+ backends/pulse/pulse-source-switch.h               |   62 +
+ backends/pulse/pulse-source.c                      |  339 +++--
+ backends/pulse/pulse-source.h                      |   27 +-
+ backends/pulse/pulse-stream-control.c              |  744 +++++++++++
+ backends/pulse/pulse-stream-control.h              |   94 ++
+ backends/pulse/pulse-stream.c                      | 1225 +-----------------
+ backends/pulse/pulse-stream.h                      |   64 +-
+ backends/pulse/pulse-types.h                       |   45 +
+ configure.ac                                       |   15 +-
+ examples/monitor.c                                 |  173 +--
+ libmatemixer/Makefile.am                           |   14 +-
+ libmatemixer/matemixer-app-info-private.h          |   51 +
+ libmatemixer/matemixer-app-info.c                  |  142 +++
+ ...ixer-backend-private.h => matemixer-app-info.h} |   24 +-
+ libmatemixer/matemixer-backend-module.c            |    1 -
+ libmatemixer/matemixer-backend-module.h            |    2 +-
+ libmatemixer/matemixer-backend.c                   |  359 +++---
+ libmatemixer/matemixer-backend.h                   |  113 +-
+ libmatemixer/matemixer-client-stream.c             |  373 ------
+ libmatemixer/matemixer-client-stream.h             |   91 --
+ libmatemixer/matemixer-context.c                   |  216 ++--
+ libmatemixer/matemixer-context.h                   |  112 +-
+ libmatemixer/matemixer-device-profile-private.h    |   44 -
+ libmatemixer/matemixer-device-profile.c            |  370 ------
+ libmatemixer/matemixer-device-profile.h            |   67 -
+ libmatemixer/matemixer-device.c                    |  182 +--
+ libmatemixer/matemixer-device.h                    |   76 +-
+ libmatemixer/matemixer-enum-types.c                |  127 +-
+ libmatemixer/matemixer-enum-types.h                |   24 +-
+ libmatemixer/matemixer-enums.h                     |  145 +--
+ libmatemixer/matemixer-private.h                   |   13 +-
+ libmatemixer/matemixer-stored-control.c            |   52 +
+ libmatemixer/matemixer-stored-control.h            |   59 +
+ libmatemixer/matemixer-stream-control-private.h    |    4 +
+ libmatemixer/matemixer-stream-control.c            |  436 ++++++-
+ libmatemixer/matemixer-stream-control.h            |  193 +--
+ libmatemixer/matemixer-stream-private.h            |   32 +
+ libmatemixer/matemixer-stream.c                    |  311 +++--
+ libmatemixer/matemixer-stream.h                    |   55 +-
+ libmatemixer/matemixer-switch-option-private.h     |    2 +-
+ libmatemixer/matemixer-switch-option.c             |    2 +
+ libmatemixer/matemixer-switch-option.h             |   12 +
+ libmatemixer/matemixer-switch-private.h            |    1 +
+ libmatemixer/matemixer-switch.c                    |  144 ++-
+ libmatemixer/matemixer-switch.h                    |   22 +-
+ libmatemixer/matemixer-toggle.c                    |   40 +-
+ libmatemixer/matemixer-toggle.h                    |   23 +-
+ libmatemixer/matemixer-types.h                     |    3 +-
+ libmatemixer/matemixer.c                           |    5 +-
+ libmatemixer/matemixer.h                           |    7 +-
+ po/ChangeLog                                       |   12 +
+ po/Makevars                                        |   41 +
+ po/POTFILES.in                                     |    1 +
+ 132 files changed, 10441 insertions(+), 7122 deletions(-)
+
+commit 94d24482d8b1013947c0e2dac7330180b6ae02f6
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Tue Aug 12 05:20:22 2014 +0200
+
+    Fix for configure output
+
+ configure.ac | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+commit 006ea9dd9baa9e879fc9ab47626e3e38d1aac634
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Tue Aug 12 05:19:40 2014 +0200
+
+    Adapt Null module to API changes
+
+ backends/null/null-backend.c | 79 ++++++--------------------------------------
+ backends/null/null-backend.h |  8 ++---
+ 2 files changed, 15 insertions(+), 72 deletions(-)
+
+commit d0e77b52d34c89d013787028c576264222b190b3
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Tue Aug 12 05:08:35 2014 +0200
+
+    Fix compilation
+
+ libmatemixer/matemixer-context.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 1e1847069eb58c2b62f2b3c11e1e9adf3a17ebde
+Merge: 7396148 6c6d423
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Tue Aug 12 05:06:12 2014 +0200
+
+    Merge branch 'oss-alsa'
+
+commit 6c6d4239ddc807e922df3874654f99eea291aadb
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Tue Aug 12 04:56:55 2014 +0200
+
+    Add ALSA, improve OSS and remove OSS4
+
+ backends/Makefile.am                               |   8 +-
+ backends/alsa/Makefile.am                          |  47 +
+ backends/alsa/alsa-backend.c                       | 508 +++++++++++
+ backends/alsa/alsa-backend.h                       |  62 ++
+ backends/alsa/alsa-constants.c                     |  72 ++
+ backends/alsa/alsa-constants.h                     |  35 +
+ backends/alsa/alsa-device.c                        | 941 +++++++++++++++++++++
+ backends/alsa/alsa-device.h                        |  74 ++
+ backends/alsa/alsa-element.c                       |  53 ++
+ backends/alsa/alsa-element.h                       |  61 ++
+ backends/alsa/alsa-stream-control.c                | 739 ++++++++++++++++
+ backends/alsa/alsa-stream-control.h                | 111 +++
+ backends/alsa/alsa-stream-input-control.c          | 329 +++++++
+ backends/alsa/alsa-stream-input-control.h          |  64 ++
+ backends/alsa/alsa-stream-output-control.c         | 329 +++++++
+ backends/alsa/alsa-stream-output-control.h         |  64 ++
+ backends/alsa/alsa-stream.c                        | 273 ++++++
+ backends/alsa/alsa-stream.h                        |  88 ++
+ backends/alsa/alsa-switch-option.c                 |  74 ++
+ backends/alsa/alsa-switch-option.h                 |  68 ++
+ backends/alsa/alsa-switch.c                        | 227 +++++
+ backends/alsa/alsa-switch.h                        |  65 ++
+ backends/alsa/alsa-toggle.c                        | 219 +++++
+ backends/alsa/alsa-toggle.h                        |  74 ++
+ backends/oss/oss-backend.c                         | 699 ++++++++-------
+ backends/oss/oss-backend.h                         |   5 +-
+ backends/oss/oss-common.h                          |   1 +
+ backends/oss/oss-device.c                          | 609 ++++++-------
+ backends/oss/oss-device.h                          |  28 +-
+ backends/oss/oss-stream-control.c                  | 527 +++++-------
+ backends/oss/oss-stream-control.h                  |  26 +-
+ backends/oss/oss-stream.c                          | 266 ++----
+ backends/oss/oss-stream.h                          |  25 +-
+ backends/oss4/Makefile.am                          |  29 -
+ backends/oss4/oss4-backend.c                       | 487 -----------
+ backends/oss4/oss4-backend.h                       |  62 --
+ backends/oss4/oss4-device.c                        | 328 -------
+ backends/oss4/oss4-device.h                        |  72 --
+ configure.ac                                       |  76 +-
+ examples/monitor.c                                 | 268 +++---
+ libmatemixer/Makefile.am                           |  20 +-
+ libmatemixer/matemixer-backend-module.c            | 149 ++--
+ libmatemixer/matemixer-backend-module.h            |  18 +-
+ libmatemixer/matemixer-backend-private.h           |  40 +
+ libmatemixer/matemixer-backend.c                   | 520 +++++++++---
+ libmatemixer/matemixer-backend.h                   | 131 +--
+ libmatemixer/matemixer-client-stream.c             | 311 ++++---
+ libmatemixer/matemixer-client-stream.h             |  31 +-
+ .../{matemixer-control.c => matemixer-context.c}   | 901 +++++++++-----------
+ libmatemixer/matemixer-context.h                   | 130 +++
+ libmatemixer/matemixer-control.h                   | 138 ---
+ libmatemixer/matemixer-device-profile-private.h    |  28 +-
+ libmatemixer/matemixer-device-profile.c            |  66 +-
+ libmatemixer/matemixer-device-profile.h            |   5 +-
+ libmatemixer/matemixer-device.c                    | 499 ++++++++---
+ libmatemixer/matemixer-device.h                    |  63 +-
+ libmatemixer/matemixer-enum-types.c                |  26 +-
+ libmatemixer/matemixer-enum-types.h                |   3 +
+ libmatemixer/matemixer-enums.h                     |  28 +-
+ libmatemixer/matemixer-port-private.h              |  45 -
+ libmatemixer/matemixer-port.c                      | 358 --------
+ libmatemixer/matemixer-port.h                      |  68 --
+ libmatemixer/matemixer-private.h                   |  84 +-
+ libmatemixer/matemixer-stream-control-private.h    |  41 +
+ libmatemixer/matemixer-stream-control.c            | 646 +++++++++-----
+ libmatemixer/matemixer-stream-control.h            | 158 ++--
+ libmatemixer/matemixer-stream.c                    | 444 ++++++----
+ libmatemixer/matemixer-stream.h                    |  71 +-
+ libmatemixer/matemixer-switch-option-private.h     |  33 +
+ libmatemixer/matemixer-switch-option.c             | 224 +++++
+ libmatemixer/matemixer-switch-option.h             |  64 ++
+ .../matemixer-switch-private.h                     |  27 +-
+ libmatemixer/matemixer-switch.c                    | 283 +++++++
+ libmatemixer/matemixer-switch.h                    |  82 ++
+ libmatemixer/matemixer-toggle.c                    | 254 ++++++
+ libmatemixer/matemixer-toggle.h                    |  68 ++
+ libmatemixer/matemixer-types.h                     |  35 +
+ libmatemixer/matemixer.c                           |  45 +-
+ libmatemixer/matemixer.h                           |   8 +-
+ 79 files changed, 9567 insertions(+), 4671 deletions(-)
+
+commit 8436ec1641eee8868128755f6d1475230cea25e6
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sun Jul 27 13:12:53 2014 +0200
+
+    Beginning of OSS4 support
+
+ backends/Makefile.am            |   4 +
+ backends/oss4/Makefile.am       |  29 +++
+ backends/oss4/oss4-backend.c    | 487 ++++++++++++++++++++++++++++++++++++++++
+ backends/oss4/oss4-backend.h    |  62 +++++
+ backends/oss4/oss4-common.h     |  38 ++++
+ backends/oss4/oss4-device.c     | 328 +++++++++++++++++++++++++++
+ backends/oss4/oss4-device.h     |  72 ++++++
+ configure.ac                    |  36 +++
+ libmatemixer/matemixer-device.c |   9 +-
+ 9 files changed, 1062 insertions(+), 3 deletions(-)
+
+commit e369a047e3a43bd149fbce0af475bdef853aaf1a
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Jul 25 23:59:10 2014 +0200
+
+    Fix return value
+
+ libmatemixer/matemixer-stream-control.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 59a9aabf7b66e130f68b797c5a3674798fae437b
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Jul 25 23:47:46 2014 +0200
+
+    Support OSS
+
+ backends/oss/Makefile.am                |  12 +-
+ backends/oss/oss-backend.c              | 498 +++++++++++++++++++++++++++++-
+ backends/oss/oss-backend.h              |   8 +-
+ backends/oss/oss-common.h               |  38 +++
+ backends/oss/oss-device.c               | 525 +++++++++++++++++++++++++++++++
+ backends/oss/oss-device.h               |  73 +++++
+ backends/oss/oss-stream-control.c       | 529 ++++++++++++++++++++++++++++++++
+ backends/oss/oss-stream-control.h       |  74 +++++
+ backends/oss/oss-stream.c               | 315 +++++++++++++++++++
+ backends/oss/oss-stream.h               |  75 +++++
+ configure.ac                            |   3 +
+ examples/monitor.c                      |  56 ++--
+ libmatemixer/Makefile.am                |   4 +-
+ libmatemixer/matemixer-backend.c        |  33 +-
+ libmatemixer/matemixer-enum-types.c     |  31 +-
+ libmatemixer/matemixer-enum-types.h     |   3 +
+ libmatemixer/matemixer-enums.h          |  55 +++-
+ libmatemixer/matemixer-stream-control.c | 445 +++++++++++++++++++++++++++
+ libmatemixer/matemixer-stream-control.h | 148 +++++++++
+ libmatemixer/matemixer-stream.c         | 475 +++++-----------------------
+ libmatemixer/matemixer-stream.h         | 156 +++-------
+ 21 files changed, 2974 insertions(+), 582 deletions(-)
+
+commit 7396148c328d9f2a0d933374547c7e93a46b8efa
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sun Jul 20 10:39:43 2014 +0200
+
+    Volume and channel map are always present in PulseStream
+
+ backends/pulse/pulse-ext-stream.c | 25 +++++--------------------
+ 1 file changed, 5 insertions(+), 20 deletions(-)
+
+commit 32049d16801b8c0b53448eba4b41df8765a94f84
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sun Jul 20 10:35:28 2014 +0200
+
+    Fix setting ext-stream parent and generalize it in PulseClientStream
+
+ backends/pulse/pulse-client-stream.c | 17 +++++++++++++++++
+ backends/pulse/pulse-ext-stream.c    | 16 ----------------
+ backends/pulse/pulse-sink-input.c    |  6 ------
+ backends/pulse/pulse-source-output.c |  6 ------
+ 4 files changed, 17 insertions(+), 28 deletions(-)
+
+commit c965e0de05231c7da6c11d5cc1a8d97b6d156f1b
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sun Jul 20 09:30:38 2014 +0200
+
+    Fail when an unavailable module is requested
+
+ libmatemixer/matemixer-control.c | 26 ++++++++++++++++----------
+ 1 file changed, 16 insertions(+), 10 deletions(-)
+
+commit 0bc3aa762cd794da510f03229840d939ee7bc0c9
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Jul 18 16:51:07 2014 +0200
+
+    Add module skeleton and build support
+
+ backends/Makefile.am           |   4 ++
+ backends/oss/Makefile.am       |  26 ++++++++
+ backends/oss/oss-backend.c     | 136 +++++++++++++++++++++++++++++++++++++++++
+ backends/oss/oss-backend.h     |  58 ++++++++++++++++++
+ configure.ac                   |  36 +++++++++++
+ libmatemixer/matemixer-enums.h |   2 +
+ 6 files changed, 262 insertions(+)
+
+commit 1c842063e1f7bf6803655ac193ac28704c4dc0c2
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Jul 18 16:19:32 2014 +0200
+
+    Allow building without the Null module
+
+ backends/Makefile.am |  6 +++++-
+ configure.ac         | 22 +++++++++++++++++++---
+ 2 files changed, 24 insertions(+), 4 deletions(-)
+
+commit 56c76128b0144a5c61e77d2a7aec07a337cfb66d
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Jul 18 15:41:59 2014 +0200
+
+    PulseAudio fixes and API updates
+
+ backends/null/null-backend.h                    |    8 +-
+ backends/pulse/Makefile.am                      |    2 +
+ backends/pulse/pulse-backend.c                  | 1104 +++++++++++--------
+ backends/pulse/pulse-backend.h                  |    2 +-
+ backends/pulse/pulse-client-stream.c            |  243 +++--
+ backends/pulse/pulse-client-stream.h            |   41 +-
+ backends/pulse/pulse-connection.c               |  790 ++++++++++----
+ backends/pulse/pulse-connection.h               |  241 +++--
+ backends/pulse/pulse-device.c                   |  376 ++++---
+ backends/pulse/pulse-ext-stream.c               |  301 ++++++
+ backends/pulse/pulse-ext-stream.h               |   71 ++
+ backends/pulse/pulse-helpers.c                  |   88 +-
+ backends/pulse/pulse-helpers.h                  |    6 +-
+ backends/pulse/pulse-monitor.c                  |  303 ++++--
+ backends/pulse/pulse-monitor.h                  |   11 +-
+ backends/pulse/pulse-sink-input.c               |  206 ++--
+ backends/pulse/pulse-sink-input.h               |    2 +-
+ backends/pulse/pulse-sink.c                     |  288 ++---
+ backends/pulse/pulse-sink.h                     |    4 +-
+ backends/pulse/pulse-source-output.c            |  196 ++--
+ backends/pulse/pulse-source-output.h            |    2 +-
+ backends/pulse/pulse-source.c                   |  225 ++--
+ backends/pulse/pulse-source.h                   |    2 +-
+ backends/pulse/pulse-stream.c                   | 1285 +++++++++++++----------
+ backends/pulse/pulse-stream.h                   |   86 +-
+ configure.ac                                    |    2 -
+ docs/reference/Makefile.am                      |    2 +
+ docs/reference/libmatemixer-sections.txt        |   16 +-
+ docs/reference/libmatemixer.types               |    6 -
+ examples/monitor.c                              |  182 +++-
+ libmatemixer/Makefile.am                        |    2 +
+ libmatemixer/matemixer-backend-module.c         |   48 +-
+ libmatemixer/matemixer-backend-module.h         |    3 +
+ libmatemixer/matemixer-backend.c                |   51 +-
+ libmatemixer/matemixer-backend.h                |   11 +-
+ libmatemixer/matemixer-client-stream.c          |   64 +-
+ libmatemixer/matemixer-client-stream.h          |   46 +-
+ libmatemixer/matemixer-control.c                |  517 +++++----
+ libmatemixer/matemixer-control.h                |   36 +-
+ libmatemixer/matemixer-device-profile-private.h |   44 +
+ libmatemixer/matemixer-device-profile.c         |  142 ++-
+ libmatemixer/matemixer-device-profile.h         |   18 +-
+ libmatemixer/matemixer-device.c                 |   99 +-
+ libmatemixer/matemixer-device.h                 |   48 +-
+ libmatemixer/matemixer-enum-types.c             |   67 +-
+ libmatemixer/matemixer-enum-types.h             |    6 +
+ libmatemixer/matemixer-enums.h                  |  139 ++-
+ libmatemixer/matemixer-port-private.h           |   45 +
+ libmatemixer/matemixer-port.c                   |  143 ++-
+ libmatemixer/matemixer-port.h                   |   16 +-
+ libmatemixer/matemixer-stream.c                 |  103 +-
+ libmatemixer/matemixer-stream.h                 |  129 +--
+ libmatemixer/matemixer.c                        |  111 +-
+ 53 files changed, 5138 insertions(+), 2841 deletions(-)
+
+commit 85070f3b97a3213d75a7bebf86ad973aaa21c55b
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Jul 5 01:35:00 2014 +0200
+
+    Add ability to set monitor name and fix a few problems
+
+ backends/pulse/pulse-backend.c           |  19 +++-
+ backends/pulse/pulse-connection.c        |   3 +
+ backends/pulse/pulse-monitor.c           |  42 ++++++++-
+ backends/pulse/pulse-monitor.h           |   4 +
+ backends/pulse/pulse-stream.c            |  32 ++++++-
+ docs/reference/libmatemixer-sections.txt |   1 +
+ libmatemixer/matemixer-control.c         | 156 +++++++++++++++++++------------
+ libmatemixer/matemixer-stream.c          |  15 +++
+ libmatemixer/matemixer-stream.h          |   4 +
+ 9 files changed, 203 insertions(+), 73 deletions(-)
+
+commit 4793cbd87fed50678215b5dc1ba8e708fd4c9b58
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Jul 4 14:31:56 2014 +0200
+
+    Rename MateMixerProfile to MateMixerDeviceProfile and add number of streams in a profile
+
+ backends/pulse/pulse-device.c            |  72 ++++----
+ docs/reference/libmatemixer-docs.xml     |   2 +-
+ docs/reference/libmatemixer-sections.txt |  45 ++---
+ docs/reference/libmatemixer.types        |   6 +
+ examples/monitor.c                       |  22 ++-
+ libmatemixer/Makefile.am                 |   4 +-
+ libmatemixer/matemixer-device-profile.c  | 272 +++++++++++++++++++++++++++++++
+ libmatemixer/matemixer-device-profile.h  |  72 ++++++++
+ libmatemixer/matemixer-device.c          |   6 +-
+ libmatemixer/matemixer-device.h          |  38 ++---
+ libmatemixer/matemixer-profile.c         | 212 ------------------------
+ libmatemixer/matemixer-profile.h         |  68 --------
+ libmatemixer/matemixer-stream.c          |  16 +-
+ libmatemixer/matemixer.h                 |   2 +-
+ 14 files changed, 458 insertions(+), 379 deletions(-)
+
+commit b81d9ed11fae7bee59b67b1aee9927e417666875
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Jul 3 20:48:08 2014 +0200
+
+    PulseAudio and API fixes
+
+ Makefile.am                            |   3 +-
+ backends/pulse/pulse-backend.c         | 403 +++++++++++++++++++++------------
+ backends/pulse/pulse-backend.h         |   2 +-
+ backends/pulse/pulse-client-stream.c   |   1 +
+ backends/pulse/pulse-connection.c      | 170 +++++++++-----
+ backends/pulse/pulse-connection.h      |   3 +-
+ backends/pulse/pulse-device.c          |   1 -
+ backends/pulse/pulse-sink-input.c      |   6 +-
+ backends/pulse/pulse-sink.c            |  32 +--
+ backends/pulse/pulse-sink.h            |   7 +-
+ backends/pulse/pulse-source-output.c   |   6 +-
+ backends/pulse/pulse-source.c          |  28 ++-
+ backends/pulse/pulse-source.h          |   7 +-
+ backends/pulse/pulse-stream.c          | 166 ++++++--------
+ backends/pulse/pulse-stream.h          |   6 +-
+ docs/reference/libmatemixer.types      |   6 -
+ examples/monitor.c                     |  67 +++++-
+ libmatemixer/matemixer-client-stream.c |   2 +-
+ libmatemixer/matemixer-control.c       |  42 +++-
+ libmatemixer/matemixer-enum-types.c    |   2 +-
+ libmatemixer/matemixer-enums.h         |   4 +-
+ libmatemixer/matemixer-private.h       |   3 +-
+ libmatemixer/matemixer-stream.c        |  71 +++---
+ libmatemixer/matemixer-stream.h        |  56 ++---
+ libmatemixer/matemixer.c               |  20 +-
+ libmatemixer/matemixer.h               |   5 +-
+ 26 files changed, 699 insertions(+), 420 deletions(-)
+
+commit e13f443c1c4c73ef20dd00f1909f8c94c685b07f
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Jun 27 02:13:21 2014 +0200
+
+    Fix pulse close function
+
+ backends/pulse/pulse-backend.c | 45 ++++++++++++++++++++----------------------
+ backends/pulse/pulse-stream.c  |  2 +-
+ 2 files changed, 22 insertions(+), 25 deletions(-)
+
+commit f235385f34c81d4cd9092b94cb24670eb25421fa
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Thu Jun 26 01:35:56 2014 +0200
+
+    Minor fixes
+
+ backends/null/null-backend.c            | 42 +++++++++++++++++++++++++++++++--
+ backends/pulse/pulse-device.c           |  2 +-
+ backends/pulse/pulse-helpers.h          |  1 -
+ backends/pulse/pulse-monitor.c          | 10 +++-----
+ backends/pulse/pulse-stream.c           | 33 +++++++++++++++++++++-----
+ examples/monitor.c                      | 10 ++++----
+ libmatemixer/matemixer-backend-module.c |  2 +-
+ 7 files changed, 77 insertions(+), 23 deletions(-)
+
+commit 0362ccf20d51fa27d7febd0e6c0fa368f2f9e663
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Jun 23 17:54:21 2014 +0200
+
+    Create xz tarballs and require automake 1.9
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b7985efb889d89a01ccadc9eed72879d47cc7559
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Jun 23 17:25:13 2014 +0200
+
+    Fix building documentation
+
+ docs/reference/libmatemixer-docs.xml | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit c00c008f789781748706e3f77410cde844602e4a
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Mon Jun 23 00:54:20 2014 +0200
+
+    Support source output parent, minor fixes
+
+ backends/pulse/pulse-backend.c           | 179 ++++++++++++++++++-------------
+ backends/pulse/pulse-client-stream.c     |  65 ++++-------
+ backends/pulse/pulse-client-stream.h     |  22 ++--
+ backends/pulse/pulse-connection.c        |  36 ++++---
+ backends/pulse/pulse-sink-input.c        |  15 +--
+ backends/pulse/pulse-source-output.c     |  24 +++--
+ backends/pulse/pulse-source-output.h     |   6 +-
+ backends/pulse/pulse-stream.c            |  17 +++
+ backends/pulse/pulse-stream.h            |   3 +
+ docs/reference/libmatemixer-sections.txt |   1 +
+ 10 files changed, 205 insertions(+), 163 deletions(-)
+
+commit 18ff80676c9ecce7f875a0bcb8190bd5a1dc1b00
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sun Jun 22 01:23:40 2014 +0200
+
+    Add base_volume and correctly set active stream port
+
+ backends/pulse/pulse-stream.c   | 64 +++++++++++++++++++++++++++++++++++------
+ configure.ac                    |  2 +-
+ libmatemixer/matemixer-stream.c | 18 ++++++++++++
+ libmatemixer/matemixer-stream.h |  5 ++--
+ 4 files changed, 77 insertions(+), 12 deletions(-)
+
+commit 0309a021960c0a4e2e758dd52041197e684ed600
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Jun 21 16:41:05 2014 +0200
+
+    Update decibel handling API and PulseAudio code
+
+ backends/pulse/pulse-stream.c            | 151 +++++++++++++++----------------
+ configure.ac                             |   2 +-
+ docs/reference/libmatemixer-sections.txt |  18 ++--
+ libmatemixer/matemixer-control.c         |   2 +-
+ libmatemixer/matemixer-stream.c          |  58 ++++++------
+ libmatemixer/matemixer-stream.h          |  44 +++++----
+ 6 files changed, 142 insertions(+), 133 deletions(-)
+
+commit 02e93868a222a16b9a95a2a51e6b88fe733c5d97
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Jun 20 16:35:33 2014 +0200
+
+    Fix volume and mute notifications
+
+ backends/pulse/pulse-stream.c | 39 ++++++++++++++++++++++++++++-----------
+ 1 file changed, 28 insertions(+), 11 deletions(-)
+
+commit 6be9a89195e0d3bf8408cea661f22cb97b638f24
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Jun 20 00:12:40 2014 +0200
+
+    Pulse and API updates, fixes
+
+ backends/null/null-backend.c                       |  16 +-
+ backends/null/null-backend.h                       |   6 +-
+ backends/pulse/Makefile.am                         |   2 +
+ backends/pulse/pulse-backend.c                     | 354 ++++++---
+ backends/pulse/pulse-backend.h                     |  12 +-
+ backends/pulse/pulse-client-stream.c               | 263 ++++++-
+ backends/pulse/pulse-client-stream.h               |  28 +-
+ backends/pulse/pulse-connection.c                  | 633 ++++++++-------
+ backends/pulse/pulse-connection.h                  | 204 ++---
+ backends/pulse/pulse-device.c                      | 402 ++++++----
+ backends/pulse/pulse-device.h                      |   3 +-
+ backends/pulse/pulse-helpers.h                     |   2 +-
+ backends/pulse/pulse-monitor.c                     | 271 +++++++
+ backends/pulse/pulse-monitor.h                     |  79 ++
+ backends/pulse/pulse-sink-input.c                  | 223 ++++--
+ backends/pulse/pulse-sink-input.h                  |  21 +-
+ backends/pulse/pulse-sink.c                        | 246 ++++--
+ backends/pulse/pulse-sink.h                        |  20 +-
+ backends/pulse/pulse-source-output.c               | 198 ++++-
+ backends/pulse/pulse-source-output.h               |  12 +-
+ backends/pulse/pulse-source.c                      | 170 ++--
+ backends/pulse/pulse-source.h                      |  10 +-
+ backends/pulse/pulse-stream.c                      | 479 +++++++-----
+ backends/pulse/pulse-stream.h                      |  91 ++-
+ configure.ac                                       |   3 +-
+ docs/reference/Makefile.am                         |   2 +-
+ docs/reference/libmatemixer-docs.xml               |   1 -
+ docs/reference/libmatemixer-sections.txt           |  57 +-
+ examples/monitor.c                                 | 137 +++-
+ libmatemixer/Makefile.am                           |   2 -
+ libmatemixer/matemixer-backend-module.c            | 193 +++--
+ libmatemixer/matemixer-backend-module.h            |   7 +-
+ libmatemixer/matemixer-backend.c                   | 179 ++---
+ libmatemixer/matemixer-backend.h                   |  15 +-
+ libmatemixer/matemixer-client-stream.c             | 173 ++++-
+ libmatemixer/matemixer-client-stream.h             |  31 +-
+ libmatemixer/matemixer-control.c                   | 857 ++++++++++++---------
+ libmatemixer/matemixer-control.h                   |  14 +-
+ libmatemixer/matemixer-device.c                    |  52 +-
+ libmatemixer/matemixer-device.h                    |   8 +-
+ libmatemixer/matemixer-enum-types.c                |  23 +-
+ libmatemixer/matemixer-enum-types.h                |   8 +-
+ libmatemixer/matemixer-enums.h                     |  39 +-
+ libmatemixer/matemixer-port.c                      | 183 +++--
+ libmatemixer/matemixer-port.h                      |  33 +-
+ libmatemixer/matemixer-profile.c                   | 115 +--
+ libmatemixer/matemixer-profile.h                   |  11 +-
+ libmatemixer/matemixer-stream.c                    | 173 +++--
+ libmatemixer/matemixer-stream.h                    |  26 +-
+ ...{matemixer-version.h.in => matemixer-version.h} |  32 +-
+ libmatemixer/matemixer.c                           |   6 +-
+ libmatemixer/matemixer.h                           |   6 +
+ 52 files changed, 4023 insertions(+), 2108 deletions(-)
+
+commit a2290d5e13ccee88fd9ae66a3895eb4da646f81f
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Fri Jun 13 17:36:14 2014 +0200
+
+    Weekly update
+
+ Makefile.am                               |    3 +-
+ autogen.sh                                |    3 +-
+ backends/null/Makefile.am                 |    5 +-
+ backends/null/{null.c => null-backend.c}  |   40 +-
+ backends/null/{null.h => null-backend.h}  |   48 +-
+ backends/pulse/Makefile.am                |   12 +-
+ backends/pulse/pulse-backend.c            |  812 ++++++++++++++++++
+ backends/pulse/pulse-backend.h            |   60 ++
+ backends/pulse/pulse-client-stream.c      |  146 ++++
+ backends/pulse/pulse-client-stream.h      |   69 ++
+ backends/pulse/pulse-connection.c         | 1265 ++++++++++++++++++-----------
+ backends/pulse/pulse-connection.h         |  162 ++--
+ backends/pulse/pulse-device.c             |  221 +++--
+ backends/pulse/pulse-device.h             |   79 +-
+ backends/pulse/pulse-enum-types.c         |   45 +
+ backends/pulse/pulse-enum-types.h         |   36 +
+ backends/pulse/pulse-enums.h              |   29 +
+ backends/pulse/pulse-helpers.c            |   75 ++
+ backends/pulse/pulse-helpers.h            |   35 +
+ backends/pulse/pulse-sink-input.c         |  170 ++++
+ backends/pulse/pulse-sink-input.h         |   71 ++
+ backends/pulse/pulse-sink.c               |  175 +++-
+ backends/pulse/pulse-sink.h               |   62 +-
+ backends/pulse/pulse-source-output.c      |  143 ++++
+ backends/pulse/pulse-source-output.h      |   71 ++
+ backends/pulse/pulse-source.c             |  213 +++++
+ backends/pulse/pulse-source.h             |   71 ++
+ backends/pulse/pulse-stream.c             |  885 +++++++++++++++++---
+ backends/pulse/pulse-stream.h             |  109 +--
+ backends/pulse/pulse.c                    |  370 ---------
+ backends/pulse/pulse.h                    |   63 --
+ configure.ac                              |   33 +-
+ data/libmatemixer.pc.in                   |    4 +-
+ docs/Makefile.am                          |    1 +
+ docs/reference/Makefile.am                |  109 +++
+ docs/reference/libmatemixer-docs.xml      |   32 +
+ docs/reference/libmatemixer-overrides.txt |    0
+ docs/reference/libmatemixer-sections.txt  |  187 +++++
+ docs/reference/libmatemixer.types         |    6 +
+ docs/reference/version.xml.in             |    1 +
+ examples/Makefile.am                      |   15 +
+ examples/monitor.c                        |  270 ++++++
+ gtk-doc.make                              |  289 +++++++
+ libmatemixer/Makefile.am                  |    8 +-
+ libmatemixer/matemixer-backend-module.c   |   22 +-
+ libmatemixer/matemixer-backend-module.h   |    6 +-
+ libmatemixer/matemixer-backend.c          |  163 +++-
+ libmatemixer/matemixer-backend.h          |   70 +-
+ libmatemixer/matemixer-client-stream.c    |   83 ++
+ libmatemixer/matemixer-client-stream.h    |   59 ++
+ libmatemixer/matemixer-control.c          | 1043 ++++++++++++++++++++++--
+ libmatemixer/matemixer-control.h          |   67 +-
+ libmatemixer/matemixer-device.c           |    7 +-
+ libmatemixer/matemixer-device.h           |    8 +-
+ libmatemixer/matemixer-enum-types.c       |   30 +-
+ libmatemixer/matemixer-enum-types.h       |   13 +-
+ libmatemixer/matemixer-enums.h            |   61 +-
+ libmatemixer/matemixer-port.c             |  102 ++-
+ libmatemixer/matemixer-port.h             |   32 +-
+ libmatemixer/matemixer-profile.c          |   65 +-
+ libmatemixer/matemixer-profile.h          |   16 +-
+ libmatemixer/matemixer-stream.c           |  131 ++-
+ libmatemixer/matemixer-stream.h           |   69 +-
+ libmatemixer/matemixer-version.h.in       |   64 ++
+ libmatemixer/matemixer.c                  |   27 +-
+ libmatemixer/matemixer.h                  |    4 +-
+ m4/gtk-doc.m4                             |   88 ++
+ omf.make                                  |   65 ++
+ xmldocs.make                              |  101 +++
+ 69 files changed, 7231 insertions(+), 1668 deletions(-)
+
+commit 7cf09a2b40a507caf2bea0c54af00da84a8f88af
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Jun 7 02:04:55 2014 +0200
+
+    Fix properties
+
+ libmatemixer/matemixer-device.c |  8 ++--
+ libmatemixer/matemixer-device.h |  4 +-
+ libmatemixer/matemixer-stream.c | 93 +++++++++++++++++++++++++++++++----------
+ libmatemixer/matemixer-stream.h |  8 ++--
+ 4 files changed, 81 insertions(+), 32 deletions(-)
+
+commit d2c3a4be634018a2b63f4c80a26f9024a0d3de47
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat Jun 7 01:07:02 2014 +0200
+
+    Weekly update
+
+ Makefile.am                                        |   4 +-
+ backends/null/Makefile.am                          |   6 +-
+ backends/null/null.c                               |  32 +-
+ backends/null/null.h                               |   6 +-
+ backends/pulse/Makefile.am                         |  14 +-
+ backends/pulse/pulse-connection.c                  | 764 +++++++++++++++++++++
+ backends/pulse/pulse-connection.h                  | 102 +++
+ backends/pulse/pulse-device.c                      | 251 ++++---
+ backends/pulse/pulse-device.h                      |  27 +-
+ .../pulse/{pulse-track.c => pulse-sink-input.c}    |   0
+ .../pulse/{pulse-track.h => pulse-sink-input.h}    |   0
+ backends/pulse/pulse-sink.c                        | 130 ++++
+ backends/pulse/pulse-sink.h                        |  69 ++
+ backends/pulse/pulse-source-output.c               |   0
+ backends/pulse/pulse-source-output.h               |   0
+ backends/pulse/pulse-source.c                      |   0
+ backends/pulse/pulse-source.h                      |   0
+ backends/pulse/pulse-stream.c                      | 259 +++++++
+ backends/pulse/pulse-stream.h                      |  86 +++
+ backends/pulse/pulse.c                             | 383 ++++++-----
+ backends/pulse/pulse.h                             |   2 +
+ configure.ac                                       |   2 +-
+ {doc => docs}/Makefile.am                          |   0
+ libmatemixer/Makefile.am                           |  16 +-
+ libmatemixer/matemixer-backend-module.c            |  85 +--
+ libmatemixer/matemixer-backend-module.h            |  23 +-
+ libmatemixer/matemixer-backend.c                   |  45 +-
+ libmatemixer/matemixer-backend.h                   |  22 +-
+ libmatemixer/matemixer-control.c                   | 117 ++--
+ libmatemixer/matemixer-control.h                   |  20 +-
+ libmatemixer/matemixer-device-port.c               | 270 --------
+ libmatemixer/matemixer-device-port.h               |  80 ---
+ libmatemixer/matemixer-device-profile.c            | 189 -----
+ libmatemixer/matemixer-device-profile.h            |  67 --
+ libmatemixer/matemixer-device.c                    | 147 ++--
+ libmatemixer/matemixer-device.h                    |  36 +-
+ libmatemixer/matemixer-enum-types.c                |  88 ++-
+ libmatemixer/matemixer-enum-types.h                |  15 +-
+ libmatemixer/matemixer-enums.h                     |  56 +-
+ libmatemixer/matemixer-port.c                      | 256 +++++++
+ libmatemixer/matemixer-port.h                      |  73 ++
+ libmatemixer/matemixer-private.h                   |   4 +-
+ libmatemixer/matemixer-profile.c                   | 196 ++++++
+ libmatemixer/matemixer-profile.h                   |  67 ++
+ libmatemixer/matemixer-stream.c                    | 531 ++++++++++++++
+ libmatemixer/matemixer-stream.h                    | 165 +++++
+ libmatemixer/matemixer-track.c                     |  29 -
+ libmatemixer/matemixer-track.h                     |  47 --
+ libmatemixer/matemixer.c                           |  21 +-
+ libmatemixer/matemixer.h                           |   2 +-
+ 50 files changed, 3570 insertions(+), 1234 deletions(-)
+
+commit 9b4cafb0b47c6ec453d301bd812ae7001955dc2a
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sun May 25 19:24:15 2014 +0200
+
+    Remove latency-offset
+
+ backends/pulse/pulse-device.c        |  3 +--
+ libmatemixer/matemixer-device-port.c | 29 +----------------------------
+ libmatemixer/matemixer-device-port.h |  5 +----
+ 3 files changed, 3 insertions(+), 34 deletions(-)
+
+commit f594ba9dea7bbf1ae262f28a949bc50a7444b528
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sun May 25 15:07:48 2014 +0200
+
+    Fix enum types
+
+ libmatemixer/Makefile.am                     | 25 ++-------
+ libmatemixer/matemixer-device-port.c         | 47 ++++++++++++-----
+ libmatemixer/matemixer-enum-types.c          | 78 ++++++++++++++++++++++++++++
+ libmatemixer/matemixer-enum-types.c.template | 36 -------------
+ libmatemixer/matemixer-enum-types.h          | 41 +++++++++++++++
+ libmatemixer/matemixer-enum-types.h.template | 26 ----------
+ libmatemixer/matemixer-enums.h               |  5 ++
+ 7 files changed, 161 insertions(+), 97 deletions(-)
+
+commit 4db8dc0cbb3959d6278a9e7650d5103a475ab897
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat May 24 21:01:21 2014 +0200
+
+    General additions and improvements
+
+ backends/null/null.c                    |  13 ++--
+ backends/null/null.h                    |   2 +
+ backends/pulse/pulse-device.c           |  53 ++++++++-----
+ backends/pulse/pulse-device.h           |  18 +++--
+ backends/pulse/pulse.c                  |  12 +--
+ libmatemixer/matemixer-backend-module.c | 121 +++++++++++++++++++---------
+ libmatemixer/matemixer-backend.c        |  34 ++++++--
+ libmatemixer/matemixer-backend.h        |  18 +++--
+ libmatemixer/matemixer-control.c        | 114 +++++++++++++++------------
+ libmatemixer/matemixer-control.h        |  11 ++-
+ libmatemixer/matemixer-device-port.c    |  66 ++++++++++++++--
+ libmatemixer/matemixer-device-port.h    |  14 ++++
+ libmatemixer/matemixer-device-profile.c |  30 ++++++-
+ libmatemixer/matemixer-device-profile.h |   4 +
+ libmatemixer/matemixer-device.c         |  66 +++++++++++++++-
+ libmatemixer/matemixer-device.h         |  16 ++++
+ libmatemixer/matemixer-enums.h          |   1 +
+ libmatemixer/matemixer.c                | 134 ++++++++++++++++----------------
+ 18 files changed, 503 insertions(+), 224 deletions(-)
+
+commit caf4d9b8b8b0d26856d2d64f00ab23756867a923
+Author: Michal Ratajsky <michal.ratajsky@gmail.com>
+Date:   Sat May 24 00:15:24 2014 +0200
+
+    Initial commit
+
+ AUTHORS                                      |   2 +
+ COPYING                                      | 510 +++++++++++++++++++++++++++
+ ChangeLog                                    |   0
+ INSTALL                                      | 370 +++++++++++++++++++
+ Makefile.am                                  |  28 ++
+ NEWS                                         |   0
+ README                                       |   0
+ autogen.sh                                   |  23 ++
+ backends/Makefile.am                         |   7 +
+ backends/null/Makefile.am                    |  24 ++
+ backends/null/null.c                         |  95 +++++
+ backends/null/null.h                         |  54 +++
+ backends/pulse/Makefile.am                   |  30 ++
+ backends/pulse/pulse-device.c                | 308 ++++++++++++++++
+ backends/pulse/pulse-device.h                |  78 ++++
+ backends/pulse/pulse-track.c                 |   0
+ backends/pulse/pulse-track.h                 |   0
+ backends/pulse/pulse.c                       | 371 +++++++++++++++++++
+ backends/pulse/pulse.h                       |  61 ++++
+ configure.ac                                 | 159 +++++++++
+ data/Makefile.am                             |   6 +
+ data/libmatemixer.pc.in                      |  11 +
+ doc/Makefile.am                              |   2 +
+ git.mk                                       | 318 +++++++++++++++++
+ libmatemixer/Makefile.am                     |  60 ++++
+ libmatemixer/matemixer-backend-module.c      | 161 +++++++++
+ libmatemixer/matemixer-backend-module.h      |  75 ++++
+ libmatemixer/matemixer-backend.c             |  60 ++++
+ libmatemixer/matemixer-backend.h             |  59 ++++
+ libmatemixer/matemixer-control.c             | 210 +++++++++++
+ libmatemixer/matemixer-control.h             |  66 ++++
+ libmatemixer/matemixer-device-port.c         | 220 ++++++++++++
+ libmatemixer/matemixer-device-port.h         |  69 ++++
+ libmatemixer/matemixer-device-profile.c      | 165 +++++++++
+ libmatemixer/matemixer-device-profile.h      |  63 ++++
+ libmatemixer/matemixer-device.c              |  68 ++++
+ libmatemixer/matemixer-device.h              |  51 +++
+ libmatemixer/matemixer-enum-types.c.template |  36 ++
+ libmatemixer/matemixer-enum-types.h.template |  26 ++
+ libmatemixer/matemixer-enums.h               |  35 ++
+ libmatemixer/matemixer-private.h             |  30 ++
+ libmatemixer/matemixer-track.c               |  29 ++
+ libmatemixer/matemixer-track.h               |  47 +++
+ libmatemixer/matemixer.c                     | 158 +++++++++
+ libmatemixer/matemixer.h                     |  34 ++
+ 45 files changed, 4179 insertions(+)

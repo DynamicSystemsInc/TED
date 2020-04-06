@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<book xmlns="http://www.devhelp.net/book" title="libmatemixer Reference Manual" link="index.html" author="" name="libmatemixer" version="2" language="c">
+  <chapters>
+    <sub name="API Reference" link="ch01.html">
+      <sub name="MateMixer" link="libmatemixer-MateMixer.html"/>
+      <sub name="MateMixerAppInfo" link="MateMixerAppInfo.html"/>
+      <sub name="MateMixerContext" link="MateMixerContext.html"/>
+      <sub name="MateMixerDevice" link="MateMixerDevice.html"/>
+      <sub name="MateMixerDeviceSwitch" link="MateMixerDeviceSwitch.html"/>
+      <sub name="MateMixerStream" link="MateMixerStream.html"/>
+      <sub name="MateMixerStreamControl" link="MateMixerStreamControl.html"/>
+      <sub name="MateMixerStreamSwitch" link="MateMixerStreamSwitch.html"/>
+      <sub name="MateMixerStreamToggle" link="MateMixerStreamToggle.html"/>
+      <sub name="MateMixerStoredControl" link="MateMixerStoredControl.html"/>
+      <sub name="MateMixerSwitch" link="MateMixerSwitch.html"/>
+      <sub name="MateMixerSwitchOption" link="MateMixerSwitchOption.html"/>
+    </sub>
+    <sub name="API Index" link="api-index-full.html"/>
+  </chapters>
+  <functions>
+    <keyword type="function" name="mate_mixer_init ()" link="libmatemixer-MateMixer.html#mate-mixer-init"/>
+    <keyword type="function" name="mate_mixer_is_initialized ()" link="libmatemixer-MateMixer.html#mate-mixer-is-initialized"/>
+    <keyword type="macro" name="LIBMATEMIXER_CHECK_VERSION()" link="libmatemixer-MateMixer.html#LIBMATEMIXER-CHECK-VERSION:CAPS"/>
+    <keyword type="function" name="mate_mixer_app_info_get_name ()" link="MateMixerAppInfo.html#mate-mixer-app-info-get-name"/>
+    <keyword type="function" name="mate_mixer_app_info_get_id ()" link="MateMixerAppInfo.html#mate-mixer-app-info-get-id"/>
+    <keyword type="function" name="mate_mixer_app_info_get_version ()" link="MateMixerAppInfo.html#mate-mixer-app-info-get-version"/>
+    <keyword type="function" name="mate_mixer_app_info_get_icon ()" link="MateMixerAppInfo.html#mate-mixer-app-info-get-icon"/>
+    <keyword type="struct" name="MateMixerAppInfo" link="MateMixerAppInfo.html#MateMixerAppInfo-struct"/>
+    <keyword type="function" name="mate_mixer_context_new ()" link="MateMixerContext.html#mate-mixer-context-new"/>
+    <keyword type="function" name="mate_mixer_context_set_backend_type ()" link="MateMixerContext.html#mate-mixer-context-set-backend-type"/>
+    <keyword type="function" name="mate_mixer_context_set_app_name ()" link="MateMixerContext.html#mate-mixer-context-set-app-name"/>
+    <keyword type="function" name="mate_mixer_context_set_app_id ()" link="MateMixerContext.html#mate-mixer-context-set-app-id"/>
+    <keyword type="function" name="mate_mixer_context_set_app_version ()" link="MateMixerContext.html#mate-mixer-context-set-app-version"/>
+    <keyword type="function" name="mate_mixer_context_set_app_icon ()" link="MateMixerContext.html#mate-mixer-context-set-app-icon"/>
+    <keyword type="function" name="mate_mixer_context_set_server_address ()" link="MateMixerContext.html#mate-mixer-context-set-server-address"/>
+    <keyword type="function" name="mate_mixer_context_open ()" link="MateMixerContext.html#mate-mixer-context-open"/>
+    <keyword type="function" name="mate_mixer_context_close ()" link="MateMixerContext.html#mate-mixer-context-close"/>
+    <keyword type="function" name="mate_mixer_context_get_state ()" link="MateMixerContext.html#mate-mixer-context-get-state"/>
+    <keyword type="function" name="mate_mixer_context_get_device ()" link="MateMixerContext.html#mate-mixer-context-get-device"/>
+    <keyword type="function" name="mate_mixer_context_get_stream ()" link="MateMixerContext.html#mate-mixer-context-get-stream"/>
+    <keyword type="function" name="mate_mixer_context_get_stored_control ()" link="MateMixerContext.html#mate-mixer-context-get-stored-control"/>
+    <keyword type="function" name="mate_mixer_context_list_devices ()" link="MateMixerContext.html#mate-mixer-context-list-devices"/>
+    <keyword type="function" name="mate_mixer_context_list_streams ()" link="MateMixerContext.html#mate-mixer-context-list-streams"/>
+    <keyword type="function" name="mate_mixer_context_list_stored_controls ()" link="MateMixerContext.html#mate-mixer-context-list-stored-controls"/>
+    <keyword type="function" name="mate_mixer_context_get_default_input_stream ()" link="MateMixerContext.html#mate-mixer-context-get-default-input-stream"/>
+    <keyword type="function" name="mate_mixer_context_set_default_input_stream ()" link="MateMixerContext.html#mate-mixer-context-set-default-input-stream"/>
+    <keyword type="function" name="mate_mixer_context_get_default_output_stream ()" link="MateMixerContext.html#mate-mixer-context-get-default-output-stream"/>
+    <keyword type="function" name="mate_mixer_context_set_default_output_stream ()" link="MateMixerContext.html#mate-mixer-context-set-default-output-stream"/>
+    <keyword type="function" name="mate_mixer_context_get_backend_name ()" link="MateMixerContext.html#mate-mixer-context-get-backend-name"/>
+    <keyword type="function" name="mate_mixer_context_get_backend_type ()" link="MateMixerContext.html#mate-mixer-context-get-backend-type"/>
+    <keyword type="function" name="mate_mixer_context_get_backend_flags ()" link="MateMixerContext.html#mate-mixer-context-get-backend-flags"/>
+    <keyword type="enum" name="enum MateMixerState" link="MateMixerContext.html#MateMixerState"/>
+    <keyword type="enum" name="enum MateMixerBackendType" link="MateMixerContext.html#MateMixerBackendType"/>
+    <keyword type="enum" name="enum MateMixerBackendFlags" link="MateMixerContext.html#MateMixerBackendFlags"/>
+    <keyword type="struct" name="MateMixerContext" link="MateMixerContext.html#MateMixerContext-struct"/>
+    <keyword type="struct" name="struct MateMixerContextClass" link="MateMixerContext.html#MateMixerContextClass"/>
+    <keyword type="property" name="The “app-icon” property" link="MateMixerContext.html#MateMixerContext--app-icon"/>
+    <keyword type="property" name="The “app-id” property" link="MateMixerContext.html#MateMixerContext--app-id"/>
+    <keyword type="property" name="The “app-name” property" link="MateMixerContext.html#MateMixerContext--app-name"/>
+    <keyword type="property" name="The “app-version” property" link="MateMixerContext.html#MateMixerContext--app-version"/>
+    <keyword type="property" name="The “default-input-stream” property" link="MateMixerContext.html#MateMixerContext--default-input-stream"/>
+    <keyword type="property" name="The “default-output-stream” property" link="MateMixerContext.html#MateMixerContext--default-output-stream"/>
+    <keyword type="property" name="The “server-address” property" link="MateMixerContext.html#MateMixerContext--server-address"/>
+    <keyword type="property" name="The “state” property" link="MateMixerContext.html#MateMixerContext--state"/>
+    <keyword type="signal" name="The “device-added” signal" link="MateMixerContext.html#MateMixerContext-device-added"/>
+    <keyword type="signal" name="The “device-removed” signal" link="MateMixerContext.html#MateMixerContext-device-removed"/>
+    <keyword type="signal" name="The “stored-control-added” signal" link="MateMixerContext.html#MateMixerContext-stored-control-added"/>
+    <keyword type="signal" name="The “stored-control-removed” signal" link="MateMixerContext.html#MateMixerContext-stored-control-removed"/>
+    <keyword type="signal" name="The “stream-added” signal" link="MateMixerContext.html#MateMixerContext-stream-added"/>
+    <keyword type="signal" name="The “stream-removed” signal" link="MateMixerContext.html#MateMixerContext-stream-removed"/>
+    <keyword type="function" name="mate_mixer_device_get_name ()" link="MateMixerDevice.html#mate-mixer-device-get-name"/>
+    <keyword type="function" name="mate_mixer_device_get_label ()" link="MateMixerDevice.html#mate-mixer-device-get-label"/>
+    <keyword type="function" name="mate_mixer_device_get_icon ()" link="MateMixerDevice.html#mate-mixer-device-get-icon"/>
+    <keyword type="function" name="mate_mixer_device_get_stream ()" link="MateMixerDevice.html#mate-mixer-device-get-stream"/>
+    <keyword type="function" name="mate_mixer_device_get_switch ()" link="MateMixerDevice.html#mate-mixer-device-get-switch"/>
+    <keyword type="function" name="mate_mixer_device_list_streams ()" link="MateMixerDevice.html#mate-mixer-device-list-streams"/>
+    <keyword type="function" name="mate_mixer_device_list_switches ()" link="MateMixerDevice.html#mate-mixer-device-list-switches"/>
+    <keyword type="struct" name="MateMixerDevice" link="MateMixerDevice.html#MateMixerDevice-struct"/>
+    <keyword type="struct" name="struct MateMixerDeviceClass" link="MateMixerDevice.html#MateMixerDeviceClass"/>
+    <keyword type="property" name="The “icon” property" link="MateMixerDevice.html#MateMixerDevice--icon"/>
+    <keyword type="property" name="The “label” property" link="MateMixerDevice.html#MateMixerDevice--label"/>
+    <keyword type="property" name="The “name” property" link="MateMixerDevice.html#MateMixerDevice--name"/>
+    <keyword type="signal" name="The “stream-added” signal" link="MateMixerDevice.html#MateMixerDevice-stream-added"/>
+    <keyword type="signal" name="The “stream-removed” signal" link="MateMixerDevice.html#MateMixerDevice-stream-removed"/>
+    <keyword type="signal" name="The “switch-added” signal" link="MateMixerDevice.html#MateMixerDevice-switch-added"/>
+    <keyword type="signal" name="The “switch-removed” signal" link="MateMixerDevice.html#MateMixerDevice-switch-removed"/>
+    <keyword type="function" name="mate_mixer_device_switch_get_role ()" link="MateMixerDeviceSwitch.html#mate-mixer-device-switch-get-role"/>
+    <keyword type="function" name="mate_mixer_device_switch_get_device ()" link="MateMixerDeviceSwitch.html#mate-mixer-device-switch-get-device"/>
+    <keyword type="enum" name="enum MateMixerDeviceSwitchRole" link="MateMixerDeviceSwitch.html#MateMixerDeviceSwitchRole"/>
+    <keyword type="struct" name="MateMixerDeviceSwitch" link="MateMixerDeviceSwitch.html#MateMixerDeviceSwitch-struct"/>
+    <keyword type="struct" name="struct MateMixerDeviceSwitchClass" link="MateMixerDeviceSwitch.html#MateMixerDeviceSwitchClass"/>
+    <keyword type="property" name="The “device” property" link="MateMixerDeviceSwitch.html#MateMixerDeviceSwitch--device"/>
+    <keyword type="property" name="The “role” property" link="MateMixerDeviceSwitch.html#MateMixerDeviceSwitch--role"/>
+    <keyword type="function" name="mate_mixer_stream_get_name ()" link="MateMixerStream.html#mate-mixer-stream-get-name"/>
+    <keyword type="function" name="mate_mixer_stream_get_label ()" link="MateMixerStream.html#mate-mixer-stream-get-label"/>
+    <keyword type="function" name="mate_mixer_stream_get_direction ()" link="MateMixerStream.html#mate-mixer-stream-get-direction"/>
+    <keyword type="function" name="mate_mixer_stream_get_device ()" link="MateMixerStream.html#mate-mixer-stream-get-device"/>
+    <keyword type="function" name="mate_mixer_stream_get_control ()" link="MateMixerStream.html#mate-mixer-stream-get-control"/>
+    <keyword type="function" name="mate_mixer_stream_get_switch ()" link="MateMixerStream.html#mate-mixer-stream-get-switch"/>
+    <keyword type="function" name="mate_mixer_stream_get_default_control ()" link="MateMixerStream.html#mate-mixer-stream-get-default-control"/>
+    <keyword type="function" name="mate_mixer_stream_list_controls ()" link="MateMixerStream.html#mate-mixer-stream-list-controls"/>
+    <keyword type="function" name="mate_mixer_stream_list_switches ()" link="MateMixerStream.html#mate-mixer-stream-list-switches"/>
+    <keyword type="enum" name="enum MateMixerDirection" link="MateMixerStream.html#MateMixerDirection"/>
+    <keyword type="struct" name="MateMixerStream" link="MateMixerStream.html#MateMixerStream-struct"/>
+    <keyword type="struct" name="struct MateMixerStreamClass" link="MateMixerStream.html#MateMixerStreamClass"/>
+    <keyword type="property" name="The “default-control” property" link="MateMixerStream.html#MateMixerStream--default-control"/>
+    <keyword type="property" name="The “device” property" link="MateMixerStream.html#MateMixerStream--device"/>
+    <keyword type="property" name="The “direction” property" link="MateMixerStream.html#MateMixerStream--direction"/>
+    <keyword type="property" name="The “label” property" link="MateMixerStream.html#MateMixerStream--label"/>
+    <keyword type="property" name="The “name” property" link="MateMixerStream.html#MateMixerStream--name"/>
+    <keyword type="signal" name="The “control-added” signal" link="MateMixerStream.html#MateMixerStream-control-added"/>
+    <keyword type="signal" name="The “control-removed” signal" link="MateMixerStream.html#MateMixerStream-control-removed"/>
+    <keyword type="signal" name="The “switch-added” signal" link="MateMixerStream.html#MateMixerStream-switch-added"/>
+    <keyword type="signal" name="The “switch-removed” signal" link="MateMixerStream.html#MateMixerStream-switch-removed"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_name ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-name"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_label ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-label"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_flags ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-flags"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_role ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-role"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_media_role ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-media-role"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_app_info ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-app-info"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_stream ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-stream"/>
+    <keyword type="function" name="mate_mixer_stream_control_set_stream ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-set-stream"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_mute ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-mute"/>
+    <keyword type="function" name="mate_mixer_stream_control_set_mute ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-set-mute"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_num_channels ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-num-channels"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_volume ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-volume"/>
+    <keyword type="function" name="mate_mixer_stream_control_set_volume ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-set-volume"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_decibel ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-decibel"/>
+    <keyword type="function" name="mate_mixer_stream_control_set_decibel ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-set-decibel"/>
+    <keyword type="function" name="mate_mixer_stream_control_has_channel_position ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-has-channel-position"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_channel_position ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-channel-position"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_channel_volume ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-channel-volume"/>
+    <keyword type="function" name="mate_mixer_stream_control_set_channel_volume ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-set-channel-volume"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_channel_decibel ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-channel-decibel"/>
+    <keyword type="function" name="mate_mixer_stream_control_set_channel_decibel ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-set-channel-decibel"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_balance ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-balance"/>
+    <keyword type="function" name="mate_mixer_stream_control_set_balance ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-set-balance"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_fade ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-fade"/>
+    <keyword type="function" name="mate_mixer_stream_control_set_fade ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-set-fade"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_monitor_enabled ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-monitor-enabled"/>
+    <keyword type="function" name="mate_mixer_stream_control_set_monitor_enabled ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-set-monitor-enabled"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_min_volume ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-min-volume"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_max_volume ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-max-volume"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_normal_volume ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-normal-volume"/>
+    <keyword type="function" name="mate_mixer_stream_control_get_base_volume ()" link="MateMixerStreamControl.html#mate-mixer-stream-control-get-base-volume"/>
+    <keyword type="macro" name="MATE_MIXER_INFINITY" link="MateMixerStreamControl.html#MATE-MIXER-INFINITY:CAPS"/>
+    <keyword type="enum" name="enum MateMixerStreamControlFlags" link="MateMixerStreamControl.html#MateMixerStreamControlFlags"/>
+    <keyword type="enum" name="enum MateMixerStreamControlRole" link="MateMixerStreamControl.html#MateMixerStreamControlRole"/>
+    <keyword type="enum" name="enum MateMixerStreamControlMediaRole" link="MateMixerStreamControl.html#MateMixerStreamControlMediaRole"/>
+    <keyword type="enum" name="enum MateMixerChannelPosition" link="MateMixerStreamControl.html#MateMixerChannelPosition"/>
+    <keyword type="struct" name="MateMixerStreamControl" link="MateMixerStreamControl.html#MateMixerStreamControl-struct"/>
+    <keyword type="struct" name="struct MateMixerStreamControlClass" link="MateMixerStreamControl.html#MateMixerStreamControlClass"/>
+    <keyword type="property" name="The “balance” property" link="MateMixerStreamControl.html#MateMixerStreamControl--balance"/>
+    <keyword type="property" name="The “fade” property" link="MateMixerStreamControl.html#MateMixerStreamControl--fade"/>
+    <keyword type="property" name="The “flags” property" link="MateMixerStreamControl.html#MateMixerStreamControl--flags"/>
+    <keyword type="property" name="The “label” property" link="MateMixerStreamControl.html#MateMixerStreamControl--label"/>
+    <keyword type="property" name="The “media-role” property" link="MateMixerStreamControl.html#MateMixerStreamControl--media-role"/>
+    <keyword type="property" name="The “mute” property" link="MateMixerStreamControl.html#MateMixerStreamControl--mute"/>
+    <keyword type="property" name="The “name” property" link="MateMixerStreamControl.html#MateMixerStreamControl--name"/>
+    <keyword type="property" name="The “role” property" link="MateMixerStreamControl.html#MateMixerStreamControl--role"/>
+    <keyword type="property" name="The “stream” property" link="MateMixerStreamControl.html#MateMixerStreamControl--stream"/>
+    <keyword type="property" name="The “volume” property" link="MateMixerStreamControl.html#MateMixerStreamControl--volume"/>
+    <keyword type="signal" name="The “monitor-value” signal" link="MateMixerStreamControl.html#MateMixerStreamControl-monitor-value"/>
+    <keyword type="function" name="mate_mixer_stream_switch_get_flags ()" link="MateMixerStreamSwitch.html#mate-mixer-stream-switch-get-flags"/>
+    <keyword type="function" name="mate_mixer_stream_switch_get_role ()" link="MateMixerStreamSwitch.html#mate-mixer-stream-switch-get-role"/>
+    <keyword type="function" name="mate_mixer_stream_switch_get_stream ()" link="MateMixerStreamSwitch.html#mate-mixer-stream-switch-get-stream"/>
+    <keyword type="enum" name="enum MateMixerStreamSwitchFlags" link="MateMixerStreamSwitch.html#MateMixerStreamSwitchFlags"/>
+    <keyword type="enum" name="enum MateMixerStreamSwitchRole" link="MateMixerStreamSwitch.html#MateMixerStreamSwitchRole"/>
+    <keyword type="struct" name="MateMixerStreamSwitch" link="MateMixerStreamSwitch.html#MateMixerStreamSwitch-struct"/>
+    <keyword type="struct" name="struct MateMixerStreamSwitchClass" link="MateMixerStreamSwitch.html#MateMixerStreamSwitchClass"/>
+    <keyword type="property" name="The “flags” property" link="MateMixerStreamSwitch.html#MateMixerStreamSwitch--flags"/>
+    <keyword type="property" name="The “role” property" link="MateMixerStreamSwitch.html#MateMixerStreamSwitch--role"/>
+    <keyword type="property" name="The “stream” property" link="MateMixerStreamSwitch.html#MateMixerStreamSwitch--stream"/>
+    <keyword type="function" name="mate_mixer_stream_toggle_get_state ()" link="MateMixerStreamToggle.html#mate-mixer-stream-toggle-get-state"/>
+    <keyword type="function" name="mate_mixer_stream_toggle_set_state ()" link="MateMixerStreamToggle.html#mate-mixer-stream-toggle-set-state"/>
+    <keyword type="function" name="mate_mixer_stream_toggle_get_state_option ()" link="MateMixerStreamToggle.html#mate-mixer-stream-toggle-get-state-option"/>
+    <keyword type="struct" name="MateMixerStreamToggle" link="MateMixerStreamToggle.html#MateMixerStreamToggle-struct"/>
+    <keyword type="struct" name="struct MateMixerStreamToggleClass" link="MateMixerStreamToggle.html#MateMixerStreamToggleClass"/>
+    <keyword type="property" name="The “off-state-option” property" link="MateMixerStreamToggle.html#MateMixerStreamToggle--off-state-option"/>
+    <keyword type="property" name="The “on-state-option” property" link="MateMixerStreamToggle.html#MateMixerStreamToggle--on-state-option"/>
+    <keyword type="property" name="The “state” property" link="MateMixerStreamToggle.html#MateMixerStreamToggle--state"/>
+    <keyword type="function" name="mate_mixer_stored_control_get_direction ()" link="MateMixerStoredControl.html#mate-mixer-stored-control-get-direction"/>
+    <keyword type="struct" name="MateMixerStoredControl" link="MateMixerStoredControl.html#MateMixerStoredControl-struct"/>
+    <keyword type="struct" name="struct MateMixerStoredControlClass" link="MateMixerStoredControl.html#MateMixerStoredControlClass"/>
+    <keyword type="property" name="The “direction” property" link="MateMixerStoredControl.html#MateMixerStoredControl--direction"/>
+    <keyword type="function" name="mate_mixer_switch_get_name ()" link="MateMixerSwitch.html#mate-mixer-switch-get-name"/>
+    <keyword type="function" name="mate_mixer_switch_get_label ()" link="MateMixerSwitch.html#mate-mixer-switch-get-label"/>
+    <keyword type="function" name="mate_mixer_switch_get_option ()" link="MateMixerSwitch.html#mate-mixer-switch-get-option"/>
+    <keyword type="function" name="mate_mixer_switch_list_options ()" link="MateMixerSwitch.html#mate-mixer-switch-list-options"/>
+    <keyword type="function" name="mate_mixer_switch_get_active_option ()" link="MateMixerSwitch.html#mate-mixer-switch-get-active-option"/>
+    <keyword type="function" name="mate_mixer_switch_set_active_option ()" link="MateMixerSwitch.html#mate-mixer-switch-set-active-option"/>
+    <keyword type="struct" name="MateMixerSwitch" link="MateMixerSwitch.html#MateMixerSwitch-struct"/>
+    <keyword type="struct" name="struct MateMixerSwitchClass" link="MateMixerSwitch.html#MateMixerSwitchClass"/>
+    <keyword type="property" name="The “active-option” property" link="MateMixerSwitch.html#MateMixerSwitch--active-option"/>
+    <keyword type="property" name="The “label” property" link="MateMixerSwitch.html#MateMixerSwitch--label"/>
+    <keyword type="property" name="The “name” property" link="MateMixerSwitch.html#MateMixerSwitch--name"/>
+    <keyword type="function" name="mate_mixer_switch_option_get_name ()" link="MateMixerSwitchOption.html#mate-mixer-switch-option-get-name"/>
+    <keyword type="function" name="mate_mixer_switch_option_get_label ()" link="MateMixerSwitchOption.html#mate-mixer-switch-option-get-label"/>
+    <keyword type="function" name="mate_mixer_switch_option_get_icon ()" link="MateMixerSwitchOption.html#mate-mixer-switch-option-get-icon"/>
+    <keyword type="struct" name="MateMixerSwitchOption" link="MateMixerSwitchOption.html#MateMixerSwitchOption-struct"/>
+    <keyword type="struct" name="struct MateMixerSwitchOptionClass" link="MateMixerSwitchOption.html#MateMixerSwitchOptionClass"/>
+    <keyword type="property" name="The “icon” property" link="MateMixerSwitchOption.html#MateMixerSwitchOption--icon"/>
+    <keyword type="property" name="The “label” property" link="MateMixerSwitchOption.html#MateMixerSwitchOption--label"/>
+    <keyword type="property" name="The “name” property" link="MateMixerSwitchOption.html#MateMixerSwitchOption--name"/>
+    <keyword type="constant" name="MATE_MIXER_STATE_IDLE" link="MateMixerContext.html#MATE-MIXER-STATE-IDLE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STATE_CONNECTING" link="MateMixerContext.html#MATE-MIXER-STATE-CONNECTING:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STATE_READY" link="MateMixerContext.html#MATE-MIXER-STATE-READY:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STATE_FAILED" link="MateMixerContext.html#MATE-MIXER-STATE-FAILED:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STATE_UNKNOWN" link="MateMixerContext.html#MATE-MIXER-STATE-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_BACKEND_UNKNOWN" link="MateMixerContext.html#MATE-MIXER-BACKEND-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_BACKEND_PULSEAUDIO" link="MateMixerContext.html#MATE-MIXER-BACKEND-PULSEAUDIO:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_BACKEND_ALSA" link="MateMixerContext.html#MATE-MIXER-BACKEND-ALSA:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_BACKEND_OSS" link="MateMixerContext.html#MATE-MIXER-BACKEND-OSS:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_BACKEND_NULL" link="MateMixerContext.html#MATE-MIXER-BACKEND-NULL:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_BACKEND_NO_FLAGS" link="MateMixerContext.html#MATE-MIXER-BACKEND-NO-FLAGS:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_BACKEND_HAS_APPLICATION_CONTROLS" link="MateMixerContext.html#MATE-MIXER-BACKEND-HAS-APPLICATION-CONTROLS:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_BACKEND_HAS_STORED_CONTROLS" link="MateMixerContext.html#MATE-MIXER-BACKEND-HAS-STORED-CONTROLS:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_BACKEND_CAN_SET_DEFAULT_INPUT_STREAM" link="MateMixerContext.html#MATE-MIXER-BACKEND-CAN-SET-DEFAULT-INPUT-STREAM:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_BACKEND_CAN_SET_DEFAULT_OUTPUT_STREAM" link="MateMixerContext.html#MATE-MIXER-BACKEND-CAN-SET-DEFAULT-OUTPUT-STREAM:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_DEVICE_SWITCH_ROLE_UNKNOWN" link="MateMixerDeviceSwitch.html#MATE-MIXER-DEVICE-SWITCH-ROLE-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_DEVICE_SWITCH_ROLE_PROFILE" link="MateMixerDeviceSwitch.html#MATE-MIXER-DEVICE-SWITCH-ROLE-PROFILE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_DIRECTION_UNKNOWN" link="MateMixerStream.html#MATE-MIXER-DIRECTION-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_DIRECTION_INPUT" link="MateMixerStream.html#MATE-MIXER-DIRECTION-INPUT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_DIRECTION_OUTPUT" link="MateMixerStream.html#MATE-MIXER-DIRECTION-OUTPUT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_NO_FLAGS" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-NO-FLAGS:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MUTE_READABLE" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MUTE-READABLE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MUTE_WRITABLE" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MUTE-WRITABLE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_VOLUME_READABLE" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-VOLUME-READABLE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_VOLUME_WRITABLE" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-VOLUME-WRITABLE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_CAN_BALANCE" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-CAN-BALANCE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_CAN_FADE" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-CAN-FADE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MOVABLE" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MOVABLE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_HAS_DECIBEL" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-HAS-DECIBEL:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_HAS_MONITOR" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-HAS-MONITOR:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_STORED" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-STORED:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_UNKNOWN" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_MASTER" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-MASTER:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-APPLICATION:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_PCM" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-PCM:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_SPEAKER" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-SPEAKER:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_MICROPHONE" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-MICROPHONE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_PORT" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-PORT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_BOOST" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-BOOST:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_BASS" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-BASS:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_TREBLE" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-TREBLE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_CD" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-CD:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_VIDEO" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-VIDEO:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_ROLE_MUSIC" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-ROLE-MUSIC:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_UNKNOWN" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MEDIA-ROLE-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_VIDEO" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MEDIA-ROLE-VIDEO:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_MUSIC" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MEDIA-ROLE-MUSIC:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_GAME" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MEDIA-ROLE-GAME:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_EVENT" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MEDIA-ROLE-EVENT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_PHONE" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MEDIA-ROLE-PHONE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_ANIMATION" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MEDIA-ROLE-ANIMATION:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_PRODUCTION" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MEDIA-ROLE-PRODUCTION:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_A11Y" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MEDIA-ROLE-A11Y:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_TEST" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MEDIA-ROLE-TEST:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_ABSTRACT" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MEDIA-ROLE-ABSTRACT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_FILTER" link="MateMixerStreamControl.html#MATE-MIXER-STREAM-CONTROL-MEDIA-ROLE-FILTER:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_UNKNOWN" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_MONO" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-MONO:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_FRONT_LEFT" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-FRONT-LEFT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_FRONT_RIGHT" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-FRONT-RIGHT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_FRONT_CENTER" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-FRONT-CENTER:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_LFE" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-LFE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_BACK_LEFT" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-BACK-LEFT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_BACK_RIGHT" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-BACK-RIGHT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_BACK_CENTER" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-BACK-CENTER:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_FRONT_LEFT_CENTER" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-FRONT-LEFT-CENTER:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_FRONT_RIGHT_CENTER" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-FRONT-RIGHT-CENTER:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_SIDE_LEFT" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-SIDE-LEFT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_SIDE_RIGHT" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-SIDE-RIGHT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_TOP_FRONT_LEFT" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-TOP-FRONT-LEFT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_TOP_FRONT_RIGHT" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-TOP-FRONT-RIGHT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_TOP_FRONT_CENTER" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-TOP-FRONT-CENTER:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_TOP_CENTER" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-TOP-CENTER:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_TOP_BACK_LEFT" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-TOP-BACK-LEFT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_TOP_BACK_RIGHT" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-TOP-BACK-RIGHT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_CHANNEL_TOP_BACK_CENTER" link="MateMixerStreamControl.html#MATE-MIXER-CHANNEL-TOP-BACK-CENTER:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_SWITCH_NO_FLAGS" link="MateMixerStreamSwitch.html#MATE-MIXER-STREAM-SWITCH-NO-FLAGS:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_SWITCH_TOGGLE" link="MateMixerStreamSwitch.html#MATE-MIXER-STREAM-SWITCH-TOGGLE:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_SWITCH_ROLE_UNKNOWN" link="MateMixerStreamSwitch.html#MATE-MIXER-STREAM-SWITCH-ROLE-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_SWITCH_ROLE_PORT" link="MateMixerStreamSwitch.html#MATE-MIXER-STREAM-SWITCH-ROLE-PORT:CAPS"/>
+    <keyword type="constant" name="MATE_MIXER_STREAM_SWITCH_ROLE_BOOST" link="MateMixerStreamSwitch.html#MATE-MIXER-STREAM-SWITCH-ROLE-BOOST:CAPS"/>
+  </functions>
+</book>
