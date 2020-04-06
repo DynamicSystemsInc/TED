@@ -1,0 +1,222 @@
+### marco 1.22.1
+
+  * update translations
+  * window: set atom__NET_WM_STATE_FOCUSED for meta_window_appears_focused
+  * window: make docks and spashscreens appear focused
+  * Do not judge whether the window is decorated or not
+  * screen: Fix use of memory after it is freed
+  * [Security] Use 'g_strlcpy' instead of 'strcpy'
+  * compositor-xrender: Fix memory leak
+
+### marco 1.22.0
+
+  * update translations
+  * Initialize travis support
+  * screen: Remove get_current_monitor in favor of get_current_xinerama
+  * Increase icon size on tab and workspace popups
+  * screen: avoid 'NULL' in 'meta_error_trap...' functions
+  * prefs: avoid deprecated 'g_settings_list_keys'
+  * add git.mk to autogenerate .gitignore files
+  * enable silent output when building
+  * 'meta_error_trap_push' instead 'meta_error_trap_push_with_return'
+  * errors.c: avoid deprecated 'gdk_error_trap...' functions:
+  * frames.c: drop unused variables
+  * compositor-xrender: avoid deprecated 'gdk_error_trap_push/pop'
+
+### marco 1.21.1
+
+  * update translations
+  * theme: revert theme format version 3.6
+  * doc: add info for 3.5 and 3.6 theme format versions
+  * Convert frame region handling to cairo regions
+  * theme: add invisible_border to metacity theme
+  * add support for app-menu button in theme
+  * remove option to attach modal dialogs
+  * theme: replace mutter/metacity with marco
+  * theme: Replace char array element comparisons with strncmp
+  * tabpopup.c: always show 5px outline border
+  * tabpopup.c: improve
+  * Don't show the ws switcher if we only have one
+  * theme: Allow disabling fallback colors in gtk:custom()
+  * theme: Allow using custom colors from the GTK+ theme
+  * theme: Add tiled_left/tiled_right frame states
+  * theme: Add background functions for single buttons
+  * theme-parser: Use peek_required_version() for validation
+  * Add frame type for attached modal dialogs
+  * Optionally attach modal dialogs
+  * Add meta_window_get_transient_for() method
+  * Allow a theme to specify ellipsize width for a title
+  * Add frame_x_center/frame_y_center variables for themes
+  * metacity-theme-3.xml: Add a flexible version mechanism
+  * theme-parser: Remove unused define
+
+### marco 1.21.0
+
+  * update translations
+  * Correct resize popup position on HiDPI displays
+  * Fix frame geometry to avoid stuck resize cursor
+  * Scale cursor size for HiDPI
+  * tx: update config with branch specific resoures
+  * Use frame window to determine scale
+  * Support HiDPI window decorations
+  * Fix mismatched enums in keybinding detection for switch-panels and switch-panels-backward
+  * window: add _NET_WM_STATE_FOCUSED hint to _NET_WM_STATE
+  * avoid deprecated GtkButton:use-stock
+  * avoid deprecated GtkStock
+  * Fixes move_to_center moving window between monitors
+
+### marco 1.20.0
+
+  * Translations update
+  * require GTK+ 3.22 and GLib 2.50
+  * build: drop unneeded pangoxft requirement
+  * Small bugfix for the move_to_X keybinds
+  * Bugfix for monitors of different sizes
+  * Restructured monitor keybinds and adjust save_rect
+  * Implemented simple shourtcuts to move window to another monitor
+  * schema: fix typos
+  * compositor: don't try to paint window that is not viewable, fix #324
+  * Fix wrong result in meta_window_titlebar_is_onscreen() for windows without a frame
+  * Add support for gtk3 _GTK_SHOW_WINDOW_MENU event
+  * More elegant solution for handling new move-to-workspace keybinds
+  * Implemented a setting to disable top tiling
+  * Implemented tabpopup when moving window to different workspace
+  * keybindings.c: Fix build warning:
+  * Reset tile_resized to false when fullscreening
+
+### marco 1.19.2
+
+  * Translations update
+  * building: add back README
+  * Fixes windows not going to save_rect when unmaximimizing
+  * Allow horizontal and vertical resizing when corner tiled
+  * Fixes window getting reset to saved_rect when untiling from corner
+  * Added keybindings for corner tiling
+  * Implemented simple corner tiling by mouse drag
+  * WidthOfScreen and HeightOfScreen implementation
+  * Use Markdown for formatting the README
+  * XFIXES regions are leaked during paint_windows
+  * Add stricter logic for running without XPresent support
+  * Make XPresent optional
+  * Remove debug output
+  * Add in some changes from xfwm4
+  * Cancel present_pending flag when erroring out
+  * XPresent extension support - first pass
+
+### marco 1.19.1
+
+  * Translations update
+  * Store a window flag when user resizes from tiled
+  * Allow tiled windows to be resized horizontally
+  * gtk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
+  * avoid deprecated gdk_screen_width/height
+  * avoid deprecated gdk_screen_get_width
+  * display: don't use deprecated GDK_DEVICE_MANAGER
+  * tools: remove marco-mag and marco-grayscaletools
+  * Fix synthetic keybinding/button-grab window
+  * Forces a window scale of 1 for the window manager,
+    instead of using the default or user configured scale.
+  * avoid deprecated gdk_display_get_screen
+  * avoid deprecated gdk_screen_get_number
+  * Alt/tab - define arrow keycode + numpad arrows
+  * Allow use of arrows while in alt+tab popup
+  * ui: Fix invalid object construction in frames
+  * README: fix names of GSettings keys
+  * keybindings: remove uppercase from "current workspace"
+  * Added hotkey to rename current workspace
+  * Restore Polish translation credits from GNOME
+
+### marco 1.19.0
+
+  * fix strange window switching foreground/background behavior
+  * Translations update
+  * fis come deprecations
+
+### marco 1.18.0
+
+  * NEWS: use consistent, project wide, markdown-like formatting to make
+    generating release announcements easier
+  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-gtk
+    build option
+  * Theme viewer: fix build for GTK+3 and fix some GTK+ deprecations
+  * Add ability to disable showing preselected window border on alt-tab
+  * Add ability to ignore applications when show-desktop is triggered
+  * Schema: make compositing on by default
+  * Workspaces: switch wrapping behavior for 'classic' and 'toroidal'
+    modes (it was reversed somehow)
+  * Translations update
+
+### marco 1.16.0
+
+  * Translations update
+  * Make distcheck use currently selected GTK+ version
+
+### marco 1.14.2
+
+  * Translations update
+  * GTK+3: fix a typo with deprecated GtkMisc
+  * GTK+3 fixedtip: add style class tooltip
+
+### marco 1.14.1
+
+  * Fix crash on showing alt-tab thumbnails with compositor on
+  * Translations update
+
+### marco 1.14.0
+
+  * Drop MateConf migration script
+  * Fix visual glitches appearing after unmaximizing Chromium window
+  * Correct description of compositing-fast-alt-tab GSettings key
+      (mention that it disables thumbnails)
+  * Bump libmarco-private's sover for GTK+3 build
+  * GTK+3: re-add ability to show alt-tab thumbnails when compositor is on
+  * GTK+3: fix several deprecations
+  * Translations update
+  * Add Changelog generation
+
+### marco 1.12.1
+
+  * Fix animation issues that led to crashes and visual glitches
+  * GTK+3 fixes
+  * Translations update
+
+### marco 1.12.0
+
+  * Add manual and by-pointer window placement
+  * Use Alt-` for switching between windows of the same application
+  * GTK+3 fixes
+  * Some more fixes and cleanups
+
+### marco 1.10.3
+
+  * Fix crash with minimize animation
+  * Fix crash with moving a window in some distros
+
+### marco 1.10.2
+
+  * Remove outdated assertion.
+  * Make minimize item insensitive when window should not be minimized.
+  * Fix crash when struts change during grab operation.
+  * Fix switching of fullscreen Direct3D applications running in Wine.
+  * Update translations.
+
+### marco 1.10.1
+
+  * Assorted bugfixes
+
+### marco 1.10.0
+
+  * Use zenity instead of mate-dialogs
+  * Bugfixes
+
+### marco 1.8.0
+
+  * Implement side-by-side tiling
+  * Use yelp-tools instead of mate-doc-utils
+  * Cut with fading the bar title when it's longer than the decoration bar
+
+### marco 1.6.0
+
+  * Migration to GSettings and dropped MateConf
+  * Fix key handling while drag and drop is active
+  * Add option to open new windows on the center of the screen
