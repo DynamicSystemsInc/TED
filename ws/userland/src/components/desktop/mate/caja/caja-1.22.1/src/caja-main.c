@@ -224,11 +224,13 @@ running_in_mate (void)
         || (g_strcmp0 (g_getenv ("DESKTOP_SESSION"), "mate") == 0);
 }
 
+/*
 static gboolean
 running_as_root (void)
 {
     return geteuid () == 0;
 }
+*/
 
 int
 main (int argc, char *argv[])

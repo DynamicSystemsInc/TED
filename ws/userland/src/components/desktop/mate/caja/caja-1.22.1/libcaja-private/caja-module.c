@@ -28,6 +28,7 @@
 #include <eel/eel-debug.h>
 #include <gmodule.h>
 #include <libcaja-private/caja-extensions.h>
+#include "caja-tsol-extensions.h"
 
 #define CAJA_TYPE_MODULE    	(caja_module_get_type ())
 #define CAJA_MODULE(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_MODULE, CajaModule))
@@ -225,6 +226,16 @@ load_module_dir (const char *dirname)
 
         while ((name = g_dir_read_name (dir)))
         {
+		/* Brasero extension does not currently work with
+		   labeled zones (no dbus system bus)*/
+		if (caja_tsol_multi_label_session () &&
+		    getzoneid () != 0) {
+			if (g_str_has_prefix (name,
+					      "libcaja-brasero")) {
+				continue;
+			}
+		}
+
             if (g_str_has_suffix (name, "." G_MODULE_SUFFIX))
             {
                 char *filename;

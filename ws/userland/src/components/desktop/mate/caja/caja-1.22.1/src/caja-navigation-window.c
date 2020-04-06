@@ -88,6 +88,8 @@ static void mouse_forward_button_changed	     (gpointer                  callbac
 static void use_extra_mouse_buttons_changed          (gpointer                  callback_data);
 static CajaWindowSlot *create_extra_pane         (CajaNavigationWindow *window);
 
+void caja_navigation_window_set_restore_icon (CajaNavigationWindow* window,
+     CajaNavigationRestoreIconType type);
 
 G_DEFINE_TYPE_WITH_PRIVATE (CajaNavigationWindow, caja_navigation_window, CAJA_TYPE_WINDOW)
 #define parent_class caja_navigation_window_parent_class

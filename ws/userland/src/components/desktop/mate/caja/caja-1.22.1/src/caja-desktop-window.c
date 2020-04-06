@@ -36,6 +36,8 @@
 #include <libcaja-private/caja-icon-names.h>
 #include <gio/gio.h>
 #include <glib/gi18n.h>    
+#include <libcaja-private/caja-tsol-extensions.h>
+
 
 /* Tell screen readers that this is a desktop window */
 
@@ -165,6 +167,7 @@ CajaDesktopWindow *
 caja_desktop_window_new (CajaApplication *application,
                          GdkScreen           *screen)
 {
+    GdkWindow *root_window;
     CajaDesktopWindow *window;
     int width_request, height_request;
     int scale;
@@ -200,6 +203,12 @@ caja_desktop_window_new (CajaApplication *application,
     }
 
     g_signal_connect (window, "delete_event", G_CALLBACK (caja_desktop_window_delete_event), NULL);
+
+        if (caja_tsol_multi_label_session ()) {
+                root_window = gdk_screen_get_root_window (screen);
+                gdk_window_add_filter (root_window,
+		caja_tsol_filter_func, window);
+        }
 
     /* Point window at the desktop folder.
      * Note that caja_desktop_window_init is too early to do this.

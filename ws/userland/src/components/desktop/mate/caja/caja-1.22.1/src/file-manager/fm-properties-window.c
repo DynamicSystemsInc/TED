@@ -55,6 +55,7 @@
 #include <libcaja-private/caja-metadata.h>
 #include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-mime-actions.h>
+#include <libcaja-private/caja-tsol-extensions.h>
 #include <string.h>
 #include <sys/stat.h>
 #include <cairo.h>
@@ -4752,6 +4753,8 @@ create_permissions_page (FMPropertiesWindow *window)
 	GtkGrid *page_grid;
 	char *file_name, *prompt_text;
 	GList *file_list;
+	char *label_str, *uri;
+	GtkLabel *label_label;
 
 	vbox = create_page_with_vbox (window->details->notebook,
 				      _("Permissions"));
@@ -4791,6 +4794,18 @@ create_permissions_page (FMPropertiesWindow *window)
 			 "selinux_context", INCONSISTENT_STATE_STRING,
 			 FALSE);
 #endif
+                if (caja_tsol_multi_label_session ()) {
+                        label_label = attach_title_field (page_grid,
+                                /* SUN_BRANDING TJDS */
+                                _("File Label:"));
+                        uri = caja_file_get_uri (get_target_file (window));
+                        label_str = caja_tsol_get_file_label (uri);
+                        attach_value_label (page_grid, label_label, 
+                                label_str);
+                        g_free (label_str);
+                }
+
+
 		append_title_value_pair
 			(window, page_grid, _("Last changed:"),
 			 "date_permissions", INCONSISTENT_STATE_STRING,

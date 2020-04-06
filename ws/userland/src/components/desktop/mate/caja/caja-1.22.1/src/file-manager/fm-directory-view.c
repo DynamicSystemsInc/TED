@@ -83,6 +83,7 @@
 #include <libcaja-private/caja-autorun.h>
 #include <libcaja-private/caja-icon-names.h>
 #include <libcaja-private/caja-undostack-manager.h>
+#include <libcaja-private/caja-tsol-extensions.h>
 
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-desktop-utils.h>
@@ -6270,6 +6271,7 @@ paste_clipboard_data (FMDirectoryView *view,
 {
 	gboolean cut;
 	GList *item_uris;
+	char *label = NULL;
 
 	cut = FALSE;
 	item_uris = caja_clipboard_get_uri_list_from_selection_data (selection_data, &cut,
@@ -6279,10 +6281,12 @@ paste_clipboard_data (FMDirectoryView *view,
 		caja_window_slot_info_set_status (view->details->slot,
 						      _("There is nothing on the clipboard to paste."));
 	} else {
-		fm_directory_view_move_copy_items (item_uris, NULL, destination_uri,
-						   cut ? GDK_ACTION_MOVE : GDK_ACTION_COPY,
-						   0, 0,
-						   view);
+		if (!label || caja_tsol_label_equal_to_process_label (label)){
+                        fm_directory_view_move_copy_items (item_uris, NULL, destination_uri,
+                                                   cut ? GDK_ACTION_MOVE : GDK_ACTION_COPY,
+                                                   0, 0,
+                                                   view);
+                }
 
 		/* If items are cut then remove from clipboard */
 		if (cut) {
@@ -6352,6 +6356,12 @@ action_paste_files_callback (GtkAction *action,
 	FMDirectoryView *view;
 
 	view = FM_DIRECTORY_VIEW (callback_data);
+	if (caja_tsol_multi_label_session ()) {
+                char *target_dir = fm_directory_view_get_backing_uri (view);
+                caja_tsol_update_paste_location_property (caja_clipboard_get (view), target_dir);
+                g_free (target_dir);
+        }
+
 
 	g_object_ref (view);
 	gtk_clipboard_request_contents (caja_clipboard_get (GTK_WIDGET (view)),

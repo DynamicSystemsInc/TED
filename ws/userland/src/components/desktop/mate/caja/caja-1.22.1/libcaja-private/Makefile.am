@@ -189,6 +189,8 @@ libcaja_private_la_SOURCES = \
 	caja-undostack-manager.h \
 	caja-zfs.c \
 	caja-zfs.h \
+	caja-tsol-extensions.c \
+	caja-tsol-extensions.h \
 	$(NULL)
 
 nodist_libcaja_private_la_SOURCES =\

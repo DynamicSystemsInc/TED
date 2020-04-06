@@ -77,6 +77,7 @@
 #include <libcaja-private/caja-signaller.h>
 #include <libcaja-extension/caja-menu-provider.h>
 #include <libcaja-private/caja-autorun.h>
+#include <libcaja-private/caja-tsol-extensions.h>
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-bg.h>
 
@@ -361,13 +362,13 @@ caja_application_open (GApplication *app,
     gboolean browser_window = FALSE;
     gboolean open_in_tabs = FALSE;
     const gchar *geometry = NULL;
-    const char splitter = '=';
+    const char *splitter = "=";
 
     g_debug ("Open called on the GApplication instance; %d files", n_files);
 
     /* Check if local command line passed --browser, --geometry or --tabs */
     if (strlen (options) > 0) {
-        gchar** splitedOptions = g_strsplit (options, &splitter, 3);
+        gchar** splitedOptions = g_strsplit (options, splitter, 3);
         sscanf (splitedOptions[0], "%d", &browser_window);
         if (strcmp (splitedOptions[1], "NULL") != 0) {
             geometry = splitedOptions[1];
@@ -2054,7 +2055,11 @@ running_in_mate (void)
 static gboolean
 running_as_root (void)
 {
-    return geteuid () == 0;
+    if (caja_tsol_multi_label_session ()) {
+	    return FALSE;
+    } else {
+    	return geteuid () == 0;
+    }
 }
 
 static gboolean

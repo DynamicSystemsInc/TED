@@ -823,7 +823,8 @@ caja_pixmap_file (const char *partial_path)
     path = g_build_filename (DATADIR "/pixmaps/caja", partial_path, NULL);
     if (g_file_test (path, G_FILE_TEST_EXISTS))
     {
-        return path;
+	    /* GLENN */
+        return strdup(path);
     }
     else
     {

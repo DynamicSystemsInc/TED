@@ -69,6 +69,7 @@
 #include <libcaja-private/caja-window-info.h>
 #include <libcaja-private/caja-window-slot-info.h>
 #include <libcaja-private/caja-autorun.h>
+#include <libcaja-private/caja-tsol-extensions.h>
 
 /* FIXME bugzilla.gnome.org 41243:
  * We should use inheritance instead of these special cases
@@ -1669,6 +1670,12 @@ location_has_really_changed (CajaWindowSlot *slot)
 
         g_object_unref (location_copy);
     }
+       if (caja_tsol_multi_label_session () &&
+            CAJA_IS_DESKTOP_WINDOW (window) &&
+            !caja_tsol_show_desktop_window (gtk_widget_get_screen (GTK_WIDGET (window)))) {
+                gtk_widget_hide (GTK_WIDGET (window));
+        }
+
 }
 
 static void

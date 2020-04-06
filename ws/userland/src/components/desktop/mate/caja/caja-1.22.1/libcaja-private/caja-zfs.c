@@ -662,7 +662,7 @@ zfs_callback (zfs_handle_t *zhp, void *data)
           zds->type = zfs_get_type (zhp);
           zds->name = g_strdup (zfs_get_name(zhp));
           zds->mountpoint = g_strdup (buf);
-          zfs_iter_snapshots (zhp, B_FALSE, snapshot_callback, zds);
+          zfs_iter_snapshots (zhp, snapshot_callback, zds);
           sync_backups_add (zhp, zds);
           sds->datasets = g_list_append (sds->datasets, zds);
           sds->match_found = TRUE;
@@ -678,7 +678,7 @@ zfs_callback (zfs_handle_t *zhp, void *data)
               zds->type = zfs_get_type (zhp);
               zds->name = g_strdup (zfs_get_name(zhp));
               zds->mountpoint = mountp;
-              zfs_iter_snapshots (zhp, B_FALSE, snapshot_callback, zds);
+              zfs_iter_snapshots (zhp, snapshot_callback, zds);
               sync_backups_add (zhp, zds);
               sds->datasets = g_list_append (sds->datasets, zds);
               sds->match_found = TRUE;

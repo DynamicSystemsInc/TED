@@ -241,12 +241,12 @@ delete_clicked_callback (GtkWidget *widget,
         if (snap->type)
         {
             /*printf ("path %s snapshot to delete %s\n", path, snap->name);*/
-            full_command = g_strdup_printf ("/usr/lib/time-slider-delete '%s'", snap->name);
+            full_command = g_strdup_printf ("pfexec /usr/lib/time-slider-delete2 '%s'", snap->name);
         }
         else
         {
             /*printf ("path %s backup to delete %s\n", path, snap->name);*/
-            full_command = g_strdup_printf ("/usr/lib/time-slider-delete '%s'", path);
+            full_command = g_strdup_printf ("pfexec /usr/lib/time-slider-delete2 '%s'", path);
         }
 
         mate_gdk_spawn_command_line_on_screen (gtk_widget_get_screen (widget),
@@ -257,7 +257,7 @@ delete_clicked_callback (GtkWidget *widget,
         path = g_file_get_path (caja_directory_get_location (bar->priv->dir));
         char *fs = ts_get_zfs_filesystem (path);
         /* printf ("take a snapshot of zfs fs %s for dir %s\n", fs, path); */
-        full_command = g_strdup_printf ("/usr/lib/time-slider-snapshot '%s' '%s'", path, fs);
+        full_command = g_strdup_printf ("pfexec /usr/lib/time-slider-snapshot '%s' '%s'", path, fs);
         mate_gdk_spawn_command_line_on_screen (gtk_widget_get_screen (widget),
                 full_command, NULL);
         g_free (fs);
@@ -367,9 +367,10 @@ caja_zfs_bar_init (CajaZfsBar *bar)
         g_object_unref (pb);
     }
 
-    path = caja_pixmap_file ("camera.png");
+    //path = caja_pixmap_file ("camera.png");
+    path = "/usr/share/pixmaps/caja/camera.png";
     bar->priv->camera_image = gtk_image_new_from_file (path);
-    g_free (path);
+    //g_free (path);
 
     gtk_widget_show (bar->priv->delete_image);
     gtk_widget_show (bar->priv->camera_image);

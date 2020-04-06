@@ -30,6 +30,8 @@
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-glib-extensions.h>
 #include <gtk/gtk.h>
+#include "caja-tsol-extensions.h"
+
 
 /* X11 has a weakness when it comes to clipboard handling,
  * there is no way to get told when the owner of the clipboard
@@ -226,7 +228,7 @@ convert_file_list_to_string (CajaClipboardInfo *info,
                              gsize *len)
 {
     GString *uris;
-    char *uri, *tmp;
+    char *uri, *tmp, *label;
     GFile *f;
     guint i;
     GList *l;
@@ -238,6 +240,13 @@ convert_file_list_to_string (CajaClipboardInfo *info,
     else
     {
         uris = g_string_new (info->cut ? "cut" : "copy");
+		if (caja_tsol_multi_label_session ()) {
+		label = caja_tsol_get_process_label ();
+		g_string_append_c (uris, '\n');
+		g_string_append (uris, label);
+		g_free (label);
+	}
+
     }
 
     for (i = 0, l = info->files; l != NULL; l = l->next, i++)
