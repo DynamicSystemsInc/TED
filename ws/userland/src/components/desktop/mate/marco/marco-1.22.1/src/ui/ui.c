@@ -21,6 +21,9 @@
  */
 
 #include "prefs.h"
+#ifdef HAVE_XTSOL
+#include "../core/trusted.h"
+#endif
 #include "ui.h"
 #include "frames.h"
 #include "util.h"
@@ -905,6 +908,16 @@ int meta_ui_get_drag_threshold(MetaUI* ui)
 
 	return threshold;
 }
+
+#ifdef HAVE_XTSOL
+void
+meta_ui_set_frame_label (MetaUI     *ui,
+                         Window      xwindow,
+                         MetaTrustedLabel *label)
+{
+  meta_frames_set_label (ui->frames, xwindow, label);
+}
+#endif
 
 MetaUIDirection meta_ui_get_direction(void)
 {

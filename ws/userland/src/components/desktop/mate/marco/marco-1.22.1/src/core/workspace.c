@@ -120,6 +120,10 @@ meta_workspace_free (MetaWorkspace *workspace)
    */
 
   tmp = workspace->windows;
+#ifdef HAVE_XTSOL
+  if (tsol_is_available ())
+    tmp = tsol_add_all_sticky_non_tp_windows (workspace->screen->display, tmp);
+#endif /*HAVE_XTSOL*/
   while (tmp != NULL)
     {
       GList *next;

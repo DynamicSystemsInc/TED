@@ -111,10 +111,12 @@ struct _MetaScreen
   /* Cache the current Xinerama */
   int last_xinerama_index;
 
+#if 0
 #ifdef HAVE_STARTUP_NOTIFICATION
   SnMonitorContext *sn_context;
   GSList *startup_sequences;
   guint startup_sequence_timeout;
+#endif
 #endif
 
 #ifdef HAVE_COMPOSITE_EXTENSIONS

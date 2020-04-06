@@ -1355,14 +1355,6 @@ set_net_wm_state (MetaWindow *window)
     }
 }
 
-gboolean
-meta_window_located_on_workspace (MetaWindow    *window,
-                                  MetaWorkspace *workspace)
-{
-  return (window->on_all_workspaces && window->screen == workspace->screen) ||
-    (window->workspace == workspace);
-}
-
 static gboolean
 is_minimized_foreach (MetaWindow *window,
                       void       *data)
@@ -3511,9 +3503,10 @@ meta_window_move_resize_internal (MetaWindow          *window,
               is_user_action ? " (user move/resize)" : "",
               old_rect.x, old_rect.y, old_rect.width, old_rect.height);
 
-  if (window->frame)
+  if (window->frame) {
     meta_frame_calc_geometry (window->frame,
                               &fgeom);
+  }
 
   new_rect.x = root_x_nw;
   new_rect.y = root_y_nw;
@@ -4464,6 +4457,13 @@ void
 meta_window_change_workspace (MetaWindow    *window,
                               MetaWorkspace *workspace)
 {
+#ifdef HAVE_XTSOL
+  if (tsol_is_available()) {
+	  if (!tsol_meta_window_can_move_to_workspace(window, workspace))
+	    return;
+  }
+#endif
+
   meta_window_change_workspace_without_transients (window, workspace);
 
   meta_window_foreach_transient (window, change_workspace_foreach,
@@ -6850,6 +6850,17 @@ meta_window_show_menu (MetaWindow *window,
 
   if (!window->on_all_workspaces)
     {
+#ifdef HAVE_XTSOL
+  if (tsol_is_available()) {
+       if (layout.current_col > 0 && tsol_meta_window_can_move_to_workspace (window, meta_workspace_get_neighbor (window->screen->active_workspace, META_MOTION_LEFT)))
+         ops |= META_MENU_OP_MOVE_LEFT;
+       if (layout.current_col < layout.cols - 1 && tsol_meta_window_can_move_to_workspace (window, meta_workspace_get_neighbor (window->screen->active_workspace, META_MOTION_RIGHT)))
+         ops |= META_MENU_OP_MOVE_RIGHT;
+       if (layout.current_row > 0 && tsol_meta_window_can_move_to_workspace (window, meta_workspace_get_neighbor (window->screen->active_workspace, META_MOTION_UP)))
+         ops |= META_MENU_OP_MOVE_UP;
+       if (layout.current_row < layout.rows - 1 && tsol_meta_window_can_move_to_workspace (window, meta_workspace_get_neighbor (window->screen->active_workspace, META_MOTION_DOWN)))
+         ops |= META_MENU_OP_MOVE_DOWN;
+  } else {
       ltr = meta_ui_get_direction() == META_UI_DIRECTION_LTR;
 
       if (layout.current_col > 0)
@@ -6862,6 +6873,21 @@ meta_window_show_menu (MetaWindow *window,
       if ((layout.current_row < layout.rows - 1) &&
           ((layout.current_row + 1) * layout.cols + layout.current_col < n_workspaces))
         ops |= META_MENU_OP_MOVE_DOWN;
+  }
+#else
+      ltr = meta_ui_get_direction() == META_UI_DIRECTION_LTR;
+
+      if (layout.current_col > 0)
+        ops |= ltr ? META_MENU_OP_MOVE_LEFT : META_MENU_OP_MOVE_RIGHT;
+      if ((layout.current_col < layout.cols - 1) &&
+          (layout.current_row * layout.cols + (layout.current_col + 1) < n_workspaces))
+        ops |= ltr ? META_MENU_OP_MOVE_RIGHT : META_MENU_OP_MOVE_LEFT;
+      if (layout.current_row > 0)
+        ops |= META_MENU_OP_MOVE_UP;
+      if ((layout.current_row < layout.rows - 1) &&
+          ((layout.current_row + 1) * layout.cols + layout.current_col < n_workspaces))
+        ops |= META_MENU_OP_MOVE_DOWN;
+#endif
     }
 
   meta_screen_free_workspace_layout (&layout);
@@ -8754,4 +8780,24 @@ meta_window_is_client_decorated (MetaWindow *window)
    * the window is maxized and has no invisible borders or shadows.
    */
   return window->has_custom_frame_extents;
+}
+
+gboolean
+meta_window_located_on_workspace (MetaWindow    *window,
+                                  MetaWorkspace *workspace)
+{
+#ifdef HAVE_TSOL
+  if (tsol_meta_workspace_has_role (workspace))
+    {
+      /* SUN_BRANDING TJDS */
+      if (window->on_all_workspaces && window->decorated && 
+	      strcmp (tsol_meta_window_label_get_name (window), _("Trusted Path")) != 0)
+        {
+          /* printf ("meta_window_visible_on_workspace in ws role win (%s) is not TP\n", window->title); */
+          return FALSE;
+        }
+    }
+#endif
+  return (window->on_all_workspaces && window->screen == workspace->screen) ||
+    (window->workspace == workspace);
 }

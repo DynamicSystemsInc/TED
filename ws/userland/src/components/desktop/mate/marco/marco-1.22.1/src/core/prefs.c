@@ -25,6 +25,11 @@
 
 #include <config.h>
 #include "prefs.h"
+#ifdef HAVE_XTSOL
+#include "trusted.h"
+#define HAVE_GCONF
+#include <gconf/gconf-client.h>
+#endif /* HAVE_XTSOL */
 #include "ui.h"
 #include "util.h"
 #include <gdk/gdk.h>
@@ -73,6 +78,12 @@
 #define KEY_MATE_MOUSE_SCHEMA "org.mate.peripherals-mouse"
 #define KEY_MATE_MOUSE_CURSOR_THEME "cursor-theme"
 #define KEY_MATE_MOUSE_CURSOR_SIZE "cursor-size"
+
+#ifdef HAVE_XTSOL
+#define KEY_WORKSPACE_LABEL_PREFIX "/apps/metacity/workspace_labels/ws_"
+#define KEY_WORKSPACE_ROLE_PREFIX "/apps/metacity/workspace_roles/ws_"
+static GConfClient *default_client = NULL;
+#endif /* HAVE_XTSOL */
 
 #define SETTINGS(s) g_hash_table_lookup (settings_schemas, (s))
 
@@ -135,6 +146,14 @@ static char *commands[MAX_COMMANDS] = { NULL, };
 static char *terminal_command = NULL;
 
 static char *workspace_names[MAX_REASONABLE_WORKSPACES] = { NULL, };
+#ifdef HAVE_XTSOL
+/* these are only used for session managements
+ * workspace_labels are NOT used in metacity as the window label 
+ * is queried directly from the window
+ * ditto for the workspace_roles*/
+static char *workspace_labels[MAX_REASONABLE_WORKSPACES] = { NULL, };
+static char *workspace_roles[MAX_REASONABLE_WORKSPACES] = { NULL, };
+#endif /* HAVE_XTSOL */
 
 static gboolean handle_preference_update_enum (const gchar *key, GSettings *settings);
 
@@ -149,13 +168,24 @@ static void change_notify (GSettings *settings,
                            gchar *key,
                            gpointer user_data);
 
+#ifdef HAVE_XTSOL
+static void init_labels_roles_workspaces (void);
+static gboolean
+update_workspace_property (char **property,
+ 			   char *error_property_name,
+ 			   const char  *name,
+ 			   const char  *value);
+static char* gconf_key_for_workspace_label (int i);
+static char* gconf_key_for_workspace_role (int i);
+#ifdef HAVE_GCONF
+static void     cleanup_error             (GError **error);
+#endif
+
+#endif /*HAVE_XTSOL*/
+
 static char* settings_key_for_workspace_name (int i);
 
 static void queue_changed (MetaPreference  pref);
-
-#if 0
-static void     cleanup_error             (GError **error);
-#endif
 
 static void maybe_give_disable_workarounds_warning (void);
 
@@ -768,6 +798,40 @@ handle_preference_update_int (const gchar *key, GSettings *settings)
 
   if (*cursor->target != value)
     {
+#ifdef HAVE_XTSOL
+      if (cursor->pref == META_PREF_NUM_WORKSPACES && tsol_use_trusted_extensions ())
+	{
+	  if (*cursor->target > value) /* remove a workspace blank label and role */
+	    {
+	      GError *err = NULL;
+	      char *key = gconf_key_for_workspace_label (value);
+	      gconf_client_unset (default_client,
+				  key, &err);
+	      update_workspace_property (workspace_labels,"Workspace Label",
+					 key, NULL);
+
+	      g_free (key);
+	      err = NULL;
+	      key = gconf_key_for_workspace_role (value);
+	      gconf_client_unset (default_client,
+				  key, &err);
+	      update_workspace_property (workspace_roles ,"Workspace roles",
+					 key, NULL);
+	      g_free (key);
+	    }
+	  else if (value > *cursor->target)	   /* add a workspace add default label, blank role */
+	    {
+	      GError *err = NULL;
+	      char *key = gconf_key_for_workspace_role (value-1);
+	      gconf_client_unset (default_client,
+				  key, &err);
+	      update_workspace_property (workspace_roles ,"Workspace roles",
+					 key, NULL);
+	      g_free (key);
+	      meta_prefs_change_workspace_label (value, tsol_label_get_min ());
+	    }
+	}
+#endif /* HAVE_XTSOL */  
       *cursor->target = value;
       queue_changed (cursor->pref);
     }
@@ -902,7 +966,7 @@ meta_prefs_init (void)
 {
   if (settings_general != NULL)
     return;
-
+  
   /* returns references which we hold forever */
   settings_general = g_settings_new (KEY_GENERAL_SCHEMA);
   settings_command = g_settings_new (KEY_COMMAND_SCHEMA);
@@ -946,6 +1010,12 @@ meta_prefs_init (void)
   init_window_bindings ();
   init_commands ();
   init_workspace_names ();
+  
+#ifdef HAVE_XTSOL
+  /* tsol labels and roles */
+  init_labels_roles_workspaces ();
+#endif /* HAVE_XTSOL */  
+  
 }
 
 /****************************************************************************/
@@ -1016,16 +1086,115 @@ change_notify (GSettings *settings,
 
       g_free(str);
     }
+ #ifdef HAVE_XTSOL
+   else if (g_str_has_prefix (key, KEY_WORKSPACE_LABEL_PREFIX))
+    {
+      const char *str;
+ 
+      if (!tsol_use_trusted_extensions ())
+        goto out;
+ 
+      /*
+	 GLENN
+      if (user_data && user_data->type != GCONF_VALUE_STRING)
+        {
+          meta_warning (_("GConf key \"%s\" is set to an invalid type\n"),
+                        key);
+          goto out;
+        }
+      */
+ 
+      str = user_data ? gconf_value_get_string (user_data) : NULL;
+ 
+      /* Check if the label is in range if not set it to USER_MIN_SL or role MIN label 
+       * NOTE : if USER_MIN_SL is not properly set you can have an infinite loop here */
+ 
+      if (str && !tsol_label_is_in_user_range (str))
+        {
+ 	 char *p; /* code from update_workspace_property */
+ 	 int i;
+ 	 
+ 	 p = strrchr (key, '_');
+ 	 if (p != NULL)
+ 	   {
+ 	     ++p;
+ 	     if (g_ascii_isdigit (*p))
+ 	       {
+ 		 i = atoi (p);
+ 		 i -= 1; /* count from 0 not 1 */
+ 		 
+ 		 if (i >= MAX_REASONABLE_WORKSPACES)
+ 		   {
+ 		     meta_topic (META_DEBUG_PREFS,
+ 				 "%s key %d is too highly numbered, ignoring\n", 
+ 				 "trusted workspace label", i);
+ 		   }
+ 		 else
+ 		   {
+ 		     char *name, *role_key;
+ 		     GError *err = NULL;
+ 		     role_key = gconf_key_for_workspace_role (i);
+ 		     name = gconf_client_get_string (default_client, role_key, &err);
+ 		     cleanup_error (&err);
+ 		     g_free (role_key);
+ 
+ 		     if (name)
+ 		       {
+ 			 char *min_role_label = NULL;
+ 			 if (!tsol_label_is_in_role_range (str, name, min_role_label))
+ 			   {
+ 			     if (min_role_label)
+ 			       meta_prefs_change_workspace_label (i, min_role_label);
+ 			     else
+ 			       meta_prefs_change_workspace_label (i, tsol_label_get_min ());
+ 			   }
+ 			 g_free (name);
+ 		       }
+ 		     else
+ 		       meta_prefs_change_workspace_label (i, tsol_label_get_min ());
+ 
+ 		   }
+ 	       }
+ 	   }
+        }
+ 
+      if (update_workspace_property (workspace_labels,"Workspace Label", key, str))
+        queue_changed (META_PREF_WORKSPACE_LABELS);
+    }
+   else if (g_str_has_prefix (key, KEY_WORKSPACE_ROLE_PREFIX))
+    {
+      const char *str;
+      
+      if (!tsol_use_trusted_extensions ())
+        goto out;
+ 
+      /*
+       * GLENN
+      if (value && value->type != GCONF_VALUE_STRING)
+        {
+          meta_warning (_("GConf key \"%s\" is set to an invalid type\n"),
+                        key);
+          goto out;
+        }
+      */
+ 
+      str = user_data ? gconf_value_get_string (user_data) : NULL;
+ 
+      if (update_workspace_property (workspace_roles ,"Workspace roles", key, str))
+        queue_changed (META_PREF_WORKSPACE_ROLES);
+    }
+ #endif /*HAVE_XTSOL*/
   else
     {
       /* Is this possible with GSettings? I dont think so! */
       meta_topic (META_DEBUG_PREFS, "Key %s doesn't mean anything to Marco\n",
                   key);
     }
+out:
   g_free (schema_name);
 }
 
-#if 0
+#ifdef HAVE_GCONF
 static void
 cleanup_error (GError **error)
 {
@@ -1652,6 +1821,16 @@ meta_preference_to_string (MetaPreference pref)
 
     case META_PREF_SHOW_DESKTOP_SKIP_LIST:
       return "SHOW_DESKTOP_SKIP_LIST";
+
+#ifdef HAVE_XTSOL
+    case META_PREF_WORKSPACE_LABELS:
+      return "WORKSPACE_LABELS";
+
+    case META_PREF_WORKSPACE_ROLES:
+      return "WORKSPACE_ROLES";
+
+#endif /*HAVE_XTSOL*/     
+    
     }
 
   return "(unknown)";
@@ -1730,9 +1909,53 @@ init_commands (void)
       update_command (*list, str_val);
       list++;
     }
-
-  g_free (str_val);
 }
+
+#ifdef HAVE_XTSOL
+ static void init_labels_roles_workspaces (void)
+ {
+#ifdef HAVE_GCONF
+   int i;
+   GError *err;
+
+   default_client = gconf_client_get_default();
+   if (!tsol_use_trusted_extensions ())
+     return;
+
+   i = 0;
+   while (i < MAX_REASONABLE_WORKSPACES)
+     {
+       char *str_val;
+       char *label_key, *role_key;
+
+       label_key = gconf_key_for_workspace_label (i);
+
+       err = NULL;
+       str_val = gconf_client_get_string (default_client, label_key, &err);
+       cleanup_error (&err);
+
+       update_workspace_property (workspace_labels,"Workspace Label",
+                                  label_key, str_val);
+
+       g_free (str_val);
+       g_free (label_key);
+
+       role_key = gconf_key_for_workspace_role (i);
+
+       err = NULL;
+       str_val = gconf_client_get_string (default_client, role_key, &err);
+       cleanup_error (&err);
+       update_workspace_property (workspace_roles ,"Workspace roles",
+				 role_key, str_val);
+
+      g_free (str_val);    
+      g_free (role_key);
+
+      ++i;
+    }
+#endif /* HAVE_GCONF */
+}
+#endif /* HAVE_XTSOL */
 
 static void
 init_workspace_names (void)
@@ -2024,13 +2247,79 @@ meta_prefs_get_settings_key_for_terminal_command (void)
   return KEY_MATE_TERMINAL_COMMAND;
 }
 
+#ifdef HAVE_GCONF
+#ifdef HAVE_XTSOL
+static gboolean
+update_workspace_property (char **property,
+			   char *error_property_name,
+			   const char  *name,
+			   const char  *value)
+{
+  char *p;
+  int i;
+
+  if (!tsol_use_trusted_extensions ())
+    return FALSE;
+  
+  p = strrchr (name, '_');
+  if (p == NULL)
+    {
+      meta_topic (META_DEBUG_PREFS,
+                  "%s name %s has no underscore?\n", error_property_name, name);
+      return FALSE;
+    }
+  
+  ++p;
+
+  if (!g_ascii_isdigit (*p))
+    {
+      meta_topic (META_DEBUG_PREFS,
+                  "%s name %s doesn't end in number?\n", 
+		  error_property_name, name);
+      return FALSE;
+    }
+  
+  i = atoi (p);
+  i -= 1; /* count from 0 not 1 */
+  
+  if (i >= MAX_REASONABLE_WORKSPACES)
+    {
+      meta_topic (META_DEBUG_PREFS,
+                  "%s name %d is too highly numbered, ignoring\n", 
+		  error_property_name, i);
+      return FALSE;
+    }
+
+  if (property[i] && value && strcmp (property[i], value) == 0)
+    {
+      meta_topic (META_DEBUG_PREFS,
+                  "%s name %d is unchanged\n", error_property_name, i);
+      return FALSE;
+    }  
+
+  if (value != NULL && *value != '\0')
+    {
+      g_free (property[i]);
+      property[i] = g_strdup (value);
+    }
+  else
+    {
+      g_free (property[i]);
+      property[i] = NULL;
+    }
+  
+  return TRUE;
+}
+#endif /* HAVE_XTSOL */
+#endif /* HAVE_GCONF */
+
 static gboolean
 update_workspace_name (const char  *name,
                        const char  *value)
 {
   char *p;
   int i;
-
+  
   p = strrchr (name, '-');
   if (p == NULL)
     {
@@ -2038,7 +2327,8 @@ update_workspace_name (const char  *name,
                   "Workspace name %s has no dash?\n", name);
       return FALSE;
     }
-
+  
+  ++p;
   ++p;
 
   if (!g_ascii_isdigit (*p))
@@ -2100,14 +2390,156 @@ update_workspace_name (const char  *name,
 
   return TRUE;
 }
+#ifdef HAVE_XTSOL
+const char* meta_prefs_get_workspace_label    (int         i)
+{
+  g_return_val_if_fail (i >= 0 && i < MAX_REASONABLE_WORKSPACES, NULL);
+
+  if (!tsol_use_trusted_extensions ())
+    return NULL;
+
+  return workspace_labels [i];
+}
+void        
+meta_prefs_change_workspace_label (int         i,
+				   const char *name)
+{
+#ifdef HAVE_GCONF
+  char *key;
+  GError *err;
+  
+  g_return_if_fail (i >= 0 && i < MAX_REASONABLE_WORKSPACES);
+
+  if (!tsol_use_trusted_extensions ())
+    return;
+
+  meta_topic (META_DEBUG_PREFS,
+              "Changing name of workspace_labels %d to %s\n",
+              i, name ? name : "none");
+
+  /* This is a bad hack. We have to treat empty string as
+   * "unset" because the root window property can't contain
+   * null. So it gets empty string instead and we don't want
+   * that to result in setting the empty string as a value that
+   * overrides "unset".
+   */
+  if (name && *name == '\0')
+    name = NULL;
+  
+  if ((name == NULL && workspace_labels [i] == NULL) ||
+      (name && workspace_labels[i] && strcmp (name, workspace_labels[i]) == 0))
+    {
+      meta_topic (META_DEBUG_PREFS,
+                  "Workspace label %d already has name %s\n",
+                  i, name ? name : "none");
+      return;
+    }
+  
+  key = gconf_key_for_workspace_label (i);
+
+  err = NULL;
+  if (name != NULL)
+    gconf_client_set_string (default_client,
+                             key, name,
+                             &err);
+  else
+    gconf_client_unset (default_client,
+                        key, &err);
+
+  
+  if (err)
+    {
+      meta_warning (_("Error setting name for workspace label %d to \"%s\": %s\n"),
+                    i, name ? name : "none",
+                    err->message);
+      g_error_free (err);
+    }
+
+  update_workspace_property (workspace_labels,"Workspace Label",
+			     key, name);
+  
+  g_free (key);
+#endif /* HAVE_GCONF */
+}
+
+
+const char* meta_prefs_get_workspace_role    (int         i)
+{
+  g_return_val_if_fail (i >= 0 && i < MAX_REASONABLE_WORKSPACES, NULL);
+
+  if (!tsol_use_trusted_extensions ())
+    return NULL;
+
+  return workspace_roles [i];
+}
+
+void        meta_prefs_change_workspace_role (int         i,
+                                              const char *name)
+{
+#ifdef HAVE_GCONF
+  char *key;
+  GError *err;
+  
+  g_return_if_fail (i >= 0 && i < MAX_REASONABLE_WORKSPACES);
+ 
+  if (!tsol_use_trusted_extensions ())
+    return;
+
+  meta_topic (META_DEBUG_PREFS,
+              "Changing name of workspace_roles %d to %s\n",
+              i, name ? name : "none");
+
+  /* This is a bad hack. We have to treat empty string as
+   * "unset" because the root window property can't contain
+   * null. So it gets empty string instead and we don't want
+   * that to result in setting the empty string as a value that
+   * overrides "unset".
+   */
+  if (name && *name == '\0')
+    name = NULL;
+  
+  if ((name == NULL && workspace_roles [i] == NULL) ||
+      (name && workspace_roles [i] && strcmp (name, workspace_roles [i]) == 0))
+    {
+      meta_topic (META_DEBUG_PREFS,
+                  "Workspace role %d already has name %s\n",
+                  i, name ? name : "none");
+      return;
+    }
+  
+  key = gconf_key_for_workspace_role (i);
+
+  err = NULL;
+  if (name != NULL)
+    gconf_client_set_string (default_client,
+                             key, name,
+                             &err);
+  else
+    gconf_client_unset (default_client,
+                        key, &err);
+
+  
+  if (err)
+    {
+      meta_warning (_("Error setting name for workspace role %d to \"%s\": %s\n"),
+                    i, name ? name : "none",
+                    err->message);
+      g_error_free (err);
+    }
+  
+  g_free (key);
+#endif /* HAVE_GCONF */
+}
+#endif /* HAVE_XTSOL */
 
 const char*
 meta_prefs_get_workspace_name (int i)
 {
   g_return_val_if_fail (i >= 0 && i < MAX_REASONABLE_WORKSPACES, NULL);
 
+/*
   g_assert (workspace_names[i] != NULL);
-
+*/
   meta_topic (META_DEBUG_PREFS,
               "Getting workspace name for %d: \"%s\"\n",
               i, workspace_names[i]);
@@ -2162,6 +2594,27 @@ settings_key_for_workspace_name (int i)
 
   return key;
 }
+
+#ifdef HAVE_XTSOL
+static char*
+gconf_key_for_workspace_label (int i)
+{
+  char *key;
+  
+  key = g_strdup_printf (KEY_WORKSPACE_LABEL_PREFIX"%d", i + 1);
+  
+  return key;
+}
+static char*
+gconf_key_for_workspace_role (int i)
+{
+  char *key;
+  
+  key = g_strdup_printf (KEY_WORKSPACE_ROLE_PREFIX"%d", i + 1);
+  
+  return key;
+}
+#endif /* HAVE_XTSOL */
 
 void
 meta_prefs_get_button_layout (MetaButtonLayout *button_layout_p)

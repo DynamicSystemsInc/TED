@@ -159,6 +159,11 @@ item(_NET_WM_ACTION_BELOW)
 item(_NET_WM_STATE_STICKY)
 item(_NET_WM_FULLSCREEN_MONITORS)
 item(_NET_WM_STATE_FOCUSED)
+#ifdef HAVE_XTSOL
+item(_NET_DESKTOP_ROLES)
+item(_NET_DESKTOP_LABELS)
+item(_NET_TRUSTED_ACTIVE_WINDOW)
+#endif
 
 #if 0
 /* We apparently never use: */

@@ -49,6 +49,9 @@
 #include "util.h"
 #include "display-private.h"
 #include "errors.h"
+#ifdef HAVE_XTSOL
+#include "trusted.h"
+#endif
 #include "ui.h"
 #include "session.h"
 #include "prefs.h"

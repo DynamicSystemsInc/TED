@@ -87,6 +87,9 @@
 #include <gdk/gdkx.h>
 
 #include <string.h>
+#ifdef HAVE_XTSOL
+#include "trusted.h"
+#endif
 
 #define GRAB_OP_IS_WINDOW_SWITCH(g)                     \
         (g == META_GRAB_OP_KEYBOARD_TABBING_NORMAL  ||  \
@@ -426,7 +429,11 @@ meta_display_open (void)
 
   the_display->screens = NULL;
   the_display->active_screen = NULL;
-
+  
+#ifdef HAVE_XTSOL
+  the_display->labels = NULL;
+#endif
+  
 #ifdef HAVE_STARTUP_NOTIFICATION
   the_display->sn_display = sn_display_new (the_display->xdisplay,
                                         sn_error_trap_push,
@@ -1997,7 +2004,10 @@ static gboolean event_callback(XEvent* event, gpointer data)
         meta_window_handle_mouse_grab_op_event (window, event);
       break;
     case EnterNotify:
-      if (display->grab_window == window &&
+#ifdef HAVE_XTSOL
+        tsol_trusted_stripe_atom_update (display, window);
+#endif      
+	if (display->grab_window == window &&
           grab_op_is_mouse (display->grab_op))
         {
           meta_window_handle_mouse_grab_op_event (window, event);
@@ -2089,6 +2099,9 @@ static gboolean event_callback(XEvent* event, gpointer data)
         }
       break;
     case LeaveNotify:
+#ifdef HAVE_XTSOL
+      tsol_trusted_stripe_atom_update (display, window);
+#endif
       if (display->grab_window == window &&
           grab_op_is_mouse (display->grab_op))
         meta_window_handle_mouse_grab_op_event (window, event);
@@ -2379,6 +2392,14 @@ static gboolean event_callback(XEvent* event, gpointer data)
             else if (event->xproperty.atom ==
                      display->atom__NET_DESKTOP_NAMES)
               meta_screen_update_workspace_names (screen);
+ #ifdef HAVE_XTSOL	    
+             else if (event->xproperty.atom ==
+                      display->atom__NET_DESKTOP_LABELS)
+               tsol_workspace_labels_gconf_update (screen);
+             else if (event->xproperty.atom ==
+                      display->atom__NET_DESKTOP_ROLES)
+               tsol_workspace_roles_gconf_update (screen);
+ #endif /*HAVE_XTSOL */	  	    
 #if 0
             else if (event->xproperty.atom ==
                      display->atom__NET_RESTACK_WINDOW)

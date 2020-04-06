@@ -33,6 +33,9 @@
 #include "fixedtip.h"
 #include "theme.h"
 #include "prefs.h"
+#ifdef HAVE_XTSOL
+#include "../core/trusted.h"
+#endif
 #include "ui.h"
 
 #ifdef HAVE_SHAPE
@@ -2494,7 +2497,12 @@ meta_frames_paint_to_drawable (MetaFrames   *frames,
                                     frame->text_height,
                                     &button_layout,
                                     button_states,
-                                    mini_icon, icon);
+                                    mini_icon, icon
+#ifdef HAVE_XTSOL                            
+      				    ,GTK_WIDGET (frames),
+			            frame->label
+#endif
+				    );
 }
 
 static void
@@ -2869,4 +2877,22 @@ invalidate_whole_window (MetaFrames *frames,
 {
   gdk_window_invalidate_rect (frame->window, NULL, FALSE);
   invalidate_cache (frames, frame);
+#ifdef HAVE_XTSOL
 }
+
+void
+meta_frames_set_label (MetaFrames *frames,
+		       Window      xwindow,
+		       MetaTrustedLabel *label)
+{
+  MetaUIFrame *frame;
+
+  frame = meta_frames_lookup_window (frames, xwindow);
+  if (tsol_is_available()) {
+	  frame->label = label;
+  } else {
+	frame->label = NULL;
+  }
+}
+#endif
+

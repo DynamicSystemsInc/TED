@@ -28,6 +28,9 @@
 #include "bell.h"
 #include "errors.h"
 #include "keybindings.h"
+#ifdef HAVE_XTSOL
+#include "trusted.h"
+#endif
 
 #ifdef HAVE_RENDER
 #include <X11/extensions/Xrender.h>
@@ -155,6 +158,20 @@ meta_window_ensure_frame (MetaWindow *window)
     meta_ui_set_frame_title (window->screen->ui,
                              window->frame->xwindow,
                              window->title);
+
+ #ifdef HAVE_XTSOL
+  if (tsol_is_available ()) {
+	  /* associate trusted label with the window only if a frame exist */
+	  meta_ui_set_frame_label (window->screen->ui,
+				   window->frame->xwindow,
+				   tsol_meta_window_label_get (window));
+
+	  /* make sure the frame window as the same privileges
+	   * "real" window */
+	  tsol_set_frame_label (window->display->xdisplay, window->xwindow, window->frame->xwindow);
+  }
+#endif
+
 
   /* Move keybindings to frame instead of window */
   meta_window_grab_keys (window);

@@ -28,6 +28,9 @@
 #include "gradient.h"
 #include "common.h"
 #include <gtk/gtk.h>
+#include <config.h>
+#include "../core/display-private.h"
+#include "../core/screen-private.h"
 
 typedef struct _MetaFrameStyle MetaFrameStyle;
 typedef struct _MetaFrameStyleSet MetaFrameStyleSet;
@@ -42,6 +45,16 @@ typedef struct _MetaFrameGeometry MetaFrameGeometry;
 typedef struct _MetaTheme MetaTheme;
 typedef struct _MetaPositionExprEnv MetaPositionExprEnv;
 typedef struct _MetaDrawInfo MetaDrawInfo;
+
+#ifdef HAVE_XTSOL
+struct _MetaTrustedLabel 
+{
+  char		*name;
+  PangoLayout	*layout;
+  MetaColorSpec *color;
+};
+typedef struct _MetaTrustedLabel  MetaTrustedLabel;
+#endif
 
 #define META_THEME_ERROR (g_quark_from_static_string ("meta-theme-error"))
 
@@ -262,6 +275,11 @@ struct _MetaColorSpec
     struct {
       GdkRGBA color;
     } basic;
+#ifdef HAVE_XTSOL
+    struct {
+      gboolean dummy;
+    } label;
+#endif    
     struct {
       MetaGtkColorComponent component;
       GtkStateFlags state;
@@ -305,6 +323,9 @@ struct _MetaDrawInfo
   int title_layout_width;
   int title_layout_height;
   const MetaFrameGeometry *fgeom;
+#ifdef HAVE_XTSOL 
+  MetaTrustedLabel *label;
+#endif 
 };
 
 /**
@@ -342,6 +363,11 @@ typedef enum
   META_DRAW_OP_LIST,
   /** tiled draw op list */
   META_DRAW_TILE
+#ifdef HAVE_XTSOL
+  ,
+  /* draw a string (used for trusted label) */
+  META_DRAW_TRUSTED_LABEL
+#endif
 } MetaDrawType;
 
 typedef enum
@@ -570,7 +596,15 @@ struct _MetaDrawOp
       MetaDrawSpec *tile_width;
       MetaDrawSpec *tile_height;
     } tile;
-
+    
+#ifdef HAVE_XTSOL    
+    struct {
+      MetaColorSpec *color_spec;
+      char *x;
+      char *y;
+    } trusted_label;
+#endif    
+    
   } data;
 };
 
@@ -860,6 +894,10 @@ struct _MetaPositionExprEnv
   int bottom_height;
   int title_width;
   int title_height;
+#ifdef HAVE_XTSOL  
+  int trusted_label_width;
+  int trusted_label_height;
+#endif  
   int frame_x_center;
   int frame_y_center;
   int mini_icon_width;
@@ -972,6 +1010,25 @@ MetaFrameStyle* meta_frame_style_new   (MetaFrameStyle *parent);
 void            meta_frame_style_ref   (MetaFrameStyle *style);
 void            meta_frame_style_unref (MetaFrameStyle *style);
 
+#ifdef HAVE_XTSOL
+
+
+MetaTrustedLabel*     tsol_meta_window_label_get (MetaWindow  *window);
+MetaTrustedLabel*     tsol_workspace_get_label (MetaWorkspace *ws);
+MetaTrustedLabel*     tsol_xwindow_label_get (MetaDisplay *display, 
+					      Window	   xwindow);
+
+gboolean tsol_should_label_layout_be_black (MetaColorSpec *bkg);
+MetaDrawOpList*	      tsol_theme_trusted_label_ops_get (MetaFrameFocus focus,
+							MetaTheme *theme);
+MetaDrawOpList*	      tsol_theme_trusted_title_ops_get (MetaFrameFocus focus,
+							MetaTheme *theme);
+void    meta_ui_set_frame_label  (MetaUI           *ui,
+                                  Window            xwindow,
+                                  MetaTrustedLabel *label);
+
+#endif
+
 void meta_frame_style_draw (MetaFrameStyle          *style,
                             GtkWidget               *widget,
                             cairo_t                 *cr,
@@ -979,6 +1036,9 @@ void meta_frame_style_draw (MetaFrameStyle          *style,
                             int                      client_width,
                             int                      client_height,
                             PangoLayout             *title_layout,
+#ifdef HAVE_XTSOL			    
+			    MetaTrustedLabel	    *label,
+#endif			    
                             int                      text_height,
                             MetaButtonState          button_states[META_BUTTON_TYPE_LAST],
                             GdkPixbuf               *mini_icon,
@@ -992,7 +1052,11 @@ void meta_frame_style_draw_with_style (MetaFrameStyle          *style,
                                        int                      client_width,
                                        int                      client_height,
                                        PangoLayout             *title_layout,
-                                       int                      text_height,
+#ifdef HAVE_XTSOL			    
+			    	       GtkWidget		*widget,
+				       MetaTrustedLabel	        *label,
+#endif			    
+				       int                      text_height,
                                        MetaButtonState          button_states[META_BUTTON_TYPE_LAST],
                                        GdkPixbuf               *mini_icon,
                                        GdkPixbuf               *icon);
@@ -1042,7 +1106,11 @@ void meta_theme_draw_frame (MetaTheme              *theme,
                             const MetaButtonLayout *button_layout,
                             MetaButtonState         button_states[META_BUTTON_TYPE_LAST],
                             GdkPixbuf              *mini_icon,
-                            GdkPixbuf              *icon);
+                            GdkPixbuf              *icon
+#ifdef HAVE_XTSOL
+                           ,MetaTrustedLabel       *label
+#endif
+                            );
 
 void meta_theme_draw_frame_by_name (MetaTheme              *theme,
                                     GtkWidget              *widget,
@@ -1056,7 +1124,11 @@ void meta_theme_draw_frame_by_name (MetaTheme              *theme,
                                     const MetaButtonLayout *button_layout,
                                     MetaButtonState         button_states[META_BUTTON_TYPE_LAST],
                                     GdkPixbuf              *mini_icon,
-                                    GdkPixbuf              *icon);
+                                    GdkPixbuf              *icon
+#ifdef HAVE_XTSOL
+				    ,MetaTrustedLabel       *label
+#endif
+				    );
 
 void meta_theme_draw_frame_with_style (MetaTheme              *theme,
                                        GtkStyleContext        *style_gtk,
@@ -1070,7 +1142,12 @@ void meta_theme_draw_frame_with_style (MetaTheme              *theme,
                                        const MetaButtonLayout *button_layout,
                                        MetaButtonState         button_states[META_BUTTON_TYPE_LAST],
                                        GdkPixbuf              *mini_icon,
-                                       GdkPixbuf              *icon);
+                                       GdkPixbuf              *icon
+#ifdef HAVE_XTSOL
+				       ,GtkWidget	      *widget,
+				       MetaTrustedLabel       *label
+#endif
+				       );
 
 void meta_theme_get_frame_borders (MetaTheme         *theme,
                                    MetaFrameType      type,

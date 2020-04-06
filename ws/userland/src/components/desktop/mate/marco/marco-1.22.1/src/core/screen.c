@@ -64,6 +64,7 @@ static void prefs_changed_callback (MetaPreference pref,
 static void set_desktop_geometry_hint (MetaScreen *screen);
 static void set_desktop_viewport_hint (MetaScreen *screen);
 
+#undef HAVE_STARTUP_NOTIFICATION
 #ifdef HAVE_STARTUP_NOTIFICATION
 static void meta_screen_sn_event   (SnMonitorEvent *event,
                                     void           *user_data);
@@ -578,6 +579,17 @@ meta_screen_new (MetaDisplay *display,
 
   set_workspace_names (screen);
 
+#ifdef HAVE_XTSOL
+  if (tsol_is_available ())
+    {
+      tsol_workspace_labels_atom_set (screen);
+      tsol_workspace_roles_atom_set (screen);
+      /* create a synch atom to indicate we are done setting up the
+         ws lables/roles */
+      XInternAtom (screen->display->xdisplay, "TX_WS_SETUP_DONE", FALSE);
+    }
+#endif /*HAVE_XTSOL */
+
   screen->all_keys_grabbed = FALSE;
   screen->keys_grabbed = FALSE;
   meta_screen_grab_keys (screen);
@@ -879,6 +891,16 @@ prefs_changed_callback (MetaPreference pref,
     {
       set_workspace_names (screen);
     }
+#ifdef HAVE_XTSOL
+  else if (pref == META_PREF_WORKSPACE_LABELS)
+    {
+      tsol_workspace_labels_atom_set (screen);
+    }
+  else if (pref == META_PREF_WORKSPACE_ROLES)
+    {
+      tsol_workspace_roles_atom_set (screen);
+    }
+#endif /*HAVE_XTSOL */
 }
 
 
@@ -1174,6 +1196,13 @@ update_num_workspaces (MetaScreen *screen,
     }
 
   set_number_of_spaces_hint (screen, new_num);
+#ifdef HAVE_XTSOL
+  if (tsol_is_available ())
+    {
+      tsol_workspace_labels_atom_set (screen);
+      tsol_workspace_roles_atom_set (screen);
+    }
+#endif /* HAVE_XTSOL */
 
   meta_screen_queue_workarea_recalc (screen);
 }

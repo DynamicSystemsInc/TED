@@ -51,7 +51,7 @@
 #include <sys/types.h>
 #include <pwd.h>
 
-#ifdef HAVE_GTOP
+#ifdef HAVE_GTOPx
 #include <glibtop/procuid.h>
 #include <errno.h>
 #include <pwd.h>
@@ -394,7 +394,7 @@ reload_net_wm_user_time_window (MetaWindow    *window,
 static gboolean
 owner_of_process (pid_t process, uid_t *result)
 {
-#ifdef HAVE_GTOP
+#ifdef HAVE_GTOPx
   glibtop_proc_uid process_details;
 
   glibtop_get_proc_uid (&process_details, process);
@@ -411,6 +411,11 @@ owner_of_process (pid_t process, uid_t *result)
 #else
   /* I don't know, maybe we could do something hairy like see whether
    * /proc/$PID exists and who owns it, in case they have procfs.
+   */
+  /* TODO
+   * open /proc/$PID/psinfo 
+   * read as typedef struct psinfo
+   * pr_uid pr pr_euid is of type uid_t
    */
   return FALSE;
 #endif /* HAVE_GTOP */

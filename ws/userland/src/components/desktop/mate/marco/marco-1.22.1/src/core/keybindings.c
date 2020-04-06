@@ -27,6 +27,7 @@
 #define _XOPEN_SOURCE /* for putenv() */
 
 #include <config.h>
+#include <gdk/gdkx.h>
 #include "keybindings.h"
 #include "workspace.h"
 #include "errors.h"
@@ -47,6 +48,10 @@
 
 #ifdef HAVE_XKB
 #include <X11/XKBlib.h>
+#endif
+
+#ifdef HAVE_XTSOL
+#include "trusted.h"
 #endif
 
 static gboolean all_bindings_disabled = FALSE;
@@ -2429,6 +2434,42 @@ meta_spawn_command_line_async_on_screen (const gchar *command_line,
                            NULL, &argv,
                            error))
     return FALSE;
+  #ifdef HAVE_XTSOL
+  if (tsol_is_available ())
+    {
+      GdkDisplay *dpy;
+      Display *xdpy;
+      Window root;
+      Atom atom, utf8_string;
+      gchar* tsol_command =  g_strdup_printf ("%d:%s",
+                                              screen->number,
+                                              command_line);
+
+      dpy = gdk_display_get_default ();
+      xdpy = GDK_DISPLAY_XDISPLAY (dpy);
+
+      utf8_string = XInternAtom (xdpy, "UTF8_STRING", FALSE);
+
+      root = DefaultRootWindow (xdpy);
+
+      atom = XInternAtom (xdpy, "_LABEL_EXEC_COMMAND", FALSE);
+
+      gdk_error_trap_push ();
+
+      XChangeProperty (xdpy, root, atom, utf8_string, 8, PropModeReplace,
+                       (const unsigned char *)tsol_command, strlen (tsol_command));
+
+      XSync (xdpy, False);
+
+      gdk_error_trap_pop ();
+
+      g_free (tsol_command);
+
+      retval = TRUE;
+    }
+  else
+#endif /* HAVE_XTSOL */
+    {
 
   retval = g_spawn_async (NULL,
                           argv,
@@ -2439,7 +2480,7 @@ meta_spawn_command_line_async_on_screen (const gchar *command_line,
                           NULL,
                           error);
   g_strfreev (argv);
-
+    }
   return retval;
 }
 

@@ -177,13 +177,26 @@ am_marco_OBJECTS = core/async-getprop.$(OBJEXT) core/bell.$(OBJEXT) \
 	ui/fixedtip.$(OBJEXT) ui/frames.$(OBJEXT) ui/menu.$(OBJEXT) \
 	ui/metaaccellabel.$(OBJEXT) ui/resizepopup.$(OBJEXT) \
 	ui/tabpopup.$(OBJEXT) ui/tile-preview.$(OBJEXT) \
-	ui/theme-parser.$(OBJEXT) ui/theme.$(OBJEXT) ui/ui.$(OBJEXT)
+	ui/theme-parser.$(OBJEXT) ui/theme.$(OBJEXT) ui/ui.$(OBJEXT) \
+	core/trusted.$(OBJEXT)
 marco_OBJECTS = $(am_marco_OBJECTS)
 am__DEPENDENCIES_1 =
 marco_DEPENDENCIES = $(am__DEPENDENCIES_1)
 am_marco_theme_viewer_OBJECTS = ui/theme-viewer.$(OBJEXT)
 marco_theme_viewer_OBJECTS = $(am_marco_theme_viewer_OBJECTS)
-marco_theme_viewer_DEPENDENCIES = libmarco-private.la
+marco_theme_viewer_DEPENDENCIES = libmarco-private.la \
+	core/async-getprop.o core/bell.o core/boxes.o \
+	compositor/compositor.o compositor/compositor-xrender.o \
+	core/constraints.o core/core.o core/delete.o core/display.o \
+	ui/draw-workspace.o core/edge-resistance.o core/effects.o \
+	core/errors.o core/eventqueue.o core/frame.o ui/gradient.o \
+	core/group-props.o core/group.o core/iconcache.o \
+	core/keybindings.o core/place.o core/prefs.o core/screen.o \
+	core/session.o core/stack.o core/util.o core/window-props.o \
+	core/window.o core/workspace.o core/xprops.o ui/fixedtip.o \
+	ui/frames.o ui/menu.o ui/metaaccellabel.o ui/resizepopup.o \
+	ui/tabpopup.o ui/tile-preview.o ui/theme-parser.o ui/theme.o \
+	ui/ui.o core/trusted.o
 am_testasyncgetprop_OBJECTS = core/async-getprop.$(OBJEXT) \
 	core/testasyncgetprop.$(OBJEXT)
 testasyncgetprop_OBJECTS = $(am_testasyncgetprop_OBJECTS)
@@ -493,6 +506,7 @@ AM_CPPFLAGS = \
 	-DMARCO_DATADIR=\"$(datadir)\" \
 	-DG_LOG_DOMAIN=\"marco\" \
 	-DSN_API_NOT_YET_FROZEN=1 \
+	-DHAVE_XTSOL \
 	@MARCO_CFLAGS@
 
 marco_SOURCES = \
@@ -587,6 +601,9 @@ marco_SOURCES = \
 	ui/theme.c \
 	ui/theme.h \
 	ui/ui.c \
+	core/trusted.c \
+	core/trusted.h \
+	core/trusted-pics.h \
 	include/all-keybindings.h
 
 
@@ -625,7 +642,49 @@ marco_theme_viewer_SOURCES = \
 
 EFENCE = 
 marco_LDADD = @MARCO_LIBS@ $(EFENCE)
-marco_theme_viewer_LDADD = @MARCO_LIBS@ libmarco-private.la
+marco_theme_viewer_LDADD = @MARCO_LIBS@ libmarco-private.la \
+	core/async-getprop.o \
+	core/bell.o \
+	core/boxes.o \
+	compositor/compositor.o \
+	compositor/compositor-xrender.o \
+	core/constraints.o \
+	core/core.o \
+	core/delete.o \
+	core/display.o \
+	ui/draw-workspace.o \
+	core/edge-resistance.o \
+	core/effects.o \
+	core/errors.o \
+	core/eventqueue.o \
+	core/frame.o \
+	ui/gradient.o \
+	core/group-props.o \
+	core/group.o \
+	core/iconcache.o \
+	core/keybindings.o \
+	core/place.o \
+	core/prefs.o \
+	core/screen.o \
+	core/session.o \
+	core/stack.o \
+	core/util.o \
+	core/window-props.o \
+	core/window.o \
+	core/workspace.o \
+	core/xprops.o \
+	ui/fixedtip.o \
+	ui/frames.o \
+	ui/menu.o \
+	ui/metaaccellabel.o \
+	ui/resizepopup.o \
+	ui/tabpopup.o \
+	ui/tile-preview.o \
+	ui/theme-parser.o \
+	ui/theme.o \
+	ui/ui.o \
+	core/trusted.o
+
 testboxes_SOURCES = include/util.h core/util.c include/boxes.h core/boxes.c core/testboxes.c
 testgradient_SOURCES = ui/gradient.h ui/gradient.c ui/testgradient.c
 testasyncgetprop_SOURCES = core/async-getprop.h core/async-getprop.c core/testasyncgetprop.c
@@ -904,6 +963,8 @@ ui/theme-parser.$(OBJEXT): ui/$(am__dirstamp) \
 	ui/$(DEPDIR)/$(am__dirstamp)
 ui/theme.$(OBJEXT): ui/$(am__dirstamp) ui/$(DEPDIR)/$(am__dirstamp)
 ui/ui.$(OBJEXT): ui/$(am__dirstamp) ui/$(DEPDIR)/$(am__dirstamp)
+core/trusted.$(OBJEXT): core/$(am__dirstamp) \
+	core/$(DEPDIR)/$(am__dirstamp)
 
 marco$(EXEEXT): $(marco_OBJECTS) $(marco_DEPENDENCIES) $(EXTRA_marco_DEPENDENCIES) 
 	@rm -f marco$(EXEEXT)
@@ -972,6 +1033,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@core/$(DEPDIR)/stack.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@core/$(DEPDIR)/testasyncgetprop.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@core/$(DEPDIR)/testboxes.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@core/$(DEPDIR)/trusted.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@core/$(DEPDIR)/util.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@core/$(DEPDIR)/window-props.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@core/$(DEPDIR)/window.Po@am__quote@

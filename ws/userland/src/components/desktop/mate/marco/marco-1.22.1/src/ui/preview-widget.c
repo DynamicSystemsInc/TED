@@ -25,7 +25,13 @@
 
 #include <math.h>
 #include <gtk/gtk.h>
+#include <gdk/gdkx.h>
 #include "preview-widget.h"
+#ifdef HAVE_XTSOL
+#include "../core/trusted.h"
+#include "../core/window-private.h"
+#include "../core/workspace.h"
+#endif
 
 static void     meta_preview_class_init    (MetaPreviewClass *klass);
 static void     meta_preview_init          (MetaPreview      *preview);
@@ -232,6 +238,20 @@ meta_preview_draw (GtkWidget *widget,
 
   if (preview->theme)
     {
+#ifdef HAVE_XTSOL
+      MetaTrustedLabel        *label = NULL;;
+if (tsol_is_available()) {
+            /* create new MetaTrustedLabel */
+      label = g_new0 (MetaTrustedLabel, 1);
+
+      label->name = "ADMIN_LOW";
+      label->color = meta_color_spec_new (META_COLOR_SPEC_BASIC);
+      label->color->data.basic.color.red = 0.0;
+      label->color->data.basic.color.green = 0.0;
+      label->color->data.basic.color.blue = 0.0;
+}
+#endif
+
       border_width = gtk_container_get_border_width (GTK_CONTAINER (widget));
 
       meta_theme_draw_frame (preview->theme,
@@ -245,7 +265,10 @@ meta_preview_draw (GtkWidget *widget,
                              &preview->button_layout,
                              button_states,
                              meta_preview_get_mini_icon (),
-                             meta_preview_get_icon ());
+                             meta_preview_get_icon (),
+#ifdef HAVE_XTSOL
+			     label);
+#endif
     }
 
   cairo_restore (cr);

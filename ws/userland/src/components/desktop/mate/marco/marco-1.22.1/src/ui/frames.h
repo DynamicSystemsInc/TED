@@ -28,6 +28,9 @@
 #include <gdk/gdkx.h>
 #include "common.h"
 #include "theme.h"
+#ifdef HAVE_XTSOL
+#include "../core/trusted.h"
+#endif
 
 typedef enum
 {
@@ -78,6 +81,9 @@ struct _MetaUIFrame
   GdkWindow *window;
   GtkStyleContext *style;
   MetaFrameStyle *cache_style;
+#ifdef HAVE_XTSOL  
+  MetaTrustedLabel *label;
+#endif  
   PangoLayout *layout;
   int text_height;
   char *title; /* NULL once we have a layout */
@@ -160,4 +166,9 @@ Window meta_frames_get_moving_frame (MetaFrames *frames);
 void meta_frames_push_delay_exposes (MetaFrames *frames);
 void meta_frames_pop_delay_exposes  (MetaFrames *frames);
 
+#ifdef HAVE_XTSOL
+void meta_frames_set_label (MetaFrames	     *frames, 
+			    Window	      xwindow,
+			    MetaTrustedLabel *label);
+#endif
 #endif

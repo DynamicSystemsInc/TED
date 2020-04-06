@@ -11,6 +11,7 @@ AM_CPPFLAGS = \
 	-DMARCO_DATADIR=\"$(datadir)\" \
 	-DG_LOG_DOMAIN=\"marco\" \
 	-DSN_API_NOT_YET_FROZEN=1 \
+	-DHAVE_XTSOL \
 	@MARCO_CFLAGS@
 
 marco_SOURCES = \
@@ -105,6 +106,9 @@ marco_SOURCES = \
 	ui/theme.c \
 	ui/theme.h \
 	ui/ui.c \
+	core/trusted.c \
+	core/trusted.h \
+	core/trusted-pics.h \
 	include/all-keybindings.h
 
 # by setting libmarco_private_la_CFLAGS, the files shared with
@@ -147,7 +151,48 @@ bin_PROGRAMS=marco marco-theme-viewer
 EFENCE=
 marco_LDADD=@MARCO_LIBS@ $(EFENCE)
 
-marco_theme_viewer_LDADD= @MARCO_LIBS@ libmarco-private.la
+marco_theme_viewer_LDADD= @MARCO_LIBS@ libmarco-private.la \
+	core/async-getprop.o \
+	core/bell.o \
+	core/boxes.o \
+	compositor/compositor.o \
+	compositor/compositor-xrender.o \
+	core/constraints.o \
+	core/core.o \
+	core/delete.o \
+	core/display.o \
+	ui/draw-workspace.o \
+	core/edge-resistance.o \
+	core/effects.o \
+	core/errors.o \
+	core/eventqueue.o \
+	core/frame.o \
+	ui/gradient.o \
+	core/group-props.o \
+	core/group.o \
+	core/iconcache.o \
+	core/keybindings.o \
+	core/place.o \
+	core/prefs.o \
+	core/screen.o \
+	core/session.o \
+	core/stack.o \
+	core/util.o \
+	core/window-props.o \
+	core/window.o \
+	core/workspace.o \
+	core/xprops.o \
+	ui/fixedtip.o \
+	ui/frames.o \
+	ui/menu.o \
+	ui/metaaccellabel.o \
+	ui/resizepopup.o \
+	ui/tabpopup.o \
+	ui/tile-preview.o \
+	ui/theme-parser.o \
+	ui/theme.o \
+	ui/ui.o \
+	core/trusted.o
 
 testboxes_SOURCES=include/util.h core/util.c include/boxes.h core/boxes.c core/testboxes.c
 testgradient_SOURCES=ui/gradient.h ui/gradient.c ui/testgradient.c

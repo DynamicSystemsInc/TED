@@ -25,8 +25,10 @@
 #ifndef META_DISPLAY_PRIVATE_H
 #define META_DISPLAY_PRIVATE_H
 
+#if 0
 #ifndef PACKAGE
 	#error "config.h not included"
+#endif
 #endif
 
 #include <glib.h>
@@ -132,6 +134,9 @@ struct _MetaDisplay {
 	guint error_trap_synced_at_last_pop: 1;
 	MetaEventQueue* events;
 	GSList* screens;
+#ifdef HAVE_XTSOL
+	GSList *labels;
+#endif
 	MetaScreen* active_screen;
 	GHashTable* window_ids;
 	int error_traps;

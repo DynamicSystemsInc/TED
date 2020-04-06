@@ -30,10 +30,18 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include <gdk/gdk.h>
+#include <gdk/gdkx.h>
+#ifdef HAVE_XTSOL
+#include "../core/trusted.h"
+#include "../core/window-private.h"
+#include "../core/workspace.h"
+#endif
 
 #include <libintl.h>
 #define _(x) dgettext (GETTEXT_PACKAGE, x)
 #define N_(x) x
+
 
 /* We need to compute all different button arrangements
  * in terms of button location. We don't care about
@@ -49,6 +57,17 @@
 #define BUTTON_LAYOUT_COMBINATIONS (MAX_BUTTONS_PER_CORNER + 1 + 1)
 #else
 #define BUTTON_LAYOUT_COMBINATIONS ((MAX_BUTTONS_PER_CORNER+1)*(MAX_BUTTONS_PER_CORNER+1))
+#endif
+
+#ifdef HAVE_XTSOL
+void
+meta_quit ()
+{
+}
+void
+meta_restart (void)
+{
+}
 #endif
 
 enum
@@ -1059,6 +1078,20 @@ run_theme_benchmark (void)
   i = 0;
   while (i < ITERATIONS)
     {
+#ifdef HAVE_XTSOL
+      MetaTrustedLabel	      *label = NULL;;
+if (tsol_is_available()) {
+      /* create new MetaTrustedLabel */
+      label = g_new0 (MetaTrustedLabel, 1);
+
+      label->name = "ADMIN_LOW";
+      label->color = meta_color_spec_new (META_COLOR_SPEC_BASIC);
+      label->color->data.basic.color.red = 0.0;
+      label->color->data.basic.color.green = 0.0;
+      label->color->data.basic.color.blue = 0.0;
+}
+#endif
+
       /* Creating the pixmap in the loop is right, since
        * GDK does the same with its double buffering.
        */
@@ -1079,8 +1112,11 @@ run_theme_benchmark (void)
                              &button_layout,
                              button_states,
                              meta_preview_get_mini_icon (),
-                             meta_preview_get_icon ());
-
+                             meta_preview_get_icon ()
+#ifdef HAVE_XTSOL		       
+		             ,label
+#endif		       
+      );
       cairo_destroy (cr);
       cairo_surface_destroy (pixmap);
 

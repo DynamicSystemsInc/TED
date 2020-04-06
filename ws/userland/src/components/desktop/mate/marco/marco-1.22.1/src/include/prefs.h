@@ -31,6 +31,10 @@
 
 typedef enum
 {
+#ifdef HAVE_XTSOL
+  META_PREF_WORKSPACE_LABELS,
+  META_PREF_WORKSPACE_ROLES,
+#endif /*HAVE_XTSOL*/
   META_PREF_MOUSE_BUTTON_MODS,
   META_PREF_FOCUS_MODE,
   META_PREF_FOCUS_NEW_WINDOWS,
@@ -135,6 +139,15 @@ gboolean    meta_prefs_get_center_new_windows  (void);
 gboolean    meta_prefs_get_force_fullscreen  (void);
 gboolean    meta_prefs_show_tab_border (void);
 gboolean    meta_prefs_is_in_skip_list (char *class);
+
+#ifdef HAVE_XTSOL
+const char* meta_prefs_get_workspace_label    (int         i);
+void        meta_prefs_change_workspace_label (int         i,
+                                              const char *name);
+const char* meta_prefs_get_workspace_role    (int         i);
+void        meta_prefs_change_workspace_role (int         i,
+                                              const char *name);
+#endif /* HAVE_XTSOL */
 
 /**
  * Sets whether the compositor is turned on.

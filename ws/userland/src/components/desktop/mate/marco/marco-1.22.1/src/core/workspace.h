@@ -105,6 +105,8 @@ MetaWorkspace* meta_workspace_get_neighbor (MetaWorkspace      *workspace,
 
 const char* meta_workspace_get_name (MetaWorkspace *workspace);
 
+gboolean meta_window_located_on_workspace (MetaWindow *window,
+                                  MetaWorkspace *workspace);
 #endif
 
 

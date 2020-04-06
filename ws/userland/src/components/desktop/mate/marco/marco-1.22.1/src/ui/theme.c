@@ -62,6 +62,14 @@
 #include <stdlib.h>
 #define __USE_XOPEN
 #include <math.h>
+#ifdef HAVE_XTSOL
+#include "prefs.h"
+#include "../core/trusted.h"
+#include "../core/window-private.h"
+#include "../core/workspace.h"
+
+static GtkWidget *trusted_widget;
+#endif
 
 #define GDK_COLOR_RGBA(color)                                           \
                          ((guint32) (0xff                         |     \
@@ -426,6 +434,10 @@ meta_frame_layout_get_borders (const MetaFrameLayout *layout,
   if (top_height)
     {
       *top_height = MAX (buttons_height, title_height);
+#ifdef HAVE_XTSOL      
+      if (tsol_is_available ()) /*Trusted Frame Layout Modification TFLM*/
+        *top_height += *top_height - layout->title_border.bottom;
+#endif /* HAVE_XTSOL */
     }
 
   if (left_width)
@@ -494,7 +506,6 @@ rect_for_function (MetaFrameGeometry *fgeom,
                    MetaButtonFunction function,
                    MetaTheme         *theme)
 {
-
   /* Firstly, check version-specific things. */
 
   if (META_THEME_ALLOWS(theme, META_THEME_SHADE_STICK_ABOVE_BUTTONS))
@@ -550,7 +561,7 @@ rect_for_function (MetaFrameGeometry *fgeom,
         return NULL;
     case META_BUTTON_FUNCTION_MINIMIZE:
       if (flags & META_FRAME_ALLOWS_MINIMIZE)
-        return &fgeom->min_rect;
+	return &fgeom->min_rect;
       else
         return NULL;
     case META_BUTTON_FUNCTION_MAXIMIZE:
@@ -661,7 +672,10 @@ meta_frame_layout_calc_geometry (const MetaFrameLayout  *layout,
 
   fgeom->width = width;
   fgeom->height = height;
-
+#ifdef HAVE_XTSOL_debug 
+  if (tsol_is_available ())
+    fgeom->height = height + fgeom->top_height; /*Trusted Frame Layout Modification TFLM*/
+#endif  
   fgeom->top_titlebar_edge = layout->title_border.top;
   fgeom->bottom_titlebar_edge = layout->title_border.bottom;
   fgeom->left_titlebar_edge = layout->left_titlebar_edge;
@@ -865,9 +879,18 @@ meta_frame_layout_calc_geometry (const MetaFrameLayout  *layout,
   fgeom->n_right_buttons = n_right;
 
   /* center buttons vertically */
+#ifdef HAVE_XTSOL
+if (tsol_is_available()) {
+  button_y = layout->title_border.top;
+} else {
   button_y = (fgeom->top_height -
               (button_height + layout->button_border.top + layout->button_border.bottom)) / 2 + layout->button_border.top;
 
+}
+#else
+  button_y = (fgeom->top_height -
+              (button_height + layout->button_border.top + layout->button_border.bottom)) / 2 + layout->button_border.top;
+#endif
   /* right edge of farthest-right button */
   x = width - layout->right_titlebar_edge;
 
@@ -1109,7 +1132,6 @@ meta_color_spec_new (MetaColorSpecType type)
     case META_COLOR_SPEC_BASIC:
       size += sizeof (dummy.data.basic);
       break;
-
     case META_COLOR_SPEC_GTK:
       size += sizeof (dummy.data.gtk);
       break;
@@ -1144,7 +1166,6 @@ meta_color_spec_free (MetaColorSpec *spec)
     case META_COLOR_SPEC_BASIC:
       DEBUG_FILL_STRUCT (&spec->data.basic);
       break;
-
     case META_COLOR_SPEC_GTK:
       DEBUG_FILL_STRUCT (&spec->data.gtk);
       break;
@@ -1623,7 +1644,6 @@ meta_color_spec_render (MetaColorSpec *spec,
     case META_COLOR_SPEC_BASIC:
       *color = spec->data.basic.color;
       break;
-
     case META_COLOR_SPEC_GTK:
       meta_set_color_from_style (color,
                                  style,
@@ -2460,10 +2480,6 @@ pos_eval_get_variable (PosToken                  *t,
         *result = env->title_width;
       else if (strcmp (t->d.v.name, "title_height") == 0)
         *result = env->title_height;
-      else if (strcmp (t->d.v.name, "frame_x_center") == 0)
-        *result = env->frame_x_center;
-      else if (strcmp (t->d.v.name, "frame_y_center") == 0)
-        *result = env->frame_y_center;
       else
         {
           g_set_error (err, META_THEME_ERROR,
@@ -3618,6 +3634,25 @@ fill_env (MetaPositionExprEnv *env,
 
   env->title_width = info->title_layout_width;
   env->title_height = info->title_layout_height;
+#ifdef HAVE_XTSOL
+if (tsol_is_available()) {
+  if (info->label && info->label->layout)
+    {
+      PangoRectangle extents;
+      
+      pango_layout_get_pixel_extents (info->label->layout,
+				      NULL, &extents);
+  
+      env->trusted_label_width =  extents.width;
+      env->trusted_label_height = extents.height;
+    }
+  else
+    {
+      env->trusted_label_width = 0;
+      env->trusted_label_height = 0;
+    }
+}
+#endif  
   env->theme = meta_current_theme;
 }
 
@@ -3967,7 +4002,11 @@ meta_draw_op_draw_with_env (const MetaDrawOp    *op,
           {
             rx = parse_x_position_unchecked (op->data.icon.x, env);
             ry = parse_y_position_unchecked (op->data.icon.y, env);
-
+#ifdef HAVE_XTSOL
+if (tsol_is_available()) {
+	    ry = 26;
+}
+#endif
             gdk_cairo_set_source_pixbuf (cr, pixbuf, rx, ry);
             cairo_paint (cr);
 
@@ -3987,6 +4026,14 @@ meta_draw_op_draw_with_env (const MetaDrawOp    *op,
 
           rx = parse_x_position_unchecked (op->data.title.x, env);
           ry = parse_y_position_unchecked (op->data.title.y, env);
+#ifdef HAVE_XTSOL
+if (tsol_is_available()) {
+	  ry = 26;
+
+	  env->rect.y = 21;
+	  env->rect.height = 22;
+}
+#endif
 
           if (op->data.title.ellipsize_width)
             {
@@ -4054,8 +4101,107 @@ meta_draw_op_draw_with_env (const MetaDrawOp    *op,
            * if the width is already -1 */
           pango_layout_set_width (info->title_layout, -1);
         }
-      break;
+#ifdef HAVE_XTSOL
+if (tsol_is_available()) {
+      if (info->label->layout)
+        {
+          static MetaColorSpec *black = NULL;
+          static MetaColorSpec *white = NULL;
+          static GdkPixbuf   *shield_scaled = NULL;
+          int rx, ry;
+          int text_w, text_h;
+          MetaColorSpec *color;
+	  char *label_name;
+	  GdkRectangle area;
+	  GdkRGBA label_color;
+	  ConstraintImage *cimage = NULL;
+          gboolean black_text = tsol_should_label_layout_be_black (info->label->color);
+          GError **error = NULL;
+          int scaled_w, image_height;
+	  GdkPixbuf *shield_pixbuf;
+     
+          if (black == NULL)
+            {
+              black = meta_color_spec_new (META_COLOR_SPEC_BASIC);
+              white = meta_color_spec_new (META_COLOR_SPEC_BASIC);
 
+              gdk_rgba_parse (&black->data.basic.color, "black");
+              gdk_rgba_parse (&white->data.basic.color, "white");
+            }
+          pango_layout_get_pixel_size (info->label->layout,&text_w, &text_h);
+
+	  rect.height /= 2;
+          rx = ((rect.width - text_w) / 2 ) + rect.x;
+          ry = ((rect.height - text_h) / 2 ) + rect.y - 1;
+
+	  label_name = info->label->name;
+	  label_color.red = info->label->color->data.basic.color.red;
+	  label_color.green = info->label->color->data.basic.color.green;
+	  label_color.blue = info->label->color->data.basic.color.blue;
+	  label_color.alpha = info->label->color->data.basic.color.alpha;
+	  cimage = g_new0(ConstraintImage, 1);
+	  cimage->pixbuf = gdk_pixbuf_new_from_inline (-1, workspace_highlight,
+			  TRUE, NULL);
+	  area.x = rect.x;
+	  area.y = rect.y - 1;
+	  area.width = rect.width;
+	  area.height = rect.height;
+	  libgnome_tsol_constraint_image_set_border(cimage, 8, 8, 3, 3);
+	  libgnome_tsol_constraint_image_set_stretch (cimage, TRUE);
+	  libgnome_tsol_constraint_image_colorize (cimage, &label_color, 255, TRUE);
+	  
+	  libgnome_tsol_constraint_image_render (cr, cimage,
+			  gtk_widget_get_window(trusted_widget),
+			  &area,
+			  FALSE,
+			  area.x,
+			  area.y,
+			  area.width,
+			  area.height);
+	 
+
+	  if (shield_scaled == NULL) {
+	    shield_pixbuf = gdk_pixbuf_new_from_inline (-1, shield, FALSE, error);
+
+            image_height = rect.height - 6;
+
+            scaled_w = (gdk_pixbuf_get_width (shield_pixbuf) * image_height) /
+		    gdk_pixbuf_get_height (shield_pixbuf);
+
+            shield_scaled = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
+                                    TRUE,
+                                    8, scaled_w,
+                                    image_height);
+
+            gdk_pixbuf_scale (shield_pixbuf, shield_scaled, 0, 0,
+                          scaled_w, image_height, 0, 0,
+                      (double) image_height / gdk_pixbuf_get_height (shield_pixbuf),
+                      (double) image_height / gdk_pixbuf_get_height (shield_pixbuf),
+                          GDK_INTERP_HYPER);
+	    /* free shield_pixbuf */
+	  }
+
+	  if (strcmp (label_name, "Trusted Path") == 0) {
+	    gdk_cairo_set_source_pixbuf(cr, shield_scaled, rx - 24, ry + 1);
+	    cairo_paint(cr);
+	  }
+	  
+          if (black_text)
+            {
+              color = black;
+            }
+          else
+            {
+              color = white;
+            }
+
+	  gdk_cairo_set_source_rgba(cr, &color->data.basic.color);
+	  cairo_move_to(cr, rx, ry);
+	  pango_cairo_show_layout(cr, info->label->layout);
+        }
+}
+#endif
+      break;
     case META_DRAW_OP_LIST:
       {
         MetaRectangle d_rect;
@@ -4663,6 +4809,10 @@ meta_frame_style_draw_with_style (MetaFrameStyle          *style,
                                   int                      client_width,
                                   int                      client_height,
                                   PangoLayout             *title_layout,
+#ifdef HAVE_XTSOL			    
+				  GtkWidget		   *widget,
+				  MetaTrustedLabel	   *label,
+#endif			    
                                   int                      text_height,
                                   MetaButtonState          button_states[META_BUTTON_TYPE_LAST],
                                   GdkPixbuf               *mini_icon,
@@ -4681,6 +4831,11 @@ meta_frame_style_draw_with_style (MetaFrameStyle          *style,
 
   titlebar_rect.x = 0;
   titlebar_rect.y = 0;
+
+  /*
+  titlebar_rect.y = 23;
+   GLENN */
+
   titlebar_rect.width = fgeom->width;
   titlebar_rect.height = fgeom->top_height;
 
@@ -4729,7 +4884,19 @@ meta_frame_style_draw_with_style (MetaFrameStyle          *style,
   draw_info.title_layout_width = title_layout ? extents.width : 0;
   draw_info.title_layout_height = title_layout ? extents.height : 0;
   draw_info.fgeom = fgeom;
-
+#ifdef HAVE_XTSOL  
+  if (tsol_is_available ())
+    {
+      draw_info.label = label;
+      if (!label->layout)
+	label->layout = gtk_widget_create_pango_layout (widget, label->name);
+      g_object_set_data (G_OBJECT (widget), "trusted_label", label);
+      trusted_widget = widget;
+    }
+  else
+    draw_info.label = NULL;
+#endif  
+  
   /* The enum is in the order the pieces should be rendered. */
   i = 0;
   while (i < META_FRAME_PIECE_LAST)
@@ -4747,6 +4914,8 @@ meta_frame_style_draw_with_style (MetaFrameStyle          *style,
 
         case META_FRAME_PIECE_TITLEBAR:
           rect = titlebar_rect;
+	  rect.height /= 2;
+	  rect.y += 22;
           break;
 
         case META_FRAME_PIECE_LEFT_TITLEBAR_EDGE:
@@ -4900,6 +5069,9 @@ meta_frame_style_draw (MetaFrameStyle          *style,
                        int                      client_width,
                        int                      client_height,
                        PangoLayout             *title_layout,
+#ifdef HAVE_XTSOL		       
+		       MetaTrustedLabel	       *label,
+#endif		       
                        int                      text_height,
                        MetaButtonState          button_states[META_BUTTON_TYPE_LAST],
                        GdkPixbuf               *mini_icon,
@@ -4909,7 +5081,12 @@ meta_frame_style_draw (MetaFrameStyle          *style,
                                     gtk_widget_get_style_context (widget),
                                     cr,
                                     fgeom, client_width, client_height,
-                                    title_layout, text_height,
+                                    title_layout,
+#ifdef HAVE_XTSOL
+				    widget,
+				    label,
+#endif				    
+				    text_height,
                                     button_states, mini_icon, icon);
 }
 
@@ -5135,6 +5312,190 @@ meta_theme_get_current (void)
 {
   return meta_current_theme;
 }
+
+
+#ifdef HAVE_XTSOL
+static gint
+trusted_label_string_compare (MetaTrustedLabel *tmp, char *searched_label)
+{
+  return strcmp (searched_label, tmp->name);  
+}
+
+static char *
+get_window_label (Display *xdisplay, Window xwindow)
+{
+   m_label_t label;
+   int error;
+  
+  if (!tsol_is_available ())
+      return NULL;
+
+  if (libxtsol_XTSOLIsWindowTrusted (xdisplay, xwindow))
+    {
+      /* SUN_BRANDING TJDS */
+      return g_strdup (_("Trusted Path"));
+    }
+  else if (libxtsol_XTSOLgetResLabel (xdisplay, xwindow, IsWindow, &label))
+    {
+      char *string = NULL;
+      libtsol_label_to_str (&label, &string, M_LABEL, DEF_NAMES, &error);
+      return string;
+    }
+  else
+    return g_strdup ("didn't get the label\n");
+}
+
+static char *
+getlabelcolor(Display *xdisplay, Window xwindow)
+{
+#define DEFAULT_COLOR	"white"
+  char *colorname;
+  m_label_t label;
+  int error;
+  
+  if (!tsol_is_available ())
+    return NULL;
+  
+  if (libxtsol_XTSOLgetResLabel (xdisplay, xwindow, IsWindow, &label))
+    {
+      libtsol_label_to_str (&label, &colorname, M_COLOR, DEF_NAMES, &error);
+      if (colorname == NULL)
+	return g_strdup(DEFAULT_COLOR);
+      else
+	return g_strdup(colorname);
+    }
+  return NULL;
+}
+
+MetaTrustedLabel* tsol_xwindow_label_get (MetaDisplay *display, Window xwindow)
+{
+  MetaTrustedLabel *label = NULL;
+  GSList *stored_label = NULL;
+  char *label_name;
+  
+  if (!tsol_is_available ())
+    return NULL;
+
+  label_name = get_window_label (display->xdisplay, xwindow);
+  
+  /* Look if the label already exist */
+   stored_label = g_slist_find_custom (display->labels, label_name, (GCompareFunc)trusted_label_string_compare);
+
+  if (stored_label)
+    return (MetaTrustedLabel*) stored_label->data;
+
+  /* create new MetaTrustedLabel */
+  label = g_new0 (MetaTrustedLabel, 1);
+
+  label->name = label_name;
+  /* Layout is initialized in meta_frame_style_draw */ 
+
+  label->color = meta_color_spec_new (META_COLOR_SPEC_BASIC);
+
+  if (!gdk_rgba_parse (&label->color->data.basic.color,
+    (const char*)getlabelcolor (display->xdisplay, xwindow)))
+    {
+      label->color->data.basic.color.red = 1.0;
+      label->color->data.basic.color.green = 1.0;
+      label->color->data.basic.color.blue = 1.0;
+      g_warning ("gdk_color_parse couldn't parse the label color\n");
+    }
+
+  display->labels = g_slist_append (display->labels, label);
+  
+  return label;
+}
+  
+const char * 
+tsol_meta_window_label_get_name (MetaWindow  *window)
+{
+  MetaTrustedLabel *label; 
+
+  if (!tsol_is_available ())
+    return NULL;
+
+  label = tsol_xwindow_label_get (window->display, window->xwindow);
+  return label->name;
+}
+
+MetaTrustedLabel* 
+tsol_meta_window_label_get (MetaWindow  *window)
+{
+  if (!tsol_is_available ())
+    return NULL;
+
+  return tsol_xwindow_label_get (window->display, window->xwindow);
+}
+
+gboolean tsol_should_label_layout_be_black (MetaColorSpec *bkg)
+{
+  double ntsc;
+  ntsc = ((bkg->data.basic.color.red) * .4450 +
+	   (bkg->data.basic.color.blue) * .030 +
+	   (bkg->data.basic.color.green) * .525);
+
+  /* printf ("ntsc %d ->",ntsc); */
+  
+  if ((1.0 - ntsc) < .61)
+    return TRUE;
+  return FALSE;
+}
+
+MetaTrustedLabel *
+tsol_workspace_get_label (MetaWorkspace *ws)
+{
+  int error;
+  MetaTrustedLabel *label = NULL;
+  m_label_t *mlabel = NULL;
+  GSList *stored_label = NULL;
+  const char *label_name = meta_prefs_get_workspace_label (meta_workspace_index (ws));
+  
+  /* Look if the label already exist */
+  
+  stored_label = g_slist_find_custom (ws->screen->display->labels, 
+				      label_name, 
+				      (GCompareFunc)trusted_label_string_compare);
+  
+  if (stored_label)
+    return (MetaTrustedLabel*) stored_label->data;
+
+  /* create a new one otherwise */
+
+  if (libtsol_str_to_label (label_name, &mlabel,
+			    MAC_LABEL, L_NO_CORRECTION, &error) == 0) 
+    {
+      char *colorname = NULL;
+      
+      libtsol_label_to_str (mlabel, &colorname, M_COLOR, DEF_NAMES, &error);
+      
+      #define DEFAULT_COLOR "white"	 
+      
+      if (colorname == NULL)
+	colorname = g_strdup(DEFAULT_COLOR);
+   
+      label = g_new0 (MetaTrustedLabel, 1);
+
+      label->name = (char*)label_name;
+      /* Layout is initialized in meta_frame_style_draw */ 
+      
+      label->color = meta_color_spec_new (META_COLOR_SPEC_BASIC);
+      
+      if (!gdk_rgba_parse (&label->color->data.basic.color, (const char*)colorname))
+	{
+	  label->color->data.basic.color.red = 0.5;
+	  label->color->data.basic.color.green = 0.5;
+	  label->color->data.basic.color.blue = 0.5;
+	  g_warning ("gdk_rgba_parse couldn't parse the label color\n");
+	}
+      
+      ws->screen->display->labels = g_slist_append (ws->screen->display->labels, label);
+      
+      g_free (colorname);
+    }
+
+  return label;
+}
+#endif
 
 void
 meta_theme_set_current (const char *name,
@@ -5522,7 +5883,12 @@ meta_theme_draw_frame_with_style (MetaTheme              *theme,
                                   const MetaButtonLayout *button_layout,
                                   MetaButtonState         button_states[META_BUTTON_TYPE_LAST],
                                   GdkPixbuf              *mini_icon,
-                                  GdkPixbuf              *icon)
+                                  GdkPixbuf              *icon
+#ifdef HAVE_XTSOL		       
+				  ,GtkWidget		 *widget,
+				  MetaTrustedLabel	 *label
+#endif		       
+				  )
 {
   MetaFrameGeometry fgeom;
   MetaFrameStyle *style;
@@ -5549,6 +5915,10 @@ meta_theme_draw_frame_with_style (MetaTheme              *theme,
                                     &fgeom,
                                     client_width, client_height,
                                     title_layout,
+#ifdef HAVE_XTSOL
+				    widget,
+				    label,
+#endif				    
                                     text_height,
                                     button_states,
                                     mini_icon, icon);
@@ -5567,7 +5937,11 @@ meta_theme_draw_frame (MetaTheme              *theme,
                        const MetaButtonLayout *button_layout,
                        MetaButtonState         button_states[META_BUTTON_TYPE_LAST],
                        GdkPixbuf              *mini_icon,
-                       GdkPixbuf              *icon)
+                       GdkPixbuf              *icon
+#ifdef HAVE_XTSOL		       
+		       ,MetaTrustedLabel	      *label
+#endif		       
+		      )
 {
   meta_theme_draw_frame_with_style (theme,
                                     gtk_widget_get_style_context (widget),
@@ -5575,7 +5949,12 @@ meta_theme_draw_frame (MetaTheme              *theme,
                                     type, flags, client_width, client_height,
                                     title_layout, text_height,
                                     button_layout, button_states,
-                                    mini_icon, icon);
+                                    mini_icon, icon
+#ifdef HAVE_XTSOL			     
+				    ,widget,
+				    label
+#endif									    
+				    );
 }
 
 void
@@ -5591,7 +5970,11 @@ meta_theme_draw_frame_by_name (MetaTheme              *theme,
                                const MetaButtonLayout *button_layout,
                                MetaButtonState         button_states[META_BUTTON_TYPE_LAST],
                                GdkPixbuf              *mini_icon,
-                               GdkPixbuf              *icon)
+                               GdkPixbuf              *icon
+#ifdef HAVE_XTSOL		       
+			      ,MetaTrustedLabel	      *label
+#endif		       
+			       )
 {
   MetaFrameGeometry fgeom;
   MetaFrameStyle *style;
@@ -5616,6 +5999,9 @@ meta_theme_draw_frame_by_name (MetaTheme              *theme,
                          &fgeom,
                          client_width, client_height,
                          title_layout,
+#ifdef HAVE_XTSOL			 
+			 label,
+#endif			 
                          text_height,
                          button_states,
                          mini_icon, icon);
