@@ -1,0 +1,4438 @@
+commit 64349db3442376c2d35318011374ebfd2e4b2751
+Author: raveit65 <mate@raveit.de>
+Date:   Sat Feb 23 17:01:38 2019 +0100
+
+    release 1.22.0
+
+ NEWS         | 7 +++++++
+ configure.ac | 2 +-
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+commit ad86f3d08d665def892feb2a09636788cba19933
+Author: raveit65 <mate@raveit.de>
+Date:   Sat Feb 23 16:58:41 2019 +0100
+
+    tx: sync with transifex
+
+ po/LINGUAS        |   1 +
+ po/af.po          |  11 ++--
+ po/am.po          |  11 ++--
+ po/ar.po          |  15 +++--
+ po/as.po          |  11 ++--
+ po/ast.po         |  12 ++--
+ po/az.po          |  11 ++--
+ po/be.po          |  11 ++--
+ po/bg.po          |  14 +++--
+ po/bn.po          |  11 ++--
+ po/bn_IN.po       |  11 ++--
+ po/br.po          |  12 ++--
+ po/bs.po          |  11 ++--
+ po/ca.po          |  12 ++--
+ po/ca@valencia.po |  11 ++--
+ po/cmn.po         |  11 ++--
+ po/crh.po         |  11 ++--
+ po/cs.po          |  15 +++--
+ po/cy.po          |  11 ++--
+ po/da.po          |  12 ++--
+ po/de.po          |  14 +++--
+ po/dz.po          |  11 ++--
+ po/el.po          |  19 ++++--
+ po/en_AU.po       |  11 ++--
+ po/en_CA.po       |  11 ++--
+ po/en_GB.po       |  12 ++--
+ po/eo.po          |  11 ++--
+ po/es.po          |  16 +++--
+ po/es_AR.po       |  80 +++++++++++++-----------
+ po/es_CL.po       |  17 +++--
+ po/es_CO.po       |  12 ++--
+ po/es_MX.po       |  11 ++--
+ po/et.po          |  13 ++--
+ po/eu.po          |  12 ++--
+ po/fa.po          |  11 ++--
+ po/fi.po          |  12 ++--
+ po/fr.po          |  15 +++--
+ po/fr_CA.po       |  11 ++--
+ po/frp.po         |  11 ++--
+ po/ga.po          |  11 ++--
+ po/gl.po          |  16 +++--
+ po/gu.po          |  11 ++--
+ po/ha.po          |  11 ++--
+ po/he.po          |  13 ++--
+ po/hi.po          |  11 ++--
+ po/hr.po          |  14 +++--
+ po/hu.po          |  13 ++--
+ po/hy.po          |  12 ++--
+ po/id.po          |  16 +++--
+ po/ig.po          |  11 ++--
+ po/is.po          |  11 ++--
+ po/it.po          |  15 +++--
+ po/ja.po          |  13 ++--
+ po/ka.po          |  11 ++--
+ po/kab.po         | 183 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/kk.po          |  11 ++--
+ po/kn.po          |  12 ++--
+ po/ko.po          |  12 ++--
+ po/ku.po          |  11 ++--
+ po/ku_IQ.po       |  11 ++--
+ po/ky.po          |  11 ++--
+ po/lt.po          |  14 +++--
+ po/lv.po          |  12 ++--
+ po/mai.po         |  11 ++--
+ po/mg.po          |  11 ++--
+ po/mk.po          |  11 ++--
+ po/ml.po          |  11 ++--
+ po/mn.po          |  11 ++--
+ po/mr.po          |  11 ++--
+ po/ms.po          |  12 ++--
+ po/nb.po          |  13 ++--
+ po/nds.po         |  84 +++++++++++++------------
+ po/ne.po          |  11 ++--
+ po/nl.po          |  12 ++--
+ po/nn.po          |  11 ++--
+ po/oc.po          |  13 ++--
+ po/or.po          |  11 ++--
+ po/pa.po          |  11 ++--
+ po/pl.po          |  16 +++--
+ po/ps.po          |  11 ++--
+ po/pt.po          |  18 ++++--
+ po/pt_BR.po       |  16 +++--
+ po/ro.po          |  13 ++--
+ po/ru.po          |  14 +++--
+ po/sc.po          |  11 ++--
+ po/si.po          |  11 ++--
+ po/sk.po          |  13 ++--
+ po/sl.po          |  15 +++--
+ po/sq.po          |  12 ++--
+ po/sr.po          |  12 ++--
+ po/sr@latin.po    |  11 ++--
+ po/sv.po          |  18 ++++--
+ po/ta.po          |  11 ++--
+ po/te.po          |  12 ++--
+ po/th.po          |  12 ++--
+ po/tr.po          |  14 +++--
+ po/ug.po          |  11 ++--
+ po/uk.po          |  25 +++++---
+ po/ur.po          |  11 ++--
+ po/uz.po          |  12 ++--
+ po/vi.po          |  12 ++--
+ po/wa.po          |  11 ++--
+ po/xh.po          |  11 ++--
+ po/yo.po          |  11 ++--
+ po/zh_CN.po       |  17 +++--
+ po/zh_HK.po       |  11 ++--
+ po/zh_TW.po       |  12 ++--
+ 107 files changed, 1130 insertions(+), 499 deletions(-)
+
+commit e143ad579dc1d22101260843ee51d52ba3ce8626
+Author: Wu Xiaotian <yetist@gmail.com>
+Date:   Sat Feb 16 22:17:56 2019 +0800
+
+    Prepare for docker-build 0.1.1 merge into master
+    
+    Please see mate-desktop/mate-dev-scripts#13
+
+ .travis.yml | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
+
+commit 3964e37f882d7d18631b1aafc3cc48213733e01e
+Author: raveit65 <mate@raveit.de>
+Date:   Sun Feb 10 13:12:24 2019 +0100
+
+    Revert "tx: fix Content-Type in resource file"
+    
+    This reverts commit 7eaf97381092b7b2f4a9d5180cdc36dfd61aa4f2.
+    
+    This is wrong.
+
+ mate-notification-daemon.pot | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 7eaf97381092b7b2f4a9d5180cdc36dfd61aa4f2
+Author: raveit65 <mate@raveit.de>
+Date:   Sun Feb 10 13:10:29 2019 +0100
+
+    tx: fix Content-Type in resource file
+
+ mate-notification-daemon.pot | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit ae121af4d84a5c95c81f9e62b972043068ba0a18
+Author: Wu Xiaotian <yetist@gmail.com>
+Date:   Thu Feb 7 23:01:49 2019 +0800
+
+    update to use archlinux/base image
+
+ .travis.yml | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+commit fa47df139b3c52f9d54391338c6d7f4f54b7444c
+Author: Wu Xiaotian <yetist@gmail.com>
+Date:   Sun Jan 27 19:08:11 2019 +0800
+
+    Update to use the latest docker-build script.
+
+ .docker.json | 72 ----------------------------------------------------
+ .travis.yml  | 83 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++---
+ 2 files changed, 80 insertions(+), 75 deletions(-)
+
+commit 8e2df0852ec4622f5652175e0effb5cadb1911c8
+Author: raveit65 <mate@raveit.de>
+Date:   Sun Jan 27 10:36:29 2019 +0100
+
+    add debian sid to travis-CI config
+
+ .docker.json | 24 ++++++++++++++++++++++++
+ .travis.yml  |  1 +
+ 2 files changed, 25 insertions(+)
+
+commit be2d132356e71266b7e387401a8014e77c1451e9
+Author: raveit65 <mate@raveit.de>
+Date:   Sat Jan 26 14:51:52 2019 +0100
+
+    initial travis-CI support
+
+ .docker.json | 48 ++++++++++++++++++++++++++++++++++++++++++++++++
+ .travis.yml  | 18 ++++++++++++++++++
+ 2 files changed, 66 insertions(+)
+
+commit 7f070a41f05f1430c23e77ea694825537c7ccb5e
+Author: raveit65 <mate@raveit.de>
+Date:   Thu Dec 20 20:33:31 2018 +0100
+
+    tx: fix typo in previous commit
+
+ mate-notification-daemon.pot | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 231ab0a1615d64a442316a8a50d688a1b15a718b
+Author: raveit65 <mate@raveit.de>
+Date:   Thu Dec 20 20:15:03 2018 +0100
+
+    tx: fix Project-Id-Version and Content-Type in resource file
+
+ mate-notification-daemon.pot | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+commit cf5a9a16832f037b1e0a4e9114208bb061892daa
+Author: raveit65 <mate@raveit.de>
+Date:   Thu Dec 20 19:36:42 2018 +0100
+
+    disable deprecation warnings for distcheck
+
+ Makefile.am | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit c586fe539efb8af372e60c752e03cb950cee9e77
+Author: Wu Xiaotian <yetist@gmail.com>
+Date:   Sat Dec 1 19:10:45 2018 +0800
+
+    Avoid compile warning for g_type_class_add_private
+    
+    - src/daemon/daemon.c
+    - src/daemon/daemon.h
+
+ src/daemon/daemon.c | 177 +++++++++++++++++++++++++---------------------------
+ src/daemon/daemon.h |  28 +--------
+ 2 files changed, 87 insertions(+), 118 deletions(-)
+
+commit 8c60800f02bae75c378fb7a2fbe80173e8629e61
+Author: raveit65 <mate@raveit.de>
+Date:   Fri Jun 22 18:05:22 2018 +0200
+
+    release 1.21.0
+
+ NEWS | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit 3f3bc5483737e0e0a519929e8dd8693b333f1e2b
+Author: raveit65 <mate@raveit.de>
+Date:   Fri Jun 22 18:02:31 2018 +0200
+
+    sync with transifex
+
+ po/LINGUAS        |  32 ++++++++++
+ po/af.po          |  55 +++++++++--------
+ po/am.po          |  67 ++++++++++----------
+ po/ar.po          |  65 ++++++++++----------
+ po/as.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ast.po         |  55 ++++++++---------
+ po/az.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/be.po          |  53 ++++++++--------
+ po/bg.po          |  62 +++++++++----------
+ po/bn.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/bn_IN.po       | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/br.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/bs.po          |  51 ++++++++--------
+ po/ca.po          |  65 ++++++++++----------
+ po/ca@valencia.po |  61 +++++++++---------
+ po/cmn.po         |  54 ++++++++--------
+ po/crh.po         | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/cs.po          |  67 ++++++++++----------
+ po/cy.po          |  53 ++++++++--------
+ po/da.po          |  59 +++++++++---------
+ po/de.po          |  65 ++++++++++----------
+ po/dz.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/el.po          |  66 ++++++++++----------
+ po/en_AU.po       |  61 +++++++++---------
+ po/en_CA.po       | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/en_GB.po       |  60 +++++++++---------
+ po/eo.po          |  51 ++++++++--------
+ po/es.po          |  65 ++++++++++----------
+ po/es_AR.po       | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_CL.po       |  60 +++++++++---------
+ po/es_CO.po       |  61 +++++++++---------
+ po/es_MX.po       |  61 +++++++++---------
+ po/et.po          |  74 +++++++++++-----------
+ po/eu.po          |  67 ++++++++++----------
+ po/fa.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/fi.po          |  59 +++++++++---------
+ po/fr.po          |  68 +++++++++++----------
+ po/fr_CA.po       |  51 ++++++++--------
+ po/frp.po         |  51 ++++++++--------
+ po/ga.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/gl.po          |  69 +++++++++++----------
+ po/gu.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ha.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/he.po          |  64 +++++++++----------
+ po/hi.po          |  59 +++++++++---------
+ po/hr.po          |  67 ++++++++++----------
+ po/hu.po          |  61 +++++++++---------
+ po/hy.po          |  61 +++++++++---------
+ po/id.po          |  66 ++++++++++----------
+ po/ig.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/is.po          |  64 +++++++++----------
+ po/it.po          |  67 ++++++++++----------
+ po/ja.po          |  60 +++++++++---------
+ po/ka.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/kk.po          |  62 ++++++++++---------
+ po/kn.po          |  57 +++++++++--------
+ po/ko.po          |  57 +++++++++--------
+ po/ku.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ku_IQ.po       |  53 ++++++++--------
+ po/ky.po          |  54 ++++++++--------
+ po/lt.po          |  65 ++++++++++----------
+ po/lv.po          |  60 +++++++++---------
+ po/mai.po         | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mg.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mk.po          |  59 +++++++++---------
+ po/ml.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mn.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mr.po          |  55 +++++++++--------
+ po/ms.po          |  62 ++++++++++---------
+ po/nb.po          |  61 +++++++++---------
+ po/nds.po         | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ne.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/nl.po          |  62 +++++++++----------
+ po/nn.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/oc.po          |  54 ++++++++--------
+ po/or.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pa.po          |  56 +++++++++--------
+ po/pl.po          |  65 ++++++++++----------
+ po/ps.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pt.po          |  64 +++++++++----------
+ po/pt_BR.po       |  64 ++++++++++---------
+ po/ro.po          |  64 +++++++++----------
+ po/ru.po          |  67 ++++++++++----------
+ po/sc.po          |  60 +++++++++---------
+ po/si.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sk.po          |  68 +++++++++++----------
+ po/sl.po          |  69 ++++++++++-----------
+ po/sq.po          |  56 ++++++++---------
+ po/sr.po          |  63 ++++++++++---------
+ po/sr@latin.po    | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sv.po          |  66 ++++++++++----------
+ po/ta.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/te.po          |  57 +++++++++--------
+ po/th.po          |  55 ++++++++---------
+ po/tr.po          |  65 ++++++++++----------
+ po/ug.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/uk.po          |  71 +++++++++++----------
+ po/ur.po          |  57 ++++++++---------
+ po/uz.po          |  52 ++++++++--------
+ po/vi.po          |  61 +++++++++---------
+ po/wa.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/xh.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/yo.po          | 180 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/zh_CN.po       |  58 +++++++++---------
+ po/zh_HK.po       |  51 ++++++++--------
+ po/zh_TW.po       |  57 +++++++++--------
+ 106 files changed, 8046 insertions(+), 2178 deletions(-)
+
+commit 73ad070f5f7956ec56657d219586cdac191f4261
+Author: raveit65 <mate@raveit.de>
+Date:   Fri Jun 15 17:18:11 2018 +0200
+
+    update .pot file
+
+ mate-notification-daemon.pot | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
+
+commit 106ec3bdda5ab3e551b615b4431b593fbcb8a280
+Author: raveit65 <mate@raveit.de>
+Date:   Fri Jun 15 17:11:55 2018 +0200
+
+    pre-bump version
+
+ NEWS         | 2 ++
+ configure.ac | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit 8217f2d58544c3f25bd793091593d616b4f0fd1d
+Author: yetist <yetist@gmail.com>
+Date:   Tue May 8 13:22:02 2018 +0800
+
+    Drop dbus-glib dependence
+
+ configure.ac | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+commit dccffbc0a11a130ead7fd7101d90a2d8c043bfec
+Author: yetist <yetist@gmail.com>
+Date:   Tue May 8 13:22:49 2018 +0800
+
+    Use GVariant
+
+ src/daemon/engines.c             |  4 ++--
+ src/daemon/engines.h             |  2 +-
+ src/themes/coco/coco-theme.c     | 19 +++++++++----------
+ src/themes/nodoka/nodoka-theme.c | 19 +++++++++----------
+ src/themes/slider/theme.c        | 18 +++++++++---------
+ src/themes/standard/theme.c      | 18 +++++++++---------
+ 6 files changed, 39 insertions(+), 41 deletions(-)
+
+commit 960df18a456f5171a2f5e052278df64d6c663989
+Author: yetist <yetist@gmail.com>
+Date:   Tue May 8 13:20:19 2018 +0800
+
+    Migrate from dbus-glib to GDBus
+
+ src/daemon/daemon.c | 578 ++++++++++++++++++++++++----------------------------
+ src/daemon/daemon.h |  22 +-
+ 2 files changed, 267 insertions(+), 333 deletions(-)
+
+commit f26d490bfe55fe508b46819c41c8557ab3085bb1
+Author: yetist <yetist@gmail.com>
+Date:   Tue May 8 13:16:58 2018 +0800
+
+    Add signals, remove annotation from xml file
+
+ src/daemon/notificationdaemon.xml | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+
+commit 4362bc352733b9729b2acd7bf9c4b0991e35fb87
+Author: yetist <yetist@gmail.com>
+Date:   Tue May 8 13:16:03 2018 +0800
+
+    Use gdbus generate files
+
+ src/daemon/Makefile.am | 20 ++++++++++++++------
+ 1 file changed, 14 insertions(+), 6 deletions(-)
+
+commit 5e688bfb146b9731496650eb8dcaf5ef9ba778ad
+Author: yetist <yetist@gmail.com>
+Date:   Tue May 8 13:14:22 2018 +0800
+
+    Add new file
+
+ src/daemon/mnd-daemon.c | 93 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 93 insertions(+)
+
+commit 6fd50ad6440bb348e78f7206deb2be8f8b047e67
+Author: yetist <yetist@gmail.com>
+Date:   Tue May 8 17:29:26 2018 +0800
+
+    Fix some gdk deprecations
+
+ src/daemon/daemon.c | 30 +++++++++++++++---------------
+ 1 file changed, 15 insertions(+), 15 deletions(-)
+
+commit 178eacc6c110f692a1f0425635a7a51049e96466
+Author: Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
+Date:   Wed Apr 18 13:23:32 2018 +0200
+
+    src/daemon/daemon.c: Replace deprecated gvfs-open call by "gio open" from libglib2.0-bin.
+
+ src/daemon/daemon.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 3e43e3cb5c028740410d7951d635ee981899640f
+Author: raveit65 <mate@raveit.de>
+Date:   Fri Mar 23 13:30:21 2018 +0100
+
+    tx: update config with branch specific resoures
+
+ .tx/config | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit a0aeb0b6ff9b836c600a9dcef04a019f9c06392f
+Author: raveit65 <mate@raveit.de>
+Date:   Sat Mar 17 10:17:02 2018 +0100
+
+    tx: add makepot and .pot files
+
+ makepot                      |   5 ++
+ mate-notification-daemon.pot | 180 +++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 185 insertions(+)
+
+commit 34baf35219a6fccce555f4b4a9a9b2f5a5802942
+Author: raveit65 <mate@raveit.de>
+Date:   Sun Mar 11 20:41:52 2018 +0100
+
+    transifex: set minimum_perc and type in config file
+
+ .tx/config | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit f37c85812353685d83a5a3deeadef540060c858a
+Author: raveit65 <mate@raveit.de>
+Date:   Tue Jan 30 09:14:27 2018 +0100
+
+    release 1.20
+
+ NEWS         | 5 +++++
+ configure.ac | 2 +-
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+
+commit 4160bc0f979fd224011386a429c9e82f60358dda
+Author: raveit65 <mate@raveit.de>
+Date:   Tue Jan 30 09:11:05 2018 +0100
+
+    sync with transifex
+
+ po/es.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit bc42c561e29041c168b806a5618580066aa8a222
+Author: monsta <monsta@inbox.ru>
+Date:   Sun Jan 28 20:16:44 2018 +0300
+
+    require GTK+ 3.22 and GLib 2.50
+    
+    and drop additional checks for min/max GLib versions, it's not needed
+
+ configure.ac                               | 10 +----
+ src/capplet/mate-notification-properties.c |  4 --
+ src/daemon/daemon.c                        | 60 ------------------------------
+ src/daemon/stack.c                         | 24 +-----------
+ src/daemon/stack.h                         |  4 --
+ src/themes/coco/coco-theme.c               | 12 ------
+ src/themes/nodoka/nodoka-theme.c           | 12 ------
+ src/themes/slider/theme.c                  | 12 ------
+ src/themes/standard/theme.c                | 30 ---------------
+ 9 files changed, 3 insertions(+), 165 deletions(-)
+
+commit 4a4687f22d854e5d4736830f513c577439e42151
+Author: raveit65 <mate@raveit.de>
+Date:   Tue Dec 26 16:28:09 2017 +0100
+
+    release 1.19.1
+
+ NEWS         | 5 +++++
+ configure.ac | 2 +-
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+
+commit 4d172ce7ae8d0ce09e0f6964a9cf6ceb63d06ec5
+Author: raveit65 <mate@raveit.de>
+Date:   Tue Dec 26 16:26:17 2017 +0100
+
+    sync with transifex
+
+ po/af.po          | 42 ++++++++++++++++++++---------------------
+ po/am.po          | 42 ++++++++++++++++++++---------------------
+ po/ar.po          | 42 ++++++++++++++++++++---------------------
+ po/ast.po         | 42 ++++++++++++++++++++---------------------
+ po/be.po          | 42 ++++++++++++++++++++---------------------
+ po/bg.po          | 42 ++++++++++++++++++++---------------------
+ po/bs.po          | 42 ++++++++++++++++++++---------------------
+ po/ca.po          | 42 ++++++++++++++++++++---------------------
+ po/ca@valencia.po | 44 +++++++++++++++++++++----------------------
+ po/cmn.po         | 42 ++++++++++++++++++++---------------------
+ po/cs.po          | 42 ++++++++++++++++++++---------------------
+ po/cy.po          | 42 ++++++++++++++++++++---------------------
+ po/da.po          | 42 ++++++++++++++++++++---------------------
+ po/de.po          | 42 ++++++++++++++++++++---------------------
+ po/el.po          | 42 ++++++++++++++++++++---------------------
+ po/en_AU.po       | 42 ++++++++++++++++++++---------------------
+ po/en_GB.po       | 42 ++++++++++++++++++++---------------------
+ po/eo.po          | 42 ++++++++++++++++++++---------------------
+ po/es.po          | 44 +++++++++++++++++++++----------------------
+ po/es_CL.po       | 42 ++++++++++++++++++++---------------------
+ po/es_CO.po       | 42 ++++++++++++++++++++---------------------
+ po/es_MX.po       | 42 ++++++++++++++++++++---------------------
+ po/et.po          | 42 ++++++++++++++++++++---------------------
+ po/eu.po          | 42 ++++++++++++++++++++---------------------
+ po/fi.po          | 42 ++++++++++++++++++++---------------------
+ po/fr.po          | 42 ++++++++++++++++++++---------------------
+ po/fr_CA.po       | 42 ++++++++++++++++++++---------------------
+ po/frp.po         | 42 ++++++++++++++++++++---------------------
+ po/gl.po          | 42 ++++++++++++++++++++---------------------
+ po/he.po          | 56 +++++++++++++++++++++++++++----------------------------
+ po/hi.po          | 42 ++++++++++++++++++++---------------------
+ po/hr.po          | 42 ++++++++++++++++++++---------------------
+ po/hu.po          | 42 ++++++++++++++++++++---------------------
+ po/hy.po          | 42 ++++++++++++++++++++---------------------
+ po/id.po          | 42 ++++++++++++++++++++---------------------
+ po/is.po          | 42 ++++++++++++++++++++---------------------
+ po/it.po          | 42 ++++++++++++++++++++---------------------
+ po/ja.po          | 42 ++++++++++++++++++++---------------------
+ po/kk.po          | 42 ++++++++++++++++++++---------------------
+ po/kn.po          | 42 ++++++++++++++++++++---------------------
+ po/ko.po          | 42 ++++++++++++++++++++---------------------
+ po/ku_IQ.po       | 42 ++++++++++++++++++++---------------------
+ po/ky.po          | 42 ++++++++++++++++++++---------------------
+ po/lt.po          | 42 ++++++++++++++++++++---------------------
+ po/lv.po          | 42 ++++++++++++++++++++---------------------
+ po/mk.po          | 42 ++++++++++++++++++++---------------------
+ po/mr.po          | 42 ++++++++++++++++++++---------------------
+ po/ms.po          | 42 ++++++++++++++++++++---------------------
+ po/nb.po          | 42 ++++++++++++++++++++---------------------
+ po/nl.po          | 42 ++++++++++++++++++++---------------------
+ po/oc.po          | 42 ++++++++++++++++++++---------------------
+ po/pa.po          | 42 ++++++++++++++++++++---------------------
+ po/pl.po          | 42 ++++++++++++++++++++---------------------
+ po/pt.po          | 42 ++++++++++++++++++++---------------------
+ po/pt_BR.po       | 42 ++++++++++++++++++++---------------------
+ po/ro.po          | 42 ++++++++++++++++++++---------------------
+ po/ru.po          | 44 +++++++++++++++++++++----------------------
+ po/sc.po          | 42 ++++++++++++++++++++---------------------
+ po/sk.po          | 46 ++++++++++++++++++++++-----------------------
+ po/sl.po          | 42 ++++++++++++++++++++---------------------
+ po/sq.po          | 42 ++++++++++++++++++++---------------------
+ po/sr.po          | 42 ++++++++++++++++++++---------------------
+ po/sv.po          | 49 ++++++++++++++++++++++++------------------------
+ po/te.po          | 42 ++++++++++++++++++++---------------------
+ po/th.po          | 42 ++++++++++++++++++++---------------------
+ po/tr.po          | 42 ++++++++++++++++++++---------------------
+ po/uk.po          | 42 ++++++++++++++++++++---------------------
+ po/ur.po          | 42 ++++++++++++++++++++---------------------
+ po/uz.po          | 42 ++++++++++++++++++++---------------------
+ po/vi.po          | 42 ++++++++++++++++++++---------------------
+ po/zh_CN.po       | 42 ++++++++++++++++++++---------------------
+ po/zh_HK.po       | 42 ++++++++++++++++++++---------------------
+ po/zh_TW.po       | 42 ++++++++++++++++++++---------------------
+ 73 files changed, 1549 insertions(+), 1548 deletions(-)
+
+commit 34faef680f7b084a1e9d844a438473c90f7d2224
+Author: Pablo Barciela <scow@riseup.net>
+Date:   Tue Dec 12 20:36:29 2017 +0100
+
+    WidthOfScreen and HeightOfScreen implementation
+    
+    This commit reverts:
+    
+    https://github.com/mate-desktop/mate-notification-daemon/commit/52b7c3807e71278f2d902a79cf6c08c839a1b0ad
+    
+    And it applies an alternative to fix the deprecated functions:
+    
+    gdk_screen_get_width
+    gdk_screen_get_height
+
+ src/daemon/stack.c               | 5 ++---
+ src/themes/nodoka/nodoka-theme.c | 9 +++++----
+ 2 files changed, 7 insertions(+), 7 deletions(-)
+
+commit f981a2b53fe54e3489d3b14aa0dd04047d3cd6aa
+Author: raveit65 <mate@raveit.de>
+Date:   Sat Sep 2 09:11:49 2017 +0200
+
+    release 1.19.0
+
+ NEWS | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+commit 8cc9c2a426efdedd0268f4768b1cc75038345f11
+Author: raveit65 <mate@raveit.de>
+Date:   Sat Sep 2 09:09:11 2017 +0200
+
+    sync with transifex
+
+ po/ar.po    | 11 ++++-----
+ po/ca.po    |  5 +++--
+ po/eo.po    |  2 +-
+ po/es_CL.po |  2 +-
+ po/es_CO.po | 13 ++++++-----
+ po/hy.po    |  4 ++--
+ po/kk.po    | 69 ++++++++++++++++++++++++++++----------------------------
+ po/lt.po    | 12 +++++-----
+ po/nl.po    | 53 ++++++++++++++++++++++---------------------
+ po/pl.po    |  6 ++---
+ po/pt.po    |  8 +++----
+ po/sv.po    |  9 ++++----
+ po/vi.po    | 75 +++++++++++++++++++++++++++++++------------------------------
+ 13 files changed, 138 insertions(+), 131 deletions(-)
+
+commit c556e09077bb820e752d7266d2b20328db629883
+Author: ZenWalker <scow@riseup.net>
+Date:   Tue Aug 29 01:27:00 2017 +0200
+
+    gtk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
+    
+    avoid deprecated:
+    
+    gdk_screen_get_monitor_geometry
+    gdk_screen_get_monitor_at_point
+
+ src/daemon/daemon.c         | 57 +++++++++++++++++++++++++++++++++++++++++++++
+ src/daemon/stack.c          | 33 +++++++++++++++++++++++++-
+ src/daemon/stack.h          |  4 ++++
+ src/themes/standard/theme.c | 22 +++++++++++++++++
+ 4 files changed, 115 insertions(+), 1 deletion(-)
+
+commit 52b7c3807e71278f2d902a79cf6c08c839a1b0ad
+Author: ZenWalker <scow@riseup.net>
+Date:   Tue Aug 8 02:43:13 2017 +0200
+
+    avoid deprecated gdk_screen_get_width/height
+
+ src/daemon/stack.c               | 5 +++--
+ src/themes/nodoka/nodoka-theme.c | 8 ++++----
+ 2 files changed, 7 insertions(+), 6 deletions(-)
+
+commit c11a2ac7a568b83fb0327e831519981a465bc51f
+Author: ZenWalker <scow@riseup.net>
+Date:   Sat Aug 5 00:42:08 2017 +0200
+
+    avoid deprecated gdk_screen_get_n_monitors
+
+ src/capplet/mate-notification-properties.c |  4 ++++
+ src/daemon/daemon.c                        | 16 ++++++++++++++++
+ src/daemon/stack.c                         |  8 ++++++++
+ 3 files changed, 28 insertions(+)
+
+commit 296116088fca1ea8a261c49233fec407bd9098f6
+Author: Jury Verrigni <jury.verrigni@gmail.com>
+Date:   Wed Aug 9 14:35:37 2017 +0100
+
+    Fixes high cpu usage with large timeouts
+
+ src/daemon/daemon.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0a84eac2c5115d6a21e98e4797fbf6407cf5712b
+Author: Alfio Emanuele Fresta <alfio.emanuele.f@gmail.com>
+Date:   Sat Aug 5 22:18:55 2017 +0100
+
+    unescape URI-encode paths for icon files
+    
+    Fix #117
+
+ src/daemon/daemon.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+commit 21f4fb4f254a9a11a55ad191c302a7f8b8f12506
+Author: raveit65 <mate@raveit.de>
+Date:   Tue Jul 18 15:18:46 2017 +0200
+
+    update issue_template
+
+ .github/issue_template.md | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit 0e76a3032d1e8db658429859703d3c491346574d
+Author: raveit65 <mate@raveit.de>
+Date:   Thu Jun 8 19:07:56 2017 +0200
+
+    create issue_template.md
+
+ .github/issue_template.md | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+commit 51c32413531506ad395f91d4feb3318eccf349d5
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Sat May 20 17:43:07 2017 +0200
+
+    Restore Polish translation credits from GNOME
+
+ po/gnome-copyrights.txt | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+commit c6a0d09d81a6950a43cd86de8578d5c66c9a0067
+Author: raveit65 <mate@raveit.de>
+Date:   Thu Mar 30 18:02:54 2017 +0200
+
+    pre-bump version
+
+ NEWS         | 2 ++
+ configure.ac | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit 3a27975c11b22a4bddf63af7f7f9fe4196fc3923
+Author: raveit65 <mate@raveit.de>
+Date:   Sun Mar 12 20:46:36 2017 +0100
+
+    release 1.18.0
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4ae06f091b508c22f25b91bbc1214a8bc8317ef4
+Author: raveit65 <mate@raveit.de>
+Date:   Sun Mar 12 20:45:43 2017 +0100
+
+    sync with transifex
+
+ po/af.po    |  2 +-
+ po/ar.po    |  2 +-
+ po/ast.po   |  2 +-
+ po/be.po    |  2 +-
+ po/cmn.po   |  2 +-
+ po/cy.po    |  2 +-
+ po/el.po    | 13 +++++++------
+ po/eo.po    |  2 +-
+ po/es_CL.po |  2 +-
+ po/es_MX.po |  2 +-
+ po/et.po    |  2 +-
+ po/eu.po    |  2 +-
+ po/fi.po    |  2 +-
+ po/fr_CA.po |  2 +-
+ po/frp.po   |  2 +-
+ po/gl.po    |  2 +-
+ po/he.po    |  2 +-
+ po/hi.po    |  2 +-
+ po/hr.po    |  2 +-
+ po/is.po    |  2 +-
+ po/kk.po    |  2 +-
+ po/ky.po    |  2 +-
+ po/lv.po    |  2 +-
+ po/mk.po    |  2 +-
+ po/mr.po    |  2 +-
+ po/oc.po    |  2 +-
+ po/pa.po    |  2 +-
+ po/pl.po    |  2 +-
+ po/ro.po    |  2 +-
+ po/sc.po    |  2 +-
+ po/sl.po    |  2 +-
+ po/sq.po    |  2 +-
+ po/sv.po    |  7 ++++---
+ po/te.po    |  2 +-
+ po/th.po    |  2 +-
+ po/uk.po    |  6 +++---
+ po/ur.po    |  2 +-
+ po/uz.po    |  2 +-
+ po/vi.po    |  2 +-
+ po/zh_HK.po |  2 +-
+ 40 files changed, 51 insertions(+), 49 deletions(-)
+
+commit 7e161ce2e63fe04964152e3b7339058871e65672
+Author: monsta <monsta@inbox.ru>
+Date:   Sun Mar 12 22:08:08 2017 +0300
+
+    update NEWS for 1.18
+
+ NEWS | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+commit 6b271fc2b2256708c4e18a503498427a0dc8af0e
+Author: raveit65 <mate@raveit.de>
+Date:   Wed Feb 22 08:41:23 2017 +0100
+
+    pre-bump version
+
+ NEWS         | 4 +++-
+ configure.ac | 2 +-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+commit 3d51b589ec4e64b4b8beea783cf3336aac4e6cd7
+Author: Ikey Doherty <ikey@solus-project.com>
+Date:   Thu Nov 17 00:55:48 2016 +0000
+
+    themes/slider: Vertically center the pie_countdown
+    
+    Prior to this change we could end up with a warped pie countdown if the
+    buttons were of a larger size, breaking the constraints of the pie to be
+    vertically stretched.
+    
+    Signed-off-by: Ikey Doherty <ikey@solus-project.com>
+
+ src/themes/slider/theme.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 471a3762c1b1b1515c8e5975e78ad5ebb11986d1
+Author: Ikey Doherty <ikey@solus-project.com>
+Date:   Wed Nov 16 18:44:50 2016 +0000
+
+    themes: Implement support for action-icons buttons
+    
+    Now that all of the elements are in place to support (dynamically) the
+    action icons, we can use the 'key' in place of the 'label' when the client
+    sends an hint requesting it.
+    
+    Some other minor issues were corrected in this change, such as ensuring that
+    we always show *all* widgets inside of the notification window so that when
+    a live notification window is updated, the action box state is not then
+    hidden from view.
+    
+    Signed-off-by: Ikey Doherty <ikey@solus-project.com>
+
+ src/themes/coco/coco-theme.c     | 13 +++++++++++--
+ src/themes/nodoka/nodoka-theme.c | 13 +++++++++++--
+ src/themes/slider/theme.c        | 15 ++++++++++++---
+ src/themes/standard/theme.c      | 14 +++++++++++---
+ 4 files changed, 45 insertions(+), 10 deletions(-)
+
+commit 70425533f5648d00113e7bfeabe52198c6bbdad8
+Author: Ikey Doherty <ikey@solus-project.com>
+Date:   Wed Nov 16 18:09:50 2016 +0000
+
+    themes: Ensure that we never add more than one pie_countdown
+    
+    Prior to this commit we would always end up adding multiple pie_countdown
+    widgets in a number of situations when updating the notification. In modern
+    media player apps, many updates are sent for the lifetime of a single
+    notification window, leading to new drawing areas being added and counting
+    down with each track/information change.
+    
+    Note this hasn't been noticable for quite some time, because in many of the
+    themes the pie countdown hasn't actually been visible due to the actions
+    box having become hidden completely, meaning that the actions and pie show
+    very briefly, and are immediately nuked on a change to the notification.
+    
+    Signed-off-by: Ikey Doherty <ikey@solus-project.com>
+
+ src/themes/coco/coco-theme.c     | 21 ++++++++++++---------
+ src/themes/nodoka/nodoka-theme.c | 21 ++++++++++++---------
+ src/themes/slider/theme.c        | 20 ++++++++++++--------
+ src/themes/standard/theme.c      | 18 ++++++++++++------
+ 4 files changed, 48 insertions(+), 32 deletions(-)
+
+commit 124254a41b45b790866c8df8d116a7bbef47ca50
+Author: Ikey Doherty <ikey@solus-project.com>
+Date:   Wed Nov 16 17:43:24 2016 +0000
+
+    themes: Add functionality to test for presence of action-icons
+    
+    Each of the themes will have to detect the 'action-icons' hint passed to
+    them in 'set_notification_hints' to make a determination on whether or not
+    to use image based buttons, instead of textual buttons, in their actions
+    boxes.
+    
+    This factory behaviour simply extends the existing checks for urgency-hint,
+    as well as unifying the code style between the various in-tree theme
+    implementations.
+    
+    Signed-off-by: Ikey Doherty <ikey@solus-project.com>
+
+ src/themes/coco/coco-theme.c     | 12 ++++++++++--
+ src/themes/nodoka/nodoka-theme.c | 12 ++++++++++--
+ src/themes/slider/theme.c        | 22 ++++++++++++++--------
+ src/themes/standard/theme.c      | 22 ++++++++++++++--------
+ 4 files changed, 48 insertions(+), 20 deletions(-)
+
+commit a6ff22d59d93ce06ea6752351f10873ace4a4627
+Author: Ikey Doherty <ikey@solus-project.com>
+Date:   Wed Nov 16 17:32:40 2016 +0000
+
+    daemon: Export the "action-icons" capability to clients
+    
+    The freedesktop specification states that clients may opt to use named icons
+    instead of textual labels on action buttons. In this instance, the icon name
+    is passed as the 'key' (actions[i+1]) element in the actions data passed
+    to the daemon.
+    
+    For themes to render the icon, they should check the hints passed by the
+    client for a boolean value of "action-icons", and if it is set they should
+    then create an image button based on the key, and not the label.
+    
+    Many applications now make use of action-icons, such as media players, to
+    provide self describing actions with well known icon names, such as playback
+    controls. In the absence of support for action-icons they fallback to less
+    useful buttons and generally less actions.
+    
+    Signed-off-by: Ikey Doherty <ikey@solus-project.com>
+
+ src/daemon/daemon.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit beef437387102e6bcfa2ecc088993c46452bf25e
+Author: monsta <monsta@inbox.ru>
+Date:   Thu Jan 19 18:30:08 2017 +0300
+
+    sync with Transifex and drop empty translations
+
+ po/LINGUAS     |   5 ++
+ po/af.po       |   4 +-
+ po/am.po       |  16 ++---
+ po/an.po       | 180 ---------------------------------------------------------
+ po/ar.po       |   4 +-
+ po/as.po       | 180 ---------------------------------------------------------
+ po/ast.po      |   4 +-
+ po/az.po       | 180 ---------------------------------------------------------
+ po/be.po       |   4 +-
+ po/bn.po       | 180 ---------------------------------------------------------
+ po/bn_IN.po    | 180 ---------------------------------------------------------
+ po/br.po       | 180 ---------------------------------------------------------
+ po/ca.po       |  10 ++--
+ po/cmn.po      |   4 +-
+ po/crh.po      | 180 ---------------------------------------------------------
+ po/cs.po       |   4 +-
+ po/csb.po      | 180 ---------------------------------------------------------
+ po/cv.po       | 180 ---------------------------------------------------------
+ po/cy.po       |   4 +-
+ po/da.po       |   4 +-
+ po/de.po       |   4 +-
+ po/de_CH.po    | 180 ---------------------------------------------------------
+ po/dz.po       | 180 ---------------------------------------------------------
+ po/el.po       |   4 +-
+ po/en_AU.po    |   4 +-
+ po/en_CA.po    | 180 ---------------------------------------------------------
+ po/en_GB.po    |   4 +-
+ po/eo.po       |   4 +-
+ po/es.po       |   4 +-
+ po/es_419.po   | 180 ---------------------------------------------------------
+ po/es_AR.po    | 180 ---------------------------------------------------------
+ po/es_CL.po    |   6 +-
+ po/es_CR.po    | 180 ---------------------------------------------------------
+ po/es_DO.po    | 180 ---------------------------------------------------------
+ po/es_EC.po    | 180 ---------------------------------------------------------
+ po/es_ES.po    | 180 ---------------------------------------------------------
+ po/es_MX.po    |   4 +-
+ po/es_NI.po    | 180 ---------------------------------------------------------
+ po/es_PA.po    | 180 ---------------------------------------------------------
+ po/es_PE.po    | 180 ---------------------------------------------------------
+ po/es_PR.po    | 180 ---------------------------------------------------------
+ po/es_SV.po    | 180 ---------------------------------------------------------
+ po/es_US.po    | 180 ---------------------------------------------------------
+ po/es_UY.po    | 180 ---------------------------------------------------------
+ po/es_VE.po    | 180 ---------------------------------------------------------
+ po/et.po       |   4 +-
+ po/eu.po       |   4 +-
+ po/fa.po       | 180 ---------------------------------------------------------
+ po/fi.po       |   4 +-
+ po/fil.po      | 180 ---------------------------------------------------------
+ po/fo.po       | 180 ---------------------------------------------------------
+ po/fr.po       |   4 +-
+ po/fr_CA.po    |   4 +-
+ po/frp.po      |   4 +-
+ po/fur.po      | 180 ---------------------------------------------------------
+ po/fy.po       | 180 ---------------------------------------------------------
+ po/ga.po       | 180 ---------------------------------------------------------
+ po/gd.po       | 180 ---------------------------------------------------------
+ po/gl.po       |   4 +-
+ po/gu.po       | 180 ---------------------------------------------------------
+ po/ha.po       | 180 ---------------------------------------------------------
+ po/he.po       |   4 +-
+ po/hi.po       |   4 +-
+ po/hr.po       |   6 +-
+ po/hu.po       |  15 ++---
+ po/ia.po       | 180 ---------------------------------------------------------
+ po/id.po       |   4 +-
+ po/ig.po       | 180 ---------------------------------------------------------
+ po/is.po       |   4 +-
+ po/it.po       |   4 +-
+ po/ja.po       |  16 ++---
+ po/jv.po       | 180 ---------------------------------------------------------
+ po/ka.po       | 180 ---------------------------------------------------------
+ po/kk.po       |   4 +-
+ po/km.po       | 180 ---------------------------------------------------------
+ po/ko.po       |   4 +-
+ po/ks.po       | 180 ---------------------------------------------------------
+ po/ku.po       | 180 ---------------------------------------------------------
+ po/ky.po       |   4 +-
+ po/la.po       | 180 ---------------------------------------------------------
+ po/lb.po       | 180 ---------------------------------------------------------
+ po/li.po       | 180 ---------------------------------------------------------
+ po/lo.po       | 180 ---------------------------------------------------------
+ po/lt.po       |   4 +-
+ po/lv.po       |   4 +-
+ po/mai.po      | 180 ---------------------------------------------------------
+ po/mg.po       | 180 ---------------------------------------------------------
+ po/mi.po       | 180 ---------------------------------------------------------
+ po/mk.po       |   4 +-
+ po/ml.po       | 180 ---------------------------------------------------------
+ po/mn.po       | 180 ---------------------------------------------------------
+ po/mr.po       |   4 +-
+ po/ms.po       |   4 +-
+ po/my.po       | 180 ---------------------------------------------------------
+ po/nah.po      | 180 ---------------------------------------------------------
+ po/nds.po      | 180 ---------------------------------------------------------
+ po/ne.po       | 180 ---------------------------------------------------------
+ po/nl.po       |  15 ++---
+ po/nn.po       | 180 ---------------------------------------------------------
+ po/nqo.po      | 180 ---------------------------------------------------------
+ po/nso.po      | 180 ---------------------------------------------------------
+ po/oc.po       |   4 +-
+ po/om.po       | 180 ---------------------------------------------------------
+ po/or.po       | 180 ---------------------------------------------------------
+ po/pa.po       |   4 +-
+ po/pl.po       |   2 +-
+ po/pms.po      | 180 ---------------------------------------------------------
+ po/ps.po       | 180 ---------------------------------------------------------
+ po/pt_BR.po    |   4 +-
+ po/ro.po       |   6 +-
+ po/ru.po       |  15 ++---
+ po/rw.po       | 180 ---------------------------------------------------------
+ po/sc.po       |   4 +-
+ po/sco.po      | 180 ---------------------------------------------------------
+ po/si.po       | 180 ---------------------------------------------------------
+ po/sk.po       |   4 +-
+ po/sl.po       |   4 +-
+ po/so.po       | 180 ---------------------------------------------------------
+ po/sq.po       |   4 +-
+ po/sr.po       |   4 +-
+ po/sr@latin.po | 180 ---------------------------------------------------------
+ po/sv.po       |   4 +-
+ po/sw.po       | 180 ---------------------------------------------------------
+ po/ta.po       | 180 ---------------------------------------------------------
+ po/te.po       |   4 +-
+ po/tg.po       | 180 ---------------------------------------------------------
+ po/th.po       |   4 +-
+ po/tk.po       | 180 ---------------------------------------------------------
+ po/tl.po       | 180 ---------------------------------------------------------
+ po/tr.po       |   6 +-
+ po/ts.po       | 180 ---------------------------------------------------------
+ po/tt.po       | 180 ---------------------------------------------------------
+ po/ug.po       | 180 ---------------------------------------------------------
+ po/uk.po       |  10 ++--
+ po/ur.po       |   4 +-
+ po/ur_PK.po    | 180 ---------------------------------------------------------
+ po/uz.po       |   4 +-
+ po/vi.po       |   4 +-
+ po/wa.po       | 180 ---------------------------------------------------------
+ po/xh.po       | 180 ---------------------------------------------------------
+ po/yi.po       | 180 ---------------------------------------------------------
+ po/yo.po       | 180 ---------------------------------------------------------
+ po/zh-Hans.po  | 180 ---------------------------------------------------------
+ po/zh_CN.po    |   4 +-
+ po/zh_HK.po    |   4 +-
+ po/zh_TW.po    |   4 +-
+ po/zu.po       | 180 ---------------------------------------------------------
+ 147 files changed, 172 insertions(+), 14924 deletions(-)
+
+commit 9783bcd30fe15433bf22544aefb7c7fdb02ee554
+Author: Martin Wimpress <martin@mate-desktop.org>
+Date:   Fri Jan 13 16:13:04 2017 +0000
+
+    Update mate-notification-daemon NEWS to use consistent, project wide, markdown-like formatting. This will make generating release announcements easier.
+
+ NEWS | 35 +++++++++++++++++++++++------------
+ 1 file changed, 23 insertions(+), 12 deletions(-)
+
+commit 38a00429b86ca5fbfc77373c53711e89110cbd4c
+Author: Martin Wimpress <martin@mate-desktop.org>
+Date:   Thu Jan 12 14:29:42 2017 +0000
+
+    Bump version to 1.17.0
+
+ NEWS         | 3 +++
+ configure.ac | 2 +-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+commit 975067735262d6c436a888826c011484715ca6ca
+Author: Martin Wimpress <martin@mate-desktop.org>
+Date:   Thu Jan 12 14:27:38 2017 +0000
+
+    Sync translations.
+
+ po/an.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/as.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/az.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/bn.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/bn_IN.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/br.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/bs.po          | 181 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ca@valencia.po | 181 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/crh.po         | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/csb.po         | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/cv.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/de_CH.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/dz.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/en_CA.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_419.po      | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_AR.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_CO.po       | 181 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_CR.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_DO.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_EC.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_ES.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_NI.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_PA.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_PE.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_PR.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_SV.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_US.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_UY.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_VE.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/fa.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/fil.po         | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/fo.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/fur.po         | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/fy.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ga.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/gd.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/gu.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ha.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ia.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ig.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/jv.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ka.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/km.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/kn.po          | 181 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ks.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ku.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ku_IQ.po       | 181 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/la.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/lb.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/li.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/lo.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mai.po         | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mg.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mi.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ml.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mn.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/my.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/nah.po         | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/nds.po         | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ne.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/nn.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/nqo.po         | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/nso.po         | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/om.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/or.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pms.po         | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ps.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/rw.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sco.po         | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/si.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/so.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sr@latin.po    | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sw.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ta.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/tg.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/tk.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/tl.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ts.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/tt.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ug.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ur_PK.po       | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/wa.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/xh.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/yi.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/yo.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/zh-Hans.po     | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/zu.po          | 180 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 87 files changed, 15665 insertions(+)
+
+commit 92b95717f3cd3261a6abccc0ee3d26e90f4efdf8
+Author: monsta <monsta@inbox.ru>
+Date:   Sat Dec 10 23:50:19 2016 +0300
+
+    release 1.16.1
+
+ NEWS         | 4 ++++
+ configure.ac | 2 +-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+commit 0f65febb6a75c883b57fe2ec1ca96237aacea6cd
+Author: monsta <monsta@inbox.ru>
+Date:   Sat Dec 10 16:41:46 2016 +0300
+
+    sync with Transifex
+
+ po/bg.po | 15 ++++++++-------
+ po/hy.po | 15 ++++++++-------
+ po/nb.po | 24 ++++++++++++------------
+ po/pl.po | 13 +++++++------
+ po/pt.po | 15 ++++++++-------
+ 5 files changed, 43 insertions(+), 39 deletions(-)
+
+commit 3fa974b37a629eab3668b2565dd0c59dbe38c1a8
+Author: kajzer <kajzersoze72@gmail.com>
+Date:   Fri Oct 7 16:48:19 2016 +0200
+
+    Fix: bold formatting #111
+
+ src/themes/coco/coco-theme.c     | 13 +++++--------
+ src/themes/nodoka/nodoka-theme.c | 13 +++++--------
+ src/themes/slider/theme.c        | 11 ++++-------
+ src/themes/standard/theme.c      | 11 ++++-------
+ 4 files changed, 18 insertions(+), 30 deletions(-)
+
+commit 7bf293b7c187f12c9b2697ba2b6e02b3281b574a
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Sep 20 06:35:27 2016 +0200
+
+    release 1.16.0
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit c240fd6cf342bfa0b34a8ad162c00e448d342284
+Author: monsta <monsta@inbox.ru>
+Date:   Mon Sep 19 17:04:05 2016 +0300
+
+    update NEWS for 1.16
+
+ NEWS | 28 +++++++++++-----------------
+ 1 file changed, 11 insertions(+), 17 deletions(-)
+
+commit aed46b1474d0f0211da75c50c7d85f206586a5f3
+Author: monsta <monsta@inbox.ru>
+Date:   Mon Sep 19 16:46:59 2016 +0300
+
+    sync with Transifex
+
+ po/cs.po    | 11 ++++++-----
+ po/da.po    | 12 ++++++------
+ po/en_AU.po | 11 ++++++-----
+ po/es.po    | 11 ++++++-----
+ po/fr.po    | 11 ++++++-----
+ po/id.po    | 11 ++++++-----
+ po/it.po    | 15 ++++++++-------
+ po/ms.po    | 12 ++++++------
+ po/pl.po    |  7 ++++---
+ po/pt_BR.po | 39 ++++++++++++++++++++-------------------
+ po/tr.po    | 13 +++++++------
+ po/uk.po    |  6 +++---
+ po/zh_CN.po | 13 +++++++------
+ 13 files changed, 91 insertions(+), 81 deletions(-)
+
+commit a550bac7a423943b79b98c322d665cef6f16e759
+Author: kajzer <kajzersoze72@gmail.com>
+Date:   Fri Sep 9 18:35:48 2016 +0200
+
+    Fix: properly escape text
+
+ src/themes/coco/coco-theme.c     | 14 ++++++++++----
+ src/themes/nodoka/nodoka-theme.c | 14 ++++++++++----
+ src/themes/slider/theme.c        | 13 ++++++++++---
+ src/themes/standard/theme.c      | 13 ++++++++++---
+ 4 files changed, 40 insertions(+), 14 deletions(-)
+
+commit 23153c2e82294cda4f3f7db2053186da8581e19a
+Author: kajzer <kajzersoze72@gmail.com>
+Date:   Fri Sep 2 16:12:01 2016 +0200
+
+    Add support for GNotification
+
+ src/daemon/daemon.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+commit f95d699d693d3781a15c90a04bc63ad62897eb48
+Author: kajzer <kajzersoze72@gmail.com>
+Date:   Sat Aug 27 21:25:10 2016 +0200
+
+    Fix: escape text #106
+
+ src/themes/coco/coco-theme.c     | 9 +++++++--
+ src/themes/nodoka/nodoka-theme.c | 9 +++++++--
+ src/themes/slider/theme.c        | 4 +++-
+ src/themes/standard/theme.c      | 4 +++-
+ 4 files changed, 20 insertions(+), 6 deletions(-)
+
+commit da0b7c16ee5cfaa0a3fa5e913e39b0c8b539e1bf
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Wed Jun 29 14:19:39 2016 +0200
+
+    release 1.15.1
+
+ NEWS | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+commit 946ab82e0ec01e352e1e655d5f67d362eb260375
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Wed Jun 29 13:58:46 2016 +0200
+
+    sync with transiflex
+
+ po/af.po    | 27 ++++++++++++++++++++++-----
+ po/am.po    | 27 ++++++++++++++++++++++-----
+ po/ar.po    | 27 ++++++++++++++++++++++-----
+ po/ast.po   | 27 ++++++++++++++++++++++-----
+ po/be.po    | 27 ++++++++++++++++++++++-----
+ po/bg.po    | 27 ++++++++++++++++++++++-----
+ po/ca.po    | 27 ++++++++++++++++++++++-----
+ po/cmn.po   | 27 ++++++++++++++++++++++-----
+ po/cs.po    | 27 ++++++++++++++++++++++-----
+ po/cy.po    | 27 ++++++++++++++++++++++-----
+ po/da.po    | 27 ++++++++++++++++++++++-----
+ po/de.po    | 27 ++++++++++++++++++++++-----
+ po/el.po    | 27 ++++++++++++++++++++++-----
+ po/en_AU.po | 27 ++++++++++++++++++++++-----
+ po/en_GB.po | 29 +++++++++++++++++++++++------
+ po/eo.po    | 27 ++++++++++++++++++++++-----
+ po/es.po    | 29 +++++++++++++++++++++++------
+ po/es_CL.po | 27 ++++++++++++++++++++++-----
+ po/es_MX.po | 27 ++++++++++++++++++++++-----
+ po/et.po    | 27 ++++++++++++++++++++++-----
+ po/eu.po    | 27 ++++++++++++++++++++++-----
+ po/fi.po    | 27 ++++++++++++++++++++++-----
+ po/fr.po    | 27 ++++++++++++++++++++++-----
+ po/fr_CA.po | 27 ++++++++++++++++++++++-----
+ po/frp.po   | 27 ++++++++++++++++++++++-----
+ po/gl.po    | 27 ++++++++++++++++++++++-----
+ po/he.po    | 27 ++++++++++++++++++++++-----
+ po/hi.po    | 27 ++++++++++++++++++++++-----
+ po/hr.po    | 27 ++++++++++++++++++++++-----
+ po/hu.po    | 27 ++++++++++++++++++++++-----
+ po/hy.po    | 27 ++++++++++++++++++++++-----
+ po/id.po    | 27 ++++++++++++++++++++++-----
+ po/is.po    | 27 ++++++++++++++++++++++-----
+ po/it.po    | 27 ++++++++++++++++++++++-----
+ po/ja.po    | 27 ++++++++++++++++++++++-----
+ po/kk.po    | 27 ++++++++++++++++++++++-----
+ po/ko.po    | 28 +++++++++++++++++++++++-----
+ po/ky.po    | 27 ++++++++++++++++++++++-----
+ po/lt.po    | 25 +++++++++++++++++++++----
+ po/lv.po    | 27 ++++++++++++++++++++++-----
+ po/mk.po    | 27 ++++++++++++++++++++++-----
+ po/mr.po    | 27 ++++++++++++++++++++++-----
+ po/ms.po    | 27 ++++++++++++++++++++++-----
+ po/nb.po    | 27 ++++++++++++++++++++++-----
+ po/nl.po    | 27 ++++++++++++++++++++++-----
+ po/oc.po    | 27 ++++++++++++++++++++++-----
+ po/pa.po    | 27 ++++++++++++++++++++++-----
+ po/pl.po    | 27 ++++++++++++++++++++++-----
+ po/pt.po    | 27 ++++++++++++++++++++++-----
+ po/pt_BR.po | 27 ++++++++++++++++++++++-----
+ po/ro.po    | 27 ++++++++++++++++++++++-----
+ po/ru.po    | 27 ++++++++++++++++++++++-----
+ po/sc.po    | 27 ++++++++++++++++++++++-----
+ po/sk.po    | 28 +++++++++++++++++++++++-----
+ po/sl.po    | 27 ++++++++++++++++++++++-----
+ po/sq.po    | 27 ++++++++++++++++++++++-----
+ po/sr.po    | 28 +++++++++++++++++++++++-----
+ po/sv.po    | 27 ++++++++++++++++++++++-----
+ po/te.po    | 27 ++++++++++++++++++++++-----
+ po/th.po    | 27 ++++++++++++++++++++++-----
+ po/tr.po    | 27 ++++++++++++++++++++++-----
+ po/uk.po    | 25 +++++++++++++++++++++----
+ po/ur.po    | 27 ++++++++++++++++++++++-----
+ po/uz.po    | 27 ++++++++++++++++++++++-----
+ po/vi.po    | 27 ++++++++++++++++++++++-----
+ po/zh_CN.po | 27 ++++++++++++++++++++++-----
+ po/zh_HK.po | 27 ++++++++++++++++++++++-----
+ po/zh_TW.po | 29 +++++++++++++++++++++++------
+ 68 files changed, 1500 insertions(+), 341 deletions(-)
+
+commit 9cb275b38a382159a90ef9379b44dd8304ae042c
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Sun Jun 26 00:29:30 2016 +0200
+
+    Slider: improve GtkStyleContex functions
+    
+    theme looks really better now
+
+ src/themes/slider/theme.c | 131 ++++++++++++++++++++++------------------------
+ 1 file changed, 62 insertions(+), 69 deletions(-)
+
+commit a3eced76cc3babfd90b8f45d893e7db251e92ebf
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Sat Jun 25 17:39:03 2016 +0200
+
+    Standard: port to GtkStyleContext
+
+ src/themes/standard/theme.c | 180 +++++++++++++++++++++++++++-----------------
+ 1 file changed, 112 insertions(+), 68 deletions(-)
+
+commit eccd83201f72646076ea8da1803685dcdc330e3a
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Sun Jun 26 09:16:50 2016 +0200
+
+    add theme files to POTFILES.in
+
+ po/POTFILES.in | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 2111df36e03c9d1dbb5529594ebce42cf9e39f85
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Fri Jun 24 22:04:58 2016 +0200
+
+    themes: make text translatable
+    
+    taken from:
+    https://git.gnome.org/browse/notification-daemon/commit/?id=b156f34
+
+ src/themes/coco/coco-theme.c     |  5 +++--
+ src/themes/nodoka/nodoka-theme.c |  9 +++++----
+ src/themes/slider/theme.c        | 10 ++++++----
+ src/themes/standard/theme.c      | 10 ++++++----
+ 4 files changed, 20 insertions(+), 14 deletions(-)
+
+commit de5e743317a3c150c276bb83d79d25a2a647bbb4
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Fri Jun 24 11:33:31 2016 +0200
+
+    pre-bump version
+
+ NEWS         | 2 ++
+ configure.ac | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit 75965a8aa6c329974dec8d7a7d666c95a08d5b1f
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Jun 21 12:08:44 2016 +0200
+
+    standard: do not use dprecated GtkAlignment
+
+ src/themes/standard/theme.c | 30 ++++++++++--------------------
+ 1 file changed, 10 insertions(+), 20 deletions(-)
+
+commit 7dc240a3fb0bec7d23dd00fea00890d8302b7f92
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Jun 21 10:11:58 2016 +0200
+
+    Save some RAM in NotifyTimeout
+    
+    By using a bit, rather than a byte for gbooleans.
+    https://bugzilla.gnome.org/show_bug.cgi?id=622556
+    
+    taken from:
+    https://git.gnome.org/browse/notification-daemon/commit/?id=c43d398
+
+ src/daemon/daemon.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit cbb5a9e9867b228611b9bb14cca62bdcccbd6dbf
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Jun 21 01:49:26 2016 +0200
+
+    slider: do not use dprecated GtkAlignment
+
+ src/themes/slider/theme.c | 49 +++++++++++++++++++----------------------------
+ 1 file changed, 20 insertions(+), 29 deletions(-)
+
+commit 5b8cecc43034d1668cce43a170e63eaa1a36459e
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Mon Jun 20 23:30:51 2016 +0200
+
+    nodoka: do not use deprecated GtkAlignment
+
+ src/themes/nodoka/nodoka-theme.c | 22 +++++++---------------
+ 1 file changed, 7 insertions(+), 15 deletions(-)
+
+commit 264b9653dcba9f75a7385bc05a389e4252eefccb
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Mon Jun 20 22:45:19 2016 +0200
+
+    coco: do not use dprecated GtkAlignment
+
+ src/themes/coco/coco-theme.c | 50 +++++++++++++++++---------------------------
+ 1 file changed, 19 insertions(+), 31 deletions(-)
+
+commit daca69be40ba1ea5e765a18b2a1185cafca2128c
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Mon Jun 20 18:59:56 2016 +0200
+
+    GTK+-3.20 daemon: avoid deprecated GdkDeviceManager
+
+ src/daemon/daemon.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit b68dc9cd412767a8aa22c94663d229a5896d5546
+Author: monsta <monsta@inbox.ru>
+Date:   Tue Jun 21 18:14:20 2016 +0300
+
+    po: actually add new languages from Transifex
+
+ po/LINGUAS | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 91e98c1ad72ec0c8ff8cdc73857477d94451e6c3
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Jun 7 15:24:05 2016 +0200
+
+    release 1.15.0
+
+ NEWS | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit 8d558f40ec8f0ed623b8d218b91976aaaee6b1fd
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Jun 7 15:18:29 2016 +0200
+
+    sync with Transiflex
+
+ po/es.po    |   2 +-
+ po/es_CL.po |   2 +-
+ po/fr.po    |   8 +--
+ po/frp.po   | 164 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/nb.po    |  10 ++--
+ po/ro.po    |   7 +--
+ po/sc.po    |   2 +-
+ po/sk.po    |   8 +--
+ po/uz.po    |  24 ++++-----
+ po/zh_HK.po | 164 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 10 files changed, 360 insertions(+), 31 deletions(-)
+
+commit 0a19d64199d18a0ac90f55ccb20cc6c749c10f04
+Author: monsta <monsta@inbox.ru>
+Date:   Thu May 26 11:34:02 2016 +0300
+
+    remove ancient and unneeded NEWS.GNOME file
+
+ NEWS.GNOME | 220 -------------------------------------------------------------
+ 1 file changed, 220 deletions(-)
+
+commit c696b0b5c47ce1847a1d1a884ce9f6d6428fdd73
+Author: monsta <monsta@inbox.ru>
+Date:   Thu May 26 11:32:38 2016 +0300
+
+    use 'm4' dir instead of 'macros' - it's more common name for it
+
+ Makefile.am  | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 193524eeed17d6e50eea92072f5a5377a872dbd0
+Author: monsta <monsta@inbox.ru>
+Date:   Thu May 26 11:25:04 2016 +0300
+
+    bump version to 1.15.0
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit c1cb767f56e6d96803a8dc832e79055edbb0d274
+Author: monsta <monsta@inbox.ru>
+Date:   Thu May 19 14:31:09 2016 +0300
+
+    standard: update FIXME's
+
+ src/themes/standard/theme.c | 14 ++++----------
+ 1 file changed, 4 insertions(+), 10 deletions(-)
+
+commit 3257bca2721ae29e1760f5019c9691afb6fa8f11
+Author: monsta <monsta@inbox.ru>
+Date:   Thu May 19 14:29:03 2016 +0300
+
+    slider: remove color overriding that does nothing these days
+    
+    we dropped color reversing in d80ac825a8815317e06d206c2199bedfe0474f85 anyway
+    as it never worked properly in GTK+3, so now override_style function does nothing
+
+ src/themes/slider/theme.c | 65 -----------------------------------------------
+ 1 file changed, 65 deletions(-)
+
+commit 66369b7e43ac46f2f37b66507ab9b0b948f17ae2
+Author: monsta <monsta@inbox.ru>
+Date:   Thu May 19 14:28:30 2016 +0300
+
+    slider: drop unused #define
+
+ src/themes/slider/theme.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit e9a16f9dd6e56080643557470dea5778400ba306
+Author: monsta <monsta@inbox.ru>
+Date:   Thu May 19 14:10:54 2016 +0300
+
+    require GTK+ >= 3.14, drop GTK+2 code and --with-gtk build option
+
+ configure.ac                     |  35 +----
+ src/daemon/daemon.c              | 150 ------------------
+ src/daemon/stack.c               |   8 -
+ src/themes/coco/coco-theme.c     | 132 +---------------
+ src/themes/nodoka/nodoka-theme.c | 151 ++-----------------
+ src/themes/slider/theme.c        | 317 +--------------------------------------
+ src/themes/standard/theme.c      | 109 ++------------
+ 7 files changed, 38 insertions(+), 864 deletions(-)
+
+commit ddc3c12d06e80f64eb8b8248920aa7bca2d52753
+Author: Sorokin Alexei <sor.alexei@meowr.ru>
+Date:   Fri May 13 17:38:05 2016 +0300
+
+    Coco, Nodoka: set notification window type
+    
+    fixes animation effects with compiz
+
+ src/themes/coco/coco-theme.c     | 1 +
+ src/themes/nodoka/nodoka-theme.c | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit ac4a9b0b1e620b688b5dfc3721378f43f59648aa
+Author: monsta <monsta@inbox.ru>
+Date:   Thu Apr 7 15:47:39 2016 +0300
+
+     po: add missing languages to LINGUAS
+
+ po/LINGUAS | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit c77f2051b5cf5182cb444bea97ac066ade927dab
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Apr 5 16:19:35 2016 +0200
+
+    release 1.14.0
+
+ NEWS         | 3 ++-
+ configure.ac | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit ab5f65d27c191ac2bb4152efc55af4b59d9c1e47
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Apr 5 16:18:05 2016 +0200
+
+    Add Changelog generation
+
+ Makefile.am | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit 51490a99290758a95e534c1ebbc0f1d180a21ce4
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Apr 5 16:16:54 2016 +0200
+
+    add new languages and sync with transiflex
+
+ po/LINGUAS  |   2 +
+ po/af.po    |  78 ++++++++++++-----------------
+ po/am.po    |  78 ++++++++++++-----------------
+ po/ar.po    |  78 ++++++++++++-----------------
+ po/ast.po   |  78 ++++++++++++-----------------
+ po/be.po    |  78 ++++++++++++-----------------
+ po/bg.po    | 127 +++++++++++++++++++++-------------------------
+ po/ca.po    |  89 ++++++++++++++-------------------
+ po/cmn.po   |  78 ++++++++++++-----------------
+ po/cs.po    |  83 +++++++++++++-----------------
+ po/cy.po    | 164 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/da.po    |  78 ++++++++++++-----------------
+ po/de.po    |  90 ++++++++++++++-------------------
+ po/en_AU.po |  82 +++++++++++++-----------------
+ po/en_GB.po |  78 ++++++++++++-----------------
+ po/eo.po    |  78 ++++++++++++-----------------
+ po/es.po    |  80 ++++++++++++-----------------
+ po/es_CL.po |  97 ++++++++++++++++-------------------
+ po/es_MX.po |  78 ++++++++++++-----------------
+ po/et.po    |  78 ++++++++++++-----------------
+ po/eu.po    |  78 ++++++++++++-----------------
+ po/fi.po    |   6 +--
+ po/fr.po    |  78 ++++++++++++-----------------
+ po/fr_CA.po |   6 +--
+ po/gl.po    |  78 ++++++++++++-----------------
+ po/hi.po    |  78 ++++++++++++-----------------
+ po/hr.po    |  78 ++++++++++++-----------------
+ po/hu.po    |  78 ++++++++++++-----------------
+ po/hy.po    |  18 +++----
+ po/id.po    |  80 ++++++++++++-----------------
+ po/it.po    |  80 ++++++++++++-----------------
+ po/ja.po    |  78 ++++++++++++-----------------
+ po/kk.po    |  78 ++++++++++++-----------------
+ po/ko.po    |  80 ++++++++++++-----------------
+ po/ky.po    |  78 ++++++++++++-----------------
+ po/lt.po    |   4 +-
+ po/lv.po    |  78 ++++++++++++-----------------
+ po/mk.po    |  78 ++++++++++++-----------------
+ po/mr.po    |  78 ++++++++++++-----------------
+ po/ms.po    |  78 ++++++++++++-----------------
+ po/nb.po    |  95 +++++++++++++++--------------------
+ po/nl.po    |  80 ++++++++++++-----------------
+ po/oc.po    |  89 ++++++++++++++-------------------
+ po/pa.po    |  78 ++++++++++++-----------------
+ po/pl.po    |  78 ++++++++++++-----------------
+ po/pt.po    |  82 +++++++++++++-----------------
+ po/pt_BR.po |  78 ++++++++++++-----------------
+ po/ro.po    | 104 +++++++++++++++++---------------------
+ po/ru.po    |  88 ++++++++++++++------------------
+ po/sc.po    |  78 ++++++++++++-----------------
+ po/sk.po    | 108 +++++++++++++++++----------------------
+ po/sl.po    |  78 ++++++++++++-----------------
+ po/sq.po    |  78 ++++++++++++-----------------
+ po/sr.po    |  86 +++++++++++++------------------
+ po/sv.po    |  78 ++++++++++++-----------------
+ po/te.po    |  78 ++++++++++++-----------------
+ po/th.po    | 164 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/tr.po    |  78 ++++++++++++-----------------
+ po/uk.po    |   4 +-
+ po/ur.po    |  78 ++++++++++++-----------------
+ po/uz.po    |  45 +++++++++--------
+ po/vi.po    |   6 +--
+ po/zh_CN.po |  82 +++++++++++++-----------------
+ po/zh_TW.po |  78 ++++++++++++-----------------
+ 64 files changed, 2216 insertions(+), 2635 deletions(-)
+
+commit c5863198027a5ac8317759c000f69745e7fb0085
+Author: monsta <monsta@inbox.ru>
+Date:   Tue Apr 5 12:27:28 2016 +0300
+
+    update NEWS
+
+ NEWS | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+commit d24df9d192229506b74d16c6872d9cd36f892b44
+Author: Martin Wimpress <code@flexion.org>
+Date:   Fri Feb 19 14:20:47 2016 +0000
+
+    Sync with Transifex
+
+ po/el.po | 78 +++++++++++++++++++++++---------------------------------
+ po/he.po | 81 +++++++++++++++++++++++++---------------------------------
+ po/is.po | 86 ++++++++++++++++++++++++++------------------------------------
+ po/lt.po | 86 ++++++++++++++++++++++++++------------------------------------
+ po/uk.po | 88 +++++++++++++++++++++++++++-------------------------------------
+ 5 files changed, 175 insertions(+), 244 deletions(-)
+
+commit 4faf0e5aa787c162914e5db8f9623c46208929c1
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Sun Jan 24 19:27:04 2016 +0100
+
+    release 1.13.0
+
+ NEWS | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 6f0ef78612d344d71acd75cc31cdf3ae008f5adf
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Sun Jan 24 19:18:40 2016 +0100
+
+    use max. 50 charactersfor body label
+
+ src/themes/coco/coco-theme.c     | 3 +++
+ src/themes/nodoka/nodoka-theme.c | 3 +++
+ src/themes/slider/theme.c        | 1 +
+ src/themes/standard/theme.c      | 1 +
+ 4 files changed, 8 insertions(+)
+
+commit 27c4734007edef523f90668fadd0ae4e055fb42e
+Author: monsta <monsta@inbox.ru>
+Date:   Thu Jan 21 15:17:30 2016 +0300
+
+    some corrections in checks and fixes of deprecations
+
+ src/themes/coco/coco-theme.c     |  9 +++++----
+ src/themes/nodoka/nodoka-theme.c | 17 +++++++++--------
+ src/themes/slider/theme.c        |  9 +++++----
+ src/themes/standard/theme.c      | 12 +++++++-----
+ 4 files changed, 26 insertions(+), 21 deletions(-)
+
+commit cb41e6337e553f74dd2109aef852cae74601307e
+Author: monsta <monsta@inbox.ru>
+Date:   Thu Jan 21 14:55:35 2016 +0300
+
+    use gtk_image_new_from_icon_name in both GTK+ builds
+
+ src/themes/nodoka/nodoka-theme.c | 4 ----
+ src/themes/slider/theme.c        | 4 ----
+ src/themes/standard/theme.c      | 4 ----
+ 3 files changed, 12 deletions(-)
+
+commit a21f6fc389907ae0d51969263023357a80e8daca
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Tue Jan 5 02:32:59 2016 +0100
+
+    pre-bump version to 1.13.0
+
+ NEWS         | 2 ++
+ configure.ac | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit 62a139514ebaf09ce5d523ec88829dc30cee932c
+Author: Monsta <monsta@inbox.ru>
+Date:   Sat Jan 2 23:54:34 2016 +0300
+
+    drop MateConf migration script
+
+ data/Makefile.am                      | 4 ----
+ data/mate-notification-daemon.convert | 4 ----
+ 2 files changed, 8 deletions(-)
+
+commit d80ac825a8815317e06d206c2199bedfe0474f85
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Wed Dec 16 14:38:40 2015 +0100
+
+    GTK3 slider: remove reverse_color function
+
+ src/themes/slider/theme.c | 23 ++++-------------------
+ 1 file changed, 4 insertions(+), 19 deletions(-)
+
+commit d1eaf938f5e4da182225bf4ca93b7de81f4803d6
+Author: György Balló <ballogyor@gmail.com>
+Date:   Wed Dec 16 10:53:50 2015 +0100
+
+    GTK3 slider: don't call override_style multiple times
+    
+    It's enough to call gtk_widget_override_* functions on the toplevel element, child elements will inherit the style properly. Fixes issue #90.
+
+ src/themes/slider/theme.c | 32 ++++++++------------------------
+ 1 file changed, 8 insertions(+), 24 deletions(-)
+
+commit 6645e6f3d692868788b0b3762d6e4a131f18c133
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Tue Dec 15 18:42:10 2015 +0100
+
+    GTK3 slider: don't use deprecated gtk_style_context_get_background_color
+    
+    inspired from:
+    https://git.gnome.org/browse/metacity/commit/?id=f201335
+
+ src/themes/slider/theme.c | 26 +++++++++++++++++++++++---
+ 1 file changed, 23 insertions(+), 3 deletions(-)
+
+commit 4435caa8c7cee3d97ff5c440bcb7296636813bd9
+Author: György Balló <ballogyor@gmail.com>
+Date:   Mon Dec 14 13:21:43 2015 +0100
+
+    slider: fix uninitialized variable
+
+ src/themes/slider/theme.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 3f4497dda499d761c841947d3066f82f5e55304a
+Author: monsta <monsta@inbox.ru>
+Date:   Mon Nov 30 10:31:54 2015 +0300
+
+    Bump version to 1.12.1
+
+ NEWS         | 5 +++++
+ configure.ac | 2 +-
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+
+commit b297c7d223e50f214f753f9a91194fc3ccd5b68f
+Author: monsta <monsta@inbox.ru>
+Date:   Tue Nov 24 10:48:58 2015 +0300
+
+    Revert "daemon: fix "GValueArray is deprecated" warnings"
+    
+    This reverts commit 7d162d83a2008c25b3134fcdda8265f23d461585.
+    
+    fixes https://github.com/mate-desktop/mate-notification-daemon/issues/91
+
+ src/daemon/daemon.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+commit fed38d6cf6f8141a8639723c6c5ccd5267fc5cc6
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Thu Nov 5 14:45:05 2015 +0100
+
+    GTK3 themes: fix deprecated usage of GTK_STOCK_CLOSE
+    
+    taken from:
+    https://git.gnome.org/browse/notification-daemon/commit/?id=9d38817
+
+ src/themes/nodoka/nodoka-theme.c | 4 ++++
+ src/themes/slider/theme.c        | 4 ++++
+ src/themes/standard/theme.c      | 4 ++++
+ 3 files changed, 12 insertions(+)
+
+commit 743dcd2ce95eb00c4713588338eba4feb0ae2e9f
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Thu Nov 5 11:23:14 2015 +0100
+
+    GTK3 Nodoka: remove wrong border from notification
+
+ src/themes/nodoka/nodoka-theme.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit c260b4bcdd16bd08b478b6684df23bbd816f9038
+Author: Clement Lefebvre <clement.lefebvre@linuxmint.com>
+Date:   Tue Nov 3 14:24:59 2015 +0000
+
+    Sync translations with transifex
+
+ po/fi.po    | 164 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/fr_CA.po | 164 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/hy.po    | 164 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/uz.po    | 164 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/vi.po    | 164 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 820 insertions(+)
+
+commit 90dd6667247fd2f6f3c33803667c85dc68971723
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Tue Nov 3 14:10:29 2015 +0100
+
+    release 1.12.0
+
+ NEWS         | 3 ++-
+ configure.ac | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 2c4ae4d781f5baf878c7bddd6e118ba34afd0ff5
+Author: lukefromdc <lukefromdc@hushmail.com>
+Date:   Mon Nov 2 20:12:42 2015 -0500
+
+    coco: fix gtk3 window height the right way
+    
+    Coco:fix the height of the entire notification window in gtk3 builds, not just the visible area This gives consistant position no matter what the height of the notification window, and never overlaps the panel regardless of panel position. Top, bottom, left, right panels tested along with top left, top right, bottom left, and bottom right notification locations. None overlapped, consistant spacing from notification window to panel in all cases-just like slider.  The previous "fix" has been reverted and is not present in this commit.
+
+ src/themes/coco/coco-theme.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 65dabb3d598807c15fca65fd128a4d62e6b7995e
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Tue Nov 3 14:01:13 2015 +0100
+
+    Gtk3: fix height of notification in nodoka and standard theme
+    
+    - this fixes also the position of the notifications
+    
+    credits to.....
+    Author:  lukefromdc
+
+ src/themes/nodoka/nodoka-theme.c | 1 +
+ src/themes/standard/theme.c      | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 7d90c781e7b7fbc580fa828c2c2fa655f3aa7bf4
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Sun Nov 1 12:20:03 2015 +0100
+
+    Nodoka: use a fixed font color
+    
+    fixes https://github.com/mate-desktop/mate-notification-daemon/issues/86
+    
+    Currenty the theme use the font color from gtk theme,
+    which give us unreadable notifications text in case of
+    using a dark gtk theme with mostly light font colors.
+
+ src/themes/nodoka/nodoka-theme.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+commit 9a34673d2b99359b0e9f36006fb9b221b5cacbb1
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Sat Oct 31 14:47:45 2015 +0100
+
+    coco, nodoka, slider: removed a unused variable and fixes warnings
+
+ src/themes/coco/coco-theme.c     | 2 --
+ src/themes/nodoka/nodoka-theme.c | 2 --
+ src/themes/slider/theme.c        | 2 --
+ 3 files changed, 6 deletions(-)
+
+commit f546a360c6c9385eca9b62d6cccf8099dba0a17e
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Sat Oct 31 14:26:43 2015 +0100
+
+    GTK3 slider: fix some warnings
+    
+    - theme.c:1010:31: warning: passing argument 1 of 'gtk_style_context_get_color' from incompatible pointer type [-Wincompatible-pointer-types]
+      gtk_style_context_get_color (context, GTK_STATE_FLAG_NORMAL, &color);
+    - theme.c:1011:25: warning: passing argument 1 of 'gtk_style_context_get' from incompatible pointer type [-Wincompatible-pointer-types]
+      gtk_style_context_get (context, GTK_STATE_FLAG_NORMAL, "background-color", &fg_color, NULL);
+    - theme.c:979:19: warning: variable 'style' set but not used [-Wunused-but-set-variable]
+      GtkStyleContext* style;
+
+ src/themes/slider/theme.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 076f60875f1dc47b6d5fc34f6c007976fd0947cb
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Sat Oct 31 14:08:35 2015 +0100
+
+    Revert "Gtk3: slider: Do not use deprecated gtk_style_context_get_background_color"
+    
+    This commit breaks the bg of notifications, in result notifications are unreadable, black fg color on black bg.
+    
+    This reverts commit 0fb782d2dcc129ab0858ea0d4399f6c183cb20c1.
+
+ src/themes/slider/theme.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 7f6d502b3c73f094e369307cff4353a7a601142c
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Fri Oct 30 18:46:58 2015 +0100
+
+    GTK3 standard theme: fix deprecated gtk_misc_set_alignment
+
+ src/themes/standard/theme.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 9197308b8216362f729814ab1e1e0b953a7bad60
+Merge: 7d162d8 2fa1389
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Fri Oct 30 19:00:54 2015 +0100
+
+    Merge pull request #81 from raveit65/dev-deprecated-gdk_display_get_pointer
+    
+    GTK3 daemon: fix deprecated gdk_display_get_pointer
+
+commit 2fa13890b50108bd90b7b8e85cc1c3954642d8e1
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Fri Oct 30 12:41:05 2015 +0100
+
+    GTK3 daemon: fix deprecated gdk_display_get_pointer
+    
+    inspired from:
+    https://git.gnome.org/browse/notification-daemon/patch/?id=9f376d3
+
+ src/daemon/daemon.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+commit 7d162d83a2008c25b3134fcdda8265f23d461585
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Wed Oct 28 15:45:58 2015 +0200
+
+    daemon: fix "GValueArray is deprecated" warnings
+    
+    GValueArray is deprecated so move to GArray instead in
+    _notify_daemon_pixbuf_from_data_hint()
+
+ src/daemon/daemon.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+commit 70d9f65d66fa18f72333073247bae0d9d92535fe
+Author: monsta <monsta@inbox.ru>
+Date:   Fri Oct 30 15:59:13 2015 +0300
+
+    update NEWS for 1.12
+
+ NEWS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 6f7a01c386c72a8236bc0ad993698d3764a9006f
+Author: monsta <monsta@inbox.ru>
+Date:   Tue Oct 27 15:00:00 2015 +0300
+
+    some corrections in NEWS
+
+ NEWS | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit de4903ea226f2201989435073c1545647270a168
+Author: monsta <monsta@inbox.ru>
+Date:   Mon Oct 19 17:36:43 2015 +0300
+
+    one more change from char* to gchar*
+
+ src/daemon/daemon.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 75a97c0721b36ee3aafb33b0daed60a0348072f2
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Mon Oct 19 16:45:43 2015 +0300
+
+    daemon: fix memory leak in on_popup_location_changed()
+    
+    Don't forget to free the result of g_settings_get_string(). Also, change
+    `slocation' to proper type gchar* for storing results of
+    g_settings_get_string(). Furthermore, this allows to use that pointer in free()
+    without any casting.
+
+ src/daemon/daemon.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+commit 96949654be3fd993c5aa1a786036161f16070077
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Fri Oct 16 12:47:19 2015 +0300
+
+    themes: use pi value provided by glib
+
+ src/themes/coco/coco-theme.c     | 11 +++++------
+ src/themes/nodoka/nodoka-theme.c | 21 ++++++++++-----------
+ 2 files changed, 15 insertions(+), 17 deletions(-)
+
+commit 9edd5d17b1b446817df75a86f694f89fa2316f72
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Thu Oct 15 21:41:58 2015 +0300
+
+    nodoka: fix missing prototype warnings
+
+ src/themes/nodoka/nodoka-theme.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit 194cf1fb6fb07f671622ec2a10d9a2d9ec26984e
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Thu Oct 15 21:39:50 2015 +0300
+
+    slider: fix missing prototypes warnings
+
+ src/themes/slider/theme.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+commit 533c111ad61847f841bebbd7ea9948768eee3533
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Thu Oct 15 21:36:22 2015 +0300
+
+    standard: fix missing prototypes warnings
+
+ src/themes/standard/theme.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit 605a88e14bfc54e652b3339a0836fc8287c4fb30
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Thu Oct 15 21:33:44 2015 +0300
+
+    coco: fix missing prototypes warning
+
+ src/themes/coco/coco-theme.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit 1d9c9865196dbd4547457bd3bb267d06bd3a9180
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Fri Oct 9 19:54:35 2015 +0200
+
+    release 1.11.0
+
+ NEWS | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+commit aeb4a77030e558961c79f0924de7a250341b1644
+Merge: 1969c36 cec6e6b
+Author: Clement Lefebvre <clement.lefebvre@linuxmint.com>
+Date:   Thu Oct 8 11:37:38 2015 +0100
+
+    Merge pull request #76 from GiedriusS/fix1
+    
+    daemon: remove unused define WIDTH
+
+commit cec6e6bc5550083a629e58008b8b9c1427163e79
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Wed Oct 7 23:19:49 2015 +0300
+
+    daemon: remove unused define WIDTH
+
+ src/daemon/daemon.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 1969c3604f50aa703dd64ff17af1cd4f50a78f72
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Tue Oct 6 17:45:53 2015 +0200
+
+    pre-bump version to 1.11.0
+
+ NEWS         | 2 ++
+ configure.ac | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit 13c840260fcdff47dde9670e6ce2f1f3bd33b08e
+Author: Monsta <monsta@inbox.ru>
+Date:   Mon Oct 5 16:01:29 2015 +0300
+
+    themes: check for GTK+3 release, not dev version
+
+ src/themes/coco/coco-theme.c     |  8 ++++----
+ src/themes/nodoka/nodoka-theme.c | 10 +++++-----
+ src/themes/slider/theme.c        |  8 ++++----
+ src/themes/standard/theme.c      |  8 ++++----
+ 4 files changed, 17 insertions(+), 17 deletions(-)
+
+commit 88520f2598f0d1a3f11e5adc88351ac826ef70a8
+Author: infirit <infirit@gmail.com>
+Date:   Wed Sep 9 15:22:27 2015 +0200
+
+    fixup rework
+
+ po/POTFILES.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 9de79c7ec05b8031559766a163f5d76e58785a06
+Author: infirit <infirit@gmail.com>
+Date:   Wed Sep 9 15:20:58 2015 +0200
+
+    define max/min version of GLib
+
+ configure.ac | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit 9aaeb5509420442b9ead6a8bbbb9b7ab32c38cdf
+Author: infirit <infirit@gmail.com>
+Date:   Wed Sep 9 15:20:06 2015 +0200
+
+    Rework gsettings schema building
+    
+    * Bump intltool required version for gsettings support
+    * Extract strings with intltool directly
+    * Let autoconf generate the xml files
+
+ configure.ac                                       |  3 ++-
+ data/Makefile.am                                   |  8 +++---
+ data/org.mate.NotificationDaemon.gschema.xml.in    | 29 ++++++++++++++++++++++
+ data/org.mate.NotificationDaemon.gschema.xml.in.in | 29 ----------------------
+ 4 files changed, 34 insertions(+), 35 deletions(-)
+
+commit 33f89b9f1c7729075637327e2ff29dbb05f55a0a
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Sun Aug 9 15:57:36 2015 +0300
+
+    daemon: drop redundant initializer in notify_daemon_error_quark
+    
+    static variables are already initialized to 0/NULL by default
+
+ src/daemon/daemon.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 73e6e1fffac402601d82f6db8b4b4378117c49ea
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Sun Aug 9 10:56:41 2015 +0300
+
+    daemon: remove redundant initialization
+    
+    static variables are already initialised to 0/NULL by default
+
+ src/daemon/daemon.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 1e438468aa59f88145aa9e88ac0546bfb815dc47
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Sun Aug 9 00:25:43 2015 +0300
+
+    daemon: remove redundant G_LOG_LEVEL_ERROR in g_log_set_always_fatal()
+    
+    G_LOG_LEVEL_ERROR is already always fatal so no need to pass it to
+    g_log_set_always_fatal()
+
+ src/daemon/daemon.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ff9a8f4e67e457cf53fc5a1e6bf9c55b1387aba4
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Sat Aug 1 15:02:36 2015 +0300
+
+    nodoka: remove unused variable screen_height
+
+ src/themes/nodoka/nodoka-theme.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit 23c29bd917ffc540970ade7d8cfe057579c285c0
+Author: Monsta <monsta@inbox.ru>
+Date:   Sat Aug 1 12:32:20 2015 +0300
+
+    removed unused "default-sound" key
+    
+    fixes https://github.com/mate-desktop/mate-notification-daemon/issues/48
+
+ data/mate-notification-daemon.convert              | 1 -
+ data/org.mate.NotificationDaemon.gschema.xml.in.in | 5 -----
+ src/daemon/daemon.h                                | 1 -
+ 3 files changed, 7 deletions(-)
+
+commit d373ea3eadb4a09da7cb1c730ea6d3489bfc67e2
+Author: infirit <infirit@gmail.com>
+Date:   Wed Jul 29 22:29:17 2015 +0200
+
+    standard: Fix crash due to incorrectly destroying widget
+    
+    Fixes #69
+
+ src/themes/standard/theme.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b68faeaf45a08ccd15c289e542cfc85dfe7cf4aa
+Author: infirit <infirit@gmail.com>
+Date:   Wed Jul 29 15:54:40 2015 +0200
+
+    standard: fix copy/paste error
+
+ src/themes/standard/theme.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit c47626fceef2faf0f09ca61a5e6934a06517332b
+Author: infirit <infirit@gmail.com>
+Date:   Tue Jul 28 14:13:48 2015 +0200
+
+    Use accessor functions instead of direct access
+
+ src/themes/slider/theme.c   | 15 +++++++++------
+ src/themes/standard/theme.c |  2 +-
+ 2 files changed, 10 insertions(+), 7 deletions(-)
+
+commit a0fb3a8910cf0c9d4d2ec7d24faba5a68109da32
+Author: infirit <infirit@gmail.com>
+Date:   Tue Jul 28 13:08:09 2015 +0200
+
+    standard: Move countdown drawing to countdown_paint function
+    
+    And handle the draw/expose_event outside of countdown_paint which
+    makes things easier to read.
+
+ src/themes/standard/theme.c | 39 +++++++++++++++++++++++++--------------
+ 1 file changed, 25 insertions(+), 14 deletions(-)
+
+commit f0bcfaeca30ae5a7992007bbc47406144851cf26
+Author: infirit <infirit@gmail.com>
+Date:   Mon Jul 27 23:17:39 2015 +0200
+
+    standard: Move the draw and expose-event handling from paint_window
+    
+    No functional change but this makes the code a bit cleaner
+    and easier to read.
+
+ src/themes/standard/theme.c | 38 +++++++++++++++++++++++++-------------
+ 1 file changed, 25 insertions(+), 13 deletions(-)
+
+commit 1dba07c1777dc93b8a79e99140b63a12239b57ca
+Author: infirit <infirit@gmail.com>
+Date:   Mon Jul 27 22:46:08 2015 +0200
+
+    standard: Rework cairo drawing
+
+ src/themes/standard/theme.c | 80 +++++++++++++++++++++++----------------------
+ 1 file changed, 41 insertions(+), 39 deletions(-)
+
+commit e2e5bb2d5dcb2004801ee9e666df0fd7425d2bdb
+Author: infirit <infirit@gmail.com>
+Date:   Mon Jul 27 21:07:53 2015 +0200
+
+    Remove unnecessary eventbox from themes
+
+ src/themes/coco/coco-theme.c     | 14 +-------------
+ src/themes/nodoka/nodoka-theme.c | 14 +-------------
+ src/themes/standard/theme.c      | 14 +-------------
+ 3 files changed, 3 insertions(+), 39 deletions(-)
+
+commit 87b4de948de0ed02668cbd5fdabd39e94d34d3fb
+Author: infirit <infirit@gmail.com>
+Date:   Mon Jul 27 18:47:03 2015 +0200
+
+    slider: rework paint_window, on_draw and on_expose_event
+    
+    This is now the same as coco and nodoka.
+
+ src/themes/slider/theme.c | 75 +++++++++++++++++++++++++++++------------------
+ 1 file changed, 47 insertions(+), 28 deletions(-)
+
+commit 9547adee08931b52d096d8bbaff0eb25d8e4b08b
+Author: infirit <infirit@gmail.com>
+Date:   Mon Jul 27 18:13:19 2015 +0200
+
+    slider: Bring the window shape code in line with coco/nodoka
+    
+    Also we already shape windows in paint_window and it is probably
+    wise to redraw anyway on compositing change.
+
+ src/themes/slider/theme.c | 108 +++++++++++++++++++++++++++-------------------
+ 1 file changed, 64 insertions(+), 44 deletions(-)
+
+commit 0fb782d2dcc129ab0858ea0d4399f6c183cb20c1
+Author: infirit <infirit@gmail.com>
+Date:   Sat Jul 25 17:05:41 2015 +0200
+
+    Gtk3: slider: Do not use deprecated gtk_style_context_get_background_color
+
+ src/themes/slider/theme.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit d018e4b7395cea7ba5075912dce4bffae419cd23
+Author: infirit <infirit@gmail.com>
+Date:   Sat Jul 25 15:34:23 2015 +0200
+
+    Gtk3: nodoka: Use GdkRGBA
+
+ src/themes/nodoka/nodoka-theme.c | 44 ++++++++++++++++++++++++----------------
+ 1 file changed, 26 insertions(+), 18 deletions(-)
+
+commit 9952571f144401f3f943a91a79b388eda1b25a87
+Author: infirit <infirit@gmail.com>
+Date:   Mon Jul 27 21:41:38 2015 +0200
+
+    nodoka: Move the draw and expose-event handling from paint_window
+    
+    No functional change but this makes the code a bit cleaner
+    and easier to read.
+
+ src/themes/nodoka/nodoka-theme.c | 43 +++++++++++++++++++++++-----------------
+ 1 file changed, 25 insertions(+), 18 deletions(-)
+
+commit 32655d6612e98c8f97b8e3a4eb5ef91e16a663ad
+Author: infirit <infirit@gmail.com>
+Date:   Sun Jul 26 02:03:20 2015 +0200
+
+    nodoka: Shape windows without compositing
+
+ src/themes/nodoka/nodoka-theme.c | 109 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 109 insertions(+)
+
+commit 79f4a9b22f5e8e34c41b08445a4498fe55f729f1
+Author: infirit <infirit@gmail.com>
+Date:   Sat Jul 25 16:53:06 2015 +0200
+
+    nodoka: rework cairo drawing
+    
+    Fixes background in Gtk3
+
+ src/themes/nodoka/nodoka-theme.c | 101 +++++++++++++++++----------------------
+ 1 file changed, 44 insertions(+), 57 deletions(-)
+
+commit 53bb2e6c7b94e0b913d35aec169e5cb669dd3984
+Author: infirit <infirit@gmail.com>
+Date:   Sat Jul 25 15:37:33 2015 +0200
+
+    nodoka: Use a cairo rectangle instead of a gdk rectangle
+    
+    They are virtually the same and in Gtk3 GdkRectangle is a
+    cairo_rectangle_int_t anyway.
+
+ src/themes/nodoka/nodoka-theme.c | 60 +++++++++++++++++++---------------------
+ 1 file changed, 29 insertions(+), 31 deletions(-)
+
+commit 6de22307224c124f1283381a383fc97506d0c2f2
+Author: infirit <infirit@gmail.com>
+Date:   Sun Jul 26 12:29:28 2015 +0200
+
+    coco: Move the draw and expose-event handling from paint_window
+    
+    No functional change but this makes the code a bit cleaner
+    and easier to read.
+
+ src/themes/coco/coco-theme.c | 49 +++++++++++++++++++++++++++-----------------
+ 1 file changed, 30 insertions(+), 19 deletions(-)
+
+commit fe992fa646e9ed9aede105261b297204bad74491
+Author: infirit <infirit@gmail.com>
+Date:   Sun Jul 26 01:22:31 2015 +0200
+
+    coco: Shape windows without compositing
+
+ src/themes/coco/coco-theme.c | 109 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 109 insertions(+)
+
+commit e7d2688990388a99baaccb01c61889ca479340a6
+Author: infirit <infirit@gmail.com>
+Date:   Sat Jul 25 23:10:04 2015 +0200
+
+    coco: Add handle configure event
+
+ src/themes/coco/coco-theme.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+commit 04ade8f56fc851c20fa6f8c5cb84a57b3c92322a
+Author: infirit <infirit@gmail.com>
+Date:   Fri Jul 24 21:00:52 2015 +0200
+
+    coco: Rework cairo drawing
+    
+    Fixes background in Gtk3
+
+ src/themes/coco/coco-theme.c | 111 +++++++++++++++++++------------------------
+ 1 file changed, 49 insertions(+), 62 deletions(-)
+
+commit c838100b0500e238a3310df40e8be95e1a0d708f
+Author: infirit <infirit@gmail.com>
+Date:   Sun Jul 26 01:03:35 2015 +0200
+
+    themes: Rename enable_transparency to composited
+    
+    We really are checking if we have a compositer running
+    so composited fits better.
+
+ src/themes/coco/coco-theme.c     | 10 +++++-----
+ src/themes/nodoka/nodoka-theme.c | 14 +++++++-------
+ src/themes/standard/theme.c      | 10 +++++-----
+ 3 files changed, 17 insertions(+), 17 deletions(-)
+
+commit 5719ca490a58c1f6084ecac38dd691dd0d85e6b7
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Sat Jul 25 15:51:23 2015 +0200
+
+    Help: remove useless help button from gui
+    
+    + little GUI adjustments, looks better with two buttons
+
+ src/capplet/mate-notification-properties.c  |  9 --------
+ src/capplet/mate-notification-properties.ui | 32 ++---------------------------
+ 2 files changed, 2 insertions(+), 39 deletions(-)
+
+commit 0b2604b1b0fef7672978b5b682915491e1aa7a71
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Sat Jul 25 18:23:15 2015 +0300
+
+    daemon: remove redundant initialization of scale_factor
+
+ src/daemon/daemon.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit dbb6e0ba03d3e049e0c33ab784740e2b4123663d
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Wed Jul 22 12:39:16 2015 +0300
+
+    daemon: refactor scale_factor calculation
+    
+    Avoid problematic comparison between two floats, remove two unneeded variables
+    and in general reduce the amount of work in that function
+
+ src/daemon/daemon.c | 14 +-------------
+ 1 file changed, 1 insertion(+), 13 deletions(-)
+
+commit 2296eaf57e3f07f6f19ab884e3206155ba3ea8a8
+Author: infirit <infirit@gmail.com>
+Date:   Fri Jul 24 17:04:28 2015 +0200
+
+    Gtk3: daemon: Drop unneeded get_preferred_width and GtkWidgetClass
+
+ src/daemon/daemon.c | 20 --------------------
+ 1 file changed, 20 deletions(-)
+
+commit b9f955af51146ae361478fc6d06315ca2c62e99f
+Author: infirit <infirit@gmail.com>
+Date:   Fri Jul 24 15:53:19 2015 +0200
+
+    Fix comparison between unsigned and signed int
+
+ src/themes/standard/theme.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 147aa51092a2615339a9adf9e1626cfb7bb3a97f
+Author: infirit <infirit@gmail.com>
+Date:   Fri Jul 24 15:53:08 2015 +0200
+
+    Fix several incompatible pointer type warnings
+
+ src/themes/coco/coco-theme.c     | 2 +-
+ src/themes/nodoka/nodoka-theme.c | 2 +-
+ src/themes/slider/theme.c        | 2 +-
+ src/themes/standard/theme.c      | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 413d42c5c782f16cda0240e7960e58fcac8ad09b
+Author: infirit <infirit@gmail.com>
+Date:   Fri Jul 24 15:47:13 2015 +0200
+
+    Fix warning _FORTIFY_SOURCE is redefined
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 9a43f44510c8c84e99812dd7e965b083996c6e5c
+Author: infirit <infirit@gmail.com>
+Date:   Thu Jul 23 19:52:44 2015 +0200
+
+    Do not use g_assert_nonnull
+    
+    This was added in Glib 2.40 and we still target 2.36.
+
+ src/daemon/daemon.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 4b8e9d507796d6c1ff55db1ca892a423a3bfad0a
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Wed Jul 22 16:50:36 2015 +0200
+
+    GTK3: don't use deprecated GtkRcStyle
+    
+    taken from
+    https://git.gnome.org/browse/notification-daemon/commit/?id=2f0409b
+
+ src/themes/slider/theme.c   | 4 ++++
+ src/themes/standard/theme.c | 4 ++++
+ 2 files changed, 8 insertions(+)
+
+commit 81c9996cddb0214faaf69fc0239311ef6437929e
+Author: infirit <infirit@gmail.com>
+Date:   Wed Jul 22 17:19:21 2015 +0200
+
+    nodoka: Drop GdkPixmap usage for cairo in Gtk2
+
+ src/themes/nodoka/nodoka-theme.c | 47 ++++++++++------------------------------
+ 1 file changed, 11 insertions(+), 36 deletions(-)
+
+commit f964e1d5114fef3259cf420e57687838d7fad976
+Author: infirit <infirit@gmail.com>
+Date:   Wed Jul 22 17:11:44 2015 +0200
+
+    nodoka: Fix whitespace in paint_window
+
+ src/themes/nodoka/nodoka-theme.c | 80 +++++++++++++++++++++-------------------
+ 1 file changed, 42 insertions(+), 38 deletions(-)
+
+commit a0870e4657598a0056d43a29292d1249fc23c7a2
+Author: infirit <infirit@gmail.com>
+Date:   Wed Jul 22 16:58:27 2015 +0200
+
+    nodoka: Also set wrap mode for Gtk2
+    
+    Rids us of some GTK_CHECK_VERSION
+
+ src/themes/nodoka/nodoka-theme.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+commit 348a70188ac547fdbbf9f2663641e7cf90098487
+Author: infirit <infirit@gmail.com>
+Date:   Wed Jul 22 15:39:28 2015 +0200
+
+    coco: Drop GdkPixmap usage for cairo in Gtk2
+
+ src/themes/coco/coco-theme.c | 24 +-----------------------
+ 1 file changed, 1 insertion(+), 23 deletions(-)
+
+commit 9ffbe7001c40d8121b29749a0142f5d7b0a4a1e3
+Author: infirit <infirit@gmail.com>
+Date:   Wed Jul 22 15:20:10 2015 +0200
+
+    coco: Also set wrap mode for Gtk2
+    
+    Rids us of more GTK_CHECK_VERSION
+
+ src/themes/coco/coco-theme.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+commit 178b9b65fd56ec5f1ff2b4c84569f0d7e92cac90
+Author: infirit <infirit@gmail.com>
+Date:   Wed Jul 22 15:18:11 2015 +0200
+
+    coco: Always use GtkAllocation
+    
+    Rids us of some GTK_CHECK_VERSION
+
+ src/themes/coco/coco-theme.c | 22 ++++------------------
+ 1 file changed, 4 insertions(+), 18 deletions(-)
+
+commit 102117d5251942e0664c837588cbe1525f1c8f4b
+Author: infirit <infirit@gmail.com>
+Date:   Wed Jul 22 15:01:55 2015 +0200
+
+    coco: Fix whitespace in paint_window
+
+ src/themes/coco/coco-theme.c | 88 +++++++++++++++++++++++---------------------
+ 1 file changed, 46 insertions(+), 42 deletions(-)
+
+commit c0ab830697ca0a1988ddf955a8660e55f2bb97f4
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Wed Jul 22 16:13:16 2015 +0200
+
+    GTK3: remove multi-screen code
+    
+    Since GTK+ 3.10.0 there is only one screen per display.
+    
+    taken from https://git.gnome.org/browse/notification-daemon/commit/?id=66fd9bd
+
+ src/daemon/daemon.c | 115 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 115 insertions(+)
+
+commit ac3ebe71041af17f99a5cce3433c4533622396ef
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Wed Jul 22 15:32:18 2015 +0200
+
+    GTK3: replace deprecated gtk_widget_size_request
+
+ src/themes/slider/theme.c   |  4 ++++
+ src/themes/standard/theme.c | 10 +++++++++-
+ 2 files changed, 13 insertions(+), 1 deletion(-)
+
+commit 3e222bb72fd8ee2b33a6a3b9e9ee0f0fed983959
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Wed Jul 22 15:09:47 2015 +0200
+
+    GTK3: replace deprecated gtk_[v/h]_box_new
+
+ src/themes/coco/coco-theme.c     | 5 +++++
+ src/themes/nodoka/nodoka-theme.c | 5 +++++
+ src/themes/slider/theme.c        | 5 +++++
+ src/themes/standard/theme.c      | 5 +++++
+ 4 files changed, 20 insertions(+)
+
+commit a012a1220be5092448b92ac611dd978afcb7efd1
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Wed Jul 22 14:42:44 2015 +0200
+
+    Gtk3: replace deprecated gtk_misc_set_alignment
+
+ src/themes/coco/coco-theme.c     | 19 +++++++++++++++++++
+ src/themes/nodoka/nodoka-theme.c | 26 +++++++++++++++++++++++++-
+ src/themes/slider/theme.c        | 19 +++++++++++++++++++
+ src/themes/standard/theme.c      | 21 ++++++++++++++++++++-
+ 4 files changed, 83 insertions(+), 2 deletions(-)
+
+commit 5e70b95c8940e4bc1420984359243d407aeffaab
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Wed Jul 22 14:36:19 2015 +0200
+
+    GTK3: replace deprecated gtk_icon_info_free
+
+ src/daemon/daemon.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 3e621bbb8931e819da11578767356901fd598db9
+Author: Monsta <monsta@inbox.ru>
+Date:   Wed Jul 22 13:03:21 2015 +0300
+
+    all themes: don't crash on notifications from Rhythmbox
+    
+    fixes https://github.com/mate-desktop/mate-notification-daemon/issues/55
+
+ src/themes/coco/coco-theme.c     | 2 +-
+ src/themes/nodoka/nodoka-theme.c | 2 +-
+ src/themes/slider/theme.c        | 2 +-
+ src/themes/standard/theme.c      | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 319d4817ec24add9698c3870fdb12f573e42f602
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Sun Jul 19 15:47:32 2015 +0300
+
+    daemon: exit with 0 on idle
+    
+    Exit with 0 (EXIT_SUCCESS) on idle due to the fact that some D-Bus
+    implementations like kdbus are tracking daemons' exit codes and will mark
+    mate-notification-daemon as if it failed if it exits with 1.
+
+ src/daemon/daemon.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+commit 95a7399a73782de48d4e821c84bd0fc59a590f10
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Sat Jun 27 15:52:41 2015 +0300
+
+    daemon: clean up {add,remove}_exit_timeout()
+    
+    Add a nonnull assertion, remove unnecessary {} around one return
+    statement
+
+ src/daemon/daemon.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit 3c7199e2d287fec29373582ed8eb90035e852f82
+Author: Giedrius Statkevičius <giedrius.statkevicius@gmail.com>
+Date:   Sat Jun 27 15:46:06 2015 +0300
+
+    daemon: use gbooleans instead of guint bit fields
+    
+    Almost everything about bit fields are implementation defined and there
+    is a special type for storing booleans (which these bit fields were used
+    for) so use that instead because of portability
+
+ src/daemon/daemon.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit c8717310ca41b783f71c55ead7e57dcd9dc5625e
+Author: raveit65 <chat-to-me@raveit.de>
+Date:   Fri May 22 21:13:01 2015 +0200
+
+    GTK3: Fix positioning notifications with long text
+    
+    Closes https://github.com/mate-desktop/mate-notification-daemon/pull/52
+
+ src/daemon/daemon.c              | 21 +++++++++++++++++++++
+ src/daemon/stack.c               |  8 ++++++++
+ src/themes/coco/coco-theme.c     |  6 ++++++
+ src/themes/nodoka/nodoka-theme.c |  6 ++++++
+ src/themes/slider/theme.c        |  6 ++++++
+ src/themes/standard/theme.c      |  6 ++++++
+ 6 files changed, 53 insertions(+)
+
+commit 62e14a1cdf3836da8c3ebfde39f5239a5dec4753
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Fri Jun 12 11:14:27 2015 +0200
+
+    Sync translations with transifex
+
+ po/be.po |  8 ++++----
+ po/eu.po | 12 ++++++------
+ po/id.po | 11 ++++++-----
+ po/ko.po |  9 +++++----
+ po/pl.po |  9 +++++----
+ po/ro.po | 43 ++++++++++++++++++++++---------------------
+ po/ru.po |  4 ++--
+ po/sl.po |  9 +++++----
+ po/sv.po | 30 ++++++++++++++++--------------
+ po/uk.po |  4 ++--
+ 10 files changed, 73 insertions(+), 66 deletions(-)
+
+commit 81909e13c922cbadafed917826790bfc6cb69e90
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon May 4 14:37:25 2015 +0200
+
+    Bump version to 1.10.0
+
+ NEWS         | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 8ac116b7d83fe54b6abc6def62268e2acbae4e92
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Mar 2 22:01:21 2015 +0100
+
+    Bump version to 1.9.90
+
+ NEWS         | 4 ++--
+ configure.ac | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 36328f04582e5361ef06ab79109bacb7c7c33370
+Author: Monsta <monsta@inbox.ru>
+Date:   Thu Feb 19 13:15:15 2015 +0300
+
+    first connect to settings, then read them.
+    
+    fixes the issue with GLib >= 2.43,
+    https://git.gnome.org/browse/glib/commit/?id=8ff5668a458344da22d30491e3ce726d861b3619
+    
+    Closes https://github.com/mate-desktop/mate-notification-daemon/pull/45
+
+ src/capplet/mate-notification-properties.c | 12 +++++++-----
+ src/daemon/daemon.c                        |  4 ++--
+ src/daemon/engines.c                       |  2 +-
+ 3 files changed, 10 insertions(+), 8 deletions(-)
+
+commit 9eee34d8c5b7e40de416300857c19cda90bf92b9
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Mon Mar 2 22:00:31 2015 +0100
+
+    Sync translations with transifex
+
+ po/ar.po    |  9 +++++----
+ po/de.po    |  6 +++---
+ po/el.po    |  8 ++++----
+ po/en_GB.po |  9 +++++----
+ po/hr.po    |  9 +++++----
+ po/ja.po    |  9 +++++----
+ po/pt.po    | 16 ++++++++--------
+ po/ru.po    |  9 +++++----
+ po/zh_CN.po |  9 +++++----
+ 9 files changed, 45 insertions(+), 39 deletions(-)
+
+commit 2ded11321b18887f035b95c3e4b3a1eedf574a41
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Tue Jan 20 19:52:28 2015 +0100
+
+    Sync translations with transifex
+
+ po/af.po    | 18 +++++++++---------
+ po/am.po    | 16 ++++++++--------
+ po/ar.po    | 20 ++++++++++----------
+ po/ast.po   | 14 +++++++-------
+ po/be.po    | 22 +++++++++++-----------
+ po/bg.po    | 14 +++++++-------
+ po/ca.po    | 20 ++++++++++----------
+ po/cmn.po   | 18 +++++++++---------
+ po/cs.po    | 20 ++++++++++----------
+ po/da.po    | 14 +++++++-------
+ po/de.po    | 19 ++++++++++---------
+ po/el.po    | 16 ++++++++--------
+ po/en_AU.po | 16 ++++++++--------
+ po/en_GB.po | 18 +++++++++---------
+ po/eo.po    | 18 +++++++++---------
+ po/es.po    | 17 +++++++++--------
+ po/es_CL.po | 20 ++++++++++----------
+ po/es_MX.po | 18 +++++++++---------
+ po/et.po    | 14 +++++++-------
+ po/eu.po    | 18 +++++++++---------
+ po/fr.po    | 19 ++++++++++---------
+ po/gl.po    | 19 ++++++++++---------
+ po/he.po    | 18 +++++++++---------
+ po/hi.po    | 16 ++++++++--------
+ po/hr.po    | 16 ++++++++--------
+ po/hu.po    | 14 +++++++-------
+ po/id.po    | 23 ++++++++++++-----------
+ po/is.po    | 16 ++++++++--------
+ po/it.po    | 17 +++++++++--------
+ po/ja.po    | 16 ++++++++--------
+ po/kk.po    | 12 ++++++------
+ po/ko.po    | 18 +++++++++---------
+ po/ky.po    | 12 ++++++------
+ po/lt.po    | 28 +++++++++++++++-------------
+ po/lv.po    | 16 ++++++++--------
+ po/mk.po    | 16 ++++++++--------
+ po/mr.po    | 16 ++++++++--------
+ po/ms.po    | 12 ++++++------
+ po/nb.po    | 18 +++++++++---------
+ po/nl.po    | 17 +++++++++--------
+ po/oc.po    | 14 +++++++-------
+ po/pa.po    | 18 +++++++++---------
+ po/pl.po    | 20 ++++++++++----------
+ po/pt_BR.po | 19 ++++++++++---------
+ po/ru.po    | 21 +++++++++++----------
+ po/sc.po    | 16 ++++++++--------
+ po/sk.po    | 18 +++++++++---------
+ po/sl.po    | 18 +++++++++---------
+ po/sq.po    | 16 ++++++++--------
+ po/sv.po    | 16 ++++++++--------
+ po/te.po    | 12 ++++++------
+ po/tr.po    | 19 ++++++++++---------
+ po/uk.po    | 13 +++++++------
+ po/ur.po    | 16 ++++++++--------
+ po/zh_CN.po | 18 +++++++++---------
+ po/zh_TW.po | 15 ++++++++-------
+ 56 files changed, 486 insertions(+), 472 deletions(-)
+
+commit c1d60227096f392fb445ce0574ed4d39e12e13ee
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Wed Dec 31 13:34:14 2014 +0100
+
+    Sync translations with transifex
+
+ po/LINGUAS |   2 +
+ po/pt.po   |  25 ++++-----
+ po/ro.po   | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sr.po   | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 371 insertions(+), 12 deletions(-)
+
+commit 10a9161b5673d30429a2589fef3667807f3a167a
+Author: Monsta <monsta@inbox.ru>
+Date:   Wed Dec 31 13:06:54 2014 +0300
+
+    capplet: use "popup" instead of "pop-up" everywhere for consistency
+    
+    fixes https://github.com/mate-desktop/mate-notification-daemon/issues/35
+
+ src/capplet/mate-notification-properties.desktop.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 3e11e7ee15e475874e10ee96456be12a62910a0b
+Author: Monsta <monsta@inbox.ru>
+Date:   Wed Dec 31 12:30:43 2014 +0300
+
+    daemon: fixed logic in a couple of places
+
+ src/daemon/daemon.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 7eb0e133042c48e5e97303c44d56c1ddd9368290
+Author: Monsta <monsta@inbox.ru>
+Date:   Tue Nov 4 21:07:06 2014 +0300
+
+    don't leak memory
+
+ src/daemon/daemon.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+commit 11e38ad74f4be9733fc88bdebabb8f002445e1dc
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Nov 10 10:27:10 2014 +0100
+
+    Bump to 1.9.1
+
+ NEWS         | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 3f73ac6d6f2e2b00fc697557381416010b98073f
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Thu Oct 23 10:38:31 2014 +0200
+
+    Sync translations with transifex
+
+ po/en_AU.po |  8 ++++----
+ po/et.po    | 51 ++++++++++++++++++++++++++-------------------------
+ po/it.po    |  9 +++++----
+ po/ja.po    | 29 +++++++++++++++--------------
+ po/sv.po    | 21 +++++++++++----------
+ 5 files changed, 61 insertions(+), 57 deletions(-)
+
+commit 24a360e3924cc3fc0d14999e7a3ecf0d51b3b561
+Author: Eugene Kilachkoff <ekilachkoff@gmail.com>
+Date:   Wed Jul 2 16:49:17 2014 +0400
+
+    Fix crash when switching monitors
+    
+    When switching monitors AND displaying notifications at the
+    same time, a rare situation might occur when notification
+    window will be added to two or more stacks. One of the
+    stacks will be removed soon enough, but the "destroy"
+    handler will persist and will be triggered when the window
+    disappears. This results in a reference to a freed memory
+    and (usually) a daemon crash, a typical one is
+    https://retrace.fedoraproject.org/faf/reports/359836/ for
+    example.
+    
+    So, the removal handlers referring to a deleted stack must
+    be cancelled prior to removal.
+    
+    Closes https://github.com/mate-desktop/mate-notification-daemon/pull/34
+
+ src/daemon/stack.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit 8ed79a30694b2249b6a9407d190a68f770c58e12
+Author: Denis Gorodnichev <denis.gorodnichev@gmail.com>
+Date:   Wed Oct 1 17:03:13 2014 +0400
+
+    don't draw pie if timeout is zero
+    
+    Closes https://github.com/mate-desktop/mate-notification-daemon/pull/38
+
+ src/themes/coco/coco-theme.c     | 3 +++
+ src/themes/nodoka/nodoka-theme.c | 3 +++
+ 2 files changed, 6 insertions(+)
+
+commit 562fd09cf6abbeb77101c5598c8321d24e9f7633
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Oct 1 08:42:17 2014 +0200
+
+    coco: Show actions box
+    
+    Closes https://github.com/mate-desktop/mate-notification-daemon/issues/37
+
+ src/themes/coco/coco-theme.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit dd8715734fc3731a6f0836bf93cec15a3af4e085
+Author: mate-i18n <mate-i18n@ml.mate-desktop.org>
+Date:   Sat Jul 12 10:26:42 2014 +0200
+
+    Sync translations with transifex
+
+ po/LINGUAS  |   1 +
+ po/de.po    |  25 +++++----
+ po/hr.po    |  52 +++++++++---------
+ po/lt.po    |  11 ++--
+ po/mr.po    | 178 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pt_BR.po |  11 ++--
+ po/uk.po    |  15 ++---
+ 7 files changed, 238 insertions(+), 55 deletions(-)
+
+commit 0ca03319bc1a69638f76c914fb6b86d142e88829
+Author: infirit <infirit@gmail.com>
+Date:   Thu Jul 3 17:08:09 2014 +0200
+
+    Use g_object_unref in callback for both Gtk+ versions
+
+ src/themes/coco/coco-theme.c     | 4 ----
+ src/themes/nodoka/nodoka-theme.c | 4 ----
+ src/themes/standard/theme.c      | 8 --------
+ 3 files changed, 16 deletions(-)
+
+commit 3689698d12b93355a273e1aae1936ff9a74defd1
+Author: infirit <infirit@gmail.com>
+Date:   Thu Jul 3 16:18:05 2014 +0200
+
+    Cleanup GTK_CHECK_VERSION and unify code where possible
+    
+    * Use GtkAllocation for both Gtk+ versions, added in 2.18
+    * Bump gdk-pixbuf required to 2.22 (release 2010)
+    * GDK_DISPLAY_XDISPLAY | Since always
+    * gdk_display_get_default | Since 2.22
+    * gdk_window_get_screen | Since 2.24
+    * gtk_widget_get_window | Since 2.14
+
+ configure.ac                     |  2 +-
+ src/daemon/daemon.c              |  8 ----
+ src/themes/coco/coco-theme.c     | 22 +---------
+ src/themes/nodoka/nodoka-theme.c | 87 +++-------------------------------------
+ src/themes/slider/theme.c        | 47 +++-------------------
+ src/themes/standard/theme.c      | 82 +++++--------------------------------
+ 6 files changed, 24 insertions(+), 224 deletions(-)
+
+commit 0db54b288c7eca478a13c33ccd3b202d6e3688f9
+Author: infirit <infirit@gmail.com>
+Date:   Thu Jul 3 13:35:27 2014 +0200
+
+    Use gtk_widget_get_visible for both Gtk+ versions
+    
+    Also fix a bug in add_notification_action in coco-theme
+
+ src/themes/coco/coco-theme.c     |  6 +-----
+ src/themes/nodoka/nodoka-theme.c | 12 ++++--------
+ src/themes/slider/theme.c        |  8 ++------
+ src/themes/standard/theme.c      |  8 ++------
+ 4 files changed, 9 insertions(+), 25 deletions(-)
+
+commit bc08fc921ac11df7373aab45117344972109c071
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Jul 2 16:57:32 2014 +0200
+
+    Remove support for GTK2 < 2.20
+
+ src/daemon/stack.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
+
+commit a06a049ba384c2656edbfbe7b9b8150f0bcc01f8
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Jul 2 16:56:14 2014 +0200
+
+    Bump minimum GLIB and GTK2 versions
+
+ configure.ac | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
+
+commit 32eb62861e32bb175230d8231c4371b11da1fedc
+Merge: 434abab b93ae82
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Fri Jun 27 11:45:52 2014 +0200
+
+    Merge pull request #33 from quark-zju/fix-wnck-workspace-null
+    
+    Fix assertion WNCK_IS_WORKSPACE
+
+commit b93ae82a81a562c3190eae72ce09b2c45b88c1b3
+Author: Jun Wu <quark@lihdd.net>
+Date:   Fri Jun 27 13:42:45 2014 +0800
+
+    Fix assertion WNCK_IS_WORKSPACE
+    
+    Some window manager such as i3-wm may cause
+    wnck_screen_get_active_workspace to return NULL.
+    Add a sanity check before using the return value.
+
+ src/daemon/daemon.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 434abab14a314bce1cd262cf68d0ee68bfac2924
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Mar 23 13:49:12 2014 +0100
+
+    Bump version to 1.9.0
+
+ NEWS         | 3 +++
+ configure.ac | 2 +-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+commit 6b8fbdcbe2a512c9ade3bd77b6cc48a92348c664
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Mar 23 13:48:38 2014 +0100
+
+    Sync translations with transifex
+
+ po/LINGUAS |   1 +
+ po/hi.po   | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sc.po   |  56 +++++++++----------
+ 3 files changed, 207 insertions(+), 28 deletions(-)
+
+commit 351c4c76932abbbf6e235f51fc224c2499c5b3dd
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Mar 1 12:05:11 2014 +0100
+
+    Bump version to 1.8.0
+
+ NEWS         | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit f4bbc7b43b67830a3fcf4f191b4d32c4da10fae2
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Mar 1 12:04:51 2014 +0100
+
+    Sync translations with transifex
+
+ po/LINGUAS |   2 +
+ po/be.po   | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/mk.po   | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 358 insertions(+)
+
+commit 54fa89521b65329ddf5e66d92b916fe9a2ccac09
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Feb 23 18:59:47 2014 +0100
+
+    Sync translations with transifex
+
+ po/el.po    | 27 ++++++++++++++-------------
+ po/pt_BR.po |  5 +++--
+ po/sl.po    |  4 ++--
+ 3 files changed, 19 insertions(+), 17 deletions(-)
+
+commit 8528472b779107beb8b822c9bc02b4d51466e48c
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue Feb 18 20:41:04 2014 +0100
+
+    Bump version to 1.7.90
+
+ NEWS         | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 7c61e076217b3925197389736f0def64eb1db546
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue Feb 18 20:40:46 2014 +0100
+
+    Update NEWS
+
+ NEWS | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 0758e67b2fcc65a71e5e13db147650f01592d318
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue Feb 18 20:39:23 2014 +0100
+
+    Rename NEWS -> NEWS.GNOME
+
+ NEWS => NEWS.GNOME | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit abeb90444c4bf0e955fed38f0260cece7b9dfe02
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue Feb 18 20:39:06 2014 +0100
+
+    configure: Add check-news
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 876d57fe5d26b1899e51318d1d2f2205220c6c54
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue Feb 18 20:38:47 2014 +0100
+
+    Sync translations with transifex
+
+ po/LINGUAS  |   5 ++
+ po/bg.po    | 179 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/en_GB.po | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/is.po    |  15 ++---
+ po/ko.po    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/oc.po    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sk.po    |  21 +++----
+ po/te.po    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 8 files changed, 915 insertions(+), 17 deletions(-)
+
+commit c7db66143bbe71f055626f3a94bc87c7c51dfa34
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Jan 19 14:30:46 2014 +0100
+
+    Fix configure script with GTK3
+    
+    Closes #29
+    https://github.com/mate-desktop/mate-notification-daemon/issues/29
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 98b41ca539cb59f76a7bff90d0d335bee43d1376
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jan 18 17:21:03 2014 +0100
+
+    Really fix build with latest mate-common
+
+ configure.ac | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit 0403a698b87aac17fba7707e9e02baaba3c420ea
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jan 18 17:15:50 2014 +0100
+
+    Fix build with latest mate-common
+
+ configure.ac | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit 74a3efb55d615a52ba9f3367b584217b9e02e845
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jan 18 17:10:17 2014 +0100
+
+    Remove autogenerated files
+
+ intl/ChangeLog      |    4 -
+ intl/VERSION        |    1 -
+ intl/bindtextdom.c  |  369 --------------
+ intl/config.charset |  440 -----------------
+ intl/dcgettext.c    |   58 ---
+ intl/dcigettext.c   | 1167 ---------------------------------------------
+ intl/dcngettext.c   |   60 ---
+ intl/dgettext.c     |   59 ---
+ intl/dngettext.c    |   61 ---
+ intl/eval-plural.h  |  105 ----
+ intl/explodename.c  |  192 --------
+ intl/finddomain.c   |  198 --------
+ intl/gettext.c      |   64 ---
+ intl/gettextP.h     |  201 --------
+ intl/gmo.h          |  100 ----
+ intl/hash-string.h  |   59 ---
+ intl/intl-compat.c  |  166 -------
+ intl/l10nflist.c    |  400 ----------------
+ intl/libgnuintl.h   |  137 ------
+ intl/loadinfo.h     |  121 -----
+ intl/loadmsgcat.c   |  445 -----------------
+ intl/localcharset.c |  345 --------------
+ intl/locale.alias   |   78 ---
+ intl/localealias.c  |  419 ----------------
+ intl/localename.c   |  693 ---------------------------
+ intl/ngettext.c     |   68 ---
+ intl/os2compat.c    |  109 -----
+ intl/os2compat.h    |   46 --
+ intl/osdep.c        |   24 -
+ intl/plural-exp.c   |  156 ------
+ intl/plural-exp.h   |  122 -----
+ intl/plural.c       | 1322 ---------------------------------------------------
+ intl/plural.y       |  409 ----------------
+ intl/ref-add.sin    |   31 --
+ intl/ref-del.sin    |   26 -
+ intl/textdomain.c   |  142 ------
+ 36 files changed, 8397 deletions(-)
+
+commit 4bd478eb6ec879005ced32c1afdbf0b521964295
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jan 18 17:01:11 2014 +0100
+
+    Bump version to 1.7.1
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 59d24d816b98a1895343045601111363371a3be7
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jan 18 17:00:27 2014 +0100
+
+    Sync translations with transifex
+
+ po/LINGUAS  |  16 ++++++
+ po/am.po    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/cmn.po   | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/en_AU.po | 179 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/eo.po    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/es_MX.po | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/hr.po    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/is.po    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/kk.po    | 177 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ky.po    | 179 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/lv.po    | 179 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ms.po    | 179 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pl.po    |  11 ++--
+ po/pt_BR.po |  35 ++++++------
+ po/sc.po    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sk.po    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sq.po    | 179 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ur.po    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/zh_TW.po | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 19 files changed, 2892 insertions(+), 22 deletions(-)
+
+commit 9af8d0b1003aaa525b736854219ed381e2a18fc6
+Merge: 6f8a1ae 48d19cb
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jan 18 15:51:16 2014 +0100
+
+    Merge branch 'master' of github.com:mate-desktop/mate-notification-daemon
+
+commit 6f8a1ae9a3908667d3ea21aa9987b7fee412a3ba
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jan 18 15:50:57 2014 +0100
+
+    nodoka: Add GTK3 support
+
+ src/themes/nodoka/nodoka-theme.c | 184 +++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 176 insertions(+), 8 deletions(-)
+
+commit 1f24970a49ad76770739209116ed9fd412cb50be
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jan 18 15:50:43 2014 +0100
+
+    coco: Add GTK3 support
+
+ src/themes/coco/coco-theme.c | 128 ++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 120 insertions(+), 8 deletions(-)
+
+commit b70b238d600258d9b47d2d324086df3e364f8089
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jan 18 15:50:32 2014 +0100
+
+    slider: Add GTK3 support
+
+ src/themes/slider/theme.c | 395 +++++++++++++++++++++++++++++++++++-----------
+ 1 file changed, 307 insertions(+), 88 deletions(-)
+
+commit 7a46b12a76fd5947398e5b5ef53a9484ec9f248e
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jan 18 15:50:21 2014 +0100
+
+    standard: Add GTK3 support
+
+ src/themes/standard/theme.c | 159 ++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 132 insertions(+), 27 deletions(-)
+
+commit 48d19cb30fab1d5a638f8ba42bc54315fafce434
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Jan 15 16:25:45 2014 +0100
+
+    Bump version to 1.7.0
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 11c28cc9c9c288461545e6ae78dd59926a5425b7
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Jan 15 11:11:32 2014 +0100
+
+    capplet: Add keywords in desktop file
+    
+    Thanks to Mike Gabriel
+    Closes #27
+    https://github.com/mate-desktop/mate-notification-daemon/issues/27
+
+ src/capplet/mate-notification-properties.desktop.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 38b5f5e745a8ce2aa6696bd3d80d2cb8f35a469b
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Jan 15 11:03:28 2014 +0100
+
+    capplet: Fix typos in manpage
+
+ src/capplet/mate-notification-properties.1 | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 0280831e27ff5dc2d7c7473cd3bf9041f805299e
+Merge: 9f4203a b0a1739
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Fri Dec 27 14:22:22 2013 -0800
+
+    Merge pull request #26 from pkerling/master
+    
+    Check value type of notification hint 'urgency' before dereferencing
+
+commit b0a1739abb00bb6c62811c5c0f1e766d0ef13140
+Author: Philipp Kerling <pkerling@casix.org>
+Date:   Fri Dec 27 20:08:32 2013 +0100
+
+    Check value type of notification hint 'urgency' before dereferencing in nodoka and coco theme
+
+ src/themes/coco/coco-theme.c     | 2 +-
+ src/themes/nodoka/nodoka-theme.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 9f4203a7c5d99fe66aa98d0ea3d23132bd5142cd
+Merge: c8b0f05 a9e53b2
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Nov 13 04:57:24 2013 -0800
+
+    Merge pull request #24 from flexiondotorg/master
+    
+    Remove distro folder.
+
+commit a9e53b2735ea82e289fc520a61ba8629d1583fab
+Author: Martin Wimpress <code@flexion.org>
+Date:   Wed Nov 13 12:17:23 2013 +0000
+
+    Remove distro folder.
+
+ distro/archlinux/PKGBUILD                         | 45 -----------------------
+ distro/archlinux/mate-notification-daemon.install | 18 ---------
+ 2 files changed, 63 deletions(-)
+
+commit c8b0f053ed2bfd86663201b3f5f7e3b42420ee6a
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Oct 27 13:13:41 2013 +0100
+
+    Update configure for GTK3 support
+
+ configure.ac | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+commit 275dfc749eb988b3316b32e0a74dad2d7c92936f
+Author: Laszlo Boros <iamsemmu@gmail.com>
+Date:   Sat Oct 26 15:46:25 2013 +0200
+
+    daemon: Add GTK3 support
+
+ src/daemon/daemon.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d59de9e94eb0eb770f082fb53bb471e9003cf244
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Oct 26 15:46:04 2013 +0200
+
+    configure: Support multiple wnck versions
+
+ configure.ac | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 9d9aa2b9986edd94a3b72a593be7fd588fc031a0
+Merge: 0656ca9 14d28b2
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue Oct 22 08:11:59 2013 -0700
+
+    Merge pull request #22 from infirit/master
+    
+    New option to disable icon cache generation and small autofoo fixes
+
+commit 14d28b255c8e9fc26cc6e6bf0fc96d938f88fa27
+Author: infirit <infirit@gmail.com>
+Date:   Tue Oct 22 14:06:42 2013 +0200
+
+    Add CLEANFILES to delete generated schema file
+
+ data/Makefile.am | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit af5c5da60f4220365539130dbe0334b78d6eac3e
+Author: infirit <infirit@gmail.com>
+Date:   Tue Oct 22 14:03:05 2013 +0200
+
+    Fix EXTRA_DIST gsettings variable
+
+ data/Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4a58b34af5831a8301cc704d384d3ce77766c7cb
+Author: infirit <infirit@gmail.com>
+Date:   Tue Oct 22 13:59:04 2013 +0200
+
+    Remove non existing INSTALL file from EXTRA_DIST
+
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 8328d19662bc7cc61d2ed730a5acd7667838c416
+Author: infirit <infirit@gmail.com>
+Date:   Tue Oct 22 13:58:20 2013 +0200
+
+    Add update-icon-cache config option for makedistcheck
+
+ Makefile.am      |  2 ++
+ configure.ac     | 10 ++++++++++
+ data/Makefile.am |  4 ++--
+ 3 files changed, 14 insertions(+), 2 deletions(-)
+
+commit 0656ca9fb350ebcf05d205dc861cacc875067dd7
+Merge: 4f94341 11b99a0
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Oct 19 04:54:44 2013 -0700
+
+    Merge pull request #21 from NiceandGently/master
+    
+    let 'make dist' create tar.xz tarballs
+
+commit 11b99a0a63f2b52610c9ce5c33901482126f36b4
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Thu Oct 17 11:53:10 2013 +0200
+
+    remove creating gz tarballs
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4f94341ecc720cfd72cbd0e8d91a72a5ad8f5ad9
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Oct 14 11:44:46 2013 +0200
+
+    Sync translations with transifex
+
+ po/af.po    |  87 +++++++++++++++++++++++--------------
+ po/ar.po    | 109 ++++++++++++++++++++++++++++------------------
+ po/ast.po   | 117 ++++++++++++++++++++++++++++++--------------------
+ po/ca.po    |  93 +++++++++++++++++++++++++---------------
+ po/cs.po    | 109 ++++++++++++++++++++++++++++------------------
+ po/da.po    | 112 +++++++++++++++++++++++++++++-------------------
+ po/de.po    |  93 +++++++++++++++++++++++++---------------
+ po/el.po    |  97 +++++++++++++++++++++++++----------------
+ po/es.po    |  99 ++++++++++++++++++++++++++----------------
+ po/es_CL.po |  87 +++++++++++++++++++++++--------------
+ po/et.po    |  81 ++++++++++++++++++++++-------------
+ po/eu.po    |  93 +++++++++++++++++++++++++---------------
+ po/fr.po    |  93 +++++++++++++++++++++++++---------------
+ po/gl.po    | 104 +++++++++++++++++++++++++++-----------------
+ po/he.po    |  93 +++++++++++++++++++++++++---------------
+ po/hu.po    |  94 +++++++++++++++++++++++++---------------
+ po/id.po    | 140 +++++++++++++++++++++++++++++++++++-------------------------
+ po/it.po    |  87 +++++++++++++++++++++++--------------
+ po/ja.po    |  87 +++++++++++++++++++++++--------------
+ po/lt.po    |  85 ++++++++++++++++++++++--------------
+ po/nb.po    | 114 ++++++++++++++++++++++++++++++-------------------
+ po/nl.po    |  93 +++++++++++++++++++++++++---------------
+ po/pa.po    |  87 +++++++++++++++++++++++--------------
+ po/pl.po    |  88 ++++++++++++++++++++++++--------------
+ po/pt.po    |  94 +++++++++++++++++++++++++---------------
+ po/pt_BR.po |  90 ++++++++++++++++++++++++--------------
+ po/ru.po    |  95 +++++++++++++++++++++++++----------------
+ po/sl.po    | 109 ++++++++++++++++++++++++++++------------------
+ po/sv.po    |  83 ++++++++++++++++++++++-------------
+ po/tr.po    |  93 +++++++++++++++++++++++++---------------
+ po/uk.po    | 107 +++++++++++++++++++++++++++++-----------------
+ po/zh_CN.po |  95 ++++++++++++++++++++++++++---------------
+ 32 files changed, 1937 insertions(+), 1171 deletions(-)
+
+commit 69134d7b1a8d3419e60ad4b4226c49e7f0dd86cc
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Sat Oct 12 22:06:06 2013 +0200
+
+    let 'make dist' create tar.gz and tar.xv tarballs
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f95eb65a0092f0478028ad762370f20be4b2089a
+Merge: 6f064df 1f5ba2d
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue Oct 8 02:14:10 2013 -0700
+
+    Merge pull request #19 from infirit/master
+    
+    back to libwnck
+
+commit 1f5ba2d1119114fc3c079fa01b7838857b086e77
+Author: infirit <infirit@gmail.com>
+Date:   Tue Oct 8 04:05:18 2013 +0200
+
+    Make automake happy: INCLUDES->AM_CPPFLAGS
+
+ src/capplet/Makefile.am         | 2 +-
+ src/daemon/Makefile.am          | 2 +-
+ src/themes/standard/Makefile.am | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+commit d245241f3e9dc2de94a74222ad751ad42ea3c55a
+Author: infirit <infirit@gmail.com>
+Date:   Tue Oct 8 04:02:05 2013 +0200
+
+    back to libwnck
+
+ configure.ac        |  2 +-
+ src/daemon/daemon.c | 29 +++++++++++++++--------------
+ 2 files changed, 16 insertions(+), 15 deletions(-)
+
+commit 6f064dfd7f52202df314d31edefcca1826e2324b
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue Apr 23 16:44:40 2013 +0200
+
+    Add manpage for mate-notification-properties
+    Close #17 (https://github.com/mate-desktop/mate-notification-daemon/issues/17)
+
+ src/capplet/Makefile.am                    |  4 +++-
+ src/capplet/mate-notification-properties.1 | 25 +++++++++++++++++++++++++
+ 2 files changed, 28 insertions(+), 1 deletion(-)
+
+commit fa1976fffe10027a35b007b66951434059ef59ca
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Apr 11 16:33:00 2013 +0200
+
+    Update COPYING
+
+ COPYING | 41 ++++++++++++++++++++---------------------
+ 1 file changed, 20 insertions(+), 21 deletions(-)
+
+commit 3c4fba19fd20ce38ab58cca84fa037499ca79d8d
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Sun Mar 31 18:05:41 2013 -0400
+
+    Preparing for 1.6.0 release.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 65a8d3a1b90c61ec598a6bf2555ea38acf6020cf
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Fri Mar 29 19:41:02 2013 +0100
+
+    Add empty ChangeLog to allow build from git
+
+ ChangeLog | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit b26015af7a703b074636db7e2ab1872bc95ef208
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Sun Mar 24 16:33:17 2013 -0400
+
+    "Removed ChangeLog"
+
+ ChangeLog | 636 --------------------------------------------------------------
+ 1 file changed, 636 deletions(-)
+
+commit 8d7a5fb46f84540305dd3f998828430c524c6f58
+Merge: ebee340 77b7e2c
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Mar 17 03:27:05 2013 -0700
+
+    Merge pull request #14 from NiceandGently/master
+    
+    remove category MATE from desktop file
+
+commit 77b7e2c5e3609c30f8a3d2cc94fcda520477fd46
+Author: Wolfgang Ulbrich <chat-to-me@raveit.de>
+Date:   Sun Mar 17 11:24:35 2013 +0100
+
+    remove category MATE
+
+ src/capplet/mate-notification-properties.desktop.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ebee340510a6212b1173f295cbbc7cf7115b48e1
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Mar 10 19:11:37 2013 +0100
+
+    Bump version to 1.5.2
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 42c0ff29c5af165f03f1ea9c588ef9a52a8200f4
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Feb 28 00:39:23 2013 +0100
+
+    Show always a notification if it has 'expires never' as timeout
+    Without check if there is active screensaver or fullscreen window
+
+ src/daemon/daemon.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+commit 31058eaf24136226041fca54c1de4c8e73092161
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Feb 28 00:13:55 2013 +0100
+
+    Fix indentation
+
+ src/daemon/daemon.c | 38 +++++++++++++++++++-------------------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
+
+commit 5e0c2b62615239a98298e4c3c6442231e720cdca
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Feb 27 15:13:40 2013 +0100
+
+    Add transifex configuration file
+
+ .tx/config | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit 38baf9e50299cda55822256c1d8db5722593e554
+Merge: 38ef332 d263541
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Feb 18 13:55:18 2013 -0800
+
+    Merge pull request #12 from glensc/libnotify
+    
+    use libnotify, not libmatenotify
+
+commit d263541b686f36a8f61c00eaee4d852ce5e8a766
+Author: Elan Ruusamäe <glen@delfi.ee>
+Date:   Mon Feb 18 22:07:40 2013 +0200
+
+    use libnotify, not libmatenotify
+
+ configure.ac                               | 2 +-
+ src/capplet/mate-notification-properties.c | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 38ef332671d38e8653887b75143d7f0a0f29f157
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Feb 11 01:14:28 2013 +0100
+
+    Update POTFILES.in
+
+ po/POTFILES.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 7c6ba368d9480c7d4d49646e9ef0b4cad95098a5
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Feb 11 01:13:52 2013 +0100
+
+    Make GSettings schema translatable
+
+ data/Makefile.am                                   |  6 +++-
+ data/org.mate.NotificationDaemon.gschema.xml       | 34 ----------------------
+ data/org.mate.NotificationDaemon.gschema.xml.in.in | 34 ++++++++++++++++++++++
+ 3 files changed, 39 insertions(+), 35 deletions(-)
+
+commit a5e0ae7d5e87d467a2f62a058171537377f6411f
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Mon Jan 21 15:03:35 2013 -0500
+
+    Removed debugging code.
+
+ src/capplet/mate-notification-properties.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit b65180d357ec96d91185ecabbf1344366ecdec54
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Sun Jan 20 14:20:41 2013 -0500
+
+    Preparing for 1.5.1 release.
+
+ ChangeLog    | 210 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ configure.ac |   2 +-
+ 2 files changed, 211 insertions(+), 1 deletion(-)
+
+commit 276eae936334c109ffa6b2e3199f97b1885dfa62
+Merge: 4a1eb4d 61d109a
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Sun Jan 20 14:00:54 2013 -0500
+
+    Merged.
+
+commit 4a1eb4d4d53baf0c34d1c7ecf8cce1a74a93db50
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Sun Jan 20 13:54:48 2013 -0500
+
+    Removed unused code.
+
+ src/capplet/mate-notification-properties.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 193ba3d4a28b7930bf66bf51ca2e9a0ecfc61edf
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Sun Jan 20 13:53:58 2013 -0500
+
+    Backend now supports selecting which monitor to display a notification on.
+
+ src/daemon/daemon.c | 18 +++++++++++++++---
+ src/daemon/daemon.h |  2 ++
+ 2 files changed, 17 insertions(+), 3 deletions(-)
+
+commit 5618708514ac34257e9ba93af96e9ef32a4ad0c2
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Sun Jan 20 13:52:47 2013 -0500
+
+    Added "use-active-monitor" and "monitor-number" keys to gschema.
+
+ data/org.mate.NotificationDaemon.gschema.xml | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+commit fdb4b281f45e012005f01a6bc430e2a3f9875c17
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Thu Jan 17 14:21:48 2013 -0500
+
+    Can now select which monitor to display a notification on.
+    
+    mate-notification-properties now offers the user the option to
+    to display notifications on the active monitor (previous
+    default behavior) or to display them on a specific monitor.
+
+ src/capplet/mate-notification-properties.c  | 200 ++++++++++++++++++++-
+ src/capplet/mate-notification-properties.ui | 258 ++++++++++++++++++----------
+ 2 files changed, 360 insertions(+), 98 deletions(-)
+
+commit 61d109a6e5794cf393d1f9d5bebda10f8efce902
+Author: Yaakov Selkowitz <yselkowitz@users.sourceforge.net>
+Date:   Tue Dec 25 21:50:14 2012 -0600
+
+    Fix engine loading portability
+    
+    Use GModule APIs for determining engine filenames.  Also, link with
+    the -no-undefined flag, required on PE platforms.
+
+ src/capplet/mate-notification-properties.c | 5 +++--
+ src/daemon/engines.c                       | 7 ++-----
+ src/themes/coco/Makefile.am                | 2 +-
+ src/themes/nodoka/Makefile.am              | 2 +-
+ src/themes/slider/Makefile.am              | 2 +-
+ src/themes/standard/Makefile.am            | 2 +-
+ 6 files changed, 9 insertions(+), 11 deletions(-)
+
+commit 2f0f21bde5e00fc0abb3379ffb9f23574e9508ad
+Author: Yaakov Selkowitz <yselkowitz@users.sourceforge.net>
+Date:   Tue Dec 25 22:14:36 2012 -0600
+
+    Remove gettext and libtool files
+
+ ABOUT-NLS             |  393 --
+ ltmain.sh             | 9655 -------------------------------------------------
+ macros/codeset.m4     |   23 -
+ macros/gettext.m4     |  523 ---
+ macros/glibc21.m4     |   32 -
+ macros/iconv.m4       |   96 -
+ macros/intltool.m4    |  216 --
+ macros/isc-posix.m4   |   24 -
+ macros/lcmessage.m4   |   32 -
+ macros/lib-ld.m4      |   97 -
+ macros/lib-link.m4    |  521 ---
+ macros/lib-prefix.m4  |  148 -
+ macros/libtool.m4     | 7982 ----------------------------------------
+ macros/ltoptions.m4   |  384 --
+ macros/ltsugar.m4     |  123 -
+ macros/ltversion.m4   |   23 -
+ macros/lt~obsolete.m4 |   98 -
+ macros/progtest.m4    |   59 -
+ 18 files changed, 20429 deletions(-)
+
+commit ef8c9fcc148c2f71440943efb1b344ce25880735
+Merge: 4f219a3 ab9c099
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Dec 24 16:34:01 2012 -0800
+
+    Merge pull request #8 from cygwinports/master
+    
+    Add mateconf-gsettings-data-convert file
+
+commit ab9c0996314fbda9643e884181ca708d61bd0c67
+Author: Yaakov Selkowitz <yselkowitz@users.sourceforge.net>
+Date:   Mon Dec 24 18:04:14 2012 -0600
+
+    Add mateconf-gsettings-data-convert file
+
+ data/Makefile.am                      | 4 ++++
+ data/mate-notification-daemon.convert | 5 +++++
+ 2 files changed, 9 insertions(+)
+
+commit 4f219a36db5f32014b2d44ac5f2f77f7ab5852c8
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Oct 21 11:29:54 2012 +0200
+
+    change default settings
+    default theme is Nodoka
+    default position is on top right (panel notification area is on top right too)
+
+ data/org.mate.NotificationDaemon.gschema.xml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 85fb7f06d06ea1647995e84cd96e9214c11a53dc
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Sep 1 20:57:43 2012 +0200
+
+    fix typo in configure.ac
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 2d7e34441f4d33dc1edb5e9871b66b4977069bae
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Fri Aug 3 12:26:32 2012 +0200
+
+    migrate to GSettings
+
+ configure.ac                                 | 16 +++---
+ data/Makefile.am                             | 19 ++-----
+ data/mate-notification-daemon.schemas.in     | 53 --------------------
+ data/org.mate.NotificationDaemon.gschema.xml | 24 +++++++++
+ src/capplet/mate-notification-properties.c   | 75 ++++++----------------------
+ src/daemon/daemon.c                          | 32 ++++--------
+ src/daemon/daemon.h                          | 15 +++---
+ src/daemon/engines.c                         | 11 ++--
+ 8 files changed, 72 insertions(+), 173 deletions(-)
+
+commit 597a9064e4d2df85d53726928e576a9be53d22fb
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Tue Jul 31 20:11:25 2012 -0400
+
+    Fixed incorrect fsf address. Closes issue #6.
+
+ intl/bindtextdom.c                         | 2 +-
+ intl/dcgettext.c                           | 2 +-
+ intl/dcigettext.c                          | 2 +-
+ intl/dcngettext.c                          | 2 +-
+ intl/dgettext.c                            | 2 +-
+ intl/dngettext.c                           | 2 +-
+ intl/eval-plural.h                         | 2 +-
+ intl/explodename.c                         | 2 +-
+ intl/finddomain.c                          | 2 +-
+ intl/gettext.c                             | 2 +-
+ intl/gettextP.h                            | 2 +-
+ intl/gmo.h                                 | 2 +-
+ intl/hash-string.h                         | 2 +-
+ intl/intl-compat.c                         | 2 +-
+ intl/l10nflist.c                           | 2 +-
+ intl/libgnuintl.h                          | 2 +-
+ intl/loadinfo.h                            | 2 +-
+ intl/loadmsgcat.c                          | 2 +-
+ intl/localcharset.c                        | 2 +-
+ intl/localealias.c                         | 2 +-
+ intl/localename.c                          | 2 +-
+ intl/ngettext.c                            | 2 +-
+ intl/os2compat.c                           | 2 +-
+ intl/os2compat.h                           | 2 +-
+ intl/osdep.c                               | 2 +-
+ intl/plural-exp.c                          | 2 +-
+ intl/plural-exp.h                          | 2 +-
+ intl/plural.c                              | 6 +++---
+ intl/textdomain.c                          | 2 +-
+ src/capplet/mate-notification-properties.c | 4 ++--
+ src/daemon/daemon.c                        | 4 ++--
+ src/daemon/daemon.h                        | 4 ++--
+ src/daemon/engines.c                       | 4 ++--
+ src/daemon/engines.h                       | 4 ++--
+ src/daemon/sound.c                         | 4 ++--
+ src/daemon/sound.h                         | 4 ++--
+ src/daemon/stack.c                         | 4 ++--
+ src/daemon/stack.h                         | 4 ++--
+ src/themes/slider/theme.c                  | 4 ++--
+ src/themes/standard/theme.c                | 4 ++--
+ 40 files changed, 53 insertions(+), 53 deletions(-)
+
+commit 90229ab4ea11be5c7c8220f89455b702700ffa7a
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Thu Jul 5 14:29:27 2012 -0400
+
+    Preparing for 1.4 release.
+
+ ChangeLog              | 178 ++++++++++++++++++++++++++++++++++++++++++++++---
+ configure.ac           |   2 +-
+ distro/ubuntu/build    |  35 ----------
+ distro/ubuntu/postinst |  11 ---
+ distro/ubuntu/postrm   |   8 ---
+ distro/ubuntu/preinst  |   8 ---
+ distro/ubuntu/prerm    |  11 ---
+ 7 files changed, 169 insertions(+), 84 deletions(-)
+
+commit 306d7aca16e3ec6498414be1d289bb9e708a6259
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Jul 4 15:37:59 2012 +0200
+
+    sync translations with transifex
+
+ po/LINGUAS  |   9 +++
+ po/af.po    | 155 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ar.po    | 161 +++++++++++++++++++++++++++++++++++++++++++++--------
+ po/ast.po   | 155 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ca.po    | 155 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/cs.po    | 177 +++++++++++++++++++++++++++++++----------------------------
+ po/da.po    | 142 ++++++++++++++++++++++++++++++-----------------
+ po/de.po    |  92 +++++++++++++++++--------------
+ po/el.po    | 147 +++++++++++++++++++++++++++++++------------------
+ po/es.po    | 177 +++++++++++++++++++++++++++++++----------------------------
+ po/es_CL.po | 155 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/et.po    | 121 ++++++++++++++++++++++++++++++----------
+ po/eu.po    |  90 ++++++++++++++++--------------
+ po/fr.po    | 169 +++++++++++++++++++++++++++++++-------------------------
+ po/gl.po    | 151 +++++++++++++++++++++++++-------------------------
+ po/he.po    | 155 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/hu.po    | 154 +++++++++++++++++++++++++--------------------------
+ po/id.po    | 155 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/it.po    | 107 ++++++++++++++++++------------------
+ po/ja.po    | 170 ++++++++++++++++++++++++++++++--------------------------
+ po/lt.po    | 152 +++++++++++++++++++++++++-------------------------
+ po/nb.po    | 126 +++++++++++++++++++++++++++++-------------
+ po/nl.po    |  92 +++++++++++++++++--------------
+ po/pa.po    | 153 ++++++++++++++++++++++++++-------------------------
+ po/pl.po    | 156 ++++++++++++++++++++++++++--------------------------
+ po/pt.po    | 155 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/pt_BR.po | 151 +++++++++++++++++++++++++-------------------------
+ po/ru.po    | 179 ++++++++++++++++++++++++++++++-----------------------------
+ po/sl.po    | 180 ++++++++++++++++++++++++++++++++----------------------------
+ po/sv.po    | 168 +++++++++++++++++++++++++++++++++-----------------------
+ po/tr.po    | 154 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/uk.po    | 154 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/zh_CN.po | 149 +++++++++++++++++++++++++------------------------
+ 33 files changed, 3308 insertions(+), 1458 deletions(-)
+
+commit eb124c09f7431ff65510faeb8328b2f96cd20dca
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Jul 4 15:35:43 2012 +0200
+
+    add gnome copyrights file
+
+ po/gnome-copyrights.txt | 224 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 224 insertions(+)
+
+commit 6f9d49a3a1a6981f0cc09ae30d63505585e60c76
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Fri Jun 8 11:46:35 2012 +0200
+
+    port to libmatewnck
+
+ configure.ac              |  2 +-
+ distro/archlinux/PKGBUILD |  2 +-
+ src/daemon/daemon.c       | 29 ++++++++++++++---------------
+ 3 files changed, 16 insertions(+), 17 deletions(-)
+
+commit 3695f8d4564daf9a2149e9fb956b55f265a4257b
+Merge: 73f4151 941db15
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed May 16 03:40:02 2012 -0700
+
+    Merge pull request #5 from MDykstra/master
+    
+    backward compatible dependency on gmodule-2.0
+
+commit 941db158dd9b8feba94c9b2b6367ae255539ff2f
+Author: Marcel Dijkstra <marcel.dykstra@gmail.com>
+Date:   Wed May 16 12:39:01 2012 +0200
+
+    only depend on gmodule-2.0 if it exists
+
+ configure.ac | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 73f4151156db00b2a0239fe45042588ae548ef3e
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun May 13 17:39:11 2012 +0200
+
+    make new themes names translatable
+
+ src/capplet/mate-notification-properties.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+commit 969f937d75533119f617feecce1cfbb43cc528c8
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat May 12 16:19:29 2012 +0200
+
+    bump version to 1.3.1
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ba4a0d842f8e9c5beffc25ca62b72bf7a86c83fb
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat May 12 16:18:40 2012 +0200
+
+    scale icon if size is greater than IMAGE_SIZE
+
+ src/daemon/daemon.c | 50 +++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 49 insertions(+), 1 deletion(-)
+
+commit b915b2e6dcc1ff03f8768bd8f28b877ec28ed372
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat May 12 16:18:18 2012 +0200
+
+    fix icon in preview dialog
+
+ src/capplet/mate-notification-properties.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b67c6422995a9459548f478aa61a4dd3ec0437c0
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed May 9 18:03:07 2012 +0200
+
+    add coco (notify-osd like) and nodoka (from fedora) themes, start 1.3 release
+
+ AUTHORS                          |    7 +
+ configure.ac                     |    8 +-
+ src/themes/Makefile.am           |    2 +-
+ src/themes/coco/Makefile.am      |    9 +
+ src/themes/coco/coco-theme.c     |  629 +++++++++++++++++++++++
+ src/themes/nodoka/Makefile.am    |    9 +
+ src/themes/nodoka/nodoka-theme.c | 1032 ++++++++++++++++++++++++++++++++++++++
+ src/themes/slider/theme.c        |    2 +-
+ 8 files changed, 1693 insertions(+), 5 deletions(-)
+
+commit 07a45e51f10d27b201004b661812eed107c5d831
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Feb 23 15:31:56 2012 +0100
+
+    update translations (de, eu, nl)
+    eu is a new translation
+
+ po/LINGUAS         |   1 +
+ po/Makefile.in.in~ | 217 -----------------------------------------------------
+ po/de.po           | 144 +++++++++++++++++------------------
+ po/eu.po           | 147 ++++++++++++++++++++++++++++++++++++
+ po/nl.po           | 148 ++++++++++++++++++++++++++++++------
+ 5 files changed, 347 insertions(+), 310 deletions(-)
+
+commit 03d844827da69b46f7a9791c46e544954242b0ba
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Wed Feb 22 21:19:55 2012 -0500
+
+    Preparing for 1.2 release
+
+ AUTHORS      |  51 ++++++-----
+ ChangeLog    | 291 ++++++++++++++++++++++++++++++++++++++++++++++++++++-------
+ README       |   1 +
+ autogen.sh   |   4 +-
+ configure.ac |   2 +-
+ 5 files changed, 288 insertions(+), 61 deletions(-)
+
+commit b203c311dc9e5edf1f62c4e3170a0f76a2b9643e
+Author: Perberos <perberos@gmail.com>
+Date:   Mon Jan 30 13:14:50 2012 -0300
+
+    set patch on archlinux script
+
+ distro/archlinux/PKGBUILD | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+commit c68c4c34bfc601ad735d50e6f7482df5762ab7ce
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Tue Jan 10 14:25:04 2012 -0500
+
+    Changed mate.gr.jp to gnome.gr.jp as requested in issue #86
+
+ po/ja.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 7155750255a6594e816095c3c0b5fbf49cad096e
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Jan 2 16:28:04 2012 +0100
+
+    updated it translation
+
+ po/it.po | 127 +++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 70 insertions(+), 57 deletions(-)
+
+commit 456dc22287e3135a2702f5759af375c5606e8715
+Author: Perberos <perberos@gmail.com>
+Date:   Sun Jan 1 18:46:00 2012 -0300
+
+    GDK_DISPLAY() is deprecated
+
+ src/daemon/stack.c | 50 ++++++++++++++------------------------------------
+ 1 file changed, 14 insertions(+), 36 deletions(-)
+
+commit ec315ced4c463abe0db561867e54454a370c269c
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Jan 2 00:40:10 2012 +0100
+
+    missing 'G', or we was using a DonkeyKong library??
+
+ src/daemon/daemon.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 14c8b0f4b9a366ca4c4b5a5aa63a91ab2ac03f7c
+Merge: f6b5b7e c8dadc4
+Author: Perberos <perberos@gmail.com>
+Date:   Wed Dec 28 12:45:57 2011 -0800
+
+    Merge pull request #1 from RetroX/patch-1
+    
+    Shouldn't conflict with notification-daemon.
+
+commit c8dadc48a116d4de12905704a045f24f1530ea98
+Author: Alex Charron <classixretrox@gmail.com>
+Date:   Wed Dec 28 15:20:37 2011 -0500
+
+    Shouldn't conflict with notification-daemon.
+
+ distro/archlinux/PKGBUILD | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit f6b5b7eb3f0214f93a8540ee85da60b8e8aef036
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Dec 10 00:53:40 2011 +0100
+
+    updated version to 1.1.0
+
+ AUTHORS      | 1 +
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+commit a4f57728a5cd402beb0325e321981cbb1ef19307
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Dec 10 00:51:47 2011 +0100
+
+    removed autogenerated files
+
+ INSTALL                         |  365 -------
+ Makefile.in                     |  822 --------------
+ aclocal.m4                      | 2277 ---------------------------------------
+ config.guess                    | 1501 --------------------------
+ config.h.in                     |  116 --
+ config.rpath                    |  497 ---------
+ config.sub                      | 1705 -----------------------------
+ data/Makefile.in                |  671 ------------
+ depcomp                         |  630 -----------
+ install-sh                      |  520 ---------
+ intl/Makefile.in                |  337 ------
+ intltool-extract.in             |    0
+ intltool-merge.in               |    0
+ intltool-update.in              |    0
+ missing                         |  376 -------
+ mkinstalldirs                   |  162 ---
+ po/Makefile.in.in               |  217 ----
+ src/Makefile.in                 |  616 -----------
+ src/capplet/Makefile.in         |  669 ------------
+ src/daemon/Makefile.in          |  617 -----------
+ src/themes/Makefile.in          |  616 -----------
+ src/themes/slider/Makefile.in   |  604 -----------
+ src/themes/standard/Makefile.in |  600 -----------
+ 23 files changed, 13918 deletions(-)
+
+commit d818374ac01d031988c1252d02c329a2c8cc9a1e
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Fri Dec 2 20:18:55 2011 -0500
+
+    Changed version to 2011.12.01
+
+ configure.ac              | 2 +-
+ distro/archlinux/PKGBUILD | 2 +-
+ distro/ubuntu/build       | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 781b0ff3f74abd6f5353b6d08763bbba93f2f21c
+Author: Perberos <perberos@gmail.com>
+Date:   Thu Dec 1 22:49:12 2011 -0300
+
+    moving from https://github.com/perberos/mate-desktop-environment
+
+ ABOUT-NLS                                          |  393 +
+ AUTHORS                                            |   25 +
+ COPYING                                            |  340 +
+ ChangeLog                                          |   47 +
+ INSTALL                                            |  365 +
+ Makefile.am                                        |   45 +
+ Makefile.in                                        |  822 ++
+ NEWS                                               |  220 +
+ README                                             |    0
+ acinclude.m4                                       |   40 +
+ aclocal.m4                                         | 2277 +++++
+ autogen.sh                                         |   22 +
+ config.guess                                       | 1501 +++
+ config.h.in                                        |  116 +
+ config.rpath                                       |  497 +
+ config.sub                                         | 1705 ++++
+ configure.ac                                       |  280 +
+ data/Makefile.am                                   |   58 +
+ data/Makefile.in                                   |  671 ++
+ data/icons/16x16/mate-notification-properties.png  |  Bin 0 -> 514 bytes
+ data/icons/22x22/mate-notification-properties.png  |  Bin 0 -> 560 bytes
+ data/icons/24x24/mate-notification-properties.png  |  Bin 0 -> 554 bytes
+ data/icons/32x32/mate-notification-properties.png  |  Bin 0 -> 725 bytes
+ data/icons/48x48/mate-notification-properties.png  |  Bin 0 -> 938 bytes
+ .../scalable/mate-notification-properties.svg      |  122 +
+ data/mate-notification-daemon.schemas.in           |   53 +
+ data/org.freedesktop.mate.Notifications.service.in |    3 +
+ depcomp                                            |  630 ++
+ distro/archlinux/PKGBUILD                          |   43 +
+ distro/archlinux/mate-notification-daemon.install  |   18 +
+ distro/ubuntu/build                                |   35 +
+ distro/ubuntu/postinst                             |   11 +
+ distro/ubuntu/postrm                               |    8 +
+ distro/ubuntu/preinst                              |    8 +
+ distro/ubuntu/prerm                                |   11 +
+ install-sh                                         |  520 ++
+ intl/ChangeLog                                     |    4 +
+ intl/Makefile.in                                   |  337 +
+ intl/VERSION                                       |    1 +
+ intl/bindtextdom.c                                 |  369 +
+ intl/config.charset                                |  440 +
+ intl/dcgettext.c                                   |   58 +
+ intl/dcigettext.c                                  | 1167 +++
+ intl/dcngettext.c                                  |   60 +
+ intl/dgettext.c                                    |   59 +
+ intl/dngettext.c                                   |   61 +
+ intl/eval-plural.h                                 |  105 +
+ intl/explodename.c                                 |  192 +
+ intl/finddomain.c                                  |  198 +
+ intl/gettext.c                                     |   64 +
+ intl/gettextP.h                                    |  201 +
+ intl/gmo.h                                         |  100 +
+ intl/hash-string.h                                 |   59 +
+ intl/intl-compat.c                                 |  166 +
+ intl/l10nflist.c                                   |  400 +
+ intl/libgnuintl.h                                  |  137 +
+ intl/loadinfo.h                                    |  121 +
+ intl/loadmsgcat.c                                  |  445 +
+ intl/localcharset.c                                |  345 +
+ intl/locale.alias                                  |   78 +
+ intl/localealias.c                                 |  419 +
+ intl/localename.c                                  |  693 ++
+ intl/ngettext.c                                    |   68 +
+ intl/os2compat.c                                   |  109 +
+ intl/os2compat.h                                   |   46 +
+ intl/osdep.c                                       |   24 +
+ intl/plural-exp.c                                  |  156 +
+ intl/plural-exp.h                                  |  122 +
+ intl/plural.c                                      | 1322 +++
+ intl/plural.y                                      |  409 +
+ intl/ref-add.sin                                   |   31 +
+ intl/ref-del.sin                                   |   26 +
+ intl/textdomain.c                                  |  142 +
+ intltool-extract.in                                |    0
+ intltool-merge.in                                  |    0
+ intltool-update.in                                 |    0
+ ltmain.sh                                          | 9655 ++++++++++++++++++++
+ macros/codeset.m4                                  |   23 +
+ macros/gettext.m4                                  |  523 ++
+ macros/glibc21.m4                                  |   32 +
+ macros/iconv.m4                                    |   96 +
+ macros/intltool.m4                                 |  216 +
+ macros/isc-posix.m4                                |   24 +
+ macros/lcmessage.m4                                |   32 +
+ macros/lib-ld.m4                                   |   97 +
+ macros/lib-link.m4                                 |  521 ++
+ macros/lib-prefix.m4                               |  148 +
+ macros/libtool.m4                                  | 7982 ++++++++++++++++
+ macros/ltoptions.m4                                |  384 +
+ macros/ltsugar.m4                                  |  123 +
+ macros/ltversion.m4                                |   23 +
+ macros/lt~obsolete.m4                              |   98 +
+ macros/progtest.m4                                 |   59 +
+ missing                                            |  376 +
+ mkinstalldirs                                      |  162 +
+ po/LINGUAS                                         |   24 +
+ po/Makefile.in.in                                  |  217 +
+ po/Makefile.in.in~                                 |  217 +
+ po/POTFILES.in                                     |    6 +
+ po/Rules-quot                                      |   42 +
+ po/ar.po                                           |   42 +
+ po/boldquot.sed                                    |   10 +
+ po/cs.po                                           |  147 +
+ po/da.po                                           |  110 +
+ po/de.po                                           |  144 +
+ po/el.po                                           |  114 +
+ po/en@boldquot.header                              |   25 +
+ po/en@quot.header                                  |   22 +
+ po/es.po                                           |  146 +
+ po/et.po                                           |   89 +
+ po/fr.po                                           |  137 +
+ po/gl.po                                           |  151 +
+ po/hu.po                                           |  154 +
+ po/insert-header.sin                               |   23 +
+ po/it.po                                           |  141 +
+ po/ja.po                                           |  140 +
+ po/lt.po                                           |  150 +
+ po/nb.po                                           |  104 +
+ po/nl.po                                           |   43 +
+ po/pa.po                                           |  153 +
+ po/pl.po                                           |  156 +
+ po/pt_BR.po                                        |  151 +
+ po/quot.sed                                        |    6 +
+ po/ru.po                                           |  148 +
+ po/sl.po                                           |  141 +
+ po/sv.po                                           |  126 +
+ po/zh_CN.po                                        |  149 +
+ src/Makefile.am                                    |    3 +
+ src/Makefile.in                                    |  616 ++
+ src/capplet/Makefile.am                            |   26 +
+ src/capplet/Makefile.in                            |  669 ++
+ src/capplet/mate-notification-properties.c         |  477 +
+ .../mate-notification-properties.desktop.in        |   11 +
+ src/capplet/mate-notification-properties.ui        |  261 +
+ src/daemon/Makefile.am                             |   30 +
+ src/daemon/Makefile.in                             |  617 ++
+ src/daemon/daemon.c                                | 1650 ++++
+ src/daemon/daemon.h                                |  103 +
+ src/daemon/engines.c                               |  338 +
+ src/daemon/engines.h                               |   60 +
+ src/daemon/notificationdaemon.xml                  |   40 +
+ src/daemon/sound.c                                 |   39 +
+ src/daemon/sound.h                                 |   29 +
+ src/daemon/stack.c                                 |  409 +
+ src/daemon/stack.h                                 |   50 +
+ src/themes/Makefile.am                             |    3 +
+ src/themes/Makefile.in                             |  616 ++
+ src/themes/slider/Makefile.am                      |   15 +
+ src/themes/slider/Makefile.in                      |  604 ++
+ src/themes/slider/theme.c                          |  914 ++
+ src/themes/standard/Makefile.am                    |   11 +
+ src/themes/standard/Makefile.in                    |  600 ++
+ src/themes/standard/theme.c                        | 1049 +++
+ 153 files changed, 52862 insertions(+)
