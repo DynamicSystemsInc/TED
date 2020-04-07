@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Miscellaneous Functions: MATE Desktop Library Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="MATE Desktop Library Reference Manual">
+<link rel="up" href="libmate.html" title="Part VI. Miscellaneous">
+<link rel="prev" href="MateDesktopItem.html" title="MateDesktopItem">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#mate-desktop-Miscellaneous-Functions.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="libmate.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="MateDesktopItem.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><img src="right-insensitive.png" width="16" height="16" border="0"></td>
+</tr></table>
+<div class="refentry">
+<a name="mate-desktop-Miscellaneous-Functions"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="mate-desktop-Miscellaneous-Functions.top_of_page"></a>Miscellaneous Functions</span></h2>
+<p>Miscellaneous Functions</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="mate-desktop-Miscellaneous-Functions.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody><tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="mate-desktop-Miscellaneous-Functions.html#mate-desktop-prepend-terminal-to-vector" title="mate_desktop_prepend_terminal_to_vector ()">mate_desktop_prepend_terminal_to_vector</a> <span class="c_punctuation">()</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="mate-desktop-Miscellaneous-Functions.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;mate-desktop-utils.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="mate-desktop-Miscellaneous-Functions.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="mate-desktop-Miscellaneous-Functions.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="mate-desktop-prepend-terminal-to-vector"></a><h3>mate_desktop_prepend_terminal_to_vector ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+mate_desktop_prepend_terminal_to_vector
+                               (<em class="parameter"><code><span class="type">int</span> *argc</code></em>,
+                                <em class="parameter"><code><span class="type">char</span> ***argv</code></em>);</pre>
+<p>Prepends a terminal (either the one configured as default in the user's
+MATE setup, or one of the common xterm emulators) to the passed in vector,
+modifying it in the process.  The vector should be allocated with <span class="type">g_malloc</span>,
+as this will <span class="type">g_free</span> the original vector.  Also all elements must have been
+allocated separately.  That is the standard glib/MATE way of doing vectors
+however.  If the integer that <em class="parameter"><code>argc</code></em>
+ points to is negative, the size will
+first be computed.  Also note that passing in pointers to a vector that is
+empty, will just create a new vector for you.</p>
+<div class="refsect3">
+<a name="mate-desktop-prepend-terminal-to-vector.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>argc</p></td>
+<td class="parameter_description"><p>a pointer to the vector size</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>argv</p></td>
+<td class="parameter_description"><p>a pointer to the vector</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="mate-desktop-Miscellaneous-Functions.other_details"></a><h2>Types and Values</h2>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.29</div>
+</body>
+</html>
