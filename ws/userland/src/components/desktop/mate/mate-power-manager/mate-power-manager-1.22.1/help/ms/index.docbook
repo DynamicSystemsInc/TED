@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY app "MATE Power Manager">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "1.10.0">
+<!ENTITY manrevision "1.10.0">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the MATE Documentation Project:
+	  http://www.mate-desktop.org/development/
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="ms">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title>Panduan <application>Pengurus Kuasa MATE</application></title>
+    <abstract role="description">
+      <para><application>Pengurus Kuasa MATE</application> ialah daemon sesi untuk Dekstop MATE yang mengurus tetapan kuasa untuk komputer riba dan desktop anda.</para>
+    </abstract>
+    <copyright lang="en">
+      <year>2015-2019</year>
+      <holder>MATE Documentation Team</holder>
+    </copyright>
+    <copyright><year>2006-2009</year> <holder>Richard Hughes (richard@hughsie.com)</holder></copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>Pasukan Dokumentasi MATE</publishername>
+    </publisher>
+    <publisher role="maintainer">
+      <publishername>Richard Hughes</publishername>
+    </publisher>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <authorgroup>
+      <author role="maintainer"><surname>Pasukan Dokumentasi MATE</surname> <affiliation> </affiliation></author>
+      <author role="maintainer"><firstname>Richard</firstname> <surname>Hughes</surname> <email>richard@hughsie.com</email></author>
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision><revnumber>2.0</revnumber> <date>2006-08-30</date> <revdescription>
+          <para role="author">Richard Hughes <email>richard@hughsie.com</email></para>
+          <para role="publisher">Richard Hughes</para>
+        </revdescription></revision>
+    </revhistory>
+
+    <legalnotice>
+      <title>Maklumbalas</title>
+      <para>Untuk melaporkan pepijat atau membuat saranan berkenaan Aplikasi Pengurus Kuasa MATE atau panduan ini, ikuti arahan di dalam <ulink url="https://github.com/mate-desktop/mate-power-manager/" type="http">Laman Perhubungan <application>Pengurus Kuasa MATE</application></ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index"><primary><application>Pengurus Kuasa MATE</application></primary></indexterm>
+  <indexterm zone="index"><primary>mate-power-manager</primary></indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>Pengenalan</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm><primary> <application>Pengurus Kuasa MATE</application></primary> <secondary>Panduan</secondary> <tertiary>mate-power-manager</tertiary></indexterm>
+
+  <para>Daemon sesi Pengurus Kuasa MATE ialah daemon pengurusan kuasa untuk <systemitem>Desktop MATE</systemitem></para>
+
+</section>
+
+<section id="using">
+  <title>Penggunaan</title>
+  <para><application>Pengurus Kuasa MATE</application> biasanya bermula dalam permulaan MATE, tetapi anda boleh mulakan <application>Pengurus Kuasa MATE</application> secara manual dengan:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Baris perintah</term>
+      <listitem>
+    	<para>Taip <command>mate-power-manager --verbose --no-daemon</command>, kemudian ketik <keycap>Return</keycap>:</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
+
+<section id="notify">
+  <title>Mesej Pemberitahuan</title>
+  <para>Bila <application>Pengurus Kuasa MATE</application> bermula, pemberitahuan berikut akan dipaparkan.</para>
+
+  <section id="notify-unplugged">
+    <title>Penyesuai AC Ditanggalkan</title>
+    <figure>
+      <title>Pemberitahuan Pengurus Kuasa MATE apabila penyesuai AC ditanggalkan</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-unplugged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Anda boleh lumpuhkan pemberitahuan ini dengan menukar kunci dconf <command>org.mate.power-manager notify-discharging</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-fully-charged">
+    <title>Dicas Sepenuhnya</title>
+    <figure>
+      <title>Pemberitahuan Pengurus Kuasa MATE apabila bateri utama komputer riba telah sepenuhnya dicas</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-charged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Anda boleh lumpuhkan pemberitahuan ini dengan menukar kunci dconf <command>org.mate.power-manager notify-fully-charged</command>.</para>
+    </note>
+    <note>
+      <para>Anda akan mendapat pemberitahuan berulang jika peratus bateri anda jatuh di bawah 95% dan berlawanan dengan sepenuhnya dicas. Ia menghalang beberapa komputer menunjukkan pemberitahuan berulang yang tidak dikehendaki jika bateri tersalah lapor memaklumkan status casnya.</para>
+    </note>
+  </section>
+
+  <section id="notify-low">
+  <title>Kuasa Rendah</title>
+    <para>Ketika kuasa bateri rendah, anda akan menerima pemberitahuan berikut. Anda perlu bertukar ke kuasa AC secepat mungkin.</para>
+    <figure>
+      <title>Pemberitahuan Pengurus Kuasa MATE apabila kuasa bateri rendah</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-low.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Anda boleh lumpuhkan pemberitahuan ini dengan menukar kunci dconf <command>org.mate.power-manager notify-low-power</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-critical">
+  <title>Kuasa Kritikal</title>
+    <para>Ketika kuasa komputer hampir kehabisan tenaga, ia akan menunjukkan pemberitahuan ini yang menjelaskan apakah tindakan yang diperlukan. Anda boleh mengubah tindakan sangat rendah melalui alat keutamaan.</para>
+    <figure>
+      <title>Pemberitahuan Pengurus Kuasa MATE apabila kuasa bateri tersangat rendah</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-critical.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="notify-suspend-failure">
+  <title>Kegagalan Tangguh</title>
+    <para>Ketika Kegagalan Tangguh berlaku anda akan mendapat amaran berikut. Sebab utama berlaku pemberitahuan ini ialah pengguna semasa tidak mempunyai keizinan untuk tangguh atau hibernasikan komputer.</para>
+    <figure>
+      <title>Pemberitahuan Pengurus Kuasa MATE apabila kegagalan tangguh berlaku</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-suspend-problem.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Anda boleh lumpuhkan pemberitahuan ini dengan menukar kunci dconf <command>org.mate.power-manager notify-sleep-failed</command>.</para>
+    </note>
+  </section>
+</section>
+
+<section id="statistics">
+  <title>Statistik</title>
+  <para>Program statistik membolehkan anda lihat penggunaan kuasa perkakasan komputer riba anda.</para>
+  <note>
+    <para>Ia telah dibuang dari tetingkap maklumat dari versi terdahulu Pengurus Kuasa MATE kerana antaramuka data kini menggunakan DBUS berbanding IPC dalaman. Ia membolehkan aplikasi lain menanya dan memaparkan data jika diperlukan.</para>
+  </note>
+  <figure id="statistics-graph">
+    <title>Sejarah Kuasa dari kuasa bateri ke AC</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/gpm-stats-graph.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  <note>
+    <para>Anda mungkin tidak dapat melihat beberapa pilihan atau graf jika komputer anda tidak mempunyai perkakasan yang diperlukan. Anda juga dapat melihat perkakasan lain yang tidak ditunjukkan di sini (sebagai contoh peranti UPS) tetapi ia dianggap sepertimana peranti-peranti lain.</para>
+  </note>
+
+  <section id="statistics-charge">
+    <title>Sejarah Pengecasan</title>
+    <para>Graf ini menunjukkan peratus cas yang ada untuk bateri utama komposit, sekiranya anda mempunyai bateri komputer utama dan ada bateri sampingan maka nilai purata akan ditunjukkan di sini. Petunjuk tidak dipaparkan bersama-sama graf ini.</para>
+  </section>
+
+  <section id="statistics-power">
+    <title>Sejarah Kuasa</title>
+    <para>Graf ini menunjukkan sejarah pengecasan kuasa yang digunakan oleh bateri utama komposit. Garisan ini mewakili amaun kuasa sama ada sedang digunakan untuk mengecas bateri dalam sistem, atau kuasa sedang digunakan oleh sistem daripada bateri. Anda sepatutnya melihat garisan naik ke atas ketika tugas yang membebankan pemproses berlaku, dan turun jika sistem sedang melahu, atau ketika skrin menjadi malap. Satu petunjuk dipaparkan bersama-sama graf ini ketika peristiwa data telah diterima.</para>
+
+    <note>
+      <para>Anda tidak akan menerima data kadar dari komputer anda sekiranya tidak mengecas atau menyahcas, atau jika komputer ditangguh. Ia disebabkan oleh batasan perkakasan yang mana kadar hanya dihantar melalui cip pengurusan bateri, berbanding cip pengurusan kuasa dalam papan induk.</para>
+    </note>
+  </section>
+
+  <section id="statistics-time">
+    <title>Sejarah Masa Anggaran</title>
+    <para>Graf ini menunjukkan sejarah pengecasan anggaran untuk bateri utama komposit. Garisan ini mewakili amaum masa diperlukan sehingga dicas, atau amaun masa sehingga dinyahcas. Garisan ini sepatutnya naik ke atas secara berkadaran ketika kadar menurun dan turun ketika kadar meningkat. Satu petunjuk dipaparkan bersama-sama graf ini ketika peristiwa data telah diterima.</para>
+  </section>
+</section>
+
+<section id="preferences">
+  <title>Keutamaan</title>
+
+  <para>Tetingkap keutamaan membolehkan anda kawal:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>Kecerahan LCD ketika menggunakan kuasa AC atau bateri</para>
+    </listitem>
+    <listitem>
+      <para>Masa melahu tindakan kuasa-menurun skrin atau tangguh</para>
+    </listitem>
+    <listitem>
+      <para>Tindakan yang diambil ketika penutup komputer riba ditutup</para>
+    </listitem>
+    <listitem>
+      <para>Dasar ikon kawasan pemberitahuan</para>
+    </listitem>
+  </itemizedlist>
+
+  <note>
+    <para>Sesetengah pelungsur atau kotak pilihan mungkin dilumpuhkan jika kunci dasar dconf tidak boleh ditulis. Ini membolehkan pentadbir mengunci tindakan yang mana pengguna boleh pilih.</para>
+  </note>
+
+  <section id="preferences-ac">
+    <title>Keutamaan AC</title>
+    <figure id="prefs-ac">
+      <title>Tab AC Pengurus Kuasa MATE</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-ac.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-battery">
+    <title>Keutamaan Bateri</title>
+    <figure id="prefs-processor">
+      <title>Tab bateri Pengurus Kuasa MATE</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-battery.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Tindakan ini membolehkan komputer berprestasi tinggi mengurangkan penggunaan kuasa ketika melahu, atau ketika keupayaan penuh tidak diperlukan.</para>
+  </section>
+
+  <section id="preferences-general">
+    <title>Keutamaan Am</title>
+    <figure id="prefs-general">
+      <title>Tab am Pengurus Kuasa MATE</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-general.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-idletimes">
+    <title>Masa sesi dan melahu sistem</title>
+    <para><command>mate-screensaver</command> ialah daemon sesi yang memantau input pengguna, dan sekiranya tetikus tidak bergerak, atau papan kekunci tidak diketik maka had masa tamat bermula. Bila nilai had masa tamat mencapai nilai yang ditetapkan dalam <command>mate-screensaver-preferences</command>, maka daftar masuk dianggap sebagai 'session idle' atau sesi melahu Ketika ini <application>Pengurus Kuasa MATE</application> akan menjalankan semua tindakan melahu sesi seperti membenarkan mod rendah-kuasa dan merendahkan kecerahan panel komputer riba.</para>
+
+    <figure>
+      <title>Mengubah had masa tamat melahu sesi dalam <command>mate-screensaver-preferences</command></title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gs-prefs.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Sebaik sahaja sesi ditanda sebagai melahu, <application>Pengurus Kuasa MATE</application> memulakan pemasa 'system' nya sendiri. Ketika had masa tamat ditetapkan dalam <command>mate-power-preferences</command> dicapai, dan beban CPU melahu, maka tindakan melahu dilakukan, biasanya matikan skrin, atau tangguh, atau hibernasi.</para>
+    <para>Iaitu, pelungsur dalam <command>mate-power-preferences</command> telah ditetapkan untuk mulakan nilai session-timeout + 1 minit, kerana secara logiknya tidak boleh dipicu sebelum sesi dianggap sebagai melahu. Jika anda melaras nilai had masa tamat 'session idle'  dalam <command>mate-screensaver-preferences</command> maka nilai mula pelungsur dalam <command>mate-power-preferences</command> juga akan berubah.</para>
+  </section>
+</section>
+
+<section id="preferences-advanced">
+  <title>Keutamaan Lanjutan</title>
+
+  <section id="advanced-preferences-brightness">
+    <title>Kecerahan Skrin Malap</title>
+    <note>
+      <para>Anda boleh mengubah kecerahan panel komputer riba dengan mengubah kunci dconf <command>org.mate.power-manager idle-brightness</command>.</para>
+    </note>
+  </section>
+
+  <section id="advanced-preferences-locking">
+    <title>Penguncian Skrin</title>
+    <para>Secara lalai, <application>Pengurus Kuasa MATE</application> menyokong skema penguncian ringkas. Ini bermaksud skrin akan dikunci jika ditetapkan pada "Kunci skrin" dalam mate-screensaver ketika penutup komputer riba ditutup, atau sistem ditangguh atau dihibernasikan.</para>
+    <para>Terdapat skema penguncian rumit tersedia untuk pengguna mahir yang membolehkan dasar penguncian untuk mengubah tindakan tutup, tangguh dan hibernasi. Untuk membolehkan mod rumit ini, anda perlu lumpuhkan kunci dconf:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><command>org.mate.power-manager lock-use-screensaver</command></para>
+      </listitem>
+    </itemizedlist>
+    <para>Kemudian kunci dasar boleh ditetapkan untuk memaksa kunci dan nyahkunci mate-screensaver ketika tindakan dilakukan:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><command>org.mate.power-manager lock-blank-screen</command></para>
+      </listitem>
+      <listitem>
+        <para><command>org.mate.power-manager lock-suspend</command></para>
+      </listitem>
+      <listitem>
+        <para><command>org.mate.power-manager lock-hibernate</command></para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>Dasar kunci untuk mate-screensaver diabaikan sehinggalah mod ringkas dibenarkan-semula.</para>
+    </note>
+  </section>
+</section>
+
+<section id="applets-general">
+  <title>Aplet Kuasa MATE</title>
+
+  <section id="applets-brightness">
+    <title>Aplet Kecerahan</title>
+    <para>Aplet kecerahan membolehkan pengguna mengubah kecerahan buat sementara tanpa mengubah dasar lalai. Ia mungkin berguna jika anda mempunyai komputer riba tanpa butang kecerahan, kerana anda kini boleh mengubah kecerahan dengan mudah.</para>
+    <figure>
+      <title>Tarik-turun aplet kecerahan</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-brightness.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Anda tidak memperoleh pelungsur jika perkakasan anda tidak menyokongnya.</para>
+    </note>
+  </section>
+
+  <section id="applets-inhibit">
+    <title>Aplet Perencat</title>
+    <para><application>Aplet Rencat</application> membolehkan pengguna halang komputer menjadi auto-tidur ketika tidak aktif. Ia mungkin diperlukan bagi program lama atau proprietari seperti VMWare atau Matlab. Hanya klik pada ikon auto-tangguh untuk direncatkan, kemudian klik sekali lagi untuk jadikan kembali sebagai operasi biasa.</para>
+    <figure>
+      <title>Rencat aple dalam keadaan terencat.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-inhibit.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Jangan guna aplet ini jika anda hanya mahu guna perisian MATE, selain dari laporkan pepijat untuk memastikan aplikasi menggunakan kaedah <function>Inhibit()</function> dan <function>UnInhibit()</function> supaya ia sepatutnya 'boleh berfungsi'.</para>
+    </note>
+  </section>
+</section>
+
+<section id="faq">
+  <title>Soalan Kerap Ditanya</title>
+  <para>Soalan-soalan ini kerap ditanya dalam senarai mel.</para>
+  <section id="faq-capacity">
+    <title>Apa itu kapasiti bateri?</title>
+    <para>Kapasiti ialah berapa banyak pengecasan bateri yang boleh disimpan berbanding garis panduan pengilang.</para>
+    <figure>
+      <title>Graf ini menunjukkan kapasiti biasa bateri ion litium merentasi kitar cas-nyahcas beberapa ratus kali.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-cell-capacity.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="faq-suspend-hibernate-differences">
+    <title>Apakah perbezaan antara tangguh dengan hibernasi?</title>
+    <para>Keadaan Tangguh ialah fitur penjimatan kuasa yang menempatkan penggunaan kuasa paling rendah yang mengekalkan data program dalam ingatan komputer. Ketika komputer anda berada dalam keadaan Tertangguh, pengiraan tidak dijalankan sehingga aktiviti biasa disambung semula. Ia tidak akan disambung semula sehinggalah diarah oleh tindakan luar seperti butang papan kekunci diketik. Kebiasaannya mengambil masa beberapa saat untuk tangguh dan juga untuk sambung semula aktiviti komputer anda.</para>
+    <caution>
+      <para>Komputer anda masih menggunakan sedikit amaun tenaga bateri ketika dalam keadaan tangguh, jadi tidak disarankan ketika berada dalam kuasa bateri rendah. Jika anda tanggalkan kuasa AC pada komputer desktop, atau kehabisan bateri pada komputer riba maka anda akan kehilangan kerja-kerja yang ada di dalamnya.</para>
+    </caution>
+    <para>Keadaan Hibernasi menyimpan keadaan sepenuhnya komputer anda ke dalam cakera keras kemudian matikan kuasa, jadi komputer akan dimatikan. Ia tidak akan disambung semula sehinggalah ada tindakan luar seperti butang papan kekunci diketik. Keadaan ini merupakan keadaan tidur mengunakan kuasa paling rendah yang tersedia. Jika anda tanggal kuasa AC pada komputer desktop, atau kuasa bateri komputer riba kehabisan tenaga kerja-kerja yang ada di dalamnya tidak akan hilang. Sebaliknya ia mengambil masa beberapa minit atau mungkin lebih untuk berjaga dari keadaan hibernasi.</para>
+  </section>
+
+  <section id="faq-dpms-broken-monitor">
+    <title>Monitor saya rosak dan anggap DPMS dalam keadaan bersedia dan mati kerana 'no-signal' menyebabkan monitor dihidupkan.</title>
+    <para>Anda perlu menukar mod tangguh DPMS <application>Pengurus Kuasa MATE</application> gunakan. Buka <command>dconf-editor</command>, kemudian ubah kunci <literal>org.mate.power-manager dpms-method-ac</literal> dan <literal>org.mate.power-manager dpms-method-battery</literal> pada salah satu mod yang boleh berfungsi, seperti bersedia, tangguh atau dimatikan.</para>
+  </section>
+
+  <section id="faq-discharge-time-wrong">
+    <title>Tempoh nyahcas saya selalu tidak tepat disebabkan bateri bermasalah, apa perlu saya buat?</title>
+    <para>Anda boleh gunakan cas peratus bagi g-p-m to use menggunakan data dasar. Buka <command>dconf-editor</command>, kemudian ubah kunci <command>org.mate.power-manager use-time-for-policy</command> menjadi false. Anda juga boleh lakukannya dengan mudah iaitu: <command> gsettings get org.mate.power-manager use-time-for-policy false </command></para>
+    <para>Ini sepatutnya menjadikan tindakan dasar berfungsi, tetapi tempoh berbaki masih salah.</para>
+  </section>
+
+  <section id="faq-inhibit">
+    <title>Bagaimana saya pastikan aplikasi saya hentikan auto-tangguh komputer?</title>
+    <para>Jika aplikasi anda melakukan operasi dalam tempoh yang lama, mungkin perlu lumpuhkan keupayaan tangguh buat sementara waktu. Anda boleh guna mate-session jika tidak mahu pengguna lakukan tindakan tangguh, atau biarkan komputer menjimatkan tenaga dengan tindakan hibernasi atau tangguh.</para>
+  </section>
+
+  <section id="faq-acpi-delay">
+    <title>Saya menggunakan ACPI, kenapa peristiwa (seperti tanggalkan penyesuai AC) menyebabkan ia mengambil masa yang lama?</title>
+    <para>Salah satu dari dua perkara ini mungkin masalahnya.</para>
+    <itemizedlist>
+      <listitem>
+        <para>HAL mungkin tidak menjalankan tambahan yang menangkap peristiwa ACPI.</para>
+      </listitem>
+      <listitem>
+        <para>BIOS anda mungkin bermasalah, dan mungkin perlu dibaiki. Sila hantar laporan pepijat.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Bagi situasi pertama, cuba cari proses HAL yang menjalankan: <command>ps -eaf | grep hal</command></para>
+    <para>Dan periksa proses <command>hald-addon-acpi</command>. Jika tidak dijalankan, sila pastikan HAL telah dijalankan bersama-sama dengan pilihan <command>--retain-privileges</command> di dalam initscript <command>haldaemon</command>. Cara lain menggunakan acpid, berbanding fail proc kernel.</para>
+  </section>
+
+</section>
+
+</article>

@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY app "MATE Power Manager">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "1.10.0">
+<!ENTITY manrevision "1.10.0">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the MATE Documentation Project:
+	  http://www.mate-desktop.org/development/
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="da">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title>Manual for <application>MATE-strømhåndteringen</application></title>
+    <abstract role="description">
+      <para><application>MATE-strømhåndteringen</application> er en sessionsdæmon for MATE-skrivebordet, som håndterer strømindstillingerne for din bærbare eller skrivebordscomputer.</para>
+    </abstract>
+    <copyright lang="en">
+      <year>2015-2019</year>
+      <holder>MATE Documentation Team</holder>
+    </copyright>
+    <copyright><year>2006-2009</year> <holder>Richard Hughes (richard@hughsie.com)</holder></copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>MATE-dokumentationsholdet</publishername>
+    </publisher>
+    <publisher role="maintainer">
+      <publishername>Richard Hughes</publishername>
+    </publisher>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <authorgroup>
+      <author role="maintainer"><surname>MATE-dokumentationsholdet</surname> <affiliation> </affiliation></author>
+      <author role="maintainer"><firstname>Richard</firstname> <surname>Hughes</surname> <email>richard@hughsie.com</email></author>
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+      <revision><revnumber>2.0</revnumber> <date>2006-08-30</date> <revdescription>
+          <para role="author">Richard Hughes <email>richard@hughsie.com</email></para>
+          <para role="publisher">Richard Hughes</para>
+        </revdescription></revision>
+    </revhistory>
+
+    <legalnotice>
+      <title>Tilbagemelding</title>
+      <para>For at rapportere en fejl eller komme med et forslag jævnfør MATE-strømhåndteringen eller denne manual, så følg retningslinjerne i <ulink url="https://github.com/mate-desktop/mate-power-manager/" type="http"><application>MATE-strømhåndteringens</application> kontaktside</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index"><primary><application>MATE-strømhåndtering</application></primary></indexterm>
+  <indexterm zone="index"><primary>mate-power-manager</primary></indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>Indledning</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm><primary><application>MATE-strømhåndtering</application></primary> <secondary>Manual</secondary> <tertiary>mate-power-manager</tertiary></indexterm>
+
+  <para>MATE-strømhåndteringens sessionsdæmon er en strømhåndteringsdæmon for <systemitem>MATE-skrivebordet</systemitem></para>
+
+</section>
+
+<section id="using">
+  <title>Brug</title>
+  <para><application>MATE-strømhåndteringen</application> startes normalt i MATE-opstart, men du kan manuelt starte <application>MATE-strømhåndteringen</application> på følgende måde:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Kommandolinje</term>
+      <listitem>
+    	<para>Tast <command>mate-power-manager --verbose --no-daemon</command>, tryk så <keycap>Retur</keycap>:</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
+
+<section id="notify">
+  <title>Påmindelser</title>
+  <para>Når <application>MATE-strømhåndteringen</application> er startet kan de følgende påmindelser blive vist.</para>
+
+  <section id="notify-unplugged">
+    <title>Strømforsyning frakoblet</title>
+    <figure>
+      <title>Påmindelse fra MATE-strømhåndteringen når strømforsyningen fjernes</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-unplugged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Du kan deaktivere denne påmindelse ved at ændre dconf-nøglen <command>org.mate.power-manager notify-discharging</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-fully-charged">
+    <title>Fuldt opladet</title>
+    <figure>
+      <title>Påmindelse fra MATE-strømhåndteringen når den bærbares primære batteri er fuldt opladet</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-charged.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Du kan ændre denne påmindelse ved at ændre dconf-nøglen  <command>org.mate.power-manager notify-fully-charged</command>.</para>
+    </note>
+    <note>
+      <para>Du får kun en gentagelsespåmindelse hvis din batteriprocent er under 95 % og når det igen er fuldt opladet. Dette forhindrer nogle maskiner i at vise uønskede gentagelsespåmindelser hvis batteriet rapporterer ukorrekt status for opladningen.</para>
+    </note>
+  </section>
+
+  <section id="notify-low">
+  <title>Lav strøm</title>
+    <para>Når batteriet er ved at være tømt, så vil du modtage den følgende påmindelse. Du bør overveje at skifte til vekselstrøm snarest.</para>
+    <figure>
+      <title>Påmindelse fra MATE-strømhåndteringen når strømniveauet er lavt</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-low.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Du kan deaktivere denne påmindelse ved at ændre dconf-nøglen <command>org.mate.power-manager notify-low-power</command>.</para>
+    </note>
+  </section>
+
+  <section id="notify-critical">
+  <title>Kristisk strømniveau</title>
+    <para>Når computeren er løbet tør for strøm, vil denne påmindelse blive vist, der forklarer hvilken handling, som er krævet. Du kan ændre handling for kritisk strømniveau under præferenceværktøjet.</para>
+    <figure>
+      <title>Påmindelse fra MATE-strømhåndteringen når strømniveauet er kritisk lavt</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-critical.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="notify-suspend-failure">
+  <title>Fejl ved hvile</title>
+    <para>Når der opstår en hvilefejl, kan du modtage den følgende advarsel. Den mest gængse årsag for denne påmindelse er, at den nuværende bruger ikke har tilladelse til at sætte computeren i hvile eller dvale.</para>
+    <figure>
+      <title>Påmindelse for MATE-strømhåndteringen når hvilefejl opstår</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-suspend-problem.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Du kan deaktivere denne påmindelse ved at ændre dconf-nøglen <command>org.mate.power-manager notify-sleep-failed</command>.</para>
+    </note>
+  </section>
+</section>
+
+<section id="statistics">
+  <title>Statistik</title>
+  <para>Statistikprogrammet gør det muligt at visualisere strømforbruget på din bærbare.</para>
+  <note>
+    <para>Dette er blevet fjernet fra informationsvinduet for tidligere versioner af MATE-strømhåndteringen da datagrænsefladen nu bruger DBUS frem for intern IPC. Dette gør, at andre programmer kan forespørge og vise dataene hvis krævet.</para>
+  </note>
+  <figure id="statistics-graph">
+    <title>Strømhistorik gående fra batteri til strømforsyning</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/gpm-stats-graph.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  <note>
+    <para>Du ser måske ikke nogle indstillinger eller grafer, hvis din computer ikke har det krævede udstyr. Du kan eventuelt også se andet udstyr ikke vist her (for eksempel UPS-enheder), men disse behandles på samme måde som andre enheder.</para>
+  </note>
+
+  <section id="statistics-charge">
+    <title>Opladningshistorik</title>
+    <para>Denne graf viser procentladningen tilgængelig for det sammensatte primære batteri, så hvis du har et hovedbatteri for den bærbare og et ekstra batteri, vil kun den gennemsnitlige værdi blive vist. En indskrift vises ikke med denne graf.</para>
+  </section>
+
+  <section id="statistics-power">
+    <title>Strømhistorik</title>
+    <para>Denne graf viser strømladningen historisk brugt af det sammensatte primære batteri. Denne linje repræsenterer mængden af strøm som enten bruges til at lade batterierne i systemet, eller strømme brugt af systemet fra batterierne. Du bør se linjen gå op når processorintensive opgaver udføres, og ned når systemet er ledigt, eller når skærmen er dæmpet. En indskrift vises med denne graf, når datahændelser er blevet modtaget.</para>
+
+    <note>
+      <para>Du vil ikke modtage hastighedsdata fra din computer hvis den ikke lader eller aflader, eller hvis computeren er i hvile. Dette skyldes udstyrsbegrænsninger hvor hastigheden kun sendes fra batterihåndteringens chip, frem fra strømhåndteringens chip på bundkortet.</para>
+    </note>
+  </section>
+
+  <section id="statistics-time">
+    <title>Estimeret tidshistorik</title>
+    <para>Denne graf viser den estimerede ladningshistorik for det sammensatte primære batteri. Denne linje repræsenterer tidsperioden krævet indtil ladet, eller mængden af tid indtil afladning. Denne linje bør gå proportionalt op når hastigheden sænkes og ned når hastigheden øges. En indskrift vises med denne graf, når datahændelser er blevet modtaget.</para>
+  </section>
+</section>
+
+<section id="preferences">
+  <title>Indstillinger</title>
+
+  <para>Præferencevinduet gør at du kan kontrollere:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>LCD-lysstyrken når på strømforsyning og batteri</para>
+    </listitem>
+    <listitem>
+      <para>Inaktivt tidsrum før skærmen lukker ned eller går i hvile</para>
+    </listitem>
+    <listitem>
+      <para>Handlingerne der udføres idet computerens låg lukkes</para>
+    </listitem>
+    <listitem>
+      <para>Påmindelsesområdets ikonpolitik</para>
+    </listitem>
+  </itemizedlist>
+
+  <note>
+    <para>Nogle skydere eller indstillingsbokse kan være deaktiveret hvis dconf-politiknøglerne ikke er skrivbare. Dette gør det muligt for administratorer at låse de handlinger en bruger kan vælge.</para>
+  </note>
+
+  <section id="preferences-ac">
+    <title>Præferencer for strømforsyning</title>
+    <figure id="prefs-ac">
+      <title>MATES-strømstyrings faneblad for strømforsyningen</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-ac.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-battery">
+    <title>Batteripræferencer</title>
+    <figure id="prefs-processor">
+      <title>MATE-strømhåndteringens batterifaneblad</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-battery.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Dette gør at en funktionsrig computer kan reducer strømforbruget når ledig, eller når fuld kapacitet ikke er krævet.</para>
+  </section>
+
+  <section id="preferences-general">
+    <title>Generelle præferencer</title>
+    <figure id="prefs-general">
+      <title>MATE-strømstyringens generelle faneblad</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-prefs-general.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="preferences-idletimes">
+    <title>Sessionstider og ledige systemtider</title>
+    <para><command>mate-screensaver</command> er en sessionsdæmon, der overvåger brugerindtastning, og hvis musen ikke har bevæget sig eller tastaturet er anvendt startes et tidsudløb. Når værdien af dette tidsudløb når værdien angivet i <command>mate-screensaver-preferences</command>, så markeres det aktuelle logind som »session ledig«. På dette tidspunkt udfører <application>MATE-strømhåndtering</application> alle sessionens handlinger såsom aktivering af lav strøm-tilstand og sænkning af den bærbares panellysstyrke.</para>
+
+    <figure>
+      <title>Ændring af sessionens tidsudløb ved manglende brug i <command>mate-screensaver-preferences</command></title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gs-prefs.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>Så snart at sessionen er markeret som ledig, starter <application>MATE-strømstyring</application> sin egen systemtidstager. Når tidsudløbet angivet i <command>mate-power-preferences</command> er opfyldt og der ingen CPU-belastning er, så udføres handlingen ledig, som normalt indebærer at skærmen slukkes, eller går i hvile eller dvale.</para>
+    <para>For at gøre det tydligere, skyderne i <command>mate-power-preferences</command> er angivet til at starte ved værdien for session-timeout + 1 minut, da vi logisk ikke kan udløse før sessionen er markeret som ledig. Hvis du justerer værdien for sessions-idle-tidsudløbet i <command>mate-screensaver-preferences</command> så vil starten af skyderne i <command>mate-power-preferences</command> ændre sig tilsvarende.</para>
+  </section>
+</section>
+
+<section id="preferences-advanced">
+  <title>Avancerede præferencer</title>
+
+  <section id="advanced-preferences-brightness">
+    <title>Lysstyrke for skærmdæmpningen</title>
+    <note>
+      <para>Du kan ændre lysstyrken for bærbarpanelet ved inaktivitet ved at ændre dconf-nøglen <command>org.mate.power-manager idle-brightness</command>.</para>
+    </note>
+  </section>
+
+  <section id="advanced-preferences-locking">
+    <title>Skærmlås</title>
+    <para>Som standard understøtter <application>MATE-strømhåndteringent</application> et simpelt låseskema. Dette betyder, at skærmen vil låse hvis angivet til »Lås skærm« i mate-screensaver, når låget lukkes eller systemet udfører en hvile eller dvale handling.</para>
+    <para>Der er et kompleks låseskema tilgængelig for superbrugere, der tillader at låsepolitikken ændres for låget, hvile- og dvalehandlinger. For at aktivere denne komplekse tilstand skal du deaktivere dconf-nøglen:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><command>org.mate.power-manager lock-use-screensaver</command></para>
+      </listitem>
+    </itemizedlist>
+    <para>Så kan politiknøglerne sættes til at fremtvinge en mate-screensaver-låsning og åbning når handlingen er udført:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><command>org.mate.power-manager lock-blank-screen</command></para>
+      </listitem>
+      <listitem>
+        <para><command>org.mate.power-manager lock-suspend</command></para>
+      </listitem>
+      <listitem>
+        <para><command>org.mate.power-manager lock-hibernate</command></para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>Låsepolitikken for mate-screensaver ignoreres indtil den simple tilstand er genaktiveret.</para>
+    </note>
+  </section>
+</section>
+
+<section id="applets-general">
+  <title>MATE-strømpanelprogrammer</title>
+
+  <section id="applets-brightness">
+    <title>Lysstyrke-panelprogram</title>
+    <para>Panelprogrammet lysstyrke gør det muligt at ændre lysstyrken midlertidigt uden at ændre standardpolitikken. Dette kan være nyttigt, hvis du har en bærbar uden knapper til lysstyrken, da du så nemt kan ændre lysstyrken.</para>
+    <figure>
+      <title>Rullegardin for panelprogrammet lysstyrke</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-brightness.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Du får ikke vist skyderen, hvis dit udstyr ikke er understøttet.</para>
+    </note>
+  </section>
+
+  <section id="applets-inhibit">
+    <title>Hindringspanelprogram</title>
+    <para><application>Hindringspanelprogrammet</application> gør det muligt for brugeren at forhindre computeren i automatisk hvile når inaktiv. Dette kan være krævet med gamle eller proprietære programmer såsom WMWare eller Matlab. Bare klik på ikonet for at hindre den automatiske hvile og klik på den igen for normal operation.</para>
+    <figure>
+      <title>Hindringspanelprogram i hindringstilstand.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/applet-inhibit.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <note>
+      <para>Brug ikke dette panelprogram hvis du bare bruger MATE-programmer, indsend i stedet for en fejlrapport så programmet bruger <function>imhibit()</function>- og <function>UnInhibit()</function>-metoderne, da dette bare bør fungere.</para>
+    </note>
+  </section>
+</section>
+
+<section id="faq">
+  <title>Ofte stillede spørgsmål</title>
+  <para>Dette er spørgsmålene postlisten modtager oftest</para>
+  <section id="faq-capacity">
+    <title>Hvad er batterikapaciteten?</title>
+    <para>Kapacitet er hvor stor ladning dit batteri kan lagre sammenlignet med dets leverandørs retningslinjer.</para>
+    <figure>
+      <title>Denne graf viser kapaciteten for et typisk lithium ion-batteri over et par hundrede oplad-aflad cyklusser.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/gpm-cell-capacity.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </section>
+
+  <section id="faq-suspend-hibernate-differences">
+    <title>Hvad er forskellen mellem hvile og dvale?</title>
+    <para>Hviletilstasnden er en funktion til strømbesparelse, hvilket er det laveste niveau for strømforbrug, der bevarer programdata i computerens hukommelse. Når din computer er i hvile, vil beregninger ikke blive udført før normal aktivitet er genoptaget. Computeren vil ikke gå i gang igen før en ekstern hændelse såsom et tastaturtryk registreres. Det tager normalt et par sekunder at gå i hvile og retur igen for din computer.</para>
+    <caution>
+      <para>Du bruger stadig en lille mængde batteri når i hvile, så det anbefales ikke for handlingen lav strøm. Hvis du fjerner vekselstrøm på et skrivebord, eller batteriet er tomt på en bærbar, så vil du miste dit arbejde.</para>
+    </caution>
+    <para>Dvaletiltanden gemmer den fuldstændige tilstand for computeren til harddisken og slukker for strømmen, så computeren fremstår som slukket. Computeren vil ikke gå i gang før den modtager et eksternt signal, såsom et tastaturtryk. Dette er den laveste strømsovetilstand tilgængelig. Hvis du fjerner strømforsyningen på et skrivebord eller løber tør for batteristrøm på en bærbar, så vil arbejdet ikke blive tabt. Det kan tage op til et minut eller flere at vågne fra dvale og få gang i din computer.</para>
+  </section>
+
+  <section id="faq-dpms-broken-monitor">
+    <title>Min skærm er ødelagt og opfatter DPMS-standby og deaktiverede tilstande som »no-signal«, hvilket efterlader skærmen med strømmen tændt.</title>
+    <para>Du skal ændre DPMS-hviletilstanden <application>MATE-strømhåndteringen</application> bruger. Åbn <command>dconf-editor</command>, og ændr så nøglerne <literal>org.mate.power-manager dpms-method-ac</literal> og <literal>org.mate.power-manager dpms-method-battery</literal> til en af tilstandene der fungerer, f.eks. standby, dvale eller deaktiveret.</para>
+  </section>
+
+  <section id="faq-discharge-time-wrong">
+    <title>Tidsangivelse for afladning er altid forkert på grund af et fejlramt batteri, hvad kan jeg gøre?</title>
+    <para>Du kan måske bruge procentladningen for g-p-m til brug for politikdata. Åbn <command>dconf-editor</command>, og ændr nøglen <command>org.mate.power-manager use-time-for-policy</command> til falsk. Du kan gøre dette nemt ved at: <command>gsettings get org.mate.power-manager use-time-for-policy false</command></para>
+    <para>Dette bør få politikhandlingerne til at fungere for dig, men den tilbageværende tid vil selvfølgelig stadig være ukorrekt.</para>
+  </section>
+
+  <section id="faq-inhibit">
+    <title>Hvordan får jeg mit program til at stoppe computerens automatiske hviletilstand?</title>
+    <para>Hvis dit program udfører en operation, der tager lang tid, så kan du deaktivere denne mulighed for at gå i hvile i en kort tidsperiode. Du bør bruge mate-session, hvis du virkelig ikke ønsker at brugeren skal kunne gå i hviletilstand, eller at computeren skal spare på strømmen ved dvale eller hvile.</para>
+  </section>
+
+  <section id="faq-acpi-delay">
+    <title>Jeg kører ACPI. Hvorfor er hændelser (såsom fjernelse af strømforsyningen) så lang tid om at blive registreret?</title>
+    <para>Et af to ting kan være problemet.</para>
+    <itemizedlist>
+      <listitem>
+        <para>HAL afvikler måske ikke udvidelsen, der optager ACPI-hændelsen.</para>
+      </listitem>
+      <listitem>
+        <para>Din BIOS kan være fejlbehæftet og skal bruge en omgåelse. Indsend venligst en fejlrapport.</para>
+      </listitem>
+    </itemizedlist>
+    <para>I det første tilfælde, prøv at finde HAL-processeren: <command>ps -eaf | grep hal</command></para>
+    <para>Og kontroller for processen <command>hald-addon-acpi</command>. Hvis den ikke afvikles, så sikr dig at HAL afvikles med tilvalget <command>--retain-priivileges</command> i opstartsskriptet <command>haldaemon</command>. Et alternativ til dette er at bruge acpid, frem for kerneproc-filen.</para>
+  </section>
+
+</section>
+
+</article>
