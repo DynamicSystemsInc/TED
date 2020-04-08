@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "1.10.0">
+<!ENTITY manrevision "2.3">
+<!ENTITY date "July 2015">
+<!ENTITY app "System Monitor">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="da">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual til Systemovervågning version 2.2</title>       
+
+	 <copyright lang="en">
+		<year>2019</year>
+		<holder>MATE Documentation Project</holder> </copyright>
+    <copyright><year>2009</year> <holder>Paul Cutler</holder></copyright>
+    <copyright><year>2004</year> <holder>Sun Microsystems</holder></copyright>
+    <copyright><year>2001</year> <year>2002</year> <year>2004</year> <holder>Bill Day</holder></copyright> 
+
+<!-- translators: uncomment this:
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+   -->
+
+    <publisher role="maintainer">
+      <publishername>MATE-dokumentationsprojekt</publishername> 
+    </publisher>
+    <publisher>
+      <publishername>GNOME-dokumentationsprojekt</publishername>
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Der gives tilladelse til at kopiere, distribuere og/eller ændre dette dokument under betingelserne i GNU Free Documentation License (GFDL), version 1.1 eller enhver nyere version, udgivet af Free Software Foundation uden invariante afsnit, uden forsidetekster, og uden bagsidetekster. Du kan finde en kopi af GFDL'en her: <ulink type="help" url="help:fdl">link</ulink>, eller i filen COPYING-DOCS der distribueres med denne manual.</para>
+         <para>Denne manual er en del af MATE-manualsamlingen distribueret under GFDL. Hvis du vil distribuere denne manual separat fra denne samling, kan du gøre det ved at tilføje en kopi af licensen til manualen, som beskrevet i sektion 6 af licensen.</para>
+
+	<para>Mange af navnene brugt af firmaer til at skelne deres produkter og tjenester er registrerede varemærker. Der hvor disse navne optræder i MATE-dokumentationen, og medlemmerne af MATE-dokumentationsprojektet er blevet gjort opmærksomme på disse varemærker, er navnene skrevet med store bogstaver eller store forbogstaver.</para>
+
+	<para>DETTE DOKUMENT OG MODIFICEREDE VERSIONER GØRES TILGÆNGELIGT UNDER BETINGELSERNE I GNU FREE DOCUMENTATION LICENSE UNDER DEN FORUDSÆTNING AT: <orderedlist>
+		<listitem>
+		  <para>DETTE DOKUMENT GØRES TILGÆNGELIGT SÅDAN SOM DET ER, UDEN NOGEN FORM FOR GARANTI, HVERKEN UDTALT ELLER ANTYDET, DERIBLANDT, UDEN BEGRÆNSNINGER, GARANTIER OM AT DOKUMENTET ELLER ÆNDREDE VERSIONER AF DOKUMENTET ER FRIT FOR DEFEKTER, PASSENDE TIL ET BESTEMT FORMÅL ELLER IKKE-KRÆNKENDE. DU HÆFTER SELV FOR HELE RISIKOEN VEDRØRENDE KVALITET, KORREKTHED OG YDELSE FOR DOKUMENTET ELLER ÆNDREDE VERSIONER AF DOKUMENTET. SKULLE ET DOKUMENT, ELLER EN ÆNDRET VERSION AF ET DOKUMENT VISE SIG AT VÆRE DEFEKT PÅ EN HVILKEN SOM HELST MÅDE, HÆFTER DU FOR BETALING FOR EVENTUEL NØDVENDIG SERVICE, REPARATION ELLER KORREKTION (OG IKKE HVERKEN DEN OPRINDELIGE FORFATTER, SKRIBENT ELLER NOGEN ANDEN BIDRAGYDER). DENNE ERKLÆRING OM GARANTIFORBEHOLD ER EN ESSENTIEL DEL AF DENNE LICENS. INGEN BRUG AF NOGET DOKUMENT ELLER ÆNDRET VERSION AF DOKUMENTET ER AUTORISERET HERUNDER BORTSET FRA DENNE FORBEHOLDSERKLÆRING; OG</para>
+		</listitem>
+		<listitem>
+		  <para>UNDER INGEN OMSTÆNDIGHEDER OG UNDER INGEN JURIDISK TEORI, UANSET OM DET ER EN BEVIDST SKADENDE HANDLING (INKLUSIVE UFORSVARLIGHED) ELLER PÅ HVILKEN SOM HELST ANDEN MÅDE, KAN FORFATTEREN, SKRIBENT, BIDRAGYDERE, DISTRIBUTØRER ELLER FORSYNER AF DETTE DOKUMENT ELLER MODIFICEREDE VERSIONER GØRES ANSVARLIG OVERFOR NOGEN PERSON FOR NOGEN DIREKTE, INDIREKTE, SPECIEL, TILFÆLDIG ELLER FØLGENDE SKADE PÅFØRT NOGEN INKLUSIVE, UDEN BEGRÆNSNING, SKADE SOM FØLGE AF TAB AF RYGTE, ARBEJDSSTOP, COMPUTER-FEJL ELLER -SVIGT, ELLER ENHVER ANDEN FORM FOR SKADE ELLER TAB SOM ER OPSTÅET I FORBINDELSE MED BRUG AF DETTE DOKUMENT ELLER MODIFICEREDE VERSIONER HERAF, SELV HVIS EN SÅDAN PART HAR VÆRET INFORMERET OM MULIGHEDEN FOR SÅDANNE SKADER.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and 
+        other legal stuff such as "NO WARRANTY" statement. Please do not change 
+	any of this. -->
+
+  <authorgroup> 
+	<author><firstname>MATE-dokumentationsprojektet</firstname> <surname/> <affiliation> <orgname>MATE-skrivebordet</orgname> </affiliation></author>
+    <author><firstname>Sun</firstname> <surname>GNOME-dokumentationsholdet</surname> <affiliation><orgname>Sun Microsystems</orgname></affiliation></author>
+    <author><firstname>Bill</firstname> <surname>Day</surname> <affiliation><address><email>billday@bellatlantic.net</email></address></affiliation></author> 
+      <author><firstname>Paul</firstname> <surname>Cutler</surname> <affiliation> <orgname>GNOME-dokumentationsprojektet</orgname> <address><email>pcutler@foresightlinux.org</email></address> </affiliation></author>
+      
+<!-- This is appropriate place for other contributors: translators,
+     maintainers,  etc. Commented out by default.
+     
+    <othercredit role="translator">
+      <firstname>Latin</firstname> 
+      <surname>Translator 1</surname> 
+      <affiliation> 
+	<orgname>Latin Translation Team</orgname> 
+	<address> <email>translator@gnome.org</email> </address> 
+      </affiliation>
+      <contrib>Latin translation</contrib>
+    </othercredit>
+-->
+    </authorgroup>
+
+    <releaseinfo revision="1.10" role="review">
+    </releaseinfo>
+
+    <revhistory>
+      <revision><revnumber>Manual for Systemovervågning version 2.3</revnumber> <date>Juli 2015</date> <revdescription>
+	  <para role="author">MATE-dokumentationsholdet</para>
+	  <para role="publisher">MATE-dokumentationsprojekt</para>
+	</revdescription></revision>
+      <revision><revnumber>Manual for Systemovervågning version 2.2</revnumber> <date>Marts 2009</date> <revdescription> 
+	  <para role="author">Paul Cutler <email>pcutler@foresightlinux.org</email></para>
+	  <para role="publisher">GNOME-dokumentationsprojekt</para>
+	</revdescription></revision> 
+      <revision><revnumber>Manual for Systemovervågning version 2.1</revnumber> <date>Februar 2004</date> <revdescription>
+	  <para role="author">Suns GNOME-dokumentationshold</para>
+	  <para role="publisher">GNOME-dokumentationsprojekt</para>
+	</revdescription></revision>
+      <revision><revnumber>Manual for Systemovervågning version 2.0</revnumber> <date>November 2002</date> <revdescription>
+	  <para role="author">Bill Day <email>billday@bellatlantic.net</email></para>
+	  <para role="publisher">GNOME-dokumentationsprojekt</para>
+	</revdescription></revision>
+      <revision><revnumber>Manual for Procman version 0.11</revnumber> <date>Januar 2002</date> <revdescription>
+	  <para role="author">Bill Day <email>billday@bellatlantic.net</email></para>
+	  <para role="publisher">GNOME-dokumentationsprojekt</para>
+	</revdescription></revision>
+    </revhistory> 
+
+    <releaseinfo>Denne manual beskriver version 1.10.0 af Systemovervågning.</releaseinfo> 
+
+    <legalnotice>
+      <title>Tilbagemelding</title>
+      <para>For at rapportere en fejl eller komme med et forslag jævnfør programmet Systemovervågning eller denne manual, så følg retningslinjerne i <ulink url="help:mate-user-guide/feedback" type="help">MATE's side for tilbagemeldinger</ulink>.</para>
+
+<!-- Translators may also add here feedback address for translations -->
+
+    </legalnotice>
+    <abstract role="description">
+      <para>Systemovervågning giver brugere en grafisk brugergrænseflade til at overvåge CPU, netværk og hukommelsesaktivitet, såvel som funktioner til at gennemse og stoppe systemprocesser.</para>
+    </abstract>
+  </articleinfo> 
+
+  <indexterm zone="index"><primary>Systemovervågning</primary></indexterm> 
+  <indexterm zone="index"><primary>mate-system-monitor</primary></indexterm>
+  <indexterm zone="index"><primary>procman</primary></indexterm>
+
+<!-- ============= Document Body ============================= -->
+ <!-- ============= Introduction ============================== -->
+  <sect1 id="mate-system-monitor-intro">
+    <title>Indledning</title>
+    <para>Programmet <application>Systemovervågning</application> lader dig vise grundlæggende systeminformation og overvåge systemprocesser, brug af systemressourcer samt filsystemer. Du kan også bruge <application>Systemovervågning</application> til at ændre opførslen af dit system.</para>
+    <para>Programvinduet for <application>Systemovervågning</application> indeholder fire afsnit inddelt i faneblade:</para>
+    <variablelist>
+      <varlistentry>
+        <term><guilabel>System</guilabel></term>
+        <listitem>
+          <para>Viser diverse grundlæggende informationer om computerens udstyr og programmer.</para>
+          <variablelist>
+            <varlistentry>
+              <term>Distribution</term>
+              <listitem>
+                <itemizedlist>
+                  <listitem>
+                    <para>Distributionsversion</para>
+                  </listitem>
+                  <listitem>
+                    <para>Linux-kerneversion</para>
+                  </listitem>
+                  <listitem>
+                    <para>MATE-version</para>
+                  </listitem>
+                </itemizedlist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Hardware</term>
+              <listitem>
+                <itemizedlist>
+                  <listitem>
+                    <para>Installeret hukommelse</para>
+                  </listitem>
+                  <listitem>
+                    <para>Processorer og hastigheder</para>
+                  </listitem>
+                </itemizedlist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Systemstatus</term>
+              <listitem>
+                <itemizedlist>
+                  <listitem>
+                    <para>Aktuel tilgængelig diskplads</para>
+                  </listitem>
+                </itemizedlist>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><guilabel>Processer</guilabel></term>
+        <listitem>
+          <para>Viser de aktive processer og deres indbyrdes relationer. Giver detaljeret information om hver enkelt proces, og lader dig styre aktive processer.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><guilabel>Ressourcer</guilabel></term>
+        <listitem>
+          <para>Viser det aktuelle forbrug af følgende systemressourcer:</para>
+          <itemizedlist>
+            <listitem>
+              <para>CPU-tid (processortidsforbrug)</para>
+            </listitem>
+            <listitem>
+              <para>Hukommelse og swap-plads</para>
+            </listitem>
+            <listitem>
+              <para>Netværksaktivitet</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><guilabel>Filsystemer</guilabel></term>
+        <listitem>
+          <para>Opskriver alle monterede filsystemer samt grundlæggende information om hvert af dem.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </sect1>
+
+<!-- ============= Getting Started =========================== -->
+  <sect1 id="mate-system-monitor-getting-started">
+    <title>Kom godt i gang</title>
+                                                                                
+<!-- ============= To Start System Monitor ============================ -->
+    <sect2 id="mate-system-monitor-to-start">
+      <title>Start af Systemovervågning</title>
+      <para>Du kan starte <application>Systemovervågning</application> på følgende måder:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Menuen <guimenu>System</guimenu></term>
+          <listitem>
+            <para>Vælg <menuchoice><guimenu>Administration</guimenu> <guimenuitem>Systemovervågning</guimenuitem></menuchoice>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Kommandolinje</term>
+          <listitem>
+            <para>Kør følgende kommando: <command>mate-system-monitor</command></para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+	
+    <sect2 id="mate-system-monitor-when-you-start">
+      <title>Når du starter Systemovervågning</title>	
+      <para>Når du starter <application>Systemovervågning</application>, vil følgende vinduer blive vist:</para>
+      <figure id="mate-system-monitor-window"> 
+        <title>Vinduet for Systemovervågning</title>
+        <screenshot> 
+          <mediaobject><imageobject> <imagedata fileref="figures/mate-system-monitor_window.png" format="PNG"/> </imageobject> <textobject> <phrase>Viser systemovervågningens hovedvindue.</phrase> </textobject></mediaobject>
+        </screenshot>
+      </figure>
+      <para>Vinduet for <application>Systemovervågning</application> indeholder følgende elementer:</para>
+      <variablelist> 
+        <varlistentry> 
+          <term>Menubjælke</term> 
+          <listitem> 
+            <para>Menuerne i menulinjen indeholder alle de kommandoer, du behøver for at bruge <application>Systemovervågning</application>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry> 
+          <term>Billedområde</term> 
+          <listitem> 
+            <para>Visningsområdet indeholder systemovervågningsinformationerne. Visningsområdet består af følgende afsnit, inddelt i faneblade:</para>
+            <itemizedlist>
+              <listitem>
+                <para><guilabel>System</guilabel></para>
+                <para>Indeholder en liste af grundlæggende systemegenskaber, såsom versioner af systemsoftware, hardwarespecifikationer og status.</para>
+              </listitem>
+              <listitem>
+                <para><guilabel>Processer</guilabel></para>
+                <para>Indeholder en liste af processer, organiseret som en tabel, en liste af gennemsnitsbelastninger over de sidste minutter, samt en <guibutton>Afbryd proces</guibutton>-knap.</para>
+              </listitem>
+              <listitem>
+                <para><guilabel>Ressourcer</guilabel></para>
+                <para>Indeholder en graf over <guilabel>Processorforbrug</guilabel>, <guilabel>Hukommelsesforbrug</guilabel> og swap, samt <guilabel>Netværkshistorik</guilabel>.</para>
+              </listitem>
+              <listitem>
+                <para><guilabel>Filsystemer</guilabel></para>
+                <para>Indeholder en tabel over de filsystemer, der i øjeblikket er monteret.</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+        </varlistentry>
+        <varlistentry> 
+          <term>Statusbjælke</term> 
+          <listitem> 
+            <para>Statusbjælken viser informationer om de <application>Systemovervågning</application>s nuværende aktivitet samt kontekstinformation om menuelementerne.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+  </sect1>
+
+
+ <!-- ================ Usage ================================ -->
+ <!-- This section should describe basic usage of the application. -->
+
+  <sect1 id="mate-system-monitor-usage">
+    <title>Brug</title>
+
+    <sect2 id="mate-system-monitor-display-basic-info">
+      <title>Vis grundlæggende systeminformationer</title>
+      <para>Vælg fanebladet <guilabel>System</guilabel> for at vise grundlæggende systeminformation.</para>
+      <para>I fanebladet <guilabel>System</guilabel>, organiseres informationerne i tre grupper:</para>
+      <itemizedlist>
+	<listitem>
+	  <para>Systeminformation</para>
+	</listitem>
+	<listitem>
+	  <para>Hardware</para>
+	</listitem>
+	<listitem>
+	  <para>Systemstatus</para>
+	</listitem>
+      </itemizedlist>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-display-processlist">
+      <title>Vis proceslisten</title>
+      <para>Vælg fanebladet <guilabel>Processer</guilabel> for at vise proceslisten.</para>
+      <para>I fanebladet <guilabel>Processer</guilabel> organiseres processerne som en tabel. Rækkerne i tabellen viser information om processerne. Kolonnerne repræsenterer informationsfelter for hver proces, såsom navnet på brugeren, der ejer processen, mængden af hukommelse som processen bruger, og så videre. Fra venstre til højre viser <guilabel>Processer</guilabel>-fanebladet som standard følgende kolonner:</para>
+      <itemizedlist>
+          <listitem>
+            <para>Procesnavn</para>
+          </listitem>
+          <listitem>
+            <para>Status</para>
+          </listitem>
+          <listitem>
+            <para>%CPU</para>
+          </listitem>
+          <listitem>
+            <para>Prioritet</para>
+          </listitem>
+          <listitem>
+            <para>Id</para>
+          </listitem>
+          <listitem>
+            <para>Hukommelse</para>
+          </listitem>
+      </itemizedlist>
+        <para>Se <xref linkend="mate-system-monitor-prefs-proclist"/> for information om hvordan de viste kolonner i proceslisten ændres.</para>
+
+      <sect3 id="mate-system-monitor-display-processlist-child">
+        <title>Ophavsprocesser og underprocesser</title>
+        <para>En overproces er en proces, der har startet en anden proces. Den startede proces er en underproces af overprocessen. Som standard viser <application>Systemovervågning</application> ikke procesafhængigheder. Information om hvordan standardopførslen ændres kan ses på <xref linkend="mate-system-monitor-modify-processlist-viewdeps"/>.</para>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-display-processlist-priority">
+        <title>Procesprioritet og nice-værdier</title>
+      <para>Processer køres i prioriteret rækkefølge: Højprioritetsprocesser køres før lavprioritetsprocesser. Underprocesser nedarver generelt deres prioritet fra ophavsprocessen.</para>
+      <para>Prioriteten af en proces indstilles gennem processens nice-værdi på følgende vis:</para>
+      <itemizedlist>
+        <listitem>
+          <para>En nice-værdi på 0 betyder, at processen har normal prioritet.</para>
+        </listitem>
+        <listitem>
+          <para>Højere nice-værdi betyder lavere prioritet.</para>
+        </listitem>
+        <listitem>
+          <para>Lavere nice-værdi betyder højere prioritet.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Information om ændring af procesprioritet kan findes på <xref linkend="mate-system-monitor-change-priority"/>.</para>
+      </sect3>
+
+    </sect2>
+
+    <sect2 id="mate-system-monitor-sort-processlist">
+      <title>Sorter proceslisten</title>
+      <para>Gør som følger for at sortere proceslisten:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg fanebladet <guilabel>Processer</guilabel> for at få vist proceslisten.</para>
+        </listitem>
+        <listitem>
+          <para>Som standard sorteres processer efter navn, i alfabetisk rækkefølge. Klik på kolonneoverskriften <guilabel>Procesnavn</guilabel> for at få dem vist i omvendt alfabetisk rækkefølge.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på en kolonneoverskrift for at sortere processerne efter den information, der fremgår i kolonnen, i alfabetisk eller numerisk orden.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på kolonneoverskriften igen for at sortere dataene i omvendt alfabetisk eller omvendt numerisk rækkefølge.</para>
+        </listitem>
+      </orderedlist>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-modify-processlist">
+      <title>Ændr indholdet af proceslisten</title>
+      <para>Du kan ændre indholdet af proceslisten på adskillige måder.</para>
+
+      <sect3 id="mate-system-monitor-modify-processlist-all">
+        <title>Vis alle processer</title>
+        <para>Gør som følger for at få vist alle processer i proceslisten:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg fanebladet <guilabel>Processer</guilabel> for at få vist proceslisten.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Alle processer</guimenuitem> </menuchoice>.</para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-modify-processlist-my">
+        <title>Vis kun processer, der ejes af den aktuelle bruger</title>
+        <para>Gør som følger for, kun at få vist processer, der ejes af den aktuelle bruger:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg fanebladet <guilabel>Processer</guilabel> for at få vist proceslisten.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg <menuchoice> <guimenu>Vis</guimenu> <guimenuitem>Mine processer</guimenuitem></menuchoice>.</para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-modify-processlist-active">
+        <title>Vis kun aktive processer</title>
+        <para>Gør som følger for, kun at få vist de aktive processer i proceslisten:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg fanebladet <guilabel>Processer</guilabel> for at få vist proceslisten.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg <menuchoice> <guimenu>Vis</guimenu> <guimenuitem>Aktive processer</guimenuitem></menuchoice>.</para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-modify-processlist-viewdeps">
+        <title>Vis afhængigheder</title>
+        <para>Gør som følger for at få vist procesafhængigheder i proceslisten:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg fanebladet <guilabel>Processer</guilabel> for at få vist proceslisten.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Afhængigheder</guimenuitem></menuchoice>.</para>
+          </listitem>
+        </orderedlist>
+        <para>Hvis menupunktet <guimenuitem>Afhængigheder</guimenuitem> er valgt, vil processerne blive vist således:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Ophavsprocesser angives ved at trekantsymbol til venstre for procesnavnet. Klik på et trekantsymbol for at få vist eller skjult de tilhørende underprocesser.</para>
+          </listitem>
+          <listitem>
+            <para>Underprocesser anføres indrykket sammen med deres ophavsprocesser.</para>
+          </listitem>
+        </itemizedlist>
+        <para>Hvis menupunktet <guimenuitem>Afhængigheder</guimenuitem> ikke er valgt:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Ophavsprocesser og underprocesser kan ikke skelnes.</para>
+          </listitem>
+          <listitem>
+            <para>Alle processer anføres i alfabetisk rækkefølge.</para>
+          </listitem>
+        </itemizedlist>
+      </sect3>
+
+    </sect2>
+
+    <sect2 id="mate-system-monitor-memory-map">
+      <title>Vis hukommelsesområder for en proces</title>
+      <para>Gør som følger for at få vist hukommelsesområderne for en proces:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg fanebladet <guilabel>Processer</guilabel> for at få vist proceslisten.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg processen i proceslisten.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Hukommelsesområder</guimenuitem></menuchoice>.</para>
+        </listitem>
+      </orderedlist>
+      <para>Dialogvinduet <guilabel>Hukommelsesområder</guilabel> viser informationerne som en tabel. Navnet på processen vises over hukommelsesområdetabellen. Fra venstre til højre, viser <guilabel>Hukommelsesområder</guilabel>-dialogvinduet følgende kolonner:</para>
+      <variablelist>
+        <varlistentry>
+          <term><guilabel>Filnavn</guilabel></term>
+          <listitem>
+            <para>Placeringen af et delt bibliotek, som i øjeblikket bruges af processen. Hvis dette felt står tomt, beskriver hukommelsesinformationen i denne række et hukommelsesområde, der ejes af processen hvis navn vises over tabellen.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>VM - start</guilabel></term>
+          <listitem>
+            <para>Adressen hvorpå hukommelsessegmentet begynder.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>VM - slut</guilabel></term>
+          <listitem>
+            <para>Adressen hvorpå hukommelsessegmentet slutter.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>VM-størrelse</guilabel></term>
+          <listitem>
+            <para>Størrelsen af hukommelsessegmentet.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>Flag</guilabel></term>
+          <listitem>
+            <para>Følgende flag beskriver de forskellige typer af hukommelsessegment, processen kan tilgå:</para>
+            <variablelist>
+              <varlistentry>
+                <term>p</term>
+                <listitem>
+                  <para>Hukommelsessegmentet er privat for processen, og kan ikke tilgås af andre processer.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>r</term>
+                <listitem>
+                  <para>Processen har rettigheder til at læse fra hukommelsessegmentet.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>s</term>
+                <listitem>
+                  <para>Hukommelsessegmentet deles med andre processer.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>w</term>
+                <listitem>
+                  <para>Processen har rettigheder til at skrive til hukommelsessegmentet.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>x</term>
+                <listitem>
+                  <para>Processen har rettigheder til at køre instruktioner, der indeholdes i hukommelsessegmentet.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>VM-forskydning</guilabel></term>
+          <listitem>
+            <para>Hukommelsessegmentets afsæt for virtuel hukommelse.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>Enhed</guilabel></term>
+          <listitem>
+            <para>Over- og underenhedsnummer for enheden hvorpå den delte biblioteksfil er placeret.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>Iknude</guilabel></term>
+          <listitem>
+            <para>Iknuden på enheden, hvorfra det delte biblioteks placering er indlæst i hukommelsen.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>Klik på en kolonneoverskrift for at sortere data efter informationen i den pågældende kolonne i alfabetisk eller numerisk rækkefølge. Klik på overskriften igen for at sortere i omvendt rækkefølge.</para>
+      <para>Klik på <guibutton>Luk</guibutton> for at lukke <guilabel>Hukommelsesområder</guilabel>-dialogvinduet.</para>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-change-priority">
+      <title>Ændr prioriteten for en proces</title>
+      <para>Gør som følger for at ændre prioriteten for en proces:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg fanebladet <guilabel>Processer</guilabel> for at få vist proceslisten.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg processen, hvis prioritet du vil ændre.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg prioritet i <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Skift prioritet</guimenuitem></menuchoice>. Hvis menuelementet  <guimenuitem>Tilpasset</guimenuitem> vælges vises dialogen <guilabel>Skift prioritet</guilabel>, og fortsætter som i det følgende.</para>
+        </listitem>
+        <listitem>
+          <para>Brug skydeknappen til at indstille processens nice-værdi.</para>
+          <para>Nice-værdien angiver processens prioritet: lavere nice-værdi betyder højere prioritet.</para>
+          <para>Brugere, der ikke er root, skal indtaste root-adgangskoden for at angive en nice-værdi, der er lavere end nul.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på knappen <guibutton>Skift prioritet</guibutton>.</para>
+        </listitem>
+      </orderedlist>
+    </sect2>
+
+
+    <sect2 id="mate-system-monitor-end-process">
+      <title>Afslut en proces</title>
+      <para>Gør som følger for at afslutte en proces:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg fanebladet <guilabel>Processer</guilabel> for at få vist proceslisten.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg processen, du vil afslutte.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Afslut proces</guimenuitem></menuchoice>, eller klik på knappen <guibutton>Afslut proces</guibutton>.</para>
+          <para>Som standard vil der blive spurgt om bekræftelse. Information om hvordan bekræftelsesforespørgslen indstilles til at blive eller ikke blive vist, kan findes på <xref linkend="mate-system-monitor-prefs-proclist"/>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på knappen <guibutton>Afslut proces</guibutton> for at bekræfte at du vil afslutte processen. <application>Systemovervågning</application> tvinger processen til at afslutte normalt.</para>
+        </listitem>
+      </orderedlist>
+      <para>Dette er den foretrukne måde at stoppe en proces.</para>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-terminate-process">
+      <title>For at afslutte en proces</title>
+      <para>Gør som følger for at afslutte en proces:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg fanebladet <guilabel>Processer</guilabel> for at få vist proceslisten.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg processen, du vil afslutte.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Afslut proces</guimenuitem></menuchoice>.</para>
+          <para>Som standard vil der blive spurgt om bekræftelse. Information om hvordan bekræftelsesforespørgslen indstilles til at blive eller ikke blive vist, kan findes på <xref linkend="mate-system-monitor-prefs-proclist"/>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på knappen <guibutton>Afslut proces</guibutton> for at bekræfte at du vil afslutte processen. <application>Systemovervågning</application> tvinger processen til at slutte omgående.</para>
+        </listitem>
+      </orderedlist>
+      <para>En proces bør normalt kun termineres hvis du ikke kan afslutte processen på normal vis, som beskrevet i <xref linkend="mate-system-monitor-end-process"/>.</para>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-cpu">
+      <title>Overvåg processorforbrug</title>
+      <para>Vælg fanebladet <guilabel>Ressourcer</guilabel> for at overvåge processorforbruget.</para>
+      <para><application>Systemovervågning</application> viser historikken for processorforbruget i grafisk format. Under grafen vises i øvrigt også det øjeblikkelige processorforbrug i procent.</para>
+    </sect2>
+
+
+    <sect2 id="mate-system-monitor-memory">
+      <title>Overvåg hukommelses- og swapforbrug</title>
+      <para>Vælg fanebladet <guilabel>Ressourcer</guilabel> for at overvåge hukommelses- og swapforbrug.</para>
+      <para><application>Systemovervågning</application> viser historikken for hukommelses- og swappladsforbrug i grafisk format. Under grafen vises i øvrigt følgende talværdier:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Brugt hukommelse ud af samlet hukommelse</para>
+        </listitem>
+        <listitem>
+          <para>Brugt swapplads ud af samlet swapplads</para>
+        </listitem>
+      </itemizedlist>
+
+    </sect2>
+    
+    <sect2 id="mate-system-monitor-network">
+      <title>Overvåg netværksaktivitet</title>
+      <para>Vælg fanebladet <guilabel>Ressourcer</guilabel> for at overvåge netværksaktivitet.</para>
+      <para><application>Systemovervågning</application> viser netværkshistorikken i grafisk format. Under grafen vises i øvrigt følgende talværdier:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Modtaget data per sekund og samlet</para>
+        </listitem>
+        <listitem>
+          <para>Sendt data per sekund og samlet</para>
+        </listitem>
+      </itemizedlist>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-disk">
+      <title>Overvåg filsystemer</title>
+      <para>Vælg fanebladet <guilabel>Filsystemer</guilabel> for at overvåge filsystemer.</para>
+      <para><application>Systemovervågning</application> viser monterede filsystemer i et tabelformat. Fra venstre til højre, indeholder tabellen følgende kolonner:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Enhed</term>
+          <listitem>
+            <para>Placering af blokfil</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Mappe</term>
+          <listitem>
+            <para>Monteringspunkt (mappe der tilgås) for enheden</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Type</term>
+          <listitem>
+            <para>Filsystemtype</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Total</term>
+          <listitem>
+            <para>Total kapacitet</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Fri</term>
+          <listitem>
+            <para>Mængden af plads, der ikke bruges</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Tilgængelig</term>
+          <listitem>
+            <para>Mængden af plads, der kan bruges</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Brugt</term>
+          <listitem>
+            <para>Mængden af plads, der er brugt (og procentdel af Total)</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-customize">
+      <title>Tilpas fanebladsafsnittet Ressourcer</title>
+      <para>Du kan tilpasse fanebladsafsnittet <guilabel>Ressourcer</guilabel> på følgende måder:</para>
+      <itemizedlist>
+        <listitem>
+          <para><xref linkend="mate-system-monitor-customize-background"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para><xref linkend="mate-system-monitor-customize-grid"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para><xref linkend="mate-system-monitor-customize-cpu"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para><xref linkend="mate-system-monitor-customize-mem"/>
+          </para>
+        </listitem>
+      </itemizedlist>
+
+      <sect3 id="mate-system-monitor-customize-background">
+        <title>Ændr baggrundsfarve for grafer</title>
+        <para>Gør som følger for at ændre baggrundsfarve for graferne i <application>Systemovervågning</application>:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Indstillinger</guimenuitem></menuchoice>. Dialogvinduet <guilabel>Indstillinger</guilabel> vil dermed blive vist.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg fanebladet <guilabel>Ressourcer</guilabel> i dialogvinduet <guilabel>Indstillinger</guilabel>.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på knappen <guilabel>Baggrundsfarve</guilabel>. Dialogvinduet <guilabel>Vælg en farve</guilabel> bliver dermed vist.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg en farve fra <guilabel>Paletten</guilabel>, eller brug farvehjulet eller rulleboksene til at tilpasse farven.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på <guibutton>O.k.</guibutton> for at lukke dialogvinduet <guilabel>Vælg en farve</guilabel>.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på <guibutton>Luk</guibutton> for at lukke dialogvinduet <guilabel>Indstillinger</guilabel>.</para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-customize-grid">
+        <title>Ændr gitterfarven i graferne</title>
+        <para>Gør som følger for at ændre gitterfarverne for graferne i <application>Systemovervågning</application>:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Indstillinger</guimenuitem></menuchoice>. Dialogvinduet <guilabel>Indstillinger</guilabel> vil dermed blive vist.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg fanebladet <guilabel>Ressourcer</guilabel> i dialogvinduet <guilabel>Indstillinger</guilabel>.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på knappen <guilabel>Gitterfarve</guilabel>. Dialogvinduet <guilabel>Vælg en farve</guilabel> bliver dermed vist.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg en farve fra <guilabel>Paletten</guilabel>, eller brug farvehjulet eller rulleboksene til at tilpasse farven.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på <guibutton>O.k.</guibutton> for at lukke dialogvinduet <guilabel>Vælg en farve</guilabel>.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på <guibutton>Luk</guibutton> for at lukke dialogvinduet <guilabel>Indstillinger</guilabel>.</para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-customize-cpu">
+        <title>Ændr linjefarven for processorgrafen</title>
+        <para>Gør som følger for at ændre farven af linjen, der repræsenterer processorforbruget i <guilabel>Processorforbrug</guilabel>-grafen:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg fanebladet <guilabel>Ressourcer</guilabel> i <guilabel>Systemovervågning</guilabel>-vinduet, for at vise graferne og tallene, der giver information om forbrug af systemressourcer.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på <guibutton>CPU</guibutton>-farveknappen. Dialogvinduet <guilabel>Vælg en farve</guilabel> vil dermed blive vist.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg en farve fra <guilabel>Paletten</guilabel>, eller brug farvehjulet eller rulleboksene til at tilpasse farven.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på <guibutton>O.k.</guibutton> for at lukke dialogvinduet <guilabel>Vælg en farve</guilabel>.</para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-customize-mem">
+        <title>Ændr linjefarverne for hukommelses- og swapgrafen</title>
+        <para>Gør som følger for at ændre farve på linjerne, der repræsenterer hukommelses- og swapforbrug i grafen:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg fanebladet <guilabel>Ressourcer</guilabel> i <guilabel>Systemovervågning</guilabel>-vinduet, for at vise graferne og tallene, der giver information om forbrug af systemressourcer.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på <guibutton>Hukommelse</guibutton>- eller <guibutton>Swap</guibutton>-knappen. Dialogvinduet <guilabel>Vælg en farve</guilabel> vil dermed blive vist.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg en farve fra <guilabel>Paletten</guilabel>, eller brug farvehjulet eller rulleboksene til at tilpasse farven.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på <guibutton>O.k.</guibutton> for at lukke dialogvinduet <guilabel>Vælg en farve</guilabel>.</para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+    </sect2>
+
+  </sect1>
+
+  <sect1 id="mate-system-monitor-prefs">
+    <title>Indstillinger</title>
+    <para>Vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Indstillinger</guimenuitem></menuchoice> for at ændre indstillinger for <application>Systemovervågning</application>. Dialogvinduet <guilabel>Indstillinger</guilabel> indeholder følgende fanebladsafsnit:</para>
+    <itemizedlist>
+      <listitem>
+        <para><xref linkend="mate-system-monitor-prefs-proclist"/></para>
+      </listitem>
+      <listitem>
+        <para><xref linkend="mate-system-monitor-prefs-resmon"/></para>
+      </listitem>
+    </itemizedlist>
+
+    <sect2 id="mate-system-monitor-prefs-proclist">
+      <title>Processer</title>
+        <variablelist>
+          <varlistentry>
+            <term><guilabel>Opførsel</guilabel></term>
+            <listitem>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Opdateringsinterval i sekunder</guilabel></para>
+                  <para>Brug denne drejeboks til at angive intervallet mellem opdateringer af proceslisten.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Aktiver blød opdatering</guilabel></para>
+                  <para>Vælg denne indstilling for at opdatere blødt.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Advar før processer afsluttes</guilabel></para>
+                  <para>Vælg denne indstilling for at få bedt om bekræftelse, når en proces afsluttes.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Solaris-tilstand</guilabel></para>
+                  <para>Vælg denne for at dividere hver proces' CPU% i procestabellen med antallet af CPU'er.</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>Informationsfelter</guilabel></term>
+            <listitem>
+              <para>Brug følgende indstillinger til at væge de felter, der vises i proceslisten:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Procesnavn</guilabel></para>
+                  <para>Vælg denne indstilling for at vise procesnavnet. Denne kolonne kan også indeholde et ikon, der viser programmet, der er tilknyttet processen.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Bruger</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist navnet på den bruger, der ejer processen.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Status</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist den aktuelle status af processen: sover eller kører.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Virtuel hukommelse</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist mængden af virtuel hukommelse, der er allokeret til processen.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Fysisk hukommelse</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist mængden af fysisk hukommelse, der er allokeret til processen.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Skrivbar hukommelse</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist mængden af hukommelse, processen kan skrive til.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Delt hukommelse</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist mængden af delt hukommelse, der er allokeret til processen. Delt hukommelse er hukommelse, der kan tilgås af andre processer.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>X-serverhukommelse</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist mængden af X-serverhukommelse, der bruges af processen.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>% CPU</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist processens aktuelle processorforbrug i procent.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>CPU-tid</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist mængden af processortid, processen har brugt.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Started</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist processens starttidspunkt.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Nice</guilabel></para>
+                  <para>Vælg denne indstilling for at vise processens nice-værdi. Nice-værdien angiver processens prioritet: lavere nice-værdi svarer til højere prioritet.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Id</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist procesidentifikationsnummeret, også kaldet pid. Pid'en er et tal, der entydigt identificerer processen. Du kan bruge pid'en til at manipulere processen på kommandolinjen.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Hukommelse</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist mængden af systemhukommelse, der i øjeblikket bruges af processen.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Sikkerhedskontekst</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist sikkerhedskonteksten, hvori processen kører.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Kommandolinje</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist kommandolinjen, der blev brugt til at starte processen, inklusive argumenter.</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-prefs-resmon">
+      <title>Ressourcer</title>
+        <variablelist>
+          <varlistentry>
+            <term><guilabel>Grafer</guilabel></term>
+            <listitem>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Opdateringsinterval i sekunder</guilabel></para>
+                  <para>Brug denne drejeboks til at angive, hvor ofte du vil have graferne i <application>Systemovervågning</application> opdateret.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Baggrundsfarve</guilabel></para>
+                  <para>Brug denne knap til at tilpasse baggrundsfarven for graferne i <application>Systemovervågning</application>, som beskrevet i <xref linkend="mate-system-monitor-customize-background"/>.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Gitterfarve</guilabel></para>
+                  <para>Brug denne knap til at tilpasse gitterfarven for graferne i <application>Systemovervågning</application>, som beskrevet i <xref linkend="mate-system-monitor-customize-grid"/>.</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>Filsystemer</guilabel></term>
+            <listitem>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Opdateringsinterval i sekunder</guilabel></para>
+                  <para>Brug denne drejeboks til at angive, hvor ofte du vil have tabellen <guilabel>Filsystemer</guilabel> opdateret.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Vis alle filsystemer</guilabel></para>
+                  <para>Vælg denne indstilling for at få vist alle filsystemer, inklusive midlertidige og systemfilsystemer.</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+    </sect2>
+
+  </sect1>
+
+</article>

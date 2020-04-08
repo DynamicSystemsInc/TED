@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "1.10.0">
+<!ENTITY manrevision "2.3">
+<!ENTITY date "July 2015">
+<!ENTITY app "System Monitor">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="ru">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Руководство по Системному монитору V2.3</title>       
+
+	 <copyright lang="en">
+		<year>2019</year>
+		<holder>MATE Documentation Project</holder> </copyright>
+    <copyright lang="en">
+      <year>2009</year>
+      <holder>Paul Cutler</holder>
+    </copyright>
+    <copyright><year>2004</year> <holder>Sun Microsystems</holder></copyright>
+    <copyright lang="en"> 
+      <year>2001</year>
+      <year>2002</year> 
+      <year>2004</year> 
+      <holder>Bill Day</holder> 
+    </copyright> 
+
+<!-- translators: uncomment this:
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+   -->
+
+    <publisher role="maintainer">
+      <publishername>Проект документирования MATE</publishername> 
+    </publisher>
+    <publisher>
+      <publishername>Проект документирования GNOME</publishername>
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Разрешается копировать, распространять и/или изменять этот документ на условиях лицензии GNU Free Documentation License (GFDL), версии 1.1 или любой более поздней версии, опубликованной Фондом свободного программного обеспечения (Free Software Foundation), без неизменяемых частей и без текстов на обложках. Вы можете найти копию лицензии GFDL по  <ulink type="help" url="help:fdl">этой ссылке</ulink> или в файле COPYING-DOCS, распространяемом с этим документом.</para>
+         <para>Этот документ является частью документации MATE, распространяемой на условиях лицензии GFDL. Если вы хотите распространять этот документ отдельно от общей документации, вы должны приложить копию лицензии к документу, как написано в части 6 лицензии.</para>
+
+	<para>Некоторые имена и марки используются компаниями для обозначения их продуктов и услуг и являются торговыми марками. Там, где эти имена присутствуют в документации и где участники проекта документирования MATE знают об этом, имена выделяются заглавными буквами или начальной заглавной буквой.</para>
+
+	<para>ДОКУМЕНТ И ИЗМЕНЁННЫЕ ВЕРСИИ ДОКУМЕНТА ПРЕДОСТАВЛЯЮТСЯ ПРЕДОСТАВЛЯЮТСЯ ПО УСЛОВИЯМ ЛИЦЕНЗИИ БЕСПЛАТНОЙ ДОКУМЕНТАЦИИ GNU С ПОНИМАНИЕМ ЧТО: <orderedlist>
+		<listitem>
+		  <para>ДОКУМЕНТ РАСПРОСТРАНЯЕТСЯ «КАК ЕСТЬ», БЕЗ ВСЯКИХ ГАРАНТИЙ, ЯВНЫХ ИЛИ НЕЯВНЫХ, ВКЛЮЧАЯ, БЕЗ ОГРАНИЧЕНИЙ, ГАРАНТИИ ТОГО, ЧТО ДОКУМЕНТ ИЛИ ИЗМЕНЁННАЯ ВЕРСИЯ ДОКУМЕНТА СВОБОДНА ОТ ДЕФЕКТОВ, ПРИГОДНА К ПРОДАЖЕ, ПРИГОДНА К ИСПОЛЬЗОВАНИЮ В ОПРЕДЕЛЁННЫХ ЦЕЛЯХ ИЛИ НЕ НАРУШАЕТ ЗАКОНЫ. ВЕСЬ РИСК, КАСАЮЩИЙСЯ КАЧЕСТВА, ТОЧНОСТИ ИЛИ ПРАВИЛЬНОСТИ ДОКУМЕНТА ИЛИ ИЗМЕНЁННЫХ ВЕРСИЙ ДОКУМЕНТА, ЛЕЖИТ НА ВАС. ЕСЛИ ДОКУМЕНТ ИЛИ ИЗМЕНЁННАЯ ВЕРСИЯ ДОКУМЕНТА ИМЕЕТ НЕДОСТАТКИ, ВЫ (А НЕ АВТОР ДОКУМЕНТА ИЛИ ЕГО ПОМОЩНИК) БЕРЁТЕ НА СЕБЯ СТОИМОСТЬ ЛЮБОЙ НЕОБХОДИМОЙ ДОРАБОТКИ, КОРРЕКЦИИ ИЛИ ВОССТАНОВЛЕНИЯ. ЭТОТ ОТКАЗ ОТ ГАРАНТИЙ СОСТАВЛЯЕТ ВАЖНУЮ ЧАСТЬ ЛИЦЕНЗИИ. НИКАКОЕ ИСПОЛЬЗОВАНИЕ ДОКУМЕНТА ИЛИ ИЗМЕНЁННОЙ ВЕРСИИ ДОКУМЕНТА НЕ ДОПУСКАЕТСЯ БЕЗ ДАННОГО ПРЕДУПРЕЖДЕНИЯ И</para>
+		</listitem>
+		<listitem>
+		  <para>НИ ПРИ КАКИХ ОБСТОЯТЕЛЬСТВАХ И НИ ПРИ КАКОМ ЗАКОННОМ СПОСОБЕ, НИ ПО КАКОМУ СОГЛАШЕНИЮ ИЛИ ДРУГОЙ ПРИЧИНЕ, АВТОР, СОЗДАТЕЛЬ, ПОМОЩНИКИ ИЛИ РАСПРОСТРАНИТЕЛИ ДОКУМЕНТА НЕ НЕСУТ ОТВЕТСТВЕННОСТЬ ЗА ПРЯМОЙ, КОСВЕННЫЙ, СПЕЦИАЛЬНЫЙ, СЛУЧАЙНЫЙ ИЛИ ПРЕДНАМЕРЕННЫЙ УЩЕРБ ЛЮБОГО СВОЙСТВА, ВКЛЮЧАЯ, БЕЗ ОГРАНИЧЕНИЯ, ПОТЕРЮ ЖЕЛАНИЯ, РАБОТОСПОСОБНОСТИ, КОМПЬЮТЕРНЫЕ СБОИ ИЛИ ПОЛОМКИ, ИЛИ ЛЮБОЙ ДРУГОЙ УЩЕРБ ИЛИ ПОТЕРИ, ВОЗНИКАЮЩИЕ ВСЛЕДСТВИЕ ИЛИ СВЯЗАННЫЕ С ИСПОЛЬЗОВАНИЕМ ДОКУМЕНТА ИЛИ ИЗМЕНЁННЫХ ВЕРСИЙ ДОКУМЕНТА, ДАЖЕ ЕСЛИ СТОРОНА БЫЛА УВЕДОМЛЕНА О ВОЗМОЖНОСТИ ТАКОГО УЩЕРБА.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and 
+        other legal stuff such as "NO WARRANTY" statement. Please do not change 
+	any of this. -->
+
+  <authorgroup> 
+	<author lang="en">
+	  <firstname>MATE Documentation Project</firstname>
+	  <surname/>
+	  <affiliation>
+		 <orgname>MATE Desktop</orgname>
+	  </affiliation>
+	</author>
+    <author><firstname>Sun</firstname> <surname>Команда документирования GNOME</surname> <affiliation><orgname>Sun Microsystems</orgname></affiliation></author>
+    <author lang="en"> 
+      <firstname>Bill</firstname> 
+      <surname>Day</surname> 
+      <affiliation><address><email>billday@bellatlantic.net</email></address></affiliation> 
+    </author> 
+      <author lang="en">
+        <firstname>Paul</firstname>
+        <surname>Cutler</surname>
+        <affiliation>
+          <orgname>GNOME Documentation Project</orgname>
+          <address><email>pcutler@foresightlinux.org</email></address>
+        </affiliation>
+      </author>
+      
+<!-- This is appropriate place for other contributors: translators,
+     maintainers,  etc. Commented out by default.
+     
+    <othercredit role="translator">
+      <firstname>Latin</firstname> 
+      <surname>Translator 1</surname> 
+      <affiliation> 
+	<orgname>Latin Translation Team</orgname> 
+	<address> <email>translator@gnome.org</email> </address> 
+      </affiliation>
+      <contrib>Latin translation</contrib>
+    </othercredit>
+-->
+    </authorgroup>
+
+    <releaseinfo revision="1.10" role="review">
+    </releaseinfo>
+
+    <revhistory>
+      <revision><revnumber>Руководство по Системному монитору V2.3</revnumber> <date>Июль 2015</date> <revdescription>
+	  <para role="author">Команда документирования MATE</para>
+	  <para role="publisher">Проект документирования MATE</para>
+	</revdescription></revision>
+      <revision><revnumber>Руководство по Системному монитору V2.2;</revnumber> <date>Март 2009</date> <revdescription> 
+	  <para role="author">Paul Cutler
+	    <email>pcutler@foresightlinux.org</email>
+	  </para>
+	  <para role="publisher">Проект документирования GNOME</para>
+	</revdescription></revision> 
+      <revision><revnumber>Руководство по Системному монитору V2.1</revnumber> <date>Февраль 2004</date> <revdescription>
+	  <para role="author">Sun GNOME Documentation Team</para>
+	  <para role="publisher">Проект документирования GNOME</para>
+	</revdescription></revision>
+      <revision><revnumber>Руководство по Системному монитору V2.0</revnumber> <date>Ноябрь 2002</date> <revdescription>
+	  <para role="author">Bill Day <email>billday@bellatlantic.net</email>
+	  </para>
+	  <para role="publisher">Проект документирования GNOME</para>
+	</revdescription></revision>
+      <revision><revnumber>Руководство Procman V0.11</revnumber> <date>Январь 2002</date> <revdescription>
+	  <para role="author">Bill Day 
+	    <email>billday@bellatlantic.net</email>
+	  </para>
+	  <para role="publisher">Проект документирования GNOME</para>
+	</revdescription></revision>
+    </revhistory> 
+
+    <releaseinfo>Это руководство описывает версию 1.10.0 Системного монитора.</releaseinfo> 
+
+    <legalnotice>
+      <title>Обратная связь</title>
+      <para>Чтобы сообщить об ошибке и внести предложение относительно приложения Системный монитор или этого руководства, следуйте инструкциям на <ulink url="help:mate-user-guide/feedback" type="help">Странице обратной связи MATE</ulink>.</para>
+
+<!-- Translators may also add here feedback address for translations -->
+
+    </legalnotice>
+    <abstract role="description">
+      <para>Системный монитор предоставляет пользователям графический интерфейс для мониторинга использования процессора, сети и оперативной памяти, а также средства для просмотра и остановки системных процессов.</para>
+    </abstract>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Алексей Кабанов</firstname>
+      </personname>
+      <email>ak099@mail.ru</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2018</year>
+      
+      <holder>Алексей Кабанов</holder>
+    </copyright>
+  </articleinfo> 
+
+  <indexterm zone="index"><primary>Системный монитор</primary></indexterm> 
+  <indexterm zone="index"><primary>mate-system-monitor</primary></indexterm>
+  <indexterm zone="index"><primary>procman</primary></indexterm>
+
+<!-- ============= Document Body ============================= -->
+ <!-- ============= Introduction ============================== -->
+  <sect1 id="mate-system-monitor-intro">
+    <title>Введение</title>
+    <para>Приложение <application>Системный монитор</application> позволяет просматривать базовую информацию о системе и отслеживать системные процессы, использование системных ресурсов и файловых систем. Вы можете также использовать <application>Системный монитор</application> для изменения поведения вашей системы.</para>
+    <para>Окно<application>Системного монитора</application> содержит четыре вкладки:</para>
+    <variablelist>
+      <varlistentry>
+        <term><guilabel>Система</guilabel></term>
+        <listitem>
+          <para>Показывает различную базовую информацию об аппаратном и программном обеспечении компьютера.</para>
+          <variablelist>
+            <varlistentry>
+              <term>Дистрибутив</term>
+              <listitem>
+                <itemizedlist>
+                  <listitem>
+                    <para>Версия дистрибутива</para>
+                  </listitem>
+                  <listitem>
+                    <para>Версия ядра Linux</para>
+                  </listitem>
+                  <listitem>
+                    <para>Версия MATE</para>
+                  </listitem>
+                </itemizedlist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Оборудование</term>
+              <listitem>
+                <itemizedlist>
+                  <listitem>
+                    <para>Объём установленной памяти</para>
+                  </listitem>
+                  <listitem>
+                    <para>Процессоры и их тактовая частота</para>
+                  </listitem>
+                </itemizedlist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Состояние системы</term>
+              <listitem>
+                <itemizedlist>
+                  <listitem>
+                    <para>Доступное на данный момент дисковое пространство</para>
+                  </listitem>
+                </itemizedlist>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><guilabel>Процессы</guilabel></term>
+        <listitem>
+          <para>Отображает активные процессы и их взаимоотношения. Предоставляет подробную информацию об отдельных процессах и позволяет управлять активными процессами.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><guilabel>Ресурсы</guilabel></term>
+        <listitem>
+          <para>Показывает сведения о текущем использовании следующих системных ресурсов:</para>
+          <itemizedlist>
+            <listitem>
+              <para>Использование процессора</para>
+            </listitem>
+            <listitem>
+              <para>Использование памяти и области подкачки</para>
+            </listitem>
+            <listitem>
+              <para>Использование сети</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><guilabel>Файловые системы</guilabel></term>
+        <listitem>
+          <para>Перечисляет все смонтированные файловые системы, а также базовую информацию о каждой из них.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </sect1>
+
+<!-- ============= Getting Started =========================== -->
+  <sect1 id="mate-system-monitor-getting-started">
+    <title>Начало работы</title>
+                                                                                
+<!-- ============= To Start System Monitor ============================ -->
+    <sect2 id="mate-system-monitor-to-start">
+      <title>Запуск Системного монитора</title>
+      <para>Запустить <application>Системный монитор</application> можно следующими способами:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Из меню <guimenu>Система</guimenu></term>
+          <listitem>
+            <para>Выберите <menuchoice><guimenu>Администрирование</guimenu> <guimenuitem>Системный монитор</guimenuitem></menuchoice>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Командная строка</term>
+          <listitem>
+            <para>Выполните следующую команду: <command>mate-system-monitor</command></para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+	
+    <sect2 id="mate-system-monitor-when-you-start">
+      <title>После запуска Системного монитора</title>	
+      <para>После запуска<application>Системного монитора</application> появляется следующее окно:</para>
+      <figure id="mate-system-monitor-window"> 
+        <title>Окно Системного монитора</title>
+        <screenshot> 
+          <mediaobject><imageobject> <imagedata fileref="figures/mate-system-monitor_window.png" format="PNG"/> </imageobject> <textobject> <phrase>Показывает главное окно Системного монитора.</phrase> </textobject></mediaobject>
+        </screenshot>
+      </figure>
+      <para>Окно <application>Системного монитора</application> содержит следующие элементы:</para>
+      <variablelist> 
+        <varlistentry> 
+          <term>Строка меню</term> 
+          <listitem> 
+            <para>Меню содержит все команды, которые потребуются вам для работы с <application>Системным монитором</application>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry> 
+          <term>Область отображения</term> 
+          <listitem> 
+            <para>В этой области отображается информация о системе. Область отображения содержит четыре вкладки:</para>
+            <itemizedlist>
+              <listitem>
+                <para><guilabel>Система</guilabel></para>
+                <para>Показывает список основных сведений о системе, таких как информация о версии системы, спецификациях и состоянии оборудования.</para>
+              </listitem>
+              <listitem>
+                <para><guilabel>Процессы</guilabel></para>
+                <para>Отображает список процессов в виде таблицы, сведения о средней загрузке системы за последние несколько минут, а также кнопку <guibutton>Завершить процесс</guibutton>.</para>
+              </listitem>
+              <listitem>
+                <para><guilabel>Ресурсы</guilabel></para>
+                <para>Содержит графики<guilabel>Использование процессора</guilabel>, <guilabel>Использование памяти/подкачки</guilabel> и <guilabel>Использование сети</guilabel>.</para>
+              </listitem>
+              <listitem>
+                <para><guilabel>Файловые системы</guilabel></para>
+                <para>Содержит таблицу смонтированных на данный момент файловых систем.</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+        </varlistentry>
+        <varlistentry> 
+          <term>Строка состояния</term> 
+          <listitem> 
+            <para>В строке состояния отображаются сведения о текущей активности <application>Системного монитора</application> и контекстная информация об элементах меню.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+  </sect1>
+
+
+ <!-- ================ Usage ================================ -->
+ <!-- This section should describe basic usage of the application. -->
+
+  <sect1 id="mate-system-monitor-usage">
+    <title>Использование</title>
+
+    <sect2 id="mate-system-monitor-display-basic-info">
+      <title>Просмотр базовой информации о системе</title>
+      <para>Для просмотра основных сведений о системе выберите вкладку <guilabel>Система</guilabel>.</para>
+      <para>Во вкладке <guilabel>Система</guilabel> информация разбита на три группы:</para>
+      <itemizedlist>
+	<listitem>
+	  <para>Сведения о системе</para>
+	</listitem>
+	<listitem>
+	  <para>Оборудование</para>
+	</listitem>
+	<listitem>
+	  <para>Состояние системы</para>
+	</listitem>
+      </itemizedlist>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-display-processlist">
+      <title>Список процессов</title>
+      <para>Для просмотра списка процессов выберите вкладку <guilabel>Процессы</guilabel>.</para>
+      <para>Во вкладке <guilabel>Процессы</guilabel> инормация организована в виде таблицы. Строки таблицы отображают список процессов. В столбцах показана различная информация о каждом процессе, например, имя пользователя, являющегося владельцем процесса, количество используемой процессом в данный момент памяти и т.д. Слева направо, во вкладке <guilabel>Процессы</guilabel> по умолчанию представлены следующие столбцы:</para>
+      <itemizedlist>
+          <listitem>
+            <para>Имя процесса</para>
+          </listitem>
+          <listitem>
+            <para>Состояние</para>
+          </listitem>
+          <listitem>
+            <para>% ЦП</para>
+          </listitem>
+          <listitem>
+            <para>Приоритет</para>
+          </listitem>
+          <listitem>
+            <para>ID</para>
+          </listitem>
+          <listitem>
+            <para>Память</para>
+          </listitem>
+      </itemizedlist>
+        <para>О том, как изменить отображаемые в таблице столбцы, смотрите в разделе <xref linkend="mate-system-monitor-prefs-proclist"/>.</para>
+
+      <sect3 id="mate-system-monitor-display-processlist-child">
+        <title>Родительские процессы и процессы-потомки</title>
+        <para>Родительский процесс — это процесс, который порождает другие процессы. Порождённые процессы являются процессами-потомками их родительского процесса. По умолчанию <application>Системный монитор</application> не показывает зависимости процессов. О том, как изменить это поведение по умолчанию, смотрите в разделе <xref linkend="mate-system-monitor-modify-processlist-viewdeps"/>.</para>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-display-processlist-priority">
+        <title>Приоритет процесса и значение nice</title>
+      <para>Процессы запускаются в порядке приоритета: процессы с высоким приоритетом запускаются перед процессами с низкими приоритетами. Процессы-потомки обычно наследуют свой приоритет от родительского процесса.</para>
+      <para>Приоритет процесса задаётся значением nice этого процесса следующим образом:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Значение nice, равное 0, означает, что процесс имеет обычный приоритет.</para>
+        </listitem>
+        <listitem>
+          <para>Чем выше значение nice, тем ниже приоритет.</para>
+        </listitem>
+        <listitem>
+          <para>Чем ниже значение nice, тем выше приоритет.</para>
+        </listitem>
+      </itemizedlist>
+      <para>О том, как изменить приоритет процесса, смотрите в разделе <xref linkend="mate-system-monitor-change-priority"/>.</para>
+      </sect3>
+
+    </sect2>
+
+    <sect2 id="mate-system-monitor-sort-processlist">
+      <title>Сортировка списка процессов</title>
+      <para>Для сортировки списка процессов сделайте следующее:</para>
+      <orderedlist>
+        <listitem>
+          <para>Выберите вкладку <guilabel>Процессы</guilabel>, чтобы отобразить список процессов.</para>
+        </listitem>
+        <listitem>
+          <para>По умолчанию процессы перечислены по имени, в алфавитном порядке. Чтобы отсортировать их в обратном алфавитном порядке, щёлкните на заголовке столбца <guilabel>Имя процесса</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Щёлкните на заголовке любого столбца, чтобы отсортировать информацию по этому столбцу, в алфавитном или числовом порядке.</para>
+        </listitem>
+        <listitem>
+          <para>Щёлкните на заголовке этого столбца снова, чтобы изменить порядок на обратный.</para>
+        </listitem>
+      </orderedlist>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-modify-processlist">
+      <title>Изменение содержимого списка процессов</title>
+      <para>Изменить содержимое списка процессов можно несколькими способами.</para>
+
+      <sect3 id="mate-system-monitor-modify-processlist-all">
+        <title>Показ всех процессов</title>
+        <para>Чтобы в списке процессов были показаны все процессы, сделайте следующее:</para>
+        <orderedlist>
+          <listitem>
+            <para>Выберите вкладку <guilabel>Процессы</guilabel>, чтобы отобразить список процессов.</para>
+          </listitem>
+          <listitem>
+            <para>Выберите <menuchoice> <guimenu>Вид</guimenu> <guimenuitem>Все процессы</guimenuitem> </menuchoice>.</para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-modify-processlist-my">
+        <title>Показ только процессов, принадлежащих текущему пользователю</title>
+        <para>Чтобы увидеть только процессы, владельцем которых является текущий пользователь, сделайте следующее:</para>
+        <orderedlist>
+          <listitem>
+            <para>Выберите вкладку <guilabel>Процессы</guilabel>, чтобы отобразить список процессов.</para>
+          </listitem>
+          <listitem>
+            <para>Выберите <menuchoice> <guimenu>Вид</guimenu> <guimenuitem>Мои процессы</guimenuitem> </menuchoice>.</para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-modify-processlist-active">
+        <title>Показ только активных процессов</title>
+        <para>Для отображения в списке только активных процессов, сделайте следующее:</para>
+        <orderedlist>
+          <listitem>
+            <para>Выберите вкладку <guilabel>Процессы</guilabel>, чтобы отобразить список процессов.</para>
+          </listitem>
+          <listitem>
+            <para>Выберите <menuchoice> <guimenu>Вид</guimenu> <guimenuitem>Активные процессы</guimenuitem> </menuchoice>.</para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-modify-processlist-viewdeps">
+        <title>Показ зависимостей</title>
+        <para>Для показа зависимостей процессов в списке сделайте следующее:</para>
+        <orderedlist>
+          <listitem>
+            <para>Выберите вкладку <guilabel>Процессы</guilabel>, чтобы отобразить список процессов.</para>
+          </listitem>
+          <listitem>
+            <para>Выберите <menuchoice><guimenu>Вид</guimenu><guimenuitem>Зависимости</guimenuitem></menuchoice>.</para>
+          </listitem>
+        </orderedlist>
+        <para>Если флажок <guimenuitem>Зависимости</guimenuitem> в меню установлен, процессы будут отображаться следующим образом:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Родительские процессы отмечены треугольником слева от имени процесса. Щёлкните на треугольнике, чтобы увидеть или скрыть связанные с данным процессом процессы-потомки.</para>
+          </listitem>
+          <listitem>
+            <para>Процессы потомки отображаются с отступом слева следом за их родительским процессом.</para>
+          </listitem>
+        </itemizedlist>
+        <para>Если флажок <guimenuitem>Зависимости</guimenuitem> не установлен:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Родительские процессы и потомки неотличимы друг от друга</para>
+          </listitem>
+          <listitem>
+            <para>Все процессы перечисляются в алфавитном порядке.</para>
+          </listitem>
+        </itemizedlist>
+      </sect3>
+
+    </sect2>
+
+    <sect2 id="mate-system-monitor-memory-map">
+      <title>Показ карт памяти для процесса</title>
+      <para>Для показа карт памяти процесса сделайте следующее:</para>
+      <orderedlist>
+        <listitem>
+          <para>Выберите вкладку <guilabel>Процессы</guilabel>, чтобы отобразить список процессов.</para>
+        </listitem>
+        <listitem>
+          <para>Выберите процесс в списке процессов.</para>
+        </listitem>
+        <listitem>
+          <para>Выберите <menuchoice><guimenu>Вид</guimenu><guimenuitem>Карты памяти</guimenuitem></menuchoice>.</para>
+        </listitem>
+      </orderedlist>
+      <para>Диалоговое окно <guilabel>Карты памяти</guilabel> показывает информацию в табличном формате. Имя процесса показано над таблицей. Слева направо, в диалоге <guilabel>Карты памяти</guilabel> отображаются следующие столбцы:</para>
+      <variablelist>
+        <varlistentry>
+          <term><guilabel>Имя файла</guilabel></term>
+          <listitem>
+            <para lang="en">
+              The location of a shared library that is currently used by the process. If this field is blank, the memory information in this row describes memory that is owned by the process whose name is displayed above the memory-map table. 
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>Начало ВП</guilabel></term>
+          <listitem>
+            <para>Адрес, с которого начинается сегмент памяти.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>Конец ВП</guilabel></term>
+          <listitem>
+            <para>Адрес, которым заканчивается сегмент памяти.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>Размер ВП</guilabel></term>
+          <listitem>
+            <para>Размер выделенного сегмента памяти.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>Флаги</guilabel></term>
+          <listitem>
+            <para>Следующие флаги описывают различные типы доступа к сегменту памяти, которые может иметь процесс:</para>
+            <variablelist>
+              <varlistentry>
+                <term>p</term>
+                <listitem>
+                  <para>Сегмент памяти является приватным (private) для процесса и недоступен для других процессов.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>r</term>
+                <listitem>
+                  <para>Процесс имеет право на чтение (read) из сегмента памяти.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>s</term>
+                <listitem>
+                  <para>Сегмент памяти используется совместно (shared) с другими процессами.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>w</term>
+                <listitem>
+                  <para>Процесс имеет право на запись (write) в сегмент памяти.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>x</term>
+                <listitem>
+                  <para>Процесс обладает правом на выполнение инструкций, содержащихся внутри сегмента памяти.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>Смещение ВП</guilabel></term>
+          <listitem>
+            <para lang="en">
+              The virtual memory offset of the memory segment.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>Устройство</guilabel></term>
+          <listitem>
+            <para lang="en">
+              The major and minor device numbers of the device on which the shared library filename is located.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><guilabel>Inode</guilabel></term>
+          <listitem>
+            <para lang="en">
+              The inode on the device from which the shared library location is loaded into memory.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>Щёлкните на заголовке любого столбца для сортировки данных по информации в этом столбце, в алфавитном или числовом порядке. Щёлкните на заголовке столбца снова для сортировки в обратном порядке.</para>
+      <para>Нажмите кнопку <guibutton>Close</guibutton>, чтобы закрыть диалог <guilabel>Карты памяти</guilabel>.</para>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-change-priority">
+      <title>Изменение приоритета процесса</title>
+      <para>Для изменения приоритета процесса сделайте следующее:</para>
+      <orderedlist>
+        <listitem>
+          <para>Выберите вкладку <guilabel>Процессы</guilabel>, чтобы отобразить список процессов.</para>
+        </listitem>
+        <listitem>
+          <para>Выберите процесс, приоритет которого вы хотите изменить.</para>
+        </listitem>
+        <listitem>
+          <para lang="en">
+            Select the priority in <menuchoice><guimenu>Edit</guimenu><guimenuitem>Change Priority</guimenuitem></menuchoice>. If the <guimenuitem>Custom</guimenuitem> menu item is selected, the <guilabel>Change Priority</guilabel> dialog is displayed, and continue as follows.
+          </para>
+        </listitem>
+        <listitem>
+          <para lang="en">
+            Use the slider to set the nice value of the process.
+          </para>
+          <para lang="en">
+            The nice value sets the priority of the process: the lower the nice value, the higher the priority.
+          </para>
+          <para lang="en">
+            To specify a nice value lower than zero, non-root users must enter the root password. 
+          </para>
+        </listitem>
+        <listitem>
+          <para lang="en">
+            Click on the <guibutton>Change Priority</guibutton> button.
+          </para>
+        </listitem>
+      </orderedlist>
+    </sect2>
+
+
+    <sect2 id="mate-system-monitor-end-process">
+      <title>Завершение процесса</title>
+      <para>Для завершения процесса сделайте следующее:</para>
+      <orderedlist>
+        <listitem>
+          <para>Выберите вкладку <guilabel>Процессы</guilabel>, чтобы отобразить список процессов.</para>
+        </listitem>
+        <listitem>
+          <para>Выберите процесс, который вы хотите завершить.</para>
+        </listitem>
+        <listitem>
+          <para>Выберите <menuchoice><guimenu>Правка</guimenu><guimenuitem>Завершить процесс</guimenuitem></menuchoice> или нажмите кнопку <guibutton>Завершить процесс</guibutton>.</para>
+          <para>По умолчанию откроется окно подтверждения. О том, как показать или скрыть окно подтверждения, смотрите <xref linkend="mate-system-monitor-prefs-proclist"/>.</para>
+        </listitem>
+        <listitem>
+          <para>Нажмите кнопку <guibutton>Завершить процесс</guibutton>, чтобы подтвердить, что вы действительно хотите его завершить. <application>Системный монитор</application> вынудит процесс завершиться нормально.</para>
+        </listitem>
+      </orderedlist>
+      <para>Это предпочтительный способ остановки процесса.</para>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-terminate-process">
+      <title>Снятие процесса</title>
+      <para>Чтобы снять (прервать) процесс, выполните следующее:</para>
+      <orderedlist>
+        <listitem>
+          <para>Выберите вкладку <guilabel>Процессы</guilabel>, чтобы отобразить список процессов.</para>
+        </listitem>
+        <listitem>
+          <para>Выберите процесс, которой вы хотите прервать.</para>
+        </listitem>
+        <listitem>
+          <para>Выберите <menuchoice><guimenu>Правка</guimenu><guimenuitem>Снять процесс</guimenuitem></menuchoice>.</para>
+          <para>По умолчанию откроется окно подтверждения. О том, как показать или скрыть окно подтверждения, смотрите <xref linkend="mate-system-monitor-prefs-proclist"/>.</para>
+        </listitem>
+        <listitem>
+          <para>Нажмите кнопку <guibutton>Снять процесс</guibutton>, чтобы подтвердить действие. <application>Системный монитор</application> заставит процесс завершиться немедленно.</para>
+        </listitem>
+      </orderedlist>
+      <para>Обычно снимать процесс следует только в том случае, если не удалось завершить его нормальным образом, как описано в <xref linkend="mate-system-monitor-end-process"/>.</para>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-cpu">
+      <title>Мониторинг использования процессора</title>
+      <para>Для отслеживания загрузки процессора выберите вкладку <guilabel>Ресурсы</guilabel>.</para>
+      <para><application>Системный монитор</application> показывает историю использования процессора в виде графика. Под графиком <application>Системный монитор</application> отображает также текущую загрузку процессора в процентах.</para>
+    </sect2>
+
+
+    <sect2 id="mate-system-monitor-memory">
+      <title>Мониторинг использования памяти и области подкачки</title>
+      <para>Для наблюдения за использованием памяти и области подкачки выберите вкладку <guilabel>Ресурсы</guilabel>.</para>
+      <para><application>Системный монитор</application> показывает историю использования памяти и подкачки в виде графика. Под графиком <application>Системный монитор</application> отображает следующие числовые значения:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Объём используемой памяти из общего объёма памяти</para>
+        </listitem>
+        <listitem>
+          <para>Используемый объём области подкачки из общего объёма области подкачки</para>
+        </listitem>
+      </itemizedlist>
+
+    </sect2>
+    
+    <sect2 id="mate-system-monitor-network">
+      <title>Мониторинг сетевой активности</title>
+      <para>Для отслеживания активности сети выберите вкладку <guilabel>Ресурсы</guilabel>.</para>
+      <para><application>Системный монитор</application> показывает историю использования сети в виде графика. Под графиком <application>Системный монитор</application> показывает также следующие числовые значения:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Количество принятых данных в секунду и всего</para>
+        </listitem>
+        <listitem>
+          <para>Количество отправленных данных в секунду и всего</para>
+        </listitem>
+      </itemizedlist>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-disk">
+      <title>Мониторинг файловых систем</title>
+      <para>Для наблюдения за файловыми системами выберите вкладку <guilabel>Файловые системы</guilabel>.</para>
+      <para><application>Системный монитор</application> показывает смонтированные файловые системы в виде таблицы. Слева направо, таблица содержит следующие столбцы:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Устройство</term>
+          <listitem>
+            <para lang="en">Location of block file</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Каталог</term>
+          <listitem>
+            <para>Точка монтирования устройства (каталог для доступа)</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Тип</term>
+          <listitem>
+            <para>Тип файловой системы</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Всего</term>
+          <listitem>
+            <para>Общий объём</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Свободно</term>
+          <listitem>
+            <para>Неиспользуемый объём</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Доступно</term>
+          <listitem>
+            <para>Пространство, доступное для использования</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Использовано</term>
+          <listitem>
+            <para>Занятое пространство (и проценты от общего объёма)</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-customize">
+      <title>Настройка вкладки Ресурсы</title>
+      <para>Можно изменить следующие параметры вкладки <guilabel>Ресурсы</guilabel>:</para>
+      <itemizedlist>
+        <listitem>
+          <para><xref linkend="mate-system-monitor-customize-background"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para><xref linkend="mate-system-monitor-customize-grid"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para><xref linkend="mate-system-monitor-customize-cpu"/>
+          </para>
+        </listitem>
+        <listitem>
+          <para><xref linkend="mate-system-monitor-customize-mem"/>
+          </para>
+        </listitem>
+      </itemizedlist>
+
+      <sect3 id="mate-system-monitor-customize-background">
+        <title>Изменение цвета фона графиков</title>
+        <para>Для изменения цвета фона графиков <application>Системного монитора</application> сделайте следующее:</para>
+        <orderedlist>
+          <listitem>
+            <para>Выберите <menuchoice><guimenu>Правка</guimenu><guimenuitem>Параметры</guimenuitem></menuchoice>. Откроется диалоговое окно <guilabel>Параметры системного монитора</guilabel>.</para>
+          </listitem>
+          <listitem>
+            <para>Перейдите на вкладку <guilabel>Ресурсы</guilabel> окна <guilabel>Параметры системного монитора</guilabel>.</para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Click on the <guilabel>Background color</guilabel> button. The <guilabel>Pick a color</guilabel> dialog is displayed. 
+            </para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Choose a color from the <guilabel>Palette</guilabel>, or use the color wheel or the spin boxes to customize the color. 
+            </para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Click <guibutton>OK</guibutton> to close the <guilabel>Pick a color</guilabel> dialog.
+            </para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Click <guibutton>Close</guibutton> to close the <guilabel>Preferences</guilabel> dialog.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-customize-grid">
+        <title>Изменение цвета сетки графиков</title>
+        <para lang="en">
+          To change the grid color of the <application>System Monitor</application> graphs, perform the following steps:
+        </para>
+        <orderedlist>
+          <listitem>
+            <para>Выберите <menuchoice><guimenu>Правка</guimenu><guimenuitem>Параметры</guimenuitem></menuchoice>. Откроется диалоговое окно <guilabel>Параметры системного монитора</guilabel>.</para>
+          </listitem>
+          <listitem>
+            <para>Перейдите на вкладку <guilabel>Ресурсы</guilabel> окна <guilabel>Параметры системного монитора</guilabel>.</para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Click on the <guilabel>Grid color</guilabel> button. The <guilabel>Pick a color</guilabel> dialog is displayed. 
+            </para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Choose a color from the <guilabel>Palette</guilabel>, or use the color wheel or the spin boxes to customize the color. 
+            </para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Click <guibutton>OK</guibutton> to close the <guilabel>Pick a color</guilabel> dialog.
+            </para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Click <guibutton>Close</guibutton> to close the <guilabel>Preferences</guilabel> dialog.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-customize-cpu">
+        <title>Изменение цвета линии графика использования процессора</title>
+        <para lang="en">
+          To change the color of the line that represents CPU usage in the <guilabel>CPU History</guilabel> graph, perform the following steps:
+        </para>
+        <orderedlist>
+          <listitem>
+            <para lang="en">
+              Select the <guilabel>Resources</guilabel> tab in the <guilabel>System Monitor</guilabel> window, to display the graphs and table that provide information about the usage of system resources.
+            </para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Click on the <guibutton>CPU</guibutton> color button. The <guilabel>Pick a color</guilabel> dialog is displayed. 
+            </para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Choose a color from the <guilabel>Palette</guilabel>, or use the color wheel or the spin boxes to customize the color. 
+            </para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Click <guibutton>OK</guibutton> to close the <guilabel>Pick a color</guilabel> dialog.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+      <sect3 id="mate-system-monitor-customize-mem">
+        <title>Изменение цвета линий графика использования памяти и подкачки</title>
+        <para lang="en">
+          To change the color of the lines that represent memory and swap usage in the graph, perform the following steps:
+        </para>
+        <orderedlist>
+          <listitem>
+            <para lang="en">
+              Select the <guilabel>Resources</guilabel> tab in the <guilabel>System Monitor</guilabel> window, to display the graphs and table that provide information about the usage of system resources.
+            </para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Click on the <guibutton>User memory</guibutton> or <guibutton>Used swap</guibutton> button. The <guilabel>Pick a color</guilabel> dialog is displayed. 
+            </para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Choose a color from the <guilabel>Palette</guilabel>, or use the color wheel or the spin boxes to customize the color. 
+            </para>
+          </listitem>
+          <listitem>
+            <para lang="en">
+              Click <guibutton>OK</guibutton> to close the <guilabel>Pick a color</guilabel> dialog.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+
+    </sect2>
+
+  </sect1>
+
+  <sect1 id="mate-system-monitor-prefs">
+    <title>Параметры</title>
+    <para>Для настройки <application>Системного монитора</application> выберите <menuchoice><guimenu>Правка</guimenu><guimenuitem>Параметры</guimenuitem></menuchoice>. Диалоговое окно <guilabel>Параметры системного монитора</guilabel> содержит следующие вкладки:</para>
+    <itemizedlist>
+      <listitem>
+        <para><xref linkend="mate-system-monitor-prefs-proclist"/></para>
+      </listitem>
+      <listitem>
+        <para><xref linkend="mate-system-monitor-prefs-resmon"/></para>
+      </listitem>
+    </itemizedlist>
+
+    <sect2 id="mate-system-monitor-prefs-proclist">
+      <title>Процессы</title>
+        <variablelist>
+          <varlistentry>
+            <term><guilabel>Поведение</guilabel></term>
+            <listitem>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Интервал обновления в секундах</guilabel></para>
+                  <para>Используйте это поле, чтобы указать интервал обновления списка процессов.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Включить плавное обновление</guilabel></para>
+                  <para lang="en">
+                    Select this option to refresh smoothly.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Предупреждать перед завершением или снятием процессов</guilabel></para>
+                  <para>Установите этот флажок, чтобы при завершении или снятии процесса открывалось окно, запрашивающее подтверждение действия.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Делить использование CPU на число CPU</guilabel></para>
+                  <para lang="en">
+                    Select this to divide each process' CPU% in the Processes table by the number of CPUs.
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>Информационные поля</guilabel></term>
+            <listitem>
+              <para>Используйте следующие флажки, чтобы выбрать, какие поля должны отображаться в списке процессов:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Имя процесса</guilabel></para>
+                  <para>Включите для показа имени процесса. Этот столбец может также содержать значок приложения, связанного с процессом.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Пользователь</guilabel></para>
+                  <para>Включите для показа имени пользователя, владеющего процессом.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Состояние</guilabel></para>
+                  <para>Включите для показа текущего состояния процесса: ожидает или работает.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Виртуальная память</guilabel></para>
+                  <para lang="en">
+                    Select this option to display the amount of virtual memory that is allocated to the process.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Резидентная память</guilabel></para>
+                  <para lang="en">
+                    Select this option to display the amount of physical memory that is allocated to the process.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Записываемая память</guilabel></para>
+                  <para lang="en">
+                    Select this option to display the amount of memory that can be written by the process.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Разделяемая память</guilabel></para>
+                  <para lang="en">
+                    Select this option to display the amount of shared memory that is allocated to the process. Shared memory is memory that can be accessed by another process.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Память X-сервера</guilabel></para>
+                  <para lang="en">
+                    Select this option to display the amount of X server memory that is used by the process.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>% ЦП</guilabel></para>
+                  <para lang="en">
+                    Select this option to display the percentage of CPU time currently being used by the process.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Время ЦП</guilabel></para>
+                  <para lang="en">
+                    Select this option to display the amount of CPU time that has been used by the process.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Запущено</guilabel></para>
+                  <para>Включите для показа времени запуска процесса.</para>
+                </listitem>
+                <listitem>
+                  <para lang="en">
+                    <guilabel>Nice</guilabel>
+                  </para>
+                  <para>Включите для показа значения nice процесса. Значение nice управляет приоритетом процесса: чем меньше значение nice, тем выше приоритет.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>ID</guilabel></para>
+                  <para>Включите для показа идентификатора процесса (pid). Это число, которое уникальным образом идентифицирует процесс. Вы можете использовать pid для управления процессом через командную строку.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Память</guilabel></para>
+                  <para lang="en">
+                    Select this option to display the amount of system memory that is currently being used by the process.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Контекст безопасности</guilabel></para>
+                  <para lang="en">
+                    Select this option to display the security context in which the process is running.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Командная строка</guilabel></para>
+                  <para lang="en">
+                    Select this option to display the command line that was used to start the process, including arguments.
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+    </sect2>
+
+    <sect2 id="mate-system-monitor-prefs-resmon">
+      <title>Ресурсы</title>
+        <variablelist>
+          <varlistentry>
+            <term><guilabel>Графики</guilabel></term>
+            <listitem>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Интервал обновления в секундах</guilabel></para>
+                  <para lang="en">
+                    Use this spin box to specify how often you want to update the <application>System Monitor</application> graphs.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para lang="en">
+                    <guilabel>Background color</guilabel>
+                  </para>
+                  <para lang="en">
+                    Use this button to customize the background color of the <application>System Monitor</application> graphs, as described in <xref linkend="mate-system-monitor-customize-background"/>.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para lang="en">
+                    <guilabel>Grid color</guilabel>
+                  </para>
+                  <para lang="en">
+                    Use this button to customize the grid color of the <application>System Monitor</application> graphs, as described in <xref linkend="mate-system-monitor-customize-grid"/>.
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>Файловые системы</guilabel></term>
+            <listitem>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Интервал обновления в секундах</guilabel></para>
+                  <para lang="en">
+                    Use this spin box to specify how often you want to update the <guilabel>File Systems</guilabel> table.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para lang="en">
+                    <guilabel>Show all file systems</guilabel>
+                  </para>
+                  <para lang="en">
+                    Select this option to show all file systems, including temporary and system ones.
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+    </sect2>
+
+  </sect1>
+
+</article>
