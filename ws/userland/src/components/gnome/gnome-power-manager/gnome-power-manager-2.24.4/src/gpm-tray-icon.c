@@ -38,7 +38,6 @@
 
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
-#include <gtk/gtkstatusicon.h>
 
 #include "gpm-conf.h"
 #include "gpm-control.h"
@@ -161,7 +160,7 @@ gpm_tray_icon_set_tooltip (GpmTrayIcon  *icon,
 	g_return_val_if_fail (GPM_IS_TRAY_ICON (icon), FALSE);
 	g_return_val_if_fail (tooltip != NULL, FALSE);
 
-	gtk_status_icon_set_tooltip (GTK_STATUS_ICON (icon->priv->status_icon), tooltip);
+	gtk_status_icon_set_tooltip_text (GTK_STATUS_ICON (icon->priv->status_icon), tooltip);
 	return TRUE;
 }
 
@@ -259,21 +258,6 @@ gpm_tray_icon_suspend_cb (GtkMenuItem *item, gpointer data)
 }
 
 /**
- * gpm_tray_icon_show_statistics_cb:
- * @action: A valid GtkAction
- * @icon: This TrayIcon class instance
- **/
-static void
-gpm_tray_icon_show_statistics_cb (GtkMenuItem *item, gpointer data)
-{
-	const gchar *command = "gnome-power-statistics";
-
-	if (g_spawn_command_line_async (command, NULL) == FALSE) {
-		egg_warning ("Couldn't execute command: %s", command);
-	}
-}
-
-/**
  * gpm_tray_icon_show_preferences_cb:
  * @action: A valid GtkAction
  * @icon: This TrayIcon class instance
@@ -281,22 +265,11 @@ gpm_tray_icon_show_statistics_cb (GtkMenuItem *item, gpointer data)
 static void
 gpm_tray_icon_show_preferences_cb (GtkMenuItem *item, gpointer data)
 {
-	const gchar *command = "gnome-power-preferences";
+	const gchar *command = "mate-power-preferences";
 
 	if (g_spawn_command_line_async (command, NULL) == FALSE) {
 		egg_warning ("Couldn't execute command: %s", command);
 	}
-}
-
-/**
- * gpm_tray_icon_show_help_cb:
- * @action: A valid GtkAction
- * @icon: This TrayIcon class instance
- **/
-static void
-gpm_tray_icon_show_help_cb (GtkMenuItem *item, gpointer data)
-{
-	gpm_help_display (NULL);
 }
 
 /**
@@ -440,24 +413,28 @@ gpm_tray_icon_popup_menu_cb (GtkStatusIcon *status_icon,
 	gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
 
 	/* Statistics */
+	/*
 	item = gtk_image_menu_item_new_with_mnemonic (_("Power _History"));
 	image = gtk_image_new_from_icon_name (GPM_STOCK_STATISTICS, GTK_ICON_SIZE_MENU);
 	gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
 	g_signal_connect (G_OBJECT (item), "activate",
 			  G_CALLBACK (gpm_tray_icon_show_statistics_cb), icon);
 	gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
+	*/
 
 	/* Separator for HIG? */
 	item = gtk_separator_menu_item_new ();
 	gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
 
 	/* Help */
+	/*
 	item = gtk_image_menu_item_new_with_mnemonic (_("_Help"));
 	image = gtk_image_new_from_icon_name (GTK_STOCK_HELP, GTK_ICON_SIZE_MENU);
 	gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
 	g_signal_connect (G_OBJECT (item), "activate",
 			  G_CALLBACK (gpm_tray_icon_show_help_cb), icon);
 	gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
+	*/
 
 	/* About */
 	item = gtk_image_menu_item_new_with_mnemonic (_("_About"));

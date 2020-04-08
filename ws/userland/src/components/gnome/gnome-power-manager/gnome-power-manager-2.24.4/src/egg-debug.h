@@ -27,7 +27,7 @@
 
 G_BEGIN_DECLS
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199409L
 /**
  * egg_debug:
  *
@@ -66,15 +66,15 @@ void		egg_debug_backtrace		(void);
 void		egg_debug_real			(const gchar	*func,
 						 const gchar	*file,
 						 int		 line,
-						 const gchar	*format, ...) __attribute__((format (printf,4,5)));
+						 const gchar	*format, ...);
 void		egg_warning_real		(const gchar	*func,
 						 const gchar	*file,
 						 int		 line,
-						 const gchar	*format, ...) __attribute__((format (printf,4,5)));
+						 const gchar	*format, ...);
 void		egg_error_real			(const gchar	*func,
 						 const gchar	*file,
 						 int		 line,
-						 const gchar	*format, ...) __attribute__((format (printf,4,5)));
+						 const gchar	*format, ...);
 
 G_END_DECLS
 

@@ -13,7 +13,6 @@
 # Copyright (c) 2019 Michal Nowak
 #
 
-#WS_TOP= 	/ws/userland/src
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gnome-power-manager

@@ -39,7 +39,6 @@
 #ifdef HAVE_DPMS_EXTENSION
 #include <X11/Xproto.h>
 #include <X11/extensions/dpms.h>
-#include <X11/extensions/dpmsstr.h>
 #endif
 
 #include "gpm-conf.h"
@@ -211,7 +210,7 @@ x11_get_mode (GpmDpms     *dpms,
 		/* Server or monitor can't DPMS -- assume the monitor is on. */
 		result = GPM_DPMS_MODE_ON;
 	} else {
-		DPMSInfo (GDK_DISPLAY (), &state, &enabled);
+		DPMSInfo (GDK_DISPLAY_XDISPLAY (gdk_display_get_default()), &state, &enabled);
 		if (! enabled) {
 			/* Server says DPMS is disabled -- so the monitor is on. */
 			result = GPM_DPMS_MODE_ON;
@@ -262,7 +261,7 @@ x11_set_mode (GpmDpms	 *dpms,
 		return FALSE;
 	}
 
-	if (! DPMSInfo (GDK_DISPLAY (), &current_state, &current_enabled)) {
+	if (! DPMSInfo (GDK_DISPLAY_XDISPLAY (gdk_display_get_default()), &current_state, &current_enabled)) {
 		egg_debug ("couldn't get DPMS info");
 		g_set_error (error,
 			     GPM_DPMS_ERROR,
@@ -301,7 +300,7 @@ x11_set_mode (GpmDpms	 *dpms,
 	x11_get_mode (dpms, &current_mode, NULL);
 
 	if (current_mode != mode) {
-		if (! DPMSForceLevel (GDK_DISPLAY (), state)) {
+		if (! DPMSForceLevel (GDK_DISPLAY_XDISPLAY (gdk_display_get_default()), state)) {
 			g_set_error (error,
 				     GPM_DPMS_ERROR,
 				     GPM_DPMS_ERROR_GENERAL,
@@ -309,7 +308,7 @@ x11_set_mode (GpmDpms	 *dpms,
 			return FALSE;
 		}
 
-		XSync (GDK_DISPLAY (), FALSE);
+		XSync (GDK_DISPLAY_XDISPLAY (gdk_display_get_default()), FALSE);
 	}
 
 	return TRUE;
@@ -372,7 +371,7 @@ sync_settings (GpmDpms *dpms,
 	   use zero values for the timeouts when the
 	   we aren't active in order to prevent it
 	   from activating.  */
-	return x11_sync_server_dpms_settings (GDK_DISPLAY (),
+	return x11_sync_server_dpms_settings (GDK_DISPLAY_XDISPLAY (gdk_display_get_default()),
 					      dpms->priv->enabled,
 					      standby,
 					      suspend,
@@ -787,7 +786,7 @@ gpm_dpms_init (GpmDpms *dpms)
 	dpms->priv = GPM_DPMS_GET_PRIVATE (dpms);
 
 	/* DPMSCapable() can never change for a given display */
-	dpms->priv->dpms_capable = DPMSCapable (GDK_DISPLAY ());
+	dpms->priv->dpms_capable = DPMSCapable (GDK_DISPLAY_XDISPLAY (gdk_display_get_default()));
 
 	add_poll_timer (dpms, GPM_DPMS_POLL_TIME);
 }

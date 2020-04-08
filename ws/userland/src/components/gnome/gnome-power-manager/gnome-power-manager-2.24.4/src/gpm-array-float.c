@@ -75,7 +75,7 @@ gpm_array_float_new (guint length)
  *
  * @array: input array
  **/
-inline gfloat
+gfloat
 gpm_array_float_get (GArray *array, guint i)
 {
 	if (i >= array->len) {
@@ -89,7 +89,7 @@ gpm_array_float_get (GArray *array, guint i)
  *
  * @array: input array
  **/
-inline void
+void
 gpm_array_float_set (GArray *array, guint i, gfloat value)
 {
 	g_array_index (array, gfloat, i) = value;

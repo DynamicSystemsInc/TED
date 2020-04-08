@@ -103,15 +103,18 @@ gpm_notify_create (GpmNotify 	 *notify,
 //		notify->priv->libnotify = NULL;
 	}
 
+	/*
 	if (notify->priv->status_icon != NULL &&
 	    gtk_status_icon_get_visible (notify->priv->status_icon)) {
 		notify->priv->libnotify = notify_notification_new_with_status_icon (title, content,
 										    msgicon,
 										    notify->priv->status_icon);
 	} else {
-		notify->priv->libnotify = notify_notification_new (title, content, msgicon, NULL);
+	*/
+		notify->priv->libnotify = notify_notification_new (title, content, msgicon);
+	/*
 	}
-
+	*/
 	if (timeout == GPM_NOTIFY_TIMEOUT_NEVER) {
 		notify_notification_set_timeout (notify->priv->libnotify, 0);
 	} else if (timeout == GPM_NOTIFY_TIMEOUT_LONG) {
@@ -321,7 +324,7 @@ notify_general_clicked_cb (NotifyNotification *libnotify,
 		error = NULL;
 
  		cmdline = g_strconcat ("gnome-open ", notify->priv->internet_url, NULL);
-		ret = gdk_spawn_command_line_on_screen (gscreen, cmdline, &error);
+		ret = g_spawn_command_line_async (cmdline, &error);
 		g_free (cmdline);
 
 		if (ret)
@@ -331,7 +334,7 @@ notify_general_clicked_cb (NotifyNotification *libnotify,
 		error = NULL;
 
  		cmdline = g_strconcat ("xdg-open ", notify->priv->internet_url, NULL);
-		ret = gdk_spawn_command_line_on_screen (gscreen, cmdline, &error);
+		ret = g_spawn_command_line_async (cmdline, &error);
 		g_free (cmdline);
 
 		if (!ret) {

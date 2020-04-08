@@ -26,20 +26,20 @@
 #include "config.h"
 
 #include <string.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <glib.h>
 #include <glib/gi18n.h>
+#include <gtk/gtk.h>
 #include <dbus/dbus-glib.h>
 #include <dbus/dbus-glib-lowlevel.h>
-#include <libgnomeui/libgnomeui.h>
-#include <glade/glade.h>
-#include <gst/gst.h>
 
 #include "gpm-stock-icons.h"
 #include "gpm-common.h"
 #include "egg-debug.h"
 
 #include "gpm-manager.h"
+#include "gpm-session.h"
 #include "dbus/xdg-power-management-core.h"
 
 static void gpm_exit (GpmManager *manager);
@@ -125,133 +125,188 @@ timed_exit_cb (GMainLoop *loop)
 }
 
 /**
+ * gpm_main_stop_cb:
+ **/
+static void
+gpm_main_stop_cb (GpmSession *session, GMainLoop *loop)
+{
+        g_main_loop_quit (loop);
+}
+
+/**
+ * gpm_main_query_end_session_cb:
+ **/
+static void
+gpm_main_query_end_session_cb (GpmSession *session, guint flags, GMainLoop *loop)
+{
+        /* just send response */
+        gpm_session_end_session_response (session, TRUE, NULL);
+}
+
+/**
+ * gpm_main_end_session_cb:
+ **/
+static void
+gpm_main_end_session_cb (GpmSession *session, guint flags, GMainLoop *loop)
+{
+        /* send response */
+        gpm_session_end_session_response (session, TRUE, NULL);
+
+        /* exit loop, will unref manager */
+        g_main_loop_quit (loop);
+}
+
+/**
  * main:
  **/
 int
 main (int argc, char *argv[])
 {
-	GMainLoop *loop;
-	GnomeClient *master;
-	GnomeClientFlags flags;
-	DBusGConnection *system_connection;
-	DBusGConnection *session_connection;
-	gboolean verbose = FALSE;
-	gboolean version = FALSE;
-	gboolean timed_exit = FALSE;
-	gboolean immediate_exit = FALSE;
-	GpmManager *manager = NULL;
-	GError *error = NULL;
-	GOptionContext *context;
- 	GnomeProgram *program;
+        GMainLoop *loop;
+        DBusGConnection *system_connection;
+        DBusGConnection *session_connection;
+        gboolean verbose = FALSE;
+        gboolean version = FALSE;
+        gboolean timed_exit = FALSE;
+        gboolean immediate_exit = FALSE;
+        GpmSession *session = NULL;
+        GpmManager *manager = NULL;
+        GError *error = NULL;
+        GOptionContext *context;
+        gint ret;
+        guint timer_id;
+
+	/*
+	GpmPrefs *prefs = NULL;
+	*/
+        GtkApplication *app;
+        GtkWidget *window;
+        gint status;
+
 
 	const GOptionEntry options[] = {
 		{ "verbose", '\0', 0, G_OPTION_ARG_NONE, &verbose,
 		  N_("Show extra debugging information"), NULL },
 		{ "version", '\0', 0, G_OPTION_ARG_NONE, &version,
-		  N_("Show version of installed program and exit"), NULL },
-		{ "timed-exit", '\0', 0, G_OPTION_ARG_NONE, &timed_exit,
-		  N_("Exit after a small delay (for debugging)"), NULL },
-		{ "immediate-exit", '\0', 0, G_OPTION_ARG_NONE, &immediate_exit,
 		  N_("Exit after the manager has loaded (for debugging)"), NULL },
 		{ NULL}
 	};
 
-	context = g_option_context_new (N_("GNOME Power Manager"));
+	context = g_option_context_new (N_("MATE Power Preferences"));
 
 	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 
+	dbus_g_thread_init();
+
 	g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
 	g_option_context_set_translation_domain(context, GETTEXT_PACKAGE);
-
-	program = gnome_program_init (argv[0], VERSION,
-			   	      LIBGNOMEUI_MODULE, argc, argv,
-			    	      GNOME_PROGRAM_STANDARD_PROPERTIES,
-			    	      GNOME_PARAM_GOPTION_CONTEXT, context,
-			    	      GNOME_PARAM_HUMAN_READABLE_NAME, GPM_NAME,
-			    	      NULL);
-	g_set_application_name (GPM_NAME);
-
-	master = gnome_master_client ();
-	flags = gnome_client_get_flags (master);
 
 	if (version) {
 		g_print ("Version %s\n", VERSION);
 		goto unref_program;
 	}
 
-	if (flags & GNOME_CLIENT_IS_CONNECTED) {
-		/* We'll disable this as users are getting constant crashes */
-		/* gnome_client_set_restart_style (master, GNOME_RESTART_IMMEDIATELY);*/
-		gnome_client_flush (master);
-	}
-
-	g_signal_connect (GTK_OBJECT (master), "die", G_CALLBACK (gpm_exit), manager);
-
-	if (!g_thread_supported ())
-		g_thread_init (NULL);
-	dbus_g_thread_init ();
-
 	egg_debug_init (verbose);
 
-	egg_debug ("GNOME %s %s", GPM_NAME, VERSION);
+        egg_debug ("MATE %s %s", GPM_NAME, VERSION);
+	dbus_g_thread_init();
+	gtk_init (&argc, &argv);
 
-	/* check dbus connections, exit if not valid */
-	system_connection = dbus_g_bus_get (DBUS_BUS_SYSTEM, &error);
-	if (error) {
-		egg_warning ("%s", error->message);
-		g_error_free (error);
-		egg_error ("This program cannot start until you start "
-			   "the dbus system service.\n"
-			   "It is <b>strongly recommended</b> you reboot "
-			   "your computer after starting this service.");
-	}
+        /* check dbus connections, exit if not valid */
+        system_connection = dbus_g_bus_get (DBUS_BUS_SYSTEM, &error);
+        if (error) {
+                egg_warning ("%s", error->message);
+                g_error_free (error);
+                egg_error ("This program cannot start until you start "
+                           "the dbus system service.\n"
+                           "It is <b>strongly recommended</b> you reboot "
+                           "your computer after starting this service.");
+        }   
 
-	session_connection = dbus_g_bus_get (DBUS_BUS_SESSION, &error);
-	if (error) {
-		egg_warning ("%s", error->message);
-		g_error_free (error);
-		egg_error ("This program cannot start until you start the "
-			   "dbus session service.\n\n"
-			   "This is usually started automatically in X "
-			   "or gnome startup when you start a new session.");
-	}
+        session_connection = dbus_g_bus_get (DBUS_BUS_SESSION, &error);
+        if (error) {
+                egg_warning ("%s", error->message);
+                g_error_free (error);
+                egg_error ("This program cannot start until you start the "
+                           "dbus session service.\n\n"
+                           "This is usually started automatically in X "
+                           "or mate startup when you start a new session.");
+        }   
 
-	/* Add application specific icons to search path */
-	gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
+        /* add application specific icons to search path */
+        gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (), 
                                            GPM_DATA G_DIR_SEPARATOR_S "icons");
 
-	/* initialise gstreamer */
-	gst_init (&argc, &argv);
+        loop = g_main_loop_new (NULL, FALSE);
 
-	/* create a new gui object */
-	manager = gpm_manager_new ();
+        /* optionally register with the session */
+        session = gpm_session_new ();
+        g_signal_connect (session, "stop", G_CALLBACK (gpm_main_stop_cb), loop);
+        g_signal_connect (session, "query-end-session", G_CALLBACK (gpm_main_query_end_session_cb), loop);
+        g_signal_connect (session, "end-session", G_CALLBACK (gpm_main_end_session_cb), loop);
+        gpm_session_register_client (session, "mate-power-manager", getenv ("DESKTOP_AUTOSTART_ID"));
 
-	if (!gpm_object_register (session_connection, G_OBJECT (manager))) {
-		egg_error ("%s is already running in this session.", GPM_NAME);
-		return 0;
-	}
+        /* create a new gui object */
+        manager = gpm_manager_new ();
 
-	loop = g_main_loop_new (NULL, FALSE);
+        if (!gpm_object_register (session_connection, G_OBJECT (manager))) {
+                egg_error ("%s is already running in this session.", GPM_NAME);
+                goto unref_program;
+        }
 
-	/* Only timeout and close the mainloop if we have specified it
-	 * on the command line */
-	if (timed_exit) {
-		g_timeout_add (1000 * 20, (GSourceFunc) timed_exit_cb, loop);
-	}
+        /* register to be a policy agent, just like kpackagekit does */
+        ret = dbus_bus_request_name(dbus_g_connection_get_connection(system_connection),
+                                    "org.freedesktop.Policy.Power",
+                                    DBUS_NAME_FLAG_REPLACE_EXISTING, NULL);
+        switch (ret) {
+        case DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER:
+                egg_debug ("Successfully acquired interface org.freedesktop.Policy.Power.");
+                break;
+        case DBUS_REQUEST_NAME_REPLY_IN_QUEUE:
+                egg_debug ("Queued for interface org.freedesktop.Policy.Power.");
+                break;
+        default:
+                break;
+        };
 
-	if (immediate_exit == FALSE) {
-		g_main_loop_run (loop);
-	}
+        /* Only timeout and close the mainloop if we have specified it
+         * on the command line */
+        if (timed_exit) {
+                timer_id = g_timeout_add_seconds (20, (GSourceFunc) timed_exit_cb, loop);
+                g_source_set_name_by_id (timer_id, "[GpmMain] timed-exit");
+        }
 
-	g_main_loop_unref (loop);
+        if (immediate_exit == FALSE) {
+                g_main_loop_run (loop);
+        }
 
-	/* rip down gstreamer */
-	gst_deinit ();
-	g_object_unref (manager);
+        g_main_loop_unref (loop);
+
+        g_object_unref (session);
+        g_object_unref (manager);
+
+
+
+
+	/*
+	gdk_init (&argc, &argv);
+        app = gtk_application_new("org.mate.PowerManager.Preferences", 0);
+
+        prefs = gpm_prefs_new ();
+
+        window = gpm_window (prefs);
+        g_signal_connect (app, "activate",
+                          G_CALLBACK (gpm_prefs_activated_cb), prefs);
+        g_signal_connect (prefs, "action-help",
+                          G_CALLBACK (gpm_prefs_help_cb), prefs);
+        g_signal_connect_swapped (prefs, "action-close",
+                          G_CALLBACK (gtk_widget_destroy), window);
+        status = g_application_run (G_APPLICATION (app), argc, argv);
+	*/
+
 unref_program:
-	g_object_unref (program);
 /*
 	g_option_context_free (context);
 */

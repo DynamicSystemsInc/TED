@@ -24,7 +24,6 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 
-#include <glade/glade.h>
 #include <gtk/gtk.h>
 #include <dbus/dbus-glib.h>
 #include <math.h>
@@ -70,7 +69,7 @@ static void	gpm_statistics_refresh_data (GpmStatistics *statistics);
 
 struct GpmStatisticsPrivate
 {
-	GladeXML		*glade_xml;
+	GtkBuilder		*builder;
 	GtkWidget		*graph_widget;
 	GpmConf			*conf;
 	DbusProxy		*gproxy;
@@ -191,7 +190,7 @@ conf_key_changed_cb (GpmConf       *conf,
 
 /**
  * gpm_graph_widget_custom_handler:
- * @xml: The glade file we are reading.
+ * @builder: The glade file we are reading.
  * @func_name: The function name to create the object
  *
  * Handler for libglade to provide interface with a pointer
@@ -199,7 +198,7 @@ conf_key_changed_cb (GpmConf       *conf,
  * Return value: The custom widget.
  **/
 static GtkWidget *
-gpm_graph_widget_custom_handler (GladeXML *xml,
+gpm_graph_widget_custom_handler (GtkBuilder *builder,
 			  gchar *func_name, gchar *name,
 			  gchar *string1, gchar *string2,
 			  gint int1, gint int2,
@@ -281,8 +280,10 @@ static void
 gpm_statistics_refresh_events (GpmStatistics *statistics)
 {
 	gpm_statistics_get_events (statistics);
+	/*
 	gpm_graph_widget_events_add (GPM_GRAPH_WIDGET (statistics->priv->graph_widget),
 				     statistics->priv->events);
+	*/
 }
 
 /**
@@ -303,9 +304,9 @@ gpm_statistics_checkbox_events_cb (GtkWidget     *widget,
 
 	if (checked == FALSE) {
 		/* remove the dots from the graph */
-		gpm_graph_widget_enable_events (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), FALSE);
+		//gpm_graph_widget_enable_events (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), FALSE);
 		/* disable legend  */
-		gpm_graph_widget_enable_legend (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), FALSE);
+		//gpm_graph_widget_enable_legend (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), FALSE);
 		return;
 	}
 
@@ -313,10 +314,10 @@ gpm_statistics_checkbox_events_cb (GtkWidget     *widget,
 	gpm_statistics_refresh_events (statistics);
 
 	/* only enable the dots if the checkbox is checked */
-	gpm_graph_widget_enable_events (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), TRUE);
+	//gpm_graph_widget_enable_events (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), TRUE);
 
 	/* enable legend  */
-	gpm_graph_widget_enable_legend (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), TRUE);
+	//gpm_graph_widget_enable_legend (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), TRUE);
 }
 
 /**
@@ -332,8 +333,8 @@ gpm_statistics_refresh_axis_labels (GpmStatistics *statistics)
 	/* save to gconf so we open next time with the correct setting */
 	gpm_conf_get_bool (statistics->priv->conf, GPM_CONF_STATS_SHOW_AXIS_LABELS, &show);
 
-	widget1 = glade_xml_get_widget (statistics->priv->glade_xml, "label_x_axis");
-	widget2 = glade_xml_get_widget (statistics->priv->glade_xml, "label_y_axis");
+	widget1 = GTK_WIDGET (gtk_builder_get_object (statistics->priv->builder, "label_x_axis"));
+	widget2 = GTK_WIDGET (gtk_builder_get_object (statistics->priv->builder, "label_y_axis"));
 
 	if (show == FALSE) {
 		gtk_widget_hide (widget1);
@@ -493,8 +494,13 @@ gpm_statistics_get_parameters_dbus (GpmStatistics *statistics,
 {
 	GError *error = NULL;
 	gboolean ret;
+	/*
 	GpmGraphWidgetAxisType axis_type_x;
 	GpmGraphWidgetAxisType axis_type_y;
+	*/
+	gchar axis_type_x;
+	gchar axis_type_y;
+
 	gchar *axis_type_x_text;
 	gchar *axis_type_y_text;
 	DBusGProxy *proxy;
@@ -554,7 +560,7 @@ gpm_statistics_get_parameters_dbus (GpmStatistics *statistics,
 	const gchar *desc;
 
 	/* clear the data key */
-	gpm_graph_widget_key_data_clear (GPM_GRAPH_WIDGET (statistics->priv->graph_widget));
+	//gpm_graph_widget_key_data_clear (GPM_GRAPH_WIDGET (statistics->priv->graph_widget));
 
 	for (i=0; i< ptr_data_array->len; i++) {
 		gva = (GValueArray *) g_ptr_array_index (ptr_data_array, i);
@@ -571,7 +577,7 @@ gpm_statistics_get_parameters_dbus (GpmStatistics *statistics,
 	g_ptr_array_free (ptr_data_array, TRUE);
 
 	/* clear the events key */
-	gpm_graph_widget_key_event_clear (GPM_GRAPH_WIDGET (statistics->priv->graph_widget));
+	//gpm_graph_widget_key_event_clear (GPM_GRAPH_WIDGET (statistics->priv->graph_widget));
 
 	/* process events key */
 	for (i=0; i< ptr_event_array->len; i++) {
@@ -588,7 +594,7 @@ gpm_statistics_get_parameters_dbus (GpmStatistics *statistics,
 		gv = g_value_array_get_nth (gva, 3);
 		desc = g_value_get_string (gv);
 		/* add to the data key */
-		gpm_graph_widget_key_event_add (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), id, colour, shape, desc);
+		//gpm_graph_widget_key_event_add (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), id, colour, shape, desc);
 		g_value_unset (gv);
 		g_value_array_free (gva);
 	}
@@ -598,11 +604,15 @@ gpm_statistics_get_parameters_dbus (GpmStatistics *statistics,
 	egg_debug ("graph type '%s' mapped to y-axis '%s'", type, axis_type_y_text);
 
 	/* convert the string types to enumerated values */
+	/*
 	axis_type_x = gpm_graph_widget_string_to_axis_type (axis_type_x_text);
 	axis_type_y = gpm_graph_widget_string_to_axis_type (axis_type_y_text);
+	*/
+	axis_type_x = axis_type_x_text;
+	axis_type_y = axis_type_y_text;
 
-	gpm_graph_widget_set_axis_type_x (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), axis_type_x);
-	gpm_graph_widget_set_axis_type_y (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), axis_type_y);
+	//gpm_graph_widget_set_axis_type_x (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), axis_type_x);
+	//gpm_graph_widget_set_axis_type_y (GPM_GRAPH_WIDGET (statistics->priv->graph_widget), axis_type_y);
 
 	return TRUE;
 }
@@ -635,9 +645,11 @@ gpm_statistics_refresh_data (GpmStatistics *statistics)
 		gpm_array_float_free (result);
 	}
 
+	/*
 	gpm_graph_widget_data_clear (GPM_GRAPH_WIDGET (statistics->priv->graph_widget));
 	gpm_graph_widget_data_add (GPM_GRAPH_WIDGET (statistics->priv->graph_widget),
 				   statistics->priv->data);
+	*/
 
 	gtk_widget_hide (GTK_WIDGET (statistics->priv->graph_widget));
 	gtk_widget_show (GTK_WIDGET (statistics->priv->graph_widget));
@@ -650,7 +662,7 @@ gpm_statistics_type_combo_changed_cb (GtkWidget      *widget,
 	gchar *value;
 	gchar *type = NULL;
 
-	value = gtk_combo_box_get_active_text (GTK_COMBO_BOX (widget));
+	value = gtk_combo_box_text_get_active_text (GTK_COMBO_BOX (widget));
 	if (value == NULL) {
 		egg_debug ("no graph types available");
 		return;
@@ -742,7 +754,7 @@ gpm_statistics_populate_graph_types (GpmStatistics *statistics,
 		if (strcmp (type, saved) == 0) {
 			pos = count;
 		}
-		gtk_combo_box_append_text (GTK_COMBO_BOX (widget), type_localized);
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX (widget), type_localized);
 		count++;
 	}
 	gpm_statistics_free_list_strings (list);
@@ -778,7 +790,7 @@ gpm_statistics_activate_window (GpmStatistics *statistics)
 
 	g_return_if_fail (GPM_IS_STATISTICS (statistics));
 
-	widget = glade_xml_get_widget (statistics->priv->glade_xml, "window_graph");
+	widget = GTK_WIDGET (gtk_builder_get_object (statistics->priv->builder, "window_graph"));
 	gtk_window_present (GTK_WINDOW (widget));
 }
 
@@ -789,6 +801,8 @@ gpm_statistics_activate_window (GpmStatistics *statistics)
 static void
 gpm_statistics_init (GpmStatistics *statistics)
 {
+	guint 	retval;
+	GError	*error = NULL;
 	GtkWidget *main_window;
 	GtkWidget *widget;
 	gboolean   checked;
@@ -798,8 +812,6 @@ gpm_statistics_init (GpmStatistics *statistics)
 	statistics->priv->conf = gpm_conf_new ();
 	g_signal_connect (statistics->priv->conf, "value-changed",
 			  G_CALLBACK (conf_key_changed_cb), statistics);
-
-	glade_set_custom_handler (gpm_graph_widget_custom_handler, statistics);
 
 	statistics->priv->gproxy = dbus_proxy_new ();
 	dbus_proxy_assign (statistics->priv->gproxy,
@@ -817,9 +829,10 @@ gpm_statistics_init (GpmStatistics *statistics)
 	statistics->priv->events = gpm_array_new ();
 	statistics->priv->data = gpm_array_new ();
 
-	statistics->priv->glade_xml = glade_xml_new (GPM_DATA "/gpm-graph.glade", NULL, NULL);
+	statistics->priv->builder = gtk_builder_new();
+	retval = gtk_builder_add_from_file (statistics->priv->builder, GPM_DATA "/gpm-graph.ui", &error);
 
-	main_window = glade_xml_get_widget (statistics->priv->glade_xml, "window_graph");
+	main_window = GTK_WIDGET (gtk_builder_get_object (statistics->priv->builder, "window_graph"));
 
 	/* Hide window first so that the dialogue resizes itself without redrawing */
 	gtk_widget_hide (main_window);
@@ -830,28 +843,28 @@ gpm_statistics_init (GpmStatistics *statistics)
 	g_signal_connect (main_window, "delete_event",
 			  G_CALLBACK (gpm_statistics_delete_event_cb), statistics);
 
-	widget = glade_xml_get_widget (statistics->priv->glade_xml, "button_close");
+	widget = GTK_WIDGET (gtk_builder_get_object (statistics->priv->builder, "button_close"));
 	g_signal_connect (widget, "clicked",
 			  G_CALLBACK (gpm_statistics_close_cb), statistics);
 
-	widget = glade_xml_get_widget (statistics->priv->glade_xml, "button_help");
+	widget = GTK_WIDGET (gtk_builder_get_object (statistics->priv->builder, "button_help"));
 	g_signal_connect (widget, "clicked",
 			  G_CALLBACK (gpm_statistics_help_cb), statistics);
 
-	widget = glade_xml_get_widget (statistics->priv->glade_xml, "custom_graph");
+	widget = GTK_WIDGET (gtk_builder_get_object (statistics->priv->builder, "custom_graph"));
 	gtk_widget_set_size_request (widget, 600, 300);
 	statistics->priv->graph_widget = widget;
-	gpm_graph_widget_set_axis_type_x (GPM_GRAPH_WIDGET (widget), GPM_GRAPH_WIDGET_TYPE_TIME);
-	gpm_graph_widget_set_axis_type_y (GPM_GRAPH_WIDGET (widget), GPM_GRAPH_WIDGET_TYPE_PERCENTAGE);
+	//gpm_graph_widget_set_axis_type_x (GPM_GRAPH_WIDGET (widget), GPM_GRAPH_WIDGET_TYPE_TIME);
+	//gpm_graph_widget_set_axis_type_y (GPM_GRAPH_WIDGET (widget), GPM_GRAPH_WIDGET_TYPE_PERCENTAGE);
 
 	/* FIXME: There's got to be a better way than this */
 	gtk_widget_hide (GTK_WIDGET (widget));
 	gtk_widget_show (GTK_WIDGET (widget));
 
-	widget = glade_xml_get_widget (statistics->priv->glade_xml, "combobox_type");
+	widget = GTK_WIDGET (gtk_builder_get_object (statistics->priv->builder, "combobox_type"));
 	gpm_statistics_populate_graph_types (statistics, widget);
 
-	widget = glade_xml_get_widget (statistics->priv->glade_xml, "checkbutton_events");
+	widget = GTK_WIDGET (gtk_builder_get_object (statistics->priv->builder, "checkbutton_events"));
 	gpm_conf_get_bool (statistics->priv->conf, GPM_CONF_STATS_SHOW_EVENTS, &checked);
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), checked);
 	g_signal_connect (widget, "clicked",

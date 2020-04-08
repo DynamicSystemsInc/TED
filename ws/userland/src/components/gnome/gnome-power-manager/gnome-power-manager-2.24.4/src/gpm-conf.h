@@ -72,6 +72,13 @@ G_BEGIN_DECLS
 #define GPM_CONF_BUTTON_HIBERNATE		GPM_CONF_DIR "/buttons/hibernate"
 #define GPM_CONF_BUTTON_POWER			GPM_CONF_DIR "/buttons/power"
 
+/* cpufreq */
+#define GPM_CONF_CPUFREQ_POLICY_AC		GPM_CONF_DIR "/cpufreq/policy_ac"
+#define GPM_CONF_CPUFREQ_POLICY_BATT		GPM_CONF_DIR "/cpufreq/policy_battery"
+#define GPM_CONF_CPUFREQ_PERFORMANCE_AC		GPM_CONF_DIR "/cpufreq/performance_ac"
+#define GPM_CONF_CPUFREQ_PERFORMANCE_BATT	GPM_CONF_DIR "/cpufreq/performance_battery"
+#define GPM_CONF_CPUFREQ_USE_NICE		GPM_CONF_DIR "/cpufreq/consider_nice"
+
 /* general */
 #define GPM_CONF_DEBUG				GPM_CONF_DIR "/general/debug"
 #define GPM_CONF_SCHEMA_VERSION			GPM_CONF_DIR "/general/installed_schema"
@@ -140,6 +147,7 @@ G_BEGIN_DECLS
 #define GPM_CONF_UI_SHOW_ACTIONS_IN_MENU	GPM_CONF_DIR "/ui/show_actions_in_menu"
 #define GPM_CONF_UI_ENABLE_BEEPING		GPM_CONF_DIR "/ui/enable_sound"
 #define GPM_CONF_UI_SHOW_CONTEXT_MENU		GPM_CONF_DIR "/ui/show_context_menu"
+#define GPM_CONF_UI_ENABLE_SCREEN_LOCK		GPM_CONF_DIR "/ui/enable_screen_lock"
 
 /* we use the gnome-session key now */
 #define GPM_CONF_SESSION_REQUEST_SAVE		"/apps/gnome-session/options/auto_save_session"

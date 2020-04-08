@@ -9,36 +9,111 @@ EXTRA_DIST =						\
 	gpm-marshal.list				\
 	$(NULL)
 
-INCLUDES =						\
-	$(GLIB_CFLAGS)					\
-	$(HAL_CFLAGS)					\
-	$(DBUS_CFLAGS)					\
-	$(GNOME_CFLAGS)					\
-	$(XRANDR_CFLAGS)				\
-	$(LIBNOTIFY_CFLAGS)				\
-	$(UNIQUE_CFLAGS)				\
-	$(GSTREAMER_CFLAGS)				\
-	$(POLKIT_CFLAGS)				\
-	$(POLKIT_GNOME_CFLAGS)				\
-	-DBINDIR=\"$(bindir)\"			 	\
-	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"	\
-	-DDATADIR=\"$(datadir)\"			\
-	-DPREFIX=\""$(prefix)"\" 			\
-	-DSYSCONFDIR=\""$(sysconfdir)"\" 		\
-	-DLIBDIR=\""$(libdir)"\" 			\
-	-DVERSION="\"$(VERSION)\"" 			\
-	-DGPM_DATA=\"$(pkgdatadir)\"			\
-	-DEGG_LOG_FILE=\""$(PK_LOG_DIR)/gnome-power-manager"\"	\
-	-I$(top_srcdir)					\
-	-I$(top_srcdir)/libunique			\
-	-I$(top_srcdir)/libhal-glib			\
-	-I$(top_srcdir)/libdbus-glib			\
-	$(NULL)
+LIBNOTIFY_CFLAGS = -D_REENTRANT -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng14 -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pcre
+HAL_CFLAGS = -DDBUS_API_SUBJECT_TO_CHANGE -I/usr/include/hal -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include
+GLIB_CFLAGS = -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pcre
+GDK_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng14 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libdrm -I/usr/include/libpng14 -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pcre
+DBUS_CFLAGS = -D_REENTRANT -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pcre
+
+GLIB_LIBS = -L/usr/lib/amd64 -lgobject-2.0 -lglib-2.0
+GPM_EXTRA_LIBS = -lresolv -lXext -lkstat -lgconf-2 -lm
+HAL_LIBS = -L/usr/lib/amd64 -lhal -ldbus-1
+LIBNOTIFY_LIBS = -L/usr/lib/amd64 -lnotify
+XRANDR_LIBS = -lXrandr -lXrender -lX11
+X_PRE_LIBS =  -lSM -lICE
+CAIRO_LIBS = -L/usr/lib/amd64 -lcairo -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
+DBUS_LIBS =  -L/usr/lib/amd64 -ldbus-glib-1 -lgobject-2.0 -ldbus-1 -lgthread-2.0
+GDK_LIBS = -L/usr/lib/amd64 -lgdk-3 -lgdk_pixbuf-2.0  -lgobject-2.0 -lglib-2.0
+GSTREAMER_LIBS = -lgstreamer-1.0
+
+INCLUDES =                                              \
+        $(GLIB_CFLAGS)                                  \
+        $(HAL_CFLAGS)                                   \
+        $(DBUS_CFLAGS)                                  \
+        $(GNOME_CFLAGS)                                 \
+        $(XRANDR_CFLAGS)                                \
+        $(LIBNOTIFY_CFLAGS)                             \
+        $(UNIQUE_CFLAGS)                                \
+        $(POLKIT_CFLAGS)                                \
+        $(POLKIT_GNOME_CFLAGS)                          \
+        -DBINDIR=\"$(bindir)\"                          \
+        -DGNOMELOCALEDIR=\""$(datadir)/locale"\"        \
+        -DDATADIR=\"$(datadir)\"                        \
+        -DPREFIX=\""$(prefix)"\"                        \
+        -DSYSCONFDIR=\""$(sysconfdir)"\"                \
+        -DLIBDIR=\""$(libdir)"\"                        \
+        -DVERSION="\"$(VERSION)\""                      \
+        -DGPM_DATA=\"$(pkgdatadir)\"                    \
+        -DEGG_LOG_FILE=\""$(PK_LOG_DIR)/gnome-power-manager"\"  \
+        -I$(top_srcdir)                                 \
+        -I$(top_srcdir)/libunique                       \
+        -I$(top_srcdir)/libhal-glib                     \
+        -I$(top_srcdir)/libdbus-glib                    \
+        -I/usr/include/dbus-1.0                                 \
+        -I/usr/lib/amd64/dbus-1.0/include                       \
+        -I/usr/include/glib-2.0                                 \
+        -I/usr/lib/amd64/glib-2.0/include                       \
+        -I/usr/include/pcre                                     \
+        -I/usr/include/gtk-3.0                                  \
+        -I/usr/include/gio-unix-2.0                             \
+        -I/usr/include/cairo                                    \
+        -I/usr/include/pango-1.0                                \
+        -I/usr/include/gdk-pixbuf-2.0                           \
+        -I/usr/include/libpng14                                 \
+        -I/usr/include/pixman-1                                 \
+        -I/usr/include/atk-1.0                                  \
+        -I/usr/include/gconf/2                                  \
+        -I/usr/include/gstreamer-1.0                            \
+        $(NULL)
+
+gnome_power_preferences_LDADD = $(GLIB_LIBS) $(GNOME_LIBS) $(HAL_LIBS) \
+        $(DBUS_LIBS) $(POLKIT_LIBS) $(GPM_EXTRA_LIBS) \
+        $(LOCAL_LIBHAL_LIBS) $(LOCAL_LIBDBUS_LIBS) $(XRANDR_LIBS) \
+        $(LOCAL_LIBUNIQUE_LIBS) $(CAIRO_LIBS) $(NULL) $(am__append_2)
+
+gnome_power_manager_LDADD =                             \
+        $(GLIB_LIBS)                                    \
+        $(GSTREAMER_LIBS)                               \
+        $(GNOME_LIBS)                                   \
+        $(HAL_LIBS)                                     \
+        $(POLKIT_LIBS)                                  \
+        $(DBUS_LIBS)                                    \
+        $(XRANDR_LIBS)                                  \
+        $(GPM_EXTRA_LIBS)                               \
+        $(LOCAL_LIBHAL_LIBS)                            \
+        $(LOCAL_LIBDBUS_LIBS)                           \
+        $(GDK_LIBS)                                     \
+        $(X_LIBS)                                       \
+        $(CAIRO_LIBS)                                   \
+	$(LIBNOTIFY_LIBS)					\
+	$(GSTREAMER_LIBS)				\
+        $(am__append_3)                                 \
+        $(NULL)
+
+gnome_power_statistics_LDADD = $(GLIB_LIBS) $(GNOME_LIBS) $(DBUS_LIBS) \
+        $(LOCAL_LIBDBUS_LIBS) $(LOCAL_LIBUNIQUE_LIBS) $(NULL) \
+        $(CAIRO_LIBS) $(XRANDR_LIBS) $(GPM_EXTRA_LIBS) \
+        $(am__append_1)
+
+gnome_power_self_test_LDADD = \
+        $(GLIB_LIBS)                                    \
+        $(GNOME_LIBS)                                   \
+        $(GSTREAMER_LIBS)                               \
+        $(POLKIT_GNOME_LIBS)                            \
+        $(DBUS_LIBS)                                    \
+        $(LIBNOTIFY_LIBS)                               \
+        $(LOCAL_LIBDBUS_LIBS)                           \
+        $(LOCAL_LIBHAL_LIBS)                            \
+        $(GPM_EXTRA_LIBS)                               \
+        $(XRANDR_LIBS)                                  \
+        $(CAIRO_LIBS)                                   \
+        $(NULL)
 
 LOCAL_LIBHAL_LIBS =					\
 	$(top_builddir)/libhal-glib/libhal-gdevice.la	\
 	$(top_builddir)/libhal-glib/libhal-gdevicestore.la	\
 	$(top_builddir)/libhal-glib/libhal-gmanager.la	\
+	$(top_builddir)/libhal-glib/libhal-gcpufreq.la	\
 	$(top_builddir)/libhal-glib/libhal-gpower.la
 
 LOCAL_LIBDBUS_LIBS =						\
@@ -64,6 +139,8 @@ gnome_power_statistics_SOURCES =			\
 	egg-color.h					\
 	egg-debug.h					\
 	egg-debug.c					\
+        egg-precision.h                                 \
+        egg-precision.c                                 \
 	gpm-statistics.c				\
 	gpm-statistics-core.h				\
 	gpm-statistics-core.c				\
@@ -79,20 +156,9 @@ gnome_power_statistics_SOURCES =			\
 	gpm-conf.c					\
 	gpm-common.h					\
 	gpm-common.c					\
+        gpm-point-obj.c					\
+        gpm-point-obj.h					\
 	$(NULL)
-
-gnome_power_statistics_LDADD =				\
-	$(GLIB_LIBS)					\
-	$(GNOME_LIBS)					\
-	$(DBUS_LIBS)					\
-	$(LOCAL_LIBDBUS_LIBS)				\
-	$(LOCAL_LIBUNIQUE_LIBS)				\
-	$(NULL)
-
-if HAVE_UNIQUE
-gnome_power_statistics_LDADD +=				\
-	$(UNIQUE_LIBS)
-endif
 
 gnome_power_preferences_SOURCES =			\
 	egg-debug.h					\
@@ -111,28 +177,17 @@ gnome_power_preferences_SOURCES =			\
 	gpm-prefs-core.c				\
 	gpm-marshal.h					\
 	gpm-marshal.c					\
+	gpm-control.h					\
+	gpm-control.c					\
+	gpm-networkmanager.h				\
+	gpm-networkmanager.c				\
+	gpm-button.c					\
+	gpm-button.h					\
 	gpm-common.h					\
 	gpm-common.c					\
 	gpm-screensaver.h				\
 	gpm-screensaver.c				\
 	$(NULL)
-
-gnome_power_preferences_LDADD =				\
-	$(GLIB_LIBS)					\
-	$(GNOME_LIBS)					\
-	$(HAL_LIBS)					\
-	$(DBUS_LIBS)					\
-	$(POLKIT_GNOME_LIBS)				\
-	$(GPM_EXTRA_LIBS)				\
-	$(LOCAL_LIBHAL_LIBS)				\
-	$(LOCAL_LIBDBUS_LIBS)				\
-	$(LOCAL_LIBUNIQUE_LIBS)				\
-	$(NULL)
-
-if HAVE_UNIQUE
-gnome_power_preferences_LDADD +=			\
-	$(UNIQUE_LIBS)
-endif
 
 gnome_power_manager_SOURCES =				\
 	egg-color.c					\
@@ -165,6 +220,8 @@ gnome_power_manager_SOURCES =				\
 	gpm-srv-brightness-kbd.c			\
 	gpm-srv-screensaver.h				\
 	gpm-srv-screensaver.c				\
+	gpm-cpufreq.c					\
+	gpm-cpufreq.h					\
 	gpm-conf.h					\
 	gpm-conf.c					\
 	gpm-idle.h					\
@@ -217,28 +274,17 @@ gnome_power_manager_SOURCES =				\
 	gpm-inhibit.c					\
 	gpm-graph-widget.h				\
 	gpm-graph-widget.c				\
-	gpm-feedback-widget.h				\
-	gpm-feedback-widget.c				\
+	egg-array-float.h                               \
+        egg-array-float.c                               \
+        egg-precision.h                                 \
+        egg-precision.c                                 \
+        gpm-session.h                                   \
+        gpm-session.c                                   \
+        gpm-feedback-widget.c                           \
+        gpm-feedback-widget.h                           \
+        gpm-point-obj.c					\
+        gpm-point-obj.h					\
 	$(NULL)
-
-gnome_power_manager_LDADD =				\
-	$(GLIB_LIBS)					\
-	$(GSTREAMER_LIBS)				\
-	$(GNOME_LIBS)					\
-	$(HAL_LIBS)					\
-	$(POLKIT_LIBS)					\
-	$(DBUS_LIBS)					\
-	$(XRANDR_LIBS)					\
-	$(GPM_EXTRA_LIBS)				\
-	$(LOCAL_LIBHAL_LIBS)				\
-	$(LOCAL_LIBDBUS_LIBS)				\
-	$(NULL)
-
-if HAVE_LIBNOTIFY
-gnome_power_manager_LDADD +=				\
-	$(LIBNOTIFY_LIBS)				\
-	$(NULL)
-endif
 
 gnome_power_self_test_SOURCES =				\
 	egg-color.c					\
@@ -299,18 +345,6 @@ gnome_power_self_test_SOURCES =				\
 	gpm-inhibit.c					\
 	gpm-graph-widget.h				\
 	gpm-graph-widget.c				\
-	$(NULL)
-
-gnome_power_self_test_LDADD =				\
-	$(GLIB_LIBS)					\
-	$(GNOME_LIBS)					\
-	$(GSTREAMER_LIBS)				\
-	$(POLKIT_GNOME_LIBS)				\
-	$(DBUS_LIBS)					\
-	$(LIBNOTIFY_LIBS)				\
-	$(LOCAL_LIBDBUS_LIBS)				\
-	$(LOCAL_LIBHAL_LIBS)				\
-	$(GPM_EXTRA_LIBS)				\
 	$(NULL)
 
 gnome_power_self_test_CPPFLAGS=	\

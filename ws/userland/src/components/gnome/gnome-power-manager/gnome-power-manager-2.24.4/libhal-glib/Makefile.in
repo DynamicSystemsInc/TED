@@ -104,15 +104,21 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 LTLIBRARIES = $(noinst_LTLIBRARIES)
 am__DEPENDENCIES_1 =
+libhal_gcpufreq_la_DEPENDENCIES = $(LOCAL_LIBDBUS_LIBS) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+am_libhal_gcpufreq_la_OBJECTS = libhal-marshal.lo libhal-gdevice.lo \
+	libhal-gcpufreq.lo libhal-gmanager.lo
+libhal_gcpufreq_la_OBJECTS = $(am_libhal_gcpufreq_la_OBJECTS)
+AM_V_lt = $(am__v_lt_@AM_V@)
+am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
+am__v_lt_0 = --silent
+am__v_lt_1 = 
 libhal_gdevice_la_DEPENDENCIES = $(LOCAL_LIBDBUS_LIBS) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1)
 am_libhal_gdevice_la_OBJECTS = libhal-marshal.lo libhal-gdevice.lo
 libhal_gdevice_la_OBJECTS = $(am_libhal_gdevice_la_OBJECTS)
-AM_V_lt = $(am__v_lt_@AM_V@)
-am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
-am__v_lt_0 = --silent
-am__v_lt_1 = 
 libhal_gdevicestore_la_DEPENDENCIES = $(LOCAL_LIBDBUS_LIBS) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1)
@@ -164,11 +170,11 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libhal_gdevice_la_SOURCES) \
+SOURCES = $(libhal_gcpufreq_la_SOURCES) $(libhal_gdevice_la_SOURCES) \
 	$(libhal_gdevicestore_la_SOURCES) \
 	$(libhal_gmanager_la_SOURCES) $(libhal_gpower_la_SOURCES)
-DIST_SOURCES = $(libhal_gdevice_la_SOURCES) \
-	$(libhal_gdevicestore_la_SOURCES) \
+DIST_SOURCES = $(libhal_gcpufreq_la_SOURCES) \
+	$(libhal_gdevice_la_SOURCES) $(libhal_gdevicestore_la_SOURCES) \
 	$(libhal_gmanager_la_SOURCES) $(libhal_gpower_la_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
@@ -295,7 +301,6 @@ INTLTOOL_XML_RULE = @INTLTOOL_XML_RULE@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBGLADE_REQUIRED = @LIBGLADE_REQUIRED@
-LIBGNOMEUI_REQUIRED = @LIBGNOMEUI_REQUIRED@
 LIBGNOME_REQUIRED = @LIBGNOME_REQUIRED@
 LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
@@ -431,10 +436,27 @@ LOCAL_LIBDBUS_LIBS = \
 	$(top_builddir)/libdbus-glib/libdbus-proxy.la
 
 noinst_LTLIBRARIES = \
+	libhal-gcpufreq.la					\
 	libhal-gmanager.la					\
 	libhal-gdevice.la					\
 	libhal-gdevicestore.la					\
 	libhal-gpower.la
+
+libhal_gcpufreq_la_SOURCES = \
+	libhal-marshal.h					\
+	libhal-marshal.c					\
+	libhal-gdevice.c					\
+	libhal-gdevice.h					\
+	libhal-gcpufreq.c					\
+	libhal-gcpufreq.h					\
+	libhal-gmanager.c					\
+	libhal-gmanager.h
+
+libhal_gcpufreq_la_LIBADD = \
+	$(LOCAL_LIBDBUS_LIBS)					\
+	$(DBUS_LIBS)						\
+	$(INTLLIBS)						\
+	$(GLIB_LIBS)
 
 libhal_gmanager_la_SOURCES = \
 	libhal-marshal.h					\
@@ -542,6 +564,9 @@ clean-noinstLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
+libhal-gcpufreq.la: $(libhal_gcpufreq_la_OBJECTS) $(libhal_gcpufreq_la_DEPENDENCIES) $(EXTRA_libhal_gcpufreq_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(LINK)  $(libhal_gcpufreq_la_OBJECTS) $(libhal_gcpufreq_la_LIBADD) $(LIBS)
+
 libhal-gdevice.la: $(libhal_gdevice_la_OBJECTS) $(libhal_gdevice_la_DEPENDENCIES) $(EXTRA_libhal_gdevice_la_DEPENDENCIES) 
 	$(AM_V_CCLD)$(LINK)  $(libhal_gdevice_la_OBJECTS) $(libhal_gdevice_la_LIBADD) $(LIBS)
 
@@ -560,6 +585,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libhal-gcpufreq.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libhal-gdevice.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libhal-gdevicestore.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libhal-gmanager.Plo@am__quote@

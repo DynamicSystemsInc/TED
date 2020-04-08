@@ -11,10 +11,26 @@ LOCAL_LIBDBUS_LIBS =						\
 	$(top_builddir)/libdbus-glib/libdbus-proxy.la
 
 noinst_LTLIBRARIES =						\
+	libhal-gcpufreq.la					\
 	libhal-gmanager.la					\
 	libhal-gdevice.la					\
 	libhal-gdevicestore.la					\
 	libhal-gpower.la
+
+libhal_gcpufreq_la_SOURCES =					\
+	libhal-marshal.h					\
+	libhal-marshal.c					\
+	libhal-gdevice.c					\
+	libhal-gdevice.h					\
+	libhal-gcpufreq.c					\
+	libhal-gcpufreq.h					\
+	libhal-gmanager.c					\
+	libhal-gmanager.h
+libhal_gcpufreq_la_LIBADD =					\
+	$(LOCAL_LIBDBUS_LIBS)					\
+	$(DBUS_LIBS)						\
+	$(INTLLIBS)						\
+	$(GLIB_LIBS)
 
 libhal_gmanager_la_SOURCES =					\
 	libhal-marshal.h					\

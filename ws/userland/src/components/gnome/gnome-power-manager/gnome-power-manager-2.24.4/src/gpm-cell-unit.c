@@ -166,6 +166,12 @@ gpm_cell_unit_get_icon (GpmCellUnit *unit)
 	/* get correct icon prefix */
 	prefix = gpm_cell_unit_get_kind_string (unit);
 
+	/*
+	 * MATE icons contain battery names
+	 */
+	if (strcmp (prefix, "primary") == 0)
+		prefix = "battery";
+
 	/* get the icon from some simple rules */
 	if (unit->kind == GPM_CELL_UNIT_KIND_PRIMARY ||
 	    unit->kind == GPM_CELL_UNIT_KIND_UPS) {

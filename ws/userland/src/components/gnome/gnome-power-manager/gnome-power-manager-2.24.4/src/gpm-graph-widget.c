@@ -16,22 +16,23 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "config.h"
 #include <gtk/gtk.h>
 #include <pango/pangocairo.h>
 #include <glib/gi18n.h>
-#include <math.h>
 #include <stdlib.h>
-#include <string.h>
+#include <math.h>
 
-#include "egg-color.h"
 #include "gpm-common.h"
+#include "gpm-point-obj.h"
 #include "gpm-graph-widget.h"
-#include "gpm-array.h"
+
 #include "egg-debug.h"
+#include "egg-color.h"
+#include "egg-precision.h"
 
 G_DEFINE_TYPE (GpmGraphWidget, gpm_graph_widget, GTK_TYPE_DRAWING_AREA);
 #define GPM_GRAPH_WIDGET_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GPM_TYPE_GRAPH_WIDGET, GpmGraphWidgetPrivate))
@@ -41,11 +42,10 @@ struct GpmGraphWidgetPrivate
 {
 	gboolean		 use_grid;
 	gboolean		 use_legend;
-	gboolean		 use_events;
 	gboolean		 autorange_x;
+	gboolean		 autorange_y;
 
 	GSList			*key_data; /* lines */
-	GSList			*key_event; /* dots */
 
 	gint			 stop_x;
 	gint			 stop_y;
@@ -59,99 +59,49 @@ struct GpmGraphWidgetPrivate
 	gfloat			 unit_x; /* 10th width of graph */
 	gfloat			 unit_y; /* 10th width of graph */
 
-	GpmGraphWidgetAxisType	 axis_type_x;
-	GpmGraphWidgetAxisType	 axis_type_y;
+	GpmGraphWidgetType	 type_x;
+	GpmGraphWidgetType	 type_y;
 	gchar			*title;
 
 	cairo_t			*cr;
 	PangoLayout 		*layout;
 
 	GPtrArray		*data_list;
-	GpmArray		*events;
+	GPtrArray		*plot_list;
 };
 
-static gboolean gpm_graph_widget_expose (GtkWidget *graph, GdkEventExpose *event);
+static gboolean gpm_graph_widget_draw (GtkWidget *graph, cairo_t *cr);
 static void	gpm_graph_widget_finalize (GObject *object);
 
-/**
- * gpm_graph_widget_key_compare_func
- * Return value: 0 if cookie matches
- **/
-static gint
-gpm_graph_widget_key_compare_func (gconstpointer a, gconstpointer b)
+enum
 {
-	GpmGraphWidgetKeyItem *data;
-	guint32 id;
-	data = (GpmGraphWidgetKeyItem*) a;
-	id = *((guint*) b);
-	if (id == data->id)
-		return 0;
-	return 1;
-}
-
-/**
- * gpm_graph_widget_key_find_id:
- **/
-static GpmGraphWidgetKeyItem *
-gpm_graph_widget_key_find_id (GpmGraphWidget *graph, guint id)
-{
-	GpmGraphWidgetKeyItem *data;
-	GSList *ret;
-	ret = g_slist_find_custom (graph->priv->key_event, &id,
-				   gpm_graph_widget_key_compare_func);
-	if (ret == NULL) {
-		return NULL;
-	}
-	data = (GpmGraphWidgetKeyItem *) ret->data;
-	return data;
-}
-
-/**
- * gpm_graph_widget_key_event_add:
- **/
-gboolean
-gpm_graph_widget_key_event_add (GpmGraphWidget *graph,
-			  guint		        id,
-			  guint32               colour,
-			  GpmGraphWidgetShape   shape,
-			  const gchar	       *desc)
-{
-	GpmGraphWidgetKeyItem *keyitem;
-	g_return_val_if_fail (graph != NULL, FALSE);
-	g_return_val_if_fail (GPM_IS_GRAPH_WIDGET (graph), FALSE);
-
-	keyitem = gpm_graph_widget_key_find_id (graph, id);
-	if (keyitem != NULL) {
-		egg_warning ("keyitem %i already in use", id);
-		return FALSE;
-	}
-
-	egg_debug ("add to hashtable '%s'", desc);
-	keyitem = g_new0 (GpmGraphWidgetKeyItem, 1);
-	keyitem->id = id;
-	keyitem->desc = g_strdup (desc);
-	keyitem->colour = colour;
-	keyitem->shape = shape;
-
-	graph->priv->key_event = g_slist_append (graph->priv->key_event, (gpointer) keyitem);
-	return TRUE;
-}
+	PROP_0,
+	PROP_USE_LEGEND,
+	PROP_USE_GRID,
+	PROP_TYPE_X,
+	PROP_TYPE_Y,
+	PROP_AUTORANGE_X,
+	PROP_AUTORANGE_Y,
+	PROP_START_X,
+	PROP_START_Y,
+	PROP_STOP_X,
+	PROP_STOP_Y,
+};
 
 /**
  * gpm_graph_widget_key_data_clear:
  **/
-gboolean
+static gboolean
 gpm_graph_widget_key_data_clear (GpmGraphWidget *graph)
 {
 	GpmGraphWidgetKeyData *keyitem;
-	guint a;
+	guint i;
 
-	g_return_val_if_fail (graph != NULL, FALSE);
 	g_return_val_if_fail (GPM_IS_GRAPH_WIDGET (graph), FALSE);
 
 	/* remove items in list and free */
-	for (a=0; a<g_slist_length (graph->priv->key_data); a++) {
-		keyitem = (GpmGraphWidgetKeyData *) g_slist_nth_data (graph->priv->key_data, a);
+	for (i=0; i<g_slist_length (graph->priv->key_data); i++) {
+		keyitem = (GpmGraphWidgetKeyData *) g_slist_nth_data (graph->priv->key_data, i);
 		g_free (keyitem->desc);
 		g_free (keyitem);
 	}
@@ -162,131 +112,114 @@ gpm_graph_widget_key_data_clear (GpmGraphWidget *graph)
 }
 
 /**
- * gpm_graph_widget_key_event_clear:
- **/
-gboolean
-gpm_graph_widget_key_event_clear (GpmGraphWidget *graph)
-{
-	GpmGraphWidgetKeyItem *keyitem;
-	guint a;
-
-	g_return_val_if_fail (graph != NULL, FALSE);
-	g_return_val_if_fail (GPM_IS_GRAPH_WIDGET (graph), FALSE);
-
-	/* remove items in list and free */
-	for (a=0; a<g_slist_length (graph->priv->key_event); a++) {
-		keyitem = (GpmGraphWidgetKeyItem *) g_slist_nth_data (graph->priv->key_event, a);
-		g_free (keyitem->desc);
-		g_free (keyitem);
-	}
-	g_slist_free (graph->priv->key_event);
-	graph->priv->key_event = NULL;
-
-	return TRUE;
-}
-
-/**
  * gpm_graph_widget_key_data_add:
  **/
 gboolean
-gpm_graph_widget_key_data_add (GpmGraphWidget *graph, guint colour, const gchar *desc)
+gpm_graph_widget_key_data_add (GpmGraphWidget *graph, guint32 color, const gchar *desc)
 {
 	GpmGraphWidgetKeyData *keyitem;
 
-	g_return_val_if_fail (graph != NULL, FALSE);
 	g_return_val_if_fail (GPM_IS_GRAPH_WIDGET (graph), FALSE);
 
 	egg_debug ("add to list %s", desc);
 	keyitem = g_new0 (GpmGraphWidgetKeyData, 1);
 
-	keyitem->colour = colour;
+	keyitem->color = color;
 	keyitem->desc = g_strdup (desc);
 
 	graph->priv->key_data = g_slist_append (graph->priv->key_data, (gpointer) keyitem);
 	return TRUE;
 }
 
+/**
+ * up_graph_get_property:
+ **/
+static void
+up_graph_get_property (GObject *object, guint prop_id, GValue *value, GParamSpec *pspec)
+{
+	GpmGraphWidget *graph = GPM_GRAPH_WIDGET (object);
+	switch (prop_id) {
+	case PROP_USE_LEGEND:
+		g_value_set_boolean (value, graph->priv->use_legend);
+		break;
+	case PROP_USE_GRID:
+		g_value_set_boolean (value, graph->priv->use_grid);
+		break;
+	case PROP_TYPE_X:
+		g_value_set_uint (value, graph->priv->type_x);
+		break;
+	case PROP_TYPE_Y:
+		g_value_set_uint (value, graph->priv->type_y);
+		break;
+	case PROP_AUTORANGE_X:
+		g_value_set_boolean (value, graph->priv->autorange_x);
+		break;
+	case PROP_AUTORANGE_Y:
+		g_value_set_boolean (value, graph->priv->autorange_y);
+		break;
+	case PROP_START_X:
+		g_value_set_int (value, graph->priv->start_x);
+		break;
+	case PROP_START_Y:
+		g_value_set_int (value, graph->priv->start_y);
+		break;
+	case PROP_STOP_X:
+		g_value_set_int (value, graph->priv->stop_x);
+		break;
+	case PROP_STOP_Y:
+		g_value_set_int (value, graph->priv->stop_y);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+		break;
+	}
+}
 
 /**
- * gpm_graph_widget_string_to_axis_type:
- * @graph: This class instance
- * @type: The axis type, e.g. "percentage"
- *
- * Return value: The enumerated axis type
+ * up_graph_set_property:
  **/
-GpmGraphWidgetAxisType
-gpm_graph_widget_string_to_axis_type (const gchar *type)
+static void
+up_graph_set_property (GObject *object, guint prop_id, const GValue *value, GParamSpec *pspec)
 {
-	GpmGraphWidgetAxisType ret;
+	GpmGraphWidget *graph = GPM_GRAPH_WIDGET (object);
 
-	ret = GPM_GRAPH_WIDGET_TYPE_INVALID;
-	if (strcmp (type, "percentage") == 0) {
-		ret = GPM_GRAPH_WIDGET_TYPE_PERCENTAGE;
-	} else if (strcmp (type, "time") == 0) {
-		ret = GPM_GRAPH_WIDGET_TYPE_TIME;
-	} else if (strcmp (type, "power") == 0) {
-		ret = GPM_GRAPH_WIDGET_TYPE_POWER;
-	} else if (strcmp (type, "voltage") == 0) {
-		ret = GPM_GRAPH_WIDGET_TYPE_VOLTAGE;
+	switch (prop_id) {
+	case PROP_USE_LEGEND:
+		graph->priv->use_legend = g_value_get_boolean (value);
+		break;
+	case PROP_USE_GRID:
+		graph->priv->use_grid = g_value_get_boolean (value);
+		break;
+	case PROP_TYPE_X:
+		graph->priv->type_x = g_value_get_uint (value);
+		break;
+	case PROP_TYPE_Y:
+		graph->priv->type_y = g_value_get_uint (value);
+		break;
+	case PROP_AUTORANGE_X:
+		graph->priv->autorange_x = g_value_get_boolean (value);
+		break;
+	case PROP_AUTORANGE_Y:
+		graph->priv->autorange_y = g_value_get_boolean (value);
+		break;
+	case PROP_START_X:
+		graph->priv->start_x = g_value_get_int (value);
+		break;
+	case PROP_START_Y:
+		graph->priv->start_y = g_value_get_int (value);
+		break;
+	case PROP_STOP_X:
+		graph->priv->stop_x = g_value_get_int (value);
+		break;
+	case PROP_STOP_Y:
+		graph->priv->stop_y = g_value_get_int (value);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+		break;
 	}
 
-	return ret;
-}
-
-/**
- * gpm_graph_widget_set_axis_type_x:
- * @graph: This class instance
- * @axis: The axis type, e.g. GPM_GRAPH_WIDGET_TYPE_TIME
- **/
-void
-gpm_graph_widget_set_axis_type_x (GpmGraphWidget *graph, GpmGraphWidgetAxisType axis)
-{
-	g_return_if_fail (graph != NULL);
-	g_return_if_fail (GPM_IS_GRAPH_WIDGET (graph));
-	graph->priv->axis_type_x = axis;
-}
-
-/**
- * gpm_graph_widget_set_axis_type_y:
- * @graph: This class instance
- * @axis: The axis type, e.g. GPM_GRAPH_WIDGET_TYPE_TIME
- **/
-void
-gpm_graph_widget_set_axis_type_y (GpmGraphWidget *graph, GpmGraphWidgetAxisType axis)
-{
-	g_return_if_fail (graph != NULL);
-	g_return_if_fail (GPM_IS_GRAPH_WIDGET (graph));
-	graph->priv->axis_type_y = axis;
-}
-
-/**
- * gpm_graph_widget_enable_legend:
- * @graph: This class instance
- * @enable: If we should show the legend
- **/
-void
-gpm_graph_widget_enable_legend (GpmGraphWidget *graph, gboolean enable)
-{
-	g_return_if_fail (graph != NULL);
-	g_return_if_fail (GPM_IS_GRAPH_WIDGET (graph));
-	graph->priv->use_legend = enable;
-
-	gtk_widget_hide (GTK_WIDGET (graph));
-	gtk_widget_show (GTK_WIDGET (graph));
-}
-
-/**
- * gpm_graph_widget_enable_events:
- * @graph: This class instance
- * @enable: If we should show the legend
- **/
-void
-gpm_graph_widget_enable_events (GpmGraphWidget *graph, gboolean enable)
-{
-	g_return_if_fail (graph != NULL);
-	g_return_if_fail (GPM_IS_GRAPH_WIDGET (graph));
-	graph->priv->use_events = enable;
-
+	/* refresh widget */
 	gtk_widget_hide (GTK_WIDGET (graph));
 	gtk_widget_show (GTK_WIDGET (graph));
 }
@@ -301,10 +234,68 @@ gpm_graph_widget_class_init (GpmGraphWidgetClass *class)
 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (class);
 	GObjectClass *object_class = G_OBJECT_CLASS (class);
 
-	widget_class->expose_event = gpm_graph_widget_expose;
+	widget_class->draw = gpm_graph_widget_draw;
+	object_class->get_property = up_graph_get_property;
+	object_class->set_property = up_graph_set_property;
 	object_class->finalize = gpm_graph_widget_finalize;
 
 	g_type_class_add_private (class, sizeof (GpmGraphWidgetPrivate));
+
+	/* properties */
+	g_object_class_install_property (object_class,
+					 PROP_USE_LEGEND,
+					 g_param_spec_boolean ("use-legend", NULL, NULL,
+							       FALSE,
+							       G_PARAM_READWRITE));
+	g_object_class_install_property (object_class,
+					 PROP_USE_GRID,
+					 g_param_spec_boolean ("use-grid", NULL, NULL,
+							       TRUE,
+							       G_PARAM_READWRITE));
+	g_object_class_install_property (object_class,
+					 PROP_TYPE_X,
+					 g_param_spec_uint ("type-x", NULL, NULL,
+							    GPM_GRAPH_WIDGET_TYPE_INVALID,
+							    GPM_GRAPH_WIDGET_TYPE_UNKNOWN,
+							    GPM_GRAPH_WIDGET_TYPE_TIME,
+							    G_PARAM_READWRITE));
+	g_object_class_install_property (object_class,
+					 PROP_TYPE_Y,
+					 g_param_spec_uint ("type-y", NULL, NULL,
+							    GPM_GRAPH_WIDGET_TYPE_INVALID,
+							    GPM_GRAPH_WIDGET_TYPE_UNKNOWN,
+							    GPM_GRAPH_WIDGET_TYPE_PERCENTAGE,
+							    G_PARAM_READWRITE));
+	g_object_class_install_property (object_class,
+					 PROP_AUTORANGE_X,
+					 g_param_spec_boolean ("autorange-x", NULL, NULL,
+							       TRUE,
+							       G_PARAM_READWRITE));
+	g_object_class_install_property (object_class,
+					 PROP_AUTORANGE_Y,
+					 g_param_spec_boolean ("autorange-y", NULL, NULL,
+							       TRUE,
+							       G_PARAM_READWRITE));
+	g_object_class_install_property (object_class,
+					 PROP_START_X,
+					 g_param_spec_int ("start-x", NULL, NULL,
+							   G_MININT, G_MAXINT, 0,
+							   G_PARAM_READWRITE));
+	g_object_class_install_property (object_class,
+					 PROP_START_Y,
+					 g_param_spec_int ("start-y", NULL, NULL,
+							   G_MININT, G_MAXINT, 0,
+							   G_PARAM_READWRITE));
+	g_object_class_install_property (object_class,
+					 PROP_STOP_X,
+					 g_param_spec_int ("stop-x", NULL, NULL,
+							   G_MININT, G_MAXINT, 60,
+							   G_PARAM_READWRITE));
+	g_object_class_install_property (object_class,
+					 PROP_STOP_Y,
+					 g_param_spec_int ("stop-y", NULL, NULL,
+							   G_MININT, G_MAXINT, 100,
+							   G_PARAM_READWRITE));
 }
 
 /**
@@ -325,23 +316,35 @@ gpm_graph_widget_init (GpmGraphWidget *graph)
 	graph->priv->stop_y = 100;
 	graph->priv->use_grid = TRUE;
 	graph->priv->use_legend = FALSE;
-	graph->priv->data_list = g_ptr_array_new ();
+	graph->priv->data_list = g_ptr_array_new_with_free_func ((GDestroyNotify) g_ptr_array_unref);
+	graph->priv->plot_list = g_ptr_array_new ();
 	graph->priv->key_data = NULL;
-	graph->priv->key_event = NULL;
-	graph->priv->axis_type_x = GPM_GRAPH_WIDGET_TYPE_TIME;
-	graph->priv->axis_type_y = GPM_GRAPH_WIDGET_TYPE_PERCENTAGE;
+	graph->priv->type_x = GPM_GRAPH_WIDGET_TYPE_TIME;
+	graph->priv->type_y = GPM_GRAPH_WIDGET_TYPE_PERCENTAGE;
 
 	/* do pango stuff */
 	fontmap = pango_cairo_font_map_get_default ();
-	context = pango_cairo_font_map_create_context (PANGO_CAIRO_FONT_MAP (fontmap));
-
-	/* Comment out as this requires pango 1.16 when FC6 only supports 1.14
-	pango_context_set_base_gravity (context, PANGO_GRAVITY_AUTO); */
+	context = pango_font_map_create_context (PANGO_FONT_MAP (fontmap));
+	pango_context_set_base_gravity (context, PANGO_GRAVITY_AUTO);
 
 	graph->priv->layout = pango_layout_new (context);
 	desc = pango_font_description_from_string (GPM_GRAPH_WIDGET_FONT);
 	pango_layout_set_font_description (graph->priv->layout, desc);
 	pango_font_description_free (desc);
+}
+
+/**
+ * gpm_graph_widget_data_clear:
+ **/
+gboolean
+gpm_graph_widget_data_clear (GpmGraphWidget *graph)
+{
+	g_return_val_if_fail (GPM_IS_GRAPH_WIDGET (graph), FALSE);
+
+	g_ptr_array_set_size (graph->priv->data_list, 0);
+	g_ptr_array_set_size (graph->priv->plot_list, 0);
+
+	return TRUE;
 }
 
 /**
@@ -354,11 +357,13 @@ gpm_graph_widget_finalize (GObject *object)
 	PangoContext *context;
 	GpmGraphWidget *graph = (GpmGraphWidget*) object;
 
-	/* clear key */
+	/* clear key and data */
 	gpm_graph_widget_key_data_clear (graph);
-	gpm_graph_widget_key_event_clear (graph);
+	gpm_graph_widget_data_clear (graph);
 
-	g_ptr_array_free (graph->priv->data_list, FALSE);
+	/* free data */
+	g_ptr_array_unref (graph->priv->data_list);
+	g_ptr_array_unref (graph->priv->plot_list);
 
 	context = pango_layout_get_context (graph->priv->layout);
 	g_object_unref (graph->priv->layout);
@@ -367,96 +372,37 @@ gpm_graph_widget_finalize (GObject *object)
 }
 
 /**
- * gpm_graph_widget_data_add:
+ * gpm_graph_widget_data_assign:
  * @graph: This class instance
+ * @data: an array of GpmPointObj's
  *
- * Sets the data for the graph. You MUST NOT free the list before the widget.
+ * Sets the data for the graph
  **/
 gboolean
-gpm_graph_widget_data_add (GpmGraphWidget *graph, GpmArray *array)
+gpm_graph_widget_data_assign (GpmGraphWidget *graph, GpmGraphWidgetPlot plot, GPtrArray *data)
 {
-	GpmArrayPoint *point;
-	guint length;
+	GPtrArray *copy;
+	GpmPointObj *obj;
 	guint i;
-	guint oldx;
 
-	g_return_val_if_fail (array != NULL, FALSE);
-	g_return_val_if_fail (graph != NULL, FALSE);
+	g_return_val_if_fail (data != NULL, FALSE);
 	g_return_val_if_fail (GPM_IS_GRAPH_WIDGET (graph), FALSE);
-	g_return_val_if_fail (GPM_IS_ARRAY (array), FALSE);
 
-	/* check size is not zero */
-	length = gpm_array_get_size (array);
-	if (length == 0) {
-		egg_warning ("Trying to assign a zero length array");
-		return FALSE;
+	/* make a deep copy */
+	copy = g_ptr_array_new_with_free_func ((GDestroyNotify) gpm_point_obj_free);
+	for (i=0; i<data->len; i++) {
+		obj = gpm_point_obj_copy (g_ptr_array_index (data, i));
+		g_ptr_array_add (copy, obj);
 	}
 
-	/* check X is only monotomically increasing */
-	oldx = 0;
-	for (i=0; i < length; i++) {
-		point = gpm_array_get (array, i);
-		if (point->x < oldx) {
-			/* going backwards! */
-			return FALSE;
-		}
-		oldx = point->x;
-	}
+	/* get the new data */
+	g_ptr_array_add (graph->priv->data_list, copy);
+	g_ptr_array_add (graph->priv->plot_list, GUINT_TO_POINTER(plot));
 
-	/* always add, never remove in this function */
-	g_ptr_array_add (graph->priv->data_list, (gpointer) array);
+	/* refresh */
+	gtk_widget_queue_draw (GTK_WIDGET (graph));
+
 	return TRUE;
-}
-
-/**
- * gpm_graph_widget_data_clear:
- * @graph: This class instance
- *
- * Sets the data for the graph. You MUST NOT free the list before the widget.
- **/
-void
-gpm_graph_widget_data_clear (GpmGraphWidget *graph)
-{
-	guint i;
-	guint length;
-	g_return_if_fail (GPM_IS_GRAPH_WIDGET (graph));
-
-	/* remove all in list */
-	length = graph->priv->data_list->len;
-	for (i=0; i < length; i++) {
-		egg_debug ("Removing dataset %i", i);
-		g_ptr_array_remove_index_fast (graph->priv->data_list, 0);
-	}
-}
-
-/**
- * gpm_graph_widget_events_add:
- * @graph: This class instance
- * @list: The GList events to be plotted on the graph
- *
- * Sets the data for the graph. You MUST NOT free the array before the widget.
- **/
-void
-gpm_graph_widget_events_add (GpmGraphWidget *graph, GpmArray *array)
-{
-	g_return_if_fail (graph != NULL);
-	g_return_if_fail (GPM_IS_GRAPH_WIDGET (graph));
-
-	graph->priv->events = array;
-}
-
-/**
- * gpm_graph_widget_events_clear:
- * @graph: This class instance
- *
- * Clears the data for the graph.
- **/
-void
-gpm_graph_widget_events_clear (GpmGraphWidget *graph)
-{
-	g_return_if_fail (GPM_IS_GRAPH_WIDGET (graph));
-	/* this is managed externally, so just set to NULL */
-	graph->priv->events = NULL;
 }
 
 /**
@@ -466,27 +412,38 @@ gpm_graph_widget_events_clear (GpmGraphWidget *graph)
  *
  * Unit is:
  * GPM_GRAPH_WIDGET_TYPE_TIME:		seconds
- * GPM_GRAPH_WIDGET_TYPE_POWER: 	mWh (not mAh)
+ * GPM_GRAPH_WIDGET_TYPE_POWER: 	Wh (not Ah)
  * GPM_GRAPH_WIDGET_TYPE_PERCENTAGE:	%
  *
  * Return value: a string value depending on the axis type and the value.
  **/
 static gchar *
-gpm_get_axis_label (GpmGraphWidgetAxisType axis, gint value)
+gpm_get_axis_label (GpmGraphWidgetType axis, gfloat value)
 {
-	char *text = NULL;
+	gchar *text = NULL;
 	if (axis == GPM_GRAPH_WIDGET_TYPE_TIME) {
-		int minutes = value / 60;
-		int seconds = value - (minutes * 60);
-		int hours = minutes / 60;
-		minutes =  minutes - (hours * 60);
-		if (hours > 0) {
+		gint time_s = abs((gint) value);
+		gint minutes = time_s / 60;
+		gint seconds = time_s - (minutes * 60);
+		gint hours = minutes / 60;
+		gint days = hours / 24;
+		minutes = minutes - (hours * 60);
+		hours = hours - (days * 24);
+		if (days > 0) {
+			if (hours == 0) {
+				/*Translators: This is %i days*/
+				text = g_strdup_printf (_("%id"), days);
+			} else {
+				/*Translators: This is %i days %02i hours*/
+				text = g_strdup_printf (_("%id%02ih"), days, hours);
+			}
+		} else if (hours > 0) {
 			if (minutes == 0) {
 				/*Translators: This is %i hours*/
 				text = g_strdup_printf (_("%ih"), hours);
 			} else {
 				/*Translators: This is %i hours %02i minutes*/
-				text = g_strdup_printf (_("%ih%02i"), hours, minutes);
+				text = g_strdup_printf (_("%ih%02im"), hours, minutes);
 			}
 		} else if (minutes > 0) {
 			if (seconds == 0) {
@@ -502,15 +459,17 @@ gpm_get_axis_label (GpmGraphWidgetAxisType axis, gint value)
 		}
 	} else if (axis == GPM_GRAPH_WIDGET_TYPE_PERCENTAGE) {
 		/*Translators: This is %i Percentage*/
-		text = g_strdup_printf (_("%i%%"), value);
+		text = g_strdup_printf (_("%i%%"), (gint) value);
 	} else if (axis == GPM_GRAPH_WIDGET_TYPE_POWER) {
 		/*Translators: This is %.1f Watts*/
-		text = g_strdup_printf (_("%.1fW"), (gfloat) value / 1000.0);
+		text = g_strdup_printf (_("%.1fW"), value);
+	} else if (axis == GPM_GRAPH_WIDGET_TYPE_FACTOR) {
+		text = g_strdup_printf ("%.1f", value);
 	} else if (axis == GPM_GRAPH_WIDGET_TYPE_VOLTAGE) {
 		/*Translators: This is %.1f Volts*/
-		text = g_strdup_printf (_("%.1fV"), (gfloat) value / 1000.0);
+		text = g_strdup_printf (_("%.1fV"), value);
 	} else {
-		text = g_strdup_printf ("%i", value);
+		text = g_strdup_printf ("%i", (gint) value);
 	}
 	return text;
 }
@@ -525,7 +484,8 @@ gpm_get_axis_label (GpmGraphWidgetAxisType axis, gint value)
 static void
 gpm_graph_widget_draw_grid (GpmGraphWidget *graph, cairo_t *cr)
 {
-	gfloat a, b;
+	guint i;
+	gfloat b;
 	gdouble dotted[] = {1., 2.};
 	gfloat divwidth  = (gfloat)graph->priv->box_width / 10.0f;
 	gfloat divheight = (gfloat)graph->priv->box_height / 10.0f;
@@ -537,16 +497,16 @@ gpm_graph_widget_draw_grid (GpmGraphWidget *graph, cairo_t *cr)
 
 	/* do vertical lines */
 	cairo_set_source_rgb (cr, 0.1, 0.1, 0.1);
-	for (a=1; a<10; a++) {
-		b = graph->priv->box_x + (a * divwidth);
+	for (i=1; i<10; i++) {
+		b = graph->priv->box_x + ((gfloat) i * divwidth);
 		cairo_move_to (cr, (gint)b + 0.5f, graph->priv->box_y);
 		cairo_line_to (cr, (gint)b + 0.5f, graph->priv->box_y + graph->priv->box_height);
 		cairo_stroke (cr);
 	}
 
 	/* do horizontal lines */
-	for (a=1; a<10; a++) {
-		b = graph->priv->box_y + (a * divheight);
+	for (i=1; i<10; i++) {
+		b = graph->priv->box_y + ((gfloat) i * divheight);
 		cairo_move_to (cr, graph->priv->box_x, (gint)b + 0.5f);
 		cairo_line_to (cr, graph->priv->box_x + graph->priv->box_width, (int)b + 0.5f);
 		cairo_stroke (cr);
@@ -565,9 +525,10 @@ gpm_graph_widget_draw_grid (GpmGraphWidget *graph, cairo_t *cr)
 static void
 gpm_graph_widget_draw_labels (GpmGraphWidget *graph, cairo_t *cr)
 {
-	gfloat a, b;
+	guint i;
+	gfloat b;
 	gchar *text;
-	gint value;
+	gfloat value;
 	gfloat divwidth  = (gfloat)graph->priv->box_width / 10.0f;
 	gfloat divheight = (gfloat)graph->priv->box_height / 10.0f;
 	gint length_x = graph->priv->stop_x - graph->priv->start_x;
@@ -580,21 +541,20 @@ gpm_graph_widget_draw_labels (GpmGraphWidget *graph, cairo_t *cr)
 
 	/* do x text */
 	cairo_set_source_rgb (cr, 0, 0, 0);
-	for (a=0; a<11; a++) {
-		b = graph->priv->box_x + (a * divwidth);
-		value = ((length_x / 10) * a) + graph->priv->start_x;
-		text = gpm_get_axis_label (graph->priv->axis_type_x, value);
+	for (i=0; i<11; i++) {
+		b = graph->priv->box_x + ((gfloat) i * divwidth);
+		value = ((length_x / 10.0f) * (gfloat) i) + (gfloat) graph->priv->start_x;
+		text = gpm_get_axis_label (graph->priv->type_x, value);
 
 		pango_layout_set_text (graph->priv->layout, text, -1);
 		pango_layout_get_pixel_extents (graph->priv->layout, &ink_rect, &logical_rect);
 		/* have data points 0 and 10 bounded, but 1..9 centered */
-		if (a == 0) {
+		if (i == 0)
 			offsetx = 2.0;
-		} else if (a == 10) {
+		else if (i == 10)
 			offsetx = ink_rect.width;
-		} else {
+		else
 			offsetx = (ink_rect.width / 2.0f);
-		}
 
 		cairo_move_to (cr, b - offsetx,
 			       graph->priv->box_y + graph->priv->box_height + 2.0);
@@ -604,22 +564,21 @@ gpm_graph_widget_draw_labels (GpmGraphWidget *graph, cairo_t *cr)
 	}
 
 	/* do y text */
-	for (a=0; a<11; a++) {
-		b = graph->priv->box_y + (a * divheight);
-		value = (length_y / 10) * (10 - a) + graph->priv->start_y;
-		text = gpm_get_axis_label (graph->priv->axis_type_y, value);
+	for (i=0; i<11; i++) {
+		b = graph->priv->box_y + ((gfloat) i * divheight);
+		value = ((gfloat) length_y / 10.0f) * (10 - (gfloat) i) + graph->priv->start_y;
+		text = gpm_get_axis_label (graph->priv->type_y, value);
 
 		pango_layout_set_text (graph->priv->layout, text, -1);
 		pango_layout_get_pixel_extents (graph->priv->layout, &ink_rect, &logical_rect);
 
 		/* have data points 0 and 10 bounded, but 1..9 centered */
-		if (a == 10) {
+		if (i == 10)
 			offsety = 0;
-		} else if (a == 0) {
+		else if (i == 0)
 			offsety = ink_rect.height;
-		} else {
+		else
 			offsety = (ink_rect.height / 2.0f);
-		}
 		offsetx = ink_rect.width + 7;
 		offsety -= 10;
 		cairo_move_to (cr, graph->priv->box_x - offsetx - 2, b + offsety);
@@ -640,31 +599,28 @@ gpm_graph_widget_draw_labels (GpmGraphWidget *graph, cairo_t *cr)
 static guint
 gpm_graph_widget_get_y_label_max_width (GpmGraphWidget *graph, cairo_t *cr)
 {
-	gfloat a, b;
+	guint i;
 	gchar *text;
 	gint value;
-	gfloat divheight = (gfloat)graph->priv->box_height / 10.0f;
 	gint length_y = graph->priv->stop_y - graph->priv->start_y;
 	PangoRectangle ink_rect, logical_rect;
 	guint biggest = 0;
 
 	/* do y text */
-	for (a=0; a<11; a++) {
-		b = graph->priv->box_y + (a * divheight);
-		value = (length_y / 10) * (10 - a) + graph->priv->start_y;
-		text = gpm_get_axis_label (graph->priv->axis_type_y, value);
+	for (i=0; i<11; i++) {
+		value = (length_y / 10) * (10 - (gfloat) i) + graph->priv->start_y;
+		text = gpm_get_axis_label (graph->priv->type_y, value);
 		pango_layout_set_text (graph->priv->layout, text, -1);
 		pango_layout_get_pixel_extents (graph->priv->layout, &ink_rect, &logical_rect);
-		if (ink_rect.width > biggest) {
+		if (ink_rect.width > (gint) biggest)
 			biggest = ink_rect.width;
-		}
 		g_free (text);
 	}
 	return biggest;
 }
 
 /**
- * gpm_graph_widget_auto_range:
+ * gpm_graph_widget_autorange_x:
  * @graph: This class instance
  *
  * Autoranges the graph axis depending on the axis type, and the maximum
@@ -672,209 +628,203 @@ gpm_graph_widget_get_y_label_max_width (GpmGraphWidget *graph, cairo_t *cr)
  * resolution but also a number that scales "well" to a 10x10 grid.
  **/
 static void
-gpm_graph_widget_auto_range (GpmGraphWidget *graph)
+gpm_graph_widget_autorange_x (GpmGraphWidget *graph)
 {
-	gint biggest_x = 0;
-	gint biggest_y = 0;
-	gint smallest_x = 999999;
-	gint smallest_y = 999999;
+	gfloat biggest_x = G_MINFLOAT;
+	gfloat smallest_x = G_MAXFLOAT;
 	guint rounding_x = 1;
-	guint rounding_y = 1;
-	GpmArray *array;
-	GpmArrayPoint *point;
-	guint i;
-	guint j;
-	guint length;
+	GPtrArray *data;
+	GpmPointObj *point;
+	guint i, j;
+	guint len = 0;
+	GPtrArray *array;
 
-	if (graph->priv->data_list->len == 0) {
+	array = graph->priv->data_list;
+
+	/* find out if we have no data */
+	for (j=0; j<array->len; j++) {
+		data = g_ptr_array_index (array, j);
+		len = data->len;
+		if (len > 0)
+			break;
+	}
+
+	/* no data in any array */
+	if (len == 0) {
 		egg_debug ("no data");
 		graph->priv->start_x = 0;
-		graph->priv->start_y = 0;
 		graph->priv->stop_x = 10;
+		return;
+	}
+
+	/* get the range for the graph */
+	for (j=0; j<array->len; j++) {
+		data = g_ptr_array_index (array, j);
+		for (i=0; i < data->len; i++) {
+			point = (GpmPointObj *) g_ptr_array_index (data, i);
+			if (point->x > biggest_x)
+				biggest_x = point->x;
+			if (point->x < smallest_x)
+				smallest_x = point->x;
+		}
+	}
+	egg_debug ("Data range is %f<x<%f", smallest_x, biggest_x);
+	/* don't allow no difference */
+	if (biggest_x - smallest_x < 0.0001) {
+		biggest_x++;
+		smallest_x--;
+	}
+
+	if (graph->priv->type_x == GPM_GRAPH_WIDGET_TYPE_PERCENTAGE) {
+		rounding_x = 10;
+	} else if (graph->priv->type_x == GPM_GRAPH_WIDGET_TYPE_FACTOR) {
+		rounding_x = 1;
+	} else if (graph->priv->type_x == GPM_GRAPH_WIDGET_TYPE_POWER) {
+		rounding_x = 10;
+	} else if (graph->priv->type_x == GPM_GRAPH_WIDGET_TYPE_VOLTAGE) {
+		rounding_x = 1000;
+	} else if (graph->priv->type_x == GPM_GRAPH_WIDGET_TYPE_TIME) {
+		if (biggest_x-smallest_x < 150)
+			rounding_x = 150;
+		else if (biggest_x-smallest_x < 5*60)
+			rounding_x = 5 * 60;
+		else
+			rounding_x = 10 * 60;
+	}
+
+	graph->priv->start_x = egg_precision_round_down (smallest_x, rounding_x);
+	graph->priv->stop_x = egg_precision_round_up (biggest_x, rounding_x);
+
+	egg_debug ("Processed(1) range is %i<x<%i",
+		   graph->priv->start_x, graph->priv->stop_x);
+
+	/* if percentage, and close to the end points, then extend */
+	if (graph->priv->type_x == GPM_GRAPH_WIDGET_TYPE_PERCENTAGE) {
+		if (graph->priv->stop_x >= 90)
+			graph->priv->stop_x = 100;
+		if (graph->priv->start_x > 0 && graph->priv->start_x <= 10)
+			graph->priv->start_x = 0;
+	} else if (graph->priv->type_x == GPM_GRAPH_WIDGET_TYPE_TIME) {
+		if (graph->priv->start_x > 0 && graph->priv->start_x <= 60*10)
+			graph->priv->start_x = 0;
+	}
+
+	egg_debug ("Processed range is %i<x<%i",
+		   graph->priv->start_x, graph->priv->stop_x);
+}
+
+/**
+ * gpm_graph_widget_autorange_y:
+ * @graph: This class instance
+ *
+ * Autoranges the graph axis depending on the axis type, and the maximum
+ * value of the data. We have to be careful to choose a number that gives good
+ * resolution but also a number that scales "well" to a 10x10 grid.
+ **/
+static void
+gpm_graph_widget_autorange_y (GpmGraphWidget *graph)
+{
+	gfloat biggest_y = G_MINFLOAT;
+	gfloat smallest_y = G_MAXFLOAT;
+	guint rounding_y = 1;
+	GPtrArray *data;
+	GpmPointObj *point;
+	guint i, j;
+	guint len = 0;
+	GPtrArray *array;
+
+	array = graph->priv->data_list;
+
+	/* find out if we have no data */
+	for (j=0; j<array->len; j++) {
+		data = g_ptr_array_index (array, j);
+		len = data->len;
+		if (len > 0)
+			break;
+	}
+
+	/* no data in any array */
+	if (len == 0) {
+		egg_debug ("no data");
+		graph->priv->start_y = 0;
 		graph->priv->stop_y = 10;
 		return;
 	}
 
-	/* get the range for all graphs */
-	for (i=0; i<graph->priv->data_list->len; i++) {
-		array = g_ptr_array_index (graph->priv->data_list, i);
-		length = gpm_array_get_size (array);
-		for (j=0; j < length; j++) {
-			point = gpm_array_get (array, j);
-			if (point->x > biggest_x) {
-				biggest_x = point->x;
-			}
-			if (point->y > biggest_y) {
+	/* get the range for the graph */
+	for (j=0; j<array->len; j++) {
+		data = g_ptr_array_index (array, j);
+		for (i=0; i < data->len; i++) {
+			point = (GpmPointObj *) g_ptr_array_index (data, i);
+			if (point->y > biggest_y)
 				biggest_y = point->y;
-			}
-			if (point->x < smallest_x) {
-				smallest_x = point->x;
-			}
-			if (point->y < smallest_y) {
+			if (point->y < smallest_y)
 				smallest_y = point->y;
-			}
 		}
 	}
-	egg_debug ("Data range is %i<x<%i, %i<y<%i", smallest_x, biggest_x, smallest_y, biggest_y);
+	egg_debug ("Data range is %f<y<%f", smallest_y, biggest_y);
+	/* don't allow no difference */
+	if (biggest_y - smallest_y < 0.0001) {
+		biggest_y++;
+		smallest_y--;
+	}
 
-	if (graph->priv->axis_type_x == GPM_GRAPH_WIDGET_TYPE_PERCENTAGE) {
-		rounding_x = 10;
-	} else if (graph->priv->axis_type_x == GPM_GRAPH_WIDGET_TYPE_POWER) {
-		rounding_x = 1000;
-	} else if (graph->priv->axis_type_x == GPM_GRAPH_WIDGET_TYPE_VOLTAGE) {
-		rounding_x = 1000;
-	} else if (graph->priv->axis_type_x == GPM_GRAPH_WIDGET_TYPE_TIME) {
-		if (biggest_x < 150) {
-			rounding_x = 150;
-		} else if (biggest_x < 5*60) {
-			rounding_x = 5 * 60;
-		} else {
-			rounding_x = 10 * 60;
-		}
-	}
-	if (graph->priv->axis_type_y == GPM_GRAPH_WIDGET_TYPE_PERCENTAGE) {
+	if (graph->priv->type_y == GPM_GRAPH_WIDGET_TYPE_PERCENTAGE) {
 		rounding_y = 10;
-	} else if (graph->priv->axis_type_y == GPM_GRAPH_WIDGET_TYPE_POWER) {
+	} else if (graph->priv->type_y == GPM_GRAPH_WIDGET_TYPE_FACTOR) {
+		rounding_y = 1;
+	} else if (graph->priv->type_y == GPM_GRAPH_WIDGET_TYPE_POWER) {
+		rounding_y = 10;
+	} else if (graph->priv->type_y == GPM_GRAPH_WIDGET_TYPE_VOLTAGE) {
 		rounding_y = 1000;
-	} else if (graph->priv->axis_type_y == GPM_GRAPH_WIDGET_TYPE_VOLTAGE) {
-		rounding_y = 1000;
-	} else if (graph->priv->axis_type_y == GPM_GRAPH_WIDGET_TYPE_TIME) {
-		if (biggest_y < 150) {
+	} else if (graph->priv->type_y == GPM_GRAPH_WIDGET_TYPE_TIME) {
+		if (biggest_y-smallest_y < 150)
 			rounding_y = 150;
-		} else if (biggest_y < 5*60) {
+		else if (biggest_y < 5*60)
 			rounding_y = 5 * 60;
-		} else {
+		else
 			rounding_y = 10 * 60;
-		}
 	}
 
-	graph->priv->start_x = gpm_precision_round_down (smallest_x, rounding_x);
-	graph->priv->start_y = gpm_precision_round_down (smallest_y, rounding_y);
-	graph->priv->stop_x = gpm_precision_round_up (biggest_x, rounding_x);
-	graph->priv->stop_y = gpm_precision_round_up (biggest_y, rounding_y);
+	graph->priv->start_y = egg_precision_round_down (smallest_y, rounding_y);
+	graph->priv->stop_y = egg_precision_round_up (biggest_y, rounding_y);
 
-	/* if percentage, and close to the end points, then extend */
-	if (graph->priv->axis_type_x == GPM_GRAPH_WIDGET_TYPE_PERCENTAGE) {
-		if (graph->priv->stop_x >= 90) {
-			graph->priv->stop_x = 100;
-		}
-		if (graph->priv->start_x <= 10) {
-			graph->priv->start_x = 0;
-		}
-	} else if (graph->priv->axis_type_x == GPM_GRAPH_WIDGET_TYPE_TIME) {
-		if (graph->priv->start_x <= 60*10) {
-			graph->priv->start_x = 0;
-		}
+	/* a factor graph always is centered around zero */
+	if (graph->priv->type_y == GPM_GRAPH_WIDGET_TYPE_FACTOR) {
+		if (abs (graph->priv->stop_y) > abs (graph->priv->start_y))
+			graph->priv->start_y = -graph->priv->stop_y;
+		else
+			graph->priv->stop_y = -graph->priv->start_y;
 	}
-	if (graph->priv->axis_type_y == GPM_GRAPH_WIDGET_TYPE_PERCENTAGE) {
-		if (graph->priv->stop_y >= 90) {
+
+	egg_debug ("Processed(1) range is %i<y<%i",
+		   graph->priv->start_y, graph->priv->stop_y);
+
+	if (graph->priv->type_y == GPM_GRAPH_WIDGET_TYPE_PERCENTAGE) {
+		if (graph->priv->stop_y >= 90)
 			graph->priv->stop_y = 100;
-		}
-		if (graph->priv->start_y <= 10) {
+		if (graph->priv->start_y > 0 && graph->priv->start_y <= 10)
 			graph->priv->start_y = 0;
-		}
-	} else if (graph->priv->axis_type_y == GPM_GRAPH_WIDGET_TYPE_TIME) {
-		if (graph->priv->start_y <= 60*10) {
+	} else if (graph->priv->type_y == GPM_GRAPH_WIDGET_TYPE_TIME) {
+		if (graph->priv->start_y <= 60*10)
 			graph->priv->start_y = 0;
-		}
 	}
 
-	egg_debug ("Processed range is %i<x<%i, %i<y<%i",
-		   graph->priv->start_x, graph->priv->stop_x,
+	egg_debug ("Processed range is %i<y<%i",
 		   graph->priv->start_y, graph->priv->stop_y);
 }
 
 /**
- * gpm_graph_widget_set_colour:
+ * gpm_graph_widget_set_color:
  * @cr: Cairo drawing context
- * @colour: The colour enum
+ * @color: The color enum
  **/
 static void
-gpm_graph_widget_set_colour (cairo_t *cr, guint32 colour)
+gpm_graph_widget_set_color (cairo_t *cr, guint32 color)
 {
 	guint8 r, g, b;
-	egg_color_to_rgb (colour, &r, &g, &b);
+	egg_color_to_rgb (color, &r, &g, &b);
 	cairo_set_source_rgb (cr, ((gdouble) r)/256.0f, ((gdouble) g)/256.0f, ((gdouble) b)/256.0f);
-}
-
-/**
- * gpm_graph_widget_draw_dot:
- * @cr: Cairo drawing context
- * @x: The X-coordinate for the center
- * @y: The Y-coordinate for the center
- * @colour: The colour enum
- * @shape: The shape enum
- *
- * Draw the dot on the graph of a specified colour
- **/
-static void
-gpm_graph_widget_draw_dot (cairo_t             *cr,
-			   gfloat               x,
-			   gfloat               y,
-			   guint32              colour,
-			   GpmGraphWidgetShape  shape)
-{
-	gfloat width;
-	if (shape == GPM_GRAPH_WIDGET_SHAPE_CIRCLE) {
-		/* circle */
-		cairo_arc (cr, (gint)x + 0.5f, (gint)y + 0.5f, 4, 0, 2*M_PI);
-		gpm_graph_widget_set_colour (cr, colour);
-		cairo_fill (cr);
-		cairo_arc (cr, (gint)x + 0.5f, (gint)y + 0.5f, 4, 0, 2*M_PI);
-		cairo_set_source_rgb (cr, 0, 0, 0);
-		cairo_set_line_width (cr, 1);
-		cairo_stroke (cr);
-	} else if (shape == GPM_GRAPH_WIDGET_SHAPE_SQUARE) {
-		/* box */
-		width = 8.0;
-		cairo_rectangle (cr, (gint)x + 0.5f - (width/2), (gint)y + 0.5f - (width/2), width, width);
-		gpm_graph_widget_set_colour (cr, colour);
-		cairo_fill (cr);
-		cairo_rectangle (cr, (gint)x + 0.5f - (width/2), (gint)y + 0.5f - (width/2), width, width);
-		cairo_set_source_rgb (cr, 0, 0, 0);
-		cairo_set_line_width (cr, 1);
-		cairo_stroke (cr);
-	} else if (shape == GPM_GRAPH_WIDGET_SHAPE_DIAMOND) {
-		/* diamond */
-		width = 4.0;
-		cairo_new_path (cr);
-		cairo_move_to (cr, x+0.5, y-width+0.5);
-		cairo_line_to (cr, x+width+0.5, y+0.5);
-		cairo_line_to (cr, x+0.5, y+width+0.5);
-		cairo_line_to (cr, x-width+0.5, y+0.5);
-		cairo_close_path (cr);
-		gpm_graph_widget_set_colour (cr, colour);
-		cairo_fill (cr);
-		cairo_new_path (cr);
-		cairo_move_to (cr, x+0.5, y-width+0.5);
-		cairo_line_to (cr, x+width+0.5, y+0.5);
-		cairo_line_to (cr, x+0.5, y+width+0.5);
-		cairo_line_to (cr, x-width+0.5, y+0.5);
-		cairo_close_path (cr);
-		cairo_set_source_rgb (cr, 0, 0, 0);
-		cairo_set_line_width (cr, 1);
-		cairo_stroke (cr);
-	} else if (shape == GPM_GRAPH_WIDGET_SHAPE_TRIANGLE) {
-		/* triangle */
-		width = 4.0;
-		cairo_new_path (cr);
-		cairo_move_to (cr, x+0.5, y-width+0.5);
-		cairo_line_to (cr, x+width+0.5, y+width+0.5-1.0);
-		cairo_line_to (cr, x-width+0.5, y+width+0.5-1.0);
-		cairo_close_path (cr);
-		gpm_graph_widget_set_colour (cr, colour);
-		cairo_fill (cr);
-		cairo_new_path (cr);
-		cairo_move_to (cr, x+0.5, y-width+0.5);
-		cairo_line_to (cr, x+width+0.5, y+width+0.5-1.0);
-		cairo_line_to (cr, x-width+0.5, y+width+0.5-1.0);
-		cairo_close_path (cr);
-		cairo_set_source_rgb (cr, 0, 0, 0);
-		cairo_set_line_width (cr, 1);
-		cairo_stroke (cr);
-	} else {
-		egg_warning ("shape %i not recognised!", shape);
-	}
 }
 
 /**
@@ -882,18 +832,18 @@ gpm_graph_widget_draw_dot (cairo_t             *cr,
  * @cr: Cairo drawing context
  * @x: The X-coordinate for the center
  * @y: The Y-coordinate for the center
- * @colour: The colour enum
+ * @color: The color enum
  *
- * Draw the legend line on the graph of a specified colour
+ * Draw the legend line on the graph of a specified color
  **/
 static void
-gpm_graph_widget_draw_legend_line (cairo_t *cr, gfloat x, gfloat y, guint32 colour)
+gpm_graph_widget_draw_legend_line (cairo_t *cr, gfloat x, gfloat y, guint32 color)
 {
 	gfloat width = 10;
 	gfloat height = 2;
 	/* background */
 	cairo_rectangle (cr, (int) (x - (width/2)) + 0.5, (int) (y - (height/2)) + 0.5, width, height);
-	gpm_graph_widget_set_colour (cr, colour);
+	gpm_graph_widget_set_color (cr, color);
 	cairo_fill (cr);
 	/* solid outline box */
 	cairo_rectangle (cr, (int) (x - (width/2)) + 0.5, (int) (y - (height/2)) + 0.5, width, height);
@@ -918,6 +868,24 @@ gpm_graph_widget_get_pos_on_graph (GpmGraphWidget *graph, gfloat data_x, gfloat 
 }
 
 /**
+ * gpm_graph_widget_draw_dot:
+ **/
+static void
+gpm_graph_widget_draw_dot (cairo_t *cr, gfloat x, gfloat y, guint32 color)
+{
+	gfloat width;
+	/* box */
+	width = 2.0;
+	cairo_rectangle (cr, (gint)x + 0.5f - (width/2), (gint)y + 0.5f - (width/2), width, width);
+	gpm_graph_widget_set_color (cr, color);
+	cairo_fill (cr);
+	cairo_rectangle (cr, (gint)x + 0.5f - (width/2), (gint)y + 0.5f - (width/2), width, width);
+	cairo_set_source_rgb (cr, 0, 0, 0);
+	cairo_set_line_width (cr, 1);
+	cairo_stroke (cr);
+}
+
+/**
  * gpm_graph_widget_draw_line:
  * @graph: This class instance
  * @cr: Cairo drawing context
@@ -930,11 +898,11 @@ gpm_graph_widget_draw_line (GpmGraphWidget *graph, cairo_t *cr)
 {
 	gfloat oldx, oldy;
 	gfloat newx, newy;
-	guint j;
-	guint length;
-	GpmArray *array;
-	GpmArrayPoint *point;
-	guint i;
+	GPtrArray *data;
+	GPtrArray *array;
+	GpmGraphWidgetPlot plot;
+	GpmPointObj *point;
+	guint i, j;
 
 	if (graph->priv->data_list->len == 0) {
 		egg_debug ("no data");
@@ -942,110 +910,52 @@ gpm_graph_widget_draw_line (GpmGraphWidget *graph, cairo_t *cr)
 	}
 	cairo_save (cr);
 
-	/* do all the lines on the graphs */
-	for (i=0; i<graph->priv->data_list->len; i++) {
-		egg_debug ("drawing line %i", i);
-		array = g_ptr_array_index (graph->priv->data_list, i);
+	array = graph->priv->data_list;
 
-		/* we have no data */
-		if (array == NULL) {
-			break;
-		}
+	/* do each line */
+	for (j=0; j<array->len; j++) {
+		data = g_ptr_array_index (array, j);
+		if (data->len == 0)
+			continue;
+		plot = GPOINTER_TO_UINT (g_ptr_array_index (graph->priv->plot_list, j));
 
 		/* get the very first point so we can work out the old */
-		point = gpm_array_get (array, 0);
+		point = (GpmPointObj *) g_ptr_array_index (data, 0);
 		oldx = 0;
 		oldy = 0;
 		gpm_graph_widget_get_pos_on_graph (graph, point->x, point->y, &oldx, &oldy);
+		if (plot == GPM_GRAPH_WIDGET_PLOT_POINTS || plot == GPM_GRAPH_WIDGET_PLOT_BOTH)
+			gpm_graph_widget_draw_dot (cr, oldx, oldy, point->color);
 
-		length = gpm_array_get_size (array);
-		for (j=1; j < length; j++) {
-			point = gpm_array_get (array, j);
+		for (i=1; i < data->len; i++) {
+			point = (GpmPointObj *) g_ptr_array_index (data, i);
+
+			gpm_graph_widget_get_pos_on_graph (graph, point->x, point->y, &newx, &newy);
+
+			/* ignore white lines */
+			if (point->color == 0xffffff) {
+				oldx = newx;
+				oldy = newy;
+				continue;
+			}
 
 			/* draw line */
-			gpm_graph_widget_get_pos_on_graph (graph, point->x, point->y, &newx, &newy);
-			cairo_move_to (cr, oldx, oldy);
-			cairo_line_to (cr, newx, newy);
-			cairo_set_line_width (cr, 1.5);
-			gpm_graph_widget_set_colour (cr, point->data);
-			cairo_stroke (cr);
+			if (plot == GPM_GRAPH_WIDGET_PLOT_LINE || plot == GPM_GRAPH_WIDGET_PLOT_BOTH) {
+				cairo_move_to (cr, oldx, oldy);
+				cairo_line_to (cr, newx, newy);
+				cairo_set_line_width (cr, 1.5);
+				gpm_graph_widget_set_color (cr, point->color);
+				cairo_stroke (cr);
+			}
+
+			/* draw data dot */
+			if (plot == GPM_GRAPH_WIDGET_PLOT_POINTS || plot == GPM_GRAPH_WIDGET_PLOT_BOTH)
+				gpm_graph_widget_draw_dot (cr, newx, newy, point->color);
+
 			/* save old */
 			oldx = newx;
 			oldy = newy;
 		}
-	}
-
-	cairo_restore (cr);
-}
-
-/**
- * gpm_graph_widget_draw_event_dots:
- * @graph: This class instance
- * @cr: Cairo drawing context
- *
- * Draw the data line onto the graph with a big green line. We should already
- * limit the data to < ~100 values, so this shouldn't take too long.
- **/
-static void
-gpm_graph_widget_draw_event_dots (GpmGraphWidget *graph, cairo_t *cr)
-{
-	gfloat newx, newy;
-	GpmGraphWidgetKeyItem *keyitem;
-	guint i;
-	guint length;
-	GpmArray *array = NULL;
-	GpmArrayPoint *point;
-	gint dot;
-	gint prevpos = -1;
-	guint previous_y = 0;
-
-	if (graph->priv->events == NULL) {
-		/* we have no events */
-		return;
-	}
-
-	cairo_save (cr);
-
-	length = gpm_array_get_size (graph->priv->events);
-
-	/* always use the first data array */
-	if (graph->priv->data_list->len > 0) {
-		array = g_ptr_array_index (graph->priv->data_list, 0);
-	}
-
-	for (i=0; i < length; i++) {
-		point = gpm_array_get (graph->priv->events, i);
-		if (point == NULL) {
-			/* this shouldn't ever happen */
-			egg_warning ("point NULL!");
-			break;
-		}
-		/* try to position the point on the line, or at zero if there is no line */
-		if (array == NULL) {
-			dot = 0;
-		} else {
-			dot = gpm_array_interpolate (array, point->x);
-		}
-		gpm_graph_widget_get_pos_on_graph (graph, point->x, dot, &newx, &newy);
-
-		/* don't overlay the points, stack vertically */
-		if (abs (newx - prevpos) < 10) {
-			newy = previous_y - 8;
-		}
-
-		/* save the last y point */
-		previous_y = newy;
-
-		/* only do the event dot, if it's going to be valid on the graph */
-		if (point->x > graph->priv->start_x && newy > graph->priv->box_y) {
-			keyitem = gpm_graph_widget_key_find_id (graph, point->y);
-			if (keyitem == NULL) {
-				egg_warning ("did not find id %i", point->y);
-			} else {
-				gpm_graph_widget_draw_dot (cr, newx, newy, keyitem->colour, keyitem->shape);
-			}
-		}
-		prevpos = newx;
 	}
 
 	cairo_restore (cr);
@@ -1060,11 +970,7 @@ gpm_graph_widget_draw_event_dots (GpmGraphWidget *graph, cairo_t *cr)
  * @height: The item height
  **/
 static void
-gpm_graph_widget_draw_bounding_box (cairo_t *cr,
-				    gint     x,
-				    gint     y,
-				    gint     width,
-				    gint     height)
+gpm_graph_widget_draw_bounding_box (cairo_t *cr, gint x, gint y, gint width, gint height)
 {
 	/* background */
 	cairo_rectangle (cr, x, y, width, height);
@@ -1086,49 +992,28 @@ gpm_graph_widget_draw_bounding_box (cairo_t *cr,
  * @height: The item height
  **/
 static void
-gpm_graph_widget_draw_legend (GpmGraphWidget *graph,
-			      gint     x,
-			      gint     y,
-			      gint     width,
-			      gint     height)
+gpm_graph_widget_draw_legend (GpmGraphWidget *graph, gint x, gint y, gint width, gint height)
 {
 	cairo_t *cr = graph->priv->cr;
 	gint y_count;
-	gint a;
+	guint i;
 	GpmGraphWidgetKeyData *keydataitem;
-	GpmGraphWidgetKeyItem *keyeventitem;
 
 	gpm_graph_widget_draw_bounding_box (cr, x, y, width, height);
 	y_count = y + 10;
 
-	/* add the line colours to the legend */
-	for (a=0; a<g_slist_length (graph->priv->key_data); a++) {
-		keydataitem = (GpmGraphWidgetKeyData *) g_slist_nth_data (graph->priv->key_data, a);
+	/* add the line colors to the legend */
+	for (i=0; i<g_slist_length (graph->priv->key_data); i++) {
+		keydataitem = (GpmGraphWidgetKeyData *) g_slist_nth_data (graph->priv->key_data, i);
 		if (keydataitem == NULL) {
 			/* this shouldn't ever happen */
 			egg_warning ("keydataitem NULL!");
 			break;
 		}
-		gpm_graph_widget_draw_legend_line (cr, x + 8, y_count, keydataitem->colour);
+		gpm_graph_widget_draw_legend_line (cr, x + 8, y_count, keydataitem->color);
 		cairo_move_to (cr, x + 8 + 10, y_count - 6);
 		cairo_set_source_rgb (cr, 0, 0, 0);
 		pango_layout_set_text (graph->priv->layout, keydataitem->desc, -1);
-		pango_cairo_show_layout (cr, graph->priv->layout);
-		y_count = y_count + GPM_GRAPH_WIDGET_LEGEND_SPACING;
-	}
-
-	/* add the events to the legend */
-	for (a=0; a<g_slist_length (graph->priv->key_event); a++) {
-		keyeventitem = (GpmGraphWidgetKeyItem *) g_slist_nth_data (graph->priv->key_event, a);
-		if (keyeventitem == NULL) {
-			/* this shouldn't ever happen */
-			egg_warning ("keyeventitem NULL!");
-			break;
-		}
-		gpm_graph_widget_draw_dot (cr, x + 8, y_count,
-					   keyeventitem->colour, keyeventitem->shape);
-		cairo_move_to (cr, x + 8 + 10, y_count - 6);
-		pango_layout_set_text (graph->priv->layout, keyeventitem->desc, -1);
 		pango_cairo_show_layout (cr, graph->priv->layout);
 		y_count = y_count + GPM_GRAPH_WIDGET_LEGEND_SPACING;
 	}
@@ -1148,44 +1033,29 @@ static gboolean
 gpm_graph_widget_legend_calculate_size (GpmGraphWidget *graph, cairo_t *cr,
 					guint *width, guint *height)
 {
-	guint a;
+	guint i;
 	PangoRectangle ink_rect, logical_rect;
 	GpmGraphWidgetKeyData *keydataitem;
-	GpmGraphWidgetKeyItem *keyeventitem;
 
-	g_return_val_if_fail (graph != NULL, FALSE);
 	g_return_val_if_fail (GPM_IS_GRAPH_WIDGET (graph), FALSE);
 
 	/* set defaults */
 	*width = 0;
 	*height = 0;
 
-	/* add the line colours to the legend */
-	for (a=0; a<g_slist_length (graph->priv->key_data); a++) {
-		keydataitem = (GpmGraphWidgetKeyData *) g_slist_nth_data (graph->priv->key_data, a);
+	/* add the line colors to the legend */
+	for (i=0; i<g_slist_length (graph->priv->key_data); i++) {
+		keydataitem = (GpmGraphWidgetKeyData *) g_slist_nth_data (graph->priv->key_data, i);
 		*height = *height + GPM_GRAPH_WIDGET_LEGEND_SPACING;
 		pango_layout_set_text (graph->priv->layout, keydataitem->desc, -1);
 		pango_layout_get_pixel_extents (graph->priv->layout, &ink_rect, &logical_rect);
-		if (*width < ink_rect.width) {
+		if ((gint) *width < ink_rect.width)
 			*width = ink_rect.width;
-		}
-	}
-
-	/* add the events to the legend */
-	for (a=0; a<g_slist_length (graph->priv->key_event); a++) {
-		keyeventitem = (GpmGraphWidgetKeyItem *) g_slist_nth_data (graph->priv->key_event, a);
-		*height = *height + GPM_GRAPH_WIDGET_LEGEND_SPACING;
-		pango_layout_set_text (graph->priv->layout, keyeventitem->desc, -1);
-		pango_layout_get_pixel_extents (graph->priv->layout, &ink_rect, &logical_rect);
-		if (*width < ink_rect.width) {
-			*width = ink_rect.width;
-		}
 	}
 
 	/* have we got no entries? */
-	if (*width == 0 && *height == 0) {
+	if (*width == 0 && *height == 0)
 		return TRUE;
-	}
 
 	/* add for borders */
 	*width += 25;
@@ -1195,56 +1065,58 @@ gpm_graph_widget_legend_calculate_size (GpmGraphWidget *graph, cairo_t *cr,
 }
 
 /**
- * gpm_graph_widget_draw_graph:
+ * gpm_graph_widget_draw:
  * @graph: This class instance
- * @cr: Cairo drawing context
+ * @event: The expose event
  *
- * Draw the complete graph, with the box, the grid, the labels and the line.
+ * Just repaint the entire graph widget on expose.
  **/
-static void
-gpm_graph_widget_draw_graph (GtkWidget *graph_widget, cairo_t *cr)
+static gboolean
+gpm_graph_widget_draw (GtkWidget *widget, cairo_t *cr)
 {
+	GtkAllocation allocation;
 	gint legend_x = 0;
 	gint legend_y = 0;
 	guint legend_height = 0;
 	guint legend_width = 0;
-	gint data_x;
-	gint data_y;
+	gfloat data_x;
+	gfloat data_y;
 
-	GpmGraphWidget *graph = (GpmGraphWidget*) graph_widget;
-	g_return_if_fail (graph != NULL);
-	g_return_if_fail (GPM_IS_GRAPH_WIDGET (graph));
+	GpmGraphWidget *graph = (GpmGraphWidget*) widget;
+	g_return_val_if_fail (graph != NULL, FALSE);
+	g_return_val_if_fail (GPM_IS_GRAPH_WIDGET (graph), FALSE);
 
 	gpm_graph_widget_legend_calculate_size (graph, cr, &legend_width, &legend_height);
-
 	cairo_save (cr);
 
 	/* we need this so we know the y text */
-	gpm_graph_widget_auto_range (graph);
+	if (graph->priv->autorange_x)
+		gpm_graph_widget_autorange_x (graph);
+	if (graph->priv->autorange_y)
+		gpm_graph_widget_autorange_y (graph);
 
 	graph->priv->box_x = gpm_graph_widget_get_y_label_max_width (graph, cr) + 10;
 	graph->priv->box_y = 5;
 
-	graph->priv->box_height = graph_widget->allocation.height - (20 + graph->priv->box_y);
+	gtk_widget_get_allocation (widget, &allocation);
+	graph->priv->box_height = allocation.height - (20 + graph->priv->box_y);
 
 	/* make size adjustment for legend */
 	if (graph->priv->use_legend && legend_height > 0) {
-		graph->priv->box_width = graph_widget->allocation.width -
+		graph->priv->box_width = allocation.width -
 					 (3 + legend_width + 5 + graph->priv->box_x);
 		legend_x = graph->priv->box_x + graph->priv->box_width + 6;
 		legend_y = graph->priv->box_y;
 	} else {
-		graph->priv->box_width = graph_widget->allocation.width -
+		graph->priv->box_width = allocation.width -
 					 (3 + graph->priv->box_x);
 	}
 
 	/* graph background */
 	gpm_graph_widget_draw_bounding_box (cr, graph->priv->box_x, graph->priv->box_y,
 				     graph->priv->box_width, graph->priv->box_height);
-
-	if (graph->priv->use_grid) {
+	if (graph->priv->use_grid)
 		gpm_graph_widget_draw_grid (graph, cr);
-	}
 
 	/* -3 is so we can keep the lines inside the box at both extremes */
 	data_x = graph->priv->stop_x - graph->priv->start_x;
@@ -1255,40 +1127,10 @@ gpm_graph_widget_draw_graph (GtkWidget *graph_widget, cairo_t *cr)
 	gpm_graph_widget_draw_labels (graph, cr);
 	gpm_graph_widget_draw_line (graph, cr);
 
-	if (graph->priv->use_events) {
-		gpm_graph_widget_draw_event_dots (graph, cr);
-	}
-
-	if (graph->priv->use_legend && legend_height > 0) {
+	if (graph->priv->use_legend && legend_height > 0)
 		gpm_graph_widget_draw_legend (graph, legend_x, legend_y, legend_width, legend_height);
-	}
 
 	cairo_restore (cr);
-}
-
-/**
- * gpm_graph_widget_expose:
- * @graph: This class instance
- * @event: The expose event
- *
- * Just repaint the entire graph widget on expose.
- **/
-static gboolean
-gpm_graph_widget_expose (GtkWidget *graph, GdkEventExpose *event)
-{
-	cairo_t *cr;
-
-	/* get a cairo_t */
-	cr = gdk_cairo_create (graph->window);
-	cairo_rectangle (cr,
-			 event->area.x, event->area.y,
-			 event->area.width, event->area.height);
-	cairo_clip (cr);
-	((GpmGraphWidget *)graph)->priv->cr = cr;
-
-	gpm_graph_widget_draw_graph (graph, cr);
-
-	cairo_destroy (cr);
 	return FALSE;
 }
 
@@ -1301,298 +1143,4 @@ gpm_graph_widget_new (void)
 {
 	return g_object_new (GPM_TYPE_GRAPH_WIDGET, NULL);
 }
-
-/***************************************************************************
- ***                          MAKE CHECK TESTS                           ***
- ***************************************************************************/
-#ifdef GPM_BUILD_TESTS
-#include "gpm-self-test.h"
-
-GtkWidget *window;
-GtkWidget *graph;
-GtkWidget *label;
-
-static gint
-close_handler (GtkWidget *widget, gpointer gdata)
-{
-	gtk_main_quit ();
-	return FALSE;
-}
-
-static void
-clicked_passed_cb (GtkWidget *widget, gpointer gdata)
-{
-	GpmSelfTest *test = (GpmSelfTest *) gdata;
-	gpm_st_success (test, NULL);
-	gtk_main_quit ();
-}
-
-static void
-clicked_failed_cb (GtkWidget *widget, gpointer gdata)
-{
-	GpmSelfTest *test = (GpmSelfTest *) gdata;
-	gpm_st_failed (test, NULL);
-	gtk_main_quit ();
-}
-
-static void
-create_graph_window (GpmSelfTest *test)
-{
-	GtkWidget *button_passed;
-	GtkWidget *button_failed;
-	GtkWidget *vbox;
-
-	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-	graph = gpm_graph_widget_new ();
-	vbox = gtk_vbox_new (FALSE, 0);
-	label = gtk_label_new("Title");
-
-	button_passed = gtk_button_new_with_label("Passed");
-	gtk_signal_connect(GTK_OBJECT(button_passed), "clicked", GTK_SIGNAL_FUNC(clicked_passed_cb), test);
-	button_failed = gtk_button_new_with_label("Failed");
-	gtk_signal_connect(GTK_OBJECT(button_failed), "clicked", GTK_SIGNAL_FUNC(clicked_failed_cb), test);
-
-	gtk_widget_set_size_request (graph, 600, 300);
-	gtk_signal_connect (GTK_OBJECT(window), "delete_event", GTK_SIGNAL_FUNC(close_handler), test);
-
-	gtk_container_add (GTK_CONTAINER (window), vbox);
-	gtk_box_pack_start (GTK_BOX (vbox), graph, FALSE, FALSE, 0);
-	gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
-	gtk_box_pack_start (GTK_BOX (vbox), button_passed, FALSE, FALSE, 0);
-	gtk_box_pack_start (GTK_BOX (vbox), button_failed, FALSE, FALSE, 0);
-	gtk_container_border_width (GTK_CONTAINER (window), 0);
-
-	gtk_widget_show (vbox);
-	gtk_widget_show (label);
-	gtk_widget_show (button_passed);
-	gtk_widget_show (button_failed);
-}
-
-static void
-wait_for_input (GpmSelfTest *test)
-{
-	gtk_widget_hide_all (window);
-	gtk_widget_show_all (window);
-	gtk_main ();
-}
-
-void
-gpm_st_title_graph (GpmSelfTest *test, const gchar *format, ...)
-{
-	va_list args;
-	gchar va_args_buffer [1025];
-	va_start (args, format);
-	g_vsnprintf (va_args_buffer, 1024, format, args);
-	va_end (args);
-	gpm_st_title (test, va_args_buffer);
-	gtk_label_set_label (GTK_LABEL (label), va_args_buffer);
-//	g_print ("> check #%u\t%s: \t%s...", test->total+1, test->type, va_args_buffer);
-//	test->total++;
-}
-
-void
-gpm_st_graph_widget (GpmSelfTest *test)
-{
-	GpmArray *data;
-	GpmArray *data_more;
-	GpmArray *events;
-	gboolean ret;
-
-	if (gpm_st_start (test, "GpmGraphWidget") == FALSE) {
-		return;
-	}
-
-	create_graph_window (test);
-	gpm_graph_widget_enable_legend (GPM_GRAPH_WIDGET (graph), TRUE);
-	gpm_graph_widget_enable_events (GPM_GRAPH_WIDGET (graph), TRUE);
-
-	/********** TYPES *************/
-	gpm_st_title_graph (test, "graph loaded, visible, no key, and set to y=percent x=time");
-	wait_for_input (test);
-
-	gpm_graph_widget_set_axis_type_x (GPM_GRAPH_WIDGET (graph), GPM_GRAPH_WIDGET_TYPE_PERCENTAGE);
-	gpm_graph_widget_set_axis_type_y (GPM_GRAPH_WIDGET (graph), GPM_GRAPH_WIDGET_TYPE_TIME);
-
-	gpm_st_title_graph (test, "now set to y=time x=percent");
-	wait_for_input (test);
-
-	/********** KEY DATA *************/
-	gpm_graph_widget_key_data_add (GPM_GRAPH_WIDGET (graph), EGG_COLOR_RED, "red data");
-	gpm_graph_widget_key_data_add (GPM_GRAPH_WIDGET (graph), EGG_COLOR_GREEN, "green data");
-	gpm_graph_widget_key_data_add (GPM_GRAPH_WIDGET (graph), EGG_COLOR_BLUE, "blue data");
-
-	gpm_st_title_graph (test, "red green blue key data added");
-	wait_for_input (test);
-
-	gpm_graph_widget_key_data_clear (GPM_GRAPH_WIDGET (graph));
-
-	gpm_st_title_graph (test, "data items cleared, no key remains");
-	wait_for_input (test);
-
-	/********** KEY EVENT *************/
-	gpm_graph_widget_key_event_add (GPM_GRAPH_WIDGET (graph), 0,
-					EGG_COLOR_RED,
-					GPM_GRAPH_WIDGET_SHAPE_CIRCLE,
-					"red circle");
-	gpm_graph_widget_key_event_add (GPM_GRAPH_WIDGET (graph), 1,
-					EGG_COLOR_GREEN,
-					GPM_GRAPH_WIDGET_SHAPE_SQUARE,
-					"green square");
-	gpm_graph_widget_key_event_add (GPM_GRAPH_WIDGET (graph), 2,
-					EGG_COLOR_BLUE,
-					GPM_GRAPH_WIDGET_SHAPE_TRIANGLE,
-					"blue triangle");
-	gpm_graph_widget_key_event_add (GPM_GRAPH_WIDGET (graph), 3,
-					EGG_COLOR_WHITE,
-					GPM_GRAPH_WIDGET_SHAPE_DIAMOND,
-					"white diamond");
-
-	gpm_st_title_graph (test, "red green blue white key events added");
-	wait_for_input (test);
-
-
-	/********** KEY EVENT duplicate test *************/
-	gpm_st_title (test, "duplicate key event test");
-	ret = gpm_graph_widget_key_event_add (GPM_GRAPH_WIDGET (graph), 3,
-					      EGG_COLOR_WHITE,
-					      GPM_GRAPH_WIDGET_SHAPE_DIAMOND,
-					      "white diamond");
-	if (!ret) {
-		gpm_st_success (test, "refused duplicate id");
-	} else {
-		gpm_st_failed (test, "added duplicate ID!");
-	}
-
-	gpm_graph_widget_key_event_clear (GPM_GRAPH_WIDGET (graph));
-
-	gpm_st_title_graph (test, "event items cleared, no key remains");
-	wait_for_input (test);
-
-	/********** DATA *************/
-	gpm_graph_widget_set_axis_type_x (GPM_GRAPH_WIDGET (graph), GPM_GRAPH_WIDGET_TYPE_PERCENTAGE);
-	gpm_graph_widget_set_axis_type_y (GPM_GRAPH_WIDGET (graph), GPM_GRAPH_WIDGET_TYPE_PERCENTAGE);
-
-	gpm_graph_widget_key_data_clear (GPM_GRAPH_WIDGET (graph));
-	gpm_graph_widget_key_event_clear (GPM_GRAPH_WIDGET (graph));
-	gpm_graph_widget_key_data_add (GPM_GRAPH_WIDGET (graph), EGG_COLOR_RED, "red data");
-	gpm_graph_widget_key_data_add (GPM_GRAPH_WIDGET (graph), EGG_COLOR_BLUE, "blue data");
-	gpm_graph_widget_key_event_add (GPM_GRAPH_WIDGET (graph), 0, EGG_COLOR_GREEN, GPM_GRAPH_WIDGET_SHAPE_SQUARE, "green square");
-	
-	/********** ADD INVALID DATA *************/
-	data = gpm_array_new ();
-	gpm_array_append (data, 50, 0, EGG_COLOR_RED);
-	gpm_array_append (data, 40, 100, EGG_COLOR_RED);
-	gpm_graph_widget_data_clear (GPM_GRAPH_WIDGET (graph));
-	gpm_st_title (test, "add invalid data");
-	ret = gpm_graph_widget_data_add (GPM_GRAPH_WIDGET (graph), data);
-	if (!ret) {
-		gpm_st_success (test, "ignored");
-	} else {
-		gpm_st_failed (test, "failed to ignore invalid data");
-	}
-	g_object_unref (data);
-
-	/********** ADD NO DATA *************/
-	data = gpm_array_new ();
-	gpm_st_title (test, "add zero data");
-	gpm_graph_widget_data_clear (GPM_GRAPH_WIDGET (graph));
-	ret = gpm_graph_widget_data_add (GPM_GRAPH_WIDGET (graph), data);
-	if (!ret) {
-		gpm_st_success (test, "ignored");
-	} else {
-		gpm_st_failed (test, "failed to ignore zero data");
-	}
-	g_object_unref (data);
-
-	/********** ADD VALID DATA *************/
-	data = gpm_array_new ();
-	gpm_array_append (data, 0, 0, EGG_COLOR_RED);
-	gpm_array_append (data, 100, 100, EGG_COLOR_RED);
-	gpm_st_title (test, "add valid data");
-	ret = gpm_graph_widget_data_add (GPM_GRAPH_WIDGET (graph), data);
-	if (ret) {
-		gpm_st_success (test, NULL);
-	} else {
-		gpm_st_failed (test, "failed to add valid data");
-	}
-
-	/********** SHOW VALID DATA *************/
-	gpm_st_title_graph (test, "red line shown gradient up");
-	wait_for_input (test);
-
-	/*********** second line **************/
-	data_more = gpm_array_new ();
-	gpm_array_append (data_more, 0, 100, EGG_COLOR_BLUE);
-	gpm_array_append (data_more, 100, 0, EGG_COLOR_BLUE);
-	gpm_graph_widget_data_add (GPM_GRAPH_WIDGET (graph), data_more);
-
-	gpm_st_title_graph (test, "red line shown gradient up, blue gradient down");
-	wait_for_input (test);
-
-	/*********** dots **************/
-	events = gpm_array_new ();
-	gpm_array_append (events, 25, 0, 0);
-	gpm_array_append (events, 50, 0, 0);
-	gpm_array_append (events, 75, 0, 0);
-	gpm_graph_widget_events_add (GPM_GRAPH_WIDGET (graph), events);
-
-	gpm_st_title_graph (test, "events follow red line (primary)");
-	wait_for_input (test);
-
-	/*********** stacked dots **************/
-	gpm_array_append (events, 76, 0, 0);
-	gpm_array_append (events, 77, 0, 0);
-	gpm_graph_widget_events_add (GPM_GRAPH_WIDGET (graph), events);
-
-	gpm_st_title_graph (test, "three events stacked at ~75");
-	wait_for_input (test);
-
-	/*********** events removed **************/
-	gpm_graph_widget_events_clear (GPM_GRAPH_WIDGET (graph));
-	gpm_st_title_graph (test, "events removed");
-	wait_for_input (test);
-
-	/*********** data lines removed **************/
-	gpm_graph_widget_data_clear (GPM_GRAPH_WIDGET (graph));
-	gpm_st_title_graph (test, "all lines and event removed");
-	wait_for_input (test);
-
-	g_object_unref (events);
-	g_object_unref (data);
-	g_object_unref (data_more);
-
-	/********** AUTORANGING PERCENT (close) *************/
-	gpm_graph_widget_set_axis_type_x (GPM_GRAPH_WIDGET (graph), GPM_GRAPH_WIDGET_TYPE_PERCENTAGE);
-	gpm_graph_widget_key_event_clear (GPM_GRAPH_WIDGET (graph));
-	gpm_graph_widget_key_data_clear (GPM_GRAPH_WIDGET (graph));
-	gpm_graph_widget_key_data_add (GPM_GRAPH_WIDGET (graph), EGG_COLOR_RED, "red data");
-	data = gpm_array_new ();
-	gpm_array_append (data, 0, 75, EGG_COLOR_RED);
-	gpm_array_append (data, 20, 78, EGG_COLOR_RED);
-	gpm_array_append (data, 40, 74, EGG_COLOR_RED);
-	gpm_array_append (data, 60, 72, EGG_COLOR_RED);
-	gpm_array_append (data, 80, 78, EGG_COLOR_RED);
-	gpm_array_append (data, 100, 79, EGG_COLOR_RED);
-	gpm_graph_widget_data_add (GPM_GRAPH_WIDGET (graph), data);
-	gpm_st_title_graph (test, "autorange y axis between 70 and 80");
-	wait_for_input (test);
-	g_object_unref (data);
-
-	/********** AUTORANGING PERCENT (extremes) *************/
-	data = gpm_array_new ();
-	gpm_array_append (data, 0, 6, EGG_COLOR_RED);
-	gpm_array_append (data, 100, 85, EGG_COLOR_RED);
-	gpm_graph_widget_data_clear (GPM_GRAPH_WIDGET (graph));
-	gpm_graph_widget_data_add (GPM_GRAPH_WIDGET (graph), data);
-	gpm_st_title_graph (test, "autorange y axis between 0 and 100");
-	wait_for_input (test);
-	g_object_unref (data);
-
-	/* hide window */
-	gtk_widget_hide_all (window);
-
-	gpm_st_end (test);
-}
-
-#endif
 

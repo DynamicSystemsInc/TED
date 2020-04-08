@@ -147,7 +147,7 @@ gpm_brightness_xrandr_setup_display (GpmBrightnessXRandR *brightness)
 	g_return_val_if_fail (GPM_IS_BRIGHTNESS_XRANDR (brightness), FALSE);
 
 	/* get the display */
-	brightness->priv->dpy = GDK_DISPLAY();
+	brightness->priv->dpy = GDK_DISPLAY_XDISPLAY (gdk_display_get_default());
 	if (!brightness->priv->dpy) {
 		egg_error ("Cannot open display");
 		return FALSE;
@@ -698,7 +698,7 @@ gpm_brightness_xrandr_init (GpmBrightnessXRandR *brightness)
 	display = gdk_display_get_default ();
 
 	/* as we a filtering by a window, we have to add an event type */
-	if (!XRRQueryExtension (GDK_DISPLAY(), &event_base, &ignore)) {
+	if (!XRRQueryExtension (GDK_DISPLAY_XDISPLAY (gdk_display_get_default()), &event_base, &ignore)) {
 		egg_error ("can't get event_base for XRR");
 	}
 	gdk_x11_register_standard_event_type (display, event_base, RRNotify + 1);
@@ -706,7 +706,7 @@ gpm_brightness_xrandr_init (GpmBrightnessXRandR *brightness)
 
 	/* don't abort on error */
 	gdk_error_trap_push ();
-	XRRSelectInput (GDK_DISPLAY(), GDK_WINDOW_XID (window),
+	XRRSelectInput (GDK_DISPLAY_XDISPLAY (gdk_display_get_default()), GDK_WINDOW_XID (window),
 			RRScreenChangeNotifyMask |
 			RROutputPropertyNotifyMask); /* <--- the only one we need, but see rh:345551 */
 	gdk_flush ();

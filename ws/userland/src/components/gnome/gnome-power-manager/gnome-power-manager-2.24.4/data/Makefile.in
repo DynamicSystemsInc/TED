@@ -320,7 +320,6 @@ INTLTOOL_XML_RULE = @INTLTOOL_XML_RULE@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBGLADE_REQUIRED = @LIBGLADE_REQUIRED@
-LIBGNOMEUI_REQUIRED = @LIBGNOMEUI_REQUIRED@
 LIBGNOME_REQUIRED = @LIBGNOME_REQUIRED@
 LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
@@ -822,8 +821,8 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
-@GCONF_SCHEMAS_INSTALL_FALSE@uninstall-local:
 @GCONF_SCHEMAS_INSTALL_FALSE@install-data-local:
+@GCONF_SCHEMAS_INSTALL_FALSE@uninstall-local:
 clean: clean-recursive
 
 clean-am: clean-generic clean-libtool clean-local mostlyclean-am

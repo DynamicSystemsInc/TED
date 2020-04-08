@@ -27,7 +27,6 @@
 #include <stdio.h>
 #include <time.h>
 #include <errno.h>
-#include <libgnomeui/gnome-client.h>
 
 #include <string.h>
 #include <sys/time.h>
@@ -40,10 +39,13 @@
 #include <glib/gi18n.h>
 #include <dbus/dbus-glib.h>
 #include <dbus/dbus-glib-lowlevel.h>
+#ifdef WITH_KEYRING
 #include <gnome-keyring.h>
+#endif
 
 #include <libhal-gpower.h>
 
+#undef HAVE_POLKIT
 #ifdef HAVE_POLKIT
 #include <polkit/polkit.h>
 #include <polkit-dbus/polkit-dbus.h>
@@ -299,7 +301,6 @@ gpm_control_shutdown (GpmControl *control,
 {
 	gboolean allowed;
 	gboolean ret;
-	gboolean save_session;
 
 	gpm_control_allowed_shutdown (control, &allowed, error);
 	if (allowed == FALSE) {
@@ -309,15 +310,6 @@ gpm_control_shutdown (GpmControl *control,
 			     GPM_CONTROL_ERROR_GENERAL,
 			     "Cannot shutdown");
 		return FALSE;
-	}
-
-	gpm_conf_get_bool (control->priv->conf, GPM_CONF_SESSION_REQUEST_SAVE, &save_session);
-	/* We can set g-p-m to not save the session to avoid confusing new
-	   users. By default we save the session to preserve data. */
-	if (save_session) {
-		gnome_client_request_save (gnome_master_client (),
-					   GNOME_SAVE_GLOBAL,
-					   FALSE, GNOME_INTERACT_NONE, FALSE,  TRUE);
 	}
 
 	ret = hal_gpower_shutdown (control->priv->hal_power, error);
@@ -339,7 +331,6 @@ gpm_control_reboot (GpmControl *control,
 		    GError    **error)
 {
 	gboolean allowed;
-	gboolean save_session;
 
 	gpm_control_allowed_reboot (control, &allowed, error);
 	if (allowed == FALSE) {
@@ -349,15 +340,6 @@ gpm_control_reboot (GpmControl *control,
 			     GPM_CONTROL_ERROR_GENERAL,
 			     "Cannot reboot");
 		return FALSE;
-	}
-
-	gpm_conf_get_bool (control->priv->conf, GPM_CONF_SESSION_REQUEST_SAVE, &save_session);
-	/* We can set g-p-m to not save the session to avoid confusing new
-	   users. By default we save the session to preserve data. */
-	if (save_session) {
-		gnome_client_request_save (gnome_master_client (),
-					   GNOME_SAVE_GLOBAL,
-					   FALSE, GNOME_INTERACT_NONE, FALSE,  TRUE);
 	}
 
 	return hal_gpower_reboot (control->priv->hal_power, error);
@@ -402,8 +384,10 @@ gpm_control_suspend (GpmControl *control,
 	gboolean ret;
 	gboolean do_lock;
 	gboolean nm_sleep;
+#ifdef WITH_KEYRING
 	gboolean lock_gnome_keyring;
 	GnomeKeyringResult keyres;
+#endif
 	GpmScreensaver *screensaver;
 
 	screensaver = gpm_screensaver_new ();
@@ -419,6 +403,7 @@ gpm_control_suspend (GpmControl *control,
 		return FALSE;
 	}
 
+#ifdef WITH_KEYRING
 	/* we should perhaps lock keyrings when sleeping #375681 */
 	gpm_conf_get_bool (control->priv->conf, GPM_CONF_LOCK_GNOME_KEYRING_SUSPEND, &lock_gnome_keyring);
 	if (lock_gnome_keyring) {
@@ -427,6 +412,7 @@ gpm_control_suspend (GpmControl *control,
 			egg_warning ("could not lock keyring");
 		}
 	}
+#endif
 
 	do_lock = gpm_control_get_lock_policy (control, GPM_CONF_LOCK_ON_SUSPEND);
 	if (do_lock) {
@@ -477,8 +463,10 @@ gpm_control_hibernate (GpmControl *control,
 	gboolean ret;
 	gboolean do_lock;
 	gboolean nm_sleep;
+#ifdef WITH_KEYRING
 	gboolean lock_gnome_keyring;
 	GnomeKeyringResult keyres;
+#endif
 	GpmScreensaver *screensaver;
 
 	screensaver = gpm_screensaver_new ();
@@ -495,6 +483,7 @@ gpm_control_hibernate (GpmControl *control,
 		return FALSE;
 	}
 
+#ifdef WITH_KEYRING
 	/* we should perhaps lock keyrings when sleeping #375681 */
 	gpm_conf_get_bool (control->priv->conf, GPM_CONF_LOCK_GNOME_KEYRING_HIBERNATE, &lock_gnome_keyring);
 	if (lock_gnome_keyring) {
@@ -503,6 +492,7 @@ gpm_control_hibernate (GpmControl *control,
 			egg_warning ("could not lock keyring");
 		}
 	}
+#endif
 
 	do_lock = gpm_control_get_lock_policy (control, GPM_CONF_LOCK_ON_HIBERNATE);
 	if (do_lock) {

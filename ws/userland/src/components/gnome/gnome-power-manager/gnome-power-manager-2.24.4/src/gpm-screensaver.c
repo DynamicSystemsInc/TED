@@ -29,6 +29,10 @@
 #include "gpm-conf.h"
 #include "gpm-screensaver.h"
 #include "egg-debug.h"
+#if defined(sun) && defined(__SVR4)
+#include <gtk/gtk.h>
+#include <gdk/gdk.h>
+#endif
 #include <libdbus-proxy.h>
 
 static void     gpm_screensaver_class_init (GpmScreensaverClass *klass);
@@ -239,6 +243,49 @@ gpm_screensaver_lock (GpmScreensaver *screensaver)
 	guint sleepcount = 0;
 	DBusGProxy *proxy;
 
+#if defined(sun) && defined(__SVR4)
+	GError    *error = NULL;
+	char      *command;
+	GdkScreen *screen;
+	GtkWidget *invisible;
+
+	/* As per ARC requriement, use xdg-screensaver on Solaris */
+	command = g_strdup ("/usr/bin/xdg-screensaver lock");	
+	screen = gdk_screen_get_default ();
+
+	egg_debug ("Doing xdg-screensaver lock");
+	if (! g_spawn_command_line_async (command, &error)) {
+		g_warning ("Cannot lock screen: %s", error->message);
+		g_error_free (error);
+	}
+	g_free (command);
+
+	/* Make sure screen locking takes effect until both point 
+	 * and keyboard are grabbed successfully.
+	 */
+	invisible = gtk_invisible_new_for_screen (screen);
+	gtk_widget_show (invisible);
+	while (sleepcount++ < 50) {
+		egg_debug ("Try to determine if screen lock is active!");
+		if (gdk_pointer_grab (gtk_widget_get_window(invisible), 
+				TRUE, 
+				0,
+				NULL,
+				NULL,
+				GDK_CURRENT_TIME) 
+				== GDK_GRAB_ALREADY_GRABBED 
+		   && gdk_keyboard_grab (gtk_widget_get_window(invisible), FALSE, GDK_CURRENT_TIME)
+		  		== GDK_GRAB_ALREADY_GRABBED)
+			break;
+		else {
+			gdk_pointer_ungrab (GDK_CURRENT_TIME);
+			gdk_keyboard_ungrab (GDK_CURRENT_TIME);
+		}
+		g_usleep (1000 * 100);
+	} 
+	gtk_widget_destroy (invisible);
+	egg_debug ("Screen locking is sucessful!, sleepcount = %d", sleepcount);
+#else
 	g_return_val_if_fail (GPM_IS_SCREENSAVER (screensaver), FALSE);
 
 	proxy = dbus_proxy_get_proxy (screensaver->priv->gproxy);
@@ -265,6 +312,7 @@ gpm_screensaver_lock (GpmScreensaver *screensaver)
 			break;
 		}
 	}
+#endif
 
 	return TRUE;
 }

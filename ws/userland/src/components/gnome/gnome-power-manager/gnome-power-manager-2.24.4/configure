@@ -699,7 +699,6 @@ LIBNOTIFY_REQUIRED
 LIBGLADE_REQUIRED
 DBUS_REQUIRED
 HAL_REQUIRED
-LIBGNOMEUI_REQUIRED
 LIBGNOME_REQUIRED
 GDK_REQUIRED
 GTK_REQUIRED
@@ -925,8 +924,6 @@ GLIB_CFLAGS
 GLIB_LIBS
 HAL_CFLAGS
 HAL_LIBS
-GSTREAMER_CFLAGS
-GSTREAMER_LIBS
 DBUS_CFLAGS
 DBUS_LIBS
 GNOME_CFLAGS
@@ -1641,10 +1638,6 @@ Some influential environment variables:
   GLIB_LIBS   linker flags for GLIB, overriding pkg-config
   HAL_CFLAGS  C compiler flags for HAL, overriding pkg-config
   HAL_LIBS    linker flags for HAL, overriding pkg-config
-  GSTREAMER_CFLAGS
-              C compiler flags for GSTREAMER, overriding pkg-config
-  GSTREAMER_LIBS
-              linker flags for GSTREAMER, overriding pkg-config
   DBUS_CFLAGS C compiler flags for DBUS, overriding pkg-config
   DBUS_LIBS   linker flags for DBUS, overriding pkg-config
   GNOME_CFLAGS
@@ -13019,7 +13012,7 @@ fi
 
 
 if test "$GCC" = "yes"; then
-    CPPFLAGS="$CPPFLAGS -Werror -Wcast-align -Wno-uninitialized"
+    CPPFLAGS="$CPPFLAGS -Wcast-align -Wno-uninitialized"
     CPPFLAGS="$CPPFLAGS -Wall -Wformat-security -Wno-strict-aliasing"
 fi
 
@@ -13745,11 +13738,10 @@ $as_echo "$LINGUAS" >&6; }
 
 
 GLIB_REQUIRED=2.13.0
-GTK_REQUIRED=2.11.0
-GDK_REQUIRED=2.11.0
+GTK_REQUIRED=3.0.0
+GDK_REQUIRED=3.0.0
 GNOME_KEYRING_REQUIRED=0.6.0
 LIBGNOME_REQUIRED=2.14.0
-LIBGNOMEUI_REQUIRED=2.14.0
 HAL_REQUIRED=0.5.8
 DBUS_REQUIRED=0.70
 LIBGLADE_REQUIRED=2.5.0
@@ -13758,10 +13750,11 @@ LIBWNCK_REQUIRED=2.10.0
 CAIRO_REQUIRED=1.0.0
 UNIQUE_REQUIRED=0.9.4
 LIBPANEL_REQUIRED=2.0.0
-GSTREAMER_REQUIRED=0.10
+GSTREAMER_REQUIRED=1.0
+GSTREAMER_CFLAGS=
+GSTREAMER_LIBS=
 XRANDR_REQUIRED=1.2.0
 POLKIT_GNOME_REQUIRED=0.8
-
 
 
 
@@ -13968,97 +13961,6 @@ fi
 
 
 
-pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for GSTREAMER" >&5
-$as_echo_n "checking for GSTREAMER... " >&6; }
-
-if test -n "$GSTREAMER_CFLAGS"; then
-    pkg_cv_GSTREAMER_CFLAGS="$GSTREAMER_CFLAGS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gstreamer-0.10 >= \$GSTREAMER_REQUIRED\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gstreamer-0.10 >= $GSTREAMER_REQUIRED") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_GSTREAMER_CFLAGS=`$PKG_CONFIG --cflags "gstreamer-0.10 >= $GSTREAMER_REQUIRED" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-if test -n "$GSTREAMER_LIBS"; then
-    pkg_cv_GSTREAMER_LIBS="$GSTREAMER_LIBS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gstreamer-0.10 >= \$GSTREAMER_REQUIRED\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gstreamer-0.10 >= $GSTREAMER_REQUIRED") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_GSTREAMER_LIBS=`$PKG_CONFIG --libs "gstreamer-0.10 >= $GSTREAMER_REQUIRED" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-
-
-
-if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-
-if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
-        _pkg_short_errors_supported=yes
-else
-        _pkg_short_errors_supported=no
-fi
-        if test $_pkg_short_errors_supported = yes; then
-	        GSTREAMER_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "gstreamer-0.10 >= $GSTREAMER_REQUIRED" 2>&1`
-        else
-	        GSTREAMER_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "gstreamer-0.10 >= $GSTREAMER_REQUIRED" 2>&1`
-        fi
-	# Put the nasty error message in config.log where it belongs
-	echo "$GSTREAMER_PKG_ERRORS" >&5
-
-	as_fn_error $? "Package requirements (gstreamer-0.10 >= $GSTREAMER_REQUIRED) were not met:
-
-$GSTREAMER_PKG_ERRORS
-
-Consider adjusting the PKG_CONFIG_PATH environment variable if you
-installed software in a non-standard prefix.
-
-Alternatively, you may set the environment variables GSTREAMER_CFLAGS
-and GSTREAMER_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details." "$LINENO" 5
-elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
-is in your PATH or set the PKG_CONFIG environment variable to the full
-path to pkg-config.
-
-Alternatively, you may set the environment variables GSTREAMER_CFLAGS
-and GSTREAMER_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details.
-
-To get pkg-config, see <http://pkg-config.freedesktop.org/>.
-See \`config.log' for more details" "$LINENO" 5; }
-else
-	GSTREAMER_CFLAGS=$pkg_cv_GSTREAMER_CFLAGS
-	GSTREAMER_LIBS=$pkg_cv_GSTREAMER_LIBS
-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
-
-fi
-
 
 
 
@@ -14192,31 +14094,19 @@ if test -n "$GNOME_CFLAGS"; then
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"
- libgnomeui-2.0 >= \$LIBGNOMEUI_REQUIRED
- libglade-2.0 >= \$LIBGLADE_REQUIRED
- libwnck-1.0 >= \$LIBWNCK_REQUIRED
- gtk+-2.0 >= \$GTK_REQUIRED
- gnome-keyring-1 >= \$GNOME_KEYRING_REQUIRED
- libpanelapplet-2.0 >= \$LIBPANEL_REQUIRED
+ libwnck-3.0 >= \$LIBWNCK_REQUIRED
+ gtk+-3.0 >= \$GTK_REQUIRED
  cairo >= \$CAIRO_REQUIRED\""; } >&5
   ($PKG_CONFIG --exists --print-errors "
- libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED
- libglade-2.0 >= $LIBGLADE_REQUIRED
- libwnck-1.0 >= $LIBWNCK_REQUIRED
- gtk+-2.0 >= $GTK_REQUIRED
- gnome-keyring-1 >= $GNOME_KEYRING_REQUIRED
- libpanelapplet-2.0 >= $LIBPANEL_REQUIRED
+ libwnck-3.0 >= $LIBWNCK_REQUIRED
+ gtk+-3.0 >= $GTK_REQUIRED
  cairo >= $CAIRO_REQUIRED") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_GNOME_CFLAGS=`$PKG_CONFIG --cflags "
- libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED
- libglade-2.0 >= $LIBGLADE_REQUIRED
- libwnck-1.0 >= $LIBWNCK_REQUIRED
- gtk+-2.0 >= $GTK_REQUIRED
- gnome-keyring-1 >= $GNOME_KEYRING_REQUIRED
- libpanelapplet-2.0 >= $LIBPANEL_REQUIRED
+ libwnck-3.0 >= $LIBWNCK_REQUIRED
+ gtk+-3.0 >= $GTK_REQUIRED
  cairo >= $CAIRO_REQUIRED" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
@@ -14230,31 +14120,19 @@ if test -n "$GNOME_LIBS"; then
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"
- libgnomeui-2.0 >= \$LIBGNOMEUI_REQUIRED
- libglade-2.0 >= \$LIBGLADE_REQUIRED
- libwnck-1.0 >= \$LIBWNCK_REQUIRED
- gtk+-2.0 >= \$GTK_REQUIRED
- gnome-keyring-1 >= \$GNOME_KEYRING_REQUIRED
- libpanelapplet-2.0 >= \$LIBPANEL_REQUIRED
+ libwnck-3.0 >= \$LIBWNCK_REQUIRED
+ gtk+-3.0 >= \$GTK_REQUIRED
  cairo >= \$CAIRO_REQUIRED\""; } >&5
   ($PKG_CONFIG --exists --print-errors "
- libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED
- libglade-2.0 >= $LIBGLADE_REQUIRED
- libwnck-1.0 >= $LIBWNCK_REQUIRED
- gtk+-2.0 >= $GTK_REQUIRED
- gnome-keyring-1 >= $GNOME_KEYRING_REQUIRED
- libpanelapplet-2.0 >= $LIBPANEL_REQUIRED
+ libwnck-3.0 >= $LIBWNCK_REQUIRED
+ gtk+-3.0 >= $GTK_REQUIRED
  cairo >= $CAIRO_REQUIRED") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_GNOME_LIBS=`$PKG_CONFIG --libs "
- libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED
- libglade-2.0 >= $LIBGLADE_REQUIRED
- libwnck-1.0 >= $LIBWNCK_REQUIRED
- gtk+-2.0 >= $GTK_REQUIRED
- gnome-keyring-1 >= $GNOME_KEYRING_REQUIRED
- libpanelapplet-2.0 >= $LIBPANEL_REQUIRED
+ libwnck-3.0 >= $LIBWNCK_REQUIRED
+ gtk+-3.0 >= $GTK_REQUIRED
  cairo >= $CAIRO_REQUIRED" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
@@ -14277,33 +14155,21 @@ else
 fi
         if test $_pkg_short_errors_supported = yes; then
 	        GNOME_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "
- libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED
- libglade-2.0 >= $LIBGLADE_REQUIRED
- libwnck-1.0 >= $LIBWNCK_REQUIRED
- gtk+-2.0 >= $GTK_REQUIRED
- gnome-keyring-1 >= $GNOME_KEYRING_REQUIRED
- libpanelapplet-2.0 >= $LIBPANEL_REQUIRED
+ libwnck-3.0 >= $LIBWNCK_REQUIRED
+ gtk+-3.0 >= $GTK_REQUIRED
  cairo >= $CAIRO_REQUIRED" 2>&1`
         else
 	        GNOME_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "
- libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED
- libglade-2.0 >= $LIBGLADE_REQUIRED
- libwnck-1.0 >= $LIBWNCK_REQUIRED
- gtk+-2.0 >= $GTK_REQUIRED
- gnome-keyring-1 >= $GNOME_KEYRING_REQUIRED
- libpanelapplet-2.0 >= $LIBPANEL_REQUIRED
+ libwnck-3.0 >= $LIBWNCK_REQUIRED
+ gtk+-3.0 >= $GTK_REQUIRED
  cairo >= $CAIRO_REQUIRED" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$GNOME_PKG_ERRORS" >&5
 
 	as_fn_error $? "Package requirements (
- libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED
- libglade-2.0 >= $LIBGLADE_REQUIRED
- libwnck-1.0 >= $LIBWNCK_REQUIRED
- gtk+-2.0 >= $GTK_REQUIRED
- gnome-keyring-1 >= $GNOME_KEYRING_REQUIRED
- libpanelapplet-2.0 >= $LIBPANEL_REQUIRED
+ libwnck-3.0 >= $LIBWNCK_REQUIRED
+ gtk+-3.0 >= $GTK_REQUIRED
  cairo >= $CAIRO_REQUIRED) were not met:
 
 $GNOME_PKG_ERRORS
@@ -14349,17 +14215,14 @@ if test -n "$GDK_CFLAGS"; then
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"
- gdk-2.0 >= \$GDK_REQUIRED
- gdk-x11-2.0 >= \$GDK_REQUIRED\""; } >&5
+ gdk-3.0 >= \$GDK_REQUIRED\""; } >&5
   ($PKG_CONFIG --exists --print-errors "
- gdk-2.0 >= $GDK_REQUIRED
- gdk-x11-2.0 >= $GDK_REQUIRED") 2>&5
+ gdk-3.0 >= $GDK_REQUIRED") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_GDK_CFLAGS=`$PKG_CONFIG --cflags "
- gdk-2.0 >= $GDK_REQUIRED
- gdk-x11-2.0 >= $GDK_REQUIRED" 2>/dev/null`
+ gdk-3.0 >= $GDK_REQUIRED" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
   pkg_failed=yes
@@ -14372,17 +14235,14 @@ if test -n "$GDK_LIBS"; then
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"
- gdk-2.0 >= \$GDK_REQUIRED
- gdk-x11-2.0 >= \$GDK_REQUIRED\""; } >&5
+ gdk-3.0 >= \$GDK_REQUIRED\""; } >&5
   ($PKG_CONFIG --exists --print-errors "
- gdk-2.0 >= $GDK_REQUIRED
- gdk-x11-2.0 >= $GDK_REQUIRED") 2>&5
+ gdk-3.0 >= $GDK_REQUIRED") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_GDK_LIBS=`$PKG_CONFIG --libs "
- gdk-2.0 >= $GDK_REQUIRED
- gdk-x11-2.0 >= $GDK_REQUIRED" 2>/dev/null`
+ gdk-3.0 >= $GDK_REQUIRED" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
   pkg_failed=yes
@@ -14404,19 +14264,16 @@ else
 fi
         if test $_pkg_short_errors_supported = yes; then
 	        GDK_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "
- gdk-2.0 >= $GDK_REQUIRED
- gdk-x11-2.0 >= $GDK_REQUIRED" 2>&1`
+ gdk-3.0 >= $GDK_REQUIRED" 2>&1`
         else
 	        GDK_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "
- gdk-2.0 >= $GDK_REQUIRED
- gdk-x11-2.0 >= $GDK_REQUIRED" 2>&1`
+ gdk-3.0 >= $GDK_REQUIRED" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$GDK_PKG_ERRORS" >&5
 
 	as_fn_error $? "Package requirements (
- gdk-2.0 >= $GDK_REQUIRED
- gdk-x11-2.0 >= $GDK_REQUIRED) were not met:
+ gdk-3.0 >= $GDK_REQUIRED) were not met:
 
 $GDK_PKG_ERRORS
 
@@ -15339,6 +15196,9 @@ fi
 
 
 ALL_X_LIBS="$X_LIBS $X_PRE_LIBS -lX11 $X_EXTRA_LIBS"
+CAIRO_LIBS=-L/usr/lib/amd64 -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lcairo
+GDK_LIBS=-L/usr/lib/amd64 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -lgdk_pixbuf-2.0 -lcairo-gobject -lcairo -lgobject-2.0 -lglib-2.0
+X_LIBS=-lX11
 
 SYSCONFDIR=$sysconfdir
 

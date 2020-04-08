@@ -34,7 +34,7 @@ G_BEGIN_DECLS
 #define GPM_IS_PROFILE_CLASS(k)		(G_TYPE_CHECK_CLASS_TYPE ((k), GPM_TYPE_PROFILE))
 #define GPM_PROFILE_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), GPM_TYPE_PROFILE, GpmProfileClass))
 
-#define GPM_PROFILE_GOOD_TRUST	40
+#define GPM_PROFILE_GOOD_TRUST	0
 
 typedef struct GpmProfilePrivate GpmProfilePrivate;
 

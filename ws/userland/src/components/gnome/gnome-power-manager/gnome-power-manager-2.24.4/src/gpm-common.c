@@ -316,7 +316,7 @@ gpm_help_display (char * link_id)
 	}
 
 	gscreen = gdk_screen_get_default();
-	gdk_spawn_command_line_on_screen (gscreen, command, &error);
+	g_spawn_command_line_async (command, &error);
 	if (error != NULL) {
 		GtkWidget *d;
 

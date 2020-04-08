@@ -368,7 +368,7 @@ idletime_init (LibIdletime *idletime)
 	idletime->priv->idle_counter = None;
 	idletime->priv->last_event = 0;
 	idletime->priv->sync_event = 0;
-	idletime->priv->dpy = GDK_DISPLAY ();
+	idletime->priv->dpy = GDK_DISPLAY_XDISPLAY (gdk_display_get_default());
 
 	/* get the sync event */
 	if (!XSyncQueryExtension (idletime->priv->dpy, &idletime->priv->sync_event, &sync_error)) {

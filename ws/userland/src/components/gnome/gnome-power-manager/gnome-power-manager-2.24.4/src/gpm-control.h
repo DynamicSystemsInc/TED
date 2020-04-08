@@ -74,6 +74,8 @@ typedef struct
 GQuark		 gpm_control_error_quark		(void);
 GType		 gpm_control_get_type			(void);
 GpmControl	*gpm_control_new			(void);
+gboolean	 gpm_control_is_user_privileged 	(GpmControl 	*control,
+							 const gchar 	*privilege);
 gboolean	 gpm_control_allowed_suspend		(GpmControl	*control,
 							 gboolean	*can,
 							 GError		**error);

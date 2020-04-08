@@ -38,7 +38,6 @@
 #include <gtk/gtk.h>
 #include <dbus/dbus-glib.h>
 #include <dbus/dbus-glib-lowlevel.h>
-#include <libgnomeui/gnome-client.h>
 
 #include <libhal-gpower.h>
 #include <libhal-gmanager.h>
@@ -417,6 +416,61 @@ gpm_manager_action_hibernate (GpmManager *manager, const gchar *reason)
 	return TRUE;
 }
 
+
+#define GSM_DBUS_SERVICE "org.gnome.SessionManager"
+#define GSM_DBUS_PATH "/org/gnome/SessionManager"
+#define GSM_DBUS_INTERFACE "org.gnome.SessionManager"
+
+#include <pwd.h>
+
+static gboolean
+can_shutdown ()
+{
+	uid_t uid;
+	struct passwd *pw;
+
+	uid = getuid ();                       
+	if ((pw = getpwuid (uid)) != NULL) {
+		return (gboolean)chkauthattr ("solaris.system.shutdown", pw->pw_name);
+	}
+	return FALSE;
+}
+
+/**
+ * gsm_dbus_method:
+ * @method: The g-s-m DBUS method name, e.g. "Logout" or "Shutdown"
+ **/
+static gboolean
+gpm_manager_action_interactive (GpmManager *manager)
+{
+	DBusGConnection *connection;
+	DBusGProxy *proxy;
+	GError *error = NULL;
+	
+	if (can_shutdown() == FALSE)
+		return FALSE;
+
+	connection = dbus_g_bus_get (DBUS_BUS_SESSION, &error);
+	if (connection == NULL) {
+		if (error) {
+			egg_warning ("Couldn't connect to PowerManager %s",
+				     error->message);
+			g_error_free (error);
+		}
+		return FALSE;
+	}
+
+	proxy = dbus_g_proxy_new_for_name (connection,
+					   GSM_DBUS_SERVICE,
+					   GSM_DBUS_PATH,
+					   GSM_DBUS_INTERFACE);
+	dbus_g_proxy_call_no_reply (proxy, "Shutdown", 
+				 G_TYPE_INVALID,
+				 G_TYPE_INVALID);
+	g_object_unref (proxy);
+	return TRUE;	
+}
+
 /**
  * manager_policy_do:
  * @manager: This class instance
@@ -465,9 +519,8 @@ manager_policy_do (GpmManager  *manager,
 	} else if (strcmp (action, ACTION_INTERACTIVE) == 0) {
 		gpm_info_explain_reason (manager->priv->info, GPM_EVENT_NOTIFICATION,
 					_("GNOME interactive logout."), reason);
-		gnome_client_request_save (gnome_master_client (),
-					   GNOME_SAVE_GLOBAL,
-					   TRUE, GNOME_INTERACT_ANY, FALSE, TRUE);
+		if (gpm_manager_action_interactive (manager) == FALSE)
+			egg_warning ("Couldn't ask for interactive dialog from session manager");
 	} else {
 		egg_warning ("unknown action %s", action);
 	}

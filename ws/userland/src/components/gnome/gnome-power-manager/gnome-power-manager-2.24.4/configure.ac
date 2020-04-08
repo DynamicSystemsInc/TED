@@ -22,7 +22,7 @@ dnl ---------------------------------------------------------------------------
 dnl - Extra verbose warning switches
 dnl ---------------------------------------------------------------------------
 if test "$GCC" = "yes"; then
-    CPPFLAGS="$CPPFLAGS -Werror -Wcast-align -Wno-uninitialized"
+    CPPFLAGS="$CPPFLAGS -Wcast-align -Wno-uninitialized"
     CPPFLAGS="$CPPFLAGS -Wall -Wformat-security -Wno-strict-aliasing"
 fi
 
@@ -51,11 +51,10 @@ dnl ---------------------------------------------------------------------------
 dnl - Library dependencies
 dnl ---------------------------------------------------------------------------
 GLIB_REQUIRED=2.13.0
-GTK_REQUIRED=2.11.0
-GDK_REQUIRED=2.11.0
+GTK_REQUIRED=3.0.0
+GDK_REQUIRED=3.0.0
 GNOME_KEYRING_REQUIRED=0.6.0
 LIBGNOME_REQUIRED=2.14.0
-LIBGNOMEUI_REQUIRED=2.14.0
 HAL_REQUIRED=0.5.8
 DBUS_REQUIRED=0.70
 LIBGLADE_REQUIRED=2.5.0
@@ -64,7 +63,9 @@ LIBWNCK_REQUIRED=2.10.0
 CAIRO_REQUIRED=1.0.0
 UNIQUE_REQUIRED=0.9.4
 LIBPANEL_REQUIRED=2.0.0
-GSTREAMER_REQUIRED=0.10
+GSTREAMER_REQUIRED=1.0
+GSTREAMER_CFLAGS=
+GSTREAMER_LIBS=
 XRANDR_REQUIRED=1.2.0
 POLKIT_GNOME_REQUIRED=0.8
 
@@ -75,7 +76,6 @@ AC_SUBST(GLIB_REQUIRED)
 AC_SUBST(GTK_REQUIRED)
 AC_SUBST(GDK_REQUIRED)
 AC_SUBST(LIBGNOME_REQUIRED)
-AC_SUBST(LIBGNOMEUI_REQUIRED)
 AC_SUBST(HAL_REQUIRED)
 AC_SUBST(DBUS_REQUIRED)
 AC_SUBST(LIBGLADE_REQUIRED)
@@ -99,7 +99,6 @@ PKG_CHECK_MODULES(HAL, hal >= $HAL_REQUIRED)
 AC_SUBST(HAL_CFLAGS)
 AC_SUBST(HAL_LIBS)
 
-PKG_CHECK_MODULES(GSTREAMER, gstreamer-0.10 >= $GSTREAMER_REQUIRED)
 AC_SUBST(GSTREAMER_CFLAGS)
 AC_SUBST(GSTREAMER_LIBS)
 
@@ -111,19 +110,14 @@ AC_SUBST(DBUS_CFLAGS)
 AC_SUBST(DBUS_LIBS)
 
 PKG_CHECK_MODULES(GNOME, [
- libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED
- libglade-2.0 >= $LIBGLADE_REQUIRED
- libwnck-1.0 >= $LIBWNCK_REQUIRED
- gtk+-2.0 >= $GTK_REQUIRED
- gnome-keyring-1 >= $GNOME_KEYRING_REQUIRED
- libpanelapplet-2.0 >= $LIBPANEL_REQUIRED
+ libwnck-3.0 >= $LIBWNCK_REQUIRED
+ gtk+-3.0 >= $GTK_REQUIRED
  cairo >= $CAIRO_REQUIRED])
 AC_SUBST(GNOME_CFLAGS)
 AC_SUBST(GNOME_LIBS)
 
 PKG_CHECK_MODULES(GDK, [
- gdk-2.0 >= $GDK_REQUIRED
- gdk-x11-2.0 >= $GDK_REQUIRED])
+ gdk-3.0 >= $GDK_REQUIRED])
 AC_SUBST(GDK_CFLAGS)
 AC_SUBST(GDK_LIBS)
 
@@ -139,6 +133,9 @@ AM_GCONF_SOURCE_2
 AC_PATH_XTRA
 
 ALL_X_LIBS="$X_LIBS $X_PRE_LIBS -lX11 $X_EXTRA_LIBS"
+CAIRO_LIBS=-L/usr/lib/amd64 -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lcairo
+GDK_LIBS=-L/usr/lib/amd64 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -lgdk_pixbuf-2.0 -lcairo-gobject -lcairo -lgobject-2.0 -lglib-2.0
+X_LIBS=-lX11
 
 dnl ---------------------------------------------------------------------------
 dnl - Make paths available for source files

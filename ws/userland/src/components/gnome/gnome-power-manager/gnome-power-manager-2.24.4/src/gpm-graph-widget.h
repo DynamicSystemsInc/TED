@@ -16,14 +16,14 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef __GPM_GRAPH_WIDGET_H__
 #define __GPM_GRAPH_WIDGET_H__
 
 #include <gtk/gtk.h>
-#include "gpm-array.h"
+#include "gpm-point-obj.h"
 
 G_BEGIN_DECLS
 
@@ -41,6 +41,22 @@ typedef struct GpmGraphWidgetClass	GpmGraphWidgetClass;
 typedef struct GpmGraphWidgetPrivate	GpmGraphWidgetPrivate;
 
 typedef enum {
+	GPM_GRAPH_WIDGET_TYPE_INVALID,
+	GPM_GRAPH_WIDGET_TYPE_PERCENTAGE,
+	GPM_GRAPH_WIDGET_TYPE_FACTOR,
+	GPM_GRAPH_WIDGET_TYPE_TIME,
+	GPM_GRAPH_WIDGET_TYPE_POWER,
+	GPM_GRAPH_WIDGET_TYPE_VOLTAGE,
+	GPM_GRAPH_WIDGET_TYPE_UNKNOWN
+} GpmGraphWidgetType;
+
+typedef enum {
+	GPM_GRAPH_WIDGET_PLOT_LINE,
+	GPM_GRAPH_WIDGET_PLOT_POINTS,
+	GPM_GRAPH_WIDGET_PLOT_BOTH
+} GpmGraphWidgetPlot;
+
+typedef enum {
 	GPM_GRAPH_WIDGET_SHAPE_CIRCLE,
 	GPM_GRAPH_WIDGET_SHAPE_SQUARE,
 	GPM_GRAPH_WIDGET_SHAPE_DIAMOND,
@@ -48,32 +64,15 @@ typedef enum {
 	GPM_GRAPH_WIDGET_SHAPE_LAST
 } GpmGraphWidgetShape;
 
-typedef enum {
-	GPM_GRAPH_WIDGET_TYPE_INVALID,
-	GPM_GRAPH_WIDGET_TYPE_PERCENTAGE,
-	GPM_GRAPH_WIDGET_TYPE_TIME,
-	GPM_GRAPH_WIDGET_TYPE_POWER,
-	GPM_GRAPH_WIDGET_TYPE_VOLTAGE,
-	GPM_GRAPH_WIDGET_TYPE_LAST
-} GpmGraphWidgetAxisType;
-
-/* the different kinds of dots in the key */
-typedef struct {
-	guint			 id;
-	guint32			 colour;
-	GpmGraphWidgetShape	 shape;
-	gchar			*desc;
-} GpmGraphWidgetKeyItem;
-
 /* the different kinds of lines in the key */
 typedef struct {
-	guint32			 colour;
+	guint32			 color;
 	gchar			*desc;
 } GpmGraphWidgetKeyData;
 
 struct GpmGraphWidget
 {
-	GtkDrawingArea	 parent;
+	GtkDrawingArea		 parent;
 	GpmGraphWidgetPrivate	*priv;
 };
 
@@ -85,32 +84,13 @@ struct GpmGraphWidgetClass
 GType		 gpm_graph_widget_get_type		(void);
 GtkWidget	*gpm_graph_widget_new			(void);
 
-void		 gpm_graph_widget_enable_legend		(GpmGraphWidget	*graph,
-							 gboolean	 enable);
-void		 gpm_graph_widget_enable_events		(GpmGraphWidget	*graph,
-							 gboolean	 enable);
-gboolean	 gpm_graph_widget_data_add		(GpmGraphWidget	*graph,
-							 GpmArray	*array);
-void		 gpm_graph_widget_data_clear		(GpmGraphWidget	*graph);
-void		 gpm_graph_widget_events_add		(GpmGraphWidget	*graph,
-							 GpmArray	*array);
-void		 gpm_graph_widget_events_clear		(GpmGraphWidget	*graph);
-void		 gpm_graph_widget_set_axis_type_x	(GpmGraphWidget	*graph,
-							 GpmGraphWidgetAxisType axis);
-void		 gpm_graph_widget_set_axis_type_y	(GpmGraphWidget	*graph,
-							 GpmGraphWidgetAxisType axis);
-gboolean	 gpm_graph_widget_key_data_clear	(GpmGraphWidget	*graph);
-gboolean	 gpm_graph_widget_key_data_add		(GpmGraphWidget	*graph,
-							 guint		 colour,
-							 const gchar	*desc);
-gboolean	 gpm_graph_widget_key_event_clear	(GpmGraphWidget	*graph);
-gboolean	 gpm_graph_widget_key_event_add		(GpmGraphWidget	*graph,
-							 guint		 id,
-							 guint32	 colour,
-							 GpmGraphWidgetShape shape,
-							 const gchar	*name);
-
-GpmGraphWidgetAxisType	 gpm_graph_widget_string_to_axis_type (const gchar	*type);
+gboolean	 gpm_graph_widget_data_clear		(GpmGraphWidget		*graph);
+gboolean	 gpm_graph_widget_data_assign		(GpmGraphWidget		*graph,
+							 GpmGraphWidgetPlot	 plot,
+							 GPtrArray		*array);
+gboolean	 gpm_graph_widget_key_data_add		(GpmGraphWidget		*graph,
+							 guint32		 color,
+							 const gchar		*desc);
 
 G_END_DECLS
 
