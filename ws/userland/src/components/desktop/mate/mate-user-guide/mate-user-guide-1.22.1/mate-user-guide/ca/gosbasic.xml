@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="basic-skills" xml:lang="ca">
+    <info><title>Habilitats bàsiques</title>
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Robert Antoni Buj Gelonch</db:firstname>
+      </db:personname>
+      <db:email>rbuj@fedoraproject.org</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2018</db:year>
+      
+        <db:year>2019</db:year>
+      
+      <db:holder>Robert Antoni Buj Gelonch</db:holder>
+    </db:copyright>
+  </info>
+
+<!-- Maintained for 2.8 compatibility -->
+<anchor xml:id="part1-1"/>
+<anchor xml:id="gosbasic-1"/>
+<anchor xml:id="gosbasic-46"/> <!-- was Using Windows -->
+
+<highlights>
+  <para>Aquest capítol us presenta les habilitats bàsiques que necessiteu per treballar amb l'escriptori MATE.</para>
+</highlights>
+
+<section xml:id="mouse-skills"><info><title>Habilitats amb el ratolí</title></info>
+  
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-2"/>
+
+  <indexterm><primary>habilitats bàsiques</primary> <secondary>habilitats amb el ratolí</secondary></indexterm>
+  <indexterm><primary>ratolí</primary> <secondary>habilitats bàsiques</secondary></indexterm>
+  
+  <!-- Notes for future development of the mouse section
+  Contents list:
+  * buttons
+  * click, drag, etc
+  * what you actually do with those: the concept of focus, selection, etc. 
+    basically, an introduction to the 'noun, verb' grammar of GUIs
+  * pointers
+  -->
+
+  <para>Aquesta secció descriu el que fan els botons del ratolí i el significat dels diferents punters.</para>
+
+    <para>Un ratolí és un dispositiu assenyalador que us permet moure el punter del ratolí a la pantalla. El punter del ratolí sol ser una fletxa petita amb la qual apunteu els objectes a la pantalla. En prémer un botó del ratolí, es realitzarà una acció particular sobre l'objecte sobre el qual es troba el punter del ratolí, en funció del botó que premeu.</para>
+
+  <section xml:id="mouse-conventions"><info><title>Convencions dels botons del ratolí</title><titleabbrev>Botons</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-44"/>
+
+    <indexterm><primary>ratolí</primary> <secondary>convencions dels botons</secondary></indexterm>
+
+    <para>Les instruccions d'aquest manual són per als dispositius de ratolí amb tres botons, ratolins per a dretans, el tipus més comú. Si utilitzeu un altre tipus de ratolí o dispositiu assenyalador, haureu de tenir cura de localitzar els botons corresponents al vostre ratolí. Si utilitzeu un ratolí per esquerrans, consulteu el paràgraf de sota sobre com configurar l'orientació del ratolí.</para>
+
+        <note><para>Si establiu el dispositiu del vostre ratolí com a esquerrà, heu d'invertir les convencions dels botons del ratolí utilitzades en aquest manual. Normalment, això també implica la major part de la documentació i moltes aplicacions.</para></note>
+
+    <para>En alguns ratolins els hi falta el botó central. Si teniu un dispositiu de ratolí de dos botons, el vostre sistema pot estar configurat per utilitzar la <firstterm>pressió simultània</firstterm> per permetre l'emulació del botó central. Si està habilitada la pressió simultània, premeu simultàniament els botons esquerre i dret del ratolí, per simular el botó central del ratolí. El botó central no és necessari per utilitzar MATE.</para>
+
+    <para>Les convencions dels botons del ratolí utilitzades en aquest manual són les següents:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Botó esquerre del ratolí</term>
+        <listitem><para>El botó que està al costat esquerre d'un dispositiu de ratolí. Aquest és el botó principal del ratolí, que s'utilitza per seleccionar, activar, prémer botons, etc. Quan se us indiqui que «feu clic», implica que haureu de fer clic amb el botó esquerre, tret que s'indiqui el contrari.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Botó central del ratolí</term>
+        <listitem><para>El botó central d'un dispositiu de ratolí. En molts ratolins amb una roda de desplaçament, la roda de desplaçament es pot prémer cap avall per fer un clic amb el botó central del ratolí.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Botó dret del ratolí</term>
+        <listitem><para>El botó que està al costat dret d'un dispositiu de ratolí. Sovint, aquest botó mostra un menú contextual per a l'objecte que està a sota del punter.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Utilitzeu les <application>preferències del ratolí</application> per invertir l'orientació del dispositiu del ratolí. A continuació, haureu d'invertir les convencions dels botons del ratolí utilitzades en aquest manual i en qualsevol altra documentació de MATE. Consulteu <xref linkend="prefs-mouse"/> per obtenir més informació sobre com configurar les preferències del vostre ratolí.</para>
+
+  </section>
+
+  <section xml:id="mouse-actions"><info><title>Accions del ratolí</title><titleabbrev>Accions</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-45"/>
+    <anchor xml:id="gosbasic-6"/>
+    
+    <indexterm><primary>ratolí</primary> <secondary>convencions de les accions</secondary></indexterm>
+    <indexterm><primary>ratolí</primary> <secondary>terminologia de les accions</secondary></indexterm>
+    
+    <para>Les següents convencions s'utilitzen en aquest manual per descriure les accions que preneu amb el ratolí:</para>
+    
+    <!-- convert to variablelist -->
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="36.36*"/>
+        <colspec colname="colspec1" colwidth="63.64*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Acció</para>
+            </entry>
+            <entry>
+              <para>Definició</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Fer clic</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premeu i deixeu anar el botó esquerre del ratolí sense moure el ratolí.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Fer clic amb el botó esquerre</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>El mateix que <emphasis>fer clic</emphasis>. El terme «fer clic amb el botó esquerre» s'utilitza on hi pot haver confusió amb <emphasis>fer clic amb el botó dret</emphasis>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Fer clic amb el botó central</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premeu i deixeu anar el botó central del ratolí sense moure el ratolí.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Fer clic amb el botó dret</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premeu i deixeu anar el botó dret del ratolí sense moure el ratolí.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Fer doble clic</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premeu i deixeu anar el botó esquerre del ratolí dues vegades ràpidament sense moure el ratolí. Podeu configurar la sensibilitat per fer doble clic amb el canvi de l'ajust <emphasis>temps d'espera del doble clic</emphasis>: consulteu <xref linkend="prefs-mouse"/> per obtenir més informació.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Fer clic i arrossegar</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premeu i no deixeu anar el botó esquerre del ratolí, després moveu el ratolí amb el botó encara premut, i finalment deixeu anar el botó.</para>
+                            
+              <para>Arrossegar amb el ratolí s'utilitza en molts contexts diferents. Moure un objecte al voltant de la pantalla amb el ratolí. L'objecte es <emphasis>deixa anar</emphasis> a la ubicació on es deixa de prémer el botó del ratolí. Aquesta acció també s'anomena <emphasis>arrossegar i deixar anar</emphasis>. Fer clic a un element de la interfície per moure'l de vegades es diu <emphasis>agafar</emphasis>.</para>		  
+			  
+			                
+              <para>Per exemple, podeu canviar la posició d'una finestra arrossegant-ne la barra del títol, o moure un fitxer arrossegant la seva icona des d'una finestra i deixant-la caure en una altra.</para>           
+              
+              <para>El botó esquerre del ratolí normalment s'utilitza per realitzar accions d'arrossegament, tot i que el botó central del ratolí s'utilitza de vegades per a una acció alternativa d'arrossegament.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Fer clic i mantenir premut</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premeu i no deixeu anar el botó esquerre del ratolí.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    
+    <indexterm><primary>ratolí</primary> <secondary>accions</secondary></indexterm>
+
+    <para>Podeu realitzar les accions següents amb el ratolí:</para>
+    
+    <!--
+    Problem with the word 'action' here, since it's already used
+    to describe things like click, drag, etc. Suggestion: tasks?
+    -->
+
+    <variablelist>
+      <varlistentry>
+        <term>Botó esquerre del ratolí</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>Seleccionar text.</para></listitem>
+            <listitem><para>Seleccionar elements.</para></listitem>
+            <listitem><para>Arrossegar elements.</para></listitem>
+            <listitem><para>Activar elements.</para></listitem>
+          </itemizedlist>        
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Botó central del ratolí</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>Enganxar text.</para></listitem>
+            <listitem><para>Moure elements.</para></listitem>
+            <listitem><para>Moure finestres al fons.</para></listitem>
+          </itemizedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Botó dret del ratolí</term>
+        <listitem><para>Utilitzeu el botó dret del ratolí per obrir un menú contextual per a un element, si pot aplicar al menú. Per a la majoria d'elements, també podeu utilitzar la drecera de teclat <keycombo><keycap>Maj</keycap><keycap>F10</keycap></keycombo> per obrir el menú contextual una vegada s'ha seleccionat l'element.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Per exemple, quan visualitzeu els fitxers al gestor de fitxers, seleccioneu un fitxer en fer-hi clic amb el botó esquerre del ratolí i obriu un fitxer en fer-hi doble clic amb el botó esquerre del ratolí. Fer clic amb el botó dret del ratolí farà aparèixer un menú contextual per aquest fitxer.</para>
+
+    <tip><para>En la majoria de les aplicacions, podeu seleccionar text amb el botó esquerre del ratolí i enganxar-lo a una altra aplicació mitjançant el botó central del ratolí. Això s'anomena enganxar per selecció primària i funciona per separat de les operacions normals del porta-retalls.</para></tip>
+
+    <tip><para>Per seleccionar més d'un element, podeu mantenir premuda la tecla <keycap>Ctrl</keycap> per seleccionar diversos elements o mantenir premuda la tecla <keycap>Maj</keycap> per seleccionar un interval d'elements continus. També podeu arrossegar un <firstterm>quadre delimitador</firstterm> per seleccionar diversos elements, començant l'arrossegament a l'espai buit al voltant dels elements i deixant anar el ratolí fent un rectangle.</para></tip>
+
+  </section>
+
+  <section xml:id="mouse-pointers"><info><title>Punters del ratolí</title><titleabbrev>Punters</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-7"/>
+
+    <indexterm><primary>ratolí</primary> <secondary>punters</secondary></indexterm>
+    <indexterm><primary>punters</primary> <see>punters del ratolí</see></indexterm>
+
+    <para>A mesura que utilitzeu el ratolí, pot canviar l'aparença del punter del ratolí. L'aparença del punter proporciona la retroacció sobre una operació, ubicació o estat determinat.</para>
+
+   <para>Es mostren els següents punters de ratolí a mesura que el vostre ratolí passa per damunt de diferents elements a la pantalla:</para>
+   
+   <note><para>Els puters del ratolí seran diferents dels que es mostren aquí si utilitzeu un tema de punters diferent. El vostre distribuïdor o proveïdor pot haver establert un altre tema diferent per defecte.</para></note>
+   
+   <variablelist>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/normal_pointer.png"/> </imageobject> <textobject> <phrase>Punter normal.</phrase> </textobject> </inlinemediaobject> Punter normal</term>
+        <listitem><para>Aquest punter apareix durant l'ús normal del ratolí.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/busy_pointer.png"/> </imageobject> <textobject> <phrase>Punter ocupat.</phrase> </textobject> </inlinemediaobject> Punter ocupat</term>
+        <listitem><para>Aquest punter apareix damunt d'una finestra que està ocupada realitzant una tasca. No podeu utilitzar el ratolí per donar cap entrada a aquesta finestra, però podeu anar a una altra finestra i treballar amb aquesta.</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/resize_pointer.png"/> </imageobject> <textobject> <phrase>Punter de redimensió.</phrase> </textobject> </inlinemediaobject> Punter de redimensió</term>
+        <listitem><para>Aquest punter indica que podeu agafar el control per canviar la mida de les parts de la interfície. Aquest apareix damunt de les vores de les finestres i damunt dels mànecs de canvi de mida entre els plafons en una finestra. La direcció de les fletxes indica en quina direcció es pot canviar la mida.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/hyperlink_pointer.png"/> </imageobject> <textobject> <phrase>Punter de mà</phrase> </textobject> </inlinemediaobject> Punter de mà</term>
+        <listitem><para>Aquest punter apareix quan passeu el cursor per sobre d'un <glossterm>hiperenllaç</glossterm>, per exemple en una pàgina web. Aquest punter indica que podeu fer clic a l'enllaç per carregar un document nou o realitzar una acció.</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/ibeam_pointer.png"/> </imageobject> <textobject> <phrase>Punter de biga I</phrase> </textobject> </inlinemediaobject>Punter de biga I</term>
+        <listitem><para>Aquest punter es mostra quan el ratolí està damunt del text que podeu seleccionar o editar. Feu clic per col·locar el cursor on voleu teclejar text o arrossegueu per seleccionar text.</para></listitem>
+      </varlistentry>      
+    </variablelist>      
+      
+   <para>Els següents punters de ratolí es mostren quan arrossegueu un element com ara un fitxer o un text. Indiquen el resultat de deixar de prémer el botó del ratolí per deixar anar l'objecte que es mou.</para>      
+      
+    <variablelist>      
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/move_pointer.png"/> </imageobject> <textobject> <phrase>Punter de moviment.</phrase> </textobject> </inlinemediaobject> Punter de moviment</term>
+        <listitem><para>Aquest punter indica que quan deixeu anar l'objecte, l'objecte es mou de la ubicació antiga a la nova.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/copy_pointer.png"/> </imageobject> <textobject> <phrase>Punter de còpia.</phrase> </textobject> </inlinemediaobject> Punter de còpia</term>
+        <listitem><para>Aquest punter indica que quan deixeu anar l'objecte, es crea una còpia de l'objecte on el deixeu anar.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/link_pointer.png"/> </imageobject> <textobject> <phrase>Punter d'enllaç simbòlic.</phrase> </textobject> </inlinemediaobject> Punter d'enllaç simbòlic</term>
+        <listitem><para>Aquest punter indica que quan deixeu anar l'objecte, es crea un <firstterm>enllaç simbòlic</firstterm> a l'objecte on deixeu anar l'objecte. Un enllaç simbòlic és un tipus de fitxer especial que apunta a un altre fitxer o carpeta. Per obtenir més informació sobre això, consulteu <xref linkend="caja-symlink"/>.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/ask_pointer.png"/> </imageobject> <textobject> <phrase>Punter interrogant.</phrase> </textobject> </inlinemediaobject> Punter interrogant</term>
+        <listitem><para>Aquest punter indica que quan deixeu anar l'objecte, se us donarà una opció de què fer. S'obrirà un menú que us permetrà triar quina operació voleu realitzar. Per exemple, podeu moure, copiar o crear un enllaç simbòlic.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/not_available_pointer.png"/> </imageobject> <textobject> <phrase>No hi ha disponible cap punter.</phrase> </textobject> </inlinemediaobject> No hi ha disponible cap punter</term>
+        <listitem><para>Aquest punter indica que no podeu deixar anar l'objecte a la ubicació actual. Deixar de prémer el botó del ratolí ara no tindrà cap efecte: l'objecte arrossegat tornarà a la seva ubicació inicial.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/move_panel_object_pointer.png"/> </imageobject> <textobject> <phrase>Punter de moviment d'un objecte del tauler.</phrase> </textobject> </inlinemediaobject> Punter de moviment d'un objecte del tauler</term>
+        <listitem><para>Aquest punter apareix quan arrossegueu un tauler o un objecte del tauler amb el botó central del ratolí. Consulteu <xref linkend="panels"/> per a més informació sobre els taulers.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/movewindow_pointer.png"/> </imageobject> <textobject> <phrase>Punter de moviment d'una finestra.</phrase> </textobject> </inlinemediaobject> Punter de moviment d'una finestra</term>
+        <listitem><para>Aquest punter apareix quan arrossegueu una finestra per moure-la. Consulteu <xref linkend="windows-manipulating"/> per obtenir més informació sobre el moviment de finestres.</para></listitem>
+      </varlistentry>
+
+    </variablelist>
+  </section>
+</section>
+
+<section xml:id="keyboard-skills"><info><title>Habilitats amb el teclat</title></info>
+  
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-51"/>
+
+  <indexterm><primary>habilitats bàsiques</primary> <secondary>habilitats amb el teclat</secondary></indexterm>
+  <indexterm><primary>teclat</primary> <secondary>habilitats bàsiques</secondary></indexterm>
+
+  <para>Per a gairebé totes les tasques que podeu realitzar amb el ratolí, podeu utilitzar el teclat per realitzar la mateixa tasca. Les <firstterm>tecles de dreceres</firstterm> són les tecles que us proporcionen una manera ràpida de realitzar una tasca.</para>
+
+  <para>Podeu utilitzar les tecles de drecera per realitzar tasques generals d'escriptori MATE i treballar amb elements de la interfície, com ara taulers i finestres. També podeu utilitzar les tecles de drecera a les aplicacions. Per personalitzar les tecles de drecera, utilitzeu l'eina de preferències de <application>Dreceres de teclat</application>. Consulteu <xref linkend="prefs-keyboard-shortcuts"/> per obtenir més informació sobre com configurar les dreceres de teclat.</para>
+
+  <note><para>Molts teclats d'ordinadors personals vénen amb dues tecles especials per al sistema operatiu Windows: una tecla amb el logotip de Microsoft Windows™ i una tecla per accedir als menús contextuals.</para>
+  <para>A MATE, la tecla Windows sovint està configurada per actuar com una tecla modificadora addicional, anomenada la <firstterm>tecla súper</firstterm>. La tecla del menú contextual es pot utilitzar per accedir al menú contextual de l'element seleccionat, tal com ho pot fer la drecera de teclat <keycombo><keycap>Maj</keycap><keycap>F10</keycap></keycombo>.</para></note>
+
+  <para>També podeu modificar les preferències de l'escriptori de MATE per utilitzar les funcions d'accessibilitat del teclat. Consulteu <xref linkend="prefs-keyboard-a11y"/> per obtenir més informació sobre les funcions d'accessibilitat del teclat.</para>
+
+  <para>Les seccions següents descriuen les tecles de drecera que podeu utilitzar en l'escriptori i en les aplicacions.</para>
+
+  <section xml:id="shortcuts-global"><info><title>Tecles de dreceres globals</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-62"/>
+
+    <indexterm><primary>tecles de drecera</primary> <secondary>global</secondary></indexterm>
+
+    <para>Les tecles de dreceres globals us permeten utilitzar el teclat per realitzar tasques relacionades amb el vostre escriptori, en lloc de fer tasques a la finestra o aplicació seleccionada actualment. La taula següent mostra algunes de les tecles de dreceres globals:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Tecles de la drecera</para>
+            </entry>
+            <entry>
+              <para>Funció</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F1</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Obre el <guimenu>Menú Aplicacions</guimenu>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F2</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Mostra el diàleg <guilabel>Executa una aplicació</guilabel>. Consulteu <xref linkend="tools-run-app"/> per obtenir més informació.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Impr. Pant.</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Fa una captura de pantalla de tot l'escriptori. Consulteu <xref linkend="tools-screenshot"/> per obtenir més informació.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Impr. Pant.</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Fa una captura de pantalla de la finestra que actualment té el focus.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>Tecles de fletxes</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Canvia d'espai de treball en funció de la direcció especificada vers l'espai de treball actual. Consulteu <xref linkend="overview-workspaces"/> per obtenir més informació sobre com treballar amb múltiples espais de treball.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>D</keycap></keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Minimitza totes les finestres i entrega el focus a l'escriptori.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Tab</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Canvia entre finestres. Es visualitza una llista de finestres que podeu seleccionar. Deixeu de prémer les tecles per seleccionar una finestra. Podeu prémer la tecla <keycap>Maj</keycap> per recórrer les finestres en ordre invers.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>Tab</keycap></keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Canvia el focus entre els taulers i l'escriptori. Es visualitza una llista d'elements que podeu seleccionar. Deixeu de prémer les tecles per seleccionar un element. Podeu prémer la tecla <keycap>Maj</keycap> per recórrer els elements en ordre invers.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-window"><info><title>Tecles de dreceres de finestres</title></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-58"/>
+
+    <indexterm><primary>tecles de drecera</primary> <secondary>finestra</secondary></indexterm>
+
+    <para>Les tecles de dreceres de finestres us permeten utilitzar el teclat per realitzar tasques a la finestra que té actualment el focus. A la taula següent es llisten algunes de les tecles de dreceres de finestres:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Tecles de la drecera</para>
+            </entry>
+            <entry>
+              <para>Funció</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Tab</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Canvia entre finestres. Es visualitza una llista de finestres que podeu seleccionar. Deixeu de prémer les tecles per seleccionar una finestra. Podeu prémer la tecla <keycap>Maj</keycap> per recórrer les finestres en ordre invers.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F4</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Tanca la finestra que té actualment el focus.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F5</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Desmaximitza la finestra actual, si està maximitzada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F7</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Mou la finestra que té actualment el focus. Després de prémer aquesta drecera, podeu moure la finestra amb el ratolí o amb les tecles de fletxes. Per finalitzar el moviment, feu clic amb el ratolí o premeu qualsevol tecla del teclat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F8</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Canvia la mida de la finestra que té actualment el focus. Després de prémer aquesta drecera, podeu canviar la mida de la finestra amb el ratolí o amb les tecles de fletxes. Per finalitzar el canvi de mida, feu clic amb el ratolí o premeu qualsevol tecla del teclat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F9</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Minimitza la finestra actual.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F10</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Maximitza la finestra actual.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Espai</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Obre el menú de la finestra per a la finestra seleccionada actualment. El menú de la finestra us permet realitzar accions a la finestra, com ara minimitzar-la, moure-la entre espais de treball i tancar-la.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Maj</keycap><keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>Tecles de fletxes</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Mou la finestra actual a un altre espai de treball a la direcció especificada. Consulteu <xref linkend="overview-workspaces"/> per obtenir més informació sobre com treballar amb diversos espais de treball.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-apps"><info><title>Tecles de les aplicacions</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-59"/>
+    <anchor xml:id="gosbasic-61"/> <!-- was Panel Shortcut Keys -->
+
+    <indexterm><primary>tecles de drecera</primary> <secondary>aplicació</secondary></indexterm>
+
+    <para>Les tecles de dreceres de les aplicacions us permeten realitzar tasques a l'aplicació. Podeu utilitzar les tecles de dreceres per realitzar tasques a l'aplicació més ràpid que si utilitzeu un ratolí per fer-les. A la taula següent es mostren algunes de les tecles de dreceres de les aplicacions més comunes:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Tecles de la drecera</para>
+            </entry>
+            <entry>
+              <para>Acció</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>N</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Crea un document nou o una finestra nova.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>X</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Retalla el text seleccionat o la regió seleccionada i ho col·loca al porta-retalls.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>C</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Copia el text seleccionat o la regió al porta-retalls.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>V</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Enganxa el contingut del porta-retalls.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Z</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Desfés l'última acció.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>S</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Desa el document actual al disc.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycap>F1</keycap></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Carrega el document d'ajuda en línia per a l'aplicació.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+
+    <para>A més d'aquestes tecles de drecera, totes les aplicacions admeten un conjunt de tecles per navegar i treballar amb la interfície d'usuari. Aquestes tecles us permeten realitzar operacions que normalment podeu fer amb un ratolí. La taula següent descriu algunes de les tecles de control de la interfície:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Tecles</para>
+            </entry>
+            <entry>
+              <para>Acció</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Tecles de fletxes o <keycap>Tab</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Mou entre els controls a la interfície o els elements a una llista.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Retorn</keycap> o <keycap>Espai</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Activa o tria l'element seleccionat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>F10</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Activa el menú de la part esquerra de la finestra de l'aplicació.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Maj</keycap><keycap>F10</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Activa el menú contextual per a l'element seleccionat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Esc</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Tanca un menú sense seleccionar cap element del menú o cancel·la una operació d'arrossegament.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-access"><info><title>Tecles d'accés</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-63"/>
+
+    <indexterm><primary>tecles d'accés</primary></indexterm>
+
+    <para>Una <firstterm>barra de menús</firstterm> és una barra que està a la part superior d'una finestra que conté els menús de l'aplicació. Una<firstterm>tecla d'accés</firstterm> és una lletra subratllada en una barra de menús, menú o diàleg, que podeu utilitzar per realitzar una acció. A la barra de menús, la tecla d'accés està subratllada per a cadascun dels menús.</para>
+
+    <para>Per obrir un menú, manteniu premuda la tecla <keycap>Alt</keycap>, després premeu la tecla d'accés. Al menú, la tecla d'accés està subratllada per a cadascun dels elements del menú. Per seleccionar un element del menú quan es mostra un menú, només cal que premeu la tecla d'accés per a l'element del menú.</para>
+
+    <para>Per exemple, per obrir una finestra nova a l'aplicació <application>Ajuda</application>, premeu <keycombo><keycap>Alt</keycap><keycap>F</keycap></keycombo> per obrir el menú <guimenu>Fitxer</guimenu>, després premeu <keycap>N</keycap> per activar l'element del menú <guimenuitem>Finestra nova</guimenuitem>.</para>
+
+    <para>També podeu utilitzar les tecles d'accés per accedir als elements d'un diàleg. En un quadre de diàleg, està subratllada una de les lletres dels elements del diàleg. Per accedir a un element concret del diàleg, manteniu premuda la tecla <keycap>Alt</keycap>, i després premeu la tecla d'accés.</para>
+  </section>
+</section>
+
+</chapter>

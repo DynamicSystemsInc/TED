@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="basic-skills" xml:lang="pt">
+    <info><title>Conhecimentos Mínimos</title></info>
+
+<!-- Maintained for 2.8 compatibility -->
+<anchor xml:id="part1-1"/>
+<anchor xml:id="gosbasic-1"/>
+<anchor xml:id="gosbasic-46"/> <!-- was Using Windows -->
+
+<highlights>
+  <para>Este capítulo apresenta-lhe os conhecimentos mínimos que necessita para trabalhar no Ambiente de Trabalho MATE.</para>
+</highlights>
+
+<section xml:id="mouse-skills"><info><title>Conhecimentos de Utilização do Rato</title></info>
+  
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-2"/>
+
+  <indexterm><primary>conhecimentos básicos</primary> <secondary>conhecimentos de utilização do rato</secondary></indexterm>
+  <indexterm><primary>rato</primary> <secondary>conhecimentos básicos</secondary></indexterm>
+  
+  <!-- Notes for future development of the mouse section
+  Contents list:
+  * buttons
+  * click, drag, etc
+  * what you actually do with those: the concept of focus, selection, etc. 
+    basically, an introduction to the 'noun, verb' grammar of GUIs
+  * pointers
+  -->
+
+  <para>Esta secção descreve o que fazem os vários botões do rato, e o que significa cada ponteiro diferente.</para>
+
+    <para>Um rato é um dispositivo que lhe permite mover um ponteiro (ou cursor) no ecrã. O ponteiro do rato é normalmente representado por uma pequena seta com a qual aponta sobre os objetos no seu ecrã. Ao premir um botão do rato irá realizar uma ação específica com o objeto sobre o qual o ponteiro do rato se encontra, dependendo a ação de qual botão do rato premiu.</para>
+
+  <section xml:id="mouse-conventions"><info><title>Convenções de Botões do Rato</title><titleabbrev>Botões</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-44"/>
+
+    <indexterm><primary>rato</primary> <secondary>convenções de botões</secondary></indexterm>
+
+    <para>As instruções neste manual são para dispositivos de ratos de 3 botões de destros, o tipo mais comum. Se utiliza outro tipo de rato ou dispositivo apontador, deve ter em conta os botões correspondentes no seu dispositivo. Se utiliza ou rato para canhotos, veja o parágrafo abaixo para configurar a orientação do rato.</para>
+
+        <note><para>Se configurar o rato para canhotos, deve inverter as convenções de botões do rato utilizadas neste manual. Isto também é normalmente implícito na maioria da documentação em muitas aplicações.</para></note>
+
+    <para>Alguns ratos não possuem um botão do meio. Caso possua um rato de dois botões, provavelmente o seu sistema estará configurado para utilizar <firstterm>combinações</firstterm> permitindo simular o botão do meio. Se combinações estiverem ativas, deverá premir os botões esquerdo e direito simultaneamente, assim simulando o botão do meio do rato. Note-se que a inexistência do botão do meio não limita de forma alguma a utilização do MATE.</para>
+
+    <para>As convenções de botões do rato utilizadas neste manual são as seguintes:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Botão esquerdo do rato</term>
+        <listitem><para>O botão no lado esquerdo do rato. Este é o botão principal do rato, utilizado para selecionar, ativar, premir botões, etc... Quando lhe é dito para "clicar" está implícito que deverá clicar utilizando o botão esquerdo do rato, exceto se especificamente instruído em contrário.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Botão do meio do rato</term>
+        <listitem><para>O botão do meio do rato. Na maioria dos ratos com uma roda, a roda pode ser pressionada para executar o clique correspondente ao botão do meio do rato.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Botão direito do rato</term>
+        <listitem><para>O botão do lado direito do rato. A maior parte das vezes, este botão apresenta um menu de contexto relativo ao objeto sobre o qual se encontra o ponteiro.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Utilize as <application>Preferências do Rato</application> para inverter a orientação do seu rato. Terá depois de inverter as convenções de botões do rato utilizadas neste manual e na restante documentação do MATE. Consulte <xref linkend="prefs-mouse"/> para mais informações sobre como definir as suas preferências do rato.</para>
+
+  </section>
+
+  <section xml:id="mouse-actions"><info><title>Ações com o Rato</title><titleabbrev>Ações</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-45"/>
+    <anchor xml:id="gosbasic-6"/>
+    
+    <indexterm><primary>rato</primary> <secondary>convenções de ação</secondary></indexterm>
+    <indexterm><primary>rato</primary> <secondary>terminologia de ação</secondary></indexterm>
+    
+    <para>As seguintes convenções são utilizadas neste manual para descrever ações que pode executar com o rato:</para>
+    
+    <!-- convert to variablelist -->
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="36.36*"/>
+        <colspec colname="colspec1" colwidth="63.64*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Ação</para>
+            </entry>
+            <entry>
+              <para>Definição</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Clicar</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premir e largar o botão esquerdo do rato, sem mover o rato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Clique com o botão esquerdo</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>O mesmo que <emphasis>clicar</emphasis>. O termo 'clicar com o (botão) esquerdo' é utilizado em situações em que possa haver confusão com o <emphasis>clicar com o (botão) direito</emphasis>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Clique com o botão do meio</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premir e largar o botão do meio do rato, sem mover o rato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Clique com o botão direito</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premir e largar o botão direito do rato, sem mover o rato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Clique-duplo</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premir e largar o botão esquerdo do rato duas vezes numa sucessão rápida sem mover o rato. Pode configurar a sensibilidade do clique-duplo alterando a definição de <emphasis>Expiração de Clique-Duplo</emphasis>: consulte <xref linkend="prefs-mouse"/> para mais informações.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Clicar-e-arrastar</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premir e não largar o botão esquerdo do rato, depois mover o rato mantendo o botão premido, e finalmente largar o botão.</para>
+                            
+              <para>Arrastar com o rato é utilizado em vários contextos diferentes. Isto move um objeto no ecrã com o rato. O objeto é <emphasis>largado</emphasis> na localização quando o botão do rato é largado. Também se chama a esta opção <emphasis>arrastar e largar</emphasis>. Clicar num elemento da interface para o mover é chamado por vezes de <emphasis>agarrar</emphasis>.</para>		  
+			  
+			                
+              <para>Por exemplo, pode alterar a posição de uma janela clicando e arrastando a barra de título, ou mover um ficheiro arrastando o seu ícone de uma janela e largando-o noutra.</para>           
+              
+              <para>O botão esquerdo do rato é normalmente utilizado para realizar ações de arrastar, ainda que por vezes o botão do meio do rato também é utilizado para uma ação de arrastar alternativa.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Clicar e manter</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premir mas não largar o botão esquerdo do rato.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    
+    <indexterm><primary>rato</primary> <secondary>ações</secondary></indexterm>
+
+    <para>Pode realizar as seguintes ações com o rato:</para>
+    
+    <!--
+    Problem with the word 'action' here, since it's already used
+    to describe things like click, drag, etc. Suggestion: tasks?
+    -->
+
+    <variablelist>
+      <varlistentry>
+        <term>Botão esquerdo do rato</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>Selecionar texto.</para></listitem>
+            <listitem><para>Selecionar itens.</para></listitem>
+            <listitem><para>Arrastar itens.</para></listitem>
+            <listitem><para>Ativar itens.</para></listitem>
+          </itemizedlist>        
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Botão do meio do rato</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>Colar texto.</para></listitem>
+            <listitem><para>Mover itens.</para></listitem>
+            <listitem><para>Mover janelas para trás.</para></listitem>
+          </itemizedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Botão direito do rato</term>
+        <listitem><para>Utilize o botão direito do rato para abrir o menu de contexto de um item, caso um menu seja aplicável. Para a maioria dos itens, pode também utilizar o atalho de teclado <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo> para abrir o menu de contexto, após o item estar selecionado.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Por exemplo, quando se estão a visualizer ficheiros no gestor de ficheiros, pode selecionar um ficheiro clicando neste com o botão esquerdo do rato e abrir o ficheiro executando um clique-duplo com o botão esquerdo do rato. Se clicar com o botão direito do rato será aberto um menu de contexto para esse ficheiro.</para>
+
+    <tip><para>Na maioria das situações, pode selecionar texto utilizando o botão esquerdo do rato e colá-lo noutra aplicação utilizando o botão do meio. Isto é designado por colagem da seleção primária e funciona de forma independente das operações com a área de transferência.</para></tip>
+
+    <tip><para>Para selecionar mais do que um item, pode manter premida a tecla <keycap>Ctrl</keycap> para selecionar múltiplos itens, ou manter premida a tecla <keycap>Shift</keycap> para selecionar um intervalo de itens. Pode também arrastar uma <firstterm>caixa delimitadora</firstterm> para selecionar vários itens, iniciando um processo de arrastar clicando num espaço vazio e arrastando um retângulo sobre os itens a selecionar.</para></tip>
+
+  </section>
+
+  <section xml:id="mouse-pointers"><info><title>Ponteiros do Rato</title><titleabbrev>Ponteiros</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-7"/>
+
+    <indexterm><primary>rato</primary> <secondary>ponteiros</secondary></indexterm>
+    <indexterm><primary>ponteiros</primary> <see>ponteiros do rato</see></indexterm>
+
+    <para>Ao utilizar o rato, a aparência do ponteiro (ou cursor) do rato pode alterar-se. A aparência do ponteiro dá indicação sobre uma operação, localização ou estado específico.</para>
+
+   <para>Os seguintes ponteiros de rato são apresentados quando o seu rato se encontra sobre diferentes elementos do ecrã:</para>
+   
+   <note><para>Se usar um tema de ponteiros diferente, os ponteiros que irá usar serão diferentes dos mostrados aqui. A distribuição pode vir com um tema pré-definido diferente.</para></note>
+   
+   <variablelist>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/normal_pointer.png"/> </imageobject> <textobject> <phrase>Ponteiro normal.</phrase> </textobject> </inlinemediaobject> Ponteiro normal</term>
+        <listitem><para>Este ponteiro é visível durante a utilização normal do rato.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/busy_pointer.png"/> </imageobject> <textobject> <phrase>Ponteiro em espera.</phrase> </textobject> </inlinemediaobject> Ponteiro em espera</term>
+        <listitem><para>Este ponteiro é visivel quando se encontra sobre uma janela que está ocupada a realizar uma tarefa. Não poderá utilizar o rato para transmitir qualquer comando a esta janela, mas pode movê-lo sobre outra janela e trabalhar nessa.</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/resize_pointer.png"/> </imageobject> <textobject> <phrase>Ponteiro de redimensionar.</phrase> </textobject> </inlinemediaobject> Ponteiro de redimensionar</term>
+        <listitem><para>Este ponteiro indica que pode agarrar no controlo para redimensionar partes do interface. Este surge sobre as margens das janelas e sobre manípulos de redimensionamento entre painéis numa janela. A direção das setas indica em que direção pode redimensionar.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/hyperlink_pointer.png"/> </imageobject> <textobject> <phrase>Ponteiro 'mão'</phrase> </textobject> </inlinemediaobject> Ponteiro 'mão'</term>
+        <listitem><para>Este ponteiro é visível quando o rato paira sobre um <glossterm>link</glossterm>, numa página web por exemplo. Este ponteiro indica que pode clicar no link para ler um novo documento ou realizar uma ação.</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/ibeam_pointer.png"/> </imageobject> <textobject> <phrase>Ponteiro de barra em I</phrase> </textobject> </inlinemediaobject> Ponteiro de barra em I</term>
+        <listitem><para>Este ponteiro é visível quando o rato se encontra sobre texto que pode selecionar ou editar. Clique para colocar o cursor no local onde desejar introduzir o texto, ou arraste para selecionar texto.</para></listitem>
+      </varlistentry>      
+    </variablelist>      
+      
+   <para>Os seguintes ponteiros do rato são visíveis quando se arrasta um item tal como um ficheiro ou um pedaço de texto. Indicam o resultado de largar o botão do rato para largar o objeto que está a ser movido.</para>      
+      
+    <variablelist>      
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/move_pointer.png"/> </imageobject> <textobject> <phrase>Ponteiro de mover.</phrase> </textobject> </inlinemediaobject> Ponteiro de mover</term>
+        <listitem><para>Este ponteiro indica que quando largar o objeto, este será movido da sua localização antiga para a nova localização.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/copy_pointer.png"/> </imageobject> <textobject> <phrase>Ponteiro de copiar.</phrase> </textobject> </inlinemediaobject> Ponteiro de copiar</term>
+        <listitem><para>Este ponteiro indica que quando largar o objeto, será criada uma cópia do mesmo no local onde o largar.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/link_pointer.png"/> </imageobject> <textobject> <phrase>Ponteiro de atalho simbólico.</phrase> </textobject> </inlinemediaobject> Symbolic link pointer</term>
+        <listitem><para>Este ponteiro indica que quando largar o objeto, será criado um <firstterm>atalho (ou ligação simbólica)</firstterm> para este no local onde o largar. Um atalho é um tipo especial de ficheiro que aponta para outro ficheiro ou pasta. Para mais informações sobre isto, consulte <xref linkend="caja-symlink"/>.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/ask_pointer.png"/> </imageobject> <textobject> <phrase>Ponteiro de perguntar.</phrase> </textobject> </inlinemediaobject> Ask pointer</term>
+        <listitem><para>Este ponteiro indica que quando largar o objeto, ser-lhe-á questionado o que deseja fazer. Será aberto um menu que lhe permitirá selecionar que ação realizar. Por exemplo, poderá selecionar de entre mover, copiar ou criar um atalho.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/not_available_pointer.png"/> </imageobject> <textobject> <phrase>Ponteiro de indisponibilidade.</phrase> </textobject> </inlinemediaobject> Ponteiro de indisponibilidade</term>
+        <listitem><para>Este ponteiro indica que não pode largar o objeto na localização atual. Largar o botão do rato não terá qualquer efeito: o objeto arrastado voltará para a sua localização inicial.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/move_panel_object_pointer.png"/> </imageobject> <textobject> <phrase>Ponteiro de mover objeto do painel.</phrase> </textobject> </inlinemediaobject> Ponteiro de mover objeto do painel</term>
+        <listitem><para>Este ponteiro é visível quando arrasta um painel ou um objeto de painel com o botão do meio do rato. Consulte <xref linkend="panels"/> para mais informação sobre painéis.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/movewindow_pointer.png"/> </imageobject> <textobject> <phrase>Ponteiro de mover janela.</phrase> </textobject> </inlinemediaobject> Ponteiro de mover janela</term>
+        <listitem><para>Este ponteiro é visível quando arrasta uma janela para a mover. Consulte <xref linkend="windows-manipulating"/> para mais informação sobre mover janelas.</para></listitem>
+      </varlistentry>
+
+    </variablelist>
+  </section>
+</section>
+
+<section xml:id="keyboard-skills"><info><title>Conhecimentos de Utilização do Teclado</title></info>
+  
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-51"/>
+
+  <indexterm><primary>conhecimentos básicos</primary> <secondary>conhecimentos de utilização do teclado</secondary></indexterm>
+  <indexterm><primary>teclado</primary> <secondary>conhecimentos básicos</secondary></indexterm>
+
+  <para>Quase todas as tarefas que pode realizar com o rato podem também ser realizadas utilizando o teclado. <firstterm>Teclas de atalho</firstterm> são teclas que lhe oferecem uma forma rápida de realizar uma tarefa.</para>
+
+  <para>Pode utilizar teclas de atalho para realizar tarefas gerais do Ambiente de Trabalho MATE e para trabalhar com os itens do interface tais como painéis e janelas. Pode também utilizar os atalhos de teclado nas aplicações. Para personalizar as suas teclas de atalho, utilize a ferramenta de preferências de <application>Atalhos de Teclado</application>. Consulte <xref linkend="prefs-keyboard-shortcuts"/> para mais informações sobre como configurar atalhos de teclado.</para>
+
+  <note><para>A maioria dos teclados de PC vêm com duas teclas especiais para o sistema operativo Windows: uma tecla com o logotipo do Microsoft Windows™ e uma tecla para aceder aos menus de contexto.</para>
+  <para>No MATE, a tecla Windows é muitas vezes configurada para servir como uma tecla modificadora adicional, denominada <firstterm>tecla Super</firstterm>. A tecla de menu de contexto pode ser utilizada para aceder ao menu de contexto do item selecionado, tal como o pode o atalho de teclado <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>.</para></note>
+
+  <para>Pode também alterar as preferências do Ambiente de Trabalho MATE para utilizar funcionalidades de acessibilidade de teclado. Consulte <xref linkend="prefs-keyboard-a11y"/> para mais informações sobre as funcionalidades de acessibilidade de teclado.</para>
+
+  <para>A secção seguinte descreve as teclas de atalho que pode utilizar em todo o ambiente de trabalho e aplicações.</para>
+
+  <section xml:id="shortcuts-global"><info><title>Teclas de Atalho Globais</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-62"/>
+
+    <indexterm><primary>teclas de atalho</primary> <secondary>global</secondary></indexterm>
+
+    <para>Teclas de atalho globais permitem-lhe utilizar o teclado para realizar tarefas relacionadas com o ambiente de trabalho, e não tarefas na janela ou aplicação atualmente selecionada. A tabela seguinte lista algumas das teclas de atalho globais:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Tecla de Atalho</para>
+            </entry>
+            <entry>
+              <para>Função</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F1</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Abre o <guimenu>Menu de Aplicações</guimenu>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F2</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Abre o diálogo de <guilabel>Executar Aplicação</guilabel>. Consulte <xref linkend="tools-run-app"/> para mais informações.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Print Screen</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Realiza uma captura de ecrã da totalidade da área de trabalho. Consulte <xref linkend="tools-screenshot"/> para mais informações.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Print Screen</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Realiza uma captura de ecrã da janela que tem o foco.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>Teclas de seta</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Alternar para a área de trabalho ao lado especificado pela seta da área de trabalho atual. Consulte <xref linkend="overview-workspaces"/> para mais informações sobre trabalhar com múltiplas áreas de trabalho.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>D</keycap></keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Minimiza todas as janelas e coloca o foco na área de trabalho.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Tab</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Alterna entre janelas. É apresentada uma lista de janelas que pode selecionar. Solte as teclas para selecionar uma janela. Pode premir a tecla <keycap>Shift</keycap> para ciclar entre as janelas em ordem inversa.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>Tab</keycap></keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Alterna o foco entre os painéis e a área de trabalho. É apresentada uma lista dos itens que pode selecionar. Solte as teclas para selecionar um item. Pode premir a tecla <keycap>Shift</keycap> para ciclar entre os itens em ordem inversa.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-window"><info><title>Teclas de Atalho da Janela</title></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-58"/>
+
+    <indexterm><primary>teclas de atalho</primary> <secondary>janela</secondary></indexterm>
+
+    <para>Teclas de atalho da janela permitem-lhe utilizar o teclado para realizar tarefas sobre a janela com o foco. A seguinte tabela lista algumas teclas de atalho de janelas:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Tecla de Atalho</para>
+            </entry>
+            <entry>
+              <para>Função</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Tab</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Alterna entre janelas. É apresentada uma lista de janelas que pode selecionar. Solte as teclas para selecionar uma janela. Pode premir a tecla <keycap>Shift</keycap> para ciclar entre as janelas em ordem inversa.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F4</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Fechar a janela que tem o foco.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F5</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Restaurar a dimensão da janela atual, se esta estiver maximizada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F7</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Mover a janela com o foco. Spós premir este atalho, pode mover a janela utilizando o rato ou as teclas de setas. Para terminar a movimentação, clique com o rato ou prima uma qualquer tecla.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F8</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Redimensione a janela atualmente focalizada. Depois de pressionar este atalho, pode redimensionar a janela usando o rato ou as teclas de seta. Para terminar o redimensionamento, clique com o rato ou pressione qualquer tecla no teclado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F9</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Minimizar a janela atual.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F10</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Maximizar a janela atual.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>tecla/barra de espaço</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Abre o menu de janela da janela atualmente selecionada. O menu de janela permite-lhe realizar ações sobre a janela, tais como minimizar, mover entre áreas de trabalho e fechar.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>Teclas de seta</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Mover a janela atual para outra área de trabalho na direção especificada. Consulte <xref linkend="overview-workspaces"/> para mais informação sobre a utilização de múltiplas áreas de trabalho.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-apps"><info><title>Teclas de Aplicação</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-59"/>
+    <anchor xml:id="gosbasic-61"/> <!-- was Panel Shortcut Keys -->
+
+    <indexterm><primary>teclas de atalho</primary> <secondary>aplicação</secondary></indexterm>
+
+    <para>Teclas de atalho de aplicação permitem-lhe realizar tarefas nas aplicações. Pode utilizar teclas de atalho para realizar tarefas nas aplicações mais rapidamente do que utilizando um rato. A tabela seguinte lista algumas das teclas de atalho de aplicações mais comuns:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Tecla de Atalho</para>
+            </entry>
+            <entry>
+              <para>Ação</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>N</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Criar um novo documento ou janela.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>X</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Cortar o texto ou região selecionado e colocá-lo na área de transferência.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>C</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Copiar o texto ou região selecionado para a área de transferência.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>V</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Colar o conteúdo da área de transferência.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Z</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Desfazer a última ação.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>S</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Gravar o documento atual no disco.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycap>F1</keycap></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Ler o documento eletrónico de ajuda da aplicação.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+
+    <para>Para além destas teclas de atalho, todas as aplicações suportam um conjunto de teclas para navegar e trabalhar com o interface de utilização. Estas teclas permitem-lhe realizar operações que normalmente realizaria com um rato. A tabela seguinte descreve algumas teclas de controlo do interface:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Teclas</para>
+            </entry>
+            <entry>
+              <para>Ação</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Teclas de setas ou <keycap>Tab</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Mover entre controlos no interface ou itens numa lista.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Enter</keycap> ou <keycap>barra de espaços</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Ativar ou escolher o item selecionado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>F10</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Ativar o menu mais à esquerda da janela da aplicação.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Shift</keycap><keycap>F10</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Ativar o menu de contexto do item selecionado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Esc</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Fechar um menu sem selecionar um item desse menu, ou cancelar uma operação de arrastar.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-access"><info><title>Teclas de Acesso</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-63"/>
+
+    <indexterm><primary>teclas de acesso</primary></indexterm>
+
+    <para>Uma <firstterm>barra de menu</firstterm> é uma barra no topo de uma janela que contém os menus da aplicação. Uma <firstterm>tecla de acesso</firstterm> é uma letra sublinhada na barra de menu, menu, ou diálogo que pode utilizar para realizar uma ação. Numa barra de menu, a tecla de acesso de cada menu está sublinhada.</para>
+
+    <para>Para abrir um menu, mantenha premida a tecla <keycap>Alt</keycap>, depois prima a tecla de acesso. No menu, a tecla de acesso de cada item do menu está sublinhada. Para selecionar um item de menu, estando o menu aberto, basta premir a tecla de acesso correspondente ao item de menu.</para>
+
+    <para>Por exemplo, para abrir uma janela na aplicação de <application>Ajuda</application>, prima <keycombo><keycap>Alt</keycap><keycap>F</keycap></keycombo> para abrir o menu <guimenu>Ficheiro</guimenu>, depois prima <keycap>N</keycap> para ativar o item de menu <guimenuitem>Nova Janela</guimenuitem>.</para>
+
+    <para>Pode também utilizar teclas de acesso para aceder a elementos num diálogo. Num diálogo, uma letra na maioria dos elementos do diálogo está sublinhada. Para aceder a um elemento específico, mantenha premida a tecla <keycap>Alt</keycap>, depois prima a tecla de acesso.</para>
+  </section>
+</section>
+
+</chapter>

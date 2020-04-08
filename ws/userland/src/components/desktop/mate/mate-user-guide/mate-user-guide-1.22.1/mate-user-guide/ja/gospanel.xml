@@ -1,0 +1,1509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="panels" xml:lang="ja">
+    <info><title>パネルの使い方</title></info>
+  
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gospanel-1"/>
+
+  <!-- Desktop Overview / Panels -->
+  <anchor xml:id="gosoverview-502"/>
+
+  <highlights>
+    <para>この章では MATE デスクトップの上と下に配置されたパネルの使い方やパネルの上に表示されているオブジェクトを設定する方法、そしてデスクトップに新しいパネルを追加する方法について説明します。</para>
+  </highlights>
+
+  <section xml:id="panels-intro"><info><title>はじめに</title></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gospanel-2"/>
+
+    <indexterm xml:lang="en">
+      <primary>panels</primary>
+      <secondary>introduction</secondary>
+    </indexterm>
+
+    <para>パネルは MATE デスクトップの中から特定のアクションを起動したり様々な情報にアクセスできる領域です。例えばデフォルトの MATE パネルでは、いろいろなアプリケーションを起動したり、今日の日付や時刻を確認したり、システム・サウンドの音量を調節することができます。</para> 
+    <para>パネルをカスタマイズしていろいろ組み合わせることができます。例えばパネルの動きや外観を変更したり、パネルに何かオブジェクトを追加したり削除することが可能です。複数のパネルを作成してそれぞれ別々にプロパティをセットしたり、パネル毎に背景を指定することもできます。さらに、パネルを隠して表示しないようにすることも可能です。</para>
+    <para>デフォルトで、MATE デスクトップには画面の上端に配置されたパネル (<firstterm>トップ・エッジ・パネル</firstterm>) と画面の下端に配置されたパネル (<firstterm>ボトム・エッジ・パネル</firstterm>) があります。これ以降の節では、それぞれのパネルについて説明します。</para>
+
+    <section xml:id="top-panel"><info><title>トップ・エッジ・パネル</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-6"/>         
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>top edge panel</secondary>
+        <see>top edge panel</see>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>top edge panel</primary>
+        <secondary>introduction</secondary>
+      </indexterm>
+      <para>トップ・エッジ・パネルには、デフォルトで次に示すオブジェクトが格納されています:</para>
+      <note><para>お使いのMATEディストリビューションによってはデフォルトの設定を変更している場合があります。</para></note>
+           
+      <variablelist>
+      	<varlistentry>
+      		<term><application>メニュー・バー</application>・アプレット</term>
+      		<listitem><para>メニュー・バーは、<guimenu>アプリケーション</guimenu>、<guimenu>場所</guimenu>および<guimenu>システム</guimenu>というメニューで構成されています。メニュー・バーの詳細は、<xref linkend="menubar"/>をご覧ください。</para></listitem>
+      	</varlistentry>
+      	<varlistentry>
+      	  <term>アプリケーション・ランチャ・アイコン</term>
+          <listitem><para>アイコンの正確な数は、お使いのMATEディストリビューションに依存しますが、一般に<application>ウェブ・ブラウザ</application>、<application>メールクライアント</application>や<application>ヘルプ・ブラウザ</application>のランチャは少なくとも表示されているでしょう。任意のランチャ・アイコンをクリックすると対応するアプリケーションが開かれます。</para></listitem>
+        </varlistentry>
+      	<varlistentry>
+      	  <term><application>通知スペース</application>・アプレット</term>
+          <listitem><para>他のアプリケーションからユーザに警告したり、現在表示されているウィンドウを使わずにアプリケーションにアクセスできるようにするためのアイコンを表示します。詳細は「<xref linkend="panels-notification-area"/>」をご覧ください。</para>
+          <para>アプリケーションが通知スペースにアイコンを追加しない限り、通常は幅の狭い縦棒のみが表示されます。</para>
+          </listitem>
+        </varlistentry>
+
+         
+        <varlistentry>
+          <term><application>時計</application>アプレット</term>
+          <listitem><para xml:lang="en">The <application>Clock</application> shows the current
+      time. Click on the time to open a small calendar. You can also view a world map by clicking the <guilabel>Locations</guilabel> expansion label. For more on this, see the <link xlink:href="help:mate-clock">Clock Applet Manual</link>.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><application>音量調節</application>アプレット</term>
+          <listitem><para xml:lang="en">The <application>Volume Control</application> enables you to control the volume of the speakers on your system. For more on this, see the Volume Control Manual.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term xml:lang="en">
+          <indexterm xml:lang="en">
+            <primary>top edge panel</primary>
+            <secondary>window list icon</secondary>
+          </indexterm>
+          <application>Window Selector</application> icon</term>
+          <listitem><para><application>ウィンドウ・セレクタ</application>は開いているすべてのウィンドウを一覧表示します。任意のウィンドウにフォーカスを与えるには、トップ・エッジ・パネルの右端にあるウィンドウ・セレクタをクリックしてウィンドウを選択してください。詳細は「<xref linkend="windows-focus"/>」をご覧ください。</para></listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+
+    <section xml:id="bottom-panel"><info><title>ボトム・エッジ・パネル</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-3"/>        
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>bottom edge panel</secondary>
+        <see>bottom edge panel</see>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>bottom edge panel</primary>
+        <secondary>introduction</secondary>
+      </indexterm>
+      <para>ボトム・エッジ・パネルには、デフォルトで次に示すオブジェクトが格納されています:</para>
+      <note><para>お使いのMATEディストリビューションによってはデフォルトの設定を変更している場合があります。</para></note>
+      <indexterm xml:lang="en">
+        <primary>bottom edge panel</primary>
+        <secondary>default contents</secondary>
+      </indexterm>            
+      <variablelist>
+      	<varlistentry>
+      		<term><guibutton>デスクトップの表示</guibutton> (ボタン)</term>
+      		<listitem><para xml:lang="en">Click on this button to minimize all open windows and show the desktop. Click it again to restore all the windows to their previous state.</para></listitem>
+      	</varlistentry>
+      	<varlistentry>
+      		<term><application>ウィンドウの一覧</application> (アプレット)</term>
+      		<listitem><para>開いているウィンドウをそれぞれボタンとして表示します。<application>ウィンドウの一覧</application>を利用するとウィンドウを最小化したり元の状態に戻すことができます。詳細は「<xref linkend="windowlist"/>」をご覧ください。</para></listitem>
+      	</varlistentry>
+      	<varlistentry>
+      		<term><application>ワークスペース切り替え器</application> (アプレット)</term>
+      		<listitem><para>お使いのワークスペースを切り替えられるようにします。ワークスペースの詳細は「<xref linkend="overview-workspaces"/>」をご覧ください。</para></listitem>
+      	</varlistentry>      	
+      </variablelist>
+    </section>
+  </section>
+
+  <section xml:id="gospanel-5"><info><title>パネルの管理</title></info>
+    <!-- Desktop Overview / Panels / To Create Panels -->
+    <anchor xml:id="gosoverview-26"/>
+    <anchor xml:id="gospanel-11"/><!-- To Interact With a Panel -->
+    <indexterm xml:lang="en">
+      <primary>panels</primary>
+      <secondary>managing</secondary>
+    </indexterm>
+    <para>これ以降の節ではパネルを管理する方法について説明します。</para>
+    <para>パネルを操作するには、オブジェクトがある部分ではなく空いている部分をクリックする必要があります。パネルに「隠すボタン」が表示されている場合は、その内の一方を中また右クリックしてもパネルを選択できます。</para>
+
+    <section xml:id="gospanel-12"><info><title>パネルを移動する</title></info>
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>moving</secondary>
+      </indexterm>	  
+	  <para>パネルを画面の他の端に移動するには、<keycap>ALT</keycap>キーを押したまま新しい場所にパネルをドラッグします。パネルのどこか空いている所をクリックしてドラッグを開始してください。</para>
+      <para>画面の幅一杯に広げていないパネルは画面の端から離れた好きな場所にドラッグして配置することができます。パネルを広げるプロパティを指定する方法について詳細は「<xref linkend="panel-properties"/>」をご覧ください。</para>
+    </section>
+
+    <section xml:id="panel-properties"><info><title>パネルのプロパティ</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-28"/>         
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>modifying properties</secondary>
+      </indexterm>
+      <para>位置や外観の他に、パネルを隠すかどうかといったプロパティをパネル毎に変更することができます。</para>
+      <para>パネルのプロパティを変更する際は、パネルの中で空いている部分を右クリックして表示されるメニューから<guimenuitem>プロパティ</guimenuitem>を選択してください。すると、<guilabel>パネルのプロパティ</guilabel>という二つのタブを持つダイアログが開きます。タブはそれぞれ<guilabel>全般</guilabel>と<guilabel>背景</guilabel> という二つのセクションを表します。</para>
+      
+      <section xml:id="panel-properties-general"><info><title>全般のプロパティ</title></info>
+        <para><guilabel>全般</guilabel>タブでは、パネルの大きさや向き、自動的に隠すかどうかといったプロパティを変更できます。次の表は、この<guilabel>全般</guilabel>タブに属すプロパティについてそれぞれ説明したものです:</para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colname="colspec0" colwidth="28.57*"/>
+            <colspec colname="colspec1" colwidth="71.43*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>ダイアログの要素</para>
+                </entry>
+                <entry>
+                  <para>説明</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry colname="colspec0">
+                  <para xml:lang="en">
+                    <guilabel>Orientation</guilabel>
+                  </para>
+                </entry>
+                <entry colname="colspec1">
+                  <para>画面上にパネルを配置する際の向きを選択する</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Size</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>スピンボックスを使ってパネルの大きさを指定する</para>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec0">
+                  <para xml:lang="en">
+                    <guilabel>Expand</guilabel>
+                  </para>
+                </entry>
+                <entry colname="colspec1">
+                  <para>デフォルトで、パネルは画面の幅一杯に広がった状態で配置される (画面一杯に広がっていないパネルは画面の端から離れた場所に移動することができる)</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Autohide</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>マウス・ポインタがパネル上にある時だけパネルを完全に表示したい場合は、このオプションを選択してください。デスクトップの端に沿ってわずかな部分を残し、パネルが長辺に沿って画面外に隠れます。パネルを視界に戻すには、パネルの表示されている部分の上にマウスポインタを移動してください。</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Show hide buttons</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>このオプションを選択するとパネルの両側に隠すボタンを表示する (隠すボタンをクリックすると、隠しボタンがある向きにパネルが滑り込むように移動してデスクトップの端に隠れる; デスクトップの端にでている隠すボタンをクリックすると、再びパネルがデスクトップ上に表示される)</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Arrows on hide buttons</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>隠すボタンに矢印を表示する際に、このオプションを選択する (隠しボタンを表示している場合のみ)</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </section>
+
+      <section xml:id="panel-properties-background"><info><title>背景のプロパティ</title></info>
+        <para><guilabel>背景</guilabel>タブではパネルの背景の種類を選択できます。選択肢は次のとおりです:</para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colwidth="32.32*"/>
+            <colspec colwidth="67.68*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>ダイアログの要素</para>
+                </entry>
+                <entry>
+                  <para>説明</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>None (use system theme)</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para xml:lang="en">Select this option to have the panel use the settings in the <xref linkend="prefs-theme"/> tool. This keeps your panel's background looking the same as the rest of the desktop and applications.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Solid color</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>パネルの背景を指定した色で塗りつぶすには、このオプションを選択してください。<guibutton>色</guibutton>ボタンをクリックすると色の選択ダイアログが表示されます。色の選択ダイアログから、お望みの色を選択してください。</para>
+                  <para><guilabel>スタイル</guilabel>というスライダを利用すると、パネルの色に対して透明度を指定することができる (例えば、パネルを透明にする場合は<guilabel>透過</guilabel>の方へスライダを移動する)</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Background image</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>パネルの背景に画像を指定するには、このオプションを選択してください。ボタンをクリックすると画像ファイルを参照できます。ファイルを選択したら、 <guibutton>OK</guibutton>をクリックしてください。</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+        
+        <!-- section folded in: preserve id for backwards compatibility: 2.12 -->
+        <anchor xml:id="gospanel-61"/>
+        <indexterm xml:lang="en">
+          <primary>panels</primary>
+          <secondary>changing background</secondary>
+        </indexterm>
+        <!-- Shaun, why does this bit here change the vertical space between the previous 
+        table and the following paragraph? -->
+             
+        <para>色や画像をパネルにドラッグして背景として設定することもできます。多くのアプリケーションから、色や画像をドラッグできます。例えば:</para>
+        <itemizedlist>
+          <listitem>
+            <para>色を選択できるダイアログであればどんな選択ダイアログからでも色をドラッグできます。</para>     
+          </listitem>
+          <listitem>
+            <para><application>Caja</application> ファイル・マネージャから画像ファイルをドラッグすることができます。</para>     
+          </listitem>
+          <listitem>
+            <para xml:lang="en">You can drag a color or a pattern from the <guilabel>Backgrounds
+  and Emblems</guilabel> dialog (see <xref linkend="caja-backgrounds-and-emblems"/>) in <application>Caja</application> file manager to a panel to set it as the background.</para>         
+          </listitem>
+        </itemizedlist>
+        <para><guilabel>パネルのプロパティ</guilabel>・ダイアログを閉じるには<guibutton>閉じる</guibutton>ボタンをクリックしてください。</para>
+      </section>
+    </section>
+
+    <section xml:id="gospanel-7"><info><title>パネルを隠す</title></info>
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>hiding</secondary>
+      </indexterm>
+      <para>隠すボタンがあれば、パネルを隠したり表示したりできます。隠すボタンが表示されていない場合は、隠すボタンを表示するようにパネルのプロパティを変更してください。</para>
+      <para>隠すボタンはパネルの両端に表示されます。このボタンにはオプションで矢印を付けることができます。次の図は隠すボタンを表示した時のパネルの状態です。</para>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/four_hide_button.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>A horizontal panel and a vertical panel, both with hide buttons.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <para>パネルを隠すには、片側の隠すボタンをクリックしてください。隠すボタンの矢印が向いている方向にパネルが移動してデスクトップの端に収納されます。パネルのもう片方の隠すボタンは、表示されたままになります。</para>
+      <para>収納したパネルをもう一度表示するには、デスクトップに出ている隠すボタンをクリックしてください。隠すボタンの矢印が向いている方向にパネルが移動します。今回は両端の隠すボタンが表示されているはずです。</para>
+      <para xml:lang="en">You can set a panel to autohide. When you set autohide, the panel hides
+automatically when the mouse is not pointing to the panel. The panel reappears
+when you point to the part of the screen where the panel resides. To set your
+panel to autohide, modify the properties of the panel as per the instructions in <xref linkend="panel-properties"/>.</para>
+    </section>
+
+    <section xml:id="gospanel-10"><info><title>新しいパネルを追加する</title></info>
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>adding new</secondary>
+      </indexterm>
+      <para>パネルを追加するには、パネルの中で空いている部分を右クリックし、<guimenuitem>新しいパネル</guimenuitem>を選択します。すると新しいパネルが MATE デスクトップに追加されます。新しいパネルには何もオブジェクトはありません。自分の好みに合わせて、新しいパネルをカスタマイズしてみてください。</para>
+    </section>
+
+    <section xml:id="gospanel-31"><info><title>パネルを削除する</title></info>
+      <!-- Desktop Overview / Panels / To Delete Panels -->
+      <anchor xml:id="gosoverview-508"/>
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>deleting</secondary>
+      </indexterm>
+      <para>MATE デスクトップからパネルを削除するには、削除したいパネルの空いている部分で右クリックして、<menuchoice><guimenuitem>このパネルを削除する</guimenuitem></menuchoice>を選択します。</para>
+      <note>
+        <para>MATE デスクトップでは最低でも1つのパネルを保有していなければなりません。お使いのデスクトップにパネルが1つしかない場合、そのパネルを削除することはできません。</para>
+      </note>
+    </section>
+  </section>
+  
+  <!-- =============================================== managing panel objects -->
+  <section xml:id="gospanel-8"><info><title>いろいろなパネル・オブジェクト</title></info>
+    <!-- Desktop Overview / Panels / To Manipulate Panel Objects -->
+    <anchor xml:id="gosoverview-21"/>
+    <indexterm xml:lang="en">
+      <primary>panels</primary>
+      <secondary>panel objects</secondary>
+      <see>panel objects</see>
+    </indexterm>
+    <para>この節では、パネルに追加して利用することが可能なオブジェクトについて説明します。</para>
+    <section xml:id="gospanel-100"><info><title>パネル・オブジェクトを操作する</title></info>
+      
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>interacting with</secondary>
+      </indexterm>
+      <para>次に示す方法で、マウスを使いパネルにあるオブジェクトを操作します:</para>
+      <variablelist>
+        <varlistentry>
+          <term>左クリック</term>
+          <listitem>
+            <para>パネルのオブジェクトを起動します。</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>中クリック</term>
+          <listitem>
+            <para>オブジェクトをドラッグできるようになるので、どこか新しい場所に移動することができます。</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>右クリック</term>
+          <listitem>
+            <para>パネル・オブジェクトのポップアップ・メニューを開きます。</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <section xml:id="gospanel-39"><info><title>アプレットの選択</title></info>
+        <indexterm xml:lang="en">
+          <primary>applets</primary>
+          <secondary>selecting</secondary>
+        </indexterm>
+        <para>ポップアップ・メニューを開いたりアプレットを移動するといったアクションを行う際にクリックできる場所には、次に示すような制限があるので注意してください:</para>
+        <itemizedlist>
+          <listitem>
+            <para xml:lang="en">Some applets have popup menus of applet-specific commands
+  that open when you right-click on particular parts of the applet. For example,
+  the <application><xref linkend="windowlist"/></application> applet has a vertical handle on
+  the left side, and buttons that represent your windows on the right side.
+  To open the panel object popup menu for the <application>Window List</application>
+  applet, you must right-click on the handle. If you right-click on a button
+  on the right side, a popup menu for the button opens.</para>
+          </listitem>
+          <listitem>
+            <para>アプレットを選択するために使用することができない領域を持つものがいくつかあります。例えば、<application>コマンドライン</application>・アプレットにはユーザがコマンドを投入することが可能なエントリを持ちます。そのエントリで中クリックまたは右クリックしてもアプレットを選択することはできません。代わりに、エントリ以外の他の場所で中クリックまたは右クリックしてください。</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+    </section>
+
+    <section xml:id="panels-addobject"><info><title>オブジェクトをパネルに追加する</title></info>
+      <!-- preserve for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-15"/>   
+
+      <!-- Desktop Overview / Panels / To Add Objects to Panels -->
+      <anchor xml:id="gosoverview-4"/>
+      <anchor xml:id="gospanel-40"/><!-- To Add an Applet to a Panel -->
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>adding</secondary>
+      </indexterm>
+      <para>パネルにオブジェクトを追加する際は、次に示す手順に従ってください:</para>
+      <orderedlist>
+        <listitem><para>パネルの中で空いている部分を右クリックし、ポップアップ・メニューを開きます。</para></listitem>
+        <listitem><para><guisubmenu>パネルへ追加...</guisubmenu>を選択します。</para>
+          <para xml:lang="en">The <guilabel>Add to Panel</guilabel> dialog opens.The available panel objects are listed alphabetically, with <xref linkend="launchers"/> at the top.</para>
+          <tip><para><guilabel>パネルに追加するアイテムの検索</guilabel>というエントリにオブジェクトの名前または説明を入力すると、該当するオブジェクトを素早く探し出せます。</para>
+          <para>再びすべてのオブジェクトを一覧表示するには、<guilabel>パネルへ追加するアイテムの検索</guilabel>に入力した文字列を削除してください。</para>
+          </tip>
+        </listitem>
+        <listitem><para>オブジェクトを一覧からパネルへドラッグするか、あるいは一覧の中でオブジェクトを選択状態にして<guibutton>追加</guibutton>ボタンをクリックすると、最初に右クリックした場所にオブジェクトが追加されます。</para></listitem>
+      </orderedlist>
+      
+      <para><guimenu>アプリケーション</guimenu>メニューの任意の項目をパネルに追加することもできます: メニュー項目の上で右クリックし、<guimenuitem>このランチャをパネルへ追加</guimenuitem>を選択してください。</para>
+
+      <para>各ランチャは1個の <filename>.desktop</filename> ファイルと対応しています。この <filename>.desktop</filename> ファイルをパネルにドラッグすることでランチャをパネルへ追加することもできます。</para>
+<!--Each menu corresponds to a directory. You can drag the directory on to your panels to add the directory to the panel as a menu object. Is this still true?-->
+    </section>
+
+    <section xml:id="gospanel-9"><info><title>オブジェクトのプロパティを変更する</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-41"/><!-- To Modify Preferences for an Applet -->
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>modifying properties</secondary>
+      </indexterm>
+      <para xml:lang="en">Some panel objects, such as launchers and drawers,
+have a set of associated properties. The properties are different for each
+type of object. The properties specify details such as the following: <itemizedlist><listitem><para xml:lang="en">The command that starts a launcher application.</para></listitem><listitem><para xml:lang="en">The location of the source files for a menu.</para></listitem><listitem><para xml:lang="en">The icon that represents the object.</para></listitem></itemizedlist></para>
+      <para>オブジェクトのプロパティを変更するには、以下の手順を実行してください:</para>
+      <orderedlist>
+        <listitem>
+          <indexterm xml:lang="en">
+            <primary>panel object popup menu, illustration</primary>
+          </indexterm>
+          <para>パネル・オブジェクトの上で右クリックして、<xref linkend="gospanel-FIG-54"/> に示すようなポップアップ・メニューを開きます。</para>
+          <figure xml:id="gospanel-FIG-54"><info><title>パネル・オブジェクトのポップアップ・メニュー</title></info>
+            
+            <screenshot>
+              <mediaobject xml:lang="en">
+                <imageobject>
+                  <imagedata fileref="figures/panel_object_popup_menu.png" format="PNG"/>
+                </imageobject>
+                <textobject>
+                  <phrase>Panel object popup menu. Menu items: Properties, Remove From Panel, Lock, Move.</phrase>
+                </textobject>
+              </mediaobject>
+            </screenshot>
+          </figure>
+        </listitem>
+        <listitem>
+          <para><guimenuitem>プロパティ</guimenuitem>を選択してください。必要に応じてプロパティを変更する場合は、<guilabel>プロパティ</guilabel>・ダイアログを利用してください。「<guilabel>...のプロパティ</guilabel>」ダイアログの中には手順1で選択したオブジェクトに依存するプロパティが表示されます。</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>プロパティ</guilabel>ダイアログを閉じてください。</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="gospanel-32"><info><title>パネル・オブジェクトを移動する</title></info>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>moving</secondary>
+      </indexterm>
+      <para>パネル・オブジェクトをパネルの中で移動したり、あるいは任意のパネルから別のパネルへ移動することができます。さらに、パネルと引き出しの間でオブジェクトを移動させることもできます。</para>
+      <para>パネル・オブジェクトを移動する場合は、オブジェクトを中クリックしたまま押さえ込み、そのまま新しい場所へドラッグしてください。中ボタンを解放すると、オブジェクトが新しい場所に固定されます。</para>
+      <para>あるいは、次に示す手順のように、パネル・オブジェクトのポップアップ・メニューを利用して移動することも可能です:</para>
+      <orderedlist>
+        <listitem>
+          <para>オブジェクトの上で右クリックし、<guimenuitem>移動</guimenuitem>を選択してください。</para>
+        </listitem>
+        <listitem>
+          <para>オブジェクトを新しい場所に移動したら、マウス・ボタンをいずれかを押下してオブジェクトを新しい場所に固定してください。この場所は MATE デスクトップの場合だとすべてのパネル上で指定できるようになっています。</para>
+        </listitem>
+      </orderedlist>
+      <para>オブジェクトを移動すると、パネルの上にある他のオブジェクトの位置にいろいろ影響を与えます。オブジェクトをパネルの上で移動する際は、移動モードを指定することができます。移動モードを指定するには、パネル・オブジェクトを移動する時に次に示すキーのいずれかを押下してください:</para>
+      <informaltable frame="topbot">
+        <tgroup cols="3" colsep="0" rowsep="0">
+          <colspec colname="colspec2" colwidth="15.00*"/>
+          <colspec colname="colspec1" colwidth="30.00*"/>
+          <colspec colname="colspec3" colwidth="54.00*"/>
+          <thead>
+            <row rowsep="1">
+              <entry colname="colspec2">
+                <para>キー</para>
+              </entry>
+              <entry>
+                <para>移動モード</para>
+              </entry>
+              <entry colname="colspec3">
+                <para>説明</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec2" valign="top">
+                <para>(該当なし)</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>切り替え移動</para>
+              </entry>
+              <entry colname="colspec3" valign="top">
+                <para>現在の位置と他のオブジェクトの位置とを交換するモード (これがデフォルトの移動モード)</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec2" valign="top">
+                <para><keycap>Alt</keycap> キー</para>
+              </entry>
+              <entry valign="top">
+                <para>自由移動</para>
+              </entry>
+              <entry colname="colspec3" valign="top">
+                <para>他のオブジェクトを飛び越しながら、パネルの中で空いている部分へ移動するモード</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec2" valign="top">
+                <para><keycap>Shift</keycap> キー</para>
+              </entry>
+              <entry valign="top">
+                <para>押し移動</para>
+              </entry>
+              <entry colname="colspec3" valign="top">
+                <para>オブジェクトが他のオブジェクトをパネルに沿って前方に押していくモード</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </section>
+
+    <section xml:id="gospanel-566"><info><title>パネル・オブジェクトをロックする</title></info>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>locking</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>locking panel objects</primary>
+      </indexterm>
+      <para>パネル・オブジェクトはロックできるようになっているので、オブジェクトをパネルの同じ位置に固定したままにできます。これを使うと、他のオブジェクトを移動してもそのオブジェクトの位置を変更させたくない場合に便利です。</para>
+      <para>パネル内の現在の位置にオブジェクトを固定するには、オブジェクトの上で右クリックしてポップアップ・メニューを開き、<guimenuitem>ロックする</guimenuitem>を選択してください。オブジェクトのロックを解除するには、選択を解除してください。</para>
+    </section>
+
+    <section xml:id="gospanel-33"><info><title>パネル・オブジェクトを削除する</title></info>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>removing</secondary>
+      </indexterm>
+      <para>パネルからオブジェクトを削除するには、オブジェクトの上で右クリックしてポップアップ・メニューを開き、<guimenuitem>パネルから削除</guimenuitem>を選択してください。</para>
+    </section>
+  </section>
+  
+  <!-- ============================================== big bag o' panel objects -->
+  <!-- <remark>won't work because of yelp topic clumping</remark>
+    <para>This section describes the different objects you can add to your panels.</para>
+    <para>For a list of the objects that are on the top and bottom panels by default, see <xref linkend="top-panel"/> and <xref linkend="bottom-panel"/>.</para>
+  -->
+  <section xml:id="gospanel-17"><info><title>いろいろなアプレット</title></info>
+    <indexterm xml:lang="en">
+      <primary>applets</primary>
+      <secondary>introduction</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>panel objects</primary>
+      <secondary>applets</secondary>
+      <see>applets</see>
+    </indexterm>
+    <para>アプレットは、パネル内にユーザインタフェースが存在する小さなアプリケーションです。次の図では、左から順に以下のアプレットが表示されています:</para>
+    <itemizedlist>
+      <listitem>
+        <para xml:lang="en"><application><xref linkend="windowlist"/></application>: Displays the windows
+currently open on your system.</para>
+      </listitem>
+      <listitem>
+        <para><application>音量調節</application>: デスクトップからスピーカーの音量を調節できます</para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en"><link xlink:href="help:mate-clock"><application>Clock</application></link>: Shows the current date and time.</para>
+      </listitem>
+    </itemizedlist>
+    <screenshot>
+      <mediaobject xml:lang="en">
+        <imageobject>
+          <imagedata fileref="figures/sample_applet.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase>Sample applets. The context describes the graphic.</phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </section>  
+
+  <section xml:id="launchers"><info><title>いろいろなランチャ</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="gospanel-16"/>
+    <indexterm xml:lang="en">
+      <primary>panel objects</primary>
+      <secondary>launchers</secondary>
+      <see>launchers</see>
+    </indexterm>
+    <para><firstterm>ランチャ</firstterm>は特別なアクションを実行するオブジェクトです。</para>
+    <para>パネルの中、パネルのメニューバー、そしてデスクトップ上にランチャを配置できます。ランチャはすべてアイコンを使って表現されています。</para>
+    <para>次に示すようなことを実行する際にランチャを利用できます:</para>
+    <itemizedlist>
+      <listitem>
+        <para>特定のアプリケーションを起動する</para>
+      </listitem>
+      <listitem>
+        <para>コマンドを実行する</para>
+      </listitem>
+      <listitem>
+        <para>フォルダを開く</para>
+      </listitem>
+      <listitem>
+        <para>ウェブ上の特定のページをウェブ・ブラウザで開く</para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">Open special <firstterm>Uniform Resource Identifiers</firstterm>
+(URIs). The MATE Desktop contains special URIs that enable you to access
+particular functions from the file manager. <indexterm xml:lang="en"><primary>special URI
+locations</primary><secondary>and launchers</secondary></indexterm></para>
+      </listitem>
+    </itemizedlist>
+
+    <para>ランチャのプロパティを変更することができます。例えば、ランチャのプロパティにはランチャの名前やそのアイコン、そしてランチャの種類などが含まれます。詳細は「<xref linkend="launchers-modify"/>」をご覧ください。</para>
+    <note><para>メニューの中にあるランチャにアイコンが表示されていない場合があります。例えば、アイコンを指定していない場合とか、メニュー全体でアイコンを指定していない場合などです。</para></note>
+
+    <section xml:id="gospanel-34"><info><title>ランチャをパネルに追加する</title></info>
+      <indexterm xml:lang="en">
+        <primary>launchers</primary>
+        <secondary>adding to panel</secondary>
+      </indexterm>
+      <para>ランチャをパネルに追加する際は、次に示すいずれかの手順に従ってください:</para>
+      <itemizedlist>
+        <listitem>
+          <para>【パネルのポップアップ・メニューから】</para>
+          <para xml:lang="en">Right-click on any vacant space on the panel,
+then choose <guimenu>Add to Panel</guimenu>. The <guilabel>Add to Panel</guilabel> dialog opens (see <xref linkend="panels-addobject"/>).</para>
+          <para>ランチャを新規に作成する場合は、一覧の先頭の方にある<guilabel>カスタム・アプリケーションのランチャ</guilabel>を選択して <guibutton>OK</guibutton> ボタンをクリックしてください。すると、<guilabel>ランチャの作成</guilabel>ダイアログが表示されます。ここで指定できるランチャのプロパティについては「<xref linkend="launchers-properties"/>」をご覧ください。</para>
+          <para>もしくは、既存のランチャをパネルへ追加するのであれば、<guilabel>アプリケーションのランチャ</guilabel>を選択して<guibutton>進む</guibutton>ボタンをクリックしてください。それから、メニュー形式の一覧から追加したいランチャを選択してください。</para>
+        </listitem>
+        <listitem>
+          <para>【メニューから】</para>
+          <para>メニューからパネルへランチャを追加するには、以下の手順のいずれかを実行してください:</para>
+          <itemizedlist>
+            <listitem><para>そのままメニュー項目をパネルへドラッグします。</para></listitem>
+            <listitem><para>追加したいランチャが含まれたメニューを開き、ランチャのタイトルを右クリックして<guimenuitem>このランチャをパネルへ追加</guimenuitem>を選択してください。この方法は、ランチャが開いたメニューのサブメニュー上にある場合にのみ機能します。</para></listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>【ファイル・マネージャから】</para>
+          <para>ファイル・マネージャからパネルへランチャを追加する場合、その <filename>.desktop</filename> ファイルをシステムのフォルダから見つけ出し、<filename>.desktop</filename> ファイルをパネルへドラッグドロップしてください。</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section xml:id="launchers-modify"><info><title>ランチャを変更する</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-36"/>        
+      <indexterm xml:lang="en">
+        <primary>launchers</primary>
+        <secondary>modifying properties</secondary>
+      </indexterm>
+      <para>ランチャのプロパティを変更する手順は次のとおりです:</para>
+      <orderedlist>
+        <listitem>
+          <para>ランチャの上で右クリックしてパネル・オブジェクトのポップアップ・メニューを開きます。</para>
+        </listitem>
+        <listitem>
+          <para><guimenuitem>プロパティ</guimenuitem>を選択し、表示される<guilabel>ランチャのプロパティ</guilabel>ダイアログを使って、必要なプロパティを変更してください。<guilabel>ランチャのプロパティ</guilabel>ダイアログの詳細は「<xref linkend="launchers-properties"/>」をご覧ください。</para>
+        </listitem>
+        <listitem>
+          <para><guibutton>閉じる</guibutton>ボタンをクリックして、<guilabel>ランチャのプロパティ</guilabel>ダイアログを閉じてください。</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="launchers-properties"><info><title>ランチャのプロパティ</title></info> 
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-52"/><!-- To Create a Launcher With the Create Launcher Dialog -->
+         
+      <para>ランチャを作成したり編集する際は、次に示すようなプロパティを指定できるようになっています:</para>
+      <variablelist>
+        <varlistentry><term>種類</term>
+          <listitem>
+            <para>ドロップダウンを利用してこのランチャがアプリケーションを起動するのか場所を開くのかを指定してください:</para>
+            <variablelist>
+              <varlistentry><term>アプリケーション</term>
+                <listitem>
+                  <para>アプリケーションを起動するランチャです。</para>
+                </listitem>     
+              </varlistentry>
+              <varlistentry><term>端末内で起動する</term>
+                <listitem>
+                  <para>端末ウィンドウを通してアプリケーションを起動するランチャです。</para>
+                </listitem>     
+              </varlistentry>
+              <varlistentry><term>場所</term>
+                <listitem>
+                  <para>ファイル、ウェブページや他の場所を開くランチャです。</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <para>場所のランチャを編集する場合、このドロップダウンリストは表示されません。アプリケーションのランチャを編集する場合、<guilabel>場所</guilabel>オプションは利用できません。</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry><term>名前</term>
+          <listitem>
+            <para>これはランチャをメニューやデスクトップに追加した場合に表示される名前です。</para>
+          </listitem>     
+        </varlistentry>
+        <varlistentry><term>コマンド</term>
+          <listitem>
+            <para>アプリケーションを起動するランチャの場合は、それをクリックした時に実行するコマンドを指定します。コマンドの例については「<xref linkend="launchers-properties-commands"/>」をご覧ください。</para>
+          </listitem>     
+        </varlistentry>
+        <varlistentry><term>場所</term>
+          <listitem>
+            <para>場所のランチャ用に開く場所を指定してください。<guibutton>参照</guibutton>をクリックしてお使いのコンピュータ内の場所を選択するか、ウェブページを開く場合はウェブアドレスを入力してください。場所の例については、<xref linkend="launchers-properties-commands"/>をご覧ください。</para>
+          </listitem>     
+        </varlistentry>
+        <varlistentry><term>コメント</term>
+          <listitem>
+            <para>パネルの中にあるランチャにマウスのポインタをのせると表示されるツールチップの内容です。</para>
+          </listitem>     
+        </varlistentry>
+      </variablelist>
+      
+      <para>ランチャのアイコンを変更する場合は、現在のアイコンを表示しているボタンをクリックしてください。すると、アイコンの参照ダイアログが表示されるので、このランチャに割り当てる新しいアイコンを選択してください。</para>
+  
+      <section xml:id="launchers-properties-commands"><info><title>ランチャのコマンドと場所</title></info>
+        <!-- Maintained for backwards compatibility: 2.14 -->
+        <anchor xml:id="gospanel-556"/>        
+        <para><guilabel>ランチャのプロパティ</guilabel>ダイアログで利用できるコマンドと場所の例を以下に示します。</para>
+        
+        <para><guilabel>種類</guilabel>のドロップダウンボックスから<guilabel>アプリケーション</guilabel>か<guilabel>端末内で起動する</guilabel>を選択した場合、<guilabel>コマンド</guilabel>というテキストボックスが表示されます。次の表は、コマンドの例とそのコマンドが実行する動作を示しています:</para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colname="colspec0" colwidth="47.36*"/>
+            <colspec colname="colspec1" colwidth="52.64*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>コマンドの例</para>
+                </entry>
+                <entry>
+                  <para>動作</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry colname="colspec0" valign="top">
+                  <para xml:lang="en">
+                    <command>pluma</command>
+                  </para>
+                </entry>
+                <entry colname="colspec1" valign="top">
+                  <para><application>pluma</application> テキスト・エディタを起動する</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <command>pluma /home/user/loremipsum.txt</command>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para><application>pluma</application> テキスト・エディタというアプリケーションを起動して、<filename>/home/user/loremipsum.txt</filename> というファイルを開きます。</para>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec0" valign="top">
+                  <para xml:lang="en">
+                    <command>caja /home/user/Projects</command>
+                  </para>
+                </entry>
+                <entry colname="colspec1" valign="top">
+                  <para>ファイル・マネージャのウィンドウで <filename>/home/user123/Projects</filename> というフォルダを開きます。</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+        <para xml:lang="en">If you choose <guilabel>Location</guilabel> from the <guilabel>Type</guilabel>
+drop-down box, the <guilabel>Location</guilabel> text box will be displayed. The following table
+shows some sample locations and the actions that will happen if you click on the launcher:<indexterm xml:lang="en"><primary>special URIs</primary><secondary>launchers</secondary></indexterm></para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colname="colspec0" colwidth="47.36*"/>
+            <colspec colname="colspec1" colwidth="52.64*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>場所の例</para>
+                </entry>
+                <entry>
+                  <para>動作</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry colname="colspec0" valign="top">
+                  <para xml:lang="en">
+                    <command>file:///home/user/loremipsum.txt</command>
+                  </para>
+                </entry>
+                <entry colname="colspec1" valign="top">
+                  <para>ファイルの種類に関連付けられたデフォルトのビューアで<filename>/home/user/loremipsum.txt</filename>というファイルを開きます。</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <command>file:///home/user/Projects</command>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>ファイル・マネージャのウィンドウで <filename>/home/user123/Projects</filename> というフォルダを開きます。</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <command>http://www.mate-desktop.org</command>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>デフォルトのウェブ・ブラウザで MATE のウェブサイトを開く</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <command>ftp://ftp.mate-desktop.org</command>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>デフォルトのウェブ・ブラウザで MATE の FTP サイトを開く</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </section>
+    </section>    
+  </section>
+
+  <section xml:id="gospanel-557"><info><title>いろいろなボタン</title></info>
+    <indexterm xml:lang="en">
+      <primary>buttons</primary>
+      <secondary>adding to panel</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>action buttons</primary>
+      <see>buttons</see>
+    </indexterm>
+    <para>共通した操作で任意の機能を素早く呼び出すための手段を提供してくれるボタンをパネルに追加することができます。</para>
+
+    <section xml:id="gospanel-563"><info><title>アプリの強制終了ボタン</title></info>
+      <indexterm xml:lang="en">
+        <primary>buttons</primary>
+        <secondary>Force Quit</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Force Quit button</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Force Quit button</primary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>terminating applications</primary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>applications</primary>
+        <secondary>terminating</secondary>
+      </indexterm>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/force_quit.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Force Quit icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <para><guibutton>アプリの強制終了</guibutton>ボタンを使うと、ウィンドウをクリックして任意のアプリケーションを強制終了させることができます。このボタンは、例えばフリーズかクラッシュして操作に応答しないアプリケーションを終了させたいような場合に便利です。</para>
+      <para><guibutton>アプリの強制終了</guibutton>ボタンをパネルに追加する場合は、パネル上で空いている部分を右クリックしてください。そして、<guimenu>パネルへ追加</guimenu>を選択し、パネルへ追加ダイアログから<application>アプリの強制終了</application>を選択してください。詳細は「<xref linkend="panels-addobject"/>」をご覧ください。</para>
+      <para>アプリケーションを強制終了するには、<guibutton>強制終了</guibutton>ボタンをクリックしてから、終了させたいアプリケーションのウィンドウをクリックしてください。もし<guibutton>強制終了</guibutton>ボタンを押した後に取り消したくなったら <keycap>Esc</keycap> キーを押下してください。</para>
+    </section>
+
+    <section xml:id="panel-lock-screen"><info><title>画面のロック・ボタン</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-21"/>
+
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/lockscreen_icon.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Lock screen icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <indexterm xml:lang="en">
+        <primary>buttons</primary>
+        <secondary>Lock</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Lock button</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Lock button</primary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>locking screen</primary>
+      </indexterm>
+      <para><guibutton>画面のロック</guibutton>・ボタンをクリックすると画面をロックしてスクリーンセーバーを起動します。再びセッションにアクセスするには、パスワードを入力する必要があります。</para>
+      <para><guibutton>画面のロック</guibutton>・ボタンをパネルに追加する場合は、パネル上で空いている部分を右クリックしてください。そして、<guimenu>パネルへ追加</guimenu>を選択し、パネルへ追加ダイアログから<application>画面のロック</application>を選択してください。任意のオブジェクトをパネルへ追加する方法について詳細は「<xref linkend="panels-addobject"/>」をご覧ください。</para>
+      <para><guibutton>画面のロック</guibutton>・ボタンを右クリックすると、スクリーンセーバーに関連するコマンドのメニューが表示されます。<xref linkend="gosstartsession-TBL-83"/> に示すようなコマンドを利用することができます:</para>
+      <table frame="topbot" xml:id="gosstartsession-TBL-83"><info><title>画面のロックのメニュー項目</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="43.55*"/>
+          <colspec colname="colspec1" colwidth="56.45*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>メニュー項目</para>
+              </entry>
+              <entry>
+                <para>機能</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guimenuitem>Activate Screensaver</guimenuitem>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>スクリーンセーバーを今すぐ起動する</para>
+                <para>さらに、<application>MATE スクリーンセーバー</application>の設定ツールで<guilabel>スクリーンセーバー起動時に画面をロックする</guilabel>が有効になっている場合は画面もロックする</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guimenuitem>Lock Screen</guimenuitem>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>画面を今すぐロックする (このコマンドは<guibutton>画面のロック</guibutton>・ボタンをクリックした時と同じ機能である)</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guimenuitem>Properties</guimenuitem>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para xml:lang="en">Opens the <xref linkend="prefs-screensaver"/> tool, with which you can configure the type of screensaver that is displayed when you lock the screen.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="gospanel-20"><info><title>ログアウト・ボタン</title></info>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/logout_icon.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Log Out icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <indexterm xml:lang="en">
+        <primary>buttons</primary>
+        <secondary>Log Out</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Log Out button</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Log Out button</primary>
+      </indexterm>
+      <para><guibutton>ログアウト</guibutton>・ボタンを使うとMATE のセッションからログアウトしたり、違うユーザ・アカウントに切り替えることができます。</para>
+      <para><guibutton>ログアウト</guibutton>・ボタンをパネルに追加する場合は、パネル上で空いている部分を右クリックしてください。そして、<guimenu>パネルへ追加</guimenu>を選択し、パネルへ追加ダイアログから<application>ログアウト</application>を選択してください。詳細は「<xref linkend="panels-addobject"/>」をご覧ください。</para>
+      <para>セッションからログアウトしたりユーザを切り替えるには、<guibutton>ログアウト</guibutton>ボタンをクリックして表示されるダイアログの適切なボタンをクリックしてください。</para>
+    </section>
+
+    <section xml:id="gospanel-555"><info><title>アプリの実行ボタン</title></info>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/run_button.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Run Application icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <indexterm xml:lang="en">
+        <primary>buttons</primary>
+        <secondary>Run</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Run button</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Run button</primary>
+      </indexterm>
+      <para><guibutton>アプリの実行</guibutton>ボタンを使うと一覧から選択することでアプリケーションを実行できる<guilabel>アプリケーションの実行</guilabel>ダイアログが開きます。</para>
+      <para><guibutton>アプリの実行</guibutton>ボタンをパネルに追加するには、パネル上で空いている部分を右クリックしてください。そして、<guimenu>パネルへ追加</guimenu>を選択し、パネルへ追加ダイアログから<application>アプリの実行</application>を選択してください。詳細は<xref linkend="panels-addobject"/>をご覧ください。</para>
+      <para><application>アプリケーションの実行</application>ダイアログを開くには<guibutton>アプリの実行</guibutton>ボタン上をクリックしてください。</para>
+      <para><guilabel>アプリケーションの実行</guilabel>ダイアログの詳細は「<xref linkend="gospanel-23"/>」を参照してください。</para>
+    </section>
+
+    <section xml:id="gospanel-554"><info><title>検索ボタン</title></info>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/searchtool_button.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Search Tool icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <indexterm xml:lang="en">
+        <primary>buttons</primary>
+        <secondary>Search</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Search button</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Search button</primary>
+      </indexterm>
+      <para><guibutton>ファイルの検索</guibutton>ボタンを使うとお使いのコンピュータにあるファイルを検索することができる<application>ファイルの検索</application>を開きます。</para>
+      <para><guibutton>ファイルの検索</guibutton>ボタンをパネルに追加するには、パネル上で空いている部分を右クリックしてください。そして、<guimenu>パネルへ追加</guimenu>を選択し、パネルへ追加ダイアログから<application>ファイルの検索</application>を選択してください。詳細は「<xref linkend="panels-addobject"/>」をご覧ください。</para>
+      <para><application>ファイルの検索</application>を開くには、<guibutton>ファイルの検索</guibutton>ボタンをクリックしてください。</para>
+      <para xml:lang="en">For more information on the <application>Search Tool</application>,
+see the <link xlink:href="help:mate-search-tool">Search Tool Manual</link>.</para>
+    </section>
+
+    <section xml:id="gospanel-564"><info><title>デスクトップの表示ボタン</title></info>
+      <indexterm xml:lang="en">
+        <primary>buttons</primary>
+        <secondary>Minimize Windows</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Minimize
+Windows button</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Minimize Windows
+button</primary>
+      </indexterm>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/show_desktop_button.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Show Desktop icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <para><guibutton>デスクトップの表示</guibutton>ボタンを使うと、現在開いているすべてのウィンドウを最小化してデスクトップを表示することができます。</para>
+      <para><guibutton>デスクトップの表示</guibutton>ボタンをパネルに追加するには、パネル上で空いている部分を右クリックしてください。そして、<guimenu>パネルへ追加</guimenu>を選択し、パネルへ追加ダイアログから<application>デスクトップの表示</application>を選択してください。詳細は「<xref linkend="panels-addobject"/>」をご覧ください。</para>
+      <para>すべてのウィンドウを最小化してデスクトップを表示するには、<guibutton>デスクトップの表示</guibutton>ボタンをクリックしてください。すべてのウィンドウの状態を以前の状態に復元するには、再度、このボタンをクリックしてください。</para>
+    </section>
+  </section>
+
+  <section xml:id="panel-menus"><info><title>いろいろなメニュー</title></info>
+    <!-- Desktop Overview / Menus -->
+    <anchor xml:id="gosoverview-42"/>
+    <anchor xml:id="gospanel-37"/>
+
+    <indexterm xml:lang="en">
+      <primary>menus</primary>
+      <secondary>adding to panel</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>panel objects</primary>
+      <secondary>menus</secondary>
+    </indexterm>
+    <para>次に示すような種類のメニューをパネルに追加することができます:</para>
+    <itemizedlist>
+      <listitem>
+        <para xml:lang="en"><guimenu>Menu Bar</guimenu>: You can access almost
+all the standard applications, commands, and configuration options from
+the menus in the Menu Bar. It contains the <guimenu>Applications</guimenu>, 
+<guimenu>Places</guimenu>, and <guimenu>System</guimenu> menus.</para>
+        <para><guimenu>メニュー・バー</guimenu>をパネルへ追加するには、パネル上で空いている部分を右クリックしてください。そして、<guimenu>パネルへ追加</guimenu>を選択して、パネルへ追加ダイアログから<application>メニュー・バー</application>を選択してください。詳細は、<xref linkend="panels-addobject"/>をご覧ください。</para>
+      </listitem>
+      <listitem>
+        <para><guimenu>メイン・メニュー</guimenu>: メイン・メニューには、メニュー・バーと同じ項目が含まれていますが、3つのメニューの代わりに1つのメニューに整理されています。その結果、パネル上のスペースが節約できます。</para>
+        <para><guimenu>メイン・メニュー</guimenu>をパネルへ追加するには、パネル上で空いている部分を右クリックしてください。そして、<guimenu>パネルへ追加</guimenu>を選択して、パネルへ追加ダイアログから<application>メイン・メニュー</application>を選択してください。詳細は、<xref linkend="panels-addobject"/>をご覧ください。</para>
+      </listitem>
+      <listitem>
+        <para><guimenu>サブメニュー</guimenu>: メニュー・バーやメイン・メニューのサブメニューを直接パネルへ追加することができます。例えば、<guimenu>アプリケーション</guimenu>メニューの<guimenu>ゲーム</guimenu>というサブメニューをパネルへ追加することができます。</para>
+        <para>サブメニューをパネルへ追加するには、サブメニューを開き、ランチャー上で右クリックして、<menuchoice><guimenu>メニューの追加</guimenu><guimenuitem>メニューとしてパネルへ追加</guimenuitem></menuchoice>を選択してください。</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section xml:id="gospanel-18"><info><title>引き出し</title></info>
+    <indexterm xml:lang="en">
+      <primary>panel objects</primary>
+      <secondary>drawers</secondary>
+      <see>drawers</see>
+    </indexterm>
+    <para>引き出しはパネルの拡張機能です。パネルを隠したり表示する場合と同じ方法で、引き出しを開いたり閉じたりできます。引き出しにはランチャやメニュー、アプレット、そして別の引き出しを含め、パネル・オブジェクトのすべてを追加することができます。引き出しを開くとパネル上のオブジェクトを利用するのと同様にオブジェクトを利用することができます。</para>
+    <para>次の図は二つのオブジェクトを格納した引き出しを開いたところです。</para>
+    <screenshot>
+      <mediaobject xml:lang="en">
+        <imageobject>
+          <imagedata fileref="figures/open_drawer.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase>Open drawer. The context describes the graphic.</phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+    <para>引き出しの右上に付いている矢印は、そのアイコンが引き出しまたはメニューであることを表します。</para>
+    <para>パネルでオブジェクトを追加したり、削除したり、移動する場合と同じ方法で引き出しにオブジェクトを追加したり、削除したり、移動することができるようになっています。</para>
+
+    <section xml:id="gospanel-42"><info><title>引き出しを開いたり閉じたりするには</title></info>
+      <indexterm xml:lang="en">
+        <primary>drawers</primary>
+        <secondary>opening</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>drawers</primary>
+        <secondary>closing</secondary>
+      </indexterm>
+      <para>引き出しを開くには、パネルの中にある引き出しのアイコンをクリックしてください。そして、以下のいずれかの方法で引き出しを閉じることができます:</para>
+      <itemizedlist>
+        <listitem>
+          <para>引き出しのアイコンをクリックしてください。</para>
+        </listitem>
+        <listitem>
+          <para>引き出しの隠すボタンをクリックしてください。</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section xml:id="gospanel-420"><info><title>引き出しをパネルへ追加するには</title></info>
+      <indexterm xml:lang="en">
+        <primary>drawers</primary>
+        <secondary>adding to panel</secondary>
+      </indexterm>
+      <para>以下の方法で引き出しをパネルへ追加することができます:</para>
+      <variablelist>
+      <varlistentry>
+        <term>【パネルのポップアップ・メニューから】</term>
+        <listitem>
+          <orderedlist>
+            <listitem><para>パネル上で空いている部分を右クリックして、<guimenuitem>パネルへ追加</guimenuitem>を選択してください。</para></listitem>
+            <listitem><para><application>パネルへ追加</application>ダイアログで<guilabel>引き出し</guilabel>を選択してください。そして、<guibutton>追加</guibutton>をクリックして、<guibutton>閉じる</guibutton>をクリックしてください。</para></listitem>
+          </orderedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>【メニューから】</term>
+        <listitem>
+          <para>1個のメニューを引き出しの中にまとめて、パネルの中に追加できます。</para>
+          <para>一個のメニューを引き出しとしてパネルへ追加する場合は、追加したいメニューを開き、任意のメニュー項目の上で右クリックしてください。それから<menuchoice><guimenu>メニューの追加</guimenu><guimenuitem>引き出しとしてパネルへ追加</guimenuitem></menuchoice>を選択してください。</para>
+        </listitem>
+      </varlistentry>
+      </variablelist>
+    </section>
+
+    <section xml:id="gospanel-54"><info><title>オブジェクトを引き出しに追加するには</title></info>
+      <indexterm xml:lang="en">
+        <primary>drawers</primary>
+        <secondary>adding objects to</secondary>
+      </indexterm>
+      <para>オブジェクトをパネルに追加する場合と同じ方法で、任意のオブジェクトを引き出しへ追加できます。詳細については、「<xref linkend="panels-addobject"/>」をご覧ください。</para>
+    </section>
+
+    <section xml:id="gospanel-550"><info><title>引き出しのプロパティを変更するには</title></info>
+      <indexterm xml:lang="en">
+        <primary>drawers</primary>
+        <secondary>modifying properties</secondary>
+      </indexterm>
+      <para>各引き出しのプロパティを個別に変更することができます。例えば、引き出しの外観や隠すボタンを表示するかどうかを変更することができます。</para>
+      <para>引き出しのプロパティを変更する際の手順は次のとおりです:</para>
+      <orderedlist>
+        <listitem>
+          <para>引き出しの上で右クリックし<guimenuitem>プロパティ</guimenuitem>を選択すると<guilabel>引き出しのプロパティ</guilabel>ダイアログが表示されます。はじめに<guilabel>全般</guilabel>タブが表示されます。</para>
+        </listitem>
+        <listitem>
+          <para>次の表は<guilabel>全般</guilabel>タブにあるプロパティの説明です:</para>
+          <informaltable frame="topbot">
+            <tgroup cols="2" colsep="0" rowsep="0">
+              <colspec colname="colspec0" colwidth="28.57*"/>
+              <colspec colname="colspec1" colwidth="71.43*"/>
+              <thead>
+                <row rowsep="1">
+                  <entry>
+                    <para>ダイアログの要素</para>
+                  </entry>
+                  <entry>
+                    <para>説明</para>
+                  </entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry colname="colspec0">
+                    <para xml:lang="en">
+                      <guilabel>Size</guilabel>
+                    </para>
+                  </entry>
+                  <entry colname="colspec1">
+                    <para>引き出しが開いた時の幅を指定してください。</para>
+                  </entry>
+                </row>
+                <row>
+                  <entry colname="colspec0">
+                    <para xml:lang="en">
+                      <guilabel>Icon</guilabel>
+                    </para>
+                  </entry>
+                  <entry colname="colspec1">
+                    <para>引き出しを表すアイコンを選択してください。<guibutton>アイコン</guibutton>ボタンをクリックするとアイコン選択ダイアログが表示されます。そのダイアログからアイコンを選択して<guibutton>OK</guibutton> ボタンで確定してください。</para>
+                  </entry>
+                </row>
+                <row>
+                  <entry valign="top">
+                    <para xml:lang="en">
+                      <guilabel>Show hide buttons</guilabel>
+                    </para>
+                  </entry>
+                  <entry valign="top">
+                    <para>引き出しに隠すボタンを表示するには、このオプションを選択してください。隠すボタンをクリックすると引き出しが閉じます。</para>
+                  </entry>
+                </row>
+                <row>
+                  <entry valign="top">
+                    <para xml:lang="en">
+                      <guilabel>Arrows on hide buttons</guilabel>
+                    </para>
+                  </entry>
+                  <entry valign="top">
+                    <para>隠すボタンを有効にしている場合で隠すボタンに矢印を表示するには、このオプションを選択してください。</para>
+                  </entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </listitem>
+        <listitem>
+          <para><guilabel>背景</guilabel>タブを使えば、引き出しの背景を設定することができます。<guilabel>背景</guilabel>タブの詳細は、<xref linkend="panel-properties"/>をご覧ください。色や画像を引き出しにドラッグすることで引き出しの背景として色や画像を設定することができます。より詳しくは、<xref linkend="panel-properties-background"/>をご覧ください。</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>引き出しのプロパティ</guilabel>ダイアログを閉じるには<guibutton>閉じる</guibutton>をクリックしてください。</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+
+  <section xml:id="panel-default"><info><title>デフォルトのパネル・オブジェクト</title></info>
+    <!-- a temporary home for things that should one day be in a greater list of panel objects -->
+    
+    <para>この節では、デフォルトの MATE デスクトップに表示されるパネル・オブジェクトについて説明します。</para>
+    
+    <section xml:id="panel-windowselector"><info><title>ウィンドウ・セレクタ・アプレット</title></info> 
+      <!-- preserve for backwards compatibility: 2.12 -->
+      <anchor xml:id="gosmarco-27"/>
+
+      <indexterm xml:lang="en">
+        <primary>top edge panel</primary>
+        <secondary>window selector icon</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>window selector</primary>
+        <secondary>top edge panel</secondary>
+      </indexterm>
+      <para>このアプレットは、現在デスクトップで開いているすべてのウィンドウの一覧を表示できます。一覧の中にあるウィンドウを選択してフォーカスを与えることもできますウィンドウの一覧を表示する時は、<application>ウィンドウ・セレクタ</application>・アプレットをクリックしてください。次の図は<application>ウィンドウ・セレクタ</application>・アプレットの例です:</para>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/openwindows_menu.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Window selector applet displayed from the top edge panel.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <para>任意のウィンドウにフォーカスを与えるには、<application>ウィンドウ・セレクタ</application>・アプレットからフォーカスを与えたいウィンドウを選択してください。</para>
+      <para><application>ウィンドウ・セレクタ</application>にはすべてのワークスペースにあるウィンドウが一覧表示されます。現在のワークスペース以外のワークスペースにあるウィンドウはセパレータよりも下に一覧表示されます。</para>
+    </section>  
+
+    <section xml:id="panels-notification-area"><info><title>通知スペース・アプレット</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-567"/>
+
+      <indexterm xml:lang="en">
+        <primary>applets</primary>
+        <secondary>Notification Area</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Notification
+Area applet</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Notification Area applet</primary>
+      </indexterm>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/notification_area_icon.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Notification Area icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <para><application>通知スペース</application>・アプレットには、動作中のアプリケーションの状態などを表すアイコンが表示されます。例えば、CD を演奏する <application>CD プレイヤー</application>を使用すると、CD の形をしたアイコンが<application>通知スペース</application>・アプレットの中に表示されます。上の図は<application>通知スペース</application>・アプレットに表示された CD アイコンです。</para>
+    </section>
+     
+    <section xml:id="goseditmainmenu-65"><info><title>メニュー・バー</title></info>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/menu_bar_applet.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Menu Bar applet. Menus: Applications, Places, System.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <para xml:lang="en">The <application>Menu Bar</application> contains the 
+      <guimenu>Applications</guimenu>, <guimenu>Places</guimenu>, and 
+      <guimenu>System</guimenu> menus. You can access
+  almost all the standard applications, commands, and configuration options
+  from the <application>Menu Bar</application>. For more on using the Menu Bar, see <xref linkend="menubar"/>.</para>
+    </section>
+
+<!-- This has been pasted from the Window List manual so that the Window List applet help is integrated into the GUG. -->
+<!-- This section needs gross refactoring (making task-based for starters) -->
+
+ <section xml:id="windowlist"><info><title>ウィンドウの一覧</title></info>
+	 <para><application>ウィンドウの一覧</application>アプレットを使うと、MATE デスクトップで開いているウィンドウを管理できます。この<application>ウィンドウの一覧</application>アプレットは開いているそれぞれのウィンドウまたはウィンドウのグループをボタンを使って表現します。ボタンが表すウィンドウの状態に応じてボタンの状態は変化します。次の表で<application>ウィンドウの一覧</application>のボタンが表し得る状態を説明します。</para>
+	<informaltable>
+	<tgroup cols="2">
+	<colspec colname="col1"/>
+	<colspec colname="col2"/>
+	<thead>
+	<row valign="top">
+	<entry colname="col1"><para>状態</para></entry>
+	<entry colname="col2"><para>説明</para></entry>
+	</row>
+	</thead>
+	<tbody>
+	<row valign="top">
+	<entry colname="col1"><para>ボタンが押し込まれている。</para></entry>
+	<entry colname="col2"><para>そのウィンドウにフォーカスが当たっている。</para></entry>
+	</row>
+	<row valign="top">
+	<entry colname="col1"><para>ボタンが薄い色で表示されている。ボタンの文字列は、角括弧([])で囲まれている。</para></entry>
+	<entry colname="col2"><para>そのウィンドウが最小化されている。</para></entry>
+	</row> 
+	<row valign="top">
+	<entry colname="col1"><para>ボタンは押されておらず、薄い色にもなっていない。</para></entry>
+	<entry colname="col2"><para>そのウィンドウがデスクトップ上に表示されていて最小化されていない。</para></entry>
+	</row>
+	<row valign="top">
+	<entry colname="col1"><para>ボタンのタイトルの後にカッコ内に数字が表示されている。</para></entry>
+	<entry colname="col2"><para>複数のボタンからなるグループを表す。(訳注:数字はウィンドウの数)</para></entry>
+	</row>
+	</tbody>
+	</tgroup>
+	</informaltable>
+
+<!-- ================ Usage ================================ -->
+  <section xml:id="windowlist-usage"><info><title>使い方</title></info>
+	 <para><application>ウィンドウの一覧</application>を使って次に示すような機能を利用できます:</para>
+	<itemizedlist>
+	<listitem>
+	<para>ウィンドウにフォーカスを与えるには</para>
+	<para>デスクトップ上にあるもののフォーカスを持たないウィンドウを表す<application>ウィンドウの一覧</application>のボタンをクリックするとそのウィンドウにフォーカスを与えます。</para>
+	</listitem>
+	<listitem>
+	<para>ウィンドウを最小化するには</para>
+	<para>フォーカスを持つウィンドウを表す<application>ウィンドウの一覧</application>のボタンをクリックするとそのウィンドウを最小化します。</para>
+	</listitem>
+	<listitem>
+	<para>最小化したウィンドウを元に戻すには</para>
+	<para>最小化されているウィンドウを表す<application>ウィンドウの一覧</application>のボタンをクリックするすとそのウィンドウを元の状態に戻します。</para>
+	</listitem>
+	</itemizedlist>
+	
+	<para>ボタンをウィンドウの一覧上の別の場所にドラッグすることでウィンドウの一覧のボタンの並び順を変更できます。</para>
+	
+  </section>
+<!-- ============= Preferences ============================= -->
+  <section xml:id="windowlist-prefs"><info><title>設定</title></info> 
+	 <para><application>ウィンドウの一覧</application>を設定するには、一覧の左端についているハンドル上で右クリックし、<guimenuitem>設定</guimenuitem>を選択してください。以下の設定を変更できます。</para>
+    
+    <!-- Maintained for compatibility -->
+    <anchor xml:id="windowlist-prefs-behavior"/>
+    <anchor xml:id="windowlist-prefs-size"/>
+    
+	 <variablelist>
+	 <varlistentry><term xml:lang="en"><guilabel>Window List Content</guilabel> </term>
+	 <listitem>
+	 <para><application>ウィンドウの一覧</application>にどのウィンドウを表示するかを指定するには、次のオプションのいずれかを選択してください:</para>
+	 	<itemizedlist>
+	 	<listitem>
+	 	<para xml:lang="en"><guilabel>Show windows from current workspace</guilabel></para>
+	 	<para>現在のワークスペース内で開いているウィンドウのみを表示するには、このオプションを選択してください。</para>
+	 	</listitem>
+	 	<listitem><para xml:lang="en"><guilabel>Show windows from all workspaces</guilabel></para>
+	 	<para>すべてのワークスペース内で開いているウィンドウを表示するには、このオプションを選択してください。</para>
+	 	</listitem>
+	 	</itemizedlist>
+	 </listitem>
+	 </varlistentry>
+	 
+	 <varlistentry><term xml:lang="en"><guilabel>Window Grouping</guilabel> </term>
+	 <listitem>
+	 <para>同じアプリケーションのものであるウィンドウを<application>ウィンドウの一覧</application>でどのような時にグループ化するかを指定するには、次のオプションのいずれかを選択してください:</para>
+		<itemizedlist>
+	 	<listitem>
+	 	<para xml:lang="en"><guilabel>Never group windows</guilabel></para>
+	 	<para>同じアプリケーションのウィンドウを1つのボタンにグループ化したくない場合は、このオプションを選択してください。</para>
+		</listitem>
+	 	<listitem>
+	 	<para xml:lang="en"><guilabel>Group windows when space is limited</guilabel></para>
+	 	<para>パネルで空いている部分が限られている時に同じアプリケーションのウィンドウを1つのボタンにグループ化するには、このオプションを選択してください。</para>
+		</listitem>
+	 	<listitem>
+	 	<para xml:lang="en"><guilabel>Always group windows</guilabel></para>
+	 	<para>常に同じアプリケーションのウィンドウを1つのボタンにグループ化するには、このオプションを選択してください。</para>
+		</listitem>
+		</itemizedlist>
+	 </listitem>
+	 </varlistentry>
+	 
+	 <varlistentry><term xml:lang="en"><guilabel>Restoring Minimized Windows</guilabel> </term>
+	 <listitem>
+	 <para>ウィンドウを復元する際のウィンドウの一覧の振舞いを定義するには、次のオプションのいずれかを選択してください:</para>
+	 	<itemizedlist>
+	 	<listitem>
+	 	<para xml:lang="en"><guilabel>Restore to current workspace</guilabel></para>
+	 	<para>このオプションを選択すると現在のワークスペースに存在しなかったウィンドウであってもアプレットから現在のワークスペースに復元します。</para>
+	 	</listitem>
+	 	<listitem><para xml:lang="en"><guilabel>Restore to native workspace</guilabel></para>
+	 	<para>このオプションを選択すると、アプレットからウィンドウを復元した時に元々ウィンドウが存在していたワークスペースに切り替えます。</para>
+	 	</listitem>
+	 	</itemizedlist>
+	 <para>これらのオプションは、ダイアログの<guilabel>ウィンドウ一覧の内容</guilabel>セクションで<guilabel>すべてのワークスペースにあるウィンドウを表示する</guilabel>が選択されている場合のみ有効です。</para>
+	 </listitem>
+	 </varlistentry>
+	 </variablelist>
+
+  </section>
+ </section>
+
+  </section>
+</chapter>

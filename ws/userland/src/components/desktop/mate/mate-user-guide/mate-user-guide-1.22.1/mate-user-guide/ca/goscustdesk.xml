@@ -1,0 +1,2200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="prefs" xml:lang="ca">
+    <info><title>Configurar el vostre escriptori</title>
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Robert Antoni Buj Gelonch</db:firstname>
+      </db:personname>
+      <db:email>rbuj@fedoraproject.org</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2018</db:year>
+      
+        <db:year>2019</db:year>
+      
+      <db:holder>Robert Antoni Buj Gelonch</db:holder>
+    </db:copyright>
+  </info>
+  
+  <!-- ids in this section are gradually being converted 
+  to something like 'prefs-mouse'.
+  remember to add an anchor for the old id in the right place -->
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="goscustdesk-6"/>
+
+  <!-- Desktop Overview / Desktop Preferences -->
+  <anchor xml:id="gosoverview-55"/>
+  
+  <!-- ids of sections removed from this document for 2.14 -->
+  <anchor xml:id="goscustdesk-10"/><!-- Customizing Your Panels -->
+
+  <highlights>
+    <para>Aquest capítol descriu com utilitzar les eines de preferències per personalitzar l'escriptori MATE.</para>
+  </highlights>
+  <!-- move the following to its own section, "Using Pref Tools"? -->
+  <para>Una eina de preferències és una petita aplicació que us permet canviar els ajusts a l'escriptori MATE. Cadascuna de les eines de preferències cobreix un aspecte concret del vostre ordinador. Per exemple, amb l'eina de preferències <application>Ratolí</application> podeu establir el ratolí d'esquerrans o dretans, o canviar la velocitat del punter a la pantalla. Amb l'eina de preferències <application>Finestres</application> podeu establir el comportament comú a totes les finestres, com ara la manera com les seleccioneu amb el ratolí.</para>
+  <para>Per obrir una eina de preferències, seleccioneu <menuchoice><guimenu>Sistema</guimenu><guisubmenu>Preferències</guisubmenu></menuchoice> al tauler superior. Seleccioneu l'eina que necessiteu des del submenú.</para>
+  <para>Amb poques excepcions, els canvis que realitzeu als ajusts en una eina de preferències tindran efecte immediatament, sense necessitat de tancar l'eina de preferències. Podeu mantenir oberta la finestra de l'eina de preferències mentre proveu els canvis i fer més canvis si voleu.</para>
+  <para>Algunes aplicacions o components del sistema poden afegir les seves pròpies eines de preferències al menú.</para>
+  <note><para>Algunes de les eines de preferències us permeten modificar parts essencials del vostre sistema i, per tant, requereixen accés administratiu. Quan obriu l'eina de preferències, un quadre de diàleg us demanarà la vostra contrasenya. Aquestes estan al submenú <menuchoice><guimenu>Sistema</guimenu><guisubmenu>Administració</guisubmenu></menuchoice>. Aquest menú també conté aplicacions d'utilitats més complexes per gestionar i actualitzar el vostre sistema.</para></note>
+
+<section xml:id="prefs-personal"><info><title>Personal</title></info>
+  
+  <!-- Was Login Photo prefs, could go to About Me if that was enabled by default -->
+  <anchor xml:id="goscustdesk-95"/>
+
+  <section xml:id="goscustaccess-11"><info><title>Preferències de les tecnologies assistides</title></info>
+    <indexterm><primary>accessibilitat</primary> <secondary>establir les preferències de les tecnologies assistides</secondary></indexterm>
+    <indexterm><primary>eines de preferències</primary> <secondary>Tecnologies assistides</secondary></indexterm>
+    <para>Utilitzeu l'eina de preferències <application>Tecnologies assistides</application> per habilitar les Tecnologies assistides a l'escriptori MATE. També podeu obrir l'eina de preferències <application>Tecnologies assistides</application> per obrir altres eines de preferències que continguin preferències relacionades amb les tecnologies assistides.</para>
+    <itemizedlist>
+      <listitem>
+        <para><guibutton>Aplicacions preferides</guibutton> us permet especificar les aplicacions de tecnologies assistides per iniciar-se automàticament quan inicieu la sessió. Consulteu <xref linkend="prefs-preferredapps"/></para>
+      </listitem>
+      <listitem>
+        <para><guibutton>Accessibilitat del teclat</guibutton> us permet configurar les funcions d'accessibilitat del teclat com ara tecles enganxoses, tecles lentes o tecles de rebot. Consulteu <xref linkend="prefs-keyboard-a11y"/></para>
+      </listitem>
+      <listitem>
+        <para><guibutton>Accessibilitat del ratolí</guibutton> us permet configurar les funcions d'accessibilitat del ratolí com ara fer clic en passar per sobre. Consulteu <xref linkend="goscustdesk-53"/></para>
+      </listitem>
+    </itemizedlist>
+    <para><xref linkend="goscustaccess-TBL-14"/> llista les preferències de tecnologies assistides que podeu modificar.</para>
+    <table frame="topbot" xml:id="goscustaccess-TBL-14"><info><title>Preferències de les tecnologies assistides</title></info>
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colwidth="50*"/>
+        <colspec colwidth="50*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Element del diàleg</para>
+            </entry>
+            <entry>
+              <para>Descripció</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry valign="top">
+              <para><guilabel>Habilita les tecnologies assistides</guilabel></para>
+            </entry>
+            <entry valign="top">
+              <para>Seleccioneu aquesta opció per habilitar les tecnologies assistides a l'escriptori MATE.</para>
+              <para>Tingueu en compte que, per motius tècnics, haureu d'iniciar la sessió després d'habilitar aquesta opció perquè sigui totalment eficaç.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section xml:id="prefs-keyboard-shortcuts"><info><title>Preferències de les dreceres del teclat</title></info>
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="goscustdesk-39"/>
+    <indexterm><primary>eines de preferències</primary> <secondary>Dreceres de teclat</secondary></indexterm>
+    <indexterm><primary>tecles de drecera</primary> <secondary>configuració</secondary></indexterm>
+    <indexterm><primary>dreceres de teclat</primary> <secondary>configuració</secondary></indexterm>
+    <para>Utilitzeu l'eina de preferències <application>Dreceres de teclat</application> per personalitzar les dreceres de teclat predeterminades en funció dels vostres requisits.</para>    
+    
+    <para>Una <firstterm>drecera de teclat</firstterm> és una tecla o combinació de tecles que proporciona una alternativa a les maneres estàndards de realitzar una acció. Per obtenir més informació sobre les dreceres de teclat i una llista de dreceres predeterminades a MATE, consulteu <xref linkend="keyboard-skills"/>.</para>
+
+    <para>Per editar una drecera de teclat, realitzeu els passos següents:</para>
+    <orderedlist>
+	    <listitem><para xml:lang="en">
+	    Double-click on the shortcut that you want to edit. If you are using the keyboard, use the arrow keys to select the shortcut and press <keycap>Return</keycap>.</para></listitem>
+	    <listitem>
+	      <para>Premeu la nova tecla o combinació de tecles que voleu assignar a l'acció.</para>
+	      <para>Per netejar la drecera, premeu <keycap>Retrocés</keycap>. L'acció ara està marcada com a <guilabel>Inhabilitada</guilabel>.</para>
+	    </listitem>
+    </orderedlist>
+    
+    <para>Per cancel·lar l'assignació d'una drecera, feu clic a qualsevol altre lloc de la finestra o premeu <keycap>Esc</keycap>.</para>
+    
+    <para>Les dreceres que podeu personalitzar s'agrupen de la manera següent:</para>
+    
+    <variablelist>
+    	<varlistentry><term>Escriptori</term>
+    	  <listitem><para xml:lang="en">These are general shortcuts for the whole desktop, such as logging out, locking your screen (see <xref linkend="lock-screen"/>), opening the panel menubar (see <xref linkend="menubar"/>), or launching a web browser.</para></listitem>
+    	</varlistentry>
+    	<varlistentry><term>So</term>
+    	  <listitem><para>Les dreceres per controlar el reproductor de música i el volum del sistema.</para></listitem>
+    	</varlistentry>
+    	<varlistentry><term>Gestor de finestres</term>
+    	  <listitem><para>Les dreceres per treballar amb finestres i espais de treball, com ara maximitzar o moure la finestra actual, i canviar a un altre espai de treball. Per obtenir més informació sobre aquest tipus d'accions, consulteu <xref linkend="windows-manipulating"/> i <xref linkend="overview-workspaces"/>.</para></listitem>
+    	</varlistentry>
+        <varlistentry><term>Accessibilitat</term>
+          <listitem><para>Les dreceres per iniciar les tecnologies assistides, com ara un lector de pantalla, una lupa o un teclat en pantalla.</para></listitem>
+        </varlistentry>
+        <varlistentry><term>Dreceres personalitzades</term>
+          <listitem><para>Les dreceres personalitzades que han estat afegides amb el botó <guilabel>Afegeix</guilabel>. Aquesta secció no es mostrarà si no hi ha cap drecera personalitzada.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>Per afegir una drecera personalitzada, utilitzeu el botó <guilabel>Afegeix</guilabel> a l'àrea d'accions. Heu de proporcionar un nom i una ordre per a la drecera nova. La nova drecera personalitzada apareixerà a la llista de dreceres i es pot editar de la mateixa manera que les dreceres predefinides.</para>
+    <para>Per eliminar una drecera, utilitzeu el botó <guilabel>Suprimeix</guilabel>.</para>
+  </section>  
+
+  <section xml:id="prefs-preferredapps"><info><title>Aplicacions preferides</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdoc-2"/>       
+    <indexterm><primary>eines de preferències</primary> <secondary>Aplicacions preferides</secondary></indexterm>
+    <indexterm><primary>aplicacions predeterminades</primary> <see>aplicacions preferides</see></indexterm>
+    <para>Utilitzeu l'eina de preferències <application>Aplicacions preferides</application> per especificar les aplicacions que voleu que utilitzi l'escriptori MATE per iniciar una aplicació. Per exemple, podeu especificar l'aplicació del navegador web (<application>Epiphany</application>, <application>Mozilla Firefox</application>, <application>Opera</application>, etc.) a llançar quan feu clic a un enllaç en altres aplicacions, com ara clients de correu electrònic o visualitzadors de documents.</para>
+
+	<para>Trobareu <application>Aplicacions preferides</application> si aneu a <menuchoice><guimenu>Sistema</guimenu><guisubmenu>Preferències</guisubmenu><guimenuitem>Aplicacions preferides</guimenuitem></menuchoice>.</para>
+    <para>Podeu personalitzar les preferències per a l'eina de preferències <application>Aplicacions preferides</application> en les àrees funcionals següents.</para>
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Internet</guilabel> (web, correu)</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Multimèdia</guilabel> (reproductor multimèdia)</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Sistema</guilabel> (terminal)</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Accessibilitat</guilabel> (visual, mobilitat)</para>
+      </listitem>
+    </itemizedlist>
+    
+    <para>Per a cadascuna de les categories d'aplicacions preferides, hi ha un menú desplegable que conté una llista d'aplicacions possibles que podeu triar. La llista depèn de les aplicacions instal·lades al vostre ordinador.</para>
+    <para>En cadascuna de les categories, l'últim element del menú (<guimenuitem>Personalitzada</guimenuitem>) us permet personalitzar l'ordre utilitzada pel sistema quan es produeix l'acció de llançament específica.</para>
+    
+    <section xml:id="goscustlookandfeel-32"><info><title>Opcions d'ordre personalitzada</title></info>
+      <indexterm><primary>aplicacions preferides</primary> <secondary>ordre personalitzada</secondary></indexterm>
+      <para>La taula següent resumeix les diverses opcions que podeu triar quan seleccioneu <guimenuitem>Personalitzada</guimenuitem> al menú desplegable de l'aplicació.</para>
+      <table frame="topbot" xml:id="goscustlookandfeel-TBL-37"><info><title>Opcions d'ordre personalitzada</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec0" colwidth="18.86*"/>
+          <colspec colname="colspec1" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Element del diàleg</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Ordre</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Introduïu l'ordre a executar per iniciar l'aplicació personalitzada. Per a les aplicacions <application>Navegador web</application> i <application>Client de correu electrònic</application>, podeu incloure un <literal>%s</literal> després de l'ordre per indicar a l'aplicació que utilitzi l'adreça URL o l'adreça de correu electrònic que heu fet clic. Els arguments exactes de l'ordre poden dependre de l'aplicació específica.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Executa en un terminal</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Seleccioneu aquesta opció per executar l'ordre en una finestra de terminal. Seleccioneu aquesta opció per a una aplicació que no crea una finestra per executar-se.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Indicador d'execució (només terminal)</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>La majoria de les aplicacions de terminal tenen una opció que les obliga a tractar les opcions restants de la línia d'ordres com a ordres a executar (<option>-x</option> per a <application>mate-terminal</application>). Introduïu aquí aquesta opció. Per exemple, aquesta opció s'utilitza quan s'executa una ordre d'un llançador per al qual el tipus escollit és Aplicació al terminal.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Executa a l'inici (només accessibilitat)</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Seleccioneu aquesta opció per executar l'ordre tan aviat com comenci la vostra sessió.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+</section>
+
+<section xml:id="prefs-look-and-feel"><info><title>Aspecte i comportament</title></info>
+
+  <section xml:id="prefs-appearance"><info><title>Preferències de l'aparença</title></info>
+    <para>L'eina de preferències <application>Aparença</application> us permet configurar diversos aspectes de com es veu l'escriptori:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Tema,</para>
+      </listitem>
+      <listitem>
+        <para>Fons de l'escriptori,</para>
+      </listitem>
+      <listitem>
+        <para>Lletres,</para>
+      </listitem>
+      <listitem>
+        <para>Interfície d'usuari.</para>
+      </listitem>
+     </itemizedlist>
+
+  <section xml:id="prefs-theme"><info><title>Preferències del tema</title></info>
+    <anchor xml:id="goscustdesk-12"/>
+    <anchor xml:id="goscustdesk-54"/>
+    <anchor xml:id="goscustdesk-82"/>
+  
+    <indexterm><primary>temes</primary> <secondary>establir les opcions dels controls</secondary></indexterm>
+    <indexterm><primary>temes</primary> <secondary>establir les opcions del marc de la finestra</secondary></indexterm>
+    <indexterm><primary>temes</primary> <secondary>establir les opcions de les icones</secondary></indexterm>
+    <indexterm><primary>temes</primary> <secondary>establir les opcions del tema del marc</secondary></indexterm>
+    <indexterm><primary>eines de preferències</primary> <secondary>Tema</secondary></indexterm>
+
+    <para>Un tema és un grup d'ajusts coordinats que especifica l'aparença visual d'una part de l'escriptori MATE. Podeu triar els temes per canviar l'aparença de l'escriptori MATE. Utilitzeu la secció que està a la pestanya <application>Tema</application> per seleccionar un tema. Podeu triar-lo entre una llista de temes disponibles. La llista de temes disponibles inclou diversos temes per als usuaris amb requisits d'accessibilitat.</para>
+    <para>Un tema conté els ajusts que afecten diferents parts de l'escriptori MATE, de la manera següent:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Controls</term>
+        <listitem>
+          <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>GTK+
+themes</primary><see>themes, controls options</see></default:indexterm><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>themes</primary><secondary>controls options</secondary><tertiary>introduction</tertiary></default:indexterm>L'ajust dels controls per a un tema determina l'aparença visual de les finestres, els taulers i les miniaplicacions. L'ajust dels controls també determina l'aspecte visual dels elements de la interfície compatibles amb MATE que apareixen a les finestres, els taulers i les miniaplicacions, com ara menús, icones i botons. Algunes de les opcions de l'ajust dels controls disponibles estan dissenyades per a les necessitats especials d'accessibilitat. Podeu triar una opció per a l'ajust dels controls des de la secció que està a la pestanya <guilabel>Controls</guilabel> a la finestra <guilabel>Personalitza el tema</guilabel>.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Colors</term>
+        <listitem>
+           <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>themes</primary><secondary>color options</secondary><tertiary>introduction</tertiary></default:indexterm><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>color themes</primary><see>themes, color options</see></default:indexterm>L'ajust del color per a un tema determina el color de diversos elements de la interfície d'usuari. Podeu triar diversos parells de colors des de la secció que està a la pestanya <guilabel>Colors</guilabel> a la finestra <guilabel>Personalitza el tema</guilabel>.</para>
+           <note><para>És important triar parells de colors que tinguin un bon contrast entre si, en cas contrari, el text pot ser difícil de llegir.</para></note>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Marc de la finestra</term>
+        <listitem>
+          <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>themes</primary><secondary>window frame options</secondary><tertiary>introduction</tertiary></default:indexterm><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>Marco themes</primary><see>themes, window frame options</see></default:indexterm>L'ajust del marc de la finestra per a un tema només determina l'aspecte dels marcs al voltant de les finestres. Podeu triar una opció per a l'ajust del marc de la finestra des de la secció que està a la pestanya <guilabel>Contorn de la finestra</guilabel> a la finestra <guilabel>Personalitza el tema</guilabel>.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Icones</term>
+        <listitem>
+          <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>themes</primary><secondary>icons options</secondary><tertiary>introduction</tertiary></default:indexterm><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>icon themes</primary><see>themes, icons options</see></default:indexterm>L'ajust de les icones per a tema determina l'aparença de les icones als taulers i als fons de l'escriptori. Podeu triar una opció per a l'ajust de les icones des de la secció que està a la pestanya <guilabel>Icones</guilabel> a la finestra <guilabel>Personalitza el tema</guilabel>.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Punter</term>
+        <listitem>
+          <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>themes</primary><secondary>pointer options</secondary><tertiary>introduction</tertiary></default:indexterm><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>pointer themes</primary><see>themes, pointer options</see></default:indexterm>L'ajust del punter per a un tema determina l'aparença i la mida del punter del ratolí. Podeu triar una opció per a l'ajust del punter des de la secció que està a la pestanya <guilabel>Punter</guilabel> a la finestra <guilabel>Personalitza el tema</guilabel>.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <section xml:id="goscustdesk-61"><info><title>Com crear un tema personalitzat</title></info>
+      
+      <para>Els temes que es llisten a la secció que està a la pestanya <guilabel>Tema</guilabel> són diferents combinacions d'opcions de controls, opcions de marcs de finestres i opcions d'icones. Podeu crear un tema personalitzat que utilitzi diferents combinacions d'opcions de controls, opcions de marcs de finestres i opcions d'icones</para>
+      <para>Per crear un tema personalitzat, realitzeu els passos següents:</para>
+      <orderedlist>
+        <listitem>
+          <para>Inicieu l'eina de preferències <application>Aparença</application>. Obriu la secció que està a la pestanya <guilabel>Tema</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Seleccioneu un tema a la llista de temes.</para>
+        </listitem>
+        <listitem>
+          <para>Feu clic al botó <guibutton>Personalitza</guibutton>. Es mostra un diàleg <guilabel>Personalitza el tema</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Seleccioneu l'opció de controls que voleu utilitzar al tema personalitzat de la llista a la secció que està a la pestanya <guilabel>Controls</guilabel>. La llista d'opcions de controls disponibles inclou diverses opcions per als usuaris amb requisits d'accessibilitat.</para>
+        </listitem>
+        <listitem>
+          <para>Feu clic a la pestanya <guilabel>Contorn de la finestra</guilabel> per mostrar la secció que està a la pestanya <guilabel>Contorn de la finestra</guilabel>. Seleccioneu l'opció de marc de finestra que voleu utilitzar al tema personalitzat de la llista d'opcions disponibles. La llista d'opcions de marcs de finestres disponibles inclou diverses opcions per als usuaris amb requisits d'accessibilitat.</para>
+        </listitem>
+        <listitem>
+          <para>Feu clic a la pestanya <guilabel>Icones</guilabel> per mostrar la secció que està a la pestanya <guilabel>Icones</guilabel>. Seleccioneu l'opció d'icones que voleu utilitzar al tema personalitzat de la llista d'opcions disponibles. La llista d'opcions d'icones disponibles inclou diverses opcions per als usuaris amb requisits d'accessibilitat.</para>
+        </listitem>
+        <listitem>
+          <para>Feu clic al botó <guibutton>Tanca</guibutton> per tancar el diàleg <guilabel>Personalitza el tema</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>A l'eina de preferències <application>Aparença</application>, feu clic al botó <guibutton>Anomena i desa</guibutton>. Es mostra un diàleg <guilabel>Anomena i desa el tema</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Teclegeu un nom i una breu descripció del tema personalitzat al quadre de diàleg i, a continuació, feu clic a <guibutton>Desa</guibutton>. El tema personalitzat ara apareix a la vostra llista de temes disponibles.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="goscustdesk-62"><info><title>Com instal·lar un tema nou</title></info>
+      <para>Podeu afegir un tema a la llista de temes disponibles. El tema nou ha de ser un fitxer d'arxiu tar comprimit. És a dir, el tema nou ha de ser un fitxer <filename>.tar.gz</filename>.</para>
+      <para>Per instal·lar un tema nou, realitzeu els passos següents:</para>
+      <orderedlist>
+        <listitem>
+          <para>Inicieu l'eina de preferències <application>Aparença</application>. Obriu la secció que està a la pestanya <guilabel>Tema</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Feu clic al botó <guibutton>Instal·la</guibutton>. Es mostra un diàleg de selecció de fitxer.</para>
+        </listitem>
+        <listitem>
+          <para>Introduïu la ubicació del fitxer de l'arxiu del tema a l'entrada de la ubicació. Com a alternativa, seleccioneu el fitxer de l'arxiu del tema a la llista de fitxers. Quan hàgiu seleccionat el fitxer, feu clic a <guibutton>Obre</guibutton>.</para>
+        </listitem>
+        <listitem>
+          <para>Feu clic al botó <guibutton>Instal·la</guibutton> per instal·lar el tema nou.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+<!--How does this work nowadays ?
+    <sect4 id="goscustdesk-80">
+      <title>To Install a New Theme Option</title>
+      <para>You can install new controls options, window frame options, or icons
+options. You can find many controls options on the Internet.</para>
+      <para>To install a new controls option, window frame option, or icons option,
+perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Start the <application>Appearance</application> preference tool.
+          Open the <guilabel>Theme</guilabel> tabbed section.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Customize</guibutton> button.
+An <guilabel>Customize Theme</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the tab for the type of theme that you want to install.
+For example, to install an icons option, click on the <guilabel>Icons</guilabel>
+tab.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Install Theme</guibutton> button.
+A <guilabel>Theme Installation</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Enter the location of the option archive file in the drop-down
+combination box. Alternatively, to browse for the file, click on the <guibutton>Browse</guibutton> button. When you have selected the file, click <guibutton>OK</guibutton>.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Install</guibutton> button to install
+the new option. </para>
+        </listitem>
+      </orderedlist>
+    </sect4>
+-->
+
+    <section xml:id="goscustdesk-81"><info><title>Com suprimir una opció del tema</title></info>
+      <para>Podeu eliminar opcions de controls, opcions de marc de finestra o opcions d'icones.</para>
+      <para>Per eliminar una opció de controls, una opció de marc de finestra o una opció d'icones, realitzeu els passos següents:</para>
+      <orderedlist>
+        <listitem>
+          <para>Inicieu l'eina de preferències <application>Aparença</application>. Obriu la secció que està a la pestanya <guilabel>Tema</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Feu clic al botó <guibutton>Personalitza</guibutton>. Es mostra un diàleg <guilabel>Personalitza el tema</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Feu clic a la pestanya per al tipus d'opció que voleu eliminar.</para>
+        </listitem>
+        <listitem>
+          <para>Seleccioneu l'opció del tema que voleu eliminar.</para>
+        </listitem>
+        <listitem>
+          <para>Utilitzeu el botó <guibutton>Suprimeix</guibutton> per eliminar l'opció seleccionada. Tingueu en compte que no podeu eliminar les opcions del tema de tot el sistema.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+
+  <section xml:id="prefs-desktopbackground"><info><title>Preferències del fons de l'escriptori</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-7"/>       
+    <indexterm><primary>escriptori</primary> <secondary>personalitzar el fons</secondary></indexterm>
+    <indexterm><primary>eines de preferències de l'escriptori MATE</primary> <see>eines de preferències</see></indexterm>
+    <indexterm><primary>eines de preferències</primary> <secondary>Fons</secondary></indexterm>
+    <indexterm><primary>escriptori</primary> <secondary>personalitzar el fons de l'escriptori</secondary></indexterm>
+    <para xml:lang="en">The <xref linkend="overview-desktop"/> background is the image or color that is applied to your
+desktop. You can open <guilabel>Background</guilabel> tabbed section in the <application>Appearance</application> preference tool by right-clicking on the desktop and choosing <guimenuitem>Change Desktop Background</guimenuitem>, as well as from the <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu></menuchoice> menu.</para>
+    <para>Podeu personalitzar el fons de l'escriptori de les maneres següents:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Seleccionar una imatge per al fons de l'escriptori. La imatge se superposa al color de fons de l'escriptori. El color de fons de l'escriptori és visible si seleccioneu una imatge transparent o si la imatge no cobreix tot l'escriptori.</para>
+      </listitem>
+      <listitem>
+        <para>Seleccionar un color per al fons de l'escriptori. Podeu seleccionar un color sòlid o crear un efecte de degradat amb dos colors. Un efecte de degradat és un efecte visual on un color es fusiona gradualment amb un altre color.</para>
+      </listitem>
+    </itemizedlist>
+    <tip><para xml:lang="en">You can also drag a color or a pattern to the desktop from the <guilabel>Backgrounds
+and Emblems</guilabel> dialog in the <application>Caja</application> file manager (see <xref linkend="caja-backgrounds-and-emblems"/>).</para></tip>
+    <para><xref linkend="goscustdesk-TBL-14"/> llista les preferències del fons que podeu modificar.</para>
+    <table frame="topbot" xml:id="goscustdesk-TBL-14"><info><title>Preferències del fons de l'escriptori</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec0" colwidth="18.86*"/>
+        <colspec colname="colspec1" colwidth="47.14*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Element del diàleg</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Descripció</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guibutton>Fons de l'escriptori</guibutton></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Trieu una imatge de la llista. Alternativament, podeu utilitzar el botó <guibutton>Afegeix</guibutton> per triar qualsevol imatge del vostre ordinador.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Estil</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Per especificar com mostrar la imatge, seleccioneu una de les opcions següents de la llista desplegable <guilabel>Estil</guilabel>:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Centrada</guilabel>: Mostra la imatge al centre de l'escriptori, respectant la mida original de la imatge.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Omple la pantalla</guilabel>: Amplia la imatge per cobrir l'escriptori, alterant les seves proporcions si és necessari.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Escalada</guilabel>: Amplia la imatge fins que la imatge es troba amb les vores de la pantalla i manté les proporcions de la imatge.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Zoom</guilabel>: Amplia la dimensió més petita de la imatge fins que es troba amb les vores de la pantalla; la imatge es pot tallar a l'altra dimensió.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Mosaic</guilabel>: Duplica la imatge amb la mida original tantes vegades com sigui necessari i imprimeix les imatges una al costat de l'altra perquè cobreixi tot l'escriptori.</para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0">
+              <para><guilabel>Afegeix</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0">
+              <para/>
+              <para>Feu clic a <guibutton>Afegeix</guibutton> per navegar per una imatge al vostre ordinador. Es mostrarà un selector de fitxers estàndard. Trieu la imatge que voleu i feu clic a <guibutton>Obre</guibutton>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0">
+              <para><guilabel>Suprimeix</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0">
+              <para>Trieu la imatge que voleu eliminar i, a continuació, feu clic a <guilabel>Suprimeix</guilabel>. Això elimina la imatge de la llista de fons de pantalla disponibles; Tanmateix, no suprimeix la imatge del vostre ordinador.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Colors</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Per especificar un esquema de colors, utilitzeu les opcions de la llista desplegable <guilabel>Estil</guilabel>, i els botons del selector de colors.</para>
+              <para>Podeu especificar un tema de colors de les maneres següents:</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Trieu <guilabel>Color sòlid</guilabel> de la llista desplegable <guilabel>Estil del fons</guilabel> per especificar un sol color per al fons de l'escriptori.</para>
+                  <para>Per triar el color que necessiteu, feu clic al botó <guibutton>Color</guibutton>. Es mostra el diàleg <guilabel>Selecciona un color</guilabel>. Trieu un color i feu clic a <guibutton>D'acord</guibutton>.</para>
+                </listitem>
+                <listitem>
+                  <para>Trieu <guilabel>Degradat horitzontal</guilabel> de la llista desplegable <guilabel>Estil del fons</guilabel>. Aquesta opció crea un efecte de degradat des de la vora esquerra de la pantalla fins a la vora dreta de la pantalla.</para>
+                  <para>Feu clic al botó del <guibutton>color esquerre</guibutton> per mostrar el diàleg <guilabel>Selecciona un color</guilabel>. Trieu el color que voleu que aparegui a la vora esquerra.</para>
+                  <para>Feu clic al botó del <guibutton>color dret</guibutton>. Trieu el color que voleu que aparegui a la vora dreta.</para>
+                </listitem>
+                <listitem>
+                  <para>Trieu <guilabel>Degradat vertical</guilabel> de la llista desplegable <guilabel>Estil del fons</guilabel>. Aquesta opció crea un efecte de degradat des de la vora superior de la pantalla fins a la vora inferior de la pantalla.</para>
+                  <para>Feu clic al botó del <guibutton>color superior</guibutton> per mostrar el diàleg <guilabel>Selecciona un color</guilabel>. Trieu el color que voleu que aparegui a la vora superior.</para>
+                  <para>Feu clic al botó del <guibutton>color inferior</guibutton>. Trieu el color que voleu que aparegui a la vora inferior.</para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section xml:id="prefs-font"><info><title>Preferències de les lletres</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-38"/>
+    <anchor xml:id="goscustdesk-83"/>
+    <anchor xml:id="goscustdesk-94"/>
+    <indexterm><primary>eines de preferències</primary> <secondary>Lletra</secondary></indexterm>
+    <indexterm><primary>lletres</primary> <secondary>escriptori</secondary></indexterm>
+    <indexterm><primary>lletres</primary> <secondary>aplicacions</secondary></indexterm>
+    <indexterm><primary>lletres</primary> <secondary>títol de la finestra</secondary></indexterm>
+    <indexterm><primary>lletres</primary> <secondary>terminal</secondary></indexterm>
+    <indexterm><primary>lletres</primary> <secondary>renderització</secondary></indexterm>
+    <para>Utilitzeu la secció que està a la pestanya <guilabel>Lletres</guilabel> a l'eina de preferències <application>Aparença</application> per triar quines lletres s'utilitzen a les diferents parts de l'escriptori i com es mostren les lletres a la pantalla.</para>
+
+    <section xml:id="prefs-font-choose"><info><title>Selecció de les lletres</title></info>
+      <para>El botó del selector de lletres mostra el nom de la lletra i la seva mida de punt. El nom també es mostra en negreta, cursiva o normal.</para>
+      <para>Per canviar la lletra, feu clic al botó del selector de lletres. S'obre el diàleg de selecció de lletres. Seleccioneu la família de lletra, l'estil i la mida del punt de les llistes. L'àrea de vista prèvia mostra la vostra selecció actual. Feu clic <guibutton>D'acord</guibutton> per acceptar el canvi i actualitzar l'escriptori.</para>
+      <para>Podeu triar les lletres per a les parts següents de l'escriptori:</para>
+
+      <variablelist>
+       	<varlistentry>
+      	  <term><guilabel>Lletra de les aplicacions</guilabel></term>
+      	  <listitem>
+      	    <para>Aquesta lletra s'utilitza als menús, barres d'eines i quadres de diàleg de les aplicacions.</para>
+      	  </listitem>
+      	</varlistentry>
+      	<varlistentry>
+      	  <term><guilabel>Lletra dels documents</guilabel></term>
+      	  <listitem>
+      	    <para>Aquesta lletra s'utilitza per mostrar documents a les aplicacions.</para>
+      	    <note><para>En algunes aplicacions, podeu anul·lar aquesta opció al diàleg de preferències de l'aplicació.</para></note>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Lletra de l'escriptori</guilabel></term>
+      	  <listitem>
+      	    <para>Aquesta lletra s'utilitza a les etiquetes de les icones a l'escriptori.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Lletra del títol de la finestra</guilabel></term>
+      	  <listitem>
+      	    <para>Aquesta lletra s'utilitza a les barres de títols de les finestres.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Lletra d'amplada fixa</guilabel></term>
+      	  <listitem>
+      	    <para>Aquesta lletra s'utilitza a l'aplicació <application>Terminal</application> a les i aplicacions relacionades amb la programació.</para>
+      	  </listitem>
+      	</varlistentry>
+      	</variablelist>
+  	</section>
+	
+  	<section xml:id="prefs-font-rendering"><info><title>Renderització de les lletres</title></info>
+      <para>Podeu establir les opcions següents relacionades amb com es mostren les lletres a la pantalla:</para>
+	
+    	<variablelist>
+     	<varlistentry>
+    	  <term><guilabel>Renderització</guilabel></term>
+    	  <listitem>
+    	    <para>Per especificar com renderitzar les lletres a la pantalla, seleccioneu una de les opcions següents:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Monocrom</guilabel>: renderitza les lletres només en blanc i negre. Les vores dels caràcters poden aparèixer de forma irregular en alguns casos perquè els caràcters no tenen antialiàsing. <firstterm>Antialiàsing</firstterm> és un efecte que s'aplica a les vores dels caràcters per fer que els caràcters es vegin més suaus.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Millor contrast</guilabel>: fa antialiàsing a les lletres sempre que sigui possible. Utilitzeu aquesta opció per als monitors estàndards de tub de raig catòdic (CRT).</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Millor contrast</guilabel>: ajusta les lletres per donar el contrast més fort possible i, a més, fa antialiàsing a les lletres, de manera que els caràcters tenen vores suaus. Aquesta opció pot millorar l'accessibilitat de l'escriptori MATE als usuaris amb discapacitats visuals.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Suavització dels subpíxels (LCD)</guilabel>: utilitza tècniques que exploten la forma dels píxels per separat del LCD (Liquid Crystal Display) per renderitzar lletres més suaus. Utilitzeu aquesta opció per a les pantalles LCD o planes.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+     	<varlistentry>
+    	  <term><guibutton>Detalls</guibutton></term>
+    	  <listitem>
+    	    <para>Feu clic a aquest botó per especificar més detalls sobre com renderitzar les lletres a la vostra pantalla.</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Resolució (punts per polzada)</guilabel>: utilitzeu el quadre de selecció de valors per especificar la resolució que voleu utilitzar quan la vostra pantalla renderitzi les lletres.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Suavització</guilabel>: Seleccioneu una de les opcions per especificar com fer antialiàsing a les lletres.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Contorn</guilabel>: <firstterm>Contorn</firstterm> és una tècnica de renderització de lletres que millora la qualitat de les lletres en mides petites i en resolucions baixes de pantalla. Seleccioneu una de les opcions per especificar com aplicar el contorn a les lletres.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Ordre dels subpíxels</guilabel>: seleccioneu una de les opcions per especificar l'ordre de color del subpíxel per a les vostres lletres. Utilitzeu aquesta opció per a les pantalles LCD o planes.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+    </variablelist>
+   
+    </section>
+
+<!-- go to fonts folder no longer exists
+    <sect4 id="goscustdesk-83">
+      <title>Previewing a Font</title>
+      <indexterm>
+        <primary>fonts</primary>
+        <secondary>previewing</secondary>
+      </indexterm>
+      <para>A preview of a font shows the characters of a font at different sizes, as well as copyright and technical information. To preview a font, perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Open the <application>Appearance</application> preference tool by choosing <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu><guimenuitem>Font</guimenuitem></menuchoice> in the top panel.</para>
+        </listitem>
+        <listitem><para>Click on <guibutton>Details</guibutton>.</para></listitem>
+        <listitem><para>Click on <guibutton>Go to font folder</guibutton>. The <guilabel>Fonts</guilabel> folder opens.</para></listitem>
+        <listitem>
+          <para>Open a font to display a preview.</para>
+        </listitem>
+      </orderedlist>
+    </sect4>
+-->
+
+<!-- go to fonts folder no longer exists
+    <sect4 id="goscustdesk-94">
+      <title>Adding a TrueType Font</title>
+      <para>To add a TrueType font to your system, perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Open the <application>Font</application> preference tool by choosing <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu><guimenuitem>Font</guimenuitem></menuchoice> in the panel menubar.</para>
+        </listitem>
+        <listitem><para>Click on <guibutton>Details</guibutton>.</para></listitem>
+        <listitem><para>Click on <guibutton>Go to font folder</guibutton>. The <guilabel>Fonts</guilabel> folder opens.</para></listitem>      
+        <listitem>
+          <para>Open a file manager window and select the TrueType font that
+you want to add.</para>
+        </listitem>
+        <listitem>
+          <para>Copy the TrueType font file that you want to add to the <guilabel>Fonts</guilabel> folder.</para>
+        </listitem>
+      </orderedlist>
+      <warning><para>The new font will not appear in the <guilabel>Fonts</guilabel> folder until you next log in. You will need to relaunch applications for them to have access to the new font. These are known bugs in Mate.</para></warning>
+      
+      <tip><para>You can also open the <guilabel>Fonts</guilabel> folder by typing the following URI into <application>Caja</application> file manager's <link linkend="caja-open-location">Open Location dialog</link>: <command>fonts:///</command>.</para></tip>
+    </sect4>
+-->
+  </section>
+
+  <section xml:id="prefs-menustoolbars"><info><title>Preferències de la interfície</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustuserinter-2"/>    
+    <indexterm><primary>barra d'eines, personalitzar l'aparença</primary></indexterm>
+    <indexterm><primary>eines de preferències</primary> <secondary>Menús i barres d'eines</secondary></indexterm>
+    <indexterm><primary>menús</primary> <secondary>a les aplicacions, personalitzar l'aparença</secondary></indexterm>
+    <para>Podeu utilitzar la secció que està a la pestanya <guilabel>Interfície</guilabel> a l'eina de preferències <application>Aparença</application> per personalitzar l'aparença dels menús, barres de menús i barres d'eines per a les aplicacions que formen part de MATE.</para>
+    <para>A mesura que feu canvis als ajusts, s'actualitza la visualització de la vista prèvia de la finestra. Això us permet veure els canvis si no hi ha cap finestra d'aplicació oberta.</para>
+    <variablelist>
+     	<varlistentry>
+    	  <term><guilabel>Mostra les icones als menús</guilabel></term>
+    	  <listitem>
+    	    <para>Seleccioneu aquesta opció per mostrar una icona al costat dels elements dels menús de les aplicacions i al menú del tauler. No tots els elements del menú tenen una icona.</para>
+    	  </listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term><guilabel>Dreceres de teclat de menús editables</guilabel></term>
+	      <listitem><para>Si seleccioneu aquesta opció, podeu definir dreceres de teclat noves per als elements del menú.</para>
+	      <para>Per canviar una drecera d'aplicació, obriu el menú i, amb el punter del ratolí a sobre de l'element del menú que voleu canviar, premeu la nova combinació de tecles. Per treure una drecera, premeu <keycap>Retrocés</keycap> o <keycap>Supr.</keycap>.</para>
+	      <warning>
+	        <para>Quan utilitzeu aquesta funció, no se us avisarà si l'assignació d'una nova tecla de drecera a una ordre també la treu d'una altra ordre.</para>
+	        <para>No hi ha cap manera de restablir la drecera de teclat original predeterminada per a una ordre.</para>
+	        <para>Aquesta funció no manté les dreceres que normalment són comunes a totes les aplicacions, com ara <keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo> per Copia. Això pot provocar inconsistències a les vostres aplicacions de MATE.</para>
+	      </warning>
+	      </listitem>
+      </varlistentry>
+     	<varlistentry>
+    	  <term><guilabel>Etiquetes dels botons de la barra d'eines</guilabel></term>
+    	  <listitem>
+    	    <para>Trieu una de les opcions següents per especificar què voleu mostrar a les barres d'eines de les aplicacions compatibles amb MATE:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Text a sota de les icones</guilabel>: seleccioneu aquesta opció per mostrar barres d'eines amb text, així com una icona a cada botó.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Text al costat de les icones</guilabel>: seleccioneu aquesta opció per mostrar barres d'eines amb una icona només a cada botó i amb text als botons més importants.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Només icones</guilabel>: seleccioneu aquesta opció per mostrar barres d'eines amb només una icona a cada botó.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Només text</guilabel>: seleccioneu aquesta opció per mostrar barres d'eines amb només text a cada botó.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+    </variablelist>
+  </section>
+  </section>
+
+  <section xml:id="prefs-windows"><info><title>Preferències de les finestres</title></info>
+    <!-- preserve for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-58"/>    
+
+    <indexterm><primary>gestor de finestres</primary> <secondary>personalitzar</secondary></indexterm>
+    <indexterm><primary>eines de preferències</primary> <secondary>Finestres</secondary></indexterm>
+    <para>Utilitzeu l'eina de preferències <application>Finestres</application> per personalitzar el comportament de les finestres per a l'escriptori MATE.</para>
+    <para><xref linkend="goscustwindows-TBL-14"/> llista les preferències de les finestres que podeu modificar.</para>
+    <table frame="topbot" xml:id="goscustwindows-TBL-14"><info><title>Preferències de les finestres</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec0" colwidth="18.86*"/>
+        <colspec colname="colspec1" colwidth="47.14*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Element del diàleg</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Descripció</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Selecciona les finestres quan el ratolí hi passi per sobre</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Seleccioneu aquesta opció per entregar el focus a una finestra quan assenyaleu la finestra. La finestra manté el focus fins que assenyaleu una altra finestra.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Alça les finestres seleccionades després d'un interval</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Seleccioneu aquesta opció per alçar les finestres poc temps després que la finestra rep el focus.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Interval abans de l'alçament</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Especifiqueu l'interval d'espera abans d'alçar una finestra que hagi rebut el focus.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Feu doble clic a la barra de títol per realitzar aquesta acció</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Seleccioneu el comportament que voleu produir quan feu doble clic a la barra de títol de la finestra. Seleccioneu una de les opcions següents:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Maximitza</guilabel>: maximitza la finestra.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Maximitza verticalment</guilabel>: maximitza la finestra verticalment sense canviar-ne l'amplada.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Maximitza horitzontalment</guilabel>: maximitza la finestra horitzontalment sense canviar-ne l'alçada.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Minimitza</guilabel>: minimitza la finestra.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Enrotlla</guilabel>: enrotlla la finestra.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Sense</guilabel>: no fa res.</para>
+                </listitem>
+              </itemizedlist>
+              <para>Si una finestra ja està maximitzada o enrotllada, fer doble clic a la barra de títol la tornarà al seu estat normal.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Per moure una finestra, mantingueu premuda aquesta tecla i després agafeu a la finestra</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Seleccioneu la tecla a mantenir premuda quan arrossegueu una finestra per moure la finestra.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <note>
+      <para>La posició de les tecles Control, Alt i Súper, al teclat es pot modificar al diàleg Opcions de la disposició del teclat, consulteu <xref linkend="prefs-keyboard-layoutoptions"/>.</para>
+    </note>
+  </section>
+
+  <section xml:id="prefs-screensaver"><info><title>Preferències de l'estalvi de pantalla</title></info>
+    <indexterm><primary>eines de preferències</primary> <secondary>estalvi de pantalla</secondary></indexterm>
+    <para>Un <firstterm>estalvi de pantalla</firstterm> mostra imatges en moviment a la vostra pantalla quan no s'utilitza el vostre ordinador. Els estalvis de pantalla també ajuden a evitar que els monitors antics estiguin danyats per una mateixa imatge mostrada durant llargs períodes de temps. Per aturar l'estalvi de pantalla i tornar a l'escriptori, moveu el ratolí o premeu una tecla al teclat.</para>
+    <para>Utilitzeu l'eina de preferències <application>Estalvi de pantalla</application> per establir el tipus d'estalvi de pantalla, el temps abans de l'inici de l'estalvi de pantalla i si es requereix una contrasenya per tornar a l'escriptori.</para>
+    <para>Podeu modificar els ajusts següents:</para>
+    <variablelist>
+    	<varlistentry>
+    	  <term>Estalvi de pantalla</term>
+    	  <listitem><para>Seleccioneu el <guilabel>Tema de l'estalvi de pantalla</guilabel> de la llista. Es mostra una versió reduïda del tema d'estalvi de pantalla seleccionat. Premeu <guibutton>Vista prèvia</guibutton> per mostrar el tema seleccionat a tota la pantalla. Durant la vista prèvia, utilitzeu els botons de fletxes de la part superior de la pantalla per passar per la llista de temes d'estalvis de pantalla.</para>
+    	  <itemizedlist>
+	        <listitem><para>El tema <guilabel>Pantalla en negre</guilabel> no mostra cap imatge i només mostra una pantalla en negre.</para></listitem>
+	        <listitem><para>El tema <guilabel>Aleatori</guilabel> selecciona un estalvi de pantalla a mostrar de la llista a l'atzar.</para></listitem>
+        </itemizedlist>
+    	  <para>Els estalvis de pantalla que es mostren a la resta de la llista, depenen del distribuïdor o del proveïdor.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Considera l'ordinador com a inactiu després de...</term>
+    	  <listitem><para>El vostre ordinador esdevé inactiu després d'haver transcorregut aquest temps sense que hàgiu fet cap entrada, com ara moure el ratolí o teclejar. Això pot afectar la gestió d'energia (el monitor es pot apagar, per exemple) o la missatgeria instantània (les aplicacions de xat poden configurar l'estat «absent»). Utilitzeu el control lliscant per establir la durada en minuts o hores.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Activa l'estalvi de pantalla quan l'ordinador estigui inactiu</term>
+    	  <listitem><para>Seleccioneu aquesta opció perquè l'estalvi de pantalla comenci després d'aquesta durada establerta.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Bloqueja la pantalla quan l'estalvi de pantalla estigui actiu</term>
+    	  <listitem><para>Quan se selecciona aquesta opció, l'estalvi de pantalla us demanarà la vostra contrasenya quan intenteu tornar a l'escriptori. Per obtenir més informació sobre el bloqueig de la pantalla, consulteu <xref linkend="lock-screen"/>.</para></listitem>  	
+    	</varlistentry>
+  </variablelist>
+  </section>
+</section>
+
+<section xml:id="prefs-internet-and-network"><info><title>Internet i xarxa</title></info>
+
+  <section xml:id="prefs-network-admin"><info><title>Ajusts de xarxa</title></info>
+    <para><application>Ajusts de xarxa</application> us permet especificar la manera com el vostre sistema es connecta a altres ordinadors i a Internet.</para>
+    <para>Se us demanarà la contrasenya de l'administrador quan inicieu <application>Ajusts de xarxa</application>. Això és perquè els canvis realitzats amb aquesta eina afectaran a tot el sistema.</para>
+
+  <section xml:id="prefs-network-admin-getting-started"><info><title>Primers passos</title></info>
+    <para>La finestra principal d'<application>Ajusts de xarxa</application> conté quatre seccions en pestanyes diferents:</para>
+    <variablelist>
+	 <varlistentry>
+	   <term><guilabel>Connexions</guilabel></term>
+	   <listitem>
+		<para>Mostra totes les interfícies de xarxa, també us permet modificar els seus ajusts.</para>
+	   </listitem>
+	 </varlistentry>
+
+	 <varlistentry>
+	   <term><guilabel>General</guilabel></term>
+	   <listitem>
+		<para>Us permet modificar el nom d'amfitrió i de domini del vostre sistema.</para>
+	   </listitem>
+	 </varlistentry>
+
+    	 <varlistentry>
+	   <term><guilabel>DNS</guilabel></term>
+	   <listitem>
+		<para>Conté dues seccions, els <guilabel>Servidors DNS</guilabel> són els servidors que utilitza el vostre ordinador per resoldre les adreces IP a partir dels noms de domini. Els <guilabel>dominis de cerca</guilabel> són els dominis predeterminats als quals el vostre sistema cercarà qualsevol amfitrió quan no s'especifica cap domini.</para>
+	   </listitem>
+	 </varlistentry>
+
+	 <varlistentry>
+	   <term><guilabel>Amfitrions</guilabel></term>
+	   <listitem>
+		<para>Mostra la llista d'àlies per accedir a altres ordinadors.</para>
+	   </listitem>
+	 </varlistentry>
+    </variablelist>
+  </section>
+
+  <section xml:id="prefs-network-admin-usage"><info><title>Utilització</title></info>
+
+    <section xml:id="tool-modify-connection"><info><title>Com modificar els ajusts d'una connexió</title></info>
+	 <para>A la secció <guilabel>Connexions</guilabel>, seleccioneu la interfície que voleu modificar i premeu el botó <guilabel>Propietats</guilabel>, depenent del tipus d'interfície, podreu modificar diferents dades.</para>
+
+	 <variablelist>
+	   <varlistentry>
+		<term>Interfícies Ethernet i IRLAN</term>
+		<listitem>
+		  <para>Podeu modificar la manera que es configura la interfície (DHCP o manualment), si la interfície està configurada manualment, també podeu modificar l'adreça IP de la interfície, la màscara de xarxa i la porta d'enllaç.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>Interfícies sense fil</term>
+		<listitem>
+		  <para>Podeu modificar la manera que es configura la interfície (DHCP o manualment), si la interfície està configurada manualment, també podeu modificar l'adreça IP de la interfície, la màscara de xarxa i la porta d'enllaç, també podeu modificar el nom de xarxa (ESSID) per a aquesta interfície.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>Interfícies de línia paral·lela</term>
+		<listitem>
+		  <para>Podeu modificar l'adreça IP de la interfície, així com l'adreça IP remota.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>Interfícies PPP/mòdem</term>
+		<listitem>
+		  <para>Podeu modificar el dispositiu de mòdem, si voleu marcar mitjançant tons o polsos, el volum del mòdem, el número de telèfon, el nom d'usuari i la contrasenya proporcionada pel vostre proveïdor d'Internet i altres ajusts avançats per a PPP.</para>
+		</listitem>
+	   </varlistentry>
+	 </variablelist>
+    </section>
+
+    <section><info><title>Com activar o desactivar una interfície</title></info>
+	 <para>Si la secció <guilabel>Connexions</guilabel>, habilita o inhabilita la casella de selecció situada al costat de la interfície.</para>
+    </section>
+    
+    <section><info><title>Com canviar el vostre nom d'amfitrió i de domini</title></info>
+	 <para>Si la secció <guilabel>Connexions</guilabel>, canvia els quadres de text de nom d'amfitrió o de domini.</para>
+    </section>
+
+    <section><info><title>Com afegir un servidor de noms de domini nou</title></info>
+	 <para>A la secció <guilabel>Servidors DNS</guilabel>, premeu el botó <guilabel>Afegeix</guilabel> i empleneu la fila nova de la llista amb el nou servidor de noms de domini.</para>
+    </section>
+
+    <section><info><title>Com eliminar un servidor de noms de domini</title></info>
+	 <para>A la secció <guilabel>Servidors DNS</guilabel>, seleccioneu una adreça IP de DNS de la llista i premeu el botó <guilabel>Suprimeix</guilabel>.</para>
+    </section>
+
+    <section><info><title>Com afegir un domini de cerca nou</title></info>
+	 <para>A la secció <guilabel>Dominis de cerca</guilabel>, premeu el botó <guilabel>Afegeix</guilabel> i empleneu la fila nova de la llista amb el nou domini de cerca.</para>
+    </section>
+
+    <section><info><title>Com eliminar un domini de cerca</title></info>
+	 <para>A la secció <guilabel>Dominis de cerca</guilabel>, seleccioneu un domini de cerca de la llista i premeu el botó <guilabel>Suprimeix</guilabel>.</para>
+    </section>
+
+    <section><info><title>Com afegir un àlies d'amfitrió nou</title></info>
+	 <para>A la secció <guilabel>Amfitrions</guilabel>, premeu el botó <guilabel>Afegeix</guilabel> i teclegeu una adreça IP i els àlies que apuntaran a la finestra que apareix.</para>
+    </section>
+
+    <section><info><title>Com modificar un àlies d'amfitrió</title></info>
+	 <para>A la secció <guilabel>Amfitrions</guilabel>, seleccioneu un àlies, premeu el botó <guilabel>Propietats</guilabel> de la llista i modifiqueu els ajusts de l'àlies a la finestra que apareix.</para>
+    </section>
+
+    <section><info><title>Com eliminar un àlies d'amfitrió</title></info>
+	 <para>A la secció <guilabel>Amfitrions</guilabel>, seleccioneu un àlies de la llista i premeu el botó <guilabel>Suprimeix</guilabel>.</para>
+    </section>
+
+    <section xml:id="prefs-network-admin-add-new-profile"><info><title>Com desar la configuració de la vostra xarxa actual com una «ubicació»</title></info>
+	 <para>Premeu el botó <guilabel>Afegeix</guilabel> que està al costat del menú <guilabel>Ubicacions</guilabel>, especifiqueu el nom de la ubicació a la finestra que apareix.</para>
+    </section>
+
+    <section><info><title>Com eliminar una ubicació</title></info>
+	 <para>Premeu el botó <guilabel>Suprimeix</guilabel> que està al costat del menú <guilabel>Ubicacions</guilabel>, el perfil seleccionat se suprimirà.</para>
+    </section>
+
+    <section><info><title>Com canviar a una ubicació</title></info>
+	 <para>Seleccioneu una ubicació del menú <guilabel>Ubicacions</guilabel>, tota la configuració es canviarà automàticament a la ubicació escollida.</para>
+    </section>
+
+  </section>
+  </section>
+
+  <section xml:id="prefs-networkproxy"><info><title>Preferències del servidor intermediari de xarxa</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-50"/>       
+    <indexterm><primary>eines de preferències</primary> <secondary>Servidor intermediari de xarxa</secondary></indexterm>
+    <indexterm><primary>servidor intermediari de xarxa</primary> <secondary>establir les preferències</secondary></indexterm>
+    <indexterm><primary>Internet</primary> <secondary>configurar la connexió</secondary></indexterm>
+    <indexterm><primary>servidor intermediari</primary> <secondary>establir les preferències</secondary></indexterm>
+    <para><application>Preferències del servidor intermediari de xarxa</application> us permet configurar com es connecta a Internet el sistema.</para>
+    <para>Podeu configurar l'escriptori MATE per connectar a un <firstterm>servidor intermediari</firstterm>, i especificar els detalls del servidor intermediari. Un servidor intermediari és un servidor que intercepta les peticions a un altre servidor i l'emplena, si es pot. Podeu introduir el nom de domini o l'adreça IP del servidor intermediari. Un <firstterm>nom de domini</firstterm> és un identificador alfabètic únic per a un ordinador en una xarxa. Una <firstterm>adreça IP</firstterm> és un identificador numèric únic per a un ordinador en una xarxa.</para>
+    <para>Atès que és possible que hàgiu d'utilitzar una configuració de servidor intermediari diferent en llocs diferents, <application>Preferències del servidor intermediari de xarxa</application> us permet definir configuracions de servidors intermediaris per separat i canviar entre aquestes mitjançant el quadre desplegable <guilabel>Ubicació</guilabel> a la part superior de la finestra. Trieu <guilabel>Ubicació nova</guilabel> per crear una configuració de servidor intermediari per a una ubicació nova. Les ubicacions es poden treure mitjançant el botó <guilabel>Suprimeix la ubicació</guilabel> a la part inferior de la finestra.</para>
+  
+    <variablelist>
+      <varlistentry>
+        <term><guilabel>Connexió directa a Internet</guilabel></term>
+        <listitem><para>Seleccioneu aquesta opció per connectar-vos a Internet sense cap servidor intermediari.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Configuració manual del servidor intermediari</guilabel></term>
+        <listitem><para>Seleccioneu aquesta opció per connectar-vos a Internet a través d'un servidor intermediari i configurar manualment els ajusts del servidor intermediari.</para>
+
+        <variablelist>
+          <varlistentry>
+            <term><guilabel>Servidor intermediari HTTP</guilabel></term>
+            <listitem>
+              <para>Introduïu el nom de domini o l'adreça IP del servidor intermediari que voleu utilitzar quan feu una petició a un servei HTTP. Introduïu el número de port del servei HTTP al servidor intermediari al camp <guilabel>Port</guilabel>.</para>
+              <para>Si el servidor intermediari HTTP requereix autenticació, feu clic al botó <guibutton>Detalls</guibutton> per introduir el vostre nom d'usuari i la vostra contrasenya.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>Servidor intermediari HTTP segur</guilabel></term>
+            <listitem><para>Introduïu el nom de domini o l'adreça IP del servidor intermediari que voleu utilitzar quan feu una petició a un servei HTTP segur. Introduïu el número de port del servei HTTP segur al servidor intermediari al camp <guilabel>Port</guilabel>.</para></listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>Servidor intermediari FTP</guilabel></term>
+            <listitem><para>Introduïu el nom de domini o l'adreça IP del servidor intermediari que voleu utilitzar quan feu una petició a un servei FTP. Introduïu el número de port del servei FTP al servidor intermediari al camp <guilabel>Port</guilabel>.</para></listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>Amfitrió dels sòcols</guilabel></term>
+            <listitem><para>Introduïu el nom de domini o l'adreça IP de l'amfitrió dels sòcols que voleu utilitzar. Introduïu el número de port per al protocol dels sòcols al servidor intermediari al camp <guilabel>Port</guilabel>.</para></listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem></varlistentry>
+      <varlistentry><term><guilabel>Configuració automàtica del servidor intermediari</guilabel></term><listitem><para>Seleccioneu aquesta opció si voleu connectar-vos a Internet a través d'un servidor intermediari i voleu configurar automàticament els ajusts del servidor intermediari.</para>
+      <para>La configuració automàtica del servidor intermediari funciona mitjançant un fitxer anomenat PAC, que el vostre navegador baixa d'un servidor web. Si no especifiqueu l'URL per a un fitxer PAC a l'entrada de l'<guilabel>URL d'autoconfiguració</guilabel>, el vostre navegador intentarà localitzar-lo automàticament.</para>
+      <variablelist>
+      <varlistentry><term><guilabel>URL d'autoconfiguració</guilabel></term><listitem><para>Introduïu l'URL d'un fitxer PAC que contingui la informació necessària per configurar automàticament el servidor intermediari.</para></listitem></varlistentry>
+      </variablelist></listitem></varlistentry>
+    </variablelist>
+    
+    <para>Establiu per a quins amfitrions no s'ha d'utilitzar el servidor intermediari a la llista <guilabel>Llista d'amfitrions ignorats</guilabel> a la secció que està a la pestanya <guilabel>Amfitrions ignorats</guilabel>. Quan accediu a aquests amfitrions, es connectarà directament a Internet sense cap servidor intermediari.</para>
+  </section>
+
+  <section xml:id="prefs-remotedesktop"><info><title>Preferències de l'escriptori remot</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-90"/>
+    <indexterm><primary>establir les preferències de la compartició de la sessió</primary></indexterm>           
+    <para>L'eina de preferències <application>Escriptori remot</application> us permet compartir una sessió d'escriptori MATE entre diversos usuaris i establir les preferències de la compartició de la sessió.</para>
+    <para><xref linkend="goscustdesk-TBL-91"/> llista preferències de la compartició de la sessió que podeu establir. Aquestes preferències tenen un impacte directe sobre la seguretat del vostre sistema.</para>
+    <table frame="topbot" xml:id="goscustdesk-TBL-91"><info><title>Preferències de la compartició de la sessió</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec18" colwidth="19.21*"/>
+        <colspec colname="colspec19" colwidth="46.79*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Element del diàleg</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Descripció</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Permet que altres usuaris vegin l'escriptori</guilabel></para>
+            </entry>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para>Seleccioneu aquesta opció per permetre als usuaris remots veure la vostra sessió. Tots els esdeveniments del teclat, punter i porta-retalls de l'usuari remot s'ignoren.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Permet que altres usuaris controlin l'escriptori</guilabel></para>
+            </entry>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para>Seleccioneu aquesta opció per permetre que altres accedeixin i controlin la vostra sessió des d'una ubicació remota.</para>
+            </entry>
+          </row>
+          <!--
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para>
+                <guilabel>Users
+can view your desktop using this command:</guilabel>
+                
+              </para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Click on the command text to send it to
+another user by email.</para>
+            </entry>
+          </row>
+          -->
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para><guilabel>Quan un usuari intenta veure o controlar l'escriptori</guilabel></para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Seleccioneu les següents consideracions de seguretat quan un usuari intenti veure o controlar la vostra sessió:<itemizedlist><listitem><para><guilabel>Demana confirmació:</guilabel> seleccioneu aquesta opció si voleu que els usuaris remots us demanin confirmació quan vulguin compartir la vostra sessió. Aquesta opció us permet conèixer els altres usuaris que es connecten a la vostra sessió. També podeu decidir quina hora és adequada perquè l'usuari remot es connecti a la vostra sessió.</para></listitem><listitem><para><guilabel>Cal que l'usuari introdueixi aquesta contrasenya:</guilabel> seleccioneu aquesta opció per autenticar l'usuari remot si s'utilitza l'autenticació. Aquesta opció proporciona un nivell de seguretat addicional.</para></listitem></itemizedlist></para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para><guilabel>Contrasenya</guilabel></para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Introduïu la contrasenya que ha d'introduir el client que intenta veure o controlar la vostra sessió.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>  
+</section>
+
+<section xml:id="prefs-hardware"><info><title>Maquinari</title></info>
+	
+  <section xml:id="prefs-keyboard"><info><title>Preferències del teclat</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustperiph-2"/>       
+    <indexterm><primary>eines de preferències</primary> <secondary>Teclat</secondary></indexterm>
+    <indexterm><primary>teclat</primary> <secondary>configurar les preferències generals</secondary></indexterm>
+    <para>Utilitzeu l'eina de preferències <application>Teclat</application> per modificar les preferències de repetició automàtica per al vostre teclat i configurar els ajusts del descans de tecleig.</para>
+    <!--
+    adds no information until each tab can be briefly summarized.
+    
+    <para>You can set the preferences for the <application>Keyboard</application>
+preference tool in the following functional areas:</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <guilabel>Keyboard</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Typing Break</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Layouts</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Layout Options</guilabel>
+        </para>
+      </listitem>
+    </itemizedlist>
+    -->
+    <para xml:lang="en">To open the <xref linkend="prefs-keyboard-a11y"/> tool, click the <guibutton>Accessibility</guibutton> button.</para>    
+    <section xml:id="goscustdesk-40"><info><title>Preferències del teclat</title></info>
+      
+      <para>Utilitzeu la secció que està a la pestanya <guilabel>General</guilabel> per establir les preferències generals del teclat.</para>
+      <para><xref linkend="goscustperiph-TBL-3"/> llista les preferències del teclat que podeu modificar.</para>
+      <table frame="topbot" xml:id="goscustperiph-TBL-3"><info><title>Preferències del teclat</title></info>
+        
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Element del diàleg</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Es repeteix la tecla quan es manté la tecla premuda</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Seleccioneu aquesta opció per habilitar la repetició del teclat. Si la repetició del teclat està habilitada, quan premeu i manteniu premuda una tecla, l'acció associada amb la tecla es realitza repetidament. Per exemple, si premeu i manteniu premuda la tecla d'un caràcter, el caràcter es tecleja repetidament.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Retard</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Seleccioneu el retard des del moment que es prem una tecla fins al moment en què es repeteix l'acció.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Velocitat</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Seleccioneu la velocitat a la qual es repeteix l'acció.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>El cursor parpelleja als camps de text</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Seleccioneu aquesta opció per habilitar que el cursor parpellegi als camps i quadres de text.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Velocitat</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Utilitzeu el control lliscant per especificar la velocitat a la qual el cursor parpelleja als camps i quadres de text.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para><guilabel>Teclegeu per provar els ajusts</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>L'àrea de prova és una interfície interactiva perquè pugueu veure com els ajusts del teclat afecten la pantalla mentre teclegeu. Teclegeu text a l'àrea de prova per provar l'efecte dels vostres ajusts.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="prefs-keyboard-layouts"><info><title>Preferències de les disposicions del teclat</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscustdesk-100"/>         
+      <para>Utilitzeu la secció que està a la pestanya <guilabel>Disposicions</guilabel> per establir l'idioma del vostre teclat, i també la marca i el model del teclat que esteu utilitzant.</para>
+      <para>Això permetrà que MATE utilitzi les tecles especials del teclat i que mostri els caràcters correctes per a l'idioma del vostre teclat.</para>
+      
+      <variablelist>
+	      <varlistentry>
+	        <term><guilabel>Model del teclat</guilabel></term>
+	        <listitem><para>Utilitzeu el botó de navegació (que està etiquetat amb el model de teclat seleccionat actualment) per triar una altra marca i model de teclat.</para></listitem>
+	      </varlistentry>
+	      <varlistentry>
+	        <term><guilabel>Separa la disposició per a cada finestra</guilabel></term>
+	        <listitem><para>Quan se selecciona aquesta opció, cada finestra té la seva pròpia disposició de teclat. Si canvieu a una disposició diferent, només afectarà la finestra actual.</para>
+	        <para>Això us permet teclejar amb una disposició de teclat per al rus en un processador de texts i, a continuació, canviar al navegador web i teclejar amb una disposició de teclat per a l'anglès, per exemple.</para></listitem>
+              </varlistentry>
+	      <varlistentry>
+	        <term><guilabel>Disposicions seleccionades</guilabel></term>
+	        <listitem><para>Podeu canviar entre les disposicions seleccionades per canviar els caràcters que el teclat produeix quan teclegeu. Per afegir una disposició, feu clic a <guibutton>Afegeix</guibutton>. Podeu tenir fins a quatre disposicions. Per treure una disposició, seleccioneu-la i premeu <guibutton>Suprimeix</guibutton>.</para>
+	        <para>Per canviar entre disposicions de teclat, utilitzeu la miniaplicació <application>Indicador de teclat</application>.</para>
+                 <para>Per afegir una disposició a la llista de disposicions seleccionades, feu clic al botó <guibutton>Afegeix</guibutton>. Obre un diàleg de selecció de disposicions que us permetrà seleccionar una disposició per país o per idioma.</para> 
+	        </listitem>
+	      </varlistentry>
+      </variablelist>
+      
+      <para>Feu clic a <guibutton>Restableix als valors predeterminats</guibutton> per restaurar tots els ajusts de la disposició del teclat al seu estat inicial per al vostre sistema i configuració regional.</para>
+
+      <para>Feu clic al botó <guibutton>Opcions de la disposició</guibutton> per obrir el diàleg <guilabel>Opcions de la disposició del teclat</guilabel>.</para>
+   </section>
+    
+    <section xml:id="prefs-keyboard-layoutoptions"><info><title>Opcions de la disposició del teclat</title></info> 
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscustdesk-101"/>
+      <para>El diàleg <guilabel>Opcions de la disposició del teclat</guilabel> té opcions per al comportament de les tecles modificadores del teclat i certes opcions de dreceres.</para>
+      <para>Expandiu cadascuna de les etiquetes del grup per mostrar les opcions disponibles. Una etiqueta en negreta indica que les opcions del grup s'han canviat des dels ajusts predeterminats.</para>
+      <note><para>Les opcions que es mostren en aquest diàleg depenen del sistema de finestres de les X que utilitzeu. No totes les opcions següents es poden llistar al vostre sistema, i no totes les opcions mostrades poden funcionar al vostre sistema.</para></note>
+
+      <!-- the options of mystery!!!       
+           for future reference, these are in
+           /etc/X11/xkb/rules/xorg.xml
+      -->
+      <variablelist>
+        <varlistentry>
+                <term><guilabel>Afegir el signe d'euro a determinades tecles</guilabel></term>
+                <listitem>
+                  <para>Utilitzeu aquestes opcions per afegir el símbol de moneda euro € a una tecla com a caràcter de tercer nivell. Per accedir a aquest símbol, heu d'assignar un <guilabel>selector de tercer nivell</guilabel>.</para>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Comportament de la tecla Alt / Win</guilabel></term>
+                <listitem><para>Aquest grup d'opcions us permet assignar el comportament de les tecles modificadores d'Unix Súper, Meta i Híper a les tecles <keycap>Alt</keycap> i <keycap>Windows</keycap> al vostre teclat.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Comportament de la tecla Bloq. Maj.</guilabel></term>
+                <listitem><para>Aquest grup té diverses opcions per a la tecla <keycap>Bloq. Maj.</keycap>.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Posició de la tecla Composició</guilabel></term>
+                <listitem>
+                  <para>La tecla Composició us permet combinar dues tecles premudes per fer un sol caràcter. Això s'utilitza per crear un caràcter amb accent que pot ser que no estigui a la disposició del teclat. Per exemple, premeu la tecla Composició, després <keycap>'</keycap>, després <keycap>e</keycap> per obtenir la e amb accent.</para>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Posició de la tecla Control</guilabel></term>
+                <listitem><para>Utilitzeu aquest grup d'opcions per establir la ubicació de la tecla <keycap>Ctrl</keycap> per fer-la coincidir amb les disposicions de teclats més antigues.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Agrupa el comportament Maj/Bloq.</guilabel></term>
+                <listitem><para>Seleccioneu la tecla o combinació de tecles per canviar la disposició del teclat.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Altres opcions de compatibilitat</guilabel></term>
+                <listitem>
+                  <variablelist>
+	                  <varlistentry>
+	                    <term><guilabel>Majúscules amb les tecles del teclat numèric funcionen com a MS Windows.</guilabel></term>
+                    	<listitem>
+                    	  <para>Amb aquesta opció seleccionada, utilitzant <keycap>Maj</keycap> amb el teclat numèric quan <keycap>Bloq. Núm.</keycap> està desactivat, amplia la selecció actual.</para>
+                    	  <para>Amb aquesta opció sense seleccionar, utilitzeu <keycap>Maj</keycap> amb les tecles del teclat numèric per obtenir l'invers del comportament actual per aquesta tecla. Per exemple, quan <keycap>Bloq. Núm.</keycap> està desactivat, la tecla <keycap>8</keycap> actua com una fletxa cap amunt. Premeu <keycombo><keycap>Maj</keycap><keycap>8</keycap></keycombo> per teclejar un «8».</para></listitem>
+                    	</varlistentry>
+                    	<varlistentry><term><guilabel>Tecles especials (Ctrl+Alt+&lt;tecla&gt;) gestionades a un servidor.</guilabel></term>
+	<listitem><para>Seleccioneu aquesta opció perquè algunes dreceres de teclat passin al sistema de finestres de les X en lloc de ser gestionades per MATE.</para></listitem>
+</varlistentry>
+                    </variablelist>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Selectors de tercer nivell</guilabel></term>
+                <listitem>
+                  <para>Una tecla de <firstterm>tercer niell</firstterm> us permet obtenir un tercer caràcter d'una tecla, de la mateixa manera que prémer <keycap>Maj</keycap> amb una tecla produeix un caràcter diferent de l'obtingut en prémer la tecla sola.</para>
+                  <para>Utilitzeu aquest grup per seleccionar una tecla que voleu que actuï com una tecla modificadora de tercer nivell.</para>
+                  <para>Prémer la tecla de tercer nivell i <keycap>Maj</keycap> produeix un quart caràcter d'una tecla.</para>
+                  <para>Els caràcters de tercer i quart nivell per a la disposició del vostre teclat es mostren a la finestra de visualització de la disposició de l'<application>Indicador de teclat</application>.</para>
+                  <!-- better link, pending CVS commit of gswitchit docs: "help:gswitchit?layout-view" -->
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Utilitza el LED del teclat per mostrar el grup alternatiu.</guilabel></term>
+                <listitem>
+                  <para>Utilitzeu aquesta opció per especificar que un dels indicadors de llum del vostre teclat ha d'indicar quan s'està utilitzant una disposició de teclat alternativa.</para>
+                  <note><para>La llum seleccionada del teclat ja no indicarà la seva funció estàndard. Per exemple, la llum de Bloq. Núm. no reaccionarà a la <keycap>tecla Bloq. Núm.</keycap>.</para></note>
+                </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+
+    <section xml:id="prefs-keyboard-a11y"><info><title>Preferències d'accessibilitat del teclat</title></info>
+    <indexterm><primary>AccessX</primary> <see>eines de preferències, Accessibilitat del teclat</see></indexterm>
+    <indexterm><primary>teclat</primary> <secondary>configurar les opcions d'accessibilitat</secondary></indexterm>
+    <indexterm><primary>teclat</primary> <secondary>configurar el teclat</secondary></indexterm>
+    <indexterm><primary>eines de preferències</primary> <secondary>Accessibilitat del teclat</secondary></indexterm>
+
+    <!-- Maintained for 2.8 compatibility -->
+      <anchor xml:id="goscustaccess-6"/>
+      <anchor xml:id="goscustaccess-8"/>
+      <anchor xml:id="goscustaccess-9"/>
+      <para>La secció que està a la pestanya <guilabel>Accessibilitat</guilabel> us permet configurar opcions com ara el filtratge de tecles premudes per accident i l'ús de tecles de drecera sense haver de prémer diverses tecles alhora. Aquestes funcions també es coneixen com a AccessX.</para>
+
+       <para>Aquesta secció descriu cadascuna de les preferències que podeu configurar. Per obtenir una descripció més orientada a la tasca d'accessibilitat del teclat, consulteu la <citetitle>Guia d'accessibilitat de l'escriptori MATE</citetitle>.</para>
+
+      <para><xref linkend="goscustdesk-TBL-85"/> llista les preferències d'accessibilitat que podeu modificar.</para>
+     <table frame="topbot" xml:id="goscustdesk-TBL-85"><info><title>Preferències d'accessibilitat</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Element del diàleg</para>
+              </entry>
+              <entry>
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Es poden commutar les funcions d'accessibilitat amb les dreceres de teclat</guilabel></para>
+                </entry>
+                <entry valign="top">
+                   <para>Seleccioneu aquesta opció per mostrar una icona a l'àrea de notificacions que ofereix un accés ràpid a les funcions d'accessibilitat.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Simula les pressions de tecles simultànies</guilabel></para>
+                  <indexterm><primary>accessibilitat</primary> <secondary>tecles enganxoses</secondary></indexterm>
+                </entry>
+                <entry valign="top">
+                <para>Seleccioneu aquesta opció per realitzar diverses operacions de pressió de tecles simultànies en prémer les tecles en una seqüència. Com a alternativa, per habilitar les tecles enganxoses, premeu <keycap>Maj</keycap> cinc vegades.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                    <para><guilabel>Inhabilita les tecles enganxoses si es premen dues tecles alhora</guilabel></para>
+                </entry>
+                <entry valign="top">
+                    <para>Seleccioneu aquesta opció per especificar que quan premeu dues tecles simultàniament, ja no podeu prémer les tecles en una seqüència per realitzar diverses pressions de tecles simultànies.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Accepta només les pressions de tecles perllongades</guilabel></para>
+                  <indexterm><primary>accessibilitat</primary> <secondary>tecles lentes</secondary></indexterm>
+                </entry>
+                <entry valign="top">
+                <para>Seleccioneu aquesta opció per controlar el període de temps que heu de prémer i mantenir una tecla abans de l'acceptació. Com a alternativa, per habilitar la funció de tecles lentes, premeu i manteniu premuda la tecla <keycap>Maj</keycap> durant 8 segons.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Retard</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Utilitzeu el control lliscant per especificar el període de temps que ha s'ha de prémer i mantenir una tecla abans de l'acceptació.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Ignora les pressions ràpides de les tecles duplicades</guilabel></para>
+                  <indexterm><primary>accessibilitat</primary> <secondary>tecles de rebot</secondary></indexterm>
+                </entry>
+                <entry valign="top">
+                <para>Seleccioneu aquesta opció per acceptar una entrada de tecla i controlar les característiques de repetició de tecles del teclat.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Retard</guilabel></para>
+                </entry>
+                <entry valign="top">
+                   <para>Utilitzeu el control lliscant per especificar l'interval d'espera després de la primera pressió de tecla abans de la repetició automàtica d'una tecla premuda.</para>
+                </entry>
+             </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Teclegeu per provar els ajusts</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>L'àrea de prova és una interfície interactiva perquè pugueu veure com els ajusts del teclat afecten la pantalla mentre teclegeu. Teclegeu text a l'àrea de prova per provar l'efecte dels vostres ajusts.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>Per configurar la resposta d'àudio per a les funcions d'accessibilitat del teclat, feu clic al botó <guibutton>Resposta d'àudio</guibutton>. Obre la finestra <guilabel>Resposta d'àudio d'accessibilitat del teclat</guilabel>.</para>
+    </section>
+
+   <section><info><title>Resposta d'àudio d'accessibilitat del teclat</title></info>
+      <para>Configureu la resposta d'àudio per a les funcions d'accessibilitat del teclat.</para>
+      <para><xref linkend="goscustdesk-TBL-86"/> llista les preferències de resposta d'àudio que podeu modificar.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-86"><info><title>Preferències de resposta d'àudio</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Element del diàleg</para>
+              </entry>
+              <entry>
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Emet l'avís sonor quan s'habiliten o inhabiliten les funcionalitats d'accessibilitat</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Seleccioneu aquesta opció per obtenir una indicació acústica quan s'activi o desactivi una funció com ara tecles enganxoses o tecles lentes.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Emet l'avís sonor quan es premi una tecla commutadora</guilabel></para>
+                 <indexterm><primary>accessibilitat</primary> <secondary>tecla commutadora</secondary></indexterm>
+              </entry>
+	      <entry valign="top">
+                 <para>Seleccioneu aquesta opció per obtenir una indicació acústica d'una commutació de pressió de tecla. Podeu escoltar un avís sonor quan s'activa una tecla de commutació. Podeu escoltar dos sons quan es desactiva una tecla de commutació.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Emet l'avís sonor quan es premi una tecla modificadora</guilabel></para>
+              </entry>
+              <entry valign="top">
+                 <para>Seleccioneu aquesta opció per obtenir una indicació acústica quan premeu una tecla modificadora.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Emet l'avís sonor quan es premi una tecla</guilabel></para>
+              </entry>
+              <entry valign="top">
+                 <para>Seleccioneu aquesta opció per obtenir una indicació acústica quan es prem una tecla.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Emet l'avís sonor quan s'accepti la tecla</guilabel></para>
+              </entry>
+              <entry valign="top">
+                 <para>Seleccioneu aquesta opció per obtenir una indicació acústica quan s'accepta una tecla.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Emet l'avís sonor quan es denegui una tecla</guilabel></para>
+              </entry>
+              <entry valign="top">
+                 <para>Seleccioneu aquesta opció per obtenir una indicació acústica quan es rebutja una tecla.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+   </section>
+ 
+   <section><info><title>Preferències de tecles de ratolí</title></info>
+     <anchor xml:id="goscustaccess-10"/>
+     <para>Les opcions de la secció que està a la pestanya <guilabel>Tecles de ratolí</guilabel> us permet configurar el teclat com a substitut del ratolí.</para>
+      <para><xref linkend="goscustdesk-TBL-88"/> llista les preferències de les tecles de ratolí que podeu modificar.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-88"><info><title>Preferències del descans de tecleig</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Element del diàleg</para>
+              </entry>
+              <entry>
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>El punter es pot controlar amb el teclat numèric</guilabel></para>
+                <indexterm><primary>accessibilitat</primary> <secondary>tecles de ratolí</secondary></indexterm>
+              </entry>
+              <entry valign="top">
+               <para>Seleccioneu aquesta opció per fer que el teclat numèric emuli les accions del ratolí. La llista de tecles i les seves equivalències es troba a la <citetitle>Guia d'accessibilitat de l'escriptori MATE</citetitle> a sota de l'encapçalament <citetitle>Com habilitar el teclat per emular el ratolí</citetitle>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Acceleració</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Utilitzeu el control lliscant per especificar quant de temps triga el punter a accelerar a la màxima velocitat.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Velocitat</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Utilitzeu el control lliscant per especificar la velocitat màxima que el punter es mou a la pantalla.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Retard</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Utilitzeu el control lliscant per especificar el període de temps que ha de passar després de prémer la tecla abans de moure el punter.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+  </section>
+
+    <section xml:id="goscustdesk-86"><info><title>Preferències del descans de tecleig</title></info>
+      
+      <para>Configureu les preferències del descans de tecleig per fer que MATE us recordi que heu de fer un descans després d'haver estat utilitzant el teclat i el ratolí durant molt de temps. Durant un descans de tecleig, es bloquejarà la pantalla.</para>
+      <para><xref linkend="goscustdesk-TBL-87"/> llista les preferències del descans de tecleig que podeu modificar.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-87"><info><title>Preferències del descans de tecleig</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Element del diàleg</para>
+              </entry>
+              <entry>
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Bloqueja la pantalla per forçar un descans de tecleig</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Seleccioneu aquesta opció per bloquejar la pantalla quan feu un descans de tecleig.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>L'interval de treball dura</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Utilitzeu el quadre de selecció de valors per especificar quant de temps podeu treballar abans d'un descans de tecleig.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>L'interval de descans dura</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Utilitzeu el quadre de selecció de valors per especificar la durada dels descansos de tecleig.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Permet l'ajornament dels descansos</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Seleccioneu aquesta opció si voleu que es puguin ajornar els descansos de tecleig.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para>Si deixeu d'utilitzar el teclat i el ratolí durant un període de temps igual a l'ajust <guilabel>Temps de descans</guilabel>, es reiniciarà l'interval de treball actual.</para></note>
+    </section>    
+  </section>
+
+  <section xml:id="prefs-mouse"><info><title>Preferències del ratolí</title></info>
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="goscustperiph-5"/>
+    <indexterm><primary>eines de preferències</primary> <secondary>Ratolí</secondary></indexterm>
+    <indexterm><primary>ratolí</primary> <secondary>configuració</secondary></indexterm>
+
+    <para>Amb l'eina de preferències <application>Ratolí</application>, podeu:</para>
+    <itemizedlist>
+      <listitem>
+        <para>configurar el vostre ratolí per utilitzar-lo com a dretà o esquerra,</para>
+      </listitem>
+      <listitem>      
+        <para>especificar la velocitat i la sensibilitat del moviment del ratolí,</para>
+      </listitem>
+      <listitem>
+        <para>configurar les funcions d'accessibilitat del ratolí.</para>
+      </listitem>
+    </itemizedlist>
+    
+    <section xml:id="goscustdesk-55"><info><title>Preferències generals del ratolí</title></info>
+      <para>Utilitzeu la secció que està a la pestanya <guilabel>General</guilabel> per especificar si els botons del ratolí estan configurats per a dretans o esquerrans i configurar la velocitat i la sensibilitat del vostre ratolí.</para>
+      <para><xref linkend="goscustperiph-TBL-6"/> llista les preferències generals del ratolí que podeu modificar.</para>
+
+    <!-- convert to variablelist -->
+    <table frame="topbot" xml:id="goscustperiph-TBL-6"><info><title>Preferències dels botons del ratolí</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Element del diàleg</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Dretà</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Seleccioneu aquesta opció per configurar el ratolí per a l'ús amb la mà dreta. Quan configureu el ratolí per a l'ús amb la mà dreta, el botó esquerre del ratolí és el botó primari i el botó dret del ratolí és el botó secundari.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Esquerrà</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Seleccioneu aquesta opció per configurar el ratolí per a l'ús amb la mà esquerra. Quan configureu el ratolí per a l'ús amb la mà esquerra, s'intercanvien les funcions del botó esquerre del ratolí i del botó dret del ratolí.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Mostra la posició del punter quan es premi la tecla Control</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Seleccioneu aquesta opció per habilitar l'animació del punter del ratolí quan premeu i deixeu anar la tecla Control. Aquesta funció us pot ajudar a localitzar el punter del ratolí.</para>
+                <note>
+                  <para>La posició de la tecla Control al teclat es pot modificar al diàleg Opcions de la disposició del teclat, consulteu <xref linkend="prefs-keyboard-layoutoptions"/>.</para>
+                </note>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Acceleració</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Utilitzeu el control lliscant per especificar la velocitat a la qual el punter del ratolí es mou a la pantalla quan moveu el ratolí.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Sensibilitat</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Utilitzeu el control lliscant per especificar quina sensibilitat té el punter del ratolí als moviments del ratolí.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Llindar</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Utilitzeu el control lliscant per especificar la distància a la qual heu de moure un element abans d'interpretar l'acció de moviment com una acció d'arrossegar i deixar anar.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Temps d'espera</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Utilitzeu el control lliscant per especificar la quantitat de temps que hi pot haver entre els clics quan feu doble clic. Si l'interval entre el primer i segon clic excedeix el temps que s'especifica aquí, l'acció no s'interpretarà com a doble clic.</para>
+                <para>Utilitzeu la icona de la bombeta per verificar la sensibilitat del doble clic: la llum s'il·luminarà breument per al clic, però es mantindrà encesa per al doble clic.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscustdesk-53"><info><title>Preferències d'accessibilitat del ratolí</title></info>
+      <para>Utilitzeu la secció que està a la pestanya <guilabel>Accessibilitat</guilabel> per configurar les funcions d'accessibilitat que poden ajudar a les persones que tenen dificultats amb el posicionament exacte del punter o la pressió dels botons del ratolí:</para>
+      <itemizedlist>
+         <listitem>
+            <para>Obre un menú contextual en fer clic i mantenir premut el botó principal del ratolí; això és útil per als usuaris que només poden manipular un botó.</para>
+         </listitem>
+         <listitem>
+            <para>Realitza diferents tipus de clic de botó del ratolí amb programari; això és útil per als usuaris que no poden manipular cap botó. Els tipus de clic que es poden realitzar són: <variablelist>
+                 <varlistentry>
+                   <term>Un sol clic</term>
+                   <listitem>
+                     <para>Un sol clic del botó primari del ratolí</para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term>Doble clic</term>
+                   <listitem>
+                     <para>Un doble clic del botó principal del ratolí</para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term>Clic d'arrossegar</term>
+                   <listitem>
+                     <para>Un clic que comença una operació d'arrossegament</para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term>Clic secundari</term>
+                   <listitem>
+                     <para>Un sol clic del botó secundari del ratolí</para>
+                   </listitem>
+                 </varlistentry>
+               </variablelist></para>
+         </listitem>
+      </itemizedlist>
+      <para><xref linkend="goscustdesk-TBL-47"/> llista les preferències d'accessibilitat del ratolí que podeu modificar:</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-47"><info><title>Preferències del moviment del ratolí</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="30.10*"/>
+          <colspec colwidth="69.90*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Element del diàleg</para>
+              </entry>
+              <entry>
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Dispara el clic secundari en mantenir premut el botó primari</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Seleccioneu aquesta opció per habilitar els clics secundaris simulats en prémer el botó principal del ratolí durant un període de temps perllongat.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Control lliscant del <guilabel>Retard</guilabel> a la secció <guilabel>Clic secundari simulat</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Utilitzeu el control lliscant per especificar quant de temps s'ha de prémer el botó principal per simular un clic secundari.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Inicia el clic quan s'aturi el moviment del punter</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Seleccioneu aquesta opció per activar els clics automàtics quan el ratolí s'atura. Utilitzeu les preferències addicionals de la secció <guilabel>Clic en passar per sobre</guilabel> per configurar com es tria el tipus de clic.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Control lliscant del <guilabel>Retard</guilabel> a la secció <guilabel>Clic en passar per sobre</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Utilitzeu el control lliscant per especificar quant de temps el punter ha d'estar en repòs abans que es desencadeni un clic automàtic.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Control lliscant de <guilabel>Llindar de moviment</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Utilitzeu el control lliscant per especificar quant es pot moure el punter per continuar considerant-lo en repòs.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Selecciona el tipus d'anticipació de clic</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Seleccioneu aquesta opció per triar el tipus de clic a realitzar des d'una finestra o una miniaplicació del tauler.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Mostra la finestra del tipus de clic</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Quan aquesta opció està habilitada, es poden seleccionar els diferents tipus de clic (un sol clic, doble clic, clic d'arrossegar o clic secundari) en una finestra.</para> 
+                <note><para>La miniaplicació de tauler <guilabel>Clic en passar per damunt</guilabel> es pot utilitzar en lloc de la finestra.</para></note>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Selecciona el tipus de clic amb gestos del ratolí</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Seleccioneu aquesta opció per triar el tipus de clic en moure el ratolí en una direcció determinada. Els quatre quadres desplegables que estan a sota d'aquesta opció us permeten assignar les direccions als diferents tipus de clics. Tingueu en compte que cada direcció només es pot utilitzar per a un tipus de clic.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Us sol clic</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Trieu la direcció per disparar un sol clic.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Doble clic</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Trieu la direcció per disparar un doble clic.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Clic d'arrossegar</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Trieu la direcció per disparar un clic d'arrossegar.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Clic secundari</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Trieu la direcció per disparar un clic secundari.</para> 
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+
+  <section xml:id="goscustdesk-70"><info><title>Monitors</title></info>
+    <indexterm><primary>eines de preferències</primary> <secondary>Pantalla</secondary></indexterm>
+    <para>Utilitzeu <application>Preferències dels monitors</application> per configurar els monitors que utilitza el vostre ordinador.</para>
+<note><para>En la majoria dels teclats d'ordinadors portàtils, podeu utilitzar la combinació de tecles <keycombo><keycap>Fn</keycap><keycap>F7</keycap></keycombo> per recórrer les diverses configuracions de monitor típiques sense iniciar <application>Preferències dels monitors</application>.</para></note>
+<para>Arrossegueu les representacions gràfiques dels monitors a la part superior esquerra de la finestra per establir com s'organitzen els vostres monitors. <application>Preferències dels monitors</application> mostra etiquetes petites al cantó superior esquerre de cada monitor per ajudar-vos a identificar quin rectangle correspon a quin monitor.</para>
+<para>Els canvis que feu a <application>Preferències dels monitors</application> no tindran efecte fins que no feu clic al botó <guibutton>Aplica</guibutton>. Els ajusts tornaran als seus ajusts anteriors tret que confirmeu els canvis. Això és per evitar que els ajusts incorrectes de la pantalla inutilitzin la renderització del vostre ordinador.</para>
+
+<variablelist>
+	<varlistentry>
+    <term><guilabel>La mateixa imatge en tots els monitors</guilabel></term>
+    <listitem><para>Quan se selecciona aquesta opció, tot l'escriptori s'adaptarà a un únic monitor, i cada monitor mostrarà la mateixa còpia de l'escriptori. Quan no se selecciona, l'escriptori abasta diversos monitors i cada monitor mostra només una part de tot l'escriptori.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Detecta els monitors</guilabel></term>
+    <listitem><para>Feu clic a aquest botó per trobar els monitors que s'han afegit o connectat recentment.</para></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term><guilabel>Mostra els monitors al tauler</guilabel></term>
+    <listitem><para>Quan se selecciona aquesta opció, es col·locarà una icona al tauler que us permetrà canviar ràpidament alguns ajusts sense obrir <application>Paràmetres dels monitors</application>.</para></listitem>
+  </varlistentry>
+</variablelist>
+
+<para>La llista següent explica les opcions que podeu establir per a cada monitor. El monitor seleccionat actualment és el que té una representació gràfica amb un contorn fosc en negreta. També s'indica amb el color de fons de l'etiqueta de la secció.</para>
+
+<variablelist>
+	<varlistentry>
+    <term><guilabel>Activat</guilabel> / <guilabel>Desactivat</guilabel></term>
+    <listitem><para>Els monitors es poden desactivar completament per separat seleccionant <guilabel>Desactivat</guilabel>.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Resolució</guilabel></term>
+    <listitem><para>Seleccioneu la resolució que voleu utilitzar per al monitor seleccionat actualment a la llista desplegable. <emphasis>Resolució</emphasis> es refereix a les dimensions en píxel de la pantalla. Una resolució més gran significa que hi caben més coses a la pantalla, però tot serà més petit.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Velocitat de refresc</guilabel></term>
+    <listitem><para>Seleccioneu la velocitat de refresc que s'utilitzarà per al monitor seleccionat actualment a la llista desplegable. La <emphasis>velocitat de refresc</emphasis> determina la freqüència amb què l'ordinador redibuixa la pantalla. Una velocitat de refresc molt baixa (per sota de 60) fa que el monitor parpellegi i que pugui causar molèsties als ulls. Aquest és un problema menor als LCD.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Rotació</guilabel></term>
+    <listitem><para>Seleccioneu la rotació del monitor seleccionat actualment. Aquesta opció pot no ser compatible amb totes les targetes gràfiques.</para></listitem>
+  </varlistentry>
+</variablelist>
+</section>
+
+  <section xml:id="goscustmulti-2"><info><title>Preferències del so</title></info>
+    
+    <indexterm><primary>eines de preferències</primary> <secondary>So</secondary></indexterm>
+    <indexterm><primary>so</primary> <secondary>establir les preferències</secondary></indexterm>
+    <indexterm><primary>so</primary> <secondary>associar esdeveniments amb sons</secondary></indexterm>
+    <indexterm><primary>esdeveniments, associar-hi sons</primary></indexterm>
+    <indexterm><primary>volum</primary></indexterm>
+    <para>L'eina de preferències <application>So</application> us permet controlar els dispositius i el volum d'entrada i sortida del so. També podeu especificar quins sons que es reprodueixen quan es produeixen determinats esdeveniments.</para>
+    <para>Podeu personalitzar els ajusts per a l'eina de preferències <application>So</application> en les àrees funcionals següents:</para>
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Esdeveniments de so</guilabel></para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Entrada</guilabel></para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Sortida</guilabel></para>
+      </listitem>
+    </itemizedlist>
+    <para>Podeu canviar el volum de sortida general mitjançant el control lliscant <guilabel>Volum de sortida</guilabel> a la part superior de la finestra. La casella de selecció <guilabel>Silenci</guilabel> permet suprimir de forma temporal tota la sortida sense alterar el volum actual.</para>
+
+    <section xml:id="goscustdesk-48"><info><title>Preferències dels efectes de so</title></info>
+      <para>Un tema de sons és la col·lecció d'efectes de so associats a diversos esdeveniments, com ara obrir un diàleg, fer clic en un botó o seleccionar un element en un menú. Un dels sons d'esdeveniment més destacat és el so de <emphasis>campana del sistema</emphasis> que sovint es reprodueix per indicar un error d'entrada de teclat. Utilitzeu la secció que està a la pestanya <guilabel>Efectes de so</guilabel> de l'eina de preferències <application>So</application> per triar un tema de sons i modificar el so de la campana.</para>
+      <para><xref linkend="goscustmulti-TBL-6"/> llista les preferències dels efectes de so que podeu modificar.</para>
+      <table frame="topbot" xml:id="goscustmulti-TBL-6"><info><title>Preferències dels efectes de so</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Element del diàleg</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para>Control lliscant <guilabel>Volum d'alerta</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Utilitzeu el control lliscant <guilabel>Volum d'alerta</guilabel> per controlar el volum per al so dels esdeveniments.</para>
+                <para>La casella de selecció <guilabel>Silenci</guilabel> permet suspendre temporalment el so dels esdeveniments sense modificar el volum actual.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Tema de sons</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Utilitzeu aquest quadre desplegable per seleccionar un tema de sons diferent.</para>
+                <para>Trieu <guilabel>Sense sons</guilabel> per desactivar tots els sons d'esdeveniments.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para>Llista <guilabel>Trieu un so d'alerta</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Trieu un so alternatiu per a la campana del sistema d'aquesta llista.</para>
+                <para>La selecció d'un element de llista reprodueix el so.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para>Casella de selecció <guilabel>Habilita els sons de les finestres i dels botons</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Desmarqueu aquesta opció si no voleu escoltar els sons per als esdeveniments relacionats amb les finestres (com ara l'aparició d'un quadre de diàleg o un menú) i els clics dels botons.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section><info><title>Preferències de l'entrada de so</title></info>
+      <para>Utilitzeu la secció que està a la pestanya <guilabel>Entrada</guilabel> per establir les vostres preferències per a l'entrada de so.</para>
+      <para><xref linkend="goscustdesk-TBL-1"/> llista les preferències de l'entrada de so que podeu modificar.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-1"><info><title>Preferències de l'entrada de so</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Element del diàleg</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para>Control lliscant <guilabel>Volum d'entrada</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Utilitzeu el control lliscant del volum d'entrada per controlar el nivell d'entrada.</para>
+                <para>La casella de selecció <guilabel>Silenci</guilabel> permet suspendre de manera temporal totes les entrades sense alterar el nivell d'entrada actual.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Nivell d'entrada</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>La visualització <guilabel>Nivell d'entrada</guilabel> proporciona informació visual que ajuda a seleccionar un volum d'entrada adequat.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para>Llista <guilabel>Seleccioneu un dispositiu per a l'entrada de so</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Trieu el dispositiu des del qual vulgueu rebre l'entrada de so.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para>Tingueu en compte que el volum d'entrada també es pot controlar amb la icona del micròfon que es mostra a l'àrea de notificacions del tauler quan una aplicació escolta l'entrada de so.</para></note>
+    </section>
+
+    <section><info><title>Preferències de la sortida de so</title></info>
+      <para>Utilitzeu la secció que està a la pestanya <guilabel>Sortida</guilabel> per establir les vostres preferències per a la sortida de so.</para>
+      <para><xref linkend="goscustdesk-TBL-2"/> llista les preferències de la sortida de so que podeu modificar.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-2"><info><title>Preferències de la sortida de so</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Element del diàleg</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para>Control lliscant <guilabel>Volum de sortida</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Utilitzeu el control lliscant del volum de sortida per controlar el volum general de sortida.</para>
+                <para>La casella de selecció <guilabel>Silenci</guilabel> permet suspendre de manera temporal totes les sortides sense alterar el nivell de volum actual.</para>
+                <para>Tingueu en compte que el control lliscant <guilabel>Volum de sortida</guilabel> es troba a damunt de la pestanya de la secció a la part superior de la finestra.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para>Llista <guilabel>Seleccioneu un dispositiu per a la sortida de so</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Trieu el dispositiu que voleu escoltar la sortida de so.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para>Control lliscant <guilabel>Balanç</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Utilitzeu el control lliscant <guilabel>Balanç</guilabel> per controlar el balanç esquerre / dret d'un dispositiu de sortida que tingui més d'un canal (p. ex. estèreo o 5.1).</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para>Tingueu en compte que el volum de sortida també es pot controlar amb la icona de l'altaveu que es mostra a l'àrea de notificacions del tauler.</para></note>
+    </section>
+
+    <section xml:id="goscustdesk-41"><info><title>Preferències de so de les aplicacions</title></info>
+      <para>Utilitzeu la secció que està a la pestanya <guilabel>Aplicacions</guilabel> per controlar el volum de so reproduït per les aplicacions per separat.</para>
+      <para>Cada aplicació que reprodueix so actualment s'identifica amb el seu nom i la seva icona.</para>
+    </section>
+  </section>
+
+<!--
+<sect2 id="goscustdesk-79">
+<title>Customizing PalmOS Devices</title>
+<indexterm><primary>preference tools</primary><secondary>PalmOS devices</secondary>
+</indexterm><para>Information to be supplied in a future release.</para>
+</sect2>
+-->
+</section>
+
+<section xml:id="prefs-system"><info><title>Sistema</title></info>
+
+  <section xml:id="prefs-sessions"><info><title>Preferències de sessions</title></info>
+    <!-- preserve for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustsession-5"/>   
+    <indexterm><primary>eines de preferències</primary> <secondary>Sessions</secondary></indexterm>
+    <indexterm><primary>sessions</primary> <secondary>preferències</secondary></indexterm>
+    <indexterm><primary>aplicacions d'inici</primary> <secondary>personalitzar</secondary></indexterm>
+    <para>L'eina de preferències <application>Sessions</application> us permet gestionar les vostres sessions. Podeu configurar les preferències de la sessió i especificar quines aplicacions voleu iniciar quan inicieu una sessió. Podeu configurar les sessions per desar l'estat de les aplicacions a l'escriptori MATE i restaurar l'estat quan inicieu una altra sessió. També podeu utilitzar aquesta eina de preferències per gestionar diverses sessions de MATE.</para>
+    <para>Podeu personalitzar els ajusts per a les sessions i aplicacions d'inici en les àrees funcionals següents:</para>
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Opcions de les sessions</guilabel></para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Programes d'inici</guilabel></para>
+      </listitem>
+    </itemizedlist>
+
+    <section xml:id="goscustsession-16"><info><title>Establir les preferències de la sessió</title></info>
+      <indexterm><primary>sessions</primary> <secondary>establir les opcions</secondary></indexterm>
+      <para>Utilitzeu la secció que està a la pestanya <guilabel>Opcions de les sessions</guilabel> per gestionar diverses sessions i per establir les preferències per a la sessió actual.</para>
+      <para><xref linkend="goscustsession-TBL-11"/> llista les opcions de les sessions que podeu modificar.</para>
+      <table frame="topbot" xml:id="goscustsession-TBL-11"><info><title>Opcions de les sessions:</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec0" colwidth="18.86*"/>
+          <colspec colname="colspec1" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Element del diàleg</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Recorda automàticament les aplicacions que s'estan executant quan es tanqui la sessió</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <indexterm><primary>aplicacions d'inici</primary> <secondary>gestionades per sessió</secondary></indexterm>
+                <para>Seleccioneu aquesta opció si voleu que el gestor de sessions desi l'estat de la vostra sessió quan tanqueu la sessió. El gestor de sessions desa les aplicacions gestionades per sessió que estan obertes i els ajusts associats a les aplicacions gestionades per sessió quan tanqueu la sessió. La pròxima vegada que inicieu una sessió, les aplicacions s'inicien automàticament, amb els ajusts desats.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Recorda automàticament les aplicacions que s'estan executant actualment</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <indexterm><primary>aplicacions d'inici</primary> <secondary>gestionades per sessió</secondary></indexterm>
+                <para>Seleccioneu aquesta opció si voleu que el gestor de sessions desi l'estat actual de la vostra sessió. El gestor de sessions desa les aplicacions gestionades per sessió que estan obertes i els ajusts associats a les aplicacions gestionades per sessió. La pròxima vegada que inicieu una sessió, les aplicacions s'inicien automàticament, amb els ajusts desats.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscustsession-12"><info><title>Configurar les aplicacions d'inici</title></info>
+      <indexterm><primary>aplicacions d'inici</primary> <secondary>no gestionades per sessió</secondary></indexterm>
+      <para>Utilitzeu la secció que està a la pestanya <guilabel>Programes d'inici</guilabel> de l'eina de preferències <application>Sessions</application> per especificar les <firstterm>aplicacions d'inici</firstterm> no gestionades per sessió. Les aplicacions d'inici són aplicacions que s'inicien automàticament quan inicieu una sessió. Podeu especificar les ordres que executen les aplicacions no gestionades per sessió a la secció que està a la pestanya <guilabel>Programes d'inici</guilabel>. Les ordres s'executen automàticament quan inicieu la sessió.</para>
+      <para>També podeu iniciar automàticament aplicacions gestionades per sessió. Per obtenir més informació, consulteu <xref linkend="goscustsession-16"/>.</para>
+      <para><xref linkend="goscustsession-TBL-19"/> llista les preferències de les aplicacions d'inici que podeu modificar.</para>
+      <table frame="topbot" xml:id="goscustsession-TBL-19"><info><title>Preferències dels programes d'inici</title></info>
+        <tgroup cols="2">
+          <colspec colname="col1" colwidth="18.86*"/>
+          <colspec colname="col2" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colname="col1" colsep="0">
+                <para>Element del diàleg</para>
+              </entry>
+              <entry colname="col2" colsep="0">
+                <para>Descripció</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="col1" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Programes d'inici addicionals</guilabel></para>
+              </entry>
+              <entry colname="col2" colsep="0" rowsep="0" valign="top">
+                <para>Utilitzeu aquesta taula per gestionar les aplicacions d'inici no gestionades per sessió, de la manera següent:</para>
+                <itemizedlist>
+                  <listitem>
+                    <para>Per afegir una aplicació d'inici, feu clic al botó <guibutton>Afegeix</guibutton>. Es mostra el diàleg <guilabel>Programa d'inici nou</guilabel>. Introduïu el nom de l'aplicació al camp <guilabel>Nom</guilabel>. A continuació, introduïu l'ordre per iniciar l'aplicació al camp <guilabel>Ordre</guilabel>. També podeu especificar un comentari al camp <guilabel>Comentari</guilabel></para>
+                  </listitem>
+                  <listitem>
+                    <para>Per editar una aplicació d'inici, seleccioneu l'aplicació d'inici i, a continuació, feu clic al botó <guibutton>Edita</guibutton>. Es mostra el diàleg <guilabel>Edita el programa d'inici</guilabel>. Utilitzeu el diàleg per modificar l'ordre i l'ordre d'inici per a l'aplicació d'inici.</para>
+                  </listitem>
+                  <listitem>
+                    <para>Per eliminar una aplicació d'inici, seleccioneu l'aplicació d'inici, i després feu clic al botó <guilabel>Suprimeix</guilabel>.</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+</section>
+</chapter>

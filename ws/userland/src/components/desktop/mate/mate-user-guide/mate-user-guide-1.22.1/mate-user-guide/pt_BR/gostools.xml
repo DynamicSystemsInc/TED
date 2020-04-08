@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="tools" xml:lang="pt-BR">
+    <info><title>Ferramentas e Utilitários</title></info>
+
+  <highlights>
+    <para xml:lang="en">This section describes some tools and utilities in the MATE Desktop.</para>
+  </highlights>
+
+  <section xml:id="tools-run-app"><info><title>Executando aplicativos</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="gospanel-23"/>
+    <indexterm xml:lang="en">
+      <primary>Run Application dialog, using</primary>
+    </indexterm>
+    <para>O diálogo <guilabel>Executar aplicativo</guilabel> lhe dá acesso à linha de comando. Quando você executa um comando nesse diálogo, você não recebe a saída do comando.</para>
+    <para>Para executar um comando a partir da linha de comando execute os seguintes passos:</para>
+    <orderedlist>
+      <listitem>
+        <para xml:lang="en">Open the <guilabel>Run Application</guilabel> dialog in any of the
+        following ways:
+        <variablelist>
+          <varlistentry><term xml:lang="en">From a panel</term>
+          <listitem><para xml:lang="en">You can add the <application>Run Application</application> button to any 
+          panel. See <xref linkend="panels-addobject"/>. Click on the <guibutton>Run Application</guibutton> 
+          panel button to open the <guilabel>Run Application</guilabel> dialog.</para></listitem></varlistentry>
+          <varlistentry><term xml:lang="en">Using shortcut keys</term>
+          <listitem>
+            <para xml:lang="en">
+              Press <keycombo><keycap>Alt</keycap><keycap>F2</keycap></keycombo>. You can change 
+              the shortcut keys that display the <guilabel>Run Application</guilabel> dialog
+              in the <application><xref linkend="prefs-keyboard-shortcuts"/></application> tool.
+            </para>
+          </listitem>
+          </varlistentry>
+        </variablelist>
+      </para>
+      <para>O diálogo <guilabel>Executar aplicativo</guilabel> será exibido.</para>
+    </listitem>
+    <listitem>
+      <para>Digite o comando que você deseja executar no campo em branco, ou escolha a partir da lista de aplicativos conhecidos.</para>
+      <para xml:lang="en">If you enter only the location of a file, an appropriate application will launch to open it.
+      If you enter a web page address, your default web browser will open the page. Prefix the web page address with http://, as in http://www.mate-desktop.org.
+      </para>
+      <para>Para escolher um comando que você executou anteriormente, clique na seta para baixo, ao lado do campo de comando, e escolha o comando a ser executado.</para>
+      <para>Você também pode usar o botão <guibutton>Executar com arquivo</guibutton> para escolher um arquivo para acrescentar à linha de comando. Por exemplo, você pode digitar <application>emacs</application> como o comando, e então escolher um arquivo para editar.</para>
+      <para>Selecione a opção <guilabel>Executar em um terminal</guilabel> para executar o aplicativo ou comando numa janela de terminal. Marque essa opção para um aplicativo ou comando que não crie a própria janela.</para>
+    </listitem>
+    <listitem>
+      <para>Clique no botão <guibutton>Executar</guibutton> do diálogo <guilabel>Executar aplicativo</guilabel>.</para>
+    </listitem>
+      </orderedlist>
+  </section>
+
+<section xml:id="tools-screenshot"><info><title>Capturando Imagens da Tela</title></info>
+  <!-- preserve id for backwards compatibility: 2.12 -->
+  <anchor xml:id="goseditmainmenu-53"/>
+  <indexterm xml:lang="en">
+    <primary>screenshots, taking</primary>
+  </indexterm>
+  <para>Você pode capturar uma imagem da tela de qualquer das seguintes formas:</para>
+  <itemizedlist>
+    <listitem>
+      <para>A partir de qualquer painel</para>
+      <para>Você pode adicionar um botão <guibutton>Capturar imagem da tela</guibutton> a qualquer painel. Para instruções sobre como fazer isso, veja a <xref linkend="panels-addobject"/>. Clique no botão <guibutton>Capturar imagem da tela</guibutton> para capturar uma imagem da tela inteira.</para>
+    </listitem>
+    <listitem>
+      <para>Usando teclas de atalho</para>
+      <para>Para capturar uma imagem da tela, use as seguintes teclas de atalho:</para>
+      <informaltable frame="topbot">
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="35.67*"/>
+          <colspec colname="colspec1" colwidth="64.33*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Teclas de Atalho Padrão</para>
+              </entry>
+              <entry>
+                <para>Função</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><keycap>Print Screen</keycap></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Captura uma imagem da tela inteira.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para xml:lang="en"><keycombo><keycap>Alt</keycap><keycap>Print Screen</keycap></keycombo></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para xml:lang="en">Takes a screenshot of the window which is active.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para xml:lang="en">You can use the <application><xref linkend="prefs-keyboard-shortcuts"/></application> tool to modify the default shortcut keys.</para>
+    </listitem>
+    <listitem>
+      <para>A partir da barra de menu</para>
+      <para xml:lang="en">Choose <menuchoice><guimenu>Applications</guimenu><guimenuitem>Accessories</guimenuitem>
+      <guimenuitem>Take Screenshot</guimenuitem></menuchoice>.</para>
+    </listitem>
+    <listitem>
+      <para>A partir do terminal</para>
+      <para>Você pode usar o comando <command>mate-screenshot</command> para capturar uma imagem da tela. O comando <command>mate-screenshot</command> captura uma imagem da tela inteira e exibe o diálogo <guilabel>Salvar captura de tela</guilabel>. Use esse diálogo para salvar a captura de tela.</para>
+      <para>Você também pode usar as seguintes opções no comando <command>mate-screenshot</command>:</para>
+      <informaltable frame="topbot">
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="35.67*"/>
+          <colspec colname="colspec1" colwidth="64.33*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Opção</para>
+              </entry>
+              <entry>
+                <para>Função</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para xml:lang="en">
+                  <command>--window</command>
+                </para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Captura uma imagem da janela em foco.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para xml:lang="en">
+                  <command>--delay=<replaceable>seconds</replaceable></command>
+                </para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Captura uma imagem da tela após o número de segundos especificado, e exibe o diálogo <guilabel>Salvar captura de tela</guilabel>. Use esse diálogo para salvar a imagem da tela.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para xml:lang="en">
+                  <command>--include-border</command>
+                </para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para xml:lang="en">Takes a screenshot including the border of the window.</para>
+              </entry>
+            </row>                                  
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para xml:lang="en">
+                  <command>--remove-border</command>
+                </para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para xml:lang="en">Takes a screenshot without the border of the window.</para>
+              </entry>
+            </row>                                  
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para xml:lang="en">
+                  <command>--border-effect=shadow</command>
+                </para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para xml:lang="en">Takes a screenshot and adds a shadow bevel effect around it.</para>
+              </entry>
+            </row>                                  
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para xml:lang="en">
+                  <command>--border-effect=border</command>
+                </para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para xml:lang="en">Takes a screenshot and adds a border effect around it.</para>
+              </entry>
+            </row>                                  
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para xml:lang="en">
+                  <command>--interactive</command>
+                </para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para xml:lang="en">Opens a window that lets you set options before taking the screenshot.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para xml:lang="en">
+                  <command>--help</command>
+                </para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Exibe as opções para o comando.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </listitem>
+  </itemizedlist>
+
+  <para xml:lang="en">
+  When you take a screenshot, the <guilabel>Save Screenshot</guilabel> dialog 
+  opens. To save the screenshot as an image file, enter the filename for the 
+  screenshot, choose a location from the drop-down list and click the <guilabel>Save</guilabel> button. You can also use the <guilabel>Copy to Clipboard</guilabel> button to copy the image to the clipboard or transfer it to another application by drag-and-drop.
+  </para>
+  
+</section>
+
+<!-- ============= Yelp ============================= -->
+<section xml:id="yelp"><info><title>Navegador de Ajuda Yelp</title></info>
+  <indexterm xml:lang="en">
+    <primary>Yelp</primary>
+  </indexterm>
+  <!-- ============= Introduction ============================== -->
+
+  <section xml:id="yelp-introduction"><info><title>Introdução</title></info>
+    <para>O <application>Navegador de Ajuda Yelp</application> lhe permite ver a documentação sobre o MATE e outros componentes através de vários de formatos. Esses formatos incluem arquivos DocBook, páginas de ajuda HTML, páginas de manual e páginas "info", de informação (suporte para páginas de manual e de informação pode ser incluídos na compilação opcionalmente). Independentemente dos formatos de arquivo, o Yelp faz o melhor possível para dar uma aparência unificada a eles, não importando o formato original.</para>
+
+    <para xml:lang="en"><application>Yelp Help Browser</application> is internationalized, meaning that it has support
+    to view documents in different languages. The documents must be localized
+    or translated for each language and installed properly for Yelp Help
+    Browser to be able to view them.</para>
+  </section>
+
+  <!-- ============= Getting Started  ================================ -->
+
+  <section xml:id="yelp-getting-started"><info><title>Iniciando o Yelp</title></info>
+  
+    <section><info><title>Iniciar o <application>Navegador de Ajuda Yelp</application></title></info>
+      <para>Você pode iniciar o <application>Navegador de Ajuda Yelp</application> das seguintes formas:</para>
+
+      <para><variablelist>
+          <varlistentry>
+            <term>Menu <guimenu>Sistema</guimenu></term>
+
+            <listitem>
+              <para>Escolha <application>Ajuda</application></para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Linha de Comando</term>
+
+            <listitem>
+              <para>Execute o seguinte comando: <command>yelp</command></para>
+            </listitem>
+          </varlistentry>
+        </variablelist></para>
+    </section>
+
+    <section><info><title>Interface</title></info>
+      <para>Ao iniciar o <application>Navegador de Ajuda Yelp</application>, você verá a seguinte janela.</para>
+
+      <para xml:lang="en"><figure xml:id="fig-yelp-window"><info><title xml:lang="en"><application>Yelp Help Browser</application> Window</title></info>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/yelp_window.png"/>
+            </imageobject>
+          </mediaobject>
+        </figure><application>Yelp Help Browser</application> contains the following elements in <xref linkend="fig-yelp-window"/></para>
+
+      <variablelist>
+        <varlistentry>
+          <term><interface>Barra de menu</interface></term>
+
+          <listitem>
+            <para><variablelist>
+                <varlistentry>
+                  <term xml:lang="en"><guimenu>File</guimenu></term>
+
+                  <listitem>
+                    <para>Use esse menu para Abrir uma Nova Janela, ver a página Sobre Este Documento, imprimir o documento atual, ou fechar a janela.</para>
+                  </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                  <term xml:lang="en"><guimenu>Edit</guimenu></term>
+
+                  <listitem>
+                    <para>Use esse menu para Copiar, Selecionar tudo, Localizar..., ou para definir suas Preferências.</para>
+                  </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                  <term xml:lang="en"><guimenu>Go</guimenu></term>
+
+                  <listitem>
+                    <para>Use esse menu para navegar para trás, para frente e para a página Tópicos da Ajuda. Ao visualizar um documento DocBook, use esse menu para navegar para a Próxima Seção, Seção Anterior ou para o Conteúdo.</para>
+                  </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                  <term xml:lang="en"><guimenu>Bookmarks</guimenu></term>
+
+                  <listitem>
+                    <para>Use esse menu para Adicionar Marcador(es), ou Editar Marcador(es).</para>
+                  </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                  <term xml:lang="en"><guimenu>Help</guimenu></term>
+
+                  <listitem>
+                    <para>Veja informações sobre o Navegador de Ajuda Yelp e sobre as pessoas que contribuem para o projeto através do item de menu <guimenuitem>Sobre</guimenuitem>. Abra este documento com o item <guimenuitem>Conteúdo</guimenuitem> ou pressionando <keycap>F1</keycap>.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist></para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><interface>Barra de ferramentas</interface></term>
+
+          <listitem>
+            <para><variablelist>
+                <varlistentry>
+                  <term xml:lang="en"><guibutton>Back</guibutton></term>
+
+                  <listitem>
+                    <para>Use esse botão para voltar no histórico do documento.</para>
+                  </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                  <term xml:lang="en"><guibutton>Forward</guibutton></term>
+
+                  <listitem>
+                    <para>Use esse botão para avançar no histórico do documento.</para>
+                  </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                  <term xml:lang="en"><guibutton>Help Topics</guibutton></term>
+
+                  <listitem>
+                    <para>Use esse botão para retornar para a tabela principal de conteúdo (exibida em <xref linkend="fig-yelp-window"/>).</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist></para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry xml:id="yelp-browser-pane" xreflabel="Yelp Browser Pane">
+          <term><interface xml:lang="en">Browser Pane</interface></term>
+
+          <listitem>
+            <para>O painel de navegação é onde você verá a tabela de conteúdo ou a documentação. Use a tabela de conteúdo para navegar para a documentação que você precisa.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+  </section>
+
+  <!--===================== Usage ========================-->
+
+  <section xml:id="yelp-usage"><info><title>Usando o Yelp</title></info>
+
+    <section><info><title>Abrindo um documento</title></info>
+      <para xml:lang="en">To open a document in <application>Yelp Help Browser</application>:
+	  
+	  <itemizedlist>
+		<listitem>
+			<para xml:lang="en">In an application, click <menuchoice>
+                <guimenu>Help</guimenu>
+
+                <guimenuitem>Contents</guimenuitem>
+              </menuchoice>
+			  </para>
+		</listitem>	  
+		<listitem>
+			<para xml:lang="en">Use the Table of Contents to navigate to the desired document.</para>
+		</listitem>
+		<listitem>
+			<para xml:lang="en">You can drag a Docbook XML file from Caja to the Yelp window or launcher.</para>
+		</listitem>
+		<listitem>
+			<para xml:lang="en">Press the <keycap>F1</keycap> key.</para>
+		</listitem>		
+	  
+	  </itemizedlist></para>
+	  
+      <para>Alternativamente, você pode ver um documento em particular chamando o Navegador de Ajuda Yelp a partir da linha de comando, ou arrastando arquivo para o Yelp. Veja <xref linkend="yelp-open-specific"/> para saber mais.</para>
+    </section>
+
+    <section><info><title>Abrindo uma Nova Janela</title></info>
+      <para>Para abrir uma nova janela:</para>
+	  
+      <para><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>File</guimenu>
+
+                <guimenuitem>New Window</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+
+          <listitem>
+            <para>Use a combinação de teclas <keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></para>
+          </listitem>
+        </itemizedlist></para>
+    </section>
+
+    <section><info><title>Sobre este documento</title></info>
+      <para>Para ver informações sobre o documento atualmente aberto:</para>
+
+      <para><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>File</guimenu>
+
+                <guimenuitem>About This Document</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+        </itemizedlist><note>
+          <para>Essa opção só está disponível para documentação no formato DocBook. Geralmente notas legais e as pessoas que contribuíram com a documentação estão listados nessa seção.</para>
+        </note></para>
+    </section>
+
+    <section><info><title>Imprimindo uma página</title></info>
+      <para>Para imprimir qualquer página que você consiga ver no <application>Navegador de Ajuda Yelp</application>:</para>
+
+      <para><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>File</guimenu>
+
+                <guimenuitem>Print this Page</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+        </itemizedlist></para>
+    </section>
+
+    <section><info><title>Imprimindo um documento</title></info>
+      <para>Para imprimir um documento inteiro:</para>
+
+      <para><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>File</guimenu>
+
+                <guimenuitem>Print this Document</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+        </itemizedlist><note>
+          <para>Essa opção só está disponível para documentação no formato DocBook.</para>
+        </note></para>
+    </section>
+
+    <section><info><title>Fechando uma janela</title></info>
+      <para>Para fechar uma janela no <application>Navegador de Ajuda Yelp</application>, faça o seguinte:</para>
+
+      <para><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>File</guimenu>
+
+                <guimenuitem>Close Window</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+
+          <listitem>
+            <para>Use a combinação de teclas <keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo>.</para>
+          </listitem>
+        </itemizedlist></para>
+    </section>
+
+    <section><info><title>Definindo preferências</title></info>
+      <para>Para definir preferências no <application>Navegador de Ajuda Yelp</application>:</para>
+
+      <para xml:lang="en"><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>Edit</guimenu>
+
+                <guimenuitem>Preferences</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+        </itemizedlist>A window will appear that looks like <xref linkend="yelp-preferences"/>:</para>
+
+      <para xml:lang="en"><figure xml:id="yelp-preferences"><info><title xml:lang="en"><application>Yelp Help Browser</application> Preferences Window</title></info>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/yelp_preferences.png"/>
+            </imageobject>
+          </mediaobject>
+        </figure>The options that are available in this dialog have the
+      following functions:</para>
+
+      <para><variablelist>
+          <varlistentry>
+            <term xml:lang="en"><guilabel>Use system fonts</guilabel></term>
+
+            <listitem>
+              <para>Marque essa opção para exibir a documentação usando as fontes padrão usadas pelo MATE.</para>
+
+              <para>Para escolher suas próprias fontes para exibir documentação, desmarque essa opção e clique nos botões ao lado do texto <guilabel>Largura Variável</guilabel> ou <guilabel>Largura Fixa</guilabel>.</para>
+
+              <para><variablelist>
+                  <varlistentry>
+                    <term><guilabel>Largura variável</guilabel></term>
+
+                    <listitem>
+                      <para>Esta é a fonte a ser usada quando uma fonte estática ou fixa não for necessária. A maior parte do texto será desse tipo.</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term><guilabel>Largura fixa</guilabel></term>
+
+                    <listitem>
+                      <para>Esta é a fonte a ser usada quando todos os caracteres do texto precisam ser do mesmo tamanho. Essa fonte é usada para indicar comandos, blocos de código ou outros textos que se encaixem nessa categoria.</para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist></para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term xml:lang="en"><guilabel>Browse with caret</guilabel></term>
+
+            <listitem>
+              <para>Clique nessa opção se você quiser ver um cursor no <xref linkend="yelp-browser-pane"/>. Essa opção lhe permite navegar no documento mais facilmente ao mostrar onde o cursor está no documento.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist></para>
+    </section>
+
+    <section><info><title>Voltando no Histórico de um Documento</title></info>
+      <para>Para voltar no histórico de um documento:</para>
+
+      <para><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>Go</guimenu>
+
+                <guimenuitem>Back</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+
+          <listitem>
+            <para>Use a combinação de teclas <keycombo><keycap>Alt</keycap><keycap>Esquerda</keycap></keycombo></para>
+          </listitem>
+
+          <listitem>
+            <para xml:lang="en">Use the <guibutton>Back</guibutton> button in the
+            <interface xml:lang="en">Toolbar</interface></para>
+          </listitem>
+        </itemizedlist></para>
+    </section>
+
+    <section><info><title>Avançando no Histórico de um Documento</title></info>
+      <para>Para avançar no histórico de um documento:</para>
+
+      <para><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>Go</guimenu>
+
+                <guimenuitem>Forward</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+
+          <listitem>
+            <para>Use a combinação de teclas <keycombo><keycap>Alt</keycap><keycap>Direita</keycap></keycombo></para>
+          </listitem>
+
+          <listitem>
+            <para xml:lang="en">Use the <guibutton>Forward</guibutton> button in the
+            <interface xml:lang="en">Toolbar</interface></para>
+          </listitem>
+        </itemizedlist></para>
+    </section>
+
+    <section><info><title>Indo para Tópicos da Ajuda</title></info>
+      <para>Para ir para os Tópicos da Ajuda:</para>
+
+      <para><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>Go</guimenu>
+
+                <guimenuitem>Help Topics</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+
+          <listitem>
+            <para>Use a combinação de teclas <keycombo><keycap>Alt</keycap><keycap>Home</keycap></keycombo></para>
+          </listitem>
+
+          <listitem>
+            <para xml:lang="en">Use the <guibutton>Help Topics</guibutton> button in the
+            <interface xml:lang="en">Toolbar</interface></para>
+          </listitem>
+        </itemizedlist></para>
+    </section>
+
+    <section><info><title>Indo para a Seção Anterior</title></info>
+      <para>Para ir para a seção anterior:</para>
+
+      <para><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>Go</guimenu>
+
+                <guimenuitem>Previous Section</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+
+          <listitem>
+            <para>Use a combinação de teclas <keycombo><keycap>Alt</keycap><keycap>Up</keycap></keycombo></para>
+          </listitem>
+        </itemizedlist><note>
+          <para>Essa opção só está disponível em documentos com o formato DocBook.</para>
+        </note></para>
+    </section>
+
+    <section><info><title>Indo para a Próxima Seção</title></info>
+      
+
+      <para>Para ir para a próxima seção:</para>
+
+      <para><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>Go</guimenu>
+
+                <guimenuitem>Next Section</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+
+          <listitem>
+            <para>Use a combinação de teclas <keycombo><keycap>Alt</keycap><keycap>Abaixo</keycap></keycombo></para>
+          </listitem>
+        </itemizedlist><note>
+          <para>Essa opção só está disponível em documentos com o formato DocBook.</para>
+        </note></para>
+    </section>
+
+    <section><info><title>Ir para o conteúdo</title></info>
+      
+
+      <para>Para ir para o conteúdo de um documento:</para>
+
+      <para><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>Go</guimenu>
+
+                <guimenuitem>Contents</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+        </itemizedlist><note>
+          <para>Essa opção só está disponível em documentos com o formato DocBook.</para>
+        </note></para>
+    </section>
+
+    <section><info><title>Adicionando um marcador</title></info>
+      
+
+      <para>Para adicionar um marcador a um determinado documento:</para>
+
+      <para xml:lang="en"><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>Bookmarks</guimenu>
+
+                <guimenuitem>Add Bookmark</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+
+          <listitem>
+            <para xml:lang="en">Use the key combination
+            <keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo></para>
+          </listitem>
+        </itemizedlist>A window will appear that looks like <xref linkend="yelp-add-bookmark"/>.</para>
+
+      <para xml:lang="en"><figure xml:id="yelp-add-bookmark"><info><title xml:lang="en">Add Bookmark Window</title></info>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/yelp_add_bookmark.png"/>
+            </imageobject>
+          </mediaobject>
+        </figure>Enter your desired bookmark title in to the
+      <guilabel>Title</guilabel> text entry field. Then click
+      <guibutton>Add</guibutton> to add the bookmark, or click
+      <guibutton>Cancel</guibutton> to cancel the request.</para>
+    </section>
+
+    <section><info><title>Editando marcadores</title></info>
+      <para>Para editar sua coleção de marcadores:</para>
+
+      <para xml:lang="en"><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>Bookmarks</guimenu>
+                <guimenuitem>Edit Bookmarks...</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+
+          <listitem>
+            <para xml:lang="en">Use the key combination
+            <keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo></para>
+          </listitem>
+        </itemizedlist>A window will appear that looks like <xref linkend="yelp-edit-bookmarks"/>.</para>
+
+      <para xml:lang="en"><figure xml:id="yelp-edit-bookmarks"><info><title xml:lang="en">Edit Bookmarks Window</title></info>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/yelp_edit_bookmarks.png"/>
+            </imageobject>
+          </mediaobject>
+        </figure>You can manage your bookmarks using this window in the
+      following ways:</para>
+
+      <para xml:lang="en"><variablelist>
+          <varlistentry>
+            <term xml:lang="en"><guibutton>Open</guibutton></term>
+
+            <listitem>
+              <para xml:lang="en">Use this button to open the selected bookmark in a new
+              window.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term xml:lang="en"><guibutton>Rename</guibutton></term>
+
+            <listitem>
+              <para xml:lang="en">Use this button to rename the title of your
+              bookmark.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term xml:lang="en"><guibutton>Remove</guibutton></term>
+
+            <listitem>
+              <para xml:lang="en">Use this button to delete the bookmark from your
+              collection.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>Once you are finished managing your bookmarks, click
+      the <guibutton>Close</guibutton> button to exit the <interface xml:lang="en">Edit
+      Bookmarks Window</interface>.</para>
+    </section>
+
+    <section><info><title>Obtendo ajuda</title></info>
+      <para xml:lang="en">To get help to use <application>Yelp Help Browser</application> (and see this
+      document):</para>
+
+      <para><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Click <menuchoice>
+                <guimenu>Help</guimenu>
+
+                <guimenuitem>Contents</guimenuitem>
+              </menuchoice></para>
+          </listitem>
+        </itemizedlist></para>
+    </section>
+  </section>
+
+  <!--=============== Advanced Features ====================-->
+
+  <section xml:id="yelp-advanced"><info><title>Recursos Avançados</title></info>
+
+   <section xml:id="yelp-open-specific" xreflabel="Opening Specific Documents"><info><title>Abrindo Documentos Específicos</title></info>
+
+    <section xml:id="yelp-open-drag"><info><title>Abrindo Documentos no Gerenciador de Arquivos</title></info>
+        <para>Para abrir um documento, como um arquivo XML, a partir do gerenciador de arquivos, abra o documento no <application>Caja</application>, ou arraste o ícone de dentro do <application>Caja</application> para o painel de documentos do <application>Yelp</application> ou lançador do Yelp.</para>
+    </section>
+
+    <section xml:id="yelp-advanced-cmdline" xreflabel="Using the Command Line to Open Documents"><info><title>Usando a Linha de Comando para Abrir Documentos</title></info>
+      <para>O Navegador de Ajuda Yelp tem suporte à abertura de documentos a partir da linha de comando. Há vários URIs (Identificadores Uniformes de Recurso) que podem ser usados. Estes incluem:</para>
+
+      <variablelist>
+          <varlistentry>
+            <term xml:lang="en"><option>file:</option></term>
+
+            <listitem>
+              <para>Use esta URI quando quiser acessar um arquivo com o yelp, por exemplo:</para>
+
+              <screen xml:lang="en"><userinput>yelp file:///usr/share/help/C/mate-control-center/config-mouse.xml</userinput></screen>
+
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term xml:lang="en"><option>help:</option></term>
+
+            <listitem>
+              <para>Use esta URI quando quiser acessar documentos de ajuda do MATE, tipicamente escritos no formato DocBook.</para>
+
+              <screen xml:lang="en"><userinput>yelp help:mate-terminal</userinput></screen>
+
+              <para xml:lang="en">If you want to open the help document at a particular section,
+              append a slash to the end of the URI, followed by the section id.</para>
+              
+              <screen xml:lang="en"><userinput>yelp help:mate-user-guide/yelp-advanced-cmdline</userinput></screen>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term xml:lang="en"><option>man:</option></term>
+
+            <listitem>
+              <para xml:lang="en">Use this URI when you want to access a particular man
+              page. You can append the section of the man page you would like
+              to view if there are multiple man pages with the same
+              name.  The section number should be enclosed in parentheses and 
+              therefore it may be necessary to escape the argument so that the
+              shell does not interpret the parenthesis.</para>
+
+              <screen xml:lang="en"><userinput>yelp man:mate-panel</userinput></screen>
+              
+              <para>ou</para>
+
+              <screen xml:lang="en"><userinput>yelp 'man:intro(1)'</userinput>
+<userinput>yelp 'man:intro(2)'</userinput></screen>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term xml:lang="en"><option>info:</option></term>
+
+            <listitem>
+              <para>Use esta URI quando quiser acessar uma página de informações GNU em particular.</para>
+
+              <screen xml:lang="en"><userinput>yelp info:make</userinput></screen>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+    </section>
+   </section>
+
+    <section><info><title>Atualizando o Conteúdo sob Demanda</title></info>
+      <para>O <application>Navegador de Ajuda Yelp</application> tem suporte às teclas de atalho <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo>, que recarregam o documento DocBook atualmente aberto. Isso permite que desenvolvedores vejam as alterações nos documentos à medida em que elas são feitas.</para>
+    </section>
+  </section>
+
+  <section xml:id="yelp-moreinfo"><info><title>Mais Informações</title></info>
+    <para xml:lang="en">This section details some helper applications which 
+    <application>Yelp Help Browser</application> uses, and provides resources where you can get more information
+    about <application>Yelp Help Browser</application>.</para>
+
+    <section><info><title>Scrollkeeper</title></info>
+      <para>O <application>Navegador de Ajuda Yelp</application> usa o scrollkeeper para gerar a tabela de conteúdo para documentação DocBook e HTML, e também mantém controle das traduções para cada documento.</para>
+    </section>
+
+    <section><info><title>Utilitários de documentação do MATE</title></info>
+      <para>A documentação distribuída com o MATE usa esse conjunto de utilitários para várias coisas:</para>
+
+      <para xml:lang="en"><itemizedlist>
+          <listitem>
+            <para xml:lang="en">Ease translation of documents to different languages.</para>
+          </listitem>
+
+          <listitem>
+            <para xml:lang="en">Provide a set of tools to help package and install
+            documentation into the correct location and register the
+            documentation with scrollkeeper.</para>
+          </listitem>
+
+          <listitem>
+            <para xml:lang="en">Perform conversion from DocBook format to a format suitable
+            for display.</para>
+          </listitem>
+        </itemizedlist><application>Yelp Help Browser</application> relies on <link xlink:href="help:mate-doc-xslt">MATE XSLT
+      Stylesheets</link> to perform conversion from DocBook to HTML.  <link xlink:href="help:mate-doc-make">MATE Documentation
+      Build Utilities</link> are relied upon by application authors to install and register documentation within the help system.</para>
+    </section>
+
+    <section><info><title>Página e Lista de discussão</title></info>
+      <para xml:lang="en">For further information on <application>Yelp Help Browser</application>, please visit the Documentation Project homepage, <uri xlink:href="http://mate-desktop.org">http://mate-desktop.org</uri>, or subscribe to
+      the mailing list, <uri xlink:href="http://ml.mate-desktop.org/listinfo/mate-dev">http://ml.mate-desktop.org/listinfo/mate-dev</uri>.</para>
+    </section>
+  </section>
+
+  <section xml:id="yelp-joininggdp"><info><title>Juntando-se ao Projeto de Documentação do MATE</title></info>
+    <para xml:lang="en">If you are interested in helping produce and update documentation
+    for the MATE project, please visit the Documentation Project homepage: <uri xlink:href="http://wiki.mate-desktop.org/dev-doc:doc-team-guide?s[]=users[]=guide#mate_documentation_team">http://wiki.mate-desktop.org/dev-doc:doc-team-guide?s[]=users[]=guide#mate_documentation_team</uri></para>
+  </section>
+</section>
+</chapter>

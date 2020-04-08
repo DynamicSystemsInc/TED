@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="basic-skills" xml:lang="it">
+    <info><title>Capacità di base</title></info>
+
+<!-- Maintained for 2.8 compatibility -->
+<anchor xml:id="part1-1"/>
+<anchor xml:id="gosbasic-1"/>
+<anchor xml:id="gosbasic-46"/> <!-- was Using Windows -->
+
+<highlights>
+  <para>Questo capitolo introduce alle necessarie capacità di base per lavorare con lo MATE Desktop.</para>
+</highlights>
+
+<section xml:id="mouse-skills"><info><title>Uso del mouse</title></info>
+  
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-2"/>
+
+  <indexterm xml:lang="en">
+    <primary>basic skills</primary>
+    <secondary>mouse skills</secondary>
+  </indexterm>
+  <indexterm><primary>mouse</primary> <secondary>abilità di base</secondary></indexterm>
+  
+  <!-- Notes for future development of the mouse section
+  Contents list:
+  * buttons
+  * click, drag, etc
+  * what you actually do with those: the concept of focus, selection, etc. 
+    basically, an introduction to the 'noun, verb' grammar of GUIs
+  * pointers
+  -->
+
+  <para>Questa sezione descrive cosa fanno i pulsanti del mouse e cosa indicano i diversi puntatori.</para>
+
+    <para>Un mouse è un dispositivo di puntamento che consente di spostare il puntatore del mouse sullo schermo. Il puntatore del mouse è di solito una piccola freccia con la quale puntare gli oggetti sullo schermo. Premendo un pulsante sul mouse si esegue una particolare azione sull'oggetto su cui è situato il puntatore del mouse; l'azione dipende da quale pulsante si preme.</para>
+
+  <section xml:id="mouse-conventions"><info><title>Convenzioni per i pulsanti del mouse</title><titleabbrev>Pulsanti</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-44"/>
+
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>button conventions</secondary>
+    </indexterm>
+
+    <para>Le istruzioni in questo manuale fanno riferimento a mouse per destrorsi con tre pulsanti, il tipo più comune. Se si usa un altro tipo di mouse o di dispositivo di puntamento, è necessario individuare i pulsanti corrispondenti sul proprio mouse. Se si usa un mouse per mancini, consultare il paragrafo successivo sull'impostazione dell'orientamento del mouse.</para>
+
+        <note><para>Se si imposta il proprio mouse per l'uso con la mano sinistra, si debbono invertire le convenzioni per i pulsanti usate in questo manuale. Lo stesso vale nella maggior parte della documentazione e in molte applicazioni.</para></note>
+
+    <para>In alcuni mouse è assente il pulsante centrale. Se si dispone di un mouse a due pulsanti, il sistema può essere configurato per usare l'<firstterm>accordatura</firstterm> per simulare la presenza del pulsante centrale. Se l'accordatura è attivata, premere simultaneamente i pulsanti destro e sinistro per simulare la pressione del pulsante centrale. Ad ogni modo, la presenza del pulsante centrale non è necessaria per usare MATE.</para>
+
+    <para>Le convenzioni per i pulsanti del mouse usate in questo manuale sono le seguenti:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Pulsante sinistro del mouse</term>
+        <listitem><para>Il pulsante sul lato sinistro di un mouse. Questo è il pulsante principale del mouse, usato per selezionare, attivare, premere pulsanti... Quando si dice "fare clic" è implicito che si debba fare clic col pulsante sinistro, a meno che non sia indicato specificatamente.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Pulsante centrale del mouse</term>
+        <listitem><para>Il pulsante centrale di un mouse. Su molti mouse con la rotellina, la rotellina stessa può essere premuta per operare come un pulsante centrale.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Pulsante destro del mouse</term>
+        <listitem><para>Il pulsante sul lato destro di un mouse. Spesso, usando questo pulsante viene mostrato un menù contestuale per l'oggetto al di sotto del puntatore.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Usare <application>Preferenze del mouse</application> per invertire l'orientamento del mouse. In tal caso sarà necessario invertite anche le convenzioni per i pulsanti del mouse usate in questo manuale e in altra documentazione di MATE. Per maggiori informazioni su come impostare le preferenze per il mouse, consultare <xref linkend="prefs-mouse"/>.</para>
+
+  </section>
+
+  <section xml:id="mouse-actions"><info><title>Azioni del mouse</title><titleabbrev>Azioni</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-45"/>
+    <anchor xml:id="gosbasic-6"/>
+    
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>action conventions</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>action terminology</secondary>
+    </indexterm>
+    
+    <para>Le convenzioni seguenti sono usate in questo manuale per descrivere le azioni eseguite con il mouse:</para>
+    
+    <!-- convert to variablelist -->
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="36.36*"/>
+        <colspec colname="colspec1" colwidth="63.64*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Azione</para>
+            </entry>
+            <entry>
+              <para>Definizione</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Fare clic</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premere e rilasciare il pulsante sinistro del mouse senza spostarlo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Clic col pulsante sinistro</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Come <emphasis>fare clic</emphasis>. Questa dizione viene usata quando vi è una possibile confusione con il <emphasis>clic col pulsante destro</emphasis>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Clic col pulsante centrale</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premere e rilasciare il pulsante centrale del mouse senza spostarlo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Clic col pulsante destro</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premere e rilasciare il pulsante destro del mouse senza spostarlo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Fare doppio-clic</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premere e rilasciare il pulsante sinistro del mouse due volte in rapida successione senza spostarlo. È possibile configurare la sensibilità al doppio-clic cambiando l'impostazione <emphasis>Massima durata doppio-clic</emphasis>: per maggiori informazioni consultare <xref linkend="prefs-mouse"/>. </para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Fare clic e trascinare</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premere e non rilasciare il pulsante sinistro del mouse, quindi spostare il mouse con il pulsante ancora premuto; infine rilasciare il pulsante.</para>
+                            
+              <para>Il trascinamento con il mouse viene utilizzato in molti contesti diversi. Questa serve per spostare un oggetto sullo schermo con il mouse. L'oggetto viene <emphasis>rilasciato</emphasis> nella posizione in cui viene rilasciato il pulsante del mouse. Questa azione è anche chiamata <emphasis>drag-and-drop</emphasis>. Cliccando su un elemento dell'interfaccia per spostarlo a volte viene chiamato <emphasis>afferrare</emphasis>.</para>		  
+			  
+			                
+              <para>Per esempio, è possibile cambiare la posizione di una finestra trascinandola per mezzo della sua barra del titolo, oppure spostare un file trascinando la sua icona da una finestra ad un'altra.</para>           
+              
+              <para>Tipicamente viene usato il pulsante sinistro del mouse per compiere le azioni di trascinamento, sebbene il pulsante centrale è talvolta usato per azioni di trascinamento alternative.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Fare clic e tenere premuto</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Premere senza rilasciare il pulsante sinistro dei mouse.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    
+    <indexterm><primary>mouse</primary> <secondary>azioni</secondary></indexterm>
+
+    <para>È possibile svolgere le seguenti azioni con il mouse:</para>
+    
+    <!--
+    Problem with the word 'action' here, since it's already used
+    to describe things like click, drag, etc. Suggestion: tasks?
+    -->
+
+    <variablelist>
+      <varlistentry>
+        <term>Pulsante sinistro del mouse</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>Selezionare del testo.</para></listitem>
+            <listitem><para>Selezionare degli oggetti.</para></listitem>
+            <listitem><para>Trascinare degli oggetti.</para></listitem>
+            <listitem><para>Attivare degli oggetti.</para></listitem>
+          </itemizedlist>        
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Pulsante centrale del mouse</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>Incollare del testo.</para></listitem>
+            <listitem><para>Spostare degli oggetti.</para></listitem>
+            <listitem><para>Spostare le finestre sullo sfondo.</para></listitem>
+          </itemizedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Pulsante destro del mouse</term>
+        <listitem><para>Usare il pulsante destro del mouse per aprire un menù contestuale per un oggetto, se il menù è disponibile. Per la maggior parte degli oggetti, è anche possibile usare la scorciatoia da tastiera <keycombo><keycap>Maiusc</keycap><keycap>F10</keycap></keycombo>, che consente di aprire il menù contestuale una volta che l'oggetto è stato selezionato.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Ad esempio, nel visualizzare i file nel gestore di file, si seleziona un file facendo clic col pulsante sinistro del mouse e lo si apre facendo doppio-clic con lo stesso pulsante. Facendo clic col pulsante destro invece, viene richiamato un menù contestuale per quel file.</para>
+
+    <tip><para>Nella maggior parte delle applicazioni, è possibile selezionare del testo con il pulsante sinistro del mouse e incollarlo in un'altra applicazione con il pulsante centrale. Ciò è indicato come copia della selezione primaria e opera in modo disgiunto dalla normali operazioni di copia e incolla dagli appunti.</para></tip>
+
+    <tip><para>Per selezionare più di un oggetto, è possibile tenere premuto il tasto <keycap>Ctrl</keycap> per selezionare più oggetti, oppure tenere premuto il tasto <keycap>Maiusc</keycap> per selezionare un insieme di oggetti contigui. È anche possibile trascinare un <firstterm>riquadro di selezione</firstterm> per selezionare diversi oggetti avviando il trascinamento in un punto vuoto vicino agli oggetti e trascinando un rettangolo.</para></tip>
+
+  </section>
+
+  <section xml:id="mouse-pointers"><info><title>Puntatori del mouse</title><titleabbrev>Puntatori</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-7"/>
+
+    <indexterm><primary>mouse</primary> <secondary>puntatori</secondary></indexterm>
+    <indexterm><primary>puntatori</primary> <see>puntatori del mouse</see></indexterm>
+
+    <para>Quando si opera con il mouse, l'aspetto del puntatore può cambiare a seconda del contesto. L'aspetto del puntatore fornisce un riscontro su una particolare operazione, una posizione o uno stato.</para>
+
+   <para>I seguenti puntatori del mouse sono mostrati quando il mouse passa sopra diversi elementi dello schermo:</para>
+   
+   <note><para>I vostri puntatori del mouse potrebbero essere diversi da quelli mostrati qui se viene utilizzato un tema del puntatore diverso. Il vostro distributore o fornitore potrebbe aver impostato un diverso tema predefinito.</para></note>
+   
+   <variablelist>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/normal_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Normal pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Normal pointer
+        </term>
+        <listitem><para>Questo puntatore compare durante il normale uso del mouse.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/busy_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Busy pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Busy pointer
+        </term>
+        <listitem><para>Questo puntatore compare sopra una finestra che è occupata nell'esecuzione di una attività. Non è possibile usare il mouse per fornire alla finestra alcun input, ma è possibile spostarlo su un'altra finestra e lavorare con quella.</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/resize_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Resize pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Resize pointer
+        </term>
+        <listitem><para>Questo puntatore indica che è possibile trascinare il controllo per ridimensionare parti dell'interfaccia. Appare sopra ai bordi delle finestre e sulle maniglie di ridimensionamento tra i riquadri di una finestra. La direzione delle frecce indica in quale direzione è possibile ridimensionare.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/hyperlink_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Hand pointer</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Hand pointer
+        </term>
+        <listitem><para>Questo puntatore appare quando si è sopra ad un <glossterm>collegamento ipertestuale</glossterm>, ad esempio in una pagina web. Questo puntatore indica che è possibile fare clic sul collegamento per caricare un nuovo documento o eseguire un'azione.</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/ibeam_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>I-beam pointer</phrase>
+            </textobject>
+          </inlinemediaobject>
+          I-beam pointer
+        </term>
+        <listitem><para>Questo puntatore è mostrato quando il mouse è sopra a del testo che è possibile selezionare o modificare. Fare clic per posizionare il cursore dove si vuole digitare del testo, oppure trascinare per selezionare il testo.</para></listitem>
+      </varlistentry>      
+    </variablelist>      
+      
+   <para>I seguenti puntatori del mouse sono mostrati durante il trascinamento di un oggetto come un file o una porzione di testo. Indicano il risultato del rilascio del pulsante del mouse nel punto in cui è stato spostato.</para>      
+      
+    <variablelist>      
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/move_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Move pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Move pointer
+        </term>
+        <listitem><para>Questo puntatore indica che, quando si rilascia l'oggetto, questo viene spostato dalla vecchia posizione a quella nuova.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/copy_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Copy pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Copy pointer
+        </term>
+        <listitem><para>Questo puntatore indica che, quando si rilascia l'oggetto, in quel punto viene creata una sua copia.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/link_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Symbolic link pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Symbolic link pointer
+        </term>
+        <listitem><para>Questo puntatore indica che, quando si rilascia l'oggetto, in quel punto viene creato un <firstterm>collegamento simbolico</firstterm> a quell'oggetto. Un collegamento simbolico è un tipo speciale di file che punta a un altro file o cartella. Per maggiori informazioni, consultare <xref linkend="caja-symlink"/>.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/ask_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Ask pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Ask pointer
+        </term>
+        <listitem><para>Questo puntatore indica che, quando si rilascia l'oggetto, viene offerta la possibilità di scegliere l'azione da compiere attraverso un menù. Ad esempio é possibile spostare, copiare, oppure creare un collegamento simbolico.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/not_available_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Not available pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Not available pointer
+        </term>
+        <listitem><para>Questo puntatore indica che non è possibile rilasciare l'oggetto nella posizione corrente. Rilasciando il pulsante del mouse in queste condizioni non si ha alcun effetto: l'oggetto viene riportato alla posizione iniziale.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/move_panel_object_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Move panel object pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Move panel object pointer
+        </term>
+        <listitem><para>Questo puntatore appare quando si trascina un pannello o un oggetto di pannello con il pulsante centrale del mouse. Per maggiori informazioni, consultare <xref linkend="panels"/>.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/movewindow_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Move window pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Move window pointer
+        </term>
+        <listitem><para>Questo puntatore appare quando si trascina una finestra per spostarla. Per maggiori informazioni sullo spostamento delle finestre, consultare <xref linkend="windows-manipulating"/>.</para></listitem>
+      </varlistentry>
+
+    </variablelist>
+  </section>
+</section>
+
+<section xml:id="keyboard-skills"><info><title>Uso della tastiera</title></info>
+  
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-51"/>
+
+  <indexterm xml:lang="en">
+    <primary>basic skills</primary>
+    <secondary>keyboard skills</secondary>
+  </indexterm>
+  <indexterm xml:lang="en">
+    <primary>keyboard</primary>
+    <secondary>basic skills</secondary>
+  </indexterm>
+
+  <para>Per quasi tutte le operazioni eseguibili con il mouse è possibile utilizzare anche la tastiera. I <firstterm>tasti scorciatoia</firstterm> sono tasti che permettono di eseguire velocemente una determinata operazione.</para>
+
+  <para>È possibile usare i tasti scorciatoia per eseguire operazioni generiche relative allo MATE Desktop così come per operare con gli elementi dell'interfaccia come i pannelli e le finestre. È anche possibile usare i tasti scorciatoia all'interno delle applicazioni. Per personalizzare i tasti scorciatoia, usare lo strumento di preferenze <application>Scorciatoie da tastiera</application>. Consultare <xref linkend="prefs-keyboard-shortcuts"/> per maggiori informazioni sulla configurazione delle scorciatoie da tastiera.</para>
+
+  <note><para>Molte tastiere per PC sono fornite di due tasti speciali per il sistema operativo Windows: un tasto con un logo di Microsoft Windows™ e un tasto per l'accesso ai menù contestuali.</para>
+  <para>Il MATE, il tasto Windows è spesso configurato per agire come un tasto modificatore aggiuntivo, indicato come <firstterm>tasto Super</firstterm>. Il tasto menù contestuale può essere usato per accedere al menù contestuale dell'elemento selezionato, analogamente alla scorciatoia da tastiera <keycombo><keycap>Maiusc</keycap><keycap>F10</keycap></keycombo>.</para></note>
+
+  <para>È anche possibile modificare le preferenze dello MATE Desktop per utilizzare le funzioni di accessibilità della tastiera. Consultare <xref linkend="prefs-keyboard-a11y"/> per maggiori informazioni sulle funzioni di accessibilità della tastiera.</para>
+
+  <para>Le sezioni seguenti descrivono i tasti scorciatoia che è possibile usare all'interno dell'ambiente grafico e delle applicazioni.</para>
+
+  <section xml:id="shortcuts-global"><info><title>Tasti scorciatoia globali</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-62"/>
+
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>global</secondary>
+    </indexterm>
+
+    <para>I tasti scorciatoia globali consentono di usare la tastiera per compiere delle operazioni relazionate all'ambiente grafico indipendentemente dall'applicazione o finestra correntemente selezionata. La seguente tabella elenca alcuni tasti scorciatoia globali:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Tasti scorciatoia</para>
+            </entry>
+            <entry>
+              <para>Funzione</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F1</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Apre il <guimenu>Menù Applicazioni</guimenu>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F2</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Mostra il dialogo <guilabel>Esegui applicazione</guilabel>. Consultare <xref linkend="tools-run-app"/> per maggiori informazioni.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en">
+                <keycap>Print Screen</keycap>
+              </para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Cattura una schermata dell'intero desktop. Consultare <xref linkend="tools-screenshot"/> per maggiori informazioni.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>Print Screen</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Cattura una schermata dalla finestra che ha il focus.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>Arrow keys</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Passa allo spazio di lavoro nella direzione specificata rispetto quello in uso. Consultare <xref linkend="overview-workspaces"/> per maggiori informazioni sull'uso di spazi di lavoro multipli.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>D</keycap></keycombo>
+              </para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Minimizza tutte le finestre e dà il focus alla scrivania.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>Tab</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Passa da una finestra all'altra. Viene mostrato un elenco di finestre che è possibile selezionare. Rilasciare i tasti per selezionare una finestra. È possibile premere il tasto <keycap>Maiusc</keycap> per spostarsi ciclicamente tra le finestre nell'ordine inverso.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>Tab</keycap></keycombo>
+              </para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Passa il focus tra i pannelli e la scrivania. Viene mostrato un elenco di oggetti che è possibile selezionare. Rilasciare i tasti per selezionare un oggetto. È possibile premere il tasto <keycap>Maiusc</keycap> per spostarsi ciclicamente tra tra gli oggetti nell'ordine inverso</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-window"><info><title>Tasti scorciatoia di finestra</title></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-58"/>
+
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>window</secondary>
+    </indexterm>
+
+    <para>I tasti scorciatoia di finestra consentono di usare la tastiera per compiere operazioni sulla finestra che al momento ha il focus. La seguente tabella elenca alcuni tasti scorciatoia di finestra:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Tasti scorciatoia</para>
+            </entry>
+            <entry>
+              <para>Funzione</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>Tab</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Passa da una finestra all'altra. Viene mostrato un elenco di finestre che è possibile selezionare. Rilasciare i tasti per selezionare una finestra. È possibile premere il tasto <keycap>Maiusc</keycap> per spostarsi ciclicamente tra le finestre nell'ordine inverso.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F4</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Chiude la finestra che ha il focus.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F5</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Demassimizza la finestra corrente, se questa è massimizzata.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F7</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Muove la finestre che ha il focus. Dopo aver premuto questa scorciatoia, è possibile muovere la finestra usando sia il mouse che i tasti freccia. Per completare il movimento, fare clic col mouse o premere un qualsiasi altro tasto sulla tastiera.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F8</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Ridimensiona la finestra che ha il focus. Dopo aver premuto questa scorciatoia, è possibile ridimensionare la finestra usando sia il mouse che i tasti freccia. Per completare il ridimensionamento, fare clic col mouse o premere un qualsiasi tasto sulla tastiera.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F9</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Minimizza la finestra corrente.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F10</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Massimizza la finestra corrente.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>spacebar</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Apre il menù finestra per la finestra al momento selezionata. Il menù finestra consente di compiere alcune azioni sulla finestra, come la minimizzazione, lo spostamento tra gli spazi di lavoro e la chiusura.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>Arrow keys</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Sposta la finestra in uso su un altro spazio di lavoro nella direzione specificata. Consultare <xref linkend="overview-workspaces"/> per maggiori informazioni sull'uso di spazi di lavoro multipli.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-apps"><info><title>Tasti applicazione</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-59"/>
+    <anchor xml:id="gosbasic-61"/> <!-- was Panel Shortcut Keys -->
+
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>application</secondary>
+    </indexterm>
+
+    <para>I tasti scorciatoia di applicazione consentono di eseguire operazioni relative all'applicazione. È possibile usare i tasti scorciatoia per compiere tali operazioni più velocemente che usando un mouse. La seguente tabella elenca alcuni tasti scorciatoia di applicazione più comuni:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Tasti scorciatoia</para>
+            </entry>
+            <entry>
+              <para>Azione</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>N</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Crea un nuovo documento o finestra.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>X</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Taglia in testo o regione selezionata e lo pone negli appunti.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>C</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Copia il testo o regione selezionata negli appunti.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>V</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Incolla il contenuto degli appunti.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Z</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Annulla l'ultima azione.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>S</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Salva il documento corrente su disco.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycap>F1</keycap></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Carica il documento di aiuto in linea per l'applicazione.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+
+    <para>In aggiunta a questi tasti scorciatoia, tutte le applicazioni supportano un insieme di tasti per lo spostamento e l'interazione con l'interfaccia utente. Tali tasti consentono di compiere operazioni che normalmente richiedono l'uso di un mouse. La seguente tabella descrive alcuni tasti di controllo dell'interfaccia:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Tasti</para>
+            </entry>
+            <entry>
+              <para>Azione</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Tasti freccia o <keycap>Tab</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Spostano attraverso i controlli nell'interfaccio o gli elemento in un elenco.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Invio</keycap> o <keycap>barra spaziatrice</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Attiva o sceglie l'elemento selezionato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>F10</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Attiva il primo menù sulla sinistra della finestra dell'applicazione.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Shift</keycap><keycap>F10</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Attiva il menù contestuale per l'elemento selezionato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Esc</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Chiude un menù senza selezionare una voce di menù oppure annulla un'operazione di trascinamento.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-access"><info><title>Tasti di accesso</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-63"/>
+
+    <indexterm xml:lang="en">
+      <primary>access keys</primary>
+    </indexterm>
+
+    <para>Una <firstterm>barra dei menù</firstterm> è una barra situata nella parte superiore della finestra che contiene i menù dell'applicazione. Un <firstterm>tasto di accesso</firstterm> è una lettera sottolineata presente in una barra dei menù, in un menù o in un dialogo, lettera che può essere utilizzata per compiere un'azione. In una barra dei menù, sono sottolineati i tasti di accesso per ciascun menù.</para>
+
+    <para>Per aprire un menù, tenere premuto il tasto <keycap>Alt</keycap>, quindi premere il tasto di accesso. All'interno del menù, i tasti di accesso per ciascuna voce di menù sono sottolineati. Per scegliere una voce di menù quando il menù è visualizzato, basta semplicemente premere il tasto di accesso per la voce di menù.</para>
+
+    <para>Ad esempio, per aprire una nuova finestra nell'applicazione <application>Aiuto</application>, premere <keycombo><keycap>Alt</keycap><keycap>F</keycap></keycombo> per aprire il menù <guimenu>File</guimenu>, quindi premere <keycap>N</keycap> per attivare la voce di menù <guimenuitem>Nuova finestra</guimenuitem>.</para>
+
+    <para>È anche possibile usare i tasti di accesso per accedere agli elementi di un dialogo. In un dialogo, quasi tutti gli elementi presentano una lettera sottolineata. Per accedere a un particolare elemento di un dialogo, tenere premuto <keycap>Alt</keycap> quindi premere il tasto di accesso.</para>
+  </section>
+</section>
+
+</chapter>

@@ -1,0 +1,3159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="caja" xml:lang="da">
+    <info><title>Arbejde med filer</title></info>
+  
+  <!-- ID tag preserved for 2.8 compatibility -->
+  <anchor xml:id="goscaja-1"/>
+
+  <!-- Desktop Overview / File Manager -->
+  <anchor xml:id="gosoverview-56"/>
+
+  <!-- MOVE THIS ANCHOR -->
+  <!-- Desktop Overview / File Manager / To Open Files -->
+  <anchor xml:id="gosoverview-58"/>
+
+  <!-- MOVE THIS ANCHOR -->
+  <!-- Desktop Overview / File Manager / To Move Files -->
+  <anchor xml:id="gosoverview-57"/>
+
+  <!-- MOVE THESE ANCHORS -->
+  <!-- Desktop Overview / Desktop -->
+  <anchor xml:id="gosgetstarted-11"/>
+  <!-- Desktop Overview / Desktop / To Open Desktop Objects -->
+  <anchor xml:id="gosoverview-29"/>
+  <!-- Desktop Overview / Desktop / To Add Objects-->
+  <anchor xml:id="gosoverview-19"/>
+  <!-- Using the Start Here Location -->
+  <anchor xml:id="goscaja-445"/>
+  <!-- To Choose a View in Which to Display a File or Folder - (image/text view) -->
+  <anchor xml:id="goscaja-100"/>
+  <!-- To Modify the Behavior of a View -->
+  <anchor xml:id="goscaja-111"/>
+  <!-- To Resize an Icon in Icon View - (This can only be done on desktop now) -->
+  <anchor xml:id="goscaja-103"/>
+  <!-- To Execute Other Actions When Displaying a File -->
+  <anchor xml:id="goscaja-73"/>
+
+  <highlights>
+    <para>Dette afsnit beskriver hvordan filhåndteringen <application>Caja</application> anvendes.</para>
+  </highlights>
+
+  <section xml:id="goscaja-21"><info><title>Indledning</title></info>
+    <indexterm><primary>filhåndtering</primary> <secondary>introduktion</secondary></indexterm>
+
+    <section xml:id="goscaja-22"><info><title>Filhåndteringsfunktionalitet</title></info>
+    <para>Filhåndteringen <application>Caja</application> tilbyder en simpel og integreret måde at håndtere dine filer og programmer. Du kan bruge filhåndteringen til at udføre følgende:</para>
+    <itemizedlist>
+       <listitem><para>Opret mapper og dokumenter</para></listitem>
+       <listitem><para>Vis dine filer og mapper</para></listitem>
+       <listitem><para>Søg og håndter dine filer</para></listitem>
+       <listitem><para>Kør skripter og start programmer</para></listitem>
+       <listitem><para>Tilpas udseendet for filer og mapper</para></listitem>
+       <listitem><para>Åbn specielle steder på din computer</para></listitem>
+       <listitem><para>Skriv data til en cd eller dvd</para></listitem>
+       <listitem><para>Installer og fjern skrifttyper</para></listitem>
+     </itemizedlist>
+    <para>Filhåndteringen lader dig organisere dine filer i mapper. Mapper kan indeholde filer og kan også indeholde andre mapper. Brug af mapper kan hjælpe dig med nemt at finde dine filer.</para>
+    <para><application>Caja</application> håndterer også skrivebordet. Skrivebordet ligger bag alle andre synlige elementer på din skærm. Skrivebordet er en aktiv komponent i den måde, du bruger din computer.</para>
+    <para>Hver bruger har en hjemmemappe. Hjemmemappen består af brugerens filer. Skrivebordet er en anden mappe. Skrivebordet indeholder specielle ikoner, der giver nem adgang til brugerens hjemmemappe, papirkurv og også eksterne medier såsom diskettedrev, cd'er og USB-drev.</para>
+    <para xml:lang="en"><application>Caja</application> is always running while you are using MATE. To open a new <application>Caja</application> window, double-click on an appropriate icon on the desktop such as <guimenuitem>Home</guimenuitem> or <guimenuitem>Computer</guimenuitem>, or choose an item from <xref linkend="places-menu"/> on the top panel.</para>
+    <para>I MATE er mange ting filer, såsom tekstbehandlingsdokumenter, regneark, billeder, film og musik.</para>
+  </section>
+
+  <section xml:id="caja-presentation"><info><title>Præsentation af filhåndtering</title></info>
+    
+    <para><application>Caja</application> tilbyder to tilstande hvormed du kan interagere med dit filsystem: delvis eller browsertilstand. Du kan beslutte hvilken metode du foretrækker og indstille at <application>Caja</application> altid bruger denne indstilling ved at vælge (eller fravælge) <guilabel>Åbn altid i browservinduer</guilabel> i fanebladet <guilabel>Opførsel</guilabel> i <xref linkend="caja-preferences"/>.</para>
+    <para>Browsertilstand er standarden i MATE, men din leverandør eller systemadministrator kan have konfigureret <application>Caja</application> til at bruge delvis tilstand som standard.</para>
+    <figure xml:id="goscaja-FIG-naut-always-use-browser"><info><title>Dconf-Editor der viser værdien for nøglen always-use-browser for gsettings org.mate.caja.preferences schema</title></info>
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/caja_always_use_browser.png" format="PNG"/> </imageobject> <textobject> <phrase>Dconf-Editor viser værdien for nøglen always-use-browser for gsettings org.mate.caja.preferences-skemaet.</phrase> </textobject></mediaobject>
+      </screenshot>
+    </figure>
+    <para>Det følgende forklarer forskellen mellem de to tilstande:</para>
+      <variablelist>
+        <varlistentry><!-- BROWSER -->
+          <term>Browsertilstand: Gennemse dine filer og mapper</term>
+          <listitem>
+            <para>Filhåndteringsvinduet repræsenterer en browser, som kan vise ethvert sted. Åbning af en mappe opdaterer det nuværende filhåndteringsvindue for at vise indholdet for den nye mappe.</para>
+            <para>Udover mappeindholdet så viser browservinudet et værktøjslinje med gængse handlinger og steder, en adresselinje som viser den nuværende placering i mappehierarkiet, og en sidelinje som kan indeholder forskellige slags information.</para>
+             <para>I browsertilstand har du typisk færre filhåndteringsvinduer åben på samme tid. For yderligere information om browsertilstand se <xref linkend="caja-browser-mode"/>.</para>
+          <figure xml:id="goscaja-FIG-naut-browser-mode"><info><title><application>Caja</application> i browsertilstand</title></info>
+            <screenshot>
+              <mediaobject><imageobject> <imagedata fileref="figures/caja_browser_mode.png" format="PNG"/> </imageobject> <textobject> <phrase>Caja i browsertilstand.</phrase> </textobject></mediaobject>
+            </screenshot>
+          </figure>
+          </listitem>        
+        </varlistentry><!-- SPATIAL -->
+        <varlistentry>
+          <term>Delvis tilstand: naviger blandt dine filer og mapper som objekter</term>
+          <listitem>
+            <para>Filhåndteringsvinduet repræsenterer en bestemt mappe. Åbning af en mappe åbner det nye vindue for den mappe. Hver gang du åbner en bestemt mappe, så vil du se dets vindue vist det samme sted på skærmen og med den samme størrelse som sidste gang du så vinduet (dette er årsagen til navnet »delvis tilstand«).</para>
+            <para>Brug af delvis tilstand kan medføre flere åbne filhåndteringsvinduer på skærmen. På den anden side, oplever nogle brugere at det er nemmere at arbejde med filer og mappe som opfattes som reelle fysiske objekter med bestemte placeringer. For yderligere information om brug af delvis tilstand se </para>
+        
+            <figure xml:id="goscaja-FIG-naut-spatial-mode"><info><title>Tre mapper åbnet i delvis tilstand</title></info>
+              <screenshot>
+                <mediaobject><imageobject> <imagedata fileref="figures/caja_spatial_mode.png" format="PNG"/> </imageobject> <textobject> <phrase>Tre mapper åbnet i delvis tilstand.</phrase> </textobject></mediaobject>
+              </screenshot>
+            </figure>
+            <note>
+              <para>Bemærk hvordan, når i delvis tilstand, <application>Caja</application> indikerer en åben mappe med et andet ikon.</para>
+            </note>
+          </listitem>             
+        </varlistentry>
+     </variablelist>   
+  </section>
+  </section>
+
+  <!-- ====================================================== Spatial mode -->  
+  <section xml:id="caja-spatial-mode"><info><title>Delvis tilstand</title></info>
+    <anchor xml:id="goscaja-24"/>
+
+    <indexterm><primary>filhåndtering</primary> <secondary>navigation</secondary></indexterm>
+    <para>Det følgende afsnit beskriver hvordan du gennemser dit system via filhåndteringen <application>Caja</application> når konfigureret i delvis tilstand. I delvis tilstand svarer hvert <application>Caja</application>-vindue til en enkel mappe. Når du åbner en mappe så vises dets vindue på det samme sted på skærmen som sidste gang du kiggede på den. Dette er standardopførelsen i <application>Caja</application>.</para>
+    <para>For en sammenligning af browsertilstand og delvis tilstand, se <xref linkend="caja-presentation"/>.</para>
+
+    <section xml:id="goscaja-510"><info><title>Delvise vinduer</title></info>
+      <para>Et nyt rumligt vindue åbner hver gang du åbner en mappe. For at åbne en mappe, gør et af følgende:</para>
+      <anchor xml:id="goscaja-25"/><!-- removed id: Displaying Folder Contents -->
+      <itemizedlist>
+        <listitem><para>Dobbeltklik på mappens ikon på skrivebordet eller et eksisterende vindue</para></listitem>
+        <listitem><para>Vælg mappen og tryk på <keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>.</para></listitem>
+        <listitem><para>Vælg mappen og tryk på <keycombo><keycap>Alt</keycap><keycap>pil nedad</keycap></keycombo></para></listitem>
+        <listitem><para xml:lang="en">Choose an item from the <xref linkend="places-menu"/> on the top panel. Your Home Folder and folders you have bookmarked are listed here. For more on bookmarks, see <xref linkend="caja-bookmarks"/>.</para></listitem>
+      </itemizedlist>
+      
+      <para>For at lukke den nuværende mappe mens en ny åbnes, hold <keycap>Skift</keycap> nede mens der laves et  dobbeltklik, eller tryk på  <keycombo><keycap>Skift</keycap><keycap>Alt</keycap><keycap>Pil ned</keycap></keycombo>.</para>
+
+      <para><xref linkend="goscaja-FIG-504"/> viser et delvist tilstandsvindue, som viser indholdet af mappen Computer..</para>
+      <figure xml:id="goscaja-FIG-504"><info><title>Indhold i en mappe i en delvis tilstand.<default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>file
+manager</primary><secondary>icon view</secondary><tertiary>illustration</tertiary></default:indexterm></title></info>
+        <screenshot>
+          <mediaobject><imageobject> <imagedata fileref="figures/caja_spatial_view.png" format="PNG"/> </imageobject> <textobject> <phrase>Visning af en mappe i delvis tilstand.</phrase> </textobject></mediaobject>
+        </screenshot>
+      </figure>
+    <para>I delvis tilstand vil hvert åbent <application>Caja</application>-vindue kun vise et sted. Valg af et andet sted vil åbent endnu et <application>Caja</application>-vindue. Da hvert sted husker den forrige position på skærmen hvori den blev åbnet kan du nemt genkende mapper, når mange af dem er åbne på samme tidspunkt.</para>
+    <para>Nogle anser delvis tilstand for bedre, specielt til at flytte filer eller mapper til en anden placering, andre anser antallet af åbne vinduer for en udfordring. <xref linkend="goscaja-FIG-naut-spatial-many-open"/> viser et eksempel på et delvist overblik med mange åbne steder.</para>
+        <figure xml:id="goscaja-FIG-naut-spatial-many-open"><info><title>Tre mapper åbnet i delvis tilstand</title></info>
+          <screenshot>
+            <mediaobject><imageobject> <imagedata fileref="figures/caja_spatial_mode.png" format="PNG"/> </imageobject> <textobject> <phrase>Tre mapper åbnet i delvis tilstand.</phrase> </textobject></mediaobject>
+          </screenshot>
+        </figure>
+<note>
+<para>Da delvis tilstand vil fylde din skærm ud med <application>Caja</application>-vinduer, er det vigtigt effektivt at kunne ændre position på dem. Ved at holde tasten <keycap>Alt</keycap> nede og klikke på et sted indenfor grænserne af et <application>Caja</application>-vindue kan du  nemt ændre position, i stedet for at kræve at du ændrer position ved at trække via titellinjen.</para>
+</note>
+  </section>
+
+   <section xml:id="caja-spatial-components"><info><title>Komponenter for delvise vinduer</title></info>
+      <para><xref linkend="goscaja-TBL-85"/> beskriver komponenterne i filobjektvinduerne.</para>
+      <table frame="topbot" xml:id="goscaja-TBL-85"><info><title>Komponenterne for delvise vinduer</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="29.39*"/>
+          <colspec colname="colspec1" colwidth="70.61*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Komponent</para>
+              </entry>
+              <entry>
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para>Menubjælke</para>
+              </entry>
+              <entry valign="top">
+                <para>Indeholder menuer som du bruger til at udføre opgaver i filhåndteringen.</para>
+		<para>Du kan også åbne en pop op-menu fra filhåndteringsvinduer. For at åbne denne pop op-menu højreklik i et filhåndteringsvindue. Elementerne i denne menu afhænger af hvor du højreklikker. For eksempel, når du højreklikker på en fil eller en mappe, så kan du vælge elementer relateret til filen eller mappen. Når du højreklikker på baggrund af et visningspanel, så kan du vælge elementer relateret til visningen af elementer i visningspanelet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+		<anchor xml:id="goscaja-components-view"/>
+                <para>Visningspanel</para>
+              </entry>
+              <entry valign="top">
+                <para>Viser indholdet af følgende:</para>
+                <itemizedlist>
+                  <listitem>
+                    <para>Mapper</para>
+                  </listitem>
+                  <listitem>
+                    <para>FTP-sider</para>
+                  </listitem>
+                  <listitem>
+                    <para>Vinduesdelinger</para>
+                  </listitem>
+                  <listitem>
+                    <para>WebDAV-servere</para>
+                  </listitem>
+                  <listitem>
+                    <para>Steder som svarer til specielle URI'er</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Statusbjælke</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Viser statusinformation.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Valg af overmappe</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Dette rullegardin viser hierarkiet for mappen. Vælg en mappe fra listen for at åbne den.</para>
+                <tip><para>Hold <keycap>Skift</keycap> nede mens du vælger fra listen for at lukke den nuværende mappe, mens du åbner den nye.</para></tip>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscaja-4"><info><title>Vis din hjemmemappe i et delvist vindue</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>Hjemmeplacering</secondary> <see>Hjemmeplacering</see></indexterm>
+      <indexterm><primary>Hjemmeplacering</primary> <secondary>viser</secondary></indexterm>
+      <para>For at vise din hjemmemappe, udfør en af de følgende handlinger:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Dobbeltklik på objektet <guilabel>Hjem</guilabel> på skrivebordet.</para>
+        </listitem>
+        <listitem>
+          <para>Fra et mappevindues menulinje, vælg <menuchoice><guimenu>Steder</guimenu><guimenuitem>Hjemmemappe</guimenuitem></menuchoice>.</para> 
+        </listitem>
+        <listitem><para>Fra toppanelets menulinje, vælg <menuchoice><guimenu>Steder</guimenu><guimenuitem>Hjemmemappe</guimenuitem></menuchoice>.</para></listitem>
+      </itemizedlist>
+      <para>Det delvise vinduer viser indholdet af din hjemmemappe.</para>
+    </section>
+
+    <section xml:id="goscaja-511"><info><title>Visning af en overmappe</title></info>
+      <para>En overmappe er mappen som indeholder den nuværende mappe. For at vise indholdet af din nuværende mappes overmappe udføres en af følgende handlinger:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Åbn overmappe</guimenuitem></menuchoice>.</para>
+        </listitem>
+        <listitem>
+          <para>Tryk <keycombo><keycap>Alt</keycap><keycap>pil op</keycap></keycombo>.</para>
+        </listitem>
+        <listitem><para>Vælg fra overmappevælgeren nederst til venstre i vinduet.</para></listitem>
+      </itemizedlist>
+      <para>For at lukke nuværende mappe mens overmappen åbnes, hold <keycap>Skift</keycap> nede mens der vælges fra overmappevælgeren, eller tryk på <keycombo><keycap>Skift</keycap> <keycap>Alt</keycap> <keycap>pil op</keycap></keycombo>.</para>
+    </section>
+
+    <section xml:id="goscaja-512"><info><title>Lukke mapper</title></info>
+      <para>For at lukke mapper kan du klikke på knappen luk vindue; dette er dog ikke nødvendigvis den mest effektive måde at lukke mange vinduer på. Hvis du kun vi se den nuværende mappe og ikke mapperne du åbnede for at nå den nuværende mappe, så vælg <menuchoice><guimenu>Fil </guimenu> <guimenuitem>Luk overmappe</guimenuitem> </menuchoice>. Hvis du ønsker at lukke alle mapperne på skærmen, så vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Luk alle mapper</guimenuitem></menuchoice>.</para>
+    </section>
+
+    <section xml:id="goscaja-501"><info><title>Visning af en mappe i et browservindue</title></info>
+      <para>Hvis du ønsker at vise en enkel mappe i browsertilstand, men ellers fortsætte med at arbejde i delvis tilstand, så udfør de følgende trin:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg en mappe i delvis tilstand.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Gennemse mappe</guimenuitem></menuchoice>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="caja-open-location"><info><title>Åbning af en placering</title></info>
+      <para>Du kan åbne en mappe eller anden placering i delvis tilstand ved at taste navnet.</para>
+      <para>Vælg <menuchoice> <shortcut> <keycombo><keysym>L</keysym></keycombo> </shortcut> <guimenu>Fil</guimenu> <guimenuitem>Åbn placering</guimenuitem> </menuchoice>, og tast stien eller adressen på placeringen du ønsker at åbne.</para>
+    </section>
+  </section>
+
+  <!-- ====================================================== Browser mode -->
+  <section xml:id="caja-browser-mode"><info><title>Browsertilstand</title></info>
+    <!-- Viewing Files in a File Browser Window -->
+    <anchor xml:id="goscaja-210"/>   
+    <anchor xml:id="goscaja-447"/>
+
+    <indexterm><primary>filhåndtering</primary> <secondary>vinduer</secondary></indexterm>
+    <para>Det følgende afsnit beskriver, hvordan du kan se dit systems filer og mapper via filhåndteringen <application>Caja</application> når konfigureret i browsertilstand. I browsertilstand opdaterer åbning af en mappe den nuværende filhåndtering, så denne viser indholdet af den nye mappe.</para>
+    <para>For en sammenligning af browsertilstand og delvis tilstand, se <xref linkend="caja-presentation"/>.</para>
+
+    <section xml:id="goscaja-492"><info><title>Filbrowservinduet</title></info>
+      <para>Du kan tilgå filbrowseren på de følgende måder: <itemizedlist>
+        <listitem><para>Vælg <menuchoice><guimenu>Programmer</guimenu><guimenuitem>Systemværktøjer</guimenuitem><guimenuitem>Filbrowser</guimenuitem></menuchoice>.</para></listitem>
+        <listitem><para>I delvis tilstand kan du åbne en mappe i browsertilstand ved at højreklikke på den mappe og vælge <guimenuitem>Gennemse mappe</guimenuitem>. Et nyt filbrowservindue vil åbne og vise indholdet af den valgte mappe.</para></listitem>
+        <listitem><para>Hvis <application>Caja</application> er indstillet til altid at åbne browservinduer, så vil et dobbeltklik på en mappe åbne et browservindue, se <xref linkend="goscaja-56"/>.</para></listitem>
+      </itemizedlist></para>
+      <figure xml:id="goscaja-FIG-naut-home-browser-mode"><info><title>Indhold af en mappe i et filbrowservindue</title></info>
+        <screenshot>
+          <mediaobject><imageobject> <imagedata fileref="figures/caja_browser_mode.png" format="PNG"/> </imageobject> <textobject> <phrase> En mappe i et filbrowservindue.</phrase> </textobject></mediaobject>
+        </screenshot>
+      </figure>
+      <note>
+        <para>I nogle distributioner af MATE-skrivebordet kan værktøjslinjeknappen <guibutton>Hjem</guibutton> have et andet formål, for eksempel, <guibutton>Dokumenter</guibutton>.</para>
+      </note>
+
+      <section xml:id="goscaja-493"><info><title>Vindueskomponenterne for filbrowseren</title></info>
+        <para><xref linkend="goscaja-TBL-83"/> beskriver komponenter i et filbrowservindue.</para>
+        <table frame="topbot" xml:id="goscaja-TBL-83"><info><title>Vindueskomponenterne for filbrowseren</title></info>
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colname="colspec0" colwidth="29.39*"/>
+            <colspec colname="colspec1" colwidth="70.61*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>Komponent</para>
+                </entry>
+                <entry>
+                  <para>Beskrivelse</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry valign="top">
+                  <para>Menubjælke</para>
+                </entry>
+                <entry valign="top">
+                  <para>Indeholder menuer som du bruger til at udføre opgaver i filhåndteringen.</para>
+		              <para>Du kan også åbne en pop op-menu fra filhåndteringsvinduer. For at åbne denne pop op-menu højreklik i et filhåndteringsvindue. Elementerne i denne menu afhænger af hvor du højreklikker. For eksempel, når du højreklikker på en fil eller en mappe, så kan du vælge elementer relateret til filen eller mappen. Når du højreklikker på baggrund af et visningspanel, så kan du vælge elementer relateret til visningen af elementer i visningspanelet.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para>Værktøjslinje</para>
+                </entry>
+                <entry valign="top">
+                  <para>Indeholder knapper som du bruger til at udføre opgaver i filhåndteringen.</para>
+<itemizedlist>
+                    <listitem>
+                      <para><guibutton>Tilbage</guibutton> returnerer til det tidligere besøgte sted. Det nærvedliggende rullegardin indeholder også en liste over de seneste besøgte steder, så du hurtigere kan returnere til dem.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guimenu>Fremad</guimenu> udfører den modsatte funktion i forhold til værktøjslinjeelementet  <guibutton>Tilbage</guibutton>. Hvis du tidligere har navigeret tilbage i tid, så vil denne knap returnerer dig til den nuværende.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guibutton>Op</guibutton> Går et niveau op til overmappen for den nuværende mappe.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guibutton>Genindlæs</guibutton> Opdaterer indholdet af den nuværende mappe.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guibutton>Hjem</guibutton> Åbner din hjemmemappe.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guibutton>Computer</guibutton> Åbner din computermappe.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guibutton>Søg</guibutton> Åbner søgebjælken.</para>
+                    </listitem>
+                  </itemizedlist>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec0" valign="top">
+                  <para>Adresselinje</para>
+                </entry>
+                <entry colname="colspec1" valign="top">
+                  <para>Adresselinjen er et meget funktionsrigt værktøj til at navigere rundt på din computer. Den kan fremstå på tre forskellige måder afhængig af dit valg. For mere om brug af adresselinjen se <xref linkend="caja-location-bar"/>. I alle tre konfigurationer indeholder adresselinjen altid de følgende elementer:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guimenu>Zoom</guimenu>-knapper: Gør at du kan ændre størrelsen på elementer i visningspanelet.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Vis som</guilabel> rullegardin: Gør at du kan vælge hvordan elementer skal vises i dit visningspanel.</para>
+                    </listitem>
+                  </itemizedlist>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+              		<anchor xml:id="goscaja-540"/>
+                  <para>Sidepanel</para>
+                </entry>
+                <entry valign="top">
+                  <para>Udfører de følgende funktioner:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para>Viser information om den nuværende fil eller mappe.</para>
+                  </listitem>
+                  <listitem>
+                    <para>Aktiverer at du kan navigere igennem dine filer.</para>
+                  </listitem>
+                </itemizedlist>
+                <para>For at vise sidepanelet, så vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Sidepanel</guimenuitem></menuchoice>. Sidepanelet indeholder et rullegardin, hvor du kan vælge hvad der skal vises i sidepanelet. Du kan vælge fra de følgende indstillinger:</para>                
+      <itemizedlist>
+        <listitem>
+          <para><guilabel>Steder</guilabel></para>
+          <para>Viser interessante steder.</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>Information</guilabel></para>
+          <para>Viser ikonet og information om den nuværende mappe. Knapper kan fremgå i sidepanelet, disse knapper gør at du kan udføre handlinger på den nuværende mappe, udover standardhandlingen.</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>Træ</guilabel></para>
+          <para>Viser en hierarkisk repræsentation af dit filsystem. Du kan bruge  <guilabel>Træet</guilabel> til at navigere igennem dine filer.</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>Historik</guilabel></para>
+          <para>Indeholder en historikliste over filer, mapper, FTP-sider og URI'er du har besøgt for nylig.</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>Noter</guilabel></para>
+          <para>Aktiverer at du kan tilføje noter til dine filer og mapper.</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>Emblemer</guilabel></para>
+          <para>Indeholder emblemer som du kan tilføje til en fil eller mappe.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Klik på knappen <guibutton>X</guibutton> i det øverste højre hjørne af sidepanelet for at lukke sidepanelet.</para>
+                </entry>
+            </row>
+            <row>
+              <entry valign="top">
+		<anchor xml:id="goscaja-53"/>
+                <para>Visningspanel</para>
+              </entry>
+              <entry valign="top">
+                <para>Viser indholdet af følgende:</para>
+                <itemizedlist>
+                  <listitem>
+                    <para>Mapper</para>
+                  </listitem>
+                  <listitem>
+                    <para>FTP-sider</para>
+                  </listitem>
+                  <listitem>
+                    <para>Vinduesdelinger</para>
+                  </listitem>
+                  <listitem>
+                    <para>WebDAV-servere</para>
+                  </listitem>
+                  <listitem>
+                    <para>Steder som svarer til specielle URI'er</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Statusbjælke</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Viser statusinformation.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    </section>
+
+    <section xml:id="goscaja-18"><info><title>Vise og skjule komponenter for filbrowservinduet</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>vindueskomponenter, vis og skjul</secondary></indexterm>
+      <para>For at vise eller skjule nogle af komponenterne for filbrowseren beskrevet i <xref linkend="goscaja-TBL-83"/> vælg et af de følgende elementer fra menuen:</para>
+      <itemizedlist>
+        <listitem>
+          <para>For at skjule sidepanelet, vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Sidepanel</guimenuitem></menuchoice>. For at vise sidepanelet igen, vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Sidepanel</guimenuitem></menuchoice> igen. Alternativet kan du trykke <keycap>F9</keycap> for at ændre synligheden af sidepanelet.</para>
+        </listitem>
+        <listitem>
+          <para>For at skjule værktøjslinjen, vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>værktøjslinje</guimenuitem></menuchoice>. For at vise værktøjslinjen igen, vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>værktøjslinje</guimenuitem></menuchoice> igen.</para>
+        </listitem>
+        <listitem>
+          <para>For at skjule adresselinjen, vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Adresselinje</guimenuitem></menuchoice>. For at vise adresselinjen igen, vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Adresselinje</guimenuitem></menuchoice> igen.</para>
+        </listitem>
+        <listitem>
+          <para>For at skjule statuslinje vælges <menuchoice><guimenu>Vis</guimenu><guimenuitem>Statuslinje</guimenuitem></menuchoice>. For at vise statuslinjen igen vælges <menuchoice><guimenu>Vis</guimenu><guimenuitem>Statuslinje</guimenuitem></menuchoice> igen.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section xml:id="caja-location-bar"><info><title>Brug af adresselinjen</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>vindueskomponenter, vis og skjul</secondary></indexterm>
+      <para>Filbrowseren adresselinje kan vise enten et stedfelt, en knaplinje eller et søgefelt. Hver er nyttig i forskellige situationer.</para>
+
+
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Knaplinje</guilabel></para>
+        <para>Som standard vises knaplinjen. Denne viser en række af knapper, der repræsenterer den nuværende placerings hierarki, med en knap for hver indeholdende mappe. Klik på knappen for at hoppe mellem mapper i hierarkiet. Du kan returnere til den oprindelige mappe, der vises som den sidste knap i rækken.</para>
+        <para>Du kan også trække knapper, for eksempel til en anden placering, for at kopiere en mappe.</para>
+      <figure xml:id="goscaja-FIG-903"><info><title>Knaplinjen</title></info>
+        <screenshot>
+          <mediaobject><imageobject> <imagedata fileref="figures/caja_button_bar.png" format="PNG"/> </imageobject> <textobject> <phrase>Knaplinjen.</phrase> </textobject></mediaobject>
+        </screenshot>
+      </figure>
+      </listitem>    
+      <listitem>
+        <para><guilabel>Tekstadresselinje</guilabel></para>
+        <para>Tekstadresselinjen viser den nuværende placering som en tekststi, for eksempel: »/home/bruger/Dokumenter«. Adressefeltet er specielt nyttigt til at gå til en kendt mappe meget hurtigt.</para>
+        <para>For at gå til en ny placering, tast en ny sti eller rediger den nuværende, tryk så <keycap>Retur</keycap>. Stifeltet fuldfører automatisk hvad du taster, når der kun er en mulighed. For at acceptere den foreslåede fuldførelse, tryk <keycap>Indryk</keycap>.</para>
+      <para>For altid at bruge tekstadresselinjen, klik på knappen til venstre for adresselinjen.</para>
+      <para>For hurtigt at skifte til tekstadresselinjen mens knaplinjen anvendes, tryk <keycombo><keycap>Ctrl</keycap><keycap>L</keycap></keycombo>, vælg <menuchoice><guimenu>Gå</guimenu><guimenuitem>Sted</guimenuitem></menuchoice>, eller tryk <keycap>Foranstillet skråstreg (/)</keycap> til at taste en sti fra rodmappen. Adresselinjen viser stedknapperne igen efter du trykker <keycap>Retur</keycap> eller afbryd med <keycap>Escape</keycap>.</para>
+      <figure xml:id="goscaja-FIG-902"><info><title>Adresselinjen</title></info>
+        <screenshot>
+          <mediaobject><imageobject> <imagedata fileref="figures/caja_go_to_location.png" format="PNG"/> </imageobject> <textobject> <phrase>Adresselinjen.</phrase> </textobject></mediaobject>
+        </screenshot>
+      </figure>
+      </listitem>
+      <listitem>
+        <para><guilabel>Søgelinje</guilabel></para>
+        <para>Ved at trykke <keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo> eller vælge værktøjslinjeknappen  <guibutton>Søg</guibutton> fremkommer søgelinjen. For yderligere information om søgning se <xref linkend="caja-searching"/>. Søgelinjen er glimrende til at finde filer eller mapper, når du ikke er sikker på deres præcise placering.</para>
+      <figure xml:id="goscaja-FIG-904"><info><title>Søgelinjen</title></info>
+        <screenshot>
+          <mediaobject><imageobject> <imagedata fileref="figures/caja_search_bar.png" format="PNG"/> </imageobject> <textobject> <phrase>Søgelinjen.</phrase> </textobject></mediaobject>
+        </screenshot>
+      </figure>
+      </listitem>
+</itemizedlist>
+    </section>
+
+    <section xml:id="goscaja-499"><info><title>Vis din hjemmemappe</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>Hjemmemappe</secondary></indexterm>
+      <indexterm><primary>filhåndtering</primary> <secondary>Hjemmeplacering</secondary> <see>Hjemmeplacering</see></indexterm>
+      <indexterm><primary>Hjemmeplacering</primary> <secondary>viser</secondary></indexterm>
+      <para>For hurtigt at vise din hjemmemappe, udfør en af de følgende handlinger fra et filbrowservindue.</para>
+      <itemizedlist>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Gå til</guimenu><guimenuitem>Hjem</guimenuitem></menuchoice>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på værktøjslinjeknappen <guibutton>Hjem</guibutton>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på knappen <guibutton>Hjem</guibutton> i sidepanelet Steder.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Filbrowservinduet viser indholdet i din hjemmemappe.</para>
+    </section>
+
+    <section xml:id="goscaja-500"><info><title>Visning af en mappe</title></info>
+      <para>Indholdet af en mappe kan vises i enten liste- eller ikonvisning ved at vælge det passende element i placeringslinjemenuen <guilabel>Vis som</guilabel>. For yderligere information om liste- og ikonvisningen se <xref linkend="goscaja-7"/></para>
+      <itemizedlist>
+        <listitem>
+          <para>Dobbeltklik på mappen i visningspanelet.</para>
+        </listitem>
+        <listitem>
+          <para>Brug <guilabel>Træet</guilabel> i sidepanelet. For yderligere information, se <xref linkend="goscaja-27"/>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på knappen <guilabel>Sted</guilabel> i adresselinjen.</para>
+        </listitem>
+        <listitem>
+          <para>Tryk <keycombo><keycap>Ctrl</keycap><keycap>L</keycap></keycombo> for at vise tekstfeltet <guilabel>Sted</guilabel>, tast mappens sti du ønsker at vise, tryk på <keycap>Retur</keycap>. Feltet <guilabel>Sted</guilabel> inkluderer et funktion til automatisk fuldførelse. Mens du taster stien, læser filhåndteringen dit filsystem. Når du har tastet nok tegn til at identificere en mappe, så fuldfører filhåndteringen mappenavnet i feltet <guilabel>Sted</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Brug værktøjsknappen <guibutton>Tilbage</guibutton> og værktøjsknappen <guibutton>Fremad</guibutton> til at gå igennem din navigationshistorik.</para>
+        </listitem>
+      </itemizedlist>
+      <para>For at gå til mappen et niveau over den nuværende, vælg <menuchoice><guimenu>Gå</guimenu><guimenuitem>Op</guimenuitem></menuchoice>. Alternativt, klik på værktøjslinjeknappen <guibutton>Op</guibutton>.</para>
+    </section>
+
+    <section xml:id="goscaja-26"><info><title>Visning af en overmappe</title></info>
+      <para>Overmappen for den nuværende mappe, som du gennemser er den som findes, i en hierarkisk repræsentation, et niveau over den nuværende. For at vise indholdet af overmappen, udfør et af de  følgende trin:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Tryk på knappen <guibutton>Op</guibutton> på værktøjslinjen.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Gå til</guimenu><guimenuitem>Åbn overmappe</guimenuitem></menuchoice> fra menulinjen.</para>
+        </listitem>
+        <listitem>
+          <para>Tryk på knappen <keycap>Ret tilbage</keycap> (backspace).</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section xml:id="goscaja-27"><info><title>Brug af træet fra sidepanelet</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>Træ, via </secondary></indexterm>
+      <indexterm><primary>Træ, via</primary></indexterm>
+      <para><guilabel>Trævisningen</guilabel> er en af de mest nyttige funktioner i sidepanelet. Det viser en hierarkisk repræsentation af dit filsystem og tilbyder en nem måde at gennemse og navigere dit filsystem. For at vise <guilabel>Træet</guilabel> i sidepanelet, så vælg <guimenuitem>Træ</guimenuitem> fra rullegardinet øverst i sidepanelet.</para>
+<para>I <guilabel>Trævisningen</guilabel>er åbne mapper repræsenteret som nedadrettede pile.</para>
+      
+      <para><xref linkend="goscaja-TBL-34"/> beskriver opgaver du kan udføre med <guilabel>Træet</guilabel>, og hvordan det gøres.</para>
+      <table frame="topbot" xml:id="goscaja-TBL-34"><info><title>Træopgaver</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="50*"/>
+          <colspec colname="colspec1" colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Opgave</para>
+              </entry>
+              <entry>
+                <para>Handling</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para>Åbn <guilabel>Træet</guilabel>.</para>
+              </entry>
+              <entry valign="top">
+                <para>Vælg <guilabel>Træ</guilabel> fra rullegardinet øverst i sidepanelet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para>Luk <guilabel>Træet</guilabel>.</para>
+              </entry>
+              <entry valign="top">
+                <para>Vælg et andet element fra rullegardinet øverst i sidepanelet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Udvid en mappe i <guilabel>Træet</guilabel>.</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Klik på pilen ved siden af mappen i <guilabel>Træet</guilabel>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Saml en mappe i <guilabel>Træet</guilabel>.</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Klik på pilen ved siden af mappen i <guilabel>Træet</guilabel>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Vis indholdet af en mappe i visningspanelet.</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg mappen i <guilabel>Træet</guilabel>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para>Åbn en fil.</para>
+              </entry>
+              <entry valign="top">
+                <para>Vælg filen i <guilabel>Træet</guilabel>.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>Du kan angive dine præferencer, så at  <guilabel>Træet</guilabel> ikke viser filer. For yderligere information, se <xref linkend="goscaja-438"/>.</para>
+    </section>
+
+    <section xml:id="goscaja-5"><info><title>Brug af din navigationshistorik</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>navigation i historiklisten</secondary></indexterm>
+      <para>Filbrowservinduet bevarer en historiklisten med filer, mapper, FTP-sider og URI-placeringer du har besøgt. Du kan bruges historiklisten til hurtigt at navigere til disse steder. Din historikliste indeholder de sidste ti elementer du har besøgt.</para>
+      <para>For at rydde din historikliste vælg <menuchoice><guimenu>Gå til</guimenu> <guimenuitem>Ryd historik</guimenuitem></menuchoice>.</para>
+
+      <section xml:id="goscaja-77"><info><title>Navigation i din historikliste via menuen Gå til</title></info>
+        <para>For at vise en liste over tidligere sete elementer, vælg menuen <guimenu>Gå</guimenu>. Din historikliste vises i den nedre del af menuen <guimenu>Gå til</guimenu>. For at åbne element i din historikliste, klik på elementet.</para>
+      </section>
+
+      <section xml:id="goscaja-78"><info><title>Navigation i din historikliste via værktøjslinjen</title></info>
+        <para>For at bruge værktøjslinjen i din historikliste, udfør en af de følgende handlinger.</para>
+        <itemizedlist>
+          <listitem>
+            <para>For at åbne mappen eller URI'en i din historikliste, klik på værktøjslinjeknappen <guibutton>Tilbage</guibutton>.</para>
+          </listitem>
+          <listitem>
+            <para>For at åbne mappen eller URI i din historikliste, klik på værktøjslinjeknappen <guibutton>Fremad</guibutton>.</para>
+          </listitem>
+          <listitem>
+            <para>For at vise en liste over tidligere sete elementer, klik på ned-piletasten til højre for værktøjslinjeknappen <guibutton>Tilbage</guibutton>. For at åbne et element fra denne liste, klik på elementet.</para>
+          </listitem>
+          <listitem>
+            <para>For at vise en liste over elementer du kiggede på efter det nuværende element, klik på ned-piletasten til højre for værktøjslinjeknappen <guibutton>Fremad</guibutton>. For at åbne et element fra denne liste, klik på elementet.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+
+      <section xml:id="goscaja-80"><info><title>Navigation i din historikliste via historik i sidepanelet</title></info>
+        <indexterm><primary>filhåndtering</primary> <secondary>Historik</secondary></indexterm>
+        <para>For at vise <guilabel>Historiklisten</guilabel> i sidepanelet vælges <guilabel>Historik</guilabel> fra rullegardinlisten øverst i sidepanelet. <guilabel>Historiklisten</guilabel> i sidepanelet viser en liste med dine tidligere viste elementer.</para>
+        <para>For at vise et element fra din historikliste i visningspanelet, dobbeltklik på elementet i listen <guilabel>Historik</guilabel>.</para>
+      </section>
+    </section>
+  </section>  
+  
+  <!-- ======================================================== Opening -->
+  <section xml:id="caja-open-file"><info><title>Åbning af filer</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscaja-28"/>
+
+    <indexterm><primary>filhåndtering</primary> <secondary>åbning af filer</secondary></indexterm>
+    <para>Når du åbner en fil, så udfører filhåndteringen standardhandlingen for den filtype.</para>
+    <para>For eksempel, åbning af en musikfil vil afspille den med standardprogrammet til musikafspilning, åbning af en tekstfil vil medføre at du kan læse og redigere den i et tekstredigeringsprogram og åbning af en billedfil vil vise billedet.</para>
+    <para>Filhåndteringen kontrollerer indholdet af en fil for at bestemme filtypen. Hvis de første linjer ikke afklarer filtypen, så kontrollerer filhåndteringen <glossterm>filendelsen</glossterm>.</para>
+    <note><para xml:lang="en">If you open an executable text file, that is, one that Caja considers can be run as a program, then you will be asked what you want to do: run it, or display it in a text editor. You can modify this behavior in <xref linkend="caja-preferences"/>.</para></note>
+
+    <section xml:id="goscaja-29"><info><title>Kørsel af standardhandlingen</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>kørsel af standardhandlinger for filer</secondary></indexterm>
+      <para>For at køre standardhandlingen for en fil, dobbeltklik på filen. For eksempel er standardhandlingen for tekstdokumenter visning af filen i en tekstfremviser. I dette tilfælde kan du dobbeltklikke på filen for at vise filen i en tekstfremviser.</para>
+      <para>Du kan ændre filhåndteringens indstillinger, så du kører standardhandlingen via et klik. For yderligere information, se <xref linkend="goscaja-56"/>.</para>
+    </section>
+
+    <section xml:id="goscaja-30"><info><title>Kørsel af handlinger der ikke er standard</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>kørsel af filhandlinger der ikke er standard</secondary></indexterm>
+      <para>For at køre handlinger udover standardhandlingen for en fil, vælg filen som du ønsker at udføre en handling på. I menuen <menuchoice><guimenu>Fil</guimenu></menuchoice> vil du have enten »Åbn med«-valg, eller en undermenu <menuchoice><guimenuitem>Åbn med</guimenuitem></menuchoice>. Vælg de ønskede indstillinger fra denne liste.</para>
+    </section>
+
+    <section xml:id="goscaja-add-actions"><info><title>Tilføjelse af handlinger</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscaja-204"/><!-- Assigning Actions to Files -->
+
+      <indexterm><primary>filhåndtering</primary> <secondary>tilføjelse af handlinger</secondary></indexterm>
+      <para>For at tilføje handlinger associeret med en filtype, udfør de følgende trin:</para>
+      <orderedlist>
+        <listitem>
+         <para>I visningspanelet, vælg en filtype du ønsker at tilføje en handling.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Åbn med et andet program</guimenuitem></menuchoice>.</para>
+        </listitem>
+        <listitem>
+        <para>Vælg enten et program i dialogen åbn med eller gå til programmer hvormed du ønsker at åbne denne type.</para>
+        </listitem>
+      </orderedlist>
+       <para>Handlingen, du har valgt, er nu tilføjet til listen over handlinger for den bestemte filtype. Hvis der ikke var en tidligere handling associeret med typen, så er den netop tilføjede handling standarden.</para>
+       <para>Du kan også tilføje handlinger i fanebladet <guilabel>Åbn med</guilabel> under <menuchoice><guimenu>Fil</guimenu><guimenuitem>Egenskaber</guimenuitem></menuchoice>.</para>
+   </section>
+
+    <section xml:id="goscaja-75"><info><title>Ændring af handlinger</title></info>
+      <indexterm><primary>filehåndtering</primary> <secondary>ændring af handlinger</secondary></indexterm>
+      <para>For at ændre handlingerne associeret med en fil eller filtype, udfør de følgende trin:</para>
+      <orderedlist>
+        <listitem>
+         <para>I visningspanelet, vælg en filtype som du ønsker at ændre handling for.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Egenskaber</guimenuitem></menuchoice>.</para>
+        </listitem>
+       <listitem>
+          <para>Vælg fanebladet <guilabel>Åb med</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Brug knapperne <guibutton>Tilføj</guibutton> eller <guibutton>Fjern</guibutton> for at skræddersy listen med handlinger. Vælg standardhandlingen med indstillingen til venstre for listen.</para>
+        </listitem>
+      </orderedlist>
+    </section>    
+   
+  <!-- =========================================== Searching -->    
+  </section>
+
+  <section xml:id="caja-searching"><info><title>Søgning efter filer</title></info>
+    <indexterm><primary>filhåndtering</primary> <secondary>søgning efter filer</secondary></indexterm>
+    <para>Filhåndteringen <application>Caja</application> indeholder en nem og simpel måde at søge i dine filer og mapper. For at begynde søgningen trykkes på <keycombo><keycap>Ctrl</keycap> <keycap>F</keycap></keycombo> eller vælg værktøjslinjeknappen <guibutton>Søg</guibutton>. Søgelinjen bør ser ud som i <xref linkend="goscaja-FIG-925"/></para>
+                    <figure xml:id="goscaja-FIG-925"><info><title>Søgelinjen</title></info>
+                      <screenshot>
+                        <mediaobject><imageobject> <imagedata fileref="figures/caja_search_bar.png" format="PNG"/> </imageobject> <textobject> <phrase>Søgelinjen.</phrase> </textobject></mediaobject>
+                      </screenshot>
+                    </figure>
+<para>Indtast tegn til stede i navnet eller indholdet af filen eller mappen du ønsker at finde og tryk på <keycap>Retur</keycap>. Resultatet af din søgning fremgår i visningspanelet som illustreret i <xref linkend="goscaja-FIG-926"/></para>
+                    <figure xml:id="goscaja-FIG-926"><info><title>Resultatet af en søgning</title></info>
+                      <screenshot>
+                        <mediaobject><imageobject> <imagedata fileref="figures/caja_search_results.png" format="PNG"/> </imageobject> <textobject> <phrase>Resultatet af en søgning.</phrase> </textobject></mediaobject>
+                      </screenshot>
+                    </figure>
+<para>Hvis du ikke er tilfreds med sin søgning kan du raffinere den ved at tilføje yderligere betingelser. Dette gør, at du kan afgrænse søgningen til en specifik filtype eller placering. For at tilføje søgebetingelser klikkes på <guibutton>+</guibutton>-ikonet. <xref linkend="goscaja-FIG-927"/> viser en søgning, som er blevet begrænset til brugerens hjemmemappe og kun søger efter tekstfiler.</para>
+                    <figure xml:id="goscaja-FIG-927"><info><title>Begrænse en søgning</title></info>
+                      <screenshot>
+                        <mediaobject><imageobject> <imagedata fileref="figures/caja_refine_search.png" format="PNG"/> </imageobject> <textobject> <phrase>Begrænse en søgning.</phrase> </textobject></mediaobject>
+                      </screenshot>
+                    </figure>
+
+    <section xml:id="caja-saving-searches"><info><title>Gemme søgninger</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>kørsel af standardhandlinger for filer</secondary></indexterm>
+      <para>Cajasøgninger kan også gemmes til fremtidig brug. Når gemt kan søgninger åbnes igen senere. <xref linkend="goscaja-FIG-935"/> viser en bruger med tre gemte søgninger, der gennemser en af dem.</para>
+                    <figure xml:id="goscaja-FIG-935"><info><title>Gennemse resultaterne af en gemt søgning</title></info>
+                    
+                      <screenshot>
+                        <mediaobject><imageobject> <imagedata fileref="figures/caja_restore_saved_search.png" format="PNG"/> </imageobject> <textobject> <phrase>Gennemse resultaterne af en gemt søgning.</phrase> </textobject></mediaobject>
+                      </screenshot>
+                    </figure>
+<para>Gemte søgninger opfører sig præcis som normale mapper, for eksempel kan du åbne, flytte eller slette filer fra en gemt søgning.</para>
+    </section>
+  </section>
+
+  <!-- =========================================== Managing -->
+  <section xml:id="goscaja-8"><info><title>Håndtere dine filer og mapper</title></info>
+    <indexterm><primary>filhåndtering</primary> <secondary>håndtering af filer og mapper</secondary></indexterm>
+    <para>Dette afsnit beskriver hvordan du arbejder med dine filer og mapper.</para>
+
+  	<section xml:id="caja-directories-file-systems" status="complete"><info><title>Mapper og filsystemer</title></info>
+				<para>I Linux- og andre Unix-lignende operativsystemer er filsystemet organiseret i en hierarkisk, trælignende struktur. Det højeste niveau for filsystemet er <filename>/</filename> eller <emphasis>rodmappen</emphasis>. Disse operativsystemer opretter et virtuelt filsystem, hvori et filsystemobjekt lagrer information om over- og undermappe, samt dets egne attributter, blandt andet, ejeren, rettigheder, sidste ændring, adgang eller ændring af filsystemobjektet.</para>
+  				<para>For eksempel viser, <filename>/home/jebediah/cheeses.odt</filename> den korrekte fulde sti til filen <filename>cheeses.odt</filename> som findes i mappen <filename>jebediah</filename> som er under mappen <filename>home</filename>, som igen er under rodmappen  (<filename>/</filename>).</para>
+				<para>Under rodmappen (<filename>/</filename>) er der et sæt af vigtige mapper eller symbolske henvisninger til mapper:</para>
+  					<itemizedlist>
+  						<listitem>
+  							<para><filename>/bin</filename> - vigtig <emphasis>bin</emphasis>alle programmer</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/boot</filename> - filer som er krævet for at <emphasis>boote</emphasis> (starte) computeren</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/dev</filename> - <emphasis>dev</emphasis>ice-filerne (enhedsfiler)</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/etc</filename> - konfigurationsfiler, opstartsskripter, <emphasis>etc</emphasis>...</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/home</filename> - lokale brugers <emphasis>home</emphasis>-mapper</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/lib</filename> - system <emphasis>lib</emphasis>raries (systembiblioteker)</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/lost+found</filename> - tilbyder et <emphasis>lost+found</emphasis>-system (mistet+fundet) for filer som findes under rodmappen (<filename>/</filename>)</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/media</filename> - monterede (indlæste) eksterne <emphasis>media</emphasis> (medier) såsom cd'er, digitale kameraer etc ...</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/mnt</filename> - <emphasis>m</emphasis>ou<emphasis>nt</emphasis>ed (monterede) filsystemer</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/opt</filename> - tilbyder en placering for <emphasis>opt</emphasis>ional valgfrie programmer til installation</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/proc</filename> - speciel dynamisk mappe som vedligeholder information om systemets tilstand, inklusive kørende <emphasis>proc</emphasis>esser</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/root</filename> - <emphasis>root</emphasis> brugers hjemmemappe, udtalt »slash-root«</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/sbin</filename> - vigtige <emphasis>s</emphasis>ystem <emphasis>bin</emphasis>ære filer</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/srv</filename> - tilbyder en placering for data brugt af <emphasis>s</emphasis>e<emphasis>rv</emphasis>ere</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/sys</filename> - indeholder information om <emphasis>sys</emphasis>temet</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/tmp</filename> - <emphasis>t</emphasis>e<emphasis>mp</emphasis>orary (midlertidige) filer</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/usr</filename> - programmer og filer som hovedsagelig er tilgængelige for alle <emphasis>us</emphasis>e<emphasis>r</emphasis>s (brugere)</para>
+  						</listitem>
+  						<listitem>
+  							<para><filename>/var</filename> - <emphasis>var</emphasis>iable filer såsom logge og databaser</para>
+  						</listitem> 
+  					</itemizedlist>
+				<note><para>Mere detaljeret information om det UNIX-lignende filsystemhierarki er tilgængelig på Filesystem Hierarchy Standard 3.0 <link xlink:href="http://refspecs.linuxfoundation.org/fhs.shtml">http://refspecs.linuxfoundation.org/fhs.shtml</link>.</para></note>
+  	</section>
+
+    <section xml:id="goscaja-7"><info><title>Brug af visninger til vise dine filer og mapper</title></info>
+      <indexterm><primary>fremviserkomponenter</primary></indexterm>
+      <indexterm><primary>filhåndtering</primary> <secondary>visninger</secondary> <tertiary>introduktion</tertiary></indexterm>
+      <para>Filhåndteringen indeholder visninger som gør, at du kan vise indeholdet af dine mapper på forskellige måder, ikonvisning og listevisning.</para>
+      <itemizedlist>
+        <listitem>
+          <para>Ikonvisning</para>
+          <para><xref linkend="goscaja-FIG-naut-icon-view"/> Viser elementerne i mappen som ikoner. <figure xml:id="goscaja-FIG-naut-icon-view"><info><title>Hjemmemappen vist i en ikonvisning</title></info>
+                <screenshot>
+                  <mediaobject><imageobject> <imagedata fileref="figures/caja_spatial_icon_view.png" format="PNG"/> </imageobject> <textobject> <phrase>Din hjemmemappe vist i en ikonvisning.</phrase> </textobject></mediaobject>
+                </screenshot>
+          </figure></para>
+        </listitem>
+        <listitem>
+          <para>Listevisning</para>
+          <para><xref linkend="goscaja-FIG-naut-list-view"/> Viser elementerne i mappen som en liste. <figure xml:id="goscaja-FIG-naut-list-view"><info><title>Hjemmemappen vist i en listevisning</title></info>
+                <screenshot>
+                  <mediaobject><imageobject> <imagedata fileref="figures/caja_spatial_list_view.png" format="PNG"/> </imageobject> <textobject> <phrase>Din hjemmemappe vist i en listevisning.</phrase> </textobject></mediaobject>
+                </screenshot>
+          </figure></para>
+        </listitem>
+      </itemizedlist>
+      <para>Du kan bruge menuen <guilabel>Vis</guilabel>, eller rullegardinet <guilabel>Vis som</guilabel> til at vælge mellem ikon- eller listevisning. Du kan angive hvordan du ønsker at arrangere eller sortere elementer i mappen og ændre størrelsen på elementerne i visningspanelet. De følgende afsnit beskriver hvordan du arbejder med ikonvisning og listevisning.</para>
+
+      <section xml:id="goscaja-101"><info><title>For at arrangere dine filer i ikonvisning</title></info>
+        <indexterm><primary>filhåndtering</primary> <secondary>ikonvisning</secondary> <tertiary>arranger filer i</tertiary></indexterm>
+        <para>Når du viser indholdet af en mappe i ikonvisning, så kan du angive hvordan elementerne skal arrangeres i mappen. For at angive hvordan elementer arrangeres i ikonvisning, vælg <menuchoice><guimenu>Vis</guimenu> <guisubmenu>Arranger elementer</guisubmenu></menuchoice>. Undermenuen <guisubmenu>Arranger elementer</guisubmenu> indeholder de følgende sektioner:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Øverst er en indstilling til at arrangere dine filer manuelt.</para>
+          </listitem>
+          <listitem>
+            <para>Midtersektionen indeholder indstillinger som gør, at du kan sortere dine filer automatisk.</para>
+          </listitem>
+          <listitem>
+            <para>Nederste sektion indeholder indstillinger som gør, at du kan ændre hvordan dine filer arrangeres.</para>
+          </listitem>
+        </itemizedlist>
+        <para>Vælg de passende indstillinger fra undermenuen, som beskrevet i den følgende tabel:</para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colname="colspec6" colwidth="28.75*"/>
+            <colspec colname="colspec7" colwidth="71.25*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>Indstilling</para>
+                </entry>
+                <entry>
+                  <para>Beskrivelse</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Manuelt</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Vælg denne indstilling for at arrangere elementerne manuelt. For at arrangere elementerne manuelt, træk elementerne til placeringen du ønsker i visningspanelet.</para>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec6" valign="top">
+                  <para><guilabel>Efter navn</guilabel></para>
+                </entry>
+                <entry colname="colspec7" valign="top">
+                  <para>Vælg denne indstilling for at sortere elementerne alfabetisk efter navn. Rækkefølgen på elementerne tager ikke højde for  store/små bogstaver. Hvis filhåndteringen er angivet til at vise skjulte filer, så vises de skjulte filer sidst.</para>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec6" valign="top">
+                  <para><guilabel>Efter størrelse</guilabel></para>
+                </entry>
+                <entry colname="colspec7" valign="top">
+                  <para>Vælg denne indstilling for at sortere elementerne efter størrelse, med det største element først. Når du sorterer elementerne efter størrelse, så sorteres mapperne efter antallet af elementer i mappen. Mapperne sorteres ikke efter den samlede størrelse på elementerne i mappen.</para>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec6" valign="top">
+                  <para><guilabel>Efter type</guilabel></para>
+                </entry>
+                <entry colname="colspec7" valign="top">
+                  <para>Vælg denne indstilling for at sortere elementerne alfabetisk efter objekttype. Elementerne sorteres alfabetisk efter beskrivelsen af deres <firstterm>MIME-type</firstterm>. MIME-typen identificerer formatet på en fil og gør at programmer kan læse filen. For eksempel kan et e-postprogram bruge MIME-typen <literal>image/png</literal> til at registrere at en PNG-fil er vedhæftet en besked.</para>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec6" valign="top">
+                  <para><guilabel>Efter ændringsdato</guilabel></para>
+                </entry>
+                <entry colname="colspec7" valign="top">
+                  <para>Vælg denne indstilling for at sortere elementerne efter datoen elementerne sidst blev ændret. De senest ændrede elementer vises først.</para>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec6" valign="top">
+                  <para><guilabel>Efter emblemer</guilabel></para>
+                </entry>
+                <entry colname="colspec7" valign="top">
+                  <para>Vælg denne indstilling for at sortere elementerne efter emblemer tilføjet til elementerne. Elementerne sorteres alfabetisk efter emblemnavn. Elementer uden emblemer vises sidst.</para>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec6" valign="top">
+                  <para><guilabel>Kompakt layout</guilabel></para>
+                </entry>
+                <entry colname="colspec7" valign="top">
+                  <para>Vælg denne indstilling for at arrangere elementerne, så elementerne er tættere på hinanden.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Omvendt rækkefølge</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Vælg denne indstilling for at vende rækkefølgen hvormed du sorterer elementerne. For eksempel, hvis du sorterer elementer efter navn, så vælg <guilabel>Omvendt rækkefølge</guilabel> for at sortere elementerne i omvendt alfabetisk rækkefølge.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </section>
+
+      <section xml:id="goscaja-listview-arrange"><info><title>Opsætning af dine filer i listevisning</title></info>
+        <indexterm><primary>filhåndtering</primary> <secondary>listevisning</secondary> <tertiary>arrangering af filer i</tertiary></indexterm>
+        <para>Når du viser indholdet i en mappe i listevisning, så kan du angive hvordan elementerne i mappen skal arrangeres. For at angive hvordan elementer skal arrangeres i listevisning, klik på teksthovedet for kolonnen, der angiver egenskaben, du ønsker at arrangere elementerne efter. For at vende sorteringsrækkefølgen om klik på det samme kolonneteksthoved igen.</para>
+        <para>For at tilføje eller fjerne kolonner fra listevisningen vælg <menuchoice><guimenu>Vis</guimenu><guisubmenu>Synlige kolonner</guisubmenu></menuchoice></para>
+        <para>Filhåndteringen husker hvordan du arrangerer elementerne i en bestemt mappe. Den næste gang du viser mappen er elementerne arrangeret på den samme måde, du valgte. Med andre ord, når du angiver hvordan elementerne skal arrangeres i en mappe, så tilpasser du mappen til at vise elementerne på den måde. For at returnere indstillingerne for mappen til standarden angivet i dine præferencer, så vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Nulstil visning til standarden</guimenuitem></menuchoice>.</para>
+      </section>
+
+<section xml:id="goscaja-102"><info><title>For at ændre størrelsen på elementer i en visning</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>zoom ind og ud</secondary></indexterm>
+      <para>Du kan ændre størrelsen på elementer i en visning. Du kan ændre størrelsen hvis visningen viser en fil eller en mappe. Du kan ændre størrelsen på elementer i en visning på de følgende måder:</para>
+      <itemizedlist>
+        <listitem>
+          <para>For at øge størrelsen på elementer i en visning, så vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Zoom ind</guimenuitem></menuchoice>.</para>
+        </listitem>
+        <listitem>
+          <para>For at reducere størrelsen på elementer i en visning, så vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Zoom ud</guimenuitem></menuchoice>.</para>
+        </listitem>
+        <listitem>
+          <para>For at returnere elementerne i en visning til normal størrelse, så vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Normal størrelse</guimenuitem></menuchoice>.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Du kan også bruge zoomknapperne i placeringsbjælken i et browservindue til at ændre størrelsen på elementer i en visning. <xref linkend="goscaja-TBL-42"/> beskriver hvordan zoomknapperne anvendes.</para>
+      <table frame="topbot" xml:id="goscaja-TBL-42"><info><title>Zoomknapper</title></info>
+        <tgroup cols="3" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="21.98*"/>
+          <colspec colname="colspec1" colwidth="32.86*"/>
+          <colspec colname="colspec2" colwidth="44.17*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Knap</para>
+              </entry>
+              <entry>
+                <para>Knapnavn</para>
+              </entry>
+              <entry>
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <screenshot>
+                  <mediaobject><imageobject> <imagedata fileref="figures/caja_zoom_out_button.png" format="PNG"/> </imageobject> <textobject> <phrase>Zoom ud-knap.</phrase> </textobject></mediaobject>
+                </screenshot>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para><guibutton>Zoom ud</guibutton>-knap</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>Klik på denne knap for at reducere størrelsen på elementer i en visning.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <screenshot>
+                  <mediaobject><imageobject> <imagedata fileref="figures/caja_normal_size_button.png" format="PNG"/> </imageobject> <textobject> <phrase>Knap i normal størrelse.</phrase> </textobject></mediaobject>
+                </screenshot>
+              </entry>
+              <entry valign="top">
+                <para>Knap i <guibutton>Normal størrelse</guibutton></para>
+              </entry>
+              <entry valign="top">
+                <para>Klik på denne knap for at returnere elementer i en visning til normal størrelse.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <screenshot>
+                  <mediaobject><imageobject> <imagedata fileref="figures/caja_zoom_in_button.png" format="PNG"/> </imageobject> <textobject> <phrase>Zoom ind-knap.</phrase> </textobject></mediaobject>
+                </screenshot>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para><guibutton>Zoom ind</guibutton>-knap</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>Klik på denne knap for at forstørre størrelsen på elementer i en visning.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>Filhåndteringen husker størrelsen på elementer på en bestemt mappe. Den næste gang du viser mappen er elementerne vist i den størrelse du valgte. Med andre ord, når du ændrer størrelsen på elementer i en mappe så tilpasser du mappen til at vise elementerne i den størrelse. For at returnere størrelsen på elementer til standardstørrelsen vælges under præferencer  <menuchoice><guimenu>Vis</guimenu><guimenuitem>Nulstil visning til standarden</guimenuitem></menuchoice>.</para>
+    </section>
+    </section>
+
+    <section xml:id="caja-select"><info><title>Valg af filer og mapper</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscaja-202"/>
+
+      <indexterm><primary>filhåndtering</primary> <secondary>valg af filer og mapper</secondary></indexterm>
+      <para>Du kan vælge filer og mapper på flere måder i filhåndteringen. Typisk opnås det via at klikke på filerne via musen, som forklaret i <xref linkend="goscaja-TBL-10"/>. Derudover beskriver <xref linkend="caja-select-pattern"/> hvordan en gruppe af filer, der matcher et specifikt mønster, vælges.</para>
+      <table frame="topbot" xml:id="goscaja-TBL-10"><info><title>Valg af elementer i filhåndteringen</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="36.36*"/>
+          <colspec colname="colspec2" colwidth="63.64*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Opgave</para>
+              </entry>
+              <entry colname="colspec2">
+                <para>Handling</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Vælg et element</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>Klik på elementet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Vælg en gruppe af sammenhængende elementer</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>I ikonvisning, træk rundt om filerne du ønsker at vælge.</para>
+                <para>I listevisning klikkes på det førse element i gruppen. Tryk og hold <keycap>Skift</keycap>, klik så på det sidste element i gruppen.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Vælg flere elementer</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>Tryk og hold <keycap>Ctrl</keycap>. Klik på elementerne du ønsker at vælge.</para>
+                <para>Alternativt, tryk og hold <keycap>Ctrl</keycap>, træk så rundt om filerne, du ønsker at vælge.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Vælg alle elementer i en mappe</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>Vælg<menuchoice><guimenu>Rediger</guimenu><guimenuitem>Vælg alle filer</guimenuitem></menuchoice>.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>For at udføre standardhandlingen på et element dobbeltklikkes på elementet. Du kan ændre filhåndteringens præferencer, så at et klik på en fil starter standardhandlingen. For yderligere information se <xref linkend="goscaja-56"/>.</para>
+
+<section xml:id="caja-select-pattern"><info><title>Valg af filer der matcher et specifikt mønster</title></info>
+<para><application>Caja</application> gør det muligt at vælge alle filer, der matcher et mønster baseret på deres filnavn og et valgfrit antal jokertegn. Dette kan være nyttigt hvis, for eksempel, du ønsker at vælge alle filer, som indeholder frasen »memo. <xref linkend="goscaja-TBL-select-pattern"/> har nogle eksempler på mulige mønstre og de filer som matches.</para>
+<table frame="topbot" xml:id="goscaja-TBL-select-pattern"><info><title>Valg af elementer i filhåndteringen</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="36.36*"/>
+          <colspec colname="colspec2" colwidth="63.64*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Mønster</para>
+              </entry>
+              <entry colname="colspec2">
+                <para>Fundne filer</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>note.*</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>Dette mønster vil matche filer kaldt note, med enhver filendelse.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>*.ogg</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>Dette mønster vil matche alle filer med filendelsen .ogg</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>*memo*</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>Dette mønster vil matche alle filer eller mapper hvis navn indeholder ordet memo.</para>
+              </entry>
+            </row>
+            </tbody>
+        </tgroup>
+      </table>
+      <para>For at udføre kommandoen Vælg mønster vælges <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Vælg mønstre</guimenuitem></menuchoice> fra menuen. Efter indtastning af det ønskede mønster har du de filer eller mapper, som matcher det valgte mønster. Du kan så udføre en handling på de valgte filer eller mapper.</para>
+      </section>
+    </section>
+
+    <section xml:id="caja-dragndrop"><info><title>Træk og slip i filhåndteringen</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscaja-201"/>
+
+      <indexterm><primary>filhåndtering</primary> <secondary>træk og slip</secondary></indexterm>
+      <para>Du kan bruge træk og slip til at udføre flere opgaver i filhåndteringen. Når du bruger træk og slip så tilbyder musemarkøren tilbagemelding om opgaven du udfører. <xref linkend="goscaja-TBL-11"/> beskriver opgaverne du kan udføre med træk og slip. Tabellen viser også musemarkørerne, som vises, når du bruger træk og slip.</para>
+      <table frame="topbot" xml:id="goscaja-TBL-11"><info><title>Træk og slip i filhåndteringen</title></info>
+        <tgroup cols="3" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="36.36*"/>
+          <colspec colname="colspec2" colwidth="98.56*"/>
+          <colspec colname="colspec1" colwidth="28.70*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Opgave</para>
+              </entry>
+              <entry colname="colspec2">
+                <para>Handling</para>
+              </entry>
+              <entry colname="colspec1">
+                <para>Musemarkør</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Flyt et element</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>Træk elementet til den nye placering.</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <screenshot>
+                  <mediaobject><imageobject> <imagedata fileref="figures/move_pointer.png" format="PNG"/> </imageobject> <textobject> <phrase>Flyt-markør.</phrase> </textobject></mediaobject>
+                </screenshot>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Kopier et element</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>Vælg elementet, tryk så på <keycap>Ctrl</keycap> og hold tasten nede. Træk elementet til placeringen hvor du ønsker kopien skal være.</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <screenshot>
+                  <mediaobject><imageobject> <imagedata fileref="figures/copy_pointer.png" format="PNG"/> </imageobject> <textobject> <phrase>Kopimarkør.</phrase> </textobject></mediaobject>
+                </screenshot>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Opret en symbolsk henvisning til et element</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>Vælg elementet, tryk så på <keycombo><keycap>Ctrl</keycap><keycap>Skift</keycap></keycombo> og hold tasterne nede. Træk elementet til placeringen hvor du ønsker at den symbolske henvisning skal være.</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <screenshot>
+                  <mediaobject><imageobject> <imagedata fileref="figures/link_pointer.png" format="PNG"/> </imageobject> <textobject> <phrase>Symbolsk henvisning-markør.</phrase> </textobject></mediaobject>
+                </screenshot>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para>Spørg hvad der skal ske med elementet du trækker</para>
+              </entry>
+              <entry colname="colspec2" valign="top">
+                <para>Tag fat i elementet, tryk og hold <keycap>Alt</keycap>. Du kan også bruge midterste museknap for at udføre den samme operation. Træk elementet til placeringen hvor du ønsker elementet skal befinde sig. Frigiv museknappen. En pop op-menu vises. Vælg en af de følgende elementer fra pop op-menuen:</para>
+                <itemizedlist>
+                  <listitem>
+                    <para><guimenuitem>Flyt hertil</guimenuitem></para>
+                    <para>Flyt elementet til placeringen.</para>
+                  </listitem>
+                  <listitem>
+                    <para><guimenuitem>Kopier hertil</guimenuitem></para>
+                    <para>Kopier elementet til placeringen.</para>
+                  </listitem>
+                  <listitem>
+                    <para><guimenuitem>Henvis hertil</guimenuitem></para>
+                    <para>Opretter en symbolsk henvisning til elementer på placeringen.</para>
+                  </listitem>
+                  <listitem>
+                    <para><guimenuitem>Angiv som baggrund</guimenuitem></para>
+                    <para>Hvis elementet er et billede, billedet gøres til baggrundsbillede. Du kan bruge denne kommando til at vælge baggrunden for skrivebordet, sidepanelet eller visningspanelet.</para>
+                  </listitem>
+                  <listitem>
+                    <para><guimenuitem>Annuller</guimenuitem></para>
+                    <para>Afbryder træk og slip-operationen.</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <screenshot>
+                  <mediaobject><imageobject> <imagedata fileref="figures/ask_pointer.png" format="PNG"/> </imageobject> <textobject> <phrase>Spørg-markør.</phrase> </textobject></mediaobject>
+                </screenshot>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscaja-9"><info><title>Flytte en fil eller mappe</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>flyt filer og mapper</secondary></indexterm>
+      <para>Du kan flytte en fil eller mappe ved at trække den med musen, eller med klip og indsæt-kommandoerne. Det følgende afsnit beskriver disse to metoder.</para>
+
+      <section xml:id="goscaja-537"><info><title>Træk til den nye placering</title></info>
+        <para>For at trække en fil eller mappe til en ny placering, udfør de følgende trin:</para>
+        <orderedlist>
+          <listitem>
+            <para>Åbn to filhåndteringsvinduer:</para>
+            <itemizedlist>
+	            <listitem><para>Vinduet indeholdende elementet du ønsker at flytte.</para></listitem>
+	            <listitem><para>Vinduet du ønsker at flytte elementet til, eller vinduet indeholdende mappe du ønsker at flytte elementet til.</para></listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem>
+            <para>Træk filen eller mappen du ønsker at flytte til den nye placering. Hvis den nye placering er et vindue, slip et sted i vinduet. Hvis den nye placering er et mappeikon, slip elementet på mappen.</para>
+          </listitem>
+        </orderedlist>
+        <para>For at flytte filen eller mappen til en mappe som er et niveau under den nuværende placering, åbn ikke et nyt vindue. I stedet, træk filen eller mappen til den nye placering i det samme vindue.</para>
+        <tip><para>For yderligere om at trække elementer, se <xref linkend="caja-dragndrop"/>.</para></tip>
+      </section>
+
+      <section xml:id="goscaja-538"><info><title>Klip og indsæt på det nye sted</title></info>
+        <para>Du kan klippe en fil eller mappe og indsætte filen eller mappen i en anden mappe, på følgende måde:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg filen eller mappen du ønsker at flytte, vælg så <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Klip</guimenuitem></menuchoice>.</para>
+          </listitem>
+          <listitem>
+            <para>Åbn mappen hvortil du ønsker at flytte filen eller mappen, vælg så <menuchoice><guimenu>Rediger</guimenu> <guimenuitem>Indsæt</guimenuitem></menuchoice>.</para>
+          </listitem>
+        </orderedlist>
+      </section>
+    </section>
+
+    <section xml:id="goscaja-10"><info><title>Kopiere en fil eller mappe</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>kopiere filer og mapper</secondary></indexterm>
+      <para>Du kan kopiere en fil eller mappe ved at trække den med musen, eller med kommandoerne kopier og indsæt. Det følgende afsnit beskriver disse to metoder.</para>
+
+      <section xml:id="goscaja-640"><info><title>Træk til den nye placering</title></info>
+        <para>For at kopiere en fil eller mappe, udfør de følgende trin:</para>
+        <orderedlist>
+          <listitem>
+            <para>Åbn to filhåndteringsvinduer:</para>
+            <itemizedlist>
+	            <listitem><para>Vinduet indeholdende elementet du ønsker at flytte.</para></listitem>
+	            <listitem><para>Vinduet du ønsker at flytte elementet til, eller vinduet indeholdende mappe du ønsker at flytte elementet til.</para></listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem>
+            <para>Træk filen eller mappe, du ønsker at flytte til den nye placering. Tryk og hold <keycap>Ctrl</keycap> ned enten før eller under trækket. Hvis den nye placering er et vindue, så slip et sted i vinduet. Hvis den nye placering er et mappeikon, så slip elementet du trækker på mappen.</para>
+          </listitem>          
+        </orderedlist>
+        <para>For at kopiere filen eller mappen til en mappe som er et niveau under den nuværende placering, åbn ikke et nyt vindue. I stedet tag fat i filen eller mappen, tryk og hold <keycap>Ctrl</keycap> ned. Træk filen eller mappen til den nye placering i det samme vindue.</para>
+        <tip><para>For yderligere om at trække elementer, se <xref linkend="caja-dragndrop"/>.</para></tip>
+      </section>
+
+      <section xml:id="goscaja-441"><info><title>Kopier og indsæt på den nye placering</title></info>
+        
+        <para>Du kan kopiere en fil eller mappe og indsætte filen eller mappen i en anden mappe, på følgende måde:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg filen eller mappen, du ønsker at kopiere, vælg så <menuchoice><guimenu>Rediger</guimenu> <guimenuitem>Kopier</guimenuitem></menuchoice>.</para>
+          </listitem>
+          <listitem>
+            <para>Åbn mappen hvortil du ønsker at kopiere filen eller mappen, vælg så <menuchoice><guimenu>Rediger</guimenu> <guimenuitem>Indsæt</guimenuitem></menuchoice>.</para>
+          </listitem>
+        </orderedlist>
+      </section>
+    </section>
+
+    <section xml:id="goscaja-82"><info><title>Duplikere en fil eller mappe</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>duplikere filer og mapper</secondary></indexterm>
+      <para>For at oprette en kopi af en fil eller mappe i den nuværende mappe, udfør de følgende trin:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg filen eller mappen du ønsker at duplikere.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Dupliker</guimenuitem></menuchoice>.</para>
+          <para>En kopi af filen eller mappen fremgår af den nuværende mappe.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="goscaja-11"><info><title>Oprette en mappe</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>oprette mapper</secondary></indexterm>
+      <para>For at oprette en mappe udføres de følgende trin: </para>
+      <orderedlist>
+        <listitem>
+          <para>Åbn mappen hvor du ønsker at oprette den nye mappe.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg<menuchoice><guimenu>Fil</guimenu><guimenuitem>Opret mappe</guimenuitem></menuchoice>. Alternativt, højreklik på baggrunden af vinduet, vælg så <guimenuitem>Opret mappe</guimenuitem>.</para>
+          <para>En mappe <guilabel>uden navn</guilabel> tilføjes til placeringen. Navnet på mappen vælges.</para>
+        </listitem>
+        <listitem>
+          <para>Tast et mappenavn, tryk så <keycap>Retur</keycap>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="goscaja-templates-docs"><info><title>Skabeloner og dokumenter</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>oprette dokumenter</secondary></indexterm>
+      <para>Du kan oprette skabeloner fra dokumenter som du ofte opretter. For eksempel, hvis du ofte opretter fakturaer, så kan du oprette et tomt fakturadokument og gemme dokumentet som <literal>faktura.doc</literal> i mappen <literal>$HOME/Skabeloner</literal>.</para>
+      <para>Du kan også tilgå skabelonmappen fra en filbrowser. Vælg <menuchoice><guimenu>Gå</guimenu><guimenuitem>Skabeloner</guimenuitem></menuchoice>.</para>
+      <para>Skabelonnavnet vises som et undermenuelement i menuen <guilabel>Opret dokument</guilabel>.</para>
+      <para>Du kan også oprette undermapper i skabelonmappen. Undermapper vises som undermenuer i menuen.</para>
+      <para>Du kan også dele skabeloner. Opret en symbolsk henvisning fra skabelonmappen til mappen indeholdende de delte skabeloner.</para>
+
+      <section xml:id="goscaja-514"><info><title>For at oprette et dokument</title></info>
+        <para>Hvis du har dokumentskabeloner, så kan du vælge at oprette et dokument fra en af de installerede skabeloner.</para>
+        <para>De følgende trin udføres for at oprette et dokument:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg mappen hvor du ønsker at oprette det nye dokument.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Opret dokument</guimenuitem></menuchoice>. Alternativt, højreklik på baggrunden af visningspanelet, vælg så <guimenuitem>Opret dokument</guimenuitem>.</para>
+            <para>Navnene på tilgængelige skabeloner vises som undermenuelementer fra menuen <guilabel>Opret dokument</guilabel>.</para>
+          </listitem>
+          <listitem>
+            <para>Dobbeltklik på skabelonnavnet for dokumentet som du ønsker at oprette.</para>
+          </listitem>
+          <listitem>
+            <para>Omdøb dokumentet før det gemmes i den passende mappe.</para>
+          </listitem>
+        </orderedlist>
+      </section>
+    </section>
+
+    <section xml:id="goscaja-12"><info><title>Omdøb en fil eller mappe</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>omdøb mapper</secondary></indexterm>
+      <para>De følgende trin udføres for at omdøbe en fil eller mappe:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg filen eller mappen du ønsker at give et nyt navn.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Omdøb</guimenuitem></menuchoice>. Alternativt, højreklik på filen eller mappen, vælg så <guimenuitem>Omdøb</guimenuitem>.</para>
+          <para>Navnet på filen eller mappen vælges.</para>
+        </listitem>
+        <listitem>
+          <para>Tast et nyt navn for filen eller mappen, tryk så <keycap>Retur</keycap>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="goscaja-13"><info><title>Flyt en fil eller mappe til papirkurven</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>Papirkurv</secondary> <see>Papirkurv</see></indexterm>
+      <indexterm><primary>Papirkurv</primary> <secondary>flytte filer eller mapper til</secondary></indexterm>
+      <para>For at flytte en fil eller mappe til <guilabel>Papirkurven</guilabel> udføres de følgende trin:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg filen eller mappen som du ønsker at flytte til <guilabel>Papirkurven</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Flyt til papirkurv</guimenuitem></menuchoice>. Alternativt, højreklik på filen eller mappen, vælg så <guimenuitem>Flyt til papirkurv</guimenuitem>.</para>
+        </listitem>
+      </orderedlist>
+      <para>Alternativt, du kan trække filen eller mappen til <guilabel>Papirkurv</guilabel>-objektet på skrivebordet.</para>
+      <note>
+        <para>Når du flytter en fil eller mappe fra et eksternt medie til <guilabel>Papirkurven</guilabel> lagres filen eller mappen i en <guilabel>Papirkurv</guilabel>splacering på det eksterne medie. For at fjerne filen eller mappen permanent fra det eksterne medie, skal du tømme <guilabel>Papirkuven</guilabel>.</para>
+      </note>
+    </section>
+
+    <section xml:id="goscaja-443"><info><title>Slette en fil eller mappe</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>slette filer eller mapper</secondary></indexterm>
+      <para>Når du sletter en fil eller mappe, flyttes filen eller mappen ikke til <guilabel>Papirkurven</guilabel>, men slettes fra dit filsystem øjeblikkeligt. Menuelementet <guimenuitem>Slet</guimenuitem> er kun tilgængelig hvis du vælger <guilabel>Inkluder en Slet-kommando, som går uden om indstillingen Papirkurv</guilabel> i dialogen <guilabel>Indstillinger for filhåndtering</guilabel>.</para>
+      <para>Udfør de følgende trin for at slette en fil eller mappe:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg filen eller mappen du ønsker at slette.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Slet</guimenuitem></menuchoice>. Alternativt, højreklik på filen eller mappen, vælg så <guimenuitem>Slet</guimenuitem>.</para>
+        </listitem>
+      </orderedlist>
+      <para>Alternativt, vælg filen eller mappen du ønsker at slette, og tryk <keycombo><keycap>Skift</keycap><keycap>Del</keycap></keycombo>. <note>
+	  <para>Denne genvej er uafhængig af indstillingen <guilabel>Inkluder en Slet-kommando som går uden om Papirkurven</guilabel>.</para>
+	</note></para>
+    </section>
+    <section xml:id="caja-symlink"><info><title>Oprette en symbolsk henvisning til en fil eller mappe</title></info>
+      
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscaja-14"/>        
+      <indexterm><primary>filhåndtering</primary> <secondary>oprette symbolsk henvisning</secondary></indexterm>
+      <indexterm><primary>symbolsk henvisning</primary> <secondary>til en fil eller mappe, oprettelse</secondary></indexterm>
+      <para>En symbolsk henvisning er en speciel filtype, som peger på en anden fil eller mappe. Når du udfører en handling på en symbolsk henvisning, så udføres handlingen på filen eller mappen, som den symbolske henvisning peger på. Når du sletter en symbolsk henvisning, så sletter du dog henvisningsfilen, ikke filen som den symbolske henvisning peger på.</para>
+      <para>For at oprette en symbolsk henvisning til en fil eller mappe, så vælg filen eller mappen, som du ønsker at oprette en henvisning til. Vælg <menuchoice><guimenu>Rediger</guimenu> <guimenuitem>Opret henvisning</guimenuitem></menuchoice>. En henvisning til filen eller mappen tilføjes til den nuværende mappe.</para>
+      <para>Alternativt, tag fat i elementet du ønsker at lave at lave en henvisning til, tryk og hold <keycombo><keycap>Ctrl</keycap><keycap>Skift</keycap></keycombo>. Træk elementet til placeringen hvor du ønsker at placere henvisningen.</para>
+      <para>Filhåndteringen tilføjer som standard et emblem til symbolske henvisninger.</para>
+      <note>
+        <para>Rettighederne for en symbolsk henvisning bestemmes af filen eller mappen hvorpå en symbolsk henvisning peger.</para>
+      </note>
+      <tip><para>For yderligere om at trække elementer, se <xref linkend="caja-dragndrop"/>.</para></tip>      
+    </section>
+
+    <section xml:id="goscaja-476"><info><title>Visning af egenskaber for en fil eller mappe</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>visning af egenskaber</secondary></indexterm>
+      <para>Udfør de følgende trin for at vise egenskaberne for en fil eller mappe.</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg filen eller mappen hvis egenskaber du ønsker at vise.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Egenskaber</guimenuitem></menuchoice>. En egenskaberdialog vises.</para>
+        </listitem>
+        <listitem>
+          <para>Brug egenskaberdialogen til at vise egenskaberne for filen eller mappen.</para>
+        </listitem>
+        <listitem>
+          <para>Klik <guibutton>Luk</guibutton> for at lukke dialogen for egenskaber.</para>
+        </listitem>
+      </orderedlist>
+
+      <para>Den følgende tabel viser egenskaberne, som du kan vise eller angive for filer eller mapper, den præcise information afhænger af objekttypen:</para>
+      <informaltable frame="topbot">
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="27.27*"/>
+          <colspec colwidth="72.73*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Egenskab</para>
+              </entry>
+              <entry>
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para>Navn</para>
+              </entry>
+              <entry valign="top">
+                <para>Navnet på filen eller mappen. Du kan ændre navnet her og filen eller mappen vil blive omdøbt, når du klikker på <guibutton>Luk</guibutton>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para>Type</para>
+              </entry>
+              <entry valign="top">
+                <para>For eksempel typen på objekt, fil eller mappe.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para>Placering</para>
+              </entry>
+              <entry valign="top">
+                <para>Systemstien for objektet. Dette repræsenterer hvor objektet er placeret på din computer, relativ til systemroden.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para>Lydstyrke</para>
+              </entry>
+              <entry valign="top">
+                <para>Diskenheden hvor mappen befinder sig. Dette er den fysiske placering af mappen, hvorpå mediet befinder sig, for eksempel hvilken harddisk eller cd-rom-drev.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para>Ledig plads</para>
+              </entry>
+              <entry valign="top">
+                <para>Mængden af ledig plads på mediet hvor en mappe befinder sig. Dette repræsenterer den maksimale mængde af data, du kan kopiere til denne mappe.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para>MIME-type</para>
+              </entry>
+              <entry valign="top">
+                <para>Den officielle navngivning af filtypen.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para>Ændret</para>
+              </entry>
+              <entry valign="top">
+                <para>Datoen og tidspunktet hvor objektet sidst blev ændret.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para>Tilgået</para>
+              </entry>
+              <entry valign="top">
+                <para>Datoen og tidspunktet som objektet sidst blev tilgået.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </section>
+
+    <section xml:id="caja-permissions-overview" status="review"><info><title>Filrettigheder</title></info>
+        <para>Rettigheder er indstillinger tildelt hver fil og mappe, som bestemmer hvilken type adgang brugere har til filen eller mappen. For eksempel kan du bestemme om andre brugere kan læse og redigere en fil, som tilhører dig, eller kun har adgang til at læse den, men ikke lave ændringer i den.</para>
+        <para>Hver fil tilhører en bestemt bruger, og er associeret med en gruppe som ejeren er en del af. Superbrugeren »root« har mulighed for at tilgå enhver fil på systemet.</para>
+        <para>Du kan angive rettigheder for tre kategorier af brugere:</para>        
+        <variablelist>
+          <varlistentry><term>Ejer</term>
+            <listitem>
+              <para>Brugeren som oprettede filen eller mappen.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry><term>Gruppe</term>
+            <listitem>
+              <para>En gruppe af brugere som ejeren tilhører.</para>
+            </listitem>     
+          </varlistentry>
+          <varlistentry><term>Andre</term>
+            <listitem>
+              <para>Alle andre brugere ikke allerede inkluderet.</para>
+            </listitem>     
+          </varlistentry>
+        </variablelist>
+        <para>For hver kategori af bruger kan forskellige rettigheder angives. Disse opfører sig forskellige for filer og mapper, som i det følgende:</para>
+        <variablelist>
+          <varlistentry><term>læse</term>
+            <listitem>          
+            <para>Filer kan åbnes</para>
+            <para>Mappeindhold kan vises</para>
+            </listitem>          
+          </varlistentry>
+          <varlistentry><term>skrive</term>
+            <listitem>          
+            <para>Filer kan redigeres eller slettes</para>
+            <para>Mappeindhold kan ændres</para>
+             </listitem>          
+         </varlistentry>
+          <varlistentry><term>kør</term>
+            <listitem>          
+            <para>Kørbare filer kan afvikles som et program</para>
+            <para>Mapper kan indtastes</para>
+            </listitem>          
+          </varlistentry>
+        </variablelist>        
+
+        <para>For yderligere information om ændring af rettigheder på en fil eller mappe, se <xref linkend="caja-permissions"/>.</para>
+    </section>
+
+    <section xml:id="caja-permissions"><info><title>Ændring af rettigheder</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscaja-430"/>
+      
+      <section xml:id="caja-permissions-file"><info><title>Ændring af rettigheder for en fil</title></info>    
+        <indexterm><primary>filhåndtering</primary> <secondary>ændring af rettigheder</secondary></indexterm>
+        <indexterm><primary>rettigheder</primary> <secondary>ændring af fil</secondary></indexterm>      
+        <para>Udfør de følgende trin for at ændre rettighederne for en fil:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg filen du ønsker at ændre.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Egenskaber</guimenuitem></menuchoice>.  <xref linkend="caja-properties"/> for elementet vises.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på fanebladet <guilabel>Tilladelser</guilabel>.</para>
+          </listitem>
+          <listitem>
+            <para>For at ændre filens gruppe, vælg fra grupperne brugeren tilhører i rullegardinet.</para>
+          </listitem>
+          <listitem>          
+            <para>For hver af ejer, gruppe og alle andre brugere, vælg fra disse rettigheder for filen:</para>
+            <variablelist>
+              <varlistentry><term>Ingen</term>
+                <listitem>
+                  <para>Ingen adgang til filen. (Du kan ikke angive dette for ejeren).</para>
+                </listitem>     
+              </varlistentry>
+              <varlistentry><term>Kun læse</term>
+                <listitem>
+                  <para>Brugerne kan åbne en fil for at se dens indhold, men ikke foretage nogle ændringer.</para>
+                </listitem>     
+              </varlistentry>
+              <varlistentry><term>Læse og skrive</term>
+                <listitem>
+                  <para>Normal adgang til en fil er mulig: Den kan åbnes og gemmes.</para>
+                </listitem>     
+              </varlistentry>
+            </variablelist>
+          </listitem>
+          <listitem>
+            <para>For at tillade at en fil kan afvikles som et program, vælg <guilabel>Kør</guilabel></para>
+          </listitem>
+        </orderedlist>   
+      </section>    
+
+      <section xml:id="caja-permissions-folder"><info><title>Ændring af rettigheder for en mappe</title></info>    
+        
+        
+        <para>For at ændre rettighederne for en mappe, udfør de følgende trin:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg mappen du ønsker at ændre.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Egenskaber</guimenuitem></menuchoice>.  <xref linkend="caja-properties"/> for elementet vises.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på fanebladet <guilabel>Tilladelser</guilabel>.</para>
+          </listitem>
+          <listitem>
+            <para>For at ændre mappens gruppe, vælg fra grupperne brugeren tilhører i rullegardinet.</para>
+          </listitem>
+          <listitem>          
+            <para>For hver af ejer, gruppen og alle andre brugere, vælg blandt disse mappeadgangsrettigheder:</para>
+            <variablelist>
+              <varlistentry><term>Ingen</term>
+                <listitem>
+                  <para>Ingen adgang til mappen er mulig. (Du kan ikke ændre dette for ejeren).</para>
+                </listitem>     
+              </varlistentry>
+              <varlistentry><term>Vis kun filer</term>
+                <listitem>
+                  <para>Brugerne kan se elementerne i mappen, men ikke åbne nogen af dem.</para>
+                </listitem>     
+              </varlistentry>
+              <varlistentry><term>Tilgå filer</term>
+                <listitem>
+                  <para>Elementer i mappen kan åbnes og ændres, såfremt deres egne rettigheder tillader det.</para>
+                </listitem>     
+              </varlistentry>
+              <varlistentry><term>Oprette og slette filer</term>
+                <listitem>
+                  <para>Brugeren kan oprette nye filer og slette filer i mappen, udover at kunne tilgå eksisterende filer.</para>
+                </listitem>     
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </orderedlist>  
+       
+        <para>For at indstille rettigheder for alle elementer indeholdt i en mappe, vælg <guilabel>Filadgang</guilabel> og egenskaben <guilabel>Kør</guilabel> og klik så på <guibutton>Anvend rettigheder på indeholdte filer</guibutton>.</para>
+      </section>           
+
+    </section>
+    
+    <section xml:id="goscaja-200"><info><title>Tilføje noter til filer og mapper</title></info>
+      <para>Du kan tilføje noter til filer eller mapper. Du kan tilføje noter til mapper eller mapper på de følgende måder:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Fra egenskaberdialogen</para>
+        </listitem>
+        <listitem>
+          <para>Fra <guilabel>Noter</guilabel> i sidepanelet</para>
+        </listitem>
+      </itemizedlist>
+
+      <section xml:id="caja-notes"><info><title>Tilføjelse af en note via egenskabsdialogen</title></info>
+        <!-- preserve id for backwards compatibility: 2.12 -->
+        <anchor xml:id="goscaja-472"/>           
+        <indexterm><primary>noter</primary> <secondary>tilføjet til filer og mapper</secondary></indexterm>
+        <indexterm><primary>filhåndtering</primary> <secondary>noter</secondary> <tertiary>tilføje</tertiary></indexterm>
+        <para>For at tilføje en note til en fil eller mappe udføres de følgende trin:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg filen eller mappen du ønsker at tilføje en note til.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Egenskaber</guimenuitem></menuchoice>.  <xref linkend="caja-properties"/> for elementet vises.</para>
+          </listitem>
+          <listitem>
+            <para>Klik på fanebladet <guilabel>Noter</guilabel>. I den faneopdelte sektion <guilabel>Noter</guilabel>, indtast noten.</para>
+          </listitem>
+          <listitem>
+            <para>Klik <guibutton>Luk</guibutton> for at lukke dialogen egenskaber. Et noteemblem tilføjes til filen eller mappen.</para>
+          </listitem>
+        </orderedlist>
+        <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>notes</primary><secondary>deleting</secondary></default:indexterm><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>file manager</primary><secondary>notes</secondary><tertiary>deleting</tertiary></default:indexterm>For at slette en note, slet noteteksten fra fanebladet <guilabel>Noter</guilabel>.</para>
+      </section>
+      <section xml:id="goscaja-473"><info><title>For at tilføje en note via noter i sidepanelet</title></info>
+        
+        <para>For at tilføje en note til en fil eller mappe udføres de følgende trin:</para>
+        <orderedlist>
+          <listitem>
+            <para>Åbn filen eller mappen du ønsker at tilføje en note til i visningspanelet.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg <guilabel>Noter</guilabel> fra rullegardinet øverst i sidepanelet. For at vise sidepanelet, vælg <menuchoice><guimenu>Vis</guimenu><guimenuitem>Sidepanel</guimenuitem></menuchoice>.</para>
+          </listitem>
+          <listitem>
+            <para>Tast noten i sidepanelet. Et noteemblem tilføjes til filen eller mappen i visningspanelet og et noteikon tilføjes til sidepanelet. Du kan klikke på dette ikon for at vise noten.</para>
+          </listitem>
+        </orderedlist>
+        <para>For at slette en note, slet noteteksten fra <guilabel>Noter</guilabel> i sidepanelet.</para>
+      </section>
+    </section>
+
+    <section xml:id="caja-bookmarks"><info><title>Brug af bogmærker for dine favoritsteder</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscaja-36"/>
+
+      <indexterm><primary>filhåndtering</primary> <secondary>bogmærker</secondary></indexterm>
+      <para>Du kan have en liste af <firstterm>bogmærker</firstterm> i <application>Caja</application>: mapper og andre steder som du ofte skal åbne.</para>
+      <para>Dine bogmærker vises de følgende steder:</para>
+      <itemizedlist>
+    	  <listitem><para>Menuen <guimenu>Steder</guimenu> i toppanelet.</para></listitem>
+    	  <listitem><para>Menuen <guimenu>Steder</guimenu> i et mappevindue.</para></listitem>
+    	  <listitem><para>Menuen <guimenu>Bogmærker</guimenu> i et <application>Caja</application>browservindue.</para></listitem>
+    	  <listitem><para>Sidepanelet i <xref linkend="filechooser-open"/>. Her kan du hurtigt åbne en fil, i en af dine bogmærkeder steder.</para></listitem>
+    	  <listitem><para>Listen over ofte anvendte steder i <xref linkend="filechooser-save"/>. Denne gør, at du hurtigt kan gemme en fil på et sted du har i dine bogmærker.</para></listitem>
+      </itemizedlist>
+      
+      <para>For at åbne et element som er i dine bogmærker, vælg elementet fra en menu.</para>
+
+      <section xml:id="goscaja-40"><info><title>Tilføje et bogmærke</title></info>
+        <para>For at tilføje et bogmærke åbnes mappen eller stedet du ønsker at bogmærke, vælg så <menuchoice><guimenu>Steder</guimenu><guimenuitem> Tilføj bogmærke</guimenuitem></menuchoice>.</para>
+        <para>Hvis du bruger et <application>Caja</application>-browservindue, så vælg <menuchoice><guimenu>Bogmærker</guimenu> <guimenuitem>Tilføj bogmærke</guimenuitem></menuchoice>.</para>
+      </section>
+
+      <section xml:id="goscaja-41"><info><title>For at redigere et bogmærke</title></info>
+        <para>Udfør de følgende trin for at redigere dine bogmærker:</para>
+        <orderedlist>
+          <listitem>
+            <para>Vælg <menuchoice><guimenu>Steder</guimenu><guimenuitem>Rediger bogmærker</guimenuitem></menuchoice>, eller i et browservindue, <menuchoice><guimenu>Bogmærker</guimenu><guimenuitem>Rediger bogmærker</guimenuitem></menuchoice>. En dialog <guilabel>Rediger bogmærker</guilabel> vises.</para>
+          </listitem>
+          <listitem>
+            <para>Vælg bogmærket i venstre side af dialogen <guilabel>Rediger bogmærker</guilabel>. Rediger detaljerne for bogmærket i højre side af dialogen <guilabel>Rediger bogmærker</guilabel>, som følger:</para>
+            <informaltable frame="topbot">
+              <tgroup cols="2" colsep="0" rowsep="0">
+                <colspec colwidth="27.27*"/>
+                <colspec colwidth="72.73*"/>
+                <thead>
+                  <row rowsep="1">
+                    <entry>
+                      <para>Dialogelement</para>
+                    </entry>
+                    <entry>
+                      <para>Beskrivelse</para>
+                    </entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row>
+                    <entry valign="top">
+                      <para><guilabel>Navn</guilabel></para>
+                    </entry>
+                    <entry valign="top">
+                      <para>Brug denne tekstboks til at angive navnet, som identificerer bogmærket i menuerne.</para>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry valign="top">
+                      <para><guilabel>Sted</guilabel></para>
+                    </entry>
+                    <entry valign="top">
+                      <para>Brug dette felt til at specificere placeringen af bogmærket.</para>
+                      <para>Mapper på systemet bruger <uri>file:///</uri>-URI'en.</para>
+                    </entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+          </listitem>
+          <listitem>
+            <para>For at slette et bogmærke, vælg bogmærket i venstre side af dialogen. Klik <guilabel>Slet</guilabel>.</para>
+          </listitem>
+        </orderedlist>
+      </section>
+    </section>
+
+    <section xml:id="caja-trash"><info><title>Brug af papirkurven</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscaja-44"/>         
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/caja_trash_launcher.png" format="PNG"/> </imageobject> <textobject> <phrase>Papirkurvikon, tom.</phrase> </textobject></mediaobject>
+      </screenshot>
+      <indexterm><primary>Papirkurv</primary> <secondary>introduktion</secondary></indexterm>
+      <para>Papirkurven er en speciel mappe, som indeholder filer du ikke længere ønsker at bevare. Filer i papirkurven er ikke permanent slettet før du tømmer papirkurven. Denne to-trins proces foretages for at du kan fortryde en sletning, eller ved en fejl sletter en forkert fil.</para>
+      <para>Du kan flytte de følgende elementer til <guilabel>Papirkurven</guilabel>:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Filer</para>
+        </listitem>
+        <listitem>
+          <para>Mapper</para>
+        </listitem>
+        <listitem>
+          <para>Skrivebordsobjekter</para>
+        </listitem>
+      </itemizedlist>
+      <para>Hvis du har brug for at hente en fil fra <guilabel>Papirkurven</guilabel>, så kan du vise <guilabel>Papirkurven</guilabel> og flytte filen ud af <guilabel>Papirkurven</guilabel>. Når du tømmer <guilabel>Papirkurven</guilabel>, så sletter du indholdet af <guilabel>Papirkurven</guilabel> permanent.</para>
+
+      <section xml:id="goscaja-107"><info><title>At vise papirkurven</title></info>
+        <indexterm><primary>Papirkurv</primary> <secondary>visning</secondary></indexterm>
+        <para>Du kan vise indholdet af <guilabel>Papirkurven</guilabel> på følgende måder:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Fra et filbrowservindue</para>
+            <para>Vælg <menuchoice><guimenu>Gå</guimenu><guimenuitem>Papirkurv</guimenuitem></menuchoice>. Indholdet af <guilabel>Papirkurven</guilabel> vises i vinduet.</para>
+          </listitem>
+          <listitem>
+            <para>Fra et delvist vindue</para>
+            <para>Vælg <menuchoice><guimenu>Steder</guimenu><guimenuitem>Papirkurv</guimenuitem></menuchoice>. Indholdet af <guilabel>Papirkurven</guilabel> vises i vinduet.</para>
+          </listitem>
+          <listitem>
+            <para>Fra skrivebordet</para>
+            <para>Dobbeltklik på objektet <guilabel>Papirkurv</guilabel> på skrivebordet.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+      <section xml:id="goscaja-108"><info><title>Tømning af papirkurven</title></info>
+        
+        <indexterm><primary>Papirkurv</primary> <secondary>tømning</secondary></indexterm>
+        <para>Du kan tømme indholdet af <guilabel>Papirkurven</guilabel> på de følgende måder:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Fra et filbrowservindue</para>
+            <para>Vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Tøm papirkurven</guimenuitem></menuchoice>.</para>
+          </listitem>
+          <listitem>
+            <para>Fra skrivebordet</para>
+            <para>Højreklik på objektet <guilabel>Papirkurv</guilabel> og vælg <guimenuitem>Tøm papirkurven</guimenuitem>.</para>
+          </listitem>
+        </itemizedlist>
+   <caution>
+    <para>Når du tømmer papirkurven, så fjerner du alle filer i papirkurven. Vær sikker på, at papirkurven kun indeholder filer du ikke længere har brug for.</para>
+   </caution>
+      </section>
+    </section>
+
+    <section xml:id="caja-hidden-files"><info><title>Skjulte filer</title></info>
+      <indexterm><primary>skjulte</primary> <secondary>filer</secondary></indexterm>
+      <para>Som standard viser <application>Caja</application> ikke bestemte systemfiler og sikkerhedskopier i mapper. Dette forhindrer utilsigtet ændring eller sletning af dem, som kan påvirke din computers funktion og samtidig forbedrer overblikket på steder som din hjemmemappe. Caja viser ikke:</para>
+      <itemizedlist>
+        <listitem><para>Skjulte filer, hvis filnavn begynder med et punktum (.).</para></listitem>
+        <listitem><para>Sikkerhedskopier, hvis filnavn ender med en tilde (~)</para></listitem>
+        <listitem><para>Filer som vises i en bestemt mappes <filename>.hidden</filename>-fil.</para></listitem>
+      </itemizedlist>
+      
+      <para>Du kan skjule eller vise i en bestemt mappe ved at vælge <menuchoice><guimenu>Vis</guimenu><guimenuitem>Vis skjulte filer</guimenuitem></menuchoice>, eller ved at trykke <keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo>.</para>
+      
+      <para><application>Caja</application> kan via en indstilling altid vise skjulte filer, se <xref linkend="caja-preferences"/>.</para>
+
+      <section xml:id="caja-managing-hidden-files"><info><title>Skjul en fil eller mappe</title></info>
+        <indexterm><primary>opret</primary> <secondary>skjult</secondary></indexterm>
+        <para>For at skjule en fil eller mappe i Caja, så omdøb enten filen så dens navn begynder med punktum (.) eller opret en tekstfil navngivet .hidden i den samme mappe og tilføj dets navn til den fil, som i eksemplet vist nedenfor:</para>
+        <programlisting>filnavn
+mappenavn</programlisting>
+        <para>Du skal eventuelt opdatere det relevante <application>Caja</application>vindue for at se ændringen: tryk på <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo>.</para>
+      </section>
+  </section>
+  </section>
+  <!-- ====================================================== File properties -->    
+
+  <section xml:id="caja-properties"><info><title>Elementegenskaber</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscaja-51"/><!-- was: changing icon, but linked to from the GUI -->
+
+    <indexterm><primary>filhåndtering</primary> <secondary>egenskaber</secondary></indexterm>    
+    <indexterm><primary>filhåndtering</primary> <secondary>filegenskaber</secondary></indexterm>
+    <para>Vinduet <guilabel>Elementegenskaber</guilabel> viser yderligere information om en fil, mappe eller andet element i filhåndteringen. Med dette vindue kan du også:</para> 
+    <itemizedlist>
+      <listitem><para>Ændre ikonet for et element: se <xref linkend="caja-icon"/>.</para></listitem>
+      <listitem><para>Tilføje eller fjerne emblemer for et element: se <xref linkend="caja-emblems"/>.</para></listitem>
+      <listitem><para>Ændre UNIX-filrettighederne for et element: se <xref linkend="caja-permissions"/>.</para></listitem>
+      <listitem><para>Vælge hvilket program det bruges til at åbne et element og andre af samme type.</para></listitem>
+      <listitem><para>Tilføje noter til et element: se <xref linkend="caja-notes"/>.</para></listitem>
+    </itemizedlist>
+    <para>For at åbne vinduet med elementegenskaber udføres de følgende trin:</para>
+    <orderedlist>
+	    <listitem><para>Vælg elementet hvis egenskaber du ønsker at undersøge eller ændre. Hvis du har valgt mere end et element vil egnskabsvinduet vise egenskaberne som er fælles for alle valgte elementer.</para></listitem>
+	    <listitem>
+	      <para>Udfør en af de følgende muligheder:</para>
+  	      <itemizedlist>
+        	  <listitem><para>Vælg <menuchoice> <guimenu>Fil</guimenu><guimenuitem>Egenskaber</guimenuitem></menuchoice>.</para></listitem>
+            <listitem><para>Højreklik på det valgte element og vælg <guimenuitem>Egenskaber</guimenuitem>.</para></listitem>
+            <listitem><para>Tryk <keycombo><keycap>Alt</keycap><keycap>Retur</keycap></keycombo>.</para></listitem>
+          </itemizedlist>
+	    </listitem>
+    </orderedlist>
+  </section>  
+  
+  <!-- ====================================================== Appearance -->  
+  <section xml:id="goscaja-203"><info><title>Ændre udseendet på filer og mapper</title></info>
+    <indexterm><primary>filhåndtering</primary> <secondary>ændre udseende på filer og mapper</secondary></indexterm>
+    <para>Filhåndteringen <application>Caja</application> gør det muligt at ændre udseendet på dine filer og mapper på flere måder. Du kan tilpasse måden filer eller mapper ser ud ved at vedhæfte emblemer eller baggrunde til dem. Du kan også ændre formatet som <application>Caja</application> viser disse elementer i. De følgende afsnit viser hvordan det gøres.</para>
+
+    <section xml:id="goscaja-550"><info><title>Ikoner og emblemer</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>ikoner</secondary> <tertiary>introduktion</tertiary></indexterm>
+      <indexterm><primary>filhåndtering</primary> <secondary>emblemer</secondary> <see>emblemer</see></indexterm>
+      <indexterm><primary>emblemer</primary> <secondary>introduktion</secondary></indexterm>
+      <para>Filhåndteringen viser dine filer og mapper som ikoner. Afhængig af filtypen kan ikonet være en billedrepræsentation af filtypen, et lille miniaturebillede eller en forhåndsvisning der viser filernes indhold. Du kan også tilføje emblemer til dine fil- og mappeikoner. Sådanne emblemer fremgår udover filikonet og tilbyder en anden måde at håndtere dine filer. For eksempel kan du markere en fil som vigtigt ved at tilføje emblemet <guilabel>Vigtig</guilabel> (important) til den, hvilket giver den følgende visuelle effekt:</para>
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/caja_emblem.png" format="PNG"/> </imageobject> <textobject> <phrase>Filikon med vigtig (Important) emblem.</phrase> </textobject></mediaobject>
+      </screenshot>
+      
+      <para>Bemærk hvordan filen til venstre kan skelnes fra filen til højre på tilføjelsen af  emblemet <guilabel>Vigtig (!)</guilabel> til sit ikon. Se <xref linkend="caja-emblems"/> for yderligere om tilføjelse af emblemer.</para>
+      <para>Filhåndteringen anvender automatisk emblemer for de følgende filtyper:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Symbolske henvisninger</para>
+        </listitem>
+        <listitem>
+          <para>Elementer hvor du har de følgende rettigheder: <default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>permissions</primary><secondary>and emblems</secondary></default:indexterm></para>
+          <itemizedlist>
+            <listitem>
+              <para>Ingen læserettighed</para>
+            </listitem>
+            <listitem>
+              <para>Ingen skriverettighed</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      </itemizedlist>
+      <para>Den følgende tabel viser standardemblemerne:</para>
+      <informaltable frame="topbot">
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="35.09*"/>
+          <colspec colname="colspec1" colwidth="64.91*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Standardemblem</para>
+              </entry>
+              <entry>
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <screenshot>
+                  <mediaobject><imageobject> <imagedata fileref="figures/caja_link_emblem.png" format="PNG"/> </imageobject> <textobject> <phrase>Symbolisk henvisning emblem.</phrase> </textobject></mediaobject>
+                </screenshot>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>symbolic links</primary><secondary>and emblems</secondary></default:indexterm>Symbolsk henvisning</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <screenshot>
+                  <mediaobject><imageobject> <imagedata fileref="figures/caja_nowrite_emblem.png" format="PNG"/> </imageobject> <textobject> <phrase>Ingen skriverettighed emblem.</phrase> </textobject></mediaobject>
+                </screenshot>
+              </entry>
+              <entry valign="top">
+                <para>Ingen skriverettighed</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <screenshot>
+                  <mediaobject><imageobject> <imagedata fileref="figures/caja_noread_emblem.png" format="PNG"/> </imageobject> <textobject> <phrase>Ingen læserettighed emblem.</phrase> </textobject></mediaobject>
+                </screenshot>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Ingen læserettighed</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </section>
+    <section xml:id="caja-icon"><info><title>Ændring af ikon for en fil eller mappe</title></info>
+       
+      <indexterm><primary>filhåndtering</primary> <secondary>ikoner</secondary> <tertiary>ændre</tertiary></indexterm>
+      <para>For at ændre ikonet som repræsenterer en individuel fil eller mappe, udføres de følgende trin:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg filen eller mappen du ønsker at ændre.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Egenskaber</guimenuitem></menuchoice>.  <xref linkend="caja-properties"/> for elementet vises.</para>
+        </listitem>
+        <listitem>
+          <para>I fanebladet <guilabel>Grundlæggende</guilabel>, klik på det nuværende <guibutton>Ikon</guibutton>. Dialogen <guilabel>Vælg tilpasset ikon</guilabel> vises.</para>
+        </listitem>
+        <listitem>
+          <para>Brug dialogen <guilabel>Vælg tilpasset ikon</guilabel> til at vælge ikonet, der skal repræsentere filen eller mappen.</para>
+        </listitem>
+        <listitem>
+          <para>Klik <guibutton>Luk</guibutton> for at lukke dialogen for egenskaber.</para>
+        </listitem>
+      </orderedlist>
+      <para>For at gendanne et ikon fra et tilpasset ikon til standardikonet, vælg filen eller mappen som du ønsker at vælge, vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Egenskaber</guimenuitem></menuchoice>. Klik på knappen <guibutton>Ikon</guibutton>, i dialogen <guilabel>Vælg tilpasset ikon</guilabel>, klik <guibutton>Gendan</guibutton>.</para>
+    </section>
+
+    <section xml:id="caja-emblems"><info><title>Tilføje et emblem til en fil eller mappe</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscaja-112"/>       
+      <indexterm><primary>emblemer</primary> <secondary>tilføjelse til en fil</secondary></indexterm>
+      <indexterm><primary>emblemer</primary> <secondary>tilføjelse til en mappe</secondary></indexterm>
+      <para>Udfør de følgende trin for at tilføje et emblem til et element:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg elementet du ønsker at tilføje et emblem.</para>
+        </listitem>
+        <listitem>
+          <para xml:lang="en">Right-click on the item, then choose <guimenuitem>Properties</guimenuitem>. The <xref linkend="caja-properties"/> for the item is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på fanebladet <guilabel>Emblemer</guilabel> for at vise fanebladsafsnittet <guilabel>Emblemer</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg emblemet at tilføje til elementet.</para>
+        </listitem>
+        <listitem>
+          <para>Klik <guibutton>Luk</guibutton> for at lukke dialogen for egenskaber.</para>
+        </listitem>
+      </orderedlist>
+      <para>I browservinduer kan du også tilføje emblemer til elementer ved at trække dem fra emblemsidepanelet.</para>
+    </section>
+
+    <section xml:id="goscaja-471"><info><title>Oprettelse af et nyt emblem</title></info>
+      
+      <indexterm><primary>emblemer</primary> <secondary>tilføje et nyt</secondary></indexterm>
+      <para>For at oprette et nyt emblem, udfør de følgende trin:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Rediger</guimenu> <guimenuitem>Baggrunde og emblemer</guimenuitem></menuchoice>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på knappen <guibutton>Emblem</guibutton>, så klik på knappen <guibutton>Tilføj et nyt emblem</guibutton>. En dialog <guilabel>Opret et nyt emblem</guilabel> vises.</para>
+        </listitem>
+        <listitem>
+          <para>Tast et navn for emblemet i tekstboksen <guilabel>Nøgleord</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på knappen <guilabel>Billede</guilabel>. En dialog vises, klik <guibutton>Gennemse</guibutton>. Når du vælger et emblem, klik <guibutton>O.k.</guibutton>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik <guibutton>O.k.</guibutton> på dialogen <guilabel>Opret et nyt emblem</guilabel>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="caja-backgrounds-and-emblems"><info><title>Ændring af baggrunde</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscaja-50"/>         
+      <anchor xml:id="goscaja-63"/>
+      <anchor xml:id="goscaja-64"/>
+      <indexterm><primary>filhåndtering</primary> <secondary>ændring af baggrunde</secondary></indexterm>
+      <indexterm><primary>baggrunde</primary> <secondary>ændring af skærmkomponent</secondary></indexterm>
+      <para>Filhåndteringen har baggrundsmønstre og emblemer, som du kan bruge til at ændre udseendet på dine mapper. Baggrundsmønstre og emblemer kan også bruges på skrivebordet, på mapper og bestemte sidepaneler i filbrowseren og på paneler.</para>
+      <para>For at ændre baggrunden for et vindue, panel eller panel, udføres de følgende trin:</para>
+      <orderedlist>
+        <listitem>
+          <para>Vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Baggrunde og emblemer</guimenuitem></menuchoice> i ethvert filhåndteringsvindue. Dialogen <guilabel>Baggrunde og emblemer</guilabel> vises.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på knappen <guibutton>Mønstre</guibutton> eller knappen <guibutton>Farver</guibutton> for at se en liste over baggrundsmønstre eller baggrundsfarver du kan bruge.</para>
+        </listitem>
+        <listitem>
+          <para>For at ændre baggrunden, træk et mønster eller farve til det ønskede vindue eller panel. For at nulstille baggrunden, træk felter <guilabel>Nulstil</guilabel> til det ønskede vindue eller panel.</para>
+        </listitem>
+      </orderedlist>
+
+      <para>Du kan angive baggrunden for alle mapper i filhåndteringen ved at trække et mønster eller farve med din højre eller midterste museknap. Når du frigiver trækker får du en pop op-menu med indstillingen til at angive mønsteret eller farve som baggrund for alle mapper.</para>
+
+      <para>Du kan tilføje et nyt mønster til listen ved at klikke på knappen <guibutton>Tilføj et nyt mønster</guibutton> når mønstrene er valgt. Find en billedfil i dialogen filvælger og klik på <guibutton>Åbn</guibutton>. Billedfilen vil fremgå af listen, du kan vælge fra.</para>
+
+      <para>Du kan tilføje en ny farve til listen ved at klikke på knappen <guibutton>Tilføj en ny farve</guibutton>, når farverne er valgt. Vælg en farve i dialogen for farvevalg og klik på <guibutton>O.k.</guibutton>. Farven vil fremgå af listen over farver, du kan vælge fra.</para>
+    </section>    
+  </section>  
+  
+  <!-- ====================================================== Removable media -->    
+  <section xml:id="goscaja-460"><info><title>Brug af eksterne medier</title></info>
+    <!-- compatibility -->
+    <anchor xml:id="goscaja-469"/>
+
+    <indexterm><primary>eksternt medie</primary> <secondary>introduktion</secondary></indexterm>
+    <para>Filhåndteringen kan starte diverse handlinger når et eksternt medie dukker op, såsom montering, åbning af et vindue i filhåndteringen der viser mediets indhold eller kørsel af et egnet program som kan håndtere mediet (for eksempel en musikafspiller for en lyd-cd). Se <xref linkend="goscaja-61"/> for information om hvordan disse handlinger konfigureres for forskellige medieformater.</para>
+
+    <section xml:id="goscaja-462"><info><title>Montering af et medie</title></info>
+      <indexterm><primary>eksternt medie</primary> <secondary>montering</secondary></indexterm>
+      <para>At <firstterm>montere</firstterm> et medie er at gøre filsystemet for mediet tilgængelig for adgang. Når du monterer et medie, så vedhæftes filsystemet for mediet som en undermappe til dit filsystem.</para>
+      <para>For at montere et medie, indsæt mediet i den passende enhed. Et ikon som repræsenterer mediet tilføjet til skrivebordet. Ikonet tilføjes kun, hvis dit system er konfigureret til at montere enheden automatisk, når mediet registreres.</para>
+      <para>Hvis dit system ikke er konfigureret til at montere enheden automatisk, så skal du montere enheden manuelt. Dobbeltklik på ikonet <guilabel>Computer</guilabel> fra skrivebordet. En dialog <guilabel>Computer</guilabel> vises. For at montere et diskettedrev, dobbeltklik på ikonto <guilabel>Diskette</guilabel>. Et ikon som repræsenterer mediet tilføjes til skrivebordet.</para>
+      <note>
+        <para>Du kan ikke ændre navnet på et eksternt medieikon.</para>
+      </note>
+    </section>
+
+    <section xml:id="goscaja-461"><info><title>Vis medieindhold</title></info>
+      <indexterm><primary>eksternt medie</primary> <secondary>visning af medieindhold</secondary></indexterm>
+      <para>Du kan vise medieindhold på enhver af de følgende måder:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Dobbeltklik på ikonet som repræsenterer mediet på skrivebordet.</para>
+        </listitem>
+        <listitem>
+          <para>Højreklik på ikonet som repræsenterer mediet på skrivebrodet, vælg så <guimenuitem>Åbn</guimenuitem>.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Et vindue i filhåndteringen viser indholdet for mediet. For at genindlæse visningen, klik på knappen <guibutton>Genindlæs</guibutton>.</para>
+    </section>
+
+    <section xml:id="goscaja-463"><info><title>For at vise medieegenskaber</title></info>
+      <indexterm><primary>eksternt medie</primary> <secondary>visning af medieegenskaber</secondary></indexterm>
+      <para>For at vises egenskaberne for eksternt medie, højreklik på ikonet som repræsenterer mediet på skrivebordet, vælg så <guimenuitem>Egenskaber</guimenuitem>. En dialog viser egenskaberne for mediet.</para>
+      <para>For at lukke egenskaberdialogen, klik <guibutton>Luk</guibutton>.</para>
+    </section>
+
+    <section xml:id="goscaja-464"><info><title>For at skubbe et medie ud</title></info>
+      <indexterm><primary>eksternt medie</primary> <secondary>skub ud</secondary></indexterm>
+      <para>For at skubbe et medie ud, højreklik på medieikonet på skrivebordet, vælg så <guimenuitem>Skub ud</guimenuitem>. Hvis drevet for mediet er motoriseret, så skubbes mediet ud fra drevet. Hvis drevet for mediet ikke er motoriseret, vent indtil skrivebordsikonet for mediet forsvinder, skub så mediet ud manuelt.</para>
+      <para>Du kan ikke skubbe et medie ud fra et motoriseret drev, når mediet er monteret. For at skubbe et medie ud, afmonter mediet. For eksempel, for at fjerne et USB-drev, udfør de følgende trin:</para>
+      <orderedlist>
+        <listitem>
+          <para>Luk alle vinduer for filhåndteringen, <application>Terminal</application>vinder og ethvert andet vindue som tilgår USB-drevet.</para>
+        </listitem>
+        <listitem>
+          <para>Højreklik på ikonet som repræsenterer drevet på skrivebordet, vælg så <guimenuitem>Skub ud</guimenuitem>. Skrivebordsikonet for drevet forsvinder.</para>
+        </listitem>
+        <listitem>
+          <para>Fjern USB-drevet.</para>
+        </listitem>
+      </orderedlist>
+          <caution>
+            <para>Du skal afmontere eksterne medier før de fjernes. Fjern ikke et USB-drev før du har afmonteret drevet. Hvis du ikke afmonterer først kan du miste data.</para>
+          </caution>
+    </section>
+  </section>
+
+  <section xml:id="caja-cdwriter"><info><title>Brænd cd'er eller dvd'er</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscaja-475"/>
+
+    <indexterm><primary>filhåndtering</primary> <secondary>brænd cd'er</secondary></indexterm>
+    <indexterm><primary>Cd'er, brænd</primary></indexterm>
+    <indexterm><primary>brænd cd'er</primary></indexterm>
+    <indexterm><primary>brænd cd'er</primary> <see>skriv cd'er</see></indexterm>
+    <para>At skrive (brænde) til en cd eller dvd kan være nyttigt til sikkerhedskopiering af dine vigtige dokumenter. For at kunne dette skal din computer have en cd- eller dvd-brænder.</para>
+    <tip><para>En simpel måde at kontrollere hvilken slags cd- eller dvd-drev din computer har et at vælge <menuchoice><guimenu>Steder</guimenu> <guimenuitem>Computer</guimenuitem></menuchoice> fra toppanelets menulinje. Hvis ikonet for dit cd-drev har termer som »cd-rw« eller »dvd(+-)r« i sin etiket, så kan din computer skrive til diske.</para></tip>
+    
+    <para>Du kan vælge filer, du ønsker at brænde til en disk, på ethvert tidspunkt. Filhåndteringen tilbyder en speciel mappe for filer og mapper, som du ønsker at skrive til en cd eller dvd. Derfra kan du nemt skrive al indholdet (som du placerer i denne specielle mappe) til en cd eller dvd.</para>
+
+    <section xml:id="caja-cdwriter-data"><info><title>Oprettelse af datadiske</title></info>
+      
+    <para>For at skrive en cd eller dvd, udfør de følgende trin:</para>
+    <orderedlist>
+      <listitem>
+        <para>Åbn <menuchoice><guimenu>Programmer</guimenu> <guimenu>Systemværktøjer</guimenu> <guimenuitem>Cd/dvd-brænder</guimenuitem> </menuchoice>. Filhåndteringen åbner cd/dvd-brændermappen.</para>
+        <note><para>I filbrowservnduet er elementet <guimenuitem>Cd/dvd-brænder</guimenuitem> tilgængelig i menuen <guimenu>Gå</guimenu>.</para></note>
+      </listitem>
+      <listitem>
+        <para>Træk filerne og mapperne du ønsker at skrive til cd eller dvd til cd/dvd-brændermappen.</para>
+      </listitem>
+      <listitem>
+        <para>Indsæt en skrivbar cd eller dvd i cd/dvd-brænderen i dit system.</para>
+      </listitem>
+      <listitem>
+        <para>Tryk på knappen <guibutton>Skriv til disk</guibutton> eller vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Skriv til cd/dvd</guimenuitem></menuchoice>. En dialog <guilabel>Skriv til disk</guilabel> vises.</para>
+      </listitem>
+      <listitem>
+        <para>Brug dialogen <guilabel>Skriv til disk</guilabel> til at angive hvordan du ønsker at skrive cd'en, på følgende måde:</para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colwidth="50*"/>
+            <colspec colwidth="50*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>Dialogelement</para>
+                </entry>
+                <entry>
+                  <para>Beskrivelse</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Skriv til disk</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Vælg enheden hvor du ønsker at skrive cd'en til fra rullegardinet. For at oprette en cd-aftryksfil, vælg indstillingen <guilabel>Filaftryk</guilabel>. En cd-aftryksfil er en normal fil, som indeholder alle dataene i det samme format som en cd, som du så senere kan skrive til en cd.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Disknavn</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Indtast et navn for cd'en i tekstboksen.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Datastørrelse</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Viser størrelsen for dataene der skal skrives til disken. Den tomme disk skal mindst have denne størrelse.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Skrivehastighed</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Vælg hastigheden du ønsker at cd'en skal skrives med via rullegardinet.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </listitem>
+      <listitem>
+        <para>Klik på knappen <guibutton>Skriv</guibutton>.</para>
+        <para>Hvis du valgte indstillingen <guilabel>Filaftryk</guilabel> fra rullegardinet <guilabel>Mål at skrive til</guilabel>, vises dialogen <guilabel>Vælg et filnavn for diskaftrykket</guilabel>. Brug dialogen til at angive placeringen, hvor du ønsker at gemme diskaftryksfilen. Som standard har diskaftryksfiler filendelsen <filename>.iso</filename>.</para>
+        <para>Dialogen <guilabel>Skriver disk</guilabel> vises. Denne proces tager lidt tid. Når disken er skrevet eller når diskaftryksfilen er oprettet, vises en besked om at processen er fuldført.</para>
+      </listitem>
+    </orderedlist>
+    <tip><para>Du kan indstille at cd/dvd creator-mappen åbnes automatisk, når du indsætter en tom disk. Se <xref linkend="goscaja-61"/>.</para></tip>
+    <note><para>Filsystemet skrevet til cd'en vil være læsbar med lange filnavne på alle de seneste operativsystemer. Både Joliet- og Rock Ridge cd-rom-filsystemendelserne anvendes.</para></note>
+    </section>
+
+    <section xml:id="caja-cdwriter-copy"><info><title>Kopiering af cd'er eller dvd'er</title></info>
+        <para>Du kan oprette en kopi af en cd eller dvd, enten til en anden disk eller til en aftryksfil lagret på din computer. For at oprette en kopi, udfør de følgende trin:</para>
+        <orderedlist>
+          <listitem><para>Indsæt disken du ønsker at kopiere.</para></listitem>               
+          <listitem><para>Vælg <menuchoice><guimenu>Steder</guimenu><guimenuitem>Computer</guimenuitem></menuchoice> fra toppanelets menulinje.</para></listitem>       
+          <listitem><para>Højreklik på cd-ikonet og vælg <guimenuitem>Kopier disk</guimenuitem>.</para></listitem>       
+          <listitem><para>Dialogen <guilabel>Skriv til disk</guilabel> vises.</para></listitem>  
+        </orderedlist>
+        <para>Hvis du kun har et drev der kan skrive, så vil processen først oprette en diskaftryksfil på din computer. Den originale disk skubbes så ud og du bliver bedt om at ændre den til en tom disk hvor kopien kan skrives til.</para>
+        <tip><para>Hvis du ønsker at oprette mere end en kopi, så vælg Aftryksfil på <guilabel>Skriv til disk</guilabel> og skriv så diskaftrykket: se <xref linkend="caja-cdwriter-writeimage"/>.</para></tip>
+    </section>
+
+    <section xml:id="caja-cdwriter-writeimage"><info><title>Oprettelse af en disk fra en aftryksfil</title></info>
+      <para>Du kan skrive et diskaftryk til en cd eller dvd. For eksempel, så kan du hente et diskaftryk fra internettet, eller tidligere have oprettet et selv. Diskaftryk har normalt filendelsen <filename>.iso</filename> og kaldes undertiden iso-filer.</para>
+        <para>For at skrive et diskaftryk, højreklik på diskaftryksfilen, vælg så <guimenuitem>Skriv til disk</guimenuitem> fra pop op-menuen.</para>      
+    </section>
+  </section>
+
+  <section xml:id="goscaja-515"><info><title>Navigere eksterne servere</title></info>
+    <para>Filhåndteringen <application>Caja</application> tilbyder et integreret adgangspunkt til dine filer, programmer, FTP-sider, Windows-delinger, WebDav-servere og SSH-servere.</para>
+
+    <section xml:id="caja-server-connect"><info><title>Tilgå en ekstern server</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscaja-37"/>      
+      <!-- MOVE THIS ANCHOR -->
+      <!-- To Add a Network Server -->
+      <anchor xml:id="goscaja-466"/>
+
+      <indexterm><primary>FTP-sider</primary> <secondary>tilgå</secondary></indexterm>
+      <indexterm><primary>filhåndtering</primary> <secondary>FTP-sider</secondary> <see>FTP-sider</see></indexterm>
+      <para>Du kan bruge filhåndteringeen til at tilgå en ekstern server, det værende en FTP-side, en Windows-deling, en WebDav-server eller en SSH-server.</para>
+<para>For at tilgå en ekstern server, vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Forbind til server</guimenuitem></menuchoice>. Du kan også tilgå dialogen fra menulinjen ved at vælge <menuchoice><guimenu>Steder</guimenu><guimenuitem>Forbind til server</guimenuitem></menuchoice>.</para>
+<para>For at forbinde med en ekstern server, start med at vælge tjenestetypen, indtast så serveradressen.</para>
+<para>Hvis krævet af din server, kan du angive den følgende valgfrie information:</para>
+            <informaltable frame="topbot">
+              <tgroup cols="2" colsep="0" rowsep="0">
+                <colspec colname="colspec0" colwidth="27.27*"/>
+                <colspec colname="colspec1" colwidth="72.73*"/>
+                <thead>
+                  <row rowsep="1">
+                    <entry>
+                      <para>Dialogelement</para>
+                    </entry>
+                    <entry>
+                      <para>Beskrivelse</para>
+                    </entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row>
+                    <entry valign="top">
+                      <para><guilabel>Port</guilabel></para>
+                    </entry>
+                    <entry valign="top">
+                      <para>Port at forbinde til på serveren. Bør kun bruges hvis nødvendigt for at ændre standardporten, normalt efterlades feltet tomt.</para>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry valign="top">
+                      <para><guilabel>Mappe</guilabel></para>
+                    </entry>
+                    <entry valign="top">
+                        <para>Mappe at åbne ved forbindelse til serveren.</para>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry colname="colspec0">
+                      <para><guilabel>Brugernavn</guilabel></para>
+                    </entry>
+                    <entry colname="colspec1">
+                      <para>Brugernavnet for kontoen brugt til at forbinde med serveren. Denne bør angives med forbindelsesinformationen hvis krævet. Brugernavninformation er ikke passende for en offentlig FTP-forbindelse.</para>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry colname="colspec0">
+                      <para><guilabel>Navn at anvende for forbindelsen</guilabel></para>
+                    </entry>
+                    <entry colname="colspec1">
+                      <para>Designation for forbindelsen som den vil fremgå i filhåndteringen.</para>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry colname="colspec0">
+                      <para><guilabel>Deling</guilabel></para>
+                    </entry>
+                    <entry colname="colspec1">
+                      <para>Navn på den ønskede Windows-deling. Dette er kun gældende for Windows-delinger.</para>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry colname="colspec0">
+                      <para><guilabel>Domænenavn</guilabel></para>
+                    </entry>
+                    <entry colname="colspec1">
+                      <para>Windowsdomæne. Er kun gældende for Windowsdelinger.</para>
+                    </entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+<para>Hvis serverinformationen leveres i form af en URI, eller du kræver en speciel forbindelse, så vælg <menuchoice><guimenuitem>Tilpasset sted</guimenuitem></menuchoice> som tjenestetype.</para>
+<para>Når du har udfyldt informationen, klik på knappen <guibutton>Forbind</guibutton>. Når forbindelsen er oprettet vises sideindholdet og du kan trække og slippe filer til og fra den eksterne server.</para>
+    </section>
+
+    <section xml:id="caja-accessnetwork"><info><title>For at tilgå netværkssteder</title></info>
+      <!-- MOVE THIS ANCHOR -->
+      <!-- To Add a Network Server -->
+      <anchor xml:id="goscaja-508"/>
+      <anchor xml:id="goscaja-509"/>
+      <anchor xml:id="goscaja-465"/>
+
+      <indexterm><primary>netværkssteder</primary> <secondary>tilgå</secondary></indexterm>
+      <indexterm><primary>filhåndtering</primary> <secondary>netværkssteder</secondary> <see>netværkssteder</see></indexterm>
+      <para>Hvis dit system er konfigureret til at tilgå steder på et netværk, så kan du bruge filhåndteringen til at tilgå netværkstederne.</para>
+      <para>For at tilgå netværkssteder, åbn filhåndteringen og vælg <menuchoice><guimenu>Steder</guimenu> <guimenuitem>Netværksservere</guimenuitem></menuchoice>. Et vindue åbner, som viser netværkssteder du har adgang til. Dobbeltklik på netværket, som du ønsker at tilgå.</para>
+      <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>NFS servers</primary><see>Unix network</see></default:indexterm>For at tilgå UNIX-delinger, dobbeltklik på objektet <guilabel>Unix Network (NFS) </guilabel>. En liste over UNIX-delinger er tilgængelige for dig i filhåndteringsvinduet.</para>
+      <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>Samba servers</primary><see>Windows network</see></default:indexterm>For at tilgå Windowsdelinger, dobbeltklik på objektet <guilabel>Windows Network (SMB) </guilabel>.En liste over Windowsdelinger tilgængelige for dig vises i filhåndteringsvinduet.</para>
+    </section>
+
+    <!-- special URIs by and large obsolete or at least arcane -->
+    <section xml:id="goscaja-467"><info><title>Tilgå specielle URI-steder</title></info>
+      <indexterm><primary>specielle URI-steder</primary> <secondary>tilgå</secondary></indexterm>
+      <indexterm><primary>filhåndtering</primary> <secondary>specielle URI-steder</secondary></indexterm>
+      <indexterm><primary>URI, speciel</primary> <see>specielle URI-steder</see></indexterm>
+      <para>Caja har bestemte specielle URI-steder som gør, at du kan tilgå bestemte funktioner fra filhåndteringen.</para>
+      <para>Disse er for avancerede brugere: I de fleste tilfælde er der en nemmere metode til at tilgå funktionerne eller stedet.</para>
+      <para><xref linkend="goscaja-TBL-479"/> viser de specielle URI-steder, du kan bruge med filhåndteringen.</para>
+      <table frame="topbot" xml:id="goscaja-TBL-479"><info><title>Specielle URI-steder</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="33.94*"/>
+          <colspec colname="colspec1" colwidth="66.06*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>URI-sted</para>
+              </entry>
+              <entry>
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><command>burn:///</command></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Dette er et specielt sted, hvor du kan kopiere filer og mapper, som du ønsker at skrive til en cd. Herfra kan du nemt skrive indholdet af stedet til en cd. Se også <xref linkend="caja-cdwriter"/>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><command>network:///</command></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Viser netværkssteder du kan forbinde til, hvis dit system er konfigureret til at tilgå steder på et netværk. for at tilgå et netværkssted, dobbeltklik på netværksstedet. Du kan også bruge denne URI til at tilføje netværkssteder til dit system. Se også <xref linkend="caja-accessnetwork"/>.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+
+  <!-- ============================================== prefs -->
+  <section xml:id="caja-preferences"><info><title>Cajapræferencer</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscaja-15"/>
+    <anchor xml:id="goscaja-17"/>
+    <!-- preserve id for backwards compatibility: 2.16 -->    
+    <anchor xml:id="prefs-filemanager"/>
+    <anchor xml:id="goscustdesk-84"/>
+
+    <indexterm><primary>filhåndtering</primary> <secondary>tilpasse</secondary></indexterm>
+    <indexterm><primary>filhåndtering</primary> <secondary>præferencer</secondary> <tertiary>introduktion</tertiary></indexterm>
+    <indexterm><primary>præferencer, filhåndtering</primary> <see>filhåndteringspræcerencer</see></indexterm>
+    <para>Brug dialogen <guilabel>Indstillinger for filhåndtering</guilabel> til at tilpasse filhåndteringen til dine krav og præferencer.</para>
+    <para>For at vise dialogen <guilabel>Indstillinger for filhåndtering</guilabel>, vælg <menuchoice><guimenu>Rediger</guimenu> <guimenuitem>Præferencer</guimenuitem></menuchoice>. Du kan også tilgå denne dialog direkte fra toppanelets menulinje ved at vælge <menuchoice><guimenu>System</guimenu> <guisubmenu>Præferencer</guisubmenu> <guimenuitem>Filhåndtering</guimenuitem></menuchoice>.</para>
+    <para>Du kan angive præferencer i de følgende kategorier:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Standardindstillingerne for visninger:</para>
+      </listitem>
+      <listitem>
+        <para>Opførslen for filer og mapper, kørbare tekstfiler og papirkurven.</para>
+      </listitem>
+      <listitem>
+        <para>Informationen som bliver vist i mulige tekster for ikoner og datoformatet.</para>
+      </listitem>
+      <listitem>
+        <para>Kolonnerne som fremgår i listevisningen og deres rækkefølge.</para>
+      </listitem>
+      <listitem>
+        <para>Indstillinger for forhåndsvisning til at forbedre ydelsen på filhåndteringen.</para>
+      </listitem>
+      <listitem>
+        <para>Hvordan eksternt medie og forbundne enheder håndteres.</para>
+      </listitem>
+    </itemizedlist>
+
+    <section xml:id="goscaja-438"><info><title>Visningspræferencer</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>præferencer</secondary> <tertiary>visninger</tertiary></indexterm>
+      <para>Du kan specificere en standardvisning og vælge sorteringsindstillinger og visningsindstilinger. Du kan også specificere standardindstillinger for ikonvisninger og listevisninger.</para>
+      <para>For at angive dine standardindstillinger for visning, vælg <menuchoice><guimenu>Rediger</guimenu> <guimenuitem>Præferencer</guimenuitem></menuchoice>. Kli på fanebladet <guilabel>Visninger</guilabel> for at vise faneafsnittet <guilabel>Visninger</guilabel>.</para>
+      <para><xref linkend="goscaja-TBL-30"/> viser præferencerne for visning, som du kan ændre.</para>
+      <table frame="topbot" xml:id="goscaja-TBL-30"><info><title>Visningspræferencer</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="35.09*"/>
+          <colspec colname="colspec1" colwidth="64.91*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Dialogelement</para>
+              </entry>
+              <entry>
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Vis nye mapper via</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Vælg standardvisningen for mapper. Når du åbner en mappe, vises mappen i visningen, du vælger. Dette kan være ikonvisningen, listevisningen eller den kompakte visning, som er en variant af ikonet, som er organiseret i kolonner frem for rækker.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Arranger elementer</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Vælg de karakteristika hvormed du ønsker at sortere elementerne i mapper som vises i denne visning.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0">
+                <para><guilabel>Sorter mapper før filer</guilabel></para>
+              </entry>
+              <entry colname="colspec1">
+                <para>Vælg denne indstilling for at vise mapper før filer når du sorterer en mappe.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Vis skjulte og sikkerhedskopierede filer</guilabel></para>
+              </entry>
+              <entry colname="colspec1">
+                <para>Vælg denne indstilling for at vise filerne, som normalt ikke vises i mapper. For mere om skjulte filer, se <xref linkend="caja-hidden-files"/>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Standardniveau for zoom</guilabel> i sektionerne ikonvisning, kompakt visning eller listevisning</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg zoomniveau for mapper som vises i denne visning. Zoomniveauet angiver størrelsen på elementer i en visning.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Brug kompakt layout</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at arrangere elementerne i ikonvisning, så at elementerne i mappen er tættere på hinanden.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0">
+                <para><guilabel>Tekst ved siden af ikoner</guilabel></para>
+              </entry>
+              <entry colname="colspec1">
+                <para>Vælg denne indstilling for at placere mulige tekster for elementer ved siden af ikonet frem for under ikonet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0">
+                <para><guilabel>Alle kolonner har den samme bredde</guilabel></para>
+              </entry>
+              <entry colname="colspec1">
+                <para>Vælg denne indstilling for at give alle kolonner i en kompakt visning den samme bredde.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0">
+                <para><guilabel>Vis kun mapper</guilabel></para>
+              </entry>
+              <entry colname="colspec1">
+                <para>Vælg denne indstilling for kun at vise mapper i <guilabel>Træet</guilabel> i sidepanelet.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscaja-56"><info><title>Præferencer for opførsel</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>præferencer</secondary> <tertiary>opførsel</tertiary></indexterm>
+      <para>For at angive præferencer for filer og mapper, vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Præferencer</guimenuitem></menuchoice>. Klik på fanebladet <guilabel>Opførsel</guilabel> for at vise fanebladsafsnittet <guilabel>Opførsel</guilabel>. Du kan angive de følgende præferencer:</para>
+
+      <variablelist>
+       	<varlistentry>
+      	  <term><guilabel>Enkelt klik for at åbne elementer</guilabel></term>
+      	  <listitem>
+      	    <para>Vælg denne indstilling for at udføre standardhandlingen for et element, når du klikker på elementet. Når denne indstilling er valgt, og du peger på et element, så understreges elementets titel.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Dobbeltklik for at åbne elementer</guilabel></term>
+      	  <listitem>
+      	    <para>Vælg denne indstilling for at udføre standardhandlingen for et element, når du dobbeltklikker på elementet.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Åbn altid i browservinduer</guilabel></term>
+      	  <listitem>
+      	    <para>Vælg denne indstilling for at bruge <application>Caja</application> i browsertilstand frem for i delvis tilstand. Valg af denne gør at du kan gennemse dine filre og mapper i det samme vindue, ellers vil du navigere dine filer og mapper som objekter.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Kør eksekverbare tekstfiler når de åbnes</guilabel></term>
+      	  <listitem>
+      	    <para>Vælg denne indstilling for at afvikle en kørbar fil i tekstformat, når du vælger filen. En kørbar tekstfil er en tekstfil, som kan afvikles, det vil sige, et skalskript.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Vis eksekverbare tekstfiler når de åbnes</guilabel></term>
+      	  <listitem>
+      	    <para>Vælg denne indstilling for at vise indholdet af en kørbar tekstfil, når du vælger den kørbare tekstfil.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Spørg hver gang</guilabel></term>
+      	  <listitem>
+      	    <para>Vælg denne indstilling for at vise en dialog når du vælger en kørbar tekstfil. Dialogen spørger om du ønsker at afvikle filen eller vise filen.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Spørg før tømning af papirkurven eller sletning af filer</guilabel></term>
+      	  <listitem>
+      	    <para>Vælg denne indstilling for at vise en bekræftelsesbesked før <guilabel>Papirkurven</guilabel> tømmes, eller filer slettes. Efterlad denne valgt med mindre du har grund til andet.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Inkluder en Slet-kommando som omgår Papirkurven</guilabel></term>
+      	  <listitem>
+      	    <para>Vælg denne indstilling for at tilføj et menupunkt <guimenuitem>Slet</guimenuitem> til de følgende menuer:</para>
+                      <itemizedlist>
+                        <listitem>
+                          <para>Menuen <guimenu>Rediger</guimenu>.</para>
+                        </listitem>
+                        <listitem>
+                          <para>Pop op-menuen som vises når du højreklikker på en fil, mappe eller skrivebordsobjekt.</para>
+                        </listitem>
+                      </itemizedlist>
+                      <para>Når du vælger et element så vælg menuelementet <guimenuitem>Slet</guimenuitem>, elementet slettes fra dit filsystem øjeblikkeligt. Der er ingen måde at gendanne en slettet fil. Vælg ikke dette med mindre, at du har en god årsag til dette.</para>
+      	  </listitem>
+      	</varlistentry>
+      </variablelist>
+    </section>
+
+    <section xml:id="goscaja-439"><info><title>Visningspræferencer</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>ikoner</secondary> <tertiary>indstillinger for billedtekst</tertiary></indexterm>
+      <indexterm><primary>filhåndtering</primary> <secondary>præferencer</secondary> <tertiary>Ikontekster</tertiary></indexterm>
+      <para>En ikontekst viser navnet på en fil eller mappe i en ikonvisning. Ikonteksten indeholder også tre yderligere elementer med information om filen eller mappen. Den yderligere information vises efter filnavnet. Normalt er kun et element information synlig, men når du zoomer ind på et ikon, vises mere af informationen. Du kan ændre hvilken yderligere information der vises i ikontekster.</para>
+      <para>Vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Præferencer</guimenuitem></menuchoice>. Klik på fanebladet <guilabel>Visning</guilabel> for at vise faneafsnittet <guilabel>Visning</guilabel> for at angive dine præferencer for ikontekster.</para>
+      <para>Vælg informationselementerne du ønsker at vise i ikonbilledteksten fra de tre rullegardiner. Vælg det første element fra rullegardinet, vælg det andet element fra det andet rullegardin og så videre. Den følgende tabel beskriver informationselementerne, du kan vælge:</para>
+      <informaltable frame="topbot">
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="35.09*"/>
+          <colspec colname="colspec1" colwidth="64.91*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Information</para>
+              </entry>
+              <entry>
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Størrelse</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at vise størrelsen på elementet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Type</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at vise beskrivelsen på MIME-typen for elementet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Dato ændret</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at vise den sidste ændringsdato for elementet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Dato tilgået</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at vise datoen som elementet sidst blev tilgået.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Ejer</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at vise ejeren for elementet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Gruppe</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at vise gruppen til dem som elementet tilhører.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Tilladelser</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>permissions</primary><secondary>displaying as characters</secondary></default:indexterm>Vælg denne indstilling for at vise tilladelserne for elementerne som træ sæt med tre tegn, for eksempel <computeroutput>-rwxrw-r--</computeroutput>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Oktale tilladelser</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>permissions</primary><secondary>displaying in octal notation</secondary></default:indexterm>Vælg denne indstilling for at vise rettighederne for elementet i oktal notation, for eksempel <computeroutput>764</computeroutput>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>MIME-type</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at vise MIME-typen for elementet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Ingen</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for ikke at vise information for elementet.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>Indstillingen <guilabel>Datoformat</guilabel> gør at du kan vælge hvordan datoen vises via Caja.</para>
+    </section>
+
+    <section xml:id="goscaja-490"><info><title>Vis kolonnepræferencer</title></info>
+      <para>Du kan angive hvilken information, der vises i listevisningen i filhåndteringens vinduer. Du kan angive hvilke kolonner der vises i listevisningen og rækkefølgen som kolonner bliver vist i.</para>
+      <para>For at angive dine præferencer for vis kolonner, vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Præferencer</guimenuitem></menuchoice>. Klik på fanebladet <guilabel>Vis kolonner</guilabel> for at vise fanebladsafsnittet <guilabel>Vis kolonner</guilabel>.</para>
+      <para>For at angive en kolonne at vise i listevisningen, vælg indstillingen der svarer svarer til kolonnen, klik så på knappen <guibutton>Vis</guibutton>. For at fjerne en kolonne fra listevisningen, vælg indstillingen der svarer til kolonne, klik så på knappen <guibutton>Skjul</guibutton>.</para>
+      <para>Brug knapperne <guibutton>Flyt op</guibutton> og <guibutton>Flyt ned</guibutton> til at specificere positionen af kolonner i listevisning.</para>
+      <para>For at bruge standardkolonner og kolonnepositioner, klik på knappen <guibutton>Brug standard</guibutton>.</para>
+      <para>Den følgende tabel beskriver kolonnerne du kan vise:</para>
+      <informaltable frame="topbot">
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="35.09*"/>
+          <colspec colname="colspec1" colwidth="64.91*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Information</para>
+              </entry>
+              <entry>
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0">
+                <para><guilabel>Navn</guilabel></para>
+              </entry>
+              <entry colname="colspec1">
+                <para>Vælg denne indstilling for at vise navnet på elementet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Størrelse</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at vise størrelsen på elementet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Type</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at vise beskrivelsen af MIME-typen for elementet fra præferenceværktøjet <application>Filtyper og programmer</application>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Dato ændret</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at vise den sidste ændringsdato for elementet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Dato tilgået</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at vise datoen som elementet sidst blev tilgået.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0">
+                <para><guilabel>Gruppe</guilabel></para>
+              </entry>
+              <entry colname="colspec1">
+                <para>Vælg denne indstilling for at vise gruppen til dem som elementet tilhører.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0">
+                <para><guilabel>MIME-type</guilabel></para>
+              </entry>
+              <entry colname="colspec1">
+                <para>Vælg denne indstilling for at vise MIME-typen for elementet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0">
+                <para><guilabel>Oktale tilladelser</guilabel></para>
+              </entry>
+              <entry colname="colspec1">
+                <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>permissions</primary><secondary>displaying in octal notation</secondary></default:indexterm>Vælg denne indstilling for at vise rettighederne for elementet i oktal notation, for eksempel <computeroutput>764</computeroutput>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Ejer</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg denne indstilling for at vise ejeren for elementet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Tilladelser</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>permissions</primary><secondary>displaying as characters</secondary></default:indexterm>Vælg denne indstilling for at vise tilladelserne for elementerne som træ sæt med tre tegn, for eksempel <computeroutput>-rwxrw-r--</computeroutput>.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </section>
+
+    <section xml:id="goscaja-60"><info><title>Forhåndsvis præferencer</title></info>
+      <indexterm><primary>filhåndtering</primary> <secondary>præferencer</secondary> <tertiary>forhåndsvisning</tertiary></indexterm>
+      <para>Filhåndteringen indeholder nogle funktioner til forhåndsvisning af filer. Funktionerne kan påvirke hastigheden, som filhåndteringen bruger til at svare på dine forespørgsler. Du kan ændre opførelsen for nogle af disse funktioner for at forbedre hastigheden for filhåndteringen. For hver forhåndsvisningspræference kan du vælge en af indstillingerne beskrevet i den følgende tabel:</para>
+      <informaltable frame="topbot">
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="35.09*"/>
+          <colspec colwidth="64.91*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Indstilling</para>
+              </entry>
+              <entry>
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Altid</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Udfører handlingen for både lokale filer og filer på andre filsystemer.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Kun lokale filer</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Udfører handlingen kun for lokale filer.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Aldrig</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Udfører aldrig handlingen.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>For at angive dine præferencer for forhåndsvisning, vælg <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Præferencer</guimenuitem></menuchoice>. Klik på fanebladet <guilabel>Forhåndsvisning</guilabel> for at vise fanebladsafsnittet <guilabel>Forhåndsvisning</guilabel>.</para>
+      <para><xref linkend="goscaja-TBL-41"/> viser forhåndsvisningspræferencerne som du kan ændre.</para>
+      <table frame="topbot" xml:id="goscaja-TBL-41"><info><title>Forhåndsvis præferencer</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="35.09*"/>
+          <colspec colname="colspec1" colwidth="64.91*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Dialogelement</para>
+              </entry>
+              <entry>
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Vis tekst i ikoner</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Vælg en indstilling for at angive hvornår indholdet af tekstfiler som forhåndsvises i ikonet, der repræsenterer filen.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Vis miniaturebilleder</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg en indstilling for at angive hvornår der skal vises miniaturebilleder af billedfiler. Filhåndteringen lagrer miniaturebilledfilerne for hver mappe i en <filename>.thumbnails</filename>-mappe i brugerens hjemmemappe.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0">
+                <para><guilabel>Kun for filer mindre end</guilabel></para>
+              </entry>
+              <entry colname="colspec1">
+                <para>Angiv den maksimale filstørrelse for filer som filhåndteringen opretter miniaturebilleder for.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" valign="top">
+                <para><guilabel>Forhåndsvis lydfiler</guilabel></para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Vælg en indstilling for at angive hvornår lydfiler skal forhåndsvises.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0">
+                <para><guilabel>Tæl antallet af elementer</guilabel></para>
+              </entry>
+              <entry colname="colspec1">
+                <para>Vælg en indstilling for at vise antallet af elementer i mapper. Når i ikonvisning, skal du måske øge zoomniveauet for at se antallet af elementer i hver mappe.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscaja-61"><info><title>Mediepræferencer</title></info>
+      <para>Du kan konfigurere hvordan <application>Caja</application> håndterer eksterne medier og enheder, som er forbundet til computeren, såsom musikafspillere eller kameraer. For hvert medieformat eller enhedstype tilbyder <application>Caja</application> at afvikle et af de programmer, som vides at understøtte dette format, samt de følgende muligheder:</para>
+      <informaltable frame="topbot">
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="35.09*"/>
+          <colspec colwidth="64.91*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Indstilling</para>
+              </entry>
+              <entry>
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Spørg om hvad der skal ske</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Lad <application>Caja</application> spørge efter den ønskede handling når mediet eller enheden dukker frem.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Gør intet</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Gør intet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Åbn mappe</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Opfat mediet eller enheden som en ordinær mappe og åbn den i et <application>Cajavindue</application>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Åbn med et andet program</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Vælg et program til afvikling med <application>Cajas</application> programvælgerdialog. Bemærk at programmer kendt for at håndtere mediet eller enheden kan vælges direkte fra rullegardinet.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>De mest gængse medieformater kan konfigureres i afsnittet <guilabel>Mediehåndtering</guilabel>: lyd-cd'er, video-dvd'er, musikafspillere, kameraer og program-cd'er.</para>
+      <para>For at konfigurere håndteringen af andre medieformater, så vælg først formatet i rullegardinet <guilabel>Type</guilabel>, vælg så den ønskede handing for dette format i rullegradinet <guilabel>Handling</guilabel>.</para>
+      <para><xref linkend="goscaja-TBL-43"/> viser andre præferencer til mediehåndtering du kan ændre.</para>
+      <table frame="topbot" xml:id="goscaja-TBL-43"><info><title>Forhåndsvis præferencer</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="35.09*"/>
+          <colspec colname="colspec1" colwidth="64.91*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Dialogelement</para>
+              </entry>
+              <entry>
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Spørg eller start aldrig programmer ved medieindsættelse</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Vælg denne indstilling for at forhindre <application>Caja</application>for i at vise dialoger eller kørende programmer når medier eller enheder fremkommer. Når denne indstilling er valgt, så ignoreres præferencerne for håndteringen af specifikke medieformater.</para>
+              </entry>
+           </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Gennemse medie når indsat</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Når denne indstilling er valgt, så vil <application>Caja</application> automatisk åbne en mappe, når mediet indsættes. Dette gælder for medieformater hvor handlingen ikke er blevet eksplicit konfigureret.</para>
+              </entry>
+           </row>
+         </tbody>
+       </tgroup>
+      </table>
+    </section>
+
+  </section>
+  
+  <section xml:id="goscaja-440"><info><title>Udvidelse af Caja</title></info>
+    <indexterm><primary>filhåndtering</primary> <secondary>afvikling af skripter</secondary></indexterm>
+    <indexterm><primary>skripter, afvikling fra filhåndtering</primary></indexterm>
+    <para>Caja kan udvides på to hovedmåder. Via <application>Cajaudvidelser</application>, og via skripter. Dette afsnit forklarer forskellene mellem de to og hvordan installation foregår.</para>
+
+    <section xml:id="goscaja-444"><info><title>Cajaskripter</title></info>
+      <para>Caja kan afvikle skripter. Skripter er typisk mere simple i brug end fulde <application>Caja</application>-udvidelser og kan skrive i ethvert sprog, der kan afvikles på din computer. For at afvikle et skript vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Skripter</guimenuitem></menuchoice>, vælg så skriptet, du ønsker at afvikle fra undermenuen.</para>
+      <para>For at afvikle et skript på en bestemt fil, vælg filen i visningspanelet. Vælg  <menuchoice><guimenu>Fil</guimenu><guimenuitem>Skripter</guimenuitem></menuchoice>, vælg så skriptet du ønsker at afvikle på filen fra undermenuen. Du kan også vælge flere filer, som dine skripter afvikles på.</para>
+      <para>Du kan også tilgå skripter fra kontekstmenuen.</para>
+      <note>
+        <para>Hvis du ikke har skripter installeret, så vises skriptmenuen ikke.</para>
+      </note>
+
+      <section xml:id="goscaja-install-scripts"><info><title>Installation af filhåndteringsskripter</title></info>
+        <para>Filhåndteringen indeholder en speciel mappe, hvor du kan lagre dine skripter. Alle kørbare filer i denne mappe vil fremgå af menuen Skripter. Skriptmappen er placeret her $HOME/.config/caja/scripts.</para>
+        <para>For at installere et skript kopieres skriptet til skriptmappen og den gives tilladelse til kørsel af bruger.</para>
+      <para>For at vise indholdet af din skriptmappe, hvis du allerede har skripter installeret, vælges <menuchoice><guimenu>Fil</guimenu><guisubmenu>Skripter</guisubmenu><guimenuitem>Åbn Skriptmappe</guimenuitem></menuchoice>. Du skal navigere til skriptmappen med filhåndteringen, hvis du endnu ikke har nogle skripter. Du skal måske vise skjulte viser for dette, brug  <menuchoice><guimenu>Vis</guimenu><guimenuitem>Vis skjulte filer</guimenuitem></menuchoice></para>
+<para>En god kilde at hente <application>Cajaskripter</application> er fra <link xlink:href="http://g-scripts.sourceforge.net"><citetitle>G-Scripts-hjememsiden</citetitle></link>.</para>
+    </section>
+
+    <section xml:id="goscaja-write-scripts"><info><title>Skriv filhåndteringsskripter</title></info>
+       <para>Når kørt fra en lokal mappe, vil skripter blive sendt de valgte filnavne. Når kørt fra en ekstern mappe (f.eks. en mappe der viser internet- eller ftp-indhold) vil skripter blive sendt ingen parametre.</para>
+       <para>Den følgende tabel viser variabler sendt til skriptet:</para>
+       <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colwidth="50*"/>
+            <colspec colwidth="50*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>Miljøvariabel</para>
+                </entry>
+                <entry>
+                  <para>Beskrivelse</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>CAJA_SCRIPT_SELECTED_FILE_PATHS</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>newline-delimited stier for valgte filer (kun hvis lokal)</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>CAJA_SCRIPT_SELECTED_URIS</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>newline-delimited URI'er for valgte filer</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>CAJA_SCRIPT_CURRENT_URI</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>URI for nuværende placering</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>CAJA_SCRIPT_WINDOW_GEOMETRY</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>position og størrelse på nuværende vindue</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+    </section>
+  </section>
+
+  <section xml:id="caja-extensions"><info><title>Cajaudvidelser</title></info>
+    <para><application>Caja</application>-udvidelser er meget mere funktionsrige end <application>Caja</application>-skripter, hvilket giver meget mere frihed der og hvordan de udvider <application>Caja</application>. <application>Caja</application>-udvidelser installeres typisk af din systemadministrator.</para>
+    <para>Nogle populære <application>Cajaudvidelser</application>: <orderedlist>
+        <listitem>
+          <para>caja-actions</para>
+          <para>Denne udvidelse gør, at du nemt kan tildele handlinger baseret på filtypen</para>
+        </listitem>
+        <listitem>
+          <para>caja-send-to</para>
+          <para>Denne udvidelse tilbyder en simpel måde at sende en fil eller mappe til en anden via e-post, lynbesked eller Bluetooth.</para>
+        </listitem>
+        <listitem>
+          <para>caja-open-terminal.</para>
+          <para>Denne udvidelse tilbyder en nem måde at åbne en terminal på den valgte startplacering.</para>
+        </listitem>
+      </orderedlist></para>
+    <note>
+        <para>Hvis du er på udkig efter kommandoen <guilabel>Åbn terminal</guilabel>, som fandtes i <application>Cajas</application> højrekliksmenu som standard, så skal du installere udvidelsen <application>caja-open-terminal</application>.</para>
+    </note>
+  </section>
+  </section>
+</chapter>

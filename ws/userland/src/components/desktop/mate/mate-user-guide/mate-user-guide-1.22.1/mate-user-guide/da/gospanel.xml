@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="panels" xml:lang="da">
+    <info><title>Brug af panelerne</title></info>
+  
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gospanel-1"/>
+
+  <!-- Desktop Overview / Panels -->
+  <anchor xml:id="gosoverview-502"/>
+
+  <highlights>
+    <para>Dette afsnit beskriver hvordan panelerne i toppen og bunden af MATE-skrivebordet bruges, hvordan objekterne tilpasses og hvordan nye paneler tilføjes til skrivebordet.</para>
+  </highlights>
+
+  <section xml:id="panels-intro"><info><title>Indledning</title></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gospanel-2"/>
+
+    <indexterm><primary>paneler</primary> <secondary>introduktion</secondary></indexterm>
+
+    <para>Et panel er et område i MATE-skrivebordet, hvor du har adgang til bestemte handlinger og information, uanset tilstand for dine programvinduer. For eksempel i MATE's standardpaneler kan du starte programmer, se datoen og tiden, kontrollere lydstyrken for systemet med mere.</para> 
+    <para>Du kan tilpasse paneler efter ønske. Du kan ændre deres opførsel og udseende. og du kan tilføje eller fjerne objekter fra dine paneler. Du kan oprette flere paneler, og vælge forskellige egenskaber, objekter og baggrunde for hvert panel. Du kan også skjule paneler.</para>
+    <para>Som standard indeholder MATE-skrivebordet et panel ved den øverste kant og et panel ved den nederste kant på skærmen. De følgende afsnit beskriver disse paneler.</para>
+
+    <section xml:id="top-panel"><info><title>Top-kantpanel</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-6"/>         
+      <indexterm><primary>paneler</primary> <secondary>øverste kantpanel</secondary> <see>øverste kantpanel</see></indexterm>
+      <indexterm><primary>øverste kantpanel</primary> <secondary>introduktion</secondary></indexterm>
+      <para>Som standard indeholder det øverste kantpanel de følgende objekter:</para>
+      <note><para>Din distribution af MATE kan have ændret denne standardopsætning.</para></note>
+           
+      <variablelist>
+      	<varlistentry>
+      		<term><application>Menulinje</application>-panelprogram</term>
+      		<listitem><para>Menulinjen indeholder menuerne <guimenu>Programmer</guimenu>, <guimenu>Steder</guimenu> og <guimenu>System</guimenu>. For yderligere om menulinjen, se <xref linkend="menubar"/>.</para></listitem>
+      	</varlistentry>
+      	<varlistentry>
+      	  <term>Et sæt programopstartsikoner</term>
+          <listitem><para>Det præcise antal ikoner afhænger af din MATE-distribution, men generelt vil du finde mindst en opstarter for <application>Internetbrowseren</application>, en <application>E-postklient</application> og <application>Hjælpebrowseren</application>. Klik på et opstartsikon for at åbne det tilsvarende program.</para></listitem>
+        </varlistentry>
+      	<varlistentry>
+      	  <term>Panelprogram for <application>Påmindelsesområdet</application></term>
+          <listitem><para>Viser ikoner fra andre programmer som kan kræve din opmærksomhed, eller som du ønsker at tilgå uden at skifte fra dit nuværende programvindue. For mere om dette, se <xref linkend="panels-notification-area"/>.</para>
+          <para>Indtil et program tilføjer et ikon til påmindelsesområdet, er kun en smal linje synlig.</para>
+          </listitem>
+        </varlistentry>
+
+         
+        <varlistentry>
+          <term>Panelprogrammet <application>Ur</application></term>
+          <listitem><para><application>Uret</application> viser den aktuelle tid. Klik på tiden for at åbne en lille kalender. Du kan også vise et verdenskort ved at klikke på udvidelsesetiketten <guilabel>Steder</guilabel>. For yderligere om dette, se <link xlink:href="help:mate-clock">Manual for panelprogrammet Ur</link>.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Panelprogrammet <application>Lydstyrkekontrol</application></term>
+          <listitem><para><application>Lydstyrkekontrol</application> gør det muligt at kontrollere lydstryken for højtalerne  i dit system. For yderligere om dette, se manualen for lydstyrkekontrol.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><default:indexterm xmlns="http://docbook.org/ns/docbook">
+            <primary>top edge panel</primary>
+            <secondary>window list icon</secondary>
+          </default:indexterm> <application>Vinduesvælger</application>-ikon</term>
+          <listitem><para><application>Vinduesvælgeren</application> viser alle dine åbne vinduer. For at give fokus på et vindue, klik på vinduesvælgerikonet yderst til højre øverst i toppanelet, vælg så vinduet. For yderligere om dette, se <xref linkend="windows-focus"/>.</para></listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+
+    <section xml:id="bottom-panel"><info><title>Bundkantpanel</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-3"/>        
+      <indexterm><primary>paneler</primary> <secondary>nederste kantpanel</secondary> <see>nederstge kantpanel</see></indexterm>
+      <indexterm><primary>nederste kantpanel</primary> <secondary>introduktion</secondary></indexterm>
+      <para>Som standard indeholder det nederste kantpanel de følgende objekter:</para>
+      <note><para>Din distribution af MATE kan have ændret denne standardopsætning.</para></note>
+      <indexterm><primary>nederste kantpanel</primary> <secondary>indhold</secondary></indexterm>            
+      <variablelist>
+      	<varlistentry>
+      		<term><guibutton>Vis skrivebord</guibutton>-knap</term>
+      		<listitem><para>Klik på denne knap for at minimere alle åbne vinduer og vise skrivebordet. Klik igen for at gendanne alle vinduerne til deres tidligere tilstand.</para></listitem>
+      	</varlistentry>
+      	<varlistentry>
+      		<term>Panelprogrammet <application>Vinduesliste</application></term>
+      		<listitem><para>Viser en knap for hvert åbent vindue. <application>Vindueslisten</application> gør at man kan minimere og gendanne vinduer. For yderligere information, se <xref linkend="windowlist"/>.</para></listitem>
+      	</varlistentry>
+      	<varlistentry>
+      		<term>Panelprogrammet <application>Arbejdsrumskifter</application></term>
+      		<listitem><para>Aktiverer mulighed for skift mellem dine arbejdsrum. For mere om arbejdsrum, se <xref linkend="overview-workspaces"/>.</para></listitem>
+      	</varlistentry>      	
+      </variablelist>
+    </section>
+  </section>
+
+  <section xml:id="gospanel-5"><info><title>Håndtering af paneler</title></info>
+    <!-- Desktop Overview / Panels / To Create Panels -->
+    <anchor xml:id="gosoverview-26"/>
+    <anchor xml:id="gospanel-11"/><!-- To Interact With a Panel -->
+    <indexterm><primary>paneler</primary> <secondary>håndtering</secondary></indexterm>
+    <para>De følgende afsnit beskriver hvordan du håndterer dine paneler.</para>
+    <para>For at interagere med et panel, så skal du klikke på en ledig plads på panelet frem for et af objekterne det indeholder. Hvis skjul-knapperne er synlige på panelet, så kan du også lave et klik med midterste museknap på et af dem for at vælge panelet.</para>
+
+    <section xml:id="gospanel-12"><info><title>Flytte et panel</title></info>
+      <indexterm><primary>paneler</primary> <secondary>flytning</secondary></indexterm>	  
+	  <para>For at flytte et panel til en anden side af skærmen, tryk og hold på <keycap>ALT</keycap> og trække panelet til sin nye placering. Klik på en ledig plads på panelet for at begynde trækket.</para>
+      <para>Et panel der ikke er angivet til udvidelse til skærmens fulde bredde kan trækkes fra kanten af skærmen og placeres overalt. Se <xref linkend="panel-properties"/> for detaljer om hvordan et panels udvid-egnskab indstilles.</para>
+    </section>
+
+    <section xml:id="panel-properties"><info><title>Indstillinger for panel</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-28"/>         
+      <indexterm><primary>paneler</primary> <secondary>ændring af egenskaber</secondary></indexterm>
+      <para>Du kan ændre egenskaberne for hvert panel, såsom placeringen af panelet, opførsel for skjul og det visuelle udseende.</para>
+      <para>For at ændre egenskaber for et panel, højreklik på en ledig plads på panelet, vælg <guimenuitem>Egenskaber</guimenuitem>. Dialogen <guilabel>Panelegenskaber</guilabel> indeholder to faneblade, <guilabel>Generelt</guilabel> og <guilabel>Baggrund</guilabel>.</para>
+      
+      <section xml:id="panel-properties-general"><info><title>Faneblad for generelle egenskaber</title></info>
+        <para>I fanebladet <guilabel>Generelt</guilabel> kan du ændre panelstørrelse, position og skule egenskaber. Den følgende tabel beskriver dialogelementerne på fanebladet <guilabel>Generelt</guilabel>:</para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colname="colspec0" colwidth="28.57*"/>
+            <colspec colname="colspec1" colwidth="71.43*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>Dialogelement</para>
+                </entry>
+                <entry>
+                  <para>Beskrivelse</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry colname="colspec0">
+                  <para><guilabel>Retning</guilabel></para>
+                </entry>
+                <entry colname="colspec1">
+                  <para>Vælg retningen for panelet på din skærm. Klik på den ønskede placering for panelet.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Størrelse</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Brug rulleboksen til at angive størrelsen på panelet.</para>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec0">
+                  <para><guilabel>Udvid</guilabel></para>
+                </entry>
+                <entry colname="colspec1">
+                  <para>Som standard udvides et panel til den fulde længde på skærmen, hvor den er placeret. Et panel som ikke udvides kan flyttes væk fra skærmkanterne til enhver del af skærmen.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Autoskjul</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Vælg denne indstilling hvis du ønsker at panelet kun skal være fuldt synligt når musemarkøren er over det. Panel skjules uden for skærmen langs sin længste kant, efterladende en tynd del synlig langs kanten af skrivebordet. Flyt musemarkøren hen over den synlige del af panelet, for at få panelet tilbage.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Vis skjul-knapper</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Vælg denne indstilling for at vise skjul-knapperne i hver ende af dit panel. Et klik på en skjul-knap flytter panelet på langs, skjulende det uden for skærm undtaget skjul-knappen i den modsatte ende. Klik på denne skjul-knap for at gendanne panelet til fuld synlighed.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Pile på skjul-knapper</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Vælg denne indstilling for at vise pile på skjul-knapper, hvis skjul-knapper er aktiveret.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </section>
+
+      <section xml:id="panel-properties-background"><info><title>Faneblad for baggrundsegenskaber</title></info>
+        <para>Du kan vælge typen af baggrunde for panelet i fanebladet <guilabel>Baggrund</guilabel>. Valgene er de følgende:</para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colwidth="32.32*"/>
+            <colspec colwidth="67.68*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>Dialogelement</para>
+                </entry>
+                <entry>
+                  <para>Beskrivelse</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Ingen (brug systemtema)</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para xml:lang="en">Select this option to have the panel use the settings in the <xref linkend="prefs-theme"/> tool. This keeps your panel's background looking the same as the rest of the desktop and applications.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Fast farve</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Vælg denne indstilling for at angive en enkel farve for panelbaggrunden. Klik på knappen <guibutton>Farve</guibutton> for at vise dialogen til farvevælgeren. Vælg farven du ønsker fra farvevælgeren.</para>
+                  <para>Brug skyderen <guilabel>Stil</guilabel> til at angive graden af gennemsigtighed eller uigennemsigtighed for farven. For eksempel, for at gøre panelet gennemsigtigt, flyt skyderen til slutningen af <guilabel>Gennemsigtig</guilabel>.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><guilabel>Baggrundsbillede</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para>Vælg denne indstilling for at angive et billede for panelets baggrund. Klik på knappen for at gennemse efter en billedfil. Når ud har valgt filen, klik på <guibutton>O.k.</guibutton>.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+        
+        <!-- section folded in: preserve id for backwards compatibility: 2.12 -->
+        <anchor xml:id="gospanel-61"/>
+        <indexterm><primary>paneler</primary> <secondary>ændring af baggrund</secondary></indexterm>
+        <!-- Shaun, why does this bit here change the vertical space between the previous 
+        table and the following paragraph? -->
+             
+        <para>Du kan også trække en farve eller et billede over på panelet for at angive farven eller billedet som baggrund for panelet. Du kan trække en farve eller billede fra mange programmer. For eksempel:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Du kan trække en farve fra enhver dialog til valg af farve.</para>     
+          </listitem>
+          <listitem>
+            <para>Du kan trække en billedfil fra filhåndteringen <application>Caja</application> for at angive den som baggrund for panelet.</para>     
+          </listitem>
+          <listitem>
+            <para xml:lang="en">You can drag a color or a pattern from the <guilabel>Backgrounds
+  and Emblems</guilabel> dialog (see <xref linkend="caja-backgrounds-and-emblems"/>) in <application>Caja</application> file manager to a panel to set it as the background.</para>         
+          </listitem>
+        </itemizedlist>
+        <para>Klik <guibutton>Luk</guibutton> for at lukke dialogen <guilabel>Panelegenskaber</guilabel>.</para>
+      </section>
+    </section>
+
+    <section xml:id="gospanel-7"><info><title>Skjule et panel</title></info>
+      <indexterm><primary>paneler</primary> <secondary>skjule</secondary></indexterm>
+      <para>Du kan skjule eller vise et panel hvis det har skjul-knapper. Hvis skjul-knapperne ikke er synlige på et panel ændres panelegenskaberne så at skjul-knapperne er synlige.</para>
+      <para>Skjul-knapper er i begge ender af et panel. Skjul-knapperne indeholder et valgfrit pilikon. Den følgende illustration viser skjul-knapper.</para>
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/four_hide_button.png" format="PNG"/> </imageobject> <textobject> <phrase>Et vandret panel og et lodret panel, begge med skjul-knapper.</phrase> </textobject></mediaobject>
+      </screenshot>
+      <para>For at skjule et panel, klik på en af skjul-knapperne. Panelet mindskes i retning af pilen på skjul-knappen. Skjul-knappen i den anden ende af panelet forbliver synlig.</para>
+      <para>For at vise et skjult panel igen, klik på den synlige skjul-knap. Panelet udvides i retning af pilen på skjul-knappen. Begge skjul-knapper er nu synlige.</para>
+      <para xml:lang="en">You can set a panel to autohide. When you set autohide, the panel hides
+automatically when the mouse is not pointing to the panel. The panel reappears
+when you point to the part of the screen where the panel resides. To set your
+panel to autohide, modify the properties of the panel as per the instructions in <xref linkend="panel-properties"/>.</para>
+    </section>
+
+    <section xml:id="gospanel-10"><info><title>Tilføjelse af et nyt panel</title></info>
+      <indexterm><primary>paneler</primary> <secondary>tilføje et nyt</secondary></indexterm>
+      <para>For at tilføje et panel, højreklik på en ledig plads på ethvert panel, vælg så <guimenuitem>Nyt panel</guimenuitem>. Det nye panel tilføjes til MATE-skrivebordet. Det nye panel indeholder ingen objekter. Du kan tilpasse det nye panel til dine præferencer.</para>
+    </section>
+
+    <section xml:id="gospanel-31"><info><title>Slette et panel</title></info>
+      <!-- Desktop Overview / Panels / To Delete Panels -->
+      <anchor xml:id="gosoverview-508"/>
+      <indexterm><primary>paneler</primary> <secondary>slette</secondary></indexterm>
+      <para>For at slette et panel fra MATE-skrivebordet, højreklik på panelet du ønsker at slette, vælg så <menuchoice><guimenuitem>Slet dette panel</guimenuitem></menuchoice>.</para>
+      <note>
+        <para>Du skal altid have mindst et panel i MATE-skrivebordet. Hvis du kun har et panel i MATE-skrivebordet, så kan du ikke slette dette panel.</para>
+      </note>
+    </section>
+  </section>
+  
+  <!-- =============================================== managing panel objects -->
+  <section xml:id="gospanel-8"><info><title>Panelobjekter</title></info>
+    <!-- Desktop Overview / Panels / To Manipulate Panel Objects -->
+    <anchor xml:id="gosoverview-21"/>
+    <indexterm><primary>paneler</primary> <secondary>panelobjekter</secondary> <see>panelobjekter</see></indexterm>
+    <para>Dette afsnit beskriver objekterne, som du kan tilføje til og bruge fra dine paneler.</para>
+    <section xml:id="gospanel-100"><info><title>Interaktion med panelobjekter</title></info>
+      
+      <indexterm><primary>panelobjekter</primary> <secondary>interaktion med</secondary></indexterm>
+      <para>Du bruger museknapperne til at interagere med et panelobjekt på følgende måder:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Venstreklik</term>
+          <listitem>
+            <para>Starter panelobjektet.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Midterklik</term>
+          <listitem>
+            <para>Aktiverer at du kan fange et objekt, og så trække objektet til en ny placering.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Højreklik</term>
+          <listitem>
+            <para>Åbner panelobjektets pop op-menu.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <section xml:id="gospanel-39"><info><title>For at vælge et panelprogram</title></info>
+        <indexterm><primary>panelprogrammer</primary> <secondary>valg af</secondary></indexterm>
+        <para>Der gælder nogle begrænsninger for, hvor du kan klikke på et panelprogram for at vise panelobjektets pop op-menu eller flytte panelprogrammet:</para>
+        <itemizedlist>
+          <listitem>
+            <para xml:lang="en">Some applets have popup menus of applet-specific commands
+  that open when you right-click on particular parts of the applet. For example,
+  the <application><xref linkend="windowlist"/></application> applet has a vertical handle on
+  the left side, and buttons that represent your windows on the right side.
+  To open the panel object popup menu for the <application>Window List</application>
+  applet, you must right-click on the handle. If you right-click on a button
+  on the right side, a popup menu for the button opens.</para>
+          </listitem>
+          <listitem>
+            <para>Nogle panelprogrammer har områder, du ikke kan bruge til at vælge panelprogrammet. For eksempel har panelprogrammet <application>Kommandolinje</application> et felt hvori du taster kommandoer. Du kan ikke lavet et midterklik eller højreklik på dette felt vor at vælge panelprogrammet. I stedet skal du lav et midterklik eller højreklik på et andet sted af panelprogrammet.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+    </section>
+
+    <section xml:id="panels-addobject"><info><title>Tilføjelse af et objekt til et panel</title></info>
+      <!-- preserve for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-15"/>   
+
+      <!-- Desktop Overview / Panels / To Add Objects to Panels -->
+      <anchor xml:id="gosoverview-4"/>
+      <anchor xml:id="gospanel-40"/><!-- To Add an Applet to a Panel -->
+      <indexterm><primary>panelobjekter</primary> <secondary>tilføje</secondary></indexterm>
+      <para>Udfør de følgende trin for at tilføje et objekt til et panel:</para>
+      <orderedlist>
+        <listitem><para>Højreklik på en ledig plads på et panel for at åben panelets pop op-menu.</para></listitem>
+        <listitem><para>Vælg <guisubmenu>Tilføj til panel</guisubmenu>.</para>
+          <para xml:lang="en">The <guilabel>Add to Panel</guilabel> dialog opens.The available panel objects are listed alphabetically, with <xref linkend="launchers"/> at the top.</para>
+          <tip><para>Du kan taste en del af navnet eller beskrivelsen på et objekt i boksen <guilabel>Søg</guilabel>. Dette vil indskrænke listen til disse objekter, der matcher det indtastede.</para>
+          <para>For at gendanne den fulde liste, slet teksten i boksen <guilabel>Søg</guilabel>.</para>
+          </tip>
+        </listitem>
+        <listitem><para>Enten træk et objekt fra listen til et panel, eller vælg et objekt fra listen og klik <guibutton>Tilføj</guibutton>for at tilføje den på det sted på panelet hvor du først højreklikkede.</para></listitem>
+      </orderedlist>
+      
+      <para>Du kan også tilføje ethvert element i menuen <guimenu>Programmer</guimenu> til panelet: højreklik på menuelementet og vælg <guimenuitem>Tilføj dette opstartsprogram til panelet</guimenuitem>.</para>
+
+      <para>Hvert opstartsprogram svarer til en <filename>.desktop</filename>-fil. Du kan trække en <filename>.desktop</filename>-fil til dine paneler for at tilføje opstartsprogrammet til panelet.</para>
+<!--Each menu corresponds to a directory. You can drag the directory on to your panels to add the directory to the panel as a menu object. Is this still true?-->
+    </section>
+
+    <section xml:id="gospanel-9"><info><title>Ændring af egenskaberne for et objekt</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-41"/><!-- To Modify Preferences for an Applet -->
+      <indexterm><primary>panelobjekter</primary> <secondary>ændring af egenskaber</secondary></indexterm>
+      <para>Nogle panelobjekter, såsom genveje og skuffer, har et sæt af associerede egenskaber. Egenskaberne er forskellige for hver objekttype. Egenskaberne angiver detaljer såsom det følgende: <itemizedlist><listitem><para>Kommandoen som starter et opstartsprogram.</para></listitem><listitem><para>Placeringen af kildefilerne for en menu.</para></listitem><listitem><para>Ikonet som repræsenterer objektet.</para></listitem></itemizedlist></para>
+      <para>For at ændre egenskaberne for et objekt, udfør de følgende trin:</para>
+      <orderedlist>
+        <listitem>
+          <indexterm><primary>panelobjektets pop op-menu, illustration</primary></indexterm>
+          <para>Højreklik på objektet for at åbne panelobjektets pop op-menu, som vist i <xref linkend="gospanel-FIG-54"/>.</para>
+          <figure xml:id="gospanel-FIG-54"><info><title>Panelobjektets pop op-menu</title></info>
+            
+            <screenshot>
+              <mediaobject><imageobject> <imagedata fileref="figures/panel_object_popup_menu.png" format="PNG"/> </imageobject> <textobject> <phrase>Panelobjektets pop op-menu. Menuelementer: Egenskaber, fjern fra panel, lås, flyt.</phrase> </textobject></mediaobject>
+            </screenshot>
+          </figure>
+        </listitem>
+        <listitem>
+          <para>Vælg <guimenuitem>Egenskaber</guimenuitem>. Brug dialogen <guilabel>Egenskaber</guilabel> til at ændre egenskaberne som krævet. Egenskaberne i dialogen <guilabel>Egenskaber</guilabel> afhænger af hvilket objekt du valgte i trin 1.</para>
+        </listitem>
+        <listitem>
+          <para>Luk dialogen <guilabel>Egenskaber</guilabel>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="gospanel-32"><info><title>Flytte et panelobjekt</title></info>
+      <indexterm><primary>panelobjekter</primary> <secondary>flytte</secondary></indexterm>
+      <para>Du kan flytte panelobjekter i et panel, og fra et panel til et andet panel. Du kan også flytte objekter mellem paneler og skuffer.</para>
+      <para>For at flytte et panelobjekt, midterklik og hold på objektet og træk objektet til en ny placering. Når du frigiver den midterste museknap, sættes objektet fast på den nye placering.</para>
+      <para>Alternativt, du kan bruge panelobjektets pop op-menu til at flytte et objekt, som følgende:</para>
+      <orderedlist>
+        <listitem>
+          <para>Højreklik på objektet og vælg <guimenuitem>Flyt</guimenuitem>.</para>
+        </listitem>
+        <listitem>
+          <para>Peg på den nye placering for objektet, klik så på en museknap for at fastgøre objektet til den nye placering. Denne placering kan være på ethvert panel, som er i MATE-skrivebordet.</para>
+        </listitem>
+      </orderedlist>
+      <para>Bevægelse af et panelobjekt påvirker positionen for andre objekter på panelet. For at kontrollere hvordan objekter flytter sig på panelt, så kan du angive en bevægelsestilstand. For at specificere bevægelsestilstand, tryk på en af de følgende taster, mens du flytter panelobjektet:</para>
+      <informaltable frame="topbot">
+        <tgroup cols="3" colsep="0" rowsep="0">
+          <colspec colname="colspec2" colwidth="15.00*"/>
+          <colspec colname="colspec1" colwidth="30.00*"/>
+          <colspec colname="colspec3" colwidth="54.00*"/>
+          <thead>
+            <row rowsep="1">
+              <entry colname="colspec2">
+                <para>Nøgle</para>
+              </entry>
+              <entry>
+                <para>Flyttetilstand</para>
+              </entry>
+              <entry colname="colspec3">
+                <para>Beskrivelse</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec2" valign="top">
+                <para>Ingen tast</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Byt-bevægelse</para>
+              </entry>
+              <entry colname="colspec3" valign="top">
+                <para>Objektet bytter plads med andre panelobjekter. Byt-bevægelse er standardtilstanden for flyt.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec2" valign="top">
+                <para><keycap>Alt</keycap>-tast</para>
+              </entry>
+              <entry valign="top">
+                <para>Fri bevægelse</para>
+              </entry>
+              <entry colname="colspec3" valign="top">
+                <para>Objektet hopper over andre panelobjekter ind i den næste ledige plads på panelet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec2" valign="top">
+                <para><keycap>Skift</keycap>-tast</para>
+              </entry>
+              <entry valign="top">
+                <para>Skub-bevægelse</para>
+              </entry>
+              <entry colname="colspec3" valign="top">
+                <para>Objektet skubber andre panelobjekter videre langs panelet.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </section>
+
+    <section xml:id="gospanel-566"><info><title>Låse et panelobjekt</title></info>
+      <indexterm><primary>panelobjekter</primary> <secondary>låse</secondary></indexterm>
+      <indexterm><primary>låse panelobjekter</primary></indexterm>
+      <para>Du kan låse panelobjekter, så objekterne bliver i samme position på panelet. Brug dette hvis du ønsker at nogle panelobjekter skal ændre position, når du flytter andre panelobjekter.</para>
+      <para>For at låse et objekt til dets nuværende placering i panelet, højreklik på objektet for at åbne pop op-menuen for panelobjektet, vælg så <guimenuitem>Lås til panel</guimenuitem>. Fravælg for at fjerne låsen på objektet.</para>
+    </section>
+
+    <section xml:id="gospanel-33"><info><title>Fjernelse af et panelobjekt</title></info>
+      <indexterm><primary>panelobjekter</primary> <secondary>fjern</secondary></indexterm>
+      <para>For at fjerne et objekt fra et panel, højreklik på objektet for at åbne panelobjektets pop op-menu og vælg <guimenuitem>Fjern fra panel</guimenuitem>.</para>
+    </section>
+  </section>
+  
+  <!-- ============================================== big bag o' panel objects -->
+  <!-- <remark>won't work because of yelp topic clumping</remark>
+    <para>This section describes the different objects you can add to your panels.</para>
+    <para>For a list of the objects that are on the top and bottom panels by default, see <xref linkend="top-panel"/> and <xref linkend="bottom-panel"/>.</para>
+  -->
+  <section xml:id="gospanel-17"><info><title>Panelprogrammer</title></info>
+    <indexterm><primary>panelprogrammer</primary> <secondary>introduktion</secondary></indexterm>
+    <indexterm><primary>panelobjekter</primary> <secondary>panelprogrammer</secondary> <see>panelprogrammer</see></indexterm>
+    <para>Et panelprogram er et lille program, hvis brugergrænseflade befinder sig i et panel. Den følgende figur viser de følgende panelprogrammer, fra venstre mod højre:</para>
+    <itemizedlist>
+      <listitem>
+        <para><application><xref linkend="windowlist"/></application>: Viser de åbne vinduer på dit system.</para>
+      </listitem>
+      <listitem>
+        <para><application>Lydstyrkekontrol</application>: Gør det muligt at kontrollere lydstryken for højtalere i dit system.</para>
+      </listitem>
+      <listitem>
+        <para><link xlink:href="help:mate-clock"><application>Ur</application></link>: Viser dato og tid.</para>
+      </listitem>
+    </itemizedlist>
+    <screenshot>
+      <mediaobject><imageobject> <imagedata fileref="figures/sample_applet.png" format="PNG"/> </imageobject> <textobject> <phrase>Prøvepanelprogrammer. Konteksten beskriver grafikken.</phrase> </textobject></mediaobject>
+    </screenshot>
+  </section>  
+
+  <section xml:id="launchers"><info><title>Genveje</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="gospanel-16"/>
+    <indexterm><primary>panelobjekter</primary> <secondary>genveje</secondary> <see>genveje</see></indexterm>
+    <para>En <firstterm>genvej</firstterm> er et objekt, som udfører en specifik handling, når du åbnet objektet.</para>
+    <para>Du kan finde genveje i panelerne, i panelmenulinjen og på skrivebordet. En genvej repræsenteres af et ikon alle disse steder.</para>
+    <para>Du kan bruge en genvej til at udføre følgende:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Start et bestemt program.</para>
+      </listitem>
+      <listitem>
+        <para>Kør en kommando.</para>
+      </listitem>
+      <listitem>
+        <para>Åbn en mappe.</para>
+      </listitem>
+      <listitem>
+        <para>Åbn en internetbrowser på en bestemt side på nettet.</para>
+      </listitem>
+      <listitem>
+        <para>Åbn speciel <firstterm>Uniform Resource Identifiers</firstterm> (URI'er). MATE-skrivebordet indeholder specielle URI'er der aktiverer adgang til bestemte funktioner fra filhåndteringen. <default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>special URI
+locations</primary><secondary>and launchers</secondary></default:indexterm></para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Du kan ændre egenskaberne for en genvej. For eksempel inkluderer egenskaber for en genvej navnet på genvejen, ikonet som repræsenterer genvejen og hvordan genvejen køres. For mere om dette, se <xref linkend="launchers-modify"/>.</para>
+    <note><para>I bestemte situationer, vil et opstartsprogram i en menu måske ikke vise et ikon. For eksempel, hvis der ikke er et ikon at vise, eller hvis hele menuen er sat til ikke at vise ikoner.</para></note>
+
+    <section xml:id="gospanel-34"><info><title>Tilføjelse af en genvej til et panel</title></info>
+      <indexterm><primary>genveje</primary> <secondary>tilføjelse til panel</secondary></indexterm>
+      <para>Du kan tilføje en genvej til et panel på en af de følgende måder:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Fra panelets pop op-menu</para>
+          <para xml:lang="en">Right-click on any vacant space on the panel,
+then choose <guimenu>Add to Panel</guimenu>. The <guilabel>Add to Panel</guilabel> dialog opens (see <xref linkend="panels-addobject"/>).</para>
+          <para>For at oprette en ny genvej, vælg <guilabel>Tilpasset programgenvej</guilabel> fra listen. En dialog <guilabel>Opret genvej</guilabel> vises. For yderligere information om egenskaber i denne dialog, se <xref linkend="launchers-properties"/>.</para>
+          <para>Alternativt, for at tilføje en eksisterende genvej til panelet, vælg <guilabel>Programgenvej</guilabel> fra listen. Vælg genvejen du ønsker at tilføje fra listen over menuelementer.</para>
+        </listitem>
+        <listitem>
+          <para>Fra enhver menu</para>
+          <para>For at tilføje en genvej til et panel fra en menu udføres de følgende trin:</para>
+          <itemizedlist>
+            <listitem><para>Åbn en menu som indeholder genvejen. Træk genvejen hen på panelet.</para></listitem>
+            <listitem><para>Åbn menuen der indeholder opstartsprogrammet og højreklik på titlen for opstartsprogrammet. Vælg <guimenuitem>Tilføj dette opstartsprogram til panelet</guimenuitem>. Denne metode vil kun fungere, hvis opstartsprogrammet er på en undermenu af menuen du åbnede.</para></listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>Fra filhåndteringen</para>
+          <para>For at tilføje et opstartsprogram til et panel fra filhåndteringen, find filen <filename>.desktop</filename> for opstartsprogrammet i dit filsystem, træk filen <filename>.desktop</filename> til panelet.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section xml:id="launchers-modify"><info><title>Ændring af en genvej</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-36"/>        
+      <indexterm><primary>genveje</primary> <secondary>ændring af egenskaber</secondary></indexterm>
+      <para>For at ændre egenskaber for en genvej i et panel, udfør de følgende trin:</para>
+      <orderedlist>
+        <listitem>
+          <para>Højreklik på opstarteren for at åbne panelobjektets pop op-menu.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg <guimenuitem>Egenskaber</guimenuitem>. Brug dialogen <guilabel>Egenskaber for genvej</guilabel> til at ændre egenskaberne som krævet. For yderligere information om dialogen <guilabel>Egenskaber for genvej</guilabel>  se <xref linkend="launchers-properties"/>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik <guibutton>Luk</guibutton> for at lukke dialogen <guilabel>Egenskaber for genvej</guilabel>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="launchers-properties"><info><title>Egenskaber for genvej</title></info> 
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-52"/><!-- To Create a Launcher With the Create Launcher Dialog -->
+         
+      <para>Når du opretter eller redigerer en genvej, så kan de følgende egenskaber indstilles:</para>
+      <variablelist>
+        <varlistentry><term>Type</term>
+          <listitem>
+            <para>Brug dette rullegardin til at angive om dette opstartsprogram starter et program eller åbner en placering:</para>
+            <variablelist>
+              <varlistentry><term>Program</term>
+                <listitem>
+                  <para>Opstarteren starter et program.</para>
+                </listitem>     
+              </varlistentry>
+              <varlistentry><term>Program i terminal</term>
+                <listitem>
+                  <para>Genvejen starter et program via et terminalvindue.</para>
+                </listitem>     
+              </varlistentry>
+              <varlistentry><term>Placering</term>
+                <listitem>
+                  <para>Genvejen åbner en fil, en internetside eller en anden placering.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <para>Hvis du redigerer en stedopstarter, så vil denne rullegardinliste ikke blive vist. Hvis du redigerer en programopstarter, så vil indstillingen <guilabel>Sted</guilabel> ikke være tilgængelig.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry><term>Navn</term>
+          <listitem>
+            <para>Dette er navnet, der vises, hvis du tilføjer en opstarter til en menu eller til skrivebordet.</para>
+          </listitem>     
+        </varlistentry>
+        <varlistentry><term>Kommando</term>
+          <listitem>
+            <para>For en programgenvej, angiv en kommando der skal køres, når du klikker på genvejen. For eksempler på kommandoer se <xref linkend="launchers-properties-commands"/>.</para>
+          </listitem>     
+        </varlistentry>
+        <varlistentry><term>Placering</term>
+          <listitem>
+            <para>For en stedgenvej, angiv stedet der skal åbnes. Klik Gennemse for at vælge et sted på din computer, eller tast en internetadresse for at starte en internetside. For eksempler på steder se <xref linkend="launchers-properties-commands"/></para>
+          </listitem>     
+        </varlistentry>
+        <varlistentry><term>Kommentar</term>
+          <listitem>
+            <para>Dette vises som et værktøjsfif, når du peger på opstartsikonet på panelet.</para>
+          </listitem>     
+        </varlistentry>
+      </variablelist>
+      
+      <para>For at ændre ikonet for opstarteren, klik på knappen der viser det aktuelle ikon. En dialog til at vælge ikoner vises. Vælg et ikon fra dialogen.</para>
+  
+      <section xml:id="launchers-properties-commands"><info><title>Starter kommandoer og steder</title></info>
+        <!-- Maintained for backwards compatibility: 2.14 -->
+        <anchor xml:id="gospanel-556"/>        
+        <para>Eksempler på kommandoer og steder som du kan bruge i dialogen <guilabel>Egenskaber for genvej</guilabel> kan findes nedenfor.</para>
+        
+        <para>Hvis du vælger <guilabel>Program</guilabel> eller <guilabel>Program i terminal</guilabel> fra rullegardinet <guilabel>Type</guilabel>, så vil tekstboksen <guilabel>Kommando</guilabel> blive vist. Den følgende tabel viser nogle eksempler på kommandoer og handlingerne kommandoerne udfører:</para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colname="colspec0" colwidth="47.36*"/>
+            <colspec colname="colspec1" colwidth="52.64*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>Eksempel på programkommando</para>
+                </entry>
+                <entry>
+                  <para>Handling</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry colname="colspec0" valign="top">
+                  <para><command>pluma</command></para>
+                </entry>
+                <entry colname="colspec1" valign="top">
+                  <para>Starter tekstbehandleren <application>pluma</application>.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><command>pluma /home/user/loremipsum.txt</command></para>
+                </entry>
+                <entry valign="top">
+                  <para>Åbner filen <filename>/home/user/loremipsum.txt</filename> i tekstbehandleren <application>pluma</application>.</para>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec0" valign="top">
+                  <para><command>caja /home/user/Projects</command></para>
+                </entry>
+                <entry colname="colspec1" valign="top">
+                  <para>Åbner mappen <filename>/home/user/Projects</filename> i et filbrowservindue.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+        <para>Vis du vælger <guilabel>Sted</guilabel> fra rullegardinet <guilabel>Type</guilabel>, vil tekstboksen for <guilabel>Sted</guilabel> blive vist. Den følgende tabel viser nogle eksempler på steder og handlingerne, der vil ske, hvis du klikker på opstartsprogrammet:<default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>special URIs</primary><secondary>launchers</secondary></default:indexterm></para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colname="colspec0" colwidth="47.36*"/>
+            <colspec colname="colspec1" colwidth="52.64*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>Eksempel på steder</para>
+                </entry>
+                <entry>
+                  <para>Handling</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry colname="colspec0" valign="top">
+                  <para><command>file:///home/user/loremipsum.txt</command></para>
+                </entry>
+                <entry colname="colspec1" valign="top">
+                  <para>Åbner filen <filename>/home/user/loremipsum.txt</filename> i standardfremviseren for dens filtype.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><command>file:///home/user/Projects</command></para>
+                </entry>
+                <entry valign="top">
+                  <para>Åbner mappen <filename>/home/user/Projects</filename> i et filbrowservindue.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><command>http://www.mate-desktop.org</command></para>
+                </entry>
+                <entry valign="top">
+                  <para>Åbner MATE-hjemmesiden i din standardbrowser.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para><command>ftp://ftp.mate-desktop.org</command></para>
+                </entry>
+                <entry valign="top">
+                  <para>Åbner MATE FTP-siden i din standardbrowser.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </section>
+    </section>    
+  </section>
+
+  <section xml:id="gospanel-557"><info><title>Knapper</title></info>
+    <indexterm><primary>knapper</primary> <secondary>tilføjelse til panel</secondary></indexterm>
+    <indexterm><primary>handlingsknapper</primary> <see>knapper</see></indexterm>
+    <para>Du kan tilføje knapper til dine paneler for at tilbyde hurtig adgang til  gængse handlinger og funktioner.</para>
+
+    <section xml:id="gospanel-563"><info><title>Gennemtving afslutning-knap</title></info>
+      <indexterm><primary>knapper</primary> <secondary>Gennemtving afslutning</secondary></indexterm>
+      <indexterm><primary>panelobjekter</primary> <secondary>Gennemtving afslutning-knap</secondary></indexterm>
+      <indexterm><primary>Gennemtving afslutning-knap</primary></indexterm>
+      <indexterm><primary>terminering af programmer</primary></indexterm>
+      <indexterm><primary>programmer</primary> <secondary>terminering</secondary></indexterm>
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/force_quit.png" format="PNG"/> </imageobject> <textobject> <phrase>Gennemtving afslutning-ikon.</phrase> </textobject></mediaobject>
+      </screenshot>
+      <para>Knappen <guibutton>Gennemtving afslutning</guibutton> gør at du kan klikke på et program for at afslutte. Denne knap er nyttig hvis du ønsker at afslutte et program, som ikke svarer på dine kommandoer, hvis programmet for eksempel er frosset eller brudt ned.</para>
+      <para>For at tilføje en <guibutton>Gennemtving afslutning</guibutton>-knap til et panel, højreklik på en ledig plads på panet. Vælg <guimenu>Tilføj til panel</guimenu>, vælg så <application>Gennemtving afslutning</application> fra dialogen Tilføj til panel. Se <xref linkend="panels-addobject"/> for yderligere om dette.</para>
+      <para>For at afslutte et program, klik på knappen <guibutton>Gennemtving afslutning</guibutton>, klik så på et vindue fra programmet du ønsker at afslutte. Hvis du ikke ønsker at afslutte et program efter at du har klikket på knappen <guibutton>Gennemtving afslutning</guibutton>, tryk <keycap>Esc</keycap>.</para>
+    </section>
+
+    <section xml:id="panel-lock-screen"><info><title>Lås skærm-knap</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-21"/>
+
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/lockscreen_icon.png" format="PNG"/> </imageobject> <textobject> <phrase>Lås skærm-ikon.</phrase> </textobject></mediaobject>
+      </screenshot>
+      <indexterm><primary>knapper</primary> <secondary>Lås</secondary></indexterm>
+      <indexterm><primary>panelobjekter</primary> <secondary>Låseknap</secondary></indexterm>
+      <indexterm><primary>Låseknap</primary></indexterm>
+      <indexterm><primary>låse skærm</primary></indexterm>
+      <para>Knappen <guibutton>Lås skærm</guibutton> låser din skærm og aktiverer din pauseskærm, når du klikker på den. For at tilgå din session igen, skal du indtaste din adgangskode.</para>
+      <para>For at tilføje en <guibutton>Lås skærm</guibutton>-knap til et panel, højreklik på en ledig plads på panelet. Vælg <guimenu>Tilføj til panel</guimenu>, vælg så <application>Lås skærm</application> fra dialogen Tilføj til panel. Se <xref linkend="panels-addobject"/> for yderligere om dette.</para>
+      <para>Højreklik på knappen <guibutton>Lås skærm</guibutton> for at åbne en menu med pasuseskærmsrelaterede kommandoer. <xref linkend="gosstartsession-TBL-83"/> beskriver kommandoerne der er tilgængelige fra menuen.</para>
+      <table frame="topbot" xml:id="gosstartsession-TBL-83"><info><title>Lås menuelementer for skærmen</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="43.55*"/>
+          <colspec colname="colspec1" colwidth="56.45*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Menuelement</para>
+              </entry>
+              <entry>
+                <para>Funktion</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guimenuitem>Aktiver pauseskærm</guimenuitem></para>
+              </entry>
+              <entry valign="top">
+                <para>Aktiverer pauseskærmen med det samme.</para>
+                <para>Dette vil også låse skærmen hvis du har indstillet <guilabel>Lås skærm når pauseskærm er aktiv</guilabel> i præferenceværktøjet <application>Pauseskærm</application>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guimenuitem>Lås skærmen</guimenuitem></para>
+              </entry>
+              <entry valign="top">
+                <para>Låser skærmen øjeblikkeligt. Denne kommando udfører den samme funktion som når du klikker på knappen <guibutton>Lås skærm</guibutton>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guimenuitem>Egenskaber</guimenuitem></para>
+              </entry>
+              <entry valign="top">
+                <para xml:lang="en">Opens the <xref linkend="prefs-screensaver"/> tool, with which you can configure the type of screensaver that is displayed when you lock the screen.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="gospanel-20"><info><title>Log ud-knap</title></info>
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/logout_icon.png" format="PNG"/> </imageobject> <textobject> <phrase>Log ud-ikon.</phrase> </textobject></mediaobject>
+      </screenshot>
+      <indexterm><primary>knapper</primary> <secondary>Log ud</secondary></indexterm>
+      <indexterm><primary>panelobjekter</primary> <secondary>Log ud-knap</secondary></indexterm>
+      <indexterm><primary>Log ud-knap</primary></indexterm>
+      <para>Knappen <guibutton>Log ud</guibutton> gør, at du kan logge ud af en MATE-session eller skifte til en anden brugerkonto.</para>
+      <para>For at tilføje en <guibutton>Log ud</guibutton>-knap til et panel, højreklik på en ledig plads på panelet. Vælg <guimenu>Tilføj til panel</guimenu>, vælg så <application>Log ud</application> fra dialogen Tilføj til panel. Se <xref linkend="panels-addobject"/> for yderligere om dette.</para>
+      <para>For at logge ud af din session eller skifte brugere, klik på knappen <guibutton>Log ud</guibutton> og klik så på den passende knap i dialogen der vises.</para>
+    </section>
+
+    <section xml:id="gospanel-555"><info><title>Kør knap</title></info>
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/run_button.png" format="PNG"/> </imageobject> <textobject> <phrase>Kør knap-ikon.</phrase> </textobject></mediaobject>
+      </screenshot>
+      <indexterm><primary>knapper</primary> <secondary>Kør</secondary></indexterm>
+      <indexterm><primary>panelobjekter</primary> <secondary>Kør knap</secondary></indexterm>
+      <indexterm><primary>Kør-knap</primary></indexterm>
+      <para>Knappen <guibutton>Kør</guibutton> åbner dialogen <guilabel>Kør program</guilabel>, som gør at du kan starte et program ved at vælge det fra en liste.</para>
+      <para>Højreklik på en ledig plads på panelet for at tilføje knappen <guibutton>Kør</guibutton>. Vælg <guimenu>Tilføj til panel</guimenu>, vælg så <application>Kør program</application> fra dialogen Tilføj til panel. Se <xref linkend="panels-addobject"/> for yderligere om dette.</para>
+      <para>For at åbne dialogen <application>Kør program</application>, klik på knappen <guibutton>Kør</guibutton>.</para>
+      <para>For yderligere information om dialogen <guilabel>Kør program</guilabel>, se <xref linkend="gospanel-23"/>.</para>
+    </section>
+
+    <section xml:id="gospanel-554"><info><title>Søgeknap</title></info>
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/searchtool_button.png" format="PNG"/> </imageobject> <textobject> <phrase>Ikon for søgeværktøj.</phrase> </textobject></mediaobject>
+      </screenshot>
+      <indexterm><primary>knapper</primary> <secondary>Søg</secondary></indexterm>
+      <indexterm><primary>panelobjekter</primary> <secondary>Søgeknap</secondary></indexterm>
+      <indexterm><primary>Søgeknap</primary></indexterm>
+      <para><guibutton>Søgeknappen</guibutton> åbner <application>Søgeværktøjet</application>, hvor du kan søge efter filer på din computer.</para>
+      <para>For at tilføje en <guibutton>Søgeknap</guibutton> til et panel, højreklik på ethvert ledigt punkt på panelet. Vælg <guimenu>Tilføj til panel</guimenu>, vælg så <application>Søg efter filer</application> fra Tilføj til panel-dialogen. Se <xref linkend="panels-addobject"/> for mere om dette.</para>
+      <para>For at åbne <application>Søgeværktøjet</application>, klik på <guibutton>Søgeknappen</guibutton>.</para>
+      <para>For yderligere information om <application>Søgeværktøjet</application>, se <link xlink:href="help:mate-search-tool">Søgeværktøjsmanualen</link>.</para>
+    </section>
+
+    <section xml:id="gospanel-564"><info><title>Vis skrivebord-knap</title></info>
+      <indexterm><primary>knapper</primary> <secondary>Minimer vinduer</secondary></indexterm>
+      <indexterm><primary>panelobjekter</primary> <secondary>Minimer vinduesknap</secondary></indexterm>
+      <indexterm><primary>Minimer vinduesknap</primary></indexterm>
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/show_desktop_button.png" format="PNG"/> </imageobject> <textobject> <phrase>Vis skrivebordsikon.</phrase> </textobject></mediaobject>
+      </screenshot>
+      <para>Du kan bruge knappen <guibutton>Vis skrivebord</guibutton> til at minimere alle åbne vinduer og vise skrivebordet.</para>
+      <para>Højreklik på en ledig plads på panelet for at tilføje knappen <guibutton>Vis skrivebord</guibutton>. Vælg <guimenu>Tilføj til panel</guimenu>, vælg så <application>Vis skrivebord</application> fra dialogen Tilføj til panel. Se <xref linkend="panels-addobject"/> for yderligere om dette.</para>
+      <para>Klik på knappen <guibutton>Vis skrivebord</guibutton> for at minimere alle vinduer og vise skrivebordet. Klik på den igen for at gendanne alle vinduerne til deres tidligere tilstand.</para>
+    </section>
+  </section>
+
+  <section xml:id="panel-menus"><info><title>Menuer</title></info>
+    <!-- Desktop Overview / Menus -->
+    <anchor xml:id="gosoverview-42"/>
+    <anchor xml:id="gospanel-37"/>
+
+    <indexterm><primary>menuer</primary> <secondary>tiflføjelse til panel</secondary></indexterm>
+    <indexterm><primary>panelobjekter</primary> <secondary>menuer</secondary></indexterm>
+    <para>Du kan tilføje de følgende menutyper til dine paneler:</para>
+    <itemizedlist>
+      <listitem>
+        <para><guimenu>Menulinje</guimenu>: Du kan tilgå næsten alle standardprogrammerne, kommandoer og konfigurationsindstillinger fra menuerne i menulinjen. Den indeholder menuerne <guimenu>Programmer</guimenu>, <guimenu>Steder</guimenu> og <guimenu>System</guimenu>.</para>
+        <para>For at tilføje en <guimenu>Menulinje</guimenu> til et panel, højreklik på en ledig plads på panelet. Vælg <guimenu>Tilføj til panel</guimenu>, vælg så <application>Menulinje</application> fra Tilføj til panel-dialogen. Se <xref linkend="panels-addobject"/> for yderligere om dette.</para>
+      </listitem>
+      <listitem>
+        <para><guimenu>Hovedmenu</guimenu>: Hovedmenuen består af de samme elementer som menulinjen, men organiserer dem i en menu i stedet for tre. Det bruger mindre plads på panelerne.</para>
+        <para>For at tilføje en <guimenu>Hovedmenu</guimenu> til et panel, højreklik på en ledig plads på panelet. Vælg <guimenu>Tilføj til panel</guimenu>, vælg så <application>Hovedmenu</application> fra dialogen Tilføj til panel. Se <xref linkend="panels-addobject"/> for yderligere om dette.</para>
+      </listitem>
+      <listitem>
+        <para><guimenu>Undermenuer</guimenu>: Du kan tilføj en undermenu fra menulinjen eller hovedmenuen direkte til panelet. For eksempel kan du tilføje undermenuen <guimenu>Spil</guimenu> fra menuen <guimenu>Programmer</guimenu> til panelet.</para>
+        <para>For at tilføje en undermenu til et panel, åbn undermenuen, højreklik på en genvej, vælg så <menuchoice><guimenu>Hel menu</guimenu> <guimenuitem>Tilføj denne som menu til panel</guimenuitem></menuchoice>.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section xml:id="gospanel-18"><info><title>Skuffer</title></info>
+    <indexterm><primary>panelobjekter</primary> <secondary>skuffer</secondary> <see>skuffer</see></indexterm>
+    <para>En skuffe er en udvidelse af et panel. Du kan åbne og lukke en skuffe på samme måde du kan vise og skjule et panel. En skuffe kan indeholde alle panelobjekter, inklusive genveje, menuer, panelprogrammer og andre skuffer. Når du åbner en skuffe, så kan du bruge objekterne på samme måde ,som du bruger objekter på et panel.</para>
+    <para>Den følgende figur viser en åben skuffe som indeholder to panelobjekter.</para>
+    <screenshot>
+      <mediaobject><imageobject> <imagedata fileref="figures/open_drawer.png" format="PNG"/> </imageobject> <textobject> <phrase>Åbn skuffe. Konteksten beskriver grafikken.</phrase> </textobject></mediaobject>
+    </screenshot>
+    <para>Pilen på ikonet indikerer at den repræsenterer en skuffe eller menu.</para>
+    <para>Du kan tilføje, flytte og fjerne objekter fra skuffer på samme måde, som du tilføjer, flytter og fjerner objekter fra paneler.</para>
+
+    <section xml:id="gospanel-42"><info><title>For at åbne og lukke en skuffe</title></info>
+      <indexterm><primary>skuffer</primary> <secondary>åbning</secondary></indexterm>
+      <indexterm><primary>skuffer</primary> <secondary>lukning</secondary></indexterm>
+      <para>For at åbne en skuffe, klik på skuffens ikon i et panel. Du kan lukke en skuffe på følgende måder:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Klik på skuffens ikon.</para>
+        </listitem>
+        <listitem>
+          <para>Klik på skuffens skjul-knap.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section xml:id="gospanel-420"><info><title>For at tilføje en skuffe til et panel</title></info>
+      <indexterm><primary>skuffer</primary> <secondary>tilføje til panel</secondary></indexterm>
+      <para>Du kan tilføje en skuffe til et panel på følgende måder:</para>
+      <variablelist>
+      <varlistentry>
+        <term>Fra panelets pop op-menu</term>
+        <listitem>
+          <orderedlist>
+            <listitem><para>Højreklik på et ledig område på panelet, vælg så <guimenuitem>Tilføj til panel</guimenuitem>.</para></listitem>
+            <listitem><para>I dialogen <application>Tilføj til panel</application>, vælg <guilabel>Skuffe</guilabel>. Klik <guibutton>Tilføj</guibutton>, klik så <guibutton>Luk</guibutton>.</para></listitem>
+          </orderedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Fra enhver menu</term>
+        <listitem>
+          <para>Du kan tilføje en menu som et skuffeobjekt til et panel.</para>
+          <para>For at tilføje en menu som en skuffe til et panel, åbn menuen fra panelet. Højreklik på en genvej i menuen, vælg så <menuchoice><guimenu>Hel menu</guimenu> <guimenuitem>Tilføj denne som skuffe til panel</guimenuitem></menuchoice>.</para>
+        </listitem>
+      </varlistentry>
+      </variablelist>
+    </section>
+
+    <section xml:id="gospanel-54"><info><title>For at tilføje et objekt til en skuffe</title></info>
+      <indexterm><primary>skuffer</primary> <secondary>tilføje objekter til</secondary></indexterm>
+      <para>Du kan tilføje et objekt til en skuffe på samme måde som du tilføjer objekter til paneler. For yderligere information, se <xref linkend="panels-addobject"/>.</para>
+    </section>
+
+    <section xml:id="gospanel-550"><info><title>For at ændre skuffeegenskaber</title></info>
+      <indexterm><primary>skuffer</primary> <secondary>ændring af egenskaber</secondary></indexterm>
+      <para>Du kan ændre egenskaberne for hver skuffe individuelt. For eksempel kan du ændre den visuelle fremtoning af skuffen og om den har skjul-knapper.</para>
+      <para>Udfør de følgende trin for at ændre egenskaberne for en skuffe:</para>
+      <orderedlist>
+        <listitem>
+          <para>Højreklik på skuffen, vælg så <guimenuitem>Egenskaber</guimenuitem> for at vise dialogen <guilabel>Skuffeegenskaber</guilabel>. Dialogen viser fanebladet <guilabel>Generelt</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Vælg egenskaberne for skuffen i dialogen. Den følgende tabel beskriver elementerne i fanebladet <guilabel>Generelt</guilabel>:</para>
+          <informaltable frame="topbot">
+            <tgroup cols="2" colsep="0" rowsep="0">
+              <colspec colname="colspec0" colwidth="28.57*"/>
+              <colspec colname="colspec1" colwidth="71.43*"/>
+              <thead>
+                <row rowsep="1">
+                  <entry>
+                    <para>Dialogelement</para>
+                  </entry>
+                  <entry>
+                    <para>Beskrivelse</para>
+                  </entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry colname="colspec0">
+                    <para><guilabel>Størrelse</guilabel></para>
+                  </entry>
+                  <entry colname="colspec1">
+                    <para>Angiv bredden for skuffen når den er åben.</para>
+                  </entry>
+                </row>
+                <row>
+                  <entry colname="colspec0">
+                    <para><guilabel>Ikon</guilabel></para>
+                  </entry>
+                  <entry colname="colspec1">
+                    <para>Vælg et ikon til at repræsentere skuffen. Klik på knappen <guibutton>Ikon</guibutton> for at vise en dialog til at vælge ikon. Vælg et ikon fra dialogen og klik på <guibutton>O.k.</guibutton> for at bekræfte dit valg.</para>
+                  </entry>
+                </row>
+                <row>
+                  <entry valign="top">
+                    <para><guilabel>Vis skjul-knapper</guilabel></para>
+                  </entry>
+                  <entry valign="top">
+                    <para>Vælg denne indstilling for at vise skjul-knapper på din skuffe. Når du klikke på en af knapperne, så vil skuffen lukke.</para>
+                  </entry>
+                </row>
+                <row>
+                  <entry valign="top">
+                    <para><guilabel>Pile på skjul-knapper</guilabel></para>
+                  </entry>
+                  <entry valign="top">
+                    <para>Vælg denne indstilling for at vise pile på skjul-knapperne, hvis skjul-knapperne er aktiveret.</para>
+                  </entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </listitem>
+        <listitem>
+          <para>Du kan bruge fanebladet <guilabel>Baggrund</guilabel> til at angive baggrunden for skuffen. For information om hvordan fanebladet <guilabel>Baggrund</guilabel> fuldføres, se <xref linkend="panel-properties"/>. Du kan også trække en farve eller et billede til skuffen for at se farven eller billedet som baggrunden for skuffen. For yderligere information, se <xref linkend="panel-properties-background"/>.</para>
+        </listitem>
+        <listitem>
+          <para>Klik <guibutton>Luk</guibutton> for at lukke dialogen <guilabel>Skuffeegenskaber</guilabel>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+
+  <section xml:id="panel-default"><info><title>Standardpanelobjekter</title></info>
+    <!-- a temporary home for things that should one day be in a greater list of panel objects -->
+    
+    <para>Dette afsnit beskriver panelobjekterne som fremgår i MATE-skrivebordet.</para>
+    
+    <section xml:id="panel-windowselector"><info><title>Vinduesvælgerpanelprogram</title></info> 
+      <!-- preserve for backwards compatibility: 2.12 -->
+      <anchor xml:id="gosmarco-27"/>
+
+      <indexterm><primary>øverste kantpanel</primary> <secondary>vinduesvælgerikon</secondary></indexterm>
+      <indexterm><primary>vinduesvælger</primary> <secondary>øverste kantpanel</secondary></indexterm>
+      <para>Du kan se en liste med alle åbne vinduer. Du kan også vælge at give et vindue fokus. For at se vindueslisten, klik på panelprogrammet <application>Vinduesvælger</application>. Den følgende figur viser et eksempel på panelprogrammet <application>Vinduesvælger</application>:</para>
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/openwindows_menu.png" format="PNG"/> </imageobject> <textobject> <phrase>Vinduesvælgerpanelprogram vist fra øverste kantpanel.</phrase> </textobject></mediaobject>
+      </screenshot>
+      <para>For at give fokus til et vindue, vælg vinduet fra panelprogrammet <application>Vinduesvælger</application>.</para>
+      <para><application>Vinduesvælgeren</application> viser vinduerne i alle arbejdsrum. Vinduerne i alle arbejdsrum udover det nuværende arbejdsrum er vist under en separat linje.</para>
+    </section>  
+
+    <section xml:id="panels-notification-area"><info><title>Statusfeltpanelprogram</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-567"/>
+
+      <indexterm><primary>panelprogrammer</primary> <secondary>Påmindelsesområde</secondary></indexterm>
+      <indexterm><primary>panelobjekter</primary> <secondary>Statusfeltpanelprogram</secondary></indexterm>
+      <indexterm><primary>Statusfeltpanelprogram</primary></indexterm>
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/notification_area_icon.png" format="PNG"/> </imageobject> <textobject> <phrase>Statusfeltikon.</phrase> </textobject></mediaobject>
+      </screenshot>
+      <para>Panelprogrammet <application>Påmindelsesområde</application> viser ikoner fra diverse programmer for at indikere aktivitet i programmet. For eksempel, når du bruger programmet <application>Cd-afspiller</application> til at afspille cd, så vil et cd-ikon blive vist i panelprogrammet <application>Påmindelsesområde</application>. Grafikken ovenfor illustrerer cd-ikonet i panelprogrammet <application>Påmindelsesområde</application>.</para>
+    </section>
+     
+    <section xml:id="goseditmainmenu-65"><info><title>Menulinje</title></info>
+      <screenshot>
+        <mediaobject><imageobject> <imagedata fileref="figures/menu_bar_applet.png" format="PNG"/> </imageobject> <textobject> <phrase>Panelprogram for menulinjen. Menuer: Programmer, Steder, System.</phrase> </textobject></mediaobject>
+      </screenshot>
+      <para>Menulinjen indeholder menuerne <guimenu>Programmer</guimenu>, <guimenu>Steder</guimenu> og <guimenu>System</guimenu>. Du kan tilgå næsten alle standardprogrammer, kommandoer og konfigurationsindstillinger fra <application>Menulinjen</application>. For yderligere om menulinjen, se <xref linkend="menubar"/>.</para>
+    </section>
+
+<!-- This has been pasted from the Window List manual so that the Window List applet help is integrated into the GUG. -->
+<!-- This section needs gross refactoring (making task-based for starters) -->
+
+ <section xml:id="windowlist"><info><title>Vinduesliste</title></info>
+	 <para>Panelprogrammet <application>Vinduesliste</application> gør, at du kan håndtere de åbne vinduer på MATE-skrivebordet. Vindueslisten bruger en knap til at repræsentere hvert vindue eller gruppe af vinduer, som er åbne. Tilstanden for knapperne i panelprogrammet varierer afhængig af tilstanden for vinduet, som knapperne repræsenterer. Den følgende tabel forklarer de mulige tilstande for knapperne <application>Vinduesliste</application>.</para>
+	<informaltable>
+	<tgroup cols="2">
+	<colspec colname="col1"/>
+	<colspec colname="col2"/>
+	<thead>
+	<row valign="top">
+	<entry colname="col1"><para>Stat</para></entry>
+	<entry colname="col2"><para>Indikerer ...</para></entry>
+	</row>
+	</thead>
+	<tbody>
+	<row valign="top">
+	<entry colname="col1"><para>Knappen er trykket ned.</para></entry>
+	<entry colname="col2"><para>Vinduet er i fokus.</para></entry>
+	</row>
+	<row valign="top">
+	<entry colname="col1"><para>Knappen ser falmet ud. Knapteksten er omgivet af firkantede parenteser.</para></entry>
+	<entry colname="col2"><para>Vinduet er minimeret.</para></entry>
+	</row> 
+	<row valign="top">
+	<entry colname="col1"><para>Knappen er ikke trykket ned, og er ikke falmet.</para></entry>
+	<entry colname="col2"><para>Vinduet vises på skrivebordet og er ikke minimeret.</para></entry>
+	</row>
+	<row valign="top">
+	<entry colname="col1"><para>Der er et nummer i parentes i slutningen af knappens titel.</para></entry>
+	<entry colname="col2"><para>Knappen repræsenterer en gruppe af knapper.</para></entry>
+	</row>
+	</tbody>
+	</tgroup>
+	</informaltable>
+
+<!-- ================ Usage ================================ -->
+  <section xml:id="windowlist-usage"><info><title>Brug</title></info>
+	 <para>Du kan bruge <application>Vinduesliste</application> til at udføre de følgende opgaver:</para>
+	<itemizedlist>
+	<listitem>
+	<para>For at give fokus til et vindue</para>
+	<para>Hvis du klikker på vindueslistens knap, som repræsenterer et vindue, som er på skrivebordet, men ikke har fokus, så giver panelprogrammet fokus til vinduet.</para>
+	</listitem>
+	<listitem>
+	<para>For at minimere et vindue</para>
+	<para>Hvis du klikker på Vindueslistens knap, som repræsenterer vinduet i fokus, så minimerer panelprogrammet vinduet.</para>
+	</listitem>
+	<listitem>
+	<para>For at gendanne et minimeret vindue</para>
+	<para>Hvis du klikker på Vindueslistens knap, som repræsenterer et minimeret vindue, så gendanner panelprogrammet vinduet.</para>
+	</listitem>
+	</itemizedlist>
+	
+	<para>Du kan ændre rækkefølgen for vindueslistens knapper ved at trække en knap til en anden placering på vindueslisten.</para>
+	
+  </section>
+<!-- ============= Preferences ============================= -->
+  <section xml:id="windowlist-prefs"><info><title>Indstillinger</title></info> 
+	 <para>For at konfigurere <application>Vindueslisten</application>, højreklik på håndtaget til venstre for vinduesknapperne, vælg så <guimenuitem>Præferencer</guimenuitem>. De følgende præferencer kan ændres:</para>
+    
+    <!-- Maintained for compatibility -->
+    <anchor xml:id="windowlist-prefs-behavior"/>
+    <anchor xml:id="windowlist-prefs-size"/>
+    
+	 <variablelist>
+	 <varlistentry><term><guilabel>Vindueslisteindhold</guilabel></term>
+	 <listitem>
+	 <para>Vælg en af de følgende indstillinger for at angive hvilke vinduer, der skal vises i Vindueslisten:</para>
+	 	<itemizedlist>
+	 	<listitem>
+	 	<para><guilabel>Vis vinduer fra nuværende arbejdsrum</guilabel></para>
+	 	<para>Vælg denne indstilling for kun at vise vinduerne som er åbne i det nuværende arbejdsrum.</para>
+	 	</listitem>
+	 	<listitem><para><guilabel>Vis vinduer fra alle arbejdsrum</guilabel></para>
+	 	<para>Vælg denne indstilling for at vise vinduerne som er åbne i alle arbejdsrum.</para>
+	 	</listitem>
+	 	</itemizedlist>
+	 </listitem>
+	 </varlistentry>
+	 
+	 <varlistentry><term><guilabel>Vinduesgruppering</guilabel></term>
+	 <listitem>
+	 <para>For at angive hvornår vindueslisten skal gruppere vinduer, som tilhører det samme program, vælg et af de følgende indstillinger:</para>
+		<itemizedlist>
+	 	<listitem>
+	 	<para><guilabel>Gruppér aldrig vinduer</guilabel></para>
+	 	<para>Vælg denne indstilling for aldrig at gruppere vinduer for det samme program under en knap.</para>
+		</listitem>
+	 	<listitem>
+	 	<para><guilabel>Gruppér vinduer når pladsen er begrænset</guilabel></para>
+	 	<para>Vælg denne indstilling for at gruppere vinduer for det samme program under en knap når pladsen på panelet er begrænset.</para>
+		</listitem>
+	 	<listitem>
+	 	<para><guilabel>Gruppér altid vinduer</guilabel></para>
+	 	<para>Vælg denne indstilling for altid at gruppere vinduer for det samme program under en knap.</para>
+		</listitem>
+		</itemizedlist>
+	 </listitem>
+	 </varlistentry>
+	 
+	 <varlistentry><term><guilabel>Gendanne minimerede vinduer</guilabel></term>
+	 <listitem>
+	 <para>For at definere hvordan Vindueslisten opfører sig, når du gendanner vinduer, vælg en af de følgende indstillinger.</para>
+	 	<itemizedlist>
+	 	<listitem>
+	 	<para><guilabel>Gendan til nuværende arbejdsrum</guilabel></para>
+	 	<para>Vælg denne indstilling for at gendanne et vindue fra panelprogrammet til det nuværende arbejdsrum, selv hvis vinduet ikke tidligere befandt si i det nuværende arbejdsrum.</para>
+	 	</listitem>
+	 	<listitem><para><guilabel>Gendan til oprindeligt arbejdsrum</guilabel></para>
+	 	<para>Vælg denne indstilling for at skifte til arbejdsrummet hvori et vindue oprindeligt befinder sig, når du gendanner vinduet fra panelprogrammet.</para>
+	 	</listitem>
+	 	</itemizedlist>
+	 <para>Disse muligheder er kun tilgængelige hvis <guilabel>Vis vinduer fra alle arbejdsrum</guilabel> er valgt i dialogafsnittet <guilabel>Vindueslisteindhold</guilabel>.</para>
+	 </listitem>
+	 </varlistentry>
+	 </variablelist>
+
+  </section>
+ </section>
+
+  </section>
+</chapter>

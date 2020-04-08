@@ -1,0 +1,2217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="prefs" xml:lang="ru">
+    <info><title>Настройка рабочей среды</title>
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Алексей Кабанов</db:firstname>
+      </db:personname>
+      <db:email>ak099@mail.ru</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2018</db:year>
+      
+      <db:holder>Алексей Кабанов</db:holder>
+    </db:copyright>
+  </info>
+  
+  <!-- ids in this section are gradually being converted 
+  to something like 'prefs-mouse'.
+  remember to add an anchor for the old id in the right place -->
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="goscustdesk-6"/>
+
+  <!-- Desktop Overview / Desktop Preferences -->
+  <anchor xml:id="gosoverview-55"/>
+  
+  <!-- ids of sections removed from this document for 2.14 -->
+  <anchor xml:id="goscustdesk-10"/><!-- Customizing Your Panels -->
+
+  <highlights>
+    <para>В этой главе описано использование инструментов для настройки среды MATE.</para>
+  </highlights>
+  <!-- move the following to its own section, "Using Pref Tools"? -->
+  <para xml:lang="en">A preference tool is a small application that allows you to change settings in the MATE Desktop. Each preference tool covers a particular aspect of your computer. For example, with the <application>Mouse</application> preference tool you can set your mouse to left-handed or right-handed use, or change the speed of the pointer on the screen. With the <application>Windows</application> preference tool you can set behavior common to all windows such as the way in which you select them with the mouse.</para>
+  <para>Чтобы открыть инструмент настройки, выберите <menuchoice><guimenu>Система</guimenu><guisubmenu>Параметры</guisubmenu></menuchoice> из верхней панели. В подменю выберите нужный вам инструмент.</para>
+  <para>За некоторыми исключениями, изменения, которые вы вносите с помощью инструментов настройки, вступают в силу незамедлительно, без нужды закрывать инструмент. Можно оставить инструмент открытым, пробуя изменения и при необходимости внося дальнейшие поправки.</para>
+  <para>Некоторые приложения или компоненты системы могут добавлять свои собственные инструменты настройки в меню.</para>
+  <note><para>Некоторые инструменты позволяют изменять важные части системы и потому требуют административного уровня доступа. При открытии такого инструмента появится диалоговое окно, запрашивающее пароль. Эти инструменты находятся в подменю <menuchoice><guimenu>Система</guimenu><guisubmenu>Администрирование</guisubmenu></menuchoice>. В этом же меню находятся более сложные инструменты для управления и обновления вашей системы.</para></note>
+
+<section xml:id="prefs-personal"><info><title>Личные</title></info>
+  
+  <!-- Was Login Photo prefs, could go to About Me if that was enabled by default -->
+  <anchor xml:id="goscustdesk-95"/>
+
+  <section xml:id="goscustaccess-11"><info><title>Параметры вспомогательных технологий</title></info>
+    <indexterm><primary>специальные возможности</primary> <secondary>настройки вспомогательных технологий</secondary></indexterm>
+    <indexterm><primary>инструменты настройки</primary> <secondary>Вспомогательные технологии</secondary></indexterm>
+    <para>Используйте инструмент настроек <application>Вспомогательные технологии</application>, чтобы активировать вспомогательные технологии рабочей среды MATE. Инструментом <application>Вспомогательные технологии</application> можно также воспользоваться для открытия других инструментов настройки, содержащих настройки, связанные с вспомогательными технологиями.</para>
+    <itemizedlist>
+      <listitem>
+        <para>Кнопка <guibutton>Предпочтительные приложения</guibutton> позволяет указать, какие приложения вспомогательных технологий следует автоматически запускать при входе в систему. Смотрите <xref linkend="prefs-preferredapps"/></para>
+      </listitem>
+      <listitem>
+        <para><guibutton>Специальные возможности клавиатуры</guibutton> позволяют Вам настраивать функции доступности клавиатуры, такие как залипание клавиш, медленные клавиши или отскакивающие клавиши. См.<xref linkend="prefs-keyboard-a11y"/></para>
+      </listitem>
+      <listitem>
+        <para><guibutton>Специальные возможности мышки</guibutton> позволяют Вам настраивать функции достпности мыши такие, как скорость нажатия. См.<xref linkend="goscustdesk-53"/></para>
+      </listitem>
+    </itemizedlist>
+    <para><xref linkend="goscustaccess-TBL-14"/> перечисляет параметры вспомогательных технологий, которые можно изменять.</para>
+    <table frame="topbot" xml:id="goscustaccess-TBL-14"><info><title>Параметры вспомогательных технологий</title></info>
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colwidth="50*"/>
+        <colspec colwidth="50*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Элемент диалогового окна</para>
+            </entry>
+            <entry>
+              <para>Описание</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry valign="top">
+              <para><guilabel>Включить вспомогательные технологии</guilabel></para>
+            </entry>
+            <entry valign="top">
+              <para>Выберите этот параметр, чтобы включить вспомогательные технологии в среде MATE.</para>
+              <para>Обратите внимание, что по техническим причинам после включения этой опции необходимо повторно зайти в систему, чтобы вспомогательные технологии были полностью задействованы.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section xml:id="prefs-keyboard-shortcuts"><info><title>Параметры комбинаций клавиш</title></info>
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="goscustdesk-39"/>
+    <indexterm><primary>инструменты настройки</primary> <secondary>Горячие клавиши</secondary></indexterm>
+    <indexterm><primary>горячие клавиши</primary> <secondary>настройка</secondary></indexterm>
+    <indexterm><primary>горячие клавиши</primary> <secondary>настройка</secondary></indexterm>
+    <para>Используйте инструмент настройки <application>Комбинации клавиш клавиатуры</application>, чтобы изменить стандартные комбинации клавиш по своему усмотрению.</para>    
+    
+    <para><firstterm>Комбинация клавиш</firstterm> — это клавиша или сочетание клавиш, обеспечивающие дополнительный способ выполнения того или иного действия. Подробнее о комбинациях клавиш смотрите <xref linkend="keyboard-skills"/>. Там же вы найдёте список стандартных комбинаций клавиш среды MATE.</para>
+
+    <para>Чтобы изменить комбинацию клавиш, сделайте следующее:</para>
+    <orderedlist>
+	    <listitem><para xml:lang="en">
+	    Double-click on the shortcut that you want to edit. If you are using the keyboard, use the arrow keys to select the shortcut and press <keycap>Return</keycap>.</para></listitem>
+	    <listitem>
+	      <para>Нажмите новую клавишу или комбинацию клавиш, которая должна соответствовать действию.</para>
+	      <para>Чтобы удалить комбинацию, нажмите <keycap>Backspace</keycap>. Действие будет помечено как <guilabel>Выключенное</guilabel>.</para>
+	    </listitem>
+    </orderedlist>
+    
+    <para>Чтобы отменить назначение комбинации, щёлкните в другом месте окна или нажмите <keycap>Esc</keycap>.</para>
+    
+    <para>Действия, для которых можно задавать комбинации клавиш, разбиты на группы:</para>
+    
+    <variablelist>
+    	<varlistentry><term>Рабочий стол</term>
+    	  <listitem><para xml:lang="en">These are general shortcuts for the whole desktop, such as logging out, locking your screen (see <xref linkend="lock-screen"/>), opening the panel menubar (see <xref linkend="menubar"/>), or launching a web browser.</para></listitem>
+    	</varlistentry>
+    	<varlistentry><term>Звук</term>
+    	  <listitem><para>Комбинации клавиш для управления проигрывателем музыки или громкостью звука в системе.</para></listitem>
+    	</varlistentry>
+    	<varlistentry><term>Управление окнами</term>
+    	  <listitem><para>Комбинации клавиш для работы с окнами и рабочими местами, например, разворачивания или перемещения текущего окна, переключения на другое рабочее место. Подробнее об этих типах действий смотрите в разделах <xref linkend="windows-manipulating"/> и <xref linkend="overview-workspaces"/>.</para></listitem>
+    	</varlistentry>
+        <varlistentry><term>Вспомогательные технологии</term>
+          <listitem><para>Комбинации клавиш для запуска вспомогательных технологий, таких как экранный диктор, лупа или экранная клавиатура.</para></listitem>
+        </varlistentry>
+        <varlistentry><term>Пользовательские комбинации клавиш</term>
+          <listitem><para>Пользовательские комбинации клавиш могут быть добавлены кнопкой <guilabel>Добавить</guilabel>. Эта секция не отображается, если не задано ни одной пользовательской комбинации клавиш.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>Для добавления пользовательской комбинации клавиш используйте кнопку <guilabel>Добавить</guilabel> в области действий. Укажите название и команду для новой комбинации. Новая комбинация появится в списке, и её можно будет редактировать так же, как и предопределённые комбинации клавиш.</para>
+    <para>Для удаления пользовательской комбинации клавиш воспользуйтесь кнопкой <guilabel>Удалить</guilabel>.</para>
+  </section>  
+
+  <section xml:id="prefs-preferredapps"><info><title>Предпочтительные приложения</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdoc-2"/>       
+    <indexterm><primary>инструменты настройки</primary> <secondary>Предпочитаемые приложения</secondary></indexterm>
+    <indexterm><primary>приложения по умолчанию</primary> <see>предпочитаемые приложения</see></indexterm>
+    <para>Используйте инструмент настроек <application>Предпочтительные приложения</application>, чтобы указать, какие приложения должны по умолчанию запускаться рабочей средой MATE для определённых действий. Например, можно выбрать веб-браузер (<application>Epiphany </application>, <application>Mozilla Firefox</application>, <application>Opera</application> ...) для запуска при щелке на ссылке в другом приложении, таком как клиент электронной почты или средство просмотра документов.</para>
+
+	<para><application>Предпочтительные приложения</application> можно найти в меню <menuchoice><guimenu>Система</guimenu><guisubmenu>Параметры</guisubmenu><guimenuitem>Предпочтительные приложения</guimenuitem></menuchoice>.</para>
+    <para>В инструменте <application>Предпочтительные приложения</application> можно изменить параметры в следующих областях.</para>
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Интернет</guilabel> (веб-браузер, почтовая программа)</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Мультимедиа</guilabel> (мультимедийный проигрыватель)</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Система</guilabel> (терминал)</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Вспомогательные технологии</guilabel> (экран, мобильность)</para>
+      </listitem>
+    </itemizedlist>
+    
+    <para>Для каждой категории предпочтительных приложений выпадающее меню содержит список доступных для выбора приложений. Список зависит от приложений, установленных на вашем компьютере.</para>
+    <para>В каждой категории последний элемент в меню (<guimenuitem>Пользовательский</guimenuitem>) позволяет вам настроить команду, используемую системой, когда происходит конкретное действие запуска.</para>
+    
+    <section xml:id="goscustlookandfeel-32"><info><title>Опции пользовательских комманд</title></info>
+      <indexterm><primary>предпочитаемые приложения</primary> <secondary>пользовательские команды</secondary></indexterm>
+      <para>В следующей таблице приведены различные варианты, которые вы можете выбрать, выбрав <guimenuitem>Пользовательский</guimenuitem> в раскрывающемся меню приложения.</para>
+      <table frame="topbot" xml:id="goscustlookandfeel-TBL-37"><info><title>Опции пользовательских комманд</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec0" colwidth="18.86*"/>
+          <colspec colname="colspec1" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Команда</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Введите команду для запуска для запуска пользовательского приложения. Для приложений  <application>Веб браузер</application> и <application>Почтовый клиент</application> вы можете добавить <literal>%s</literal> после команды, чтобы  дать приложению команду  использовать URL-адрес или адрес электронной почты, на который вы нажали. Аргументы команды могут зависеть от конкретного приложения.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Запустить в терминале</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Выберите этот параметр, чтобы запустить команду в окне терминала. Выберите этот параметр для приложения, которое  может работать без окна.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Выполнить флаг (Только в терминале)</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Большинство консольных приложений имеютопцию, позволяющую им рассматривать параметры передаваемые в строке как команды для запуска (<option>-x</option> для <application>mate-terminal</application>). Введите эту опцию здесь. Например, это используется при выполнении команы кнопки запуска для которой установлен тип приложения - терминал.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Автозапуск (Специальные возможности)</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Выберите эту опцию для запуска команды при запуске вашей сессии.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+</section>
+
+<section xml:id="prefs-look-and-feel"><info><title>Внешний вид</title></info>
+
+  <section xml:id="prefs-appearance"><info><title>Параметры внешнего вида</title></info>
+    <para>Инструмент настроек <application>Внешний вид</application> позволяет настроить различные аспекты внешнего вида вашего рабочего стола:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Тему,</para>
+      </listitem>
+      <listitem>
+        <para>Фон рабочего стола,</para>
+      </listitem>
+      <listitem>
+        <para>Шрифты,</para>
+      </listitem>
+      <listitem>
+        <para>Пользовательский интерфейс.</para>
+      </listitem>
+     </itemizedlist>
+
+  <section xml:id="prefs-theme"><info><title>Параметры темы</title></info>
+    <anchor xml:id="goscustdesk-12"/>
+    <anchor xml:id="goscustdesk-54"/>
+    <anchor xml:id="goscustdesk-82"/>
+  
+    <indexterm><primary>темы</primary><secondary>настройка управления</secondary></indexterm>
+    <indexterm><primary>темы</primary><secondary>настройка рамки окна</secondary></indexterm>
+    <indexterm><primary>темы</primary><secondary>установка параметров значков</secondary></indexterm>
+    <indexterm><primary>окна</primary><secondary>настройка тем рамки окна</secondary></indexterm>
+    <indexterm><primary>инструменты настройки</primary><secondary>Тема</secondary></indexterm>
+
+    <para>Тема – это группа взаимосвязанных параметров, которые влияют на визуальное представление частей рабочего стола MATE. Вы можете выбирать различные темы, чтобы менять внешний вид рабочего стола MATE. Используйте для этого вкладку "Тема". Выберите нужную из списка доступных тем, среди которых есть также несколько специальных тем для людей с ограниченными возможностями.</para>
+    <para>Тема содержит параметры, влияющие на различные части среды MATE, а именно:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Элементы управления</term>
+        <listitem>
+          <para xml:lang="en"><indexterm xml:lang="en"><primary>GTK+
+themes</primary><see>themes, controls options</see></indexterm><indexterm xml:lang="en"><primary>themes</primary><secondary>controls options</secondary><tertiary>introduction</tertiary></indexterm>The controls setting for a theme determines
+the visual appearance of windows, panels, and applets. The controls setting
+also determines the visual appearance of the MATE-compliant interface items
+that appear on windows, panels, and applets, such as menus, icons, and buttons.
+Some controls setting options that are available are designed for special
+accessibility needs. You can choose an option for the controls setting from
+the <guilabel>Controls</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Цвета</term>
+        <listitem>
+           <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>themes</primary><secondary>color options</secondary><tertiary>introduction</tertiary></default:indexterm><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>color themes</primary><see>themes, color options</see></default:indexterm>Настройки цвета темы определяют цвета элементов пользовательского интерфейса. Вы можете выбрать несколько пар цветов из влкадки <guilabel>Цвета</guilabel> в окне <guilabel>Настроить тему</guilabel>.</para>
+           <note><para>Важно выбрать пары цветов, имеющие хороший контраст друг с другом, иначе текст будет трудно читать.</para></note>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Рамка окна</term>
+        <listitem>
+          <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>themes</primary><secondary>window frame options</secondary><tertiary>introduction</tertiary></default:indexterm><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>Marco themes</primary><see>themes, window frame options</see></default:indexterm>Параметры рамки окна для темы влияют только на внешний вид рамок вокруг окон. Выбрать нужный вариант рамки можно во вкладке <guilabel>Рамка окна</guilabel> в окне <guilabel>Настроить тему</guilabel>.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Значки</term>
+        <listitem>
+          <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>themes</primary><secondary>icons options</secondary><tertiary>introduction</tertiary></default:indexterm><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>icon themes</primary><see>themes, icons options</see></default:indexterm>Параметры значков для темы определяют внешний вид значков на панелях и рабочем столе. Выбрать набор значков можно во вкладке <guilabel>Значки</guilabel> окна <guilabel>Настроить тему</guilabel>.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Указатели</term>
+        <listitem>
+          <para xml:lang="en"><indexterm xml:lang="en"><primary>themes</primary><secondary>pointer options</secondary><tertiary>introduction</tertiary></indexterm><indexterm xml:lang="en"><primary>pointer themes</primary><see>themes, pointer options</see></indexterm>The pointer setting for a theme determines the appearance of
+and size of the mouse pointer. You can choose the options for setting the pointer from the <guilabel>Pointer</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <section xml:id="goscustdesk-61"><info><title>Чтобы создать собственную тему</title></info>
+      
+      <para>Темы, перечисленные во вкладке <guilabel>Тема</guilabel>, представляют собой различные комбинации настроек элементов управления, рамки окна и значков. Вы можете создать собственную тему, в которой будет использоваться другая комбинация настроек элементов управления, рамки окна и значков.</para>
+      <para>Чтобы создать собственную тему, сделайте следующее:</para>
+      <orderedlist>
+        <listitem>
+          <para>Запустите инструмент настройки <application>Внешний вид</application>. Откройте раздел <guilabel>Тема</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Выберите тему из списка.</para>
+        </listitem>
+        <listitem>
+          <para>Нажмите кнопку <guibutton>Настроить</guibutton>. Отобразится диалоговое окно <guilabel>Настроить тему</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Выберите параметр элементов управления, который хотите использовать в собственной теме, из списка на вкладке <guilabel>Элементы управления</guilabel>. В число доступных параметров элементов управления входит несколько наборов для физически ограниченных пользователей.</para>
+        </listitem>
+        <listitem>
+          <para>Щёлкните на вкладке <guilabel>Рамка окна</guilabel>, чтобы увидеть раздел <guilabel>Рамка окна</guilabel>. Выберите параметр рамки окна, который хотите использовать в собственной теме, из списка доступных. В число доступных параметров рамки окна входит несколько наборов для физически ограниченных пользователей.</para>
+        </listitem>
+        <listitem>
+          <para>Щёлкните на вкладке <guilabel>Значки</guilabel>, чтобы увидеть раздел <guilabel>Значки</guilabel>. Выберите параметр значков, который хотите использовать в собственной теме, из списка доступных. В число доступных параметров значков входит несколько наборов для физически ограниченных пользователей.</para>
+        </listitem>
+        <listitem>
+          <para>Нажмите <guibutton>Закрыть</guibutton> для закрытия диалога <guilabel>Настройка темы</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>В инструменте настройки <application>Внешний вид</application>, нажмите на кнопку <guibutton>Сохранить как</guibutton>.  Появится диалог <guilabel>Сохранить тему как</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Введите в диалоговом окне название и краткое описание собственной темы, затем нажмите <guibutton>Сохранить</guibutton>. Ваша тема появится в списке доступных тем.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="goscustdesk-62"><info><title>Чтобы установить новую тему</title></info>
+      <para>Можно добавить тему в список доступных. Новая тема должна быть файлом-архивом типа <filename>.tar.gz</filename>.</para>
+      <para>Чтобы установить новую тему, сделайте следующее:</para>
+      <orderedlist>
+        <listitem>
+          <para>Запустите инструмент настройки <application>Внешний вид</application>. Откройте раздел <guilabel>Тема</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Нажмите кнопку <guibutton>Установить</guibutton>. Откроется диалог выбора файла.</para>
+        </listitem>
+        <listitem>
+          <para>Укажите расположение файла-архива с темой. В другом случае Вы можете выбрать этот файл из списка файлов. После выбора файла, нажмите <guibutton>Открыть</guibutton>.</para>
+        </listitem>
+        <listitem>
+          <para>Нажмите кнопку <guibutton>Установить</guibutton>, чтобы установить новую тему.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+<!--How does this work nowadays ?
+    <sect4 id="goscustdesk-80">
+      <title>To Install a New Theme Option</title>
+      <para>You can install new controls options, window frame options, or icons
+options. You can find many controls options on the Internet.</para>
+      <para>To install a new controls option, window frame option, or icons option,
+perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Start the <application>Appearance</application> preference tool.
+          Open the <guilabel>Theme</guilabel> tabbed section.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Customize</guibutton> button.
+An <guilabel>Customize Theme</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the tab for the type of theme that you want to install.
+For example, to install an icons option, click on the <guilabel>Icons</guilabel>
+tab.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Install Theme</guibutton> button.
+A <guilabel>Theme Installation</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Enter the location of the option archive file in the drop-down
+combination box. Alternatively, to browse for the file, click on the <guibutton>Browse</guibutton> button. When you have selected the file, click <guibutton>OK</guibutton>.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Install</guibutton> button to install
+the new option. </para>
+        </listitem>
+      </orderedlist>
+    </sect4>
+-->
+
+    <section xml:id="goscustdesk-81"><info><title>Чтобы удалить параметр темы</title></info>
+      <para>Можно удалять параметры элементов управления, рамок окна и значков.</para>
+      <para>Чтобы удалить параметр, сделайте следующее:</para>
+      <orderedlist>
+        <listitem>
+          <para>Запустите инструмент настройки <application>Внешний вид</application>. Откройте раздел <guilabel>Тема</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Нажмите кнопку <guibutton>Настроить</guibutton>. Отобразится диалоговое окно <guilabel>Настроить тему</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Щёлкните на вкладке, соответствующей тому типу параметров, который вы хотите удалить.</para>
+        </listitem>
+        <listitem>
+          <para>Выберите тему которую Вы хотите удалить.</para>
+        </listitem>
+        <listitem>
+          <para>Используйте кнопку <guibutton>Удалить</guibutton> для удаления выбраной настройки. Обратите внимание, что Вы не можете удалить общесистемные параметры темы.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+
+  <section xml:id="prefs-desktopbackground"><info><title>Параметры фона рабочего стола</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-7"/>       
+    <indexterm><primary>рабочий стол</primary><secondary>настройка фона</secondary></indexterm>
+    <indexterm><primary>Инструменты настройки среды МАТЕ</primary> <see>инструменты настройки</see></indexterm>
+    <indexterm><primary>инструменты настройки</primary> <secondary>Фон</secondary></indexterm>
+    <indexterm><primary>фоны</primary><secondary>настройка фона рабочего стола</secondary></indexterm>
+    <para xml:lang="en">The <xref linkend="overview-desktop"/> background is the image or color that is applied to your
+desktop. You can open <guilabel>Background</guilabel> tabbed section in the <application>Appearance</application> preference tool by right-clicking on the desktop and choosing <guimenuitem>Change Desktop Background</guimenuitem>, as well as from the <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu></menuchoice> menu.</para>
+    <para>Настроить фон рабочего стола можно следующими способами:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Установив изображение в качестве фона рабочего стола. Изображение накладывается поверх цвета фона. Если выбрать прозрачное изображение, или такое изображение, которое покрывает не весь рабочий стол, то будет виден цвет фона рабочего стола.</para>
+      </listitem>
+      <listitem>
+        <para>Установив цвет фона рабочего стола. Можно выбрать сплошной цвет или создать эффект градиента из двух цветов. Эффект градиента — это визуальный эффект, при котором один цвет плавно переходит в другой.</para>
+      </listitem>
+    </itemizedlist>
+    <tip><para xml:lang="en">You can also drag a color or a pattern to the desktop from the <guilabel>Backgrounds
+and Emblems</guilabel> dialog in the <application>Caja</application> file manager (see <xref linkend="caja-backgrounds-and-emblems"/>).</para></tip>
+    <para><xref linkend="goscustdesk-TBL-14"/> перечисляет параметры фона, которые можно изменить.</para>
+    <table frame="topbot" xml:id="goscustdesk-TBL-14"><info><title>Параметры фона рабочего стола</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec0" colwidth="18.86*"/>
+        <colspec colname="colspec1" colwidth="47.14*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Элемент диалогового окна</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Описание</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guibutton>Фон рабочего стола</guibutton></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Выберите изображение из списка или воспользуйтесь кнопкой  <guibutton>Добавить</guibutton> для выбора любого изображения с вашего компьютера.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Стиль</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Чтобы указать, как изображение должно располагаться на рабочем столе, выберите один из параметров в выпадающем списке <guilabel>Стиль</guilabel>:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>По центру</guilabel>: Отображает изображение в центре рабочего стола, в соответствии с оригинальным размере изображения.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Растянуть</guilabel>: Увеличивает изображения для соответствия размеру рабочего стола, изменяя пропорции при необходимости.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Масштабировать</guilabel>: Увеличивает изображение сохраняя пропорции до тех пор, пока величина одной из границ изображения не совпадет с величиной одной из границ экрана.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Увеличение</guilabel>: Увеличивает наименьшую из сторон изображения до тех пор пока её размер не совпадёт с размером экрана; изображение может быть обрезано по другой стороне.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Замостить</guilabel>: Дублирует изображение в оригинальном размере таким образом, что изображения полностью покрывают рабочий стол.</para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0">
+              <para><guilabel>Добавить</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0">
+              <para/>
+              <para>Нажмите <guibutton>Добавить</guibutton> для просмотра изображений на Вашем компьютере. Появится стандартное окно выбора файлов. Выберите изображение, которое хотите и нажмите <guibutton>Открыть</guibutton>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0">
+              <para><guilabel>Удалить</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0">
+              <para>Выберите изображение, которое хотите удалить и нажмите <guilabel>Удалить</guilabel>. Изображение будет удалено из списка доступных обоев, но не будет удалено с компьютера.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Цвета</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Для выбора цветовой схемы, используйте настройки в списке <guilabel>Стиль</guilabel> и кнопки выбора цветов.</para>
+              <para>Можно выбрать цветовую схему одним из следующих способов:</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Выберите <guilabel>Сплошной цвет</guilabel> в выпадающем списке <guilabel>Стиль фона</guilabel>, чтобы заполнить фон рабочего стола одним цветом.</para>
+                  <para>Чтобы выбрать цвет, нажмите кнопку <guibutton>Цвет</guibutton>. Появится диалоговое окно <guilabel>Выберите цвет</guilabel>. Укажите нужный цвет и нажмите кнопку <guibutton>ОК</guibutton>.</para>
+                </listitem>
+                <listitem>
+                  <para>Выберите <guilabel>Горизонтальный градиент</guilabel> из списка <guilabel>Стиль фона</guilabel>. При этом получится градиентный эффект от левого края экрана к правому.</para>
+                  <para>Нажмите кнопку <guibutton>Левый цвет</guibutton>, чтобы вызвать диалоговое окно <guilabel>Выберите цвет</guilabel>. Укажите цвет, который будет находиться у левого края экрана.</para>
+                  <para>Нажмите кнопку <guibutton>Правый цвет</guibutton> и укажите цвет, который будет находиться у правого края экрана.</para>
+                </listitem>
+                <listitem>
+                  <para>Выберите <guilabel>Вертикальный градиент</guilabel> из списка <guilabel>Цвет рабочего стола</guilabel>. При этом получится градиентный эффект от верхнего края экрана к нижнему.</para>
+                  <para>Нажмите кнопку <guibutton>Верхний цвет</guibutton>, чтобы вызвать диалоговое окно <guilabel>Выберите цвет</guilabel>. Укажите цвет, который будет находиться у верхнего края экрана.</para>
+                  <para>Нажмите кнопку <guibutton>Нижний цвет</guibutton> и укажите цвет, который будет находиться у левого края экрана.</para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section xml:id="prefs-font"><info><title>Параметры шрифтов</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-38"/>
+    <anchor xml:id="goscustdesk-83"/>
+    <anchor xml:id="goscustdesk-94"/>
+    <indexterm><primary>инструменты настройки</primary> <secondary>Шрифт</secondary></indexterm>
+    <indexterm><primary>шрифты</primary><secondary>рабочий стол</secondary></indexterm>
+    <indexterm><primary>шрифты</primary><secondary>приложения</secondary></indexterm>
+    <indexterm><primary>шрифты</primary><secondary>заголовок окна</secondary></indexterm>
+    <indexterm><primary>шрифты</primary><secondary>терминал</secondary></indexterm>
+    <indexterm><primary>шрифты</primary><secondary>рендеринг</secondary></indexterm>
+    <para>Используйте вкладку <guilabel>Шрифты</guilabel> в разделе <application>Внешний вид</application> в инструменте настройки, для выбора какие шрифты используются в различных частях окружения, и как они отображаются на экране.</para>
+
+    <section xml:id="prefs-font-choose"><info><title>Выбор шрифтов</title></info>
+      <para>Кнопка выбора шрифта показывает название шрифта и его размер в пунктах. Название также показывается в жирном, курсивном или обычном начертании.</para>
+      <para>Чтобы выбрать шрифт, нажмите кнопку выбора шрифта. Появится диалоговое окно выбора шрифта. Выделите в списках семейство шрифта, стиль и размер в пунктах. Ваш текущий выбор будет показан в области предварительного просмотра. Нажмите <guibutton>OK</guibutton>, чтобы принять изменения и обновить среду.</para>
+      <para>Можно выбрать шрифты для следующих частей среды:</para>
+
+      <variablelist>
+       	<varlistentry>
+      	  <term><guilabel>Шрифт приложений</guilabel></term>
+      	  <listitem>
+      	    <para>Этот шрифт используется в меню, на панелях инструментов и в диалоговых окнах приложений.</para>
+      	  </listitem>
+      	</varlistentry>
+      	<varlistentry>
+      	  <term><guilabel>Шрифт документов</guilabel></term>
+      	  <listitem>
+      	    <para>Этот шрифт используется для показа документов в приложениях.</para>
+      	    <note><para>В некоторых приложениях этот шрифт может быть переопределён в диалоговом окне параметров приложения.</para></note>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Шрифт рабочего стола</guilabel></term>
+      	  <listitem>
+      	    <para>Этот шрифт используется в подписях к значкам на рабочем столе.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Шрифт заголовка окна</guilabel></term>
+      	  <listitem>
+      	    <para>Этот шрифт используется в заголовках окон.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Моноширинный шрифт</guilabel></term>
+      	  <listitem>
+      	    <para>Этот шрифт используется в приложении <application>Терминал</application> и в приложениях, связанных с программированием.</para>
+      	  </listitem>
+      	</varlistentry>
+      	</variablelist>
+  	</section>
+	
+  	<section xml:id="prefs-font-rendering"><info><title>Отрисовка шрифтов</title></info>
+      <para>Можно установить следующие параметры, касающиеся изображения шрифтов на экране:</para>
+	
+    	<variablelist>
+     	<varlistentry>
+    	  <term><guilabel>Рендеринг</guilabel></term>
+    	  <listitem>
+    	    <para>Можно задавать параметры отображения шрифтов на экране следующим образом:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Монохромный</guilabel>: Отрисовывать шрифты с использованием только чёрного и белого цвета. Границы символов могут быть неровными, потому что шрифты не сглаживаются. <firstterm>Сглаживание</firstterm> — это эффект, накладываемый на границы символов, чтобы они выглядели более гладкими.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Наилучшее начертание</guilabel>: По возможности сглаживать шрифты. Используйте этот параметр для обычных мониторов с электронно-лучевой трубкой (ЭЛТ).</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Наилучшая контрастность</guilabel>: Подправлять шрифты для придания формам резкого контраста, а также сглаживать шрифты, чтобы у символов были гладкие границы. Этот параметр может повысить доступность рабочей среды MATE для людей с ограниченным зрением.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Субпиксельное (ЖК-мониторы)</guilabel>: Использует технологии придания формы отдельным точкам жидкокристаллического (ЖК) экрана для гладкого отображения шрифтов. Используйте этот параметр для жидкокристаллических и плоских экранов.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+     	<varlistentry>
+    	  <term><guibutton>Детали</guibutton></term>
+    	  <listitem>
+    	    <para>Нажмите эту кнопку, чтобы более точно настроить отрисовку шрифтов на экране.</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Разрешение (точек на дюйм)</guilabel>: Используйте числовое поле, чтобы указать разрешение при отрисовке шрифтов на экране.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Сглаживание</guilabel>: Выберите один из параметров, чтобы указать способ сглаживания шрифтов.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Уточнение</guilabel>: <firstterm>Уточнение</firstterm> — это техника отрисовки шрифтов, которая повышает качество шрифтов в маленьких размерах и при небольшом разрешении экрана. Выберите один из параметров, чтобы указать способ уточнения шрифтов.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Порядок субпикселов</guilabel>: Выберите один из параметров, чтобы указать порядок цвета субпикселов в шрифтах. Используйте этот параметр для жидкокристаллических и плоских экранов.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+    </variablelist>
+   
+    </section>
+
+<!-- go to fonts folder no longer exists
+    <sect4 id="goscustdesk-83">
+      <title>Previewing a Font</title>
+      <indexterm>
+        <primary>fonts</primary>
+        <secondary>previewing</secondary>
+      </indexterm>
+      <para>A preview of a font shows the characters of a font at different sizes, as well as copyright and technical information. To preview a font, perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Open the <application>Appearance</application> preference tool by choosing <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu><guimenuitem>Font</guimenuitem></menuchoice> in the top panel.</para>
+        </listitem>
+        <listitem><para>Click on <guibutton>Details</guibutton>.</para></listitem>
+        <listitem><para>Click on <guibutton>Go to font folder</guibutton>. The <guilabel>Fonts</guilabel> folder opens.</para></listitem>
+        <listitem>
+          <para>Open a font to display a preview.</para>
+        </listitem>
+      </orderedlist>
+    </sect4>
+-->
+
+<!-- go to fonts folder no longer exists
+    <sect4 id="goscustdesk-94">
+      <title>Adding a TrueType Font</title>
+      <para>To add a TrueType font to your system, perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Open the <application>Font</application> preference tool by choosing <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu><guimenuitem>Font</guimenuitem></menuchoice> in the panel menubar.</para>
+        </listitem>
+        <listitem><para>Click on <guibutton>Details</guibutton>.</para></listitem>
+        <listitem><para>Click on <guibutton>Go to font folder</guibutton>. The <guilabel>Fonts</guilabel> folder opens.</para></listitem>      
+        <listitem>
+          <para>Open a file manager window and select the TrueType font that
+you want to add.</para>
+        </listitem>
+        <listitem>
+          <para>Copy the TrueType font file that you want to add to the <guilabel>Fonts</guilabel> folder.</para>
+        </listitem>
+      </orderedlist>
+      <warning><para>The new font will not appear in the <guilabel>Fonts</guilabel> folder until you next log in. You will need to relaunch applications for them to have access to the new font. These are known bugs in Mate.</para></warning>
+      
+      <tip><para>You can also open the <guilabel>Fonts</guilabel> folder by typing the following URI into <application>Caja</application> file manager's <link linkend="caja-open-location">Open Location dialog</link>: <command>fonts:///</command>.</para></tip>
+    </sect4>
+-->
+  </section>
+
+  <section xml:id="prefs-menustoolbars"><info><title>Настройки интерфейса</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustuserinter-2"/>    
+    <indexterm><primary>панели инструментов, настройка внешнего вида</primary></indexterm>
+    <indexterm><primary>инструменты настройки</primary> <secondary>Меню; Панели инструментов</secondary></indexterm>
+    <indexterm><primary>меню</primary> <secondary>в приложениях, настройка внешнего вида</secondary></indexterm>
+    <para>Вы можете использовать вкладку <guilabel>Интерфейс</guilabel> в инструменте настройки <application>Внешний вид</application> для настройки внешнего вида меню, панелей меню и панелей инструментов, входящими в МАТЕ.</para>
+    <para>По мере того, как вы изменяете параметры, обновляется область предварительного просмотра в окне. Это позволяет вам видеть изменения, если в данный момент не открыты окна приложений.</para>
+    <variablelist>
+     	<varlistentry>
+    	  <term><guilabel>Показывать значки в меню</guilabel></term>
+    	  <listitem>
+    	    <para>Выберите этот параметр, чтобы сбоку от пунктов в меню приложений показывался значок. Значки есть не у всех пунктов меню.</para>
+    	  </listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term><guilabel>Редактируемые сочетания клавиш меню</guilabel></term>
+	      <listitem><para>Если вы выберете этот параметр, вы сможете задавать новые комбинации клавиш для пунктов меню.</para>
+	      <para>Чтобы изменить комбинацию клавиш в приложении, откройте меню и, наведя указатель мыши на нужный пункт меню, нажмите новую комбинацию клавиш. Чтобы удалить комбинацию, нажмите <keycap>Backspace</keycap> или <keycap>Delete</keycap>.</para>
+	      <warning>
+	        <para>При использовании этой возможности вы не будете предупреждены в том случае, если задание новой комбинации клавиш для некоторой команды повлечёт за собой удаление её с другой команды.</para>
+	        <para>Нет способа восстановить изначальную, стандартную комбинацию клавиш для команды.</para>
+	        <para>Эта возможность не следит за комбинациями клавиш, которые обычно распространяются на все приложения — например, <keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo> для копирования. Это может привести к противоречиям между приложениями MATE.</para>
+	      </warning>
+	      </listitem>
+      </varlistentry>
+     	<varlistentry>
+    	  <term><guilabel>Подписи кнопок на панели инструментов</guilabel></term>
+    	  <listitem>
+    	    <para>Выберите один из следующих параметров, чтобы указать, что должно быть показано на панелях инструментов в приложениях, отвечающих стандартам MATE:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Текст под значками</guilabel>: Выберите этот параметр, чтобы на каждой кнопке на панели инструментов показывались и текст, и значок.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Текст рядом со значками</guilabel>: Выберите этот параметр, чтобы на каждой кнопке на панели инструментов показывался значок, а на самых важных кнопках — также и текст.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Только значки</guilabel>: Выберите этот параметр, чтобы на каждой кнопке на панели инструментов показывался только значок.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Только текст</guilabel>: Выберите этот параметр, чтобы на каждой кнопке на панели инструментов показывался только текст.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+    </variablelist>
+  </section>
+  </section>
+
+  <section xml:id="prefs-windows"><info><title>Параметры окон</title></info>
+    <!-- preserve for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-58"/>    
+
+    <indexterm><primary>оконный менеджер</primary> <secondary>настройка</secondary></indexterm>
+    <indexterm><primary>инструменты настройки</primary> <secondary>Окна</secondary></indexterm>
+    <para>Используйте инструмент <application>Окна</application>, чтобы настроить поведение окон в среде MATE.</para>
+    <para><xref linkend="goscustwindows-TBL-14"/> перечисляет параметры окон, которые можно изменять.</para>
+    <table frame="topbot" xml:id="goscustwindows-TBL-14"><info><title>Параметры окон</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec0" colwidth="18.86*"/>
+        <colspec colname="colspec1" colwidth="47.14*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Элемент диалогового окна</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Описание</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Выбирать окна при наведении мыши</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Выберите этот параметр, чтобы окну передавался фокус при наведении на него указателя. Окно будет удерживать фокус, пока вы не укажете не другое окно.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Перенести окно на передний план после определенного интервала</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Выберите этот параметр, чтобы поднимать окна на передний план через короткое время после получения ими фокуса.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Интервал перед переносом окна на передний план</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Укажите промежуток времени, который должен пройти перед поднятием на передний план окна, получившего фокус.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Дважды щелкните по заголовку для выполнения этого действия</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Укажите поведение, которое хотите наблюдать при двойном щелчке на строке заголовка окна. Выберите один из следующих параметров:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Развернуть</guilabel>: Разворачивает окно на весь экран.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Развернуть по вертикали</guilabel>: Разворачивает окно вертикально, без изменения его ширины.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Развернуть горизонтально</guilabel>: Разворачивает окно горизонтально, без изменения его высоты.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Свернуть</guilabel>: Сворачивает окно.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Скрутить</guilabel>: Скручивает окно в заголовок.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Нет</guilabel>: Ничего не делать</para>
+                </listitem>
+              </itemizedlist>
+              <para>Если окно уже развернуто или свернуто, двойной щелчок на заголовке вернет его в нормальное состояние.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Для того чтобы передвинуть окно, нажмите и держите эту клавишу,  затем захватите окно</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Выберите клавишу, которую нужно будет удерживать при перетаскивании окна, чтобы его переместить.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <note>
+      <para>Позиции Control, Alt и супер-клавиш могут быть изменены в диалоге настройки раскладки клавиатуры, см. <xref linkend="prefs-keyboard-layoutoptions"/>.</para>
+    </note>
+  </section>
+
+  <section xml:id="prefs-screensaver"><info><title>Параметры хранителя экрана</title></info>
+    <indexterm><primary>инструменты настройки</primary> <secondary>хранитель экрана</secondary></indexterm>
+    <para><firstterm>Хранитель экрана</firstterm> рисует движущиеся изображения на экране, пока компьютер не используется. Хранитель экрана также помогает защитить старые мониторы от поломок, происходящих ввиду отображения одной и той же картинки в течение долгого времени. Чтобы остановить хранитель экрана и вернуться в среду, передвиньте мышь или нажмите какую-нибудь клавишу на клавиатуре.</para>
+    <para>Используйте инструмент <application>Хранитель экрана</application>, чтобы выбрать тип хранителя экрана, время до запуска хранителя экрана, а также то, следует ли запрашивать пароль для возвращения к рабочей среде.</para>
+    <para>Можно изменить следующие параметры:</para>
+    <variablelist>
+    	<varlistentry>
+    	  <term>Хранитель экрана</term>
+    	  <listitem><para>Выделите <guilabel>тему хранителя экрана</guilabel> в списке. Выбранная тема будет показана в уменьшенном виде. Нажмите <guibutton>Просмотр</guibutton>, чтобы просмотреть выбранную тему на всём экране. Во время просмотра используйте кнопки в верхней части экрана, чтобы переходить по списку тем хранителя экрана.</para>
+    	  <itemizedlist>
+	        <listitem><para>Тема <guilabel>Пустой экран</guilabel> не показывает никаких картинок — только чёрный экран.</para></listitem>
+	        <listitem><para>Тема <guilabel>Случайным образом</guilabel> решает, какой хранитель экрана использовать, случайным образом.</para></listitem>
+        </itemizedlist>
+    	  <para>Остальные пункты в списке устанавливаются вашим поставщиком.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Считать компьютер простаивающим через...</term>
+    	  <listitem><para>Ваш компьютер считается простаивающим после того, как этот промежуток времени пройдёт в отсутствии ввода с вашей стороны, такого, как перемещение мыши или набор текста. Это может влиять на управление питанием (например, может выключиться монитор) или на мгновенные сообщения (чат-приложения могут установить для вас статус «отошёл»). С помощью ползунка укажите промежуток времени в минутах или часах.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Запускать хранитель экрана, когда компьютер простаивает</term>
+    	  <listitem><para>Выберите этот параметр, чтобы хранитель экрана запускался через указанный промежуток времени.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Блокировать экран, когда запущен хранитель экрана</term>
+    	  <listitem><para>Если этот параметр выбран, хранитель экрана будет запрашивать ваш пароль при попытке вернуться в среду. Подробнее о блокировке экрана смотрите <xref linkend="lock-screen"/>.</para></listitem>  	
+    	</varlistentry>
+  </variablelist>
+  </section>
+</section>
+
+<section xml:id="prefs-internet-and-network"><info><title>Интернет и сеть</title></info>
+
+  <section xml:id="prefs-network-admin"><info><title>Сетевые параметры</title></info>
+    <para>С помощью <application>Сетевых параметров</application> вы можете выбрать способ соединения вашей системы с другими компьютерами и с Интернетом.</para>
+    <para>При запуске <application>Сетевых параметров</application> вам будет предложено ввести пароль администратора. Этот пароль нужен оттого, что изменения, вносимые с помощью этого инструмента, влияют на всю систему.</para>
+
+  <section xml:id="prefs-network-admin-getting-started"><info><title>Начало работы</title></info>
+    <para>Основное окно <application>Сетевых параметров</application> содержит четыре вкладки:</para>
+    <variablelist>
+	 <varlistentry>
+	   <term><guilabel>Соединения</guilabel></term>
+	   <listitem>
+		<para>Перечисляет все сетевые интерфейсы и позволяет вам изменять их параметры.</para>
+	   </listitem>
+	 </varlistentry>
+
+	 <varlistentry>
+	   <term><guilabel>Общее</guilabel></term>
+	   <listitem>
+		<para>Позволяет вам изменять имя узла и доменное имя системы.</para>
+	   </listitem>
+	 </varlistentry>
+
+    	 <varlistentry>
+	   <term><guilabel>DNS</guilabel></term>
+	   <listitem>
+		<para>Содержит два раздела. <guilabel>Серверы имён</guilabel> — это то, что ваш компьютер использует для получения IP-адресов по доменным именам. <guilabel>Поисковые домены</guilabel> — это домены, в которых ваша система будет по умолчанию искать узлы, для которых не указан домен.</para>
+	   </listitem>
+	 </varlistentry>
+
+	 <varlistentry>
+	   <term><guilabel>Хосты</guilabel></term>
+	   <listitem>
+		<para>Показывает список псевдонимов для доступа к другим компьютерам.</para>
+	   </listitem>
+	 </varlistentry>
+    </variablelist>
+  </section>
+
+  <section xml:id="prefs-network-admin-usage"><info><title>Использование</title></info>
+
+    <section xml:id="tool-modify-connection"><info><title>Чтобы изменить параметры соединения</title></info>
+	 <para>В разделе <guilabel>Соединения</guilabel> выберите интерфейс, который хотите изменить, и нажмите кнопку <guilabel>Свойства</guilabel>. В зависимости от типа интерфейса вы сможете изменять разные данные.</para>
+
+	 <variablelist>
+	   <varlistentry>
+		<term>Интерфейсы Ethernet и IRLAN</term>
+		<listitem>
+		  <para>Вы можете изменить способ настройки интерфейса (через DHCP или вручную). При ручной настройке вы также можете изменить IP-адрес интерфейса, маску сети и шлюз.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>Беспроводные интерфейсы</term>
+		<listitem>
+		  <para>Вы можете изменить способ настройки интерфейса (через DHCP или вручную). При ручной настройке вы также можете изменить IP-адрес интерфейса, маску сети, шлюз и имя сети (ESSID).</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>Интерфейсы параллельной линии</term>
+		<listitem>
+		  <para>Вы можете изменить IP-адрес интерфейса и удалённый IP-адрес.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>Модемные и PPP-интерфейсы</term>
+		<listitem>
+		  <para>Вы можете изменить модемное устройство; выбрать тоновый или пульсовый набор; громкость модема; телефонный номер; имя пользователя и пароль, предоставленные вашим провайдером; и другие параметры PPP.</para>
+		</listitem>
+	   </varlistentry>
+	 </variablelist>
+    </section>
+
+    <section><info><title>Чтобы включить или выключить интерфейс</title></info>
+	 <para>В разделе <guilabel>Соединения</guilabel> поставьте или снимите отметку рядом с интерфейсом.</para>
+    </section>
+    
+    <section><info><title>Чтобы изменить имя узла и имя домена</title></info>
+	 <para>В разделе <guilabel>Общие</guilabel> измените текст в полях имени узла и доменного имени.</para>
+    </section>
+
+    <section><info><title>Чтобы добавить сервер доменных имён</title></info>
+	 <para>В разделе <guilabel>Серверы имён</guilabel> нажмите кнопку <guilabel>Добавить</guilabel> и заполните новую строчку в списке сервером имён.</para>
+    </section>
+
+    <section><info><title>Чтобы удалить сервер доменных имён</title></info>
+	 <para>В разделе <guilabel>Серверы имён</guilabel> выделите в списке IP-адрес DNS-сервера и нажмите кнопку <guilabel>Удалить</guilabel>.</para>
+    </section>
+
+    <section><info><title>Чтобы добавить поисковый домен</title></info>
+	 <para>В разделе <guilabel>Поисковые домены</guilabel> нажмите кнопку <guilabel>Добавить</guilabel> и заполните новую строчку в списке поисковым доменом.</para>
+    </section>
+
+    <section><info><title>Чтобы удалить поисковый домен</title></info>
+	 <para>В разделе <guilabel>Поисковые домены</guilabel> выделите в списке поисковый домен и нажмите кнопку <guilabel>Удалить</guilabel>.</para>
+    </section>
+
+    <section><info><title>Чтобы добавить псевдоним узла</title></info>
+	 <para>В разделе <guilabel>Узлы</guilabel> нажмите кнопку <guilabel>Добавить</guilabel>. В появившемся окне введите IP-адрес и псевдонимы, которые будут указывать на этот адрес.</para>
+    </section>
+
+    <section><info><title>Чтобы изменить псевдоним узла</title></info>
+	 <para>В разделе <guilabel>Узлы</guilabel> выделите псевдоним, нажмите кнопку <guilabel>Свойства</guilabel> и измените параметры псевдонима в появившемся окне.</para>
+    </section>
+
+    <section><info><title>Чтобы удалить псевдоним узла</title></info>
+	 <para>В разделе <guilabel>Узлы</guilabel> выделите в списке псевдоним и нажмите кнопку <guilabel>Удалить</guilabel>.</para>
+    </section>
+
+    <section xml:id="prefs-network-admin-add-new-profile"><info><title>Чтобы сохранить текущую настройку сети как «расположение»</title></info>
+	 <para>Нажмите кнопку <guilabel>Добавить</guilabel> близ меню <guilabel>Расположения</guilabel> и в появившемся окне введите название расположения.</para>
+    </section>
+
+    <section><info><title>Чтобы удалить расположение</title></info>
+	 <para>Нажмите кнопку <guilabel>Удалить</guilabel> близ меню <guilabel>Расположения</guilabel>, и выделенный профиль будет удалён.</para>
+    </section>
+
+    <section><info><title>Чтобы переключиться в расположение</title></info>
+	 <para>Выделите одно расположение из меню <guilabel>Расположения</guilabel>, и все настройки автоматически переключатся на выбранное расположение.</para>
+    </section>
+
+  </section>
+  </section>
+
+  <section xml:id="prefs-networkproxy"><info><title>Параметры сетевой прокси-службы</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-50"/>       
+    <indexterm><primary>инструменты настройки</primary> <secondary>Сетевой прокси</secondary></indexterm>
+    <indexterm><primary>сетевой прокси</primary> <secondary>установка настроек</secondary></indexterm>
+    <indexterm><primary>Интернет</primary> <secondary>настройка подключения</secondary></indexterm>
+    <indexterm><primary>прокси</primary> <secondary>установка настроек</secondary></indexterm>
+    <para><application>Настройки сетевого прокси</application> позволяют Вам настроить, как Ваша система подключается к интернету.</para>
+    <para>Вы можете настроить подключение к <firstterm>прокси сервер</firstterm> в среде MATE и выбрать настройки прокси сервера. Прокси сервер - сервер, перехватывающий запрос к другому серверу, и выполняющий его самостоятельно, при возможности. Вы можете ввести доменное имя или Internet Protocol (IP) адрес прокси сервера. <firstterm>Доменное имя</firstterm> - уникальный буквенный идентификатор компьютера в сети. <firstterm>IP адрес</firstterm> - уникальное цифровой идентификатор компьютера в сети. </para>
+    <para>Возможно, Вам понадобится использовать разные настройки прокси в разных местах, <application>Настройки сетевого прокси</application> позволяет Вам определить отдельные настройки прокси и переключаться между ними используя выпадающее меню <guilabel>Расположение</guilabel> на верху окна. Выберите <guilabel>Новое расположение</guilabel>для создания настроек прокси для нового расопложения. Расположения могут быть удалены с помощью кнопки <guilabel>Удалить расположение</guilabel> находящейся внизу окна.</para>
+  
+    <variablelist>
+      <varlistentry>
+        <term><guilabel>Прямое интернет соединение</guilabel></term>
+        <listitem><para>Выберите этот параметр для подключения к Интернету без прокси-сервера.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Ручная настройка прокси</guilabel></term>
+        <listitem><para>Выберите эту настройку для подключения к интернету через прокси-сервер и настройки прокси вручную.</para>
+
+        <variablelist>
+          <varlistentry>
+            <term><guilabel>HTTP прокси</guilabel></term>
+            <listitem>
+              <para>Введите доменное имя или IP адрес прокси-сервера для использования при подключении к HTTP. Введите номер порта HTTP на прокси в поле <guilabel>Порт</guilabel>.</para>
+              <para>Если HTTP прокси-сервер требует аутентификацию, нажмите кнопку <guibutton>Детали</guibutton> для ввода имени и пароля.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>Безопасный HTTP прокси</guilabel></term>
+            <listitem><para>Введите доменное имя или IP адрес прокси-сервера для использования при подключении к защищенному HTTP. Введите номер порта защищенного HTTP на прокси в поле <guilabel>Порт</guilabel>.</para></listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>FTP прокси</guilabel></term>
+            <listitem><para>Введите доменное имя или IP адрес прокси-сервера для использования при подключении к FTP. Введите номер порта FTP на прокси в поле <guilabel>Порт</guilabel>.</para></listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>Сокеты хоста</guilabel></term>
+            <listitem><para>Введите доменное имя или IP адрес для использования при подключении к  Socks. Введите номер порта на прокси сервере в поле <guilabel>Порт</guilabel>.</para></listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem></varlistentry>
+      <varlistentry><term><guilabel>Автоматическая конфигурация прокси</guilabel></term><listitem><para>Выберите этот параметр, если хотите соединяться с Интернетом через прокси-сервер и желаете, чтобы прокси-сервер был настроен автоматически.</para>
+      <para>Автоматическая конфигурация прокси работает на основе так-называемого PAC файла, который Ваш браузер скачивает с веб-сервер. Если Вы не укажете URL для PAC файла в <guilabel>URL автоконфигурации</guilabel>, Ваш браузер попытается найти его самостоятельно.</para>
+      <variablelist>
+      <varlistentry><term><guilabel>Автоконфигурационный URL</guilabel></term><listitem><para>Введите URL PAC файла, содержащего информацию, необходимую для автоматической настройки прокси-сервера.</para></listitem></varlistentry>
+      </variablelist></listitem></varlistentry>
+    </variablelist>
+    
+    <para>Устанавливает для подключения к какому хосту не нужно использовать прокси <guilabel>Список игнора хостов</guilabel> в разделе <guilabel>Игнорируемые хосты</guilabel>. Когда вы подключаетеся к этим хостам, Вы подключаетесь напряму через интернет, без использования прокси.</para>
+  </section>
+
+  <section xml:id="prefs-remotedesktop"><info><title>Параметры удалённого рабочего стола</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-90"/>
+    <indexterm><primary>настройка параметров совместного сеанса</primary></indexterm>           
+    <para>Инструмент настройки <application>Удалённый рабочий стол</application> позволяет обеспечивать нескольким пользователям доступ к сеансу работы в среде MATE, а также настроить параметры такого доступа.</para>
+    <para><xref linkend="goscustdesk-TBL-91"/> перечисляет параметры совместного использования сеанса, которые можно изменять. Эти параметры непосредственно влияют на безопасность вашей системы.</para>
+    <table frame="topbot" xml:id="goscustdesk-TBL-91"><info><title>Параметры совместного использования сеанса</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec18" colwidth="19.21*"/>
+        <colspec colname="colspec19" colwidth="46.79*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Элемент диалогового окна</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Описание</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Разрешить другим пользователям просматривать Ваш рабочий стол</guilabel></para>
+            </entry>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para>Выберите этот параметр, чтобы удалённые пользователи могли просматривать ваш сеанс. Все нажатия клавиш, щёлчки мышью и события буфера обмена, порождаемые удалённым пользователем, будут игнорироваться.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Разрешить другим пользователям управлять Вашим рабочим столом</guilabel></para>
+            </entry>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para>Выберите этот параметр, чтобы можно было обращаться к вашему сеансу и управлять им из удалённого места.</para>
+            </entry>
+          </row>
+          <!--
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para>
+                <guilabel>Users
+can view your desktop using this command:</guilabel>
+                
+              </para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Click on the command text to send it to
+another user by email.</para>
+            </entry>
+          </row>
+          -->
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para><guilabel>Когда пользователь пытается просмотреть или контроливать Ваш рабочий стол</guilabel></para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Выберите следующие настройки безопасности, применяемые, когда пользователь пытается просмотреть или управлять Вашей сессией: <itemizedlist><listitem><para><guilabel>Запрашивать подтверждение:</guilabel> Выберите этот параметр, чтобы для совместного использования вашего сеанса требовалось ваше разрешение. Выбрав этот параметр, вы будете уведомлены при попытках других пользователей соединиться с вашим сеансом. Вы также сможете выбирать подходящее время для соединения с вашим сеансом.</para></listitem><listitem><para><guilabel>Требовать от пользователя ввести следующий пароль:</guilabel> Выберите этот параметр, чтобы заставить удалённых пользователей вводить пароль, если используется идентификация. Этот параметр позволяет повысить безопасность.</para></listitem></itemizedlist></para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para><guilabel>Пароль</guilabel></para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Введите пароль, который должен вводиться клиентом, желающим просмотреть или управлять вашим сеансом.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>  
+</section>
+
+<section xml:id="prefs-hardware"><info><title>Оборудование</title></info>
+	
+  <section xml:id="prefs-keyboard"><info><title>Параметры клавиатуры</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustperiph-2"/>       
+    <indexterm><primary>инструменты настройки</primary> <secondary>Клавиатура</secondary></indexterm>
+    <indexterm><primary>клавиатура</primary> <secondary>установка основных настроек</secondary></indexterm>
+    <para>Используйте инструмент <application>Клавиатура</application>, чтобы изменить параметры автоматического повтора для клавиатуры, а также чтобы установить параметры перерыва в работе.</para>
+    <!--
+    adds no information until each tab can be briefly summarized.
+    
+    <para>You can set the preferences for the <application>Keyboard</application>
+preference tool in the following functional areas:</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <guilabel>Keyboard</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Typing Break</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Layouts</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Layout Options</guilabel>
+        </para>
+      </listitem>
+    </itemizedlist>
+    -->
+    <para xml:lang="en">To open the <xref linkend="prefs-keyboard-a11y"/> tool, click the <guibutton>Accessibility</guibutton> button.</para>    
+    <section xml:id="goscustdesk-40"><info><title>Параметры клавиатуры</title></info>
+      
+      <para>Используйте влкадку<guilabel>Основные</guilabel> для установки основных настроек клавиатуры.</para>
+      <para><xref linkend="goscustperiph-TBL-3"/> перечисляет параметры клавиатуры, которые можно изменять.</para>
+      <table frame="topbot" xml:id="goscustperiph-TBL-3"><info><title>Параметры клавиатуры</title></info>
+        
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Нажатие клавиши повторяется, пока кнопка зажата</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Установите этот параметр, чтобы включить повтор ввода с клавиатуры. Если нажать и удерживать клавишу при включённом повторе ввода, действие, соответствующее клавише, будет повторяться. Например, если нажать и удерживать клавишу с буквой, то эта буква будет многократно повторена.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Задержка</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Установите задержку между нажатием клавиши и повтором действия.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Скорость</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Выберите скорость повтора действия.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Курсор мигает в полях ввода</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Установите этот параметр, чтобы курсор в текстовых полях мигал.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Скорость</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>С помощью ползунка укажите скорость, с которой курсор должен мигать в текстовых полях.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para><guilabel>Печатайте для проверки настроек</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Это тестовое поле ввода позволяет вам увидеть, как параметры клавиатуры влияют на набор текста. Вводите текст в поле, чтобы проверить заданные вами параметры.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="prefs-keyboard-layouts"><info><title>Параметры раскладок клавиатуры</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscustdesk-100"/>         
+      <para>Используйте вкладку <guilabel>Раскладки</guilabel>, чтобы выбрать язык и модель вашей клавиатуры.</para>
+      <para>Это позволит MATE использовать специальные мультимедийные клавиши на вашей клавиатуре и показывать правильные символы, соответствующие языку клавиатуры.</para>
+      
+      <variablelist>
+	      <varlistentry>
+	        <term><guilabel>Модель клавиатуры</guilabel></term>
+	        <listitem><para xml:lang="en">Use the browse button (labeled with the currently selected keyboard model) to choose another keyboard make and model.</para></listitem>
+	      </varlistentry>
+	      <varlistentry>
+	        <term><guilabel>Отдельный вид для каждого окна</guilabel></term>
+	        <listitem><para>Если этот параметр выбран, каждому окну соответствует своя раскладка клавиатуры. Переключение на другую раскладку повлияет только на текущее окно.</para>
+	        <para>Это позволит использовать русскую раскладку в текстовом процессоре, а потом переключившись в браузер печатать с использованием английской раскладки.</para></listitem>
+              </varlistentry>
+	      <varlistentry>
+	        <term><guilabel>Выбранные раскладки</guilabel></term>
+	        <listitem><para>Можно переключаться между выбранными раскладками, чтобы изменять символы, производимые клавиатурой при наборе текста. Чтобы добавить раскладку, нажмите <guibutton>Добавить</guibutton>. Можно настроить до четырёх раскладок. Чтобы удалить раскладку, выделите её и нажмите <guibutton>Удалить</guibutton>.</para>
+	        <para>Для переключения между раскладками клавиатуры, используйте апплет панели <application>Индикатор клавиатуры</application>.</para>
+                 <para>Для добавления раскладки в список выбранных раскладок, нажмите кнопку <guibutton>Добавить</guibutton>. Откроется диалог выбора раскладок, он позволит выбрать раскладку по стране или языку.</para> 
+	        </listitem>
+	      </varlistentry>
+      </variablelist>
+      
+      <para>Нажмите <guibutton>Восстановить параметры по умолчанию</guibutton>, чтобы восстановить все параметры раскладки клавиатуры в их изначальное для вашей системы и локали состояние.</para>
+
+      <para>Нажмите кнопку <guibutton>Настройки раскладки</guibutton> для открытия диалога <guilabel>Настройки раскладки клавиатуры</guilabel>.</para>
+   </section>
+    
+    <section xml:id="prefs-keyboard-layoutoptions"><info><title>Параметры раскладки клавиатуры</title></info> 
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscustdesk-101"/>
+      <para xml:lang="en">The <guilabel>Keyboard Layout Options</guilabel> dialog has options for the behavior of keyboard modifier keys and certain shortcut options.</para>
+      <para>Раскрывайте группы по их заголовкам, чтобы увидеть доступные параметры. Полужирное начертание в заголовке означает, что параметры в соответствующей группе были изменены по сравнению со стандартными.</para>
+      <note><para>Параметры, показанные в этом диалоговом окне, зависят от используемой вами версии X. Не все перечисленные ниже параметры могут быть указаны в вашей системе, и не все отображаемые параметры могут работать в вашей системе.</para></note>
+
+      <!-- the options of mystery!!!       
+           for future reference, these are in
+           /etc/X11/xkb/rules/xorg.xml
+      -->
+      <variablelist>
+        <varlistentry>
+                <term><guilabel>Добавление знака евро к определенным клавишам</guilabel></term>
+                <listitem>
+                  <para>Используйте эти настройки для добавления значка валюты Евро € к клавише, в качестве символа третьего уровня. Для доступа к этому символу, нужно установить <guilabel>Выбор третьего уровня</guilabel>.</para>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Поведение клавиши Alt/Win</guilabel></term>
+                <listitem><para xml:lang="en">
+                  This group of options allows you to assign the behavior of Unix modifier keys Super, Meta, and Hyper to the <keycap>Alt</keycap> and <keycap>Windows</keycap> keys on your keyboard.
+                </para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Поведение клавиши CapsLock</guilabel></term>
+                <listitem><para>В этой группе находится несколько параметров для клавиши <keycap>Caps Lock</keycap>.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Позиция составной клавиши</guilabel></term>
+                <listitem>
+                  <para>Клавиша Compose позволяет вам комбинировать два нажатия клавиш, получая в результате один символ. Это можно использовать для символов с диакритикой, которых может не быть на вашей клавиатуре. Например, нажмите клавишу Compose, затем <keycap>'</keycap>, затем <keycap>e</keycap>, чтобы получить символ é.</para>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Расположение клавиши Control</guilabel></term>
+                <listitem><para>Используйте эту группу параметров, чтобы установить расположение клавиши <keycap>Ctrl</keycap>, соответствующее раскладке старых клавиатур.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Группировать поведение Shift/Lock</guilabel></term>
+                <listitem><para>Выберите клавишу или комбинацию для переключения раскладки клавиатуры.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Различные настройки совместимости</guilabel></term>
+                <listitem>
+                  <variablelist>
+	                  <varlistentry>
+	                    <term><guilabel>Клавиши Shift с клавишами цифрового блока работают как в MS Windows.</guilabel></term>
+                    	<listitem>
+                    	  <para>Если этот параметр выбран, использование <keycap>Shift</keycap> с клавишами цифровой клавиатуры при выключенном <keycap>NumLock</keycap> расширяет текущее выделение.</para>
+                    	  <para xml:lang="en">With this option unselected, use <keycap>Shift</keycap> with keys on the numerical pad to obtain the reverse of the current behavior for that key. For example, when <keycap>NumLock</keycap> is off, the <keycap>8</keycap> key acts as an up-arrow. Press <keycombo><keycap>Shift</keycap><keycap>8</keycap></keycombo> to type an '8'.</para></listitem>
+                    	</varlistentry>
+                    	<varlistentry><term><guilabel>Специальные клавиши (Ctrl+Alt+&lt;key&gt;)  обрабатываются на сервере.</guilabel></term>
+	<listitem><para>Выберите этот параметр, чтобы определённые комбинации клавиш передавались в оконную систему X Window, а не обрабатывались средой MATE.</para></listitem>
+</varlistentry>
+                    </variablelist>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Третий уровень выбора</guilabel></term>
+                <listitem>
+                  <para>Клавиша <firstterm>третьего уровня</firstterm> позволяет вам получить третий символ на клавише — таким же образом, каким нажатие <keycap>Shift</keycap> вместе с клавишей производит символ, отличный от простого нажатия клавиши.</para>
+                  <para>Используйте эту группу, чтобы выбрать клавишу, которая будет служить для перехода в третий уровень.</para>
+                  <para>Нажатие клавиши выбора третьего уровня и <keycap>Shift</keycap> производит четвёртый символ на клавише.</para>
+                  <para>Третий и четвертый уровень символов раскладки клавиатуры показан в окне просмотра раслкадки в <application>Индикатор клавиатуры</application>.</para>
+                  <!-- better link, pending CVS commit of gswitchit docs: "help:gswitchit?layout-view" -->
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Использовать светодиод клавиатуры для отображения альтернативной группы.</guilabel></term>
+                <listitem>
+                  <para>Используйте этот параметр, чтобы указать, что один из световых индикаторов на вашей клавиатуре должен обозначать использование альтернативной раскладки клавиатуры.</para>
+                  <note><para>Выбранный световой индикатор больше не будет выполнять свою стандартную функцию. Например, индикатор Caps Lock перестанет реагировать на клавишу <keycap>Caps Lock</keycap>.</para></note>
+                </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+
+    <section xml:id="prefs-keyboard-a11y"><info><title>Специальные возможности клавиатры</title></info>
+    <indexterm><primary>Специальные возможности</primary> <see>инструменты настройки, Специальные возможности клавиатуры</see></indexterm>
+    <indexterm><primary>клавиатура</primary> <secondary>настройка специальных возможностей</secondary></indexterm>
+    <indexterm><primary>специальные возможности</primary> <secondary>настройка клавиатуры</secondary></indexterm>
+    <indexterm><primary>инструменты настройки</primary> <secondary>Специальные возможности клавиатуры</secondary></indexterm>
+
+    <!-- Maintained for 2.8 compatibility -->
+      <anchor xml:id="goscustaccess-6"/>
+      <anchor xml:id="goscustaccess-8"/>
+      <anchor xml:id="goscustaccess-9"/>
+      <para>Вкладка <guilabel>Специальные возможности</guilabel> позволяет установить настройки такие, как фильтрация случайных нажатий клавиш, использование сочетаний клавиш, без необходимости держать клавиши одновременно. Эти настройки так же могут называться Спец.возможности.</para>
+
+       <para>В этом разделе описываются все настройки, которые вы можете установить. Для более ориентированного на задачи описания, см. <citetitle>Руководство по специальным возможностям среды MATE</citetitle>.</para>
+
+      <para><xref linkend="goscustdesk-TBL-85"/>перечисляет параметры специальных возможностей, которые можно изменить.</para>
+     <table frame="topbot" xml:id="goscustdesk-TBL-85"><info><title>Настройки специальных возможностей</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry>
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Функции специальных возможностей могут быть включены с помощью горячих клавиш</guilabel></para>
+                </entry>
+                <entry valign="top">
+                   <para>Выберите этот параметр, чтобы показать значок в области уведомлений, который обеспечивает быстрый доступ к специальным возможностям.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Эмуляция одновременного нажатия клавиш</guilabel></para>
+                  <indexterm><primary>специальные возможности</primary> <secondary>залипание клавиш</secondary></indexterm>
+                </entry>
+                <entry valign="top">
+                <para>Выберите этот параметр, чтобы совершать одновременные операции с клавишами, заменяя их последовательностью нажатий. Также эту возможность можно включить, нажав пять раз клавишу <keycap>Shift</keycap>.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                    <para><guilabel>Отключать залипание клавиш, если две клавиши нажаты одновременно</guilabel></para>
+                </entry>
+                <entry valign="top">
+                    <para>Выберите эту настройку, для установки режима, при котором при нажатии двух клавиш одновременно, Вы больше не можете нажимать комбинации клавиш для выполнения одновременных нажатий.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Принимать только длительные нажатия клавиш</guilabel></para>
+                  <indexterm><primary>специальные возможности</primary> <secondary>медленные клавиши</secondary></indexterm>
+                </entry>
+                <entry valign="top">
+                <para xml:lang="en">Select this option to control the period that you must press-and-hold
+a key before acceptance. Alternatively, to enable the slow keys feature, press-and-hold <keycap>Shift</keycap> for eight seconds.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Задержка</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para xml:lang="en">Use the slider
+to specify the period that you must press-and-hold
+a key before acceptance.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Игнорировать быстрые повторяющиеся нажатия клавиш</guilabel></para>
+                  <indexterm><primary>специальные возможности</primary> <secondary>отскакивающие клавиши</secondary></indexterm>
+                </entry>
+                <entry valign="top">
+                <para>Выберите этот параметр, для принятия ввода клавиши и управления повторением нажатий.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Задержка</guilabel></para>
+                </entry>
+                <entry valign="top">
+                   <para>Используйте ползунок для установки интервала ожидания между первым нажатием клавиши и автоматическим повтором нажатия.</para>
+                </entry>
+             </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Печатайте для проверки настроек</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Это тестовое поле ввода позволяет вам увидеть, как параметры клавиатуры влияют на набор текста. Вводите текст в поле, чтобы проверить заданные вами параметры.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>Для настройки звука обратной связи для специальных возможностей клавиатуры, нажмите кнопку <guibutton>Звуковая обратная связь</guibutton>. Откроется окно <guilabel>Специальные возможности - звуковая обратная связь</guilabel>.</para>
+    </section>
+
+   <section><info><title>Вспомогательные звуковые возможности клавиатуры</title></info>
+      <para>Установка настроек звуковой обратной связи для специальных возможностей клавиатуры.</para>
+      <para><xref linkend="goscustdesk-TBL-86"/>перечисляет параметры звуковой обратной связи, которые можно изменить.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-86"><info><title>Настройки звука обратной связи</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry>
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Подавать сигнал, когда включаются или выключаются вспомогательные технологии клавиатуры</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Выберите этот параметр, чтобы получать звуковой сигнал при включении или выключении специальной возможности, например, «залипающих» или «медленных» клавиш.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Подавать сигнал, когда клавиша переключения нажата</guilabel></para>
+                 <indexterm><primary>специальные возможности</primary> <secondary>переключение клавиш</secondary></indexterm>
+              </entry>
+	      <entry valign="top">
+                 <para>Выберите этот параметр, чтобы получать звуковое оповещение о нажатии переключающей клавиши. Будет подаваться один сигнал при включении клавиши и два сигнала при выключении.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Подавать сигнал, когда клавиша-модификатор нажата</guilabel></para>
+              </entry>
+              <entry valign="top">
+                 <para>Выберите эту настройку для звукового оповещения при нажатии клавиши-модификатора.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Подавать сигнал, когда клавиша нажата</guilabel></para>
+              </entry>
+              <entry valign="top">
+                 <para>Выберите эту настройку для звукового оповещения при нажатиях клавиш.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Подавать сигнал, когда клавиша принята</guilabel></para>
+              </entry>
+              <entry valign="top">
+                 <para>Выберите эту настройку для звукового оповещения, когда нажатие клавиши принято.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Подавать сигнал, когда клавиша отклонена</guilabel></para>
+              </entry>
+              <entry valign="top">
+                 <para>Выберите эту настройку для звукового оповещения, когда нажатие клавиши отклонено.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+   </section>
+ 
+   <section><info><title>Настройки кнопок мыши</title></info>
+     <anchor xml:id="goscustaccess-10"/>
+     <para>Настройки во вкладке <guilabel>Кнопки мыши</guilabel> позволяют настроить эмуляцию мыши с помощью клавиатуры.</para>
+      <para><xref linkend="goscustdesk-TBL-88"/>перечисляет настройки кнопок мыши, которые можно изменить.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-88"><info><title>Параметры перерыва в работе</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry>
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Указатель может управляться с помощью клавиатуры</guilabel></para>
+                <indexterm><primary>специальные возможности</primary> <secondary>кнопки мыши</secondary></indexterm>
+              </entry>
+              <entry valign="top">
+               <para>Выберите эту настройку, чтобы эмулировать действия клавиатуры с помощью цифровой клавиатуры. Список клавиш и их эквивалентов можно найти в <citetitle>Руководство по специальным возможностям среды MATE</citetitle> под заголовком <citetitle>Для включения эмуляции мыши с помощью клавиатуры</citetitle>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Ускорение</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Используйте ползунок, чтобы установить, сколько времени требуется для ускорения указателя до максимальной скорости.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Скорость</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Используйте ползунок, чтобы установить максимальную скорость перемещения указателя по экрану.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Задержка</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para xml:lang="en">Use the slider to specify the period that must pass
+after a keypress before the pointer moves.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+  </section>
+
+    <section xml:id="goscustdesk-86"><info><title>Параметры перерыва в работе</title></info>
+      
+      <para>Настройте параметры перерыва в работе, чтобы среда MATE напоминала вам о необходимости отдыха, когда вы используете клавиатуру и мышь в течение длительного времени. Во время перерыва в работе экран будет заблокирован.</para>
+      <para><xref linkend="goscustdesk-TBL-87"/> перечисляет параметры перерыва в работе, которые можно изменять.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-87"><info><title>Параметры перерыва в работе</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry>
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Блокировать экран для принуждения к перерыву во время набора текста</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Выберите этот параметр, чтобы блокировать экран, когда подходит время перерыва в работе.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Длительность рабочего интервала</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Используйте числовое поле, чтобы указать, как долго можно работать без отдыха.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Длительность перерыва</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Используйте числовое поле, чтобы указать продолжительность перерывов в работе.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Разрешить откладывать перерывы</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Выберите этот параметр, чтобы можно было откладывать перерывы в работе.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para>Если вы перестанете использовать клавиатуру и мышь на время, равное параметру <guilabel>Продолжительность перерыва</guilabel>, то продолжительность работы будет сброшена в ноль.</para></note>
+    </section>    
+  </section>
+
+  <section xml:id="prefs-mouse"><info><title>Параметры мыши</title></info>
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="goscustperiph-5"/>
+    <indexterm><primary>инструменты настройки</primary> <secondary>Мышь</secondary></indexterm>
+    <indexterm><primary>мышь</primary> <secondary>настройка</secondary></indexterm>
+
+    <para>С помощью инструмента настройки <application>Мышь</application> вы можете:</para>
+    <itemizedlist>
+      <listitem>
+        <para>настроить свою мышь на использование правой или левой рукой;</para>
+      </listitem>
+      <listitem>      
+        <para>выберите скорость и чувствительность мыши,</para>
+      </listitem>
+      <listitem>
+        <para>Установка настроек специальных возможностей мыши</para>
+      </listitem>
+    </itemizedlist>
+    
+    <section xml:id="goscustdesk-55"><info><title>Основные настройки мыши</title></info>
+      <para>Используйте вкладку <guilabel>Основные</guilabel> для установки конфигурации мышки для использования левой или правой рукой и настройки её скорости и чувствительности.</para>
+      <para><xref linkend="goscustperiph-TBL-6"/>перечисляет основные настройки мыши, которые можно изменять.</para>
+
+    <!-- convert to variablelist -->
+    <table frame="topbot" xml:id="goscustperiph-TBL-6"><info><title>Параметры кнопок мыши</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Правша</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Выберите эту настройку для установки мыши в режим для правой руки. Когда мышь настроена для использования правой рукой, левая кнопка мыши является первичной, правая кнопка является вторичной.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Левша</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Выберите этот параметр, чтобы настроить мышь для использования левой рукой. При настройке мыши для использования левой рукой функции левой кнопки и правой кнопки меняются местами.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Показывать позицию указателя при нажатии клавиши Control</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Выберите эту настройку, чтобы включить анимацию указателя при нажатии клавиши Control. Эта настройка поможет Вам найти указатель.</para>
+                <note>
+                  <para>Расположение клавиши Control на клавиатуре может быть изменено в диалоге настройки раскладки клавиатуры, см.<xref linkend="prefs-keyboard-layoutoptions"/>.</para>
+                </note>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Ускорение</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Используйте ползунок, чтобы выбрать скорость, с которой указатель мыши будет перемещаться на экране при перемещении мыши.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Чувствительность</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Используйте ползунок, чтобы выбрать, насколько чувствительным будет указатель к движениям мыши.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Предел</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Используйте ползунок, чтобы выбрать расстояние, на которое нужно переместить объект, чтобы действие начало восприниматься как перетаскивание.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Таймаут</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Используйте ползунок, чтобы выбрать промежуток времени, который может пройти между щелчками при двойном щелчке. Если промежуток между первым и вторым щелчком превосходит указанное здесь время, то действие не рассматривается как двойной щелчок.</para>
+                <para>Используйте значок лампочки, чтобы проверить чувствительность к двойному щелчку. При одинарном щелчке лампочка загорится и сразу погаснет, а при двойном щелчке — загорится и останется зажжённой.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscustdesk-53"><info><title>Специальные возможности мышки</title></info>
+      <para>Используйте раздел <guilabel>Специальные возможности</guilabel> для настройки специальных возможностей, которые могут быть полезны людям, имеющим сложности с точным передвижением указателя или с нажатием кнопок мыши:</para>
+      <itemizedlist>
+         <listitem>
+            <para>Открывать контекстное меню щелкнув и удерживая первичную кнопку мыши; это может быть полезно для пользователей, которые могут управлять только одной кнопкой мыши.</para>
+         </listitem>
+         <listitem>
+            <para>Производить разные типы щелчков программно; это полезно для пользователей, которые не могут взаимодействовать с кнопками. Типы выполняемых щелчков: <variablelist>
+                 <varlistentry>
+                   <term>Одиночный щелчок</term>
+                   <listitem>
+                     <para>Однократный щелчок первичной кнопкой мыши</para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term>Двойной щелчок:</term>
+                   <listitem>
+                     <para>Двойной щелчок первичной кнопкой мыши</para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term>Щелчок перетаскиванием</term>
+                   <listitem>
+                     <para>Щелчок, начинающий операцию перетягивания</para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term>Вторичный щелчок</term>
+                   <listitem>
+                     <para>Однократный щелчок вторичной кнопкой мыши</para>
+                   </listitem>
+                 </varlistentry>
+               </variablelist></para>
+         </listitem>
+      </itemizedlist>
+      <para><xref linkend="goscustdesk-TBL-47"/>перечисляет параметры специальных возможностей, которые можно изменить:</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-47"><info><title>Параметры движения мыши</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="30.10*"/>
+          <colspec colwidth="69.90*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry>
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Вызывать вторичный щелчок удержанием первичной кнопки</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Выберите эту настройку для включения симуляциии щелчков вторичной кнопки мыши с помощью продолжительного удержания первичной кнопки мыши.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Ползунок <guilabel>Задержка</guilabel> в разделе <guilabel>Симуляция вторичного клика</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Используйте ползунок для установки, как долго первичная кнопка должна быть нажата для симуляции нажатия вторичной кнопки.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Производить щелчок после остановки указателя</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Выберите эту настройку, для включения автоматических щелчков при остановке мыши. Используйте дополнительные настройки во вкладке <guilabel>Щелчок при остановке</guilabel> для настройки способа выбора типа клика.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Ползунок <guilabel>Задержка</guilabel> во вкладке <guilabel>Щелчок при остановке</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Используйте ползунок для установки, как долго указатель должен находиться в состоянии остановки, прежде чем будет произведен автоматический щелчок.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>слайдер <guilabel>Предел движения</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Используйте ползунок для установки количества движения для указателя, при котором он считается остановившимся.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Выбор типа щелчка заранее</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Выберите эту настройку для выбора типа клика из окна или апплета панели.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Показать окно типа щелчков</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Когда эта настройка включена, разные типы щелчков (одиночный щелчок, двойной щелчок, перетягивающий щелчок или вторичный щелчок) могут быть выбраны в специальном окне.</para> 
+                <note><para>Вместо окна может быть использован апплет панели <guilabel>Щелчок при остановке</guilabel>.</para></note>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Тип щелчка при жестах мышью</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Выберите эту настройку для выбора типа щелчка передвижением мыши в определенном наравлении. Четыре галочки позволяют назначить направления для разных типов щелчков. Обратите внимание, что каждое из направлений может быть использовано только для одного типа щелчка.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Однократный щелчок</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Выбор направления чтобы вызвать одиночный щелчок.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Двойной щелчок</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Выбор направления чтобы вызвать двойной щелчок.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Перетягивающий щелчок</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Выбор направления чтобы вызвать перетаскивание.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Вторичный щелчок</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Выбор направления чтобы вызвать вторичный щелчок.</para> 
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+
+  <section xml:id="goscustdesk-70"><info><title>Мониторы</title></info>
+    <indexterm><primary>инструменты настройки</primary> <secondary>Экран</secondary></indexterm>
+    <para>Используйте <application>Свойства монитора</application> для настройки мониторов, используемых на компьютере.</para>
+<note><para>На большинстве клавиатур ноутбука, можно использовать комбинацию клавиш <keycombo><keycap>Fn</keycap><keycap>F7</keycap></keycombo> для переключения между несколькими типичными конфигурациями монитора без запуска <application>Настройки монитора</application>.</para></note>
+<para>Перетяните изображение монитора в верхнюю правую часть окна, для установки порядка мониторов. <application>Настройки монитора</application> отображает небольшие метки в верхнем левом углу каждого из мониторов чтобы помочь определить какой из прямоугольников отображает каждый из мониторов.</para>
+<para>Настройки, сделанные в <application>Свойства монитора</application> не вступают в действие до тех пор, пока вы не нажмёте кнопку <guibutton>Применить</guibutton>. Настройки вернутся к предыдущему состоянию, если Вы не подтвердите изменения. Это позволяет избежать выставления неправильных настроек монитора, делающих использование компьютера невозможным.</para>
+
+<variablelist>
+	<varlistentry>
+    <term><guilabel>Одинаковое изображение на всех мониторах</guilabel></term>
+    <listitem><para>Когда эта настройка включена, весь рабочи йстол буден помещен на один монитор, каждый монитор будет показывать одну и ту же копию рабочего стола. Когда настройка выключена, рабочий стол растягивается на несколько мониторов, каждый из мониторов показывает только часть рабочего стола.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Обнаруживать мониторы</guilabel></term>
+    <listitem><para>Нажмите на кнопку для того, чтобы узнать какие мониторы были недавно добавлены или подключены.</para></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term><guilabel>Показывать мониторы на панели</guilabel></term>
+    <listitem><para>Когда эта настройка включена, значок будет размещен на Вашей панели, для быстрого доступа к определённым настройкам, без необходимости открывать <application>Настройки монитора</application>.</para></listitem>
+  </varlistentry>
+</variablelist>
+
+<para>В следующем списке описаны настройки, которые можно установить для каждого из мониторов. Выбранным монитором является тот, графическое отображение которого имеет чёрный жирный контур. Так же это отображается с помощью цвета фона метки раздела.</para>
+
+<variablelist>
+	<varlistentry>
+    <term><guilabel>Вкл</guilabel> / <guilabel>Выкл</guilabel></term>
+    <listitem><para>Каждый из мониторов может быть полностью отключен выбором <guilabel>Выкл</guilabel>.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Разрешение</guilabel></term>
+    <listitem><para>Выберите разрешение для использования с мониторов выбранным из списка. <emphasis>Разрешение</emphasis> связано с количеством пикселей на экране. Большее разрешение, означает, что больше элементов поместится на экран, но изображение будет мельче.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Частота обновления</guilabel></term>
+    <listitem><para xml:lang="en">Select the refresh rate to use for the currently
+                selected monitor from the drop-down list. The <emphasis>refresh
+                rate</emphasis> determines how often the computer redraws the
+                screen. A too low refresh rate (below 60) makes the monitor
+                flicker and can cause discomfort to your eyes. This is less
+                of a problem on LCDs.
+              </para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Вращение</guilabel></term>
+    <listitem><para>Выберите угол поворота для выбранного монитора. Эта опция может поддерживаться не на всех видеокартах.</para></listitem>
+  </varlistentry>
+</variablelist>
+</section>
+
+  <section xml:id="goscustmulti-2"><info><title>Параметры звука</title></info>
+    
+    <indexterm><primary>инструменты настройки</primary> <secondary>Звук</secondary></indexterm>
+    <indexterm><primary>звук</primary> <secondary>установка настроек</secondary></indexterm>
+    <indexterm><primary>звуки</primary> <secondary>асоциирование событий со звуками</secondary></indexterm>
+    <indexterm><primary>события, с которыми ассоциированы звуки</primary></indexterm>
+    <indexterm><primary>громкость</primary></indexterm>
+    <para>Инструмент настройки <application>Звук</application> позволяет Вам контролировать устройства, звуковые входы и выходы. Вы можете выбрать, какие звуки проигрывать при каких событиях.</para>
+    <para>Параметры, которые можно изменять с помощью инструмента <application>Звук</application>, делятся на следующие области:</para>
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Звуковые события</guilabel></para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Вход</guilabel></para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Выход</guilabel></para>
+      </listitem>
+    </itemizedlist>
+    <para>Вы можете изменить общую громкость звука, используя слайдер <guilabel>Выходная громкость</guilabel> находящийся в верхней части экрана. Галочка <guilabel>Без звука</guilabel> позволяет временно выключить все звуковые выходы, без изменения текущих настроек звуковых выходов.</para>
+
+    <section xml:id="goscustdesk-48"><info><title>Настройки звуковых эффектов</title></info>
+      <para>Звуковая тема это коллекция звуковых эффектов, связанных с различными событиями, такими как открытие диалога, нажатие на кнопку или выбор объекта в меню. Один из наиболее заметных звуков - звук <emphasis>Системное уведомление</emphasis>, который обычно воспроизводится для обозначения ошибки ввода клавиатуры. Используйте вкладку <guilabel>Звуковые эффекты</guilabel> инструмента настройки <application>Звук</application> для выбора звуковой темы или изменения звука уведомлений.</para>
+      <para><xref linkend="goscustmulti-TBL-6"/>содержит настройки звуковых эффектов, которые Вы можете изменить.</para>
+      <table frame="topbot" xml:id="goscustmulti-TBL-6"><info><title>Настройки звуковых эффектов</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Громкость предупреждения</guilabel> ползунок</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Используйте слайдер <guilabel>Громкость уведомлений</guilabel> для контроля громкости звуков событий.</para>
+                <para>Опция <guilabel>Без звука</guilabel>позволяет временно отключить звуки событий, без изменения установленного звука.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Звуковая тема</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Используйте это поле для выбора другой звуковой темы.</para>
+                <para>Выберите <guilabel>Без звука</guilabel> для выключения всех звуковых событий.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para>список <guilabel>Выбор звука оповещения</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Выберите альтернативный звук для системного оповещения из этого списка.</para>
+                <para>Выбранный в списке элемент проигрывает звук.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para>галочка <guilabel>Разрешить звуки окон и кнопок</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Снимите галочку, если вы не хотите слышать звуки событий, связанных с окном (например, диалоговое окно или меню) и нажатием кнопок.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section><info><title>Настройки звукового входа</title></info>
+      <para>Используйте вкладку <guilabel>Вход</guilabel> для установки настроек звукового входа.</para>
+      <para><xref linkend="goscustdesk-TBL-1"/> перечисляет список настроек звукового входа, которые можно изменить.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-1"><info><title>Настройки звукового входа</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para><guilabel>Входная громкость</guilabel> ползунок</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Используйте ползунок громкости входного сигнала, для контроля  громкости входного сигнала.</para>
+                <para>Галочка <guilabel>Без звука</guilabel> позволяет временно выключить все звуковые входы, без изменения текущих настроек звуковых входов.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Уровень входа</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Дисплей <guilabel>Уровень входа</guilabel> отображает визуальную обратную связь, позволяющую выбрать подходящий уровень громкости для звукового входа.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para>список <guilabel>Выберите входное звуковое устройство</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Выберите устройство для записи звука.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para>Обратите внимание, что входной громкостью можно управлять с помощью значка в виде микрофона, отображаемого в области уведомлений панели, когда приложение подключено к звуковому входу.</para></note>
+    </section>
+
+    <section><info><title>Настройки звукового выхода</title></info>
+      <para>Используйте вкладку <guilabel>Выход</guilabel> для установки настроек звукового выхода.</para>
+      <para><xref linkend="goscustdesk-TBL-2"/> перечисляет список настроек звукового выхода, которые можно изменить.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-2"><info><title>Настройки звукового выхода</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para>ползунок <guilabel>Громкость выхода</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Используйте ползунок выходной громкости для контроля громкости звука во всей системе.</para>
+                <para>Галочка <guilabel>Без звука</guilabel> позволяет временно выключить все звуковые выходы, без изменения текущих настроек звуковых выходов.</para>
+                <para>Обратите внимание, что ползунок <guilabel>Выходная громкость</guilabel> находится над разделом с вкладками в верхней части окна.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para><guilabel>Выберите устройство для вывода звука</guilabel> список</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Выберите устройство для выхода звука.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para><guilabel>Баланс</guilabel> ползунок</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Используйте ползунок <guilabel>Баланс</guilabel> для управления балансом левый/правый выходного устройства, имеющего более одного канала (стерео или 5.1).</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para>Обратите внимание, что выходной громкостью можно управлять с помощью значка в виде динамика, отображаемого в области уведомлений панели.</para></note>
+    </section>
+
+    <section xml:id="goscustdesk-41"><info><title>Настройки звука приложения</title></info>
+      <para>Используйте вкладку <guilabel>Приложения</guilabel> для управления громкостью звука отдельных приложений.</para>
+      <para>Каждое приложение воспроизводящее звук идентифицируется по его имени и значку.</para>
+    </section>
+  </section>
+
+<!--
+<sect2 id="goscustdesk-79">
+<title>Customizing PalmOS Devices</title>
+<indexterm><primary>preference tools</primary><secondary>PalmOS devices</secondary>
+</indexterm><para>Information to be supplied in a future release.</para>
+</sect2>
+-->
+</section>
+
+<section xml:id="prefs-system"><info><title>Система</title></info>
+
+  <section xml:id="prefs-sessions"><info><title>Параметры сеансов</title></info>
+    <!-- preserve for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustsession-5"/>   
+    <indexterm><primary>инструменты настройки</primary> <secondary>Сессии</secondary></indexterm>
+    <indexterm><primary>сессии</primary> <secondary>настройки</secondary></indexterm>
+    <indexterm><primary>автозапускаемые приложения</primary> <secondary>настройка</secondary></indexterm>
+    <para>Инструмент настройки <application>Сеансы</application> позволяет управлять сеансами. Можно изменять их параметры и выбирать приложения, запускаемые при старте сеанса. Можно настроить сеансы таким образом, чтобы состояние MATE-приложений сохранялось и впоследствии восстанавливалось при старте нового сеанса. Можно использовать этот инструмент для управления несколькими сеансами MATE.</para>
+    <para>Можно изменять параметры сеансов и автоматически запускаемых приложений в следующих областях:</para>
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Настройки сессии</guilabel></para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Автозапускаемые программы</guilabel></para>
+      </listitem>
+    </itemizedlist>
+
+    <section xml:id="goscustsession-16"><info><title>Установка параметров сеанса</title></info>
+      <indexterm><primary>сессии</primary> <secondary>установка настроек</secondary></indexterm>
+      <para>Используйте вкладку <guilabel>Параметры сеанса</guilabel>, чтобы управлять несколькими  сеансами и задавать параметры текущего сеанса.</para>
+      <para><xref linkend="goscustsession-TBL-11"/> перечисляет параметры сеанса, которые можно изменять.</para>
+      <table frame="topbot" xml:id="goscustsession-TBL-11"><info><title>Параметры сеанса</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec0" colwidth="18.86*"/>
+          <colspec colname="colspec1" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Автоматически запоминать запущенные приложения при выходе из системы</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <indexterm><primary>автозапускаемые приложения</primary> <secondary>управляемые сессией</secondary></indexterm>
+                <para>Выберите эту настройку, если хотите, чтобы менеджер сеансов сохранял состояние состояние сеанса при выходе из системы. Менеджер сеансов сохраняет открытые приложения сеанса и связанные с ними настройками при выходе из системы. В следующий раз при запуске сеанса, приложения с сохранёнными настройками запустятся автоматически .</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Запомнить запущенные приложения</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <indexterm><primary>автозапускаемые приложения</primary> <secondary>управляемые сессией</secondary></indexterm>
+                <para>Выберите этот параметр, чтобы менеджер сеансов сохранял текущее состояние вашего сеанса. Сохраняются открытые управляемые приложения и связанные с ними параметры. В следующий раз при входе в сеанс эти приложения будут запущены автоматически и их состояние будет восстановлено.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscustsession-12"><info><title>Настройка автоматически запускаемых приложений</title></info>
+      <indexterm><primary>автозапускаемые программы</primary> <secondary>управляемые вне сессии</secondary></indexterm>
+      <para>Используйте вкладку <guilabel>Автоматически запускаемые программы</guilabel> инструмента <application>Сеансы</application>, чтобы выбрать <firstterm>автоматически запускаемые приложения</firstterm>, которые не управляются в рамках сеанса. Такие приложения запускаются автоматически в начале вашего сеанса. На вкладке <guilabel>Автоматически запускаемые программы</guilabel> следует указывать команды, которые запускают неуправляемые приложения. Эти команды выполняются, когда вы входите в систему.</para>
+      <para>Также можно автоматически запускать управляемые приложения. Подробнее смотрите <xref linkend="goscustsession-16"/>.</para>
+      <para><xref linkend="goscustsession-TBL-19"/> перечисляет параметры автоматически запускаемых приложений, которые можно изменять.</para>
+      <table frame="topbot" xml:id="goscustsession-TBL-19"><info><title>Параметры автоматически запускаемых программ</title></info>
+        <tgroup cols="2">
+          <colspec colname="col1" colwidth="18.86*"/>
+          <colspec colname="col2" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colname="col1" colsep="0">
+                <para>Элемент диалогового окна</para>
+              </entry>
+              <entry colname="col2" colsep="0">
+                <para>Описание</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="col1" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Дополнительные автоматически запускаемые программы</guilabel></para>
+              </entry>
+              <entry colname="col2" colsep="0" rowsep="0" valign="top">
+                <para>Используйте эту таблицу для добавления неуправляемых программ, следующим образом:</para>
+                <itemizedlist>
+                  <listitem>
+                    <para xml:lang="en">To add a startup application, click on the <guibutton>Add</guibutton> button. The <guilabel>New Startup Program</guilabel> dialog is displayed. Enter the name of the application in the <guilabel>Name</guilabel> field. Then enter the command to start the application in the <guilabel>Command</guilabel> field. You can also specify a comment in the <guilabel>Comment</guilabel> field</para>
+                  </listitem>
+                  <listitem>
+                    <para>Чтобы изменить автоматически запускаемое приложение, выделите его, затем нажмите кнопку <guibutton>Изменить</guibutton>. Появится диалоговое окно <guilabel>Изменить автоматически запускаемую программу</guilabel>. Используйте это диалоговое окно, чтобы изменить команду и порядок запуска для данного автоматически запускаемого приложения.</para>
+                  </listitem>
+                  <listitem>
+                    <para>Для удаления автозапускаемого приложения, выберите это приложение, затем нажмите кнопку <guilabel>Удалить</guilabel>.</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+</section>
+</chapter>

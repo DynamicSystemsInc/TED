@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="menubar" xml:lang="ja">
+    <info><title>メイン・メニューの使い方</title></info>
+  
+  <!-- preserve id for backwards compatibility: 2.12 -->
+  <anchor xml:id="goseditmainmenu-1"/><!-- Working With Menus -->
+  <anchor xml:id="goseditmainmenu-2"/><!-- Introduction to Menus -->  
+  <anchor xml:id="goseditmainmenu-5"/><!-- Menu Features -->
+  <anchor xml:id="goseditmainmenu-11"/><!-- Menu Item Popup Menu -->
+  <anchor xml:id="goseditmainmenu-51"/><!-- Actions Menu -->
+  <anchor xml:id="menus-introduction"/><!-- Introduction to Menus --> 
+        
+  <highlights>
+    <para>この章では MATE パネルにあるメニューバーの使い方について説明します。</para>
+  </highlights>
+  <indexterm xml:lang="en">
+    <primary>menus</primary>
+    <secondary>introduction</secondary>
+  </indexterm>
+  <indexterm xml:lang="en">
+    <primary>menus</primary>
+    <secondary>Menu Bar</secondary>
+    <see>Menu Bar</see>
+  </indexterm>
+  <indexterm xml:lang="en">
+    <primary>Menu Bar</primary>
+    <secondary>introduction</secondary>
+  </indexterm>  
+
+  <para>パネルのメニューバーは MATE デスクトップにアクセスする最も一般的な方法を提供します。<guimenu>アプリケーション</guimenu>・メニューを使っていろいろなアプリケーションを起動し、<guimenu>場所</guimenu>メニューからお使いのコンピュータやネットワーク上の場所を開いたり、<guimenu>システム</guimenu>・メニューから自分のシステムを独自に設定したり、MATE のヘルプを取得したり、MATE からログアウトしたり、コンピュータをシャットダウンします。</para>
+  <para>これ以降の節では、この三つのメニューについて説明します。</para>
+  <tip><para xml:lang="en">By default, the panel menubar is on the <xref linkend="top-panel"/>. But like any other panel object, you can move the menubar to another panel, or have more than one instance of the menubar in your panels. For more on this, see <xref linkend="panel-menus"/>.</para></tip>
+
+  <section xml:id="applications-menu"><info><title>アプリケーション・メニュー</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goseditmainmenu-8"/>
+    <indexterm xml:lang="en">
+      <primary>menus</primary>
+      <secondary>Applications menu</secondary>
+    </indexterm>
+    <para><guimenu>アプリケーション</guimenu>・メニューは、システムにインストールしたアプリケーションを起動することが可能であり、いろいろなサブメニューの階層構造になっています。</para>
+    <para xml:lang="en">Each submenu corresponds to a category. For example, in the <guimenu>Sound &amp; Video</guimenu> submenu, you will find applications for playing CDs and recording sound.</para>
+    <para>アプリケーションを起動する手順は次のとおりです:</para>
+    <orderedlist>
+      <listitem><para><guimenu>アプリケーション</guimenu>・メニューをクリックして開く</para></listitem>
+      <listitem><para>起動したいアプリケーションのあるカテゴリに向けてマウスを下に移動させる (ポインタが指しているカテゴリに割り当てられたサブメニューがそれぞれ開く)</para></listitem>
+      <listitem><para>サブメニューの中から、アプリケーションに対応するメニュー項目をクリックする</para></listitem>
+    </orderedlist>
+    <para>新規にアプリケーションをインストールすると、自動的にそのアプリケーションが所属するカテゴリに追加されます。例えば、インスタント・メッセンジャー・アプリケーションとか VoIP アプリケーション、あるいは FTP クライアントをインストールすると、それらに対応するメニュー項目が<guimenu>インターネット</guimenu>というサブメニューの中に表示されます。</para>
+  </section>
+
+  <section xml:id="places-menu"><info><title>場所メニュー</title></info>
+    <indexterm xml:lang="en">
+      <primary>Places menu</primary>
+    </indexterm>
+    <para><guimenu>場所</guimenu>メニューはお使いのコンピュータとローカルなネットワーク上にあるいろいろな場所に素早く移動する手段を提供します。<guimenu>場所</guimenu>メニューを使うと、次のようなアイテムを開くことができます:</para>
+    <itemizedlist>
+      <listitem><para xml:lang="en">Your Home folder<remark>Add link!</remark></para></listitem>    
+      <listitem><para>デスクトップ・フォルダ (デスクトップに表示するアイテムに相当する)</para></listitem>    
+      <listitem><para>Caja のブックマークに格納されているアイテム (詳細は「<xref linkend="caja-bookmarks"/>」を参照のこと)</para></listitem>
+      <listitem><para>自分のコンピュータ (すべてのドライブを含む)</para></listitem>
+      <listitem><para>Caja の CD/DVD 作成機能用のフォルダ (詳細は「<xref linkend="caja-cdwriter"/>」を参照のこと)</para></listitem>
+      <listitem><para>ローカルのネットワーク (詳細は「<xref linkend="caja-accessnetwork"/>」を参照のこと)</para></listitem>
+    </itemizedlist>
+    
+    <para>メニューにある最後の三つの項目は場所を開くというよりはアクションを実行するものです。</para>    
+                   
+    <itemizedlist>          
+      <listitem><para><guimenuitem>サーバへ接続</guimenuitem>を使うとネットワーク上のサーバに接続できる (詳細は「<xref linkend="caja-server-connect"/>」を参照のこと)</para></listitem>
+      <listitem><para xml:lang="en"><guimenuitem>Search for Files</guimenuitem> lets you search for files on your computer. For more on this, see the <link xlink:href="help:mate-search-tool">Search for Files Manual</link>.</para></listitem>
+      <listitem><para><guimenuitem>最近開いたドキュメント</guimenuitem>というサブメニューには最近、このデスクトップから開いたドキュメントの一覧が表示されている (サブメニューの最後のメニュー項目は、この一覧をクリアするもの)</para></listitem>                  
+    </itemizedlist>                
+  </section>
+
+  <section xml:id="desktop-menu"><info><title>システム・メニュー</title></info>
+    <indexterm xml:lang="en">
+      <primary>System Menu</primary>
+    </indexterm>
+    <para><guimenu>システム</guimenu>・メニューを使うと MATE デスクトップの設定を指定したり、MATE を使うにあたってのヘルプを取得したり (今ご覧になっているこのドキュメントです)、システムからログアウトしたりシャットダウンできるようになります。</para>  
+    <itemizedlist>
+      <listitem><para><guimenuitem>コントロール・センター</guimenuitem>というメニュー項目にはコンピュータを設定するためのツールが含まれている (これらの設定ツールの使い方について詳細は「<xref linkend="prefs"/>」を参照のこと)</para></listitem>
+      <listitem><para><guimenuitem>ヘルプ</guimenuitem>というメニュー項目はヘルプ・ブラウザを起動する</para></listitem>
+      <listitem><para><guimenuitem>MATE について</guimenuitem>というメニュー項目は MATE を簡単に紹介したり MATE のウェブサイトやクレジットへのリンクを提供するダイアログを起動する</para></listitem>
+      <listitem><para><guimenuitem>画面のロック</guimenuitem>というメニュー項目はスクリーンセーバーを起動し、パスワードを入力するとデスクトップに戻る (詳細は「<xref linkend="lock-screen"/>」を参照のこと)</para></listitem>
+      <listitem><para><guimenuitem>ログ・アウト</guimenuitem>を選択すると MATE からログアウトしたり、他のユーザに変更できる</para></listitem>
+      <listitem><para><guimenuitem>シャットダウン</guimenuitem>を選択すると現在の MATE セッションを終了し、コンピュータの電源を切るか再起動する</para></listitem>
+     </itemizedlist>
+     
+     <para>ログアウトとシャットダウンについて詳細は「<xref linkend="shutdown"/>」をご覧ください。</para> 
+
+  </section>
+
+  <section xml:id="menu-editor"><info><title>メニューバーのカスタマイズ</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goseditmainmenu-54"/>
+    <indexterm xml:lang="en">
+      <primary>menus</primary>
+      <secondary>customizing</secondary>
+    </indexterm>
+
+    <para>次のメニューの項目を変更できるようになっています:</para>
+    <itemizedlist>
+      <listitem>
+        <para><guimenu>アプリケーション</guimenu>・メニュー</para>
+      </listitem>
+      <listitem>
+        <para><menuchoice><guimenu>システム</guimenu><guisubmenu>設定</guisubmenu></menuchoice>サブメニュー</para>
+      </listitem>
+      <listitem>
+        <para><menuchoice><guimenu>システム</guimenu><guisubmenu>管理者向け</guisubmenu></menuchoice>サブメニュー</para>
+      </listitem>
+    </itemizedlist>
+    
+    <para>これらのメニュー項目を編集する場合は、パネルのメニューバーの上で右クリックして<guimenuitem>メニューの編集</guimenuitem>を選択します。すると、<guilabel>メイン・メニュー</guilabel>・ウィンドウが開きます。</para>
+    <para xml:lang="en">The <guilabel>Menu Layout</guilabel> window lists the menus in the left pane. Click on the expand arrows to show or hide submenus. Choose a menu in the left pane to see its items listed in the right pane.</para>
+    <para>メニューからメニュー項目を削除する場合は、一覧の選択を解除してください。もう一度選択することでメニューに戻すことができます。</para>
+
+  </section>
+</chapter>

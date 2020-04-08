@@ -1,0 +1,2303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="prefs" xml:lang="tr">
+    <info><title>Masaüstünüzün Yapılandırılması</title>
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Fatih Demir</db:firstname>
+      </db:personname>
+      <db:email>kabalak@kabalak.net</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2000.</db:year>
+      
+      <db:holder>Fatih Demir</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Görkem Çetin</db:firstname>
+      </db:personname>
+      <db:email>gorkem@gelecek.com.tr</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2002/2003.</db:year>
+      
+      <db:holder>Görkem Çetin</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Barış Çicek</db:firstname>
+      </db:personname>
+      <db:email>baris@teamforce.name.tr</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2004</db:year>
+      
+        <db:year>2008</db:year>
+      
+        <db:year>2009.</db:year>
+      
+      <db:holder>Barış Çicek</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Muhammet Kara</db:firstname>
+      </db:personname>
+      <db:email>muhammet.k@gmail.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2011.</db:year>
+      
+      <db:holder>Muhammet Kara</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>hsngrms</db:firstname>
+      </db:personname>
+      <db:email>dead-bodies-everywhere@hotmail.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2012</db:year>
+      
+      <db:holder>hsngrms</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Atilla Öntaş</db:firstname>
+      </db:personname>
+      <db:email>tarakbumba@gmail.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2014</db:year>
+      
+      <db:holder>Atilla Öntaş</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Emre FIRAT</db:firstname>
+      </db:personname>
+      <db:email>emrefirat93@gmail.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2013</db:year>
+      
+        <db:year>2014</db:year>
+      
+        <db:year>2015</db:year>
+      
+      <db:holder>Emre FIRAT</db:holder>
+    </db:copyright>
+  </info>
+  
+  <!-- ids in this section are gradually being converted 
+  to something like 'prefs-mouse'.
+  remember to add an anchor for the old id in the right place -->
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="goscustdesk-6"/>
+
+  <!-- Desktop Overview / Desktop Preferences -->
+  <anchor xml:id="gosoverview-55"/>
+  
+  <!-- ids of sections removed from this document for 2.14 -->
+  <anchor xml:id="goscustdesk-10"/><!-- Customizing Your Panels -->
+
+  <highlights>
+    <para>Bu bölüm MATE Masaüstünü kişiselleştirmek için tercih araçlarının nasıl kullanıldıklarını açıklar.</para>
+  </highlights>
+  <!-- move the following to its own section, "Using Pref Tools"? -->
+  <para xml:lang="en">A preference tool is a small application that allows you to change settings in the MATE Desktop. Each preference tool covers a particular aspect of your computer. For example, with the <application>Mouse</application> preference tool you can set your mouse to left-handed or right-handed use, or change the speed of the pointer on the screen. With the <application>Windows</application> preference tool you can set behavior common to all windows such as the way in which you select them with the mouse.</para>
+  <para>Tercih araçlarını açmak için üst panelde <menuchoice><guimenu>Sistem</guimenu><guisubmenu>Tercihler</guisubmenu></menuchoice> unsurlarını seçin. Alt menüden de ihtiyacınız olan aracı seçin.</para>
+  <para>Birkaç istisna haricinde tercih araçlarındaki ayarlarda yapacağınız değişiklikler onu kapatmanıza gerek olmadan anında uygulanır. Değişiklikleri denerken tercih aracı penceresini açık tutabilir ve isterseniz ek değişiklikler de yapabilirsiniz.</para>
+  <para>Bazı uygulamalar veya sistem bileşenleri kendi tercih araçlarını menüye ekleyebilirler.</para>
+  <note><para>Bazı tercih araçları sisteminizin temel parçalarını değiştirmenize izin verir, dolayısıyla yönetici erişimi gerektirir. Tercih aracını açtığınız vakit bir diyalog kutusu parolanızı soracaktır. Bunlar <menuchoice><guimenu>Sistem</guimenu><guisubmenu>Yönetim</guisubmenu></menuchoice> alt menüsünde yer alır. Bu menü ayrıca sisteminizi yönetmek ve güncellemek için daha karmaşık yardımcı uygulamalar içerir.</para></note>
+
+<section xml:id="prefs-personal"><info><title>Kişisel</title></info>
+  
+  <!-- Was Login Photo prefs, could go to About Me if that was enabled by default -->
+  <anchor xml:id="goscustdesk-95"/>
+
+  <section xml:id="goscustaccess-11"><info><title>Yardımcı Teknoloji Tercihleri</title></info>
+    <indexterm><primary>erişilebilirlik</primary> <secondary>yardımcı teknoloji tercihlerini ayarlamak</secondary></indexterm>
+    <indexterm><primary>tercih araçları</primary> <secondary>Yardımcı Teknolojiler</secondary></indexterm>
+    <para>MATE Masaüstünde yardımcı teknolojileri etkinleştirmek için <application>Yardımcı Teknolojiler</application> tercih aracını kullanın. Ayrıca yardımcı teknolojilerle alakalı tercihleri içeren diğer tercih araçlarını açmak için <application>Yardımcı Teknoloji</application> tercih aracını kullanabilirsiniz.</para>
+    <itemizedlist>
+      <listitem>
+        <para><guibutton>Tercih Edilen Uygulamalar</guibutton>, oturum açtığınızda otomatik olarak başlayacak yardımcı teknoloji uygulamalarını belirtmenize imkân verir. <xref linkend="prefs-preferredapps"/> sayfasına bakın</para>
+      </listitem>
+      <listitem>
+        <para><guibutton>Klavye Erişilebilirliği</guibutton>, yapışkan tuşlar, yavaş tuşlar veya sıçrama tuşları gibi klavye erişilebilirliği işlevlerini yapılandırmanıza imkân verir. <xref linkend="prefs-keyboard-a11y"/> sayfasına bakın</para>
+      </listitem>
+      <listitem>
+        <para><guibutton>Fare Erişilebilirliği</guibutton>, tıklama gibi fare erişilebilirlik özelliklerini yapılandırmanızı sağlar. <xref linkend="goscustdesk-53"/> sayfasına bakın</para>
+      </listitem>
+    </itemizedlist>
+    <para><xref linkend="goscustaccess-TBL-14"/>, değiştirebileceğiniz yardımcı teknoloji tercihlerini listeler.</para>
+    <table frame="topbot" xml:id="goscustaccess-TBL-14"><info><title>Yardımcı Teknoloji Tercihleri</title></info>
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colwidth="50*"/>
+        <colspec colwidth="50*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Diyalog Unsuru</para>
+            </entry>
+            <entry>
+              <para>Tanımlama</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry valign="top">
+              <para><guilabel>Yardımcı teknolojileri etkinleştir</guilabel></para>
+            </entry>
+            <entry valign="top">
+              <para>MATE Masaüstünde yardımcı teknolojileri etkinleştirmek için bu şıkkı seçin.</para>
+              <para>Teknik sebeplerden ötürü, bu şıkkı seçtikten sonra tam olarak etkin olması için tekrar oturum açmanız gerekir.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section xml:id="prefs-keyboard-shortcuts"><info><title>Klavye Kısayol Tercihleri</title></info>
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="goscustdesk-39"/>
+    <indexterm><primary>tercih araçları</primary> <secondary>Klavye Kısayolları</secondary></indexterm>
+    <indexterm><primary>kısayol tuşları</primary> <secondary>yapılandırma</secondary></indexterm>
+    <indexterm><primary>klavye kısayolları</primary> <secondary>yapılandırma</secondary></indexterm>
+    <para>Varsayılan klavye kısayollarını ihtiyaçlarınıza göre özelleştirmek için <application>Klavye Kısayolları</application> tercih aracını kullanın.</para>    
+    
+    <para>Bir <firstterm>klavye kısayolu</firstterm>, herhangi bir eylemi gerçekleştirmenin standart yollarına alternatif sunan bir tuş veya tuş kombinasyonudur. Klavye kısayolları hakkında daha fazla bilgi ve MATE'deki varsayılan kısayolların listesi için <xref linkend="keyboard-skills"/> sayfasına bakın.</para>
+
+    <para>Klavye kısayollarını düzenlemek için şu adımları atın:</para>
+    <orderedlist>
+	    <listitem><para xml:lang="en">
+	    Double-click on the shortcut that you want to edit. If you are using the keyboard, use the arrow keys to select the shortcut and press <keycap>Return</keycap>.</para></listitem>
+	    <listitem>
+	      <para>Eyleme atamak istediğiniz yeni tuşa ya da tuş kombinasyonuna basın.</para>
+	      <para>Bir kısayolu temizlemek için <keycap>Backspace</keycap> yani geri silme tuşuna basın. Eylem artık <guilabel>Kapalı</guilabel> olarak işaretlenecektir.</para>
+	    </listitem>
+    </orderedlist>
+    
+    <para>Bir kısayol atamayı iptal etmek için pencerede başka bir yere tıklayın ya da <keycap>Escape</keycap> tuşuna basın.</para>
+    
+    <para>Kişiselleştirebileceğiniz kısayollar şu şekilde gruplandırılmıştır:</para>
+    
+    <variablelist>
+    	<varlistentry><term>Masaüstü</term>
+    	  <listitem><para xml:lang="en">These are general shortcuts for the whole desktop, such as logging out, locking your screen (see <xref linkend="lock-screen"/>), opening the panel menubar (see <xref linkend="menubar"/>), or launching a web browser.</para></listitem>
+    	</varlistentry>
+    	<varlistentry><term>Ses</term>
+    	  <listitem><para>Sistem ses düzeyini ve müzik oynatıcınızı kontrol etmek için kısayollar.</para></listitem>
+    	</varlistentry>
+    	<varlistentry><term>Pencere Yönetimi</term>
+    	  <listitem><para>Başka bir çalışma alanına geçmek ve güncel pencereyi büyültmek ya da taşımak işlemleri gibi pencere ve çalışma alanları ile çalışmak için kısayollar. Bu tür eylemler hakkında daha fazla bilgi için <xref linkend="windows-manipulating"/> and <xref linkend="overview-workspaces"/> sayfasına bakın.</para></listitem>
+    	</varlistentry>
+        <varlistentry><term>Erişilebilirlik</term>
+          <listitem><para>Ekran okuyucusu, büyüteç veya ekran üzerinde klavye gibi yardımcı teknolojileri başlatmak için kısayollar.</para></listitem>
+        </varlistentry>
+        <varlistentry><term>Özel Kısayollar</term>
+          <listitem><para><guilabel>Ekle</guilabel> düğmesi ile ilave edilmiş olan özel kısayollar. Eğer özel kısayol yoksa bu bölüm gösterilmeyecektir.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>Özel bir kısayol ilave etmek için eylem bölgesindeki <guilabel>Ekle</guilabel> düğmesini kullanın. Yeni kısayol için bir isim ve komut girmeniz gerekir. Yeni özel kısayol kısayollar listesinde görünecektir ve önceden tanımlanmış kısayollarla aynı şekilde düzenlenebilir.</para>
+    <para>Özel bir kısayolu silmek için <guilabel>Kaldır</guilabel> düğmesini kullanın.</para>
+  </section>  
+
+  <section xml:id="prefs-preferredapps"><info><title>Tercih Edilen Uygulamalar</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdoc-2"/>       
+    <indexterm><primary>tercih araçları</primary> <secondary>Tercih Edilen Uygulamalar</secondary></indexterm>
+    <indexterm><primary>varsayılan uygulamalar</primary> <see>tercih edilen uygulamalar</see></indexterm>
+    <para>MATE Masaüstü sizin için bir uygulama başlattığında MATE Masaüstünün kullanmasını istediğiniz uygulamaları belirtmek için <application>Tercih Edilen Uygulamalar</application> tercih aracını kullanın. Mesela e-posta istemcisi ya da belge görüntüleyicisi gibi bir uygulamada bir bağlantıya tıkladığınızda başlatılacak İnternet tarayıcısını (<application>Epiphany </application>, <application>Mozilla Firefox</application>, <application>Opera</application> …) belirtebilirsiniz.</para>
+
+	<para><application>Tercih Edilen Uygulamalar</application>, <menuchoice><guimenu>Sistem</guimenu><guisubmenu>Tercihler</guisubmenu><guimenuitem>Tercih Edilen Uygulamalar</guimenuitem></menuchoice> menü yoluyla bulunabilir.</para>
+    <para><application>Tercih Edilen Uygulamalar</application> tercih aracının tercihlerini aşağıdaki işlevsel alanlarda kişiselleştirebilirsiniz.</para>
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Internet</guilabel> (Web, E-posta)</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Çoklu Ortam</guilabel> (Çoklu Ortam Oynatıcısı)</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Sistem</guilabel> (Terminal)</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Erişilebilirlik</guilabel> (Görsel, Hareketlilik)</para>
+      </listitem>
+    </itemizedlist>
+    
+    <para>Her bir tercih edilen uygulama kategorisi için bir açılır menü seçebileceğiniz uygulamaların listesini içerir. Liste, bilgisayarınızda kurulu olan uygulamalara bağlıdır.</para>
+    <para>Her bir kategoride, menünün son unsuru, yani (<guimenuitem>Özel</guimenuitem>), belirli başlatma eylemi meydana geldiğinde sistem tarafından kullanılan komutu kişiselleştirmenize imkân verir.</para>
+    
+    <section xml:id="goscustlookandfeel-32"><info><title>Özel Komut Seçenekleri</title></info>
+      <indexterm><primary>tercih edilen uygulamalar</primary> <secondary>özel komut</secondary></indexterm>
+      <para>Aşağıdaki tablo, açılır uygulama menüsünde <guimenuitem>Özel</guimenuitem> unsurunu seçtiğinizde aralarından seçim yapabileceğiniz çeşitli seçenekleri özetler.</para>
+      <table frame="topbot" xml:id="goscustlookandfeel-TBL-37"><info><title>Özel komut seçenekleri</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec0" colwidth="18.86*"/>
+          <colspec colname="colspec1" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Komut</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Özel uygulamayı başlatmak için çalıştırılacak komutu girin. <application>İnternet Taraycısı</application> ve <application>E-posta Okuyucusu</application> uygulamaları için uygulamaya tıkladığınız URL ya da E-posta adresini kullanmasını belirtmek için komutun ardına bir <literal>%s</literal> ekleyebilirsiniz.  Komut argümanları belirtilen uygulamaya göre değişiklik gösterebilir.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Terminalde çalıştır</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Komutu bir terminal penceresinde çalıştırmak için bu şıkkı seçin. İçinde çalışacağı bir pencere oluşturmayan uygulamalar için bu şıkkı seçin.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Yürütme bayrağı (sadece Terminal)</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Terminal uygulamalarının çoğu, kalan komut satırı seçeneklerini çalıştırılacak komutlar olarak işlemelerini sağlayan bir seçeneğe sahiptirler (<application>mate-terminal</application> için <option>-x</option>). Bu seçeneği burada girin. Mesela bu, seçili türü Terminal içi Uygulama olan bir başlatıcının komutu çalıştırılırken kullanılır.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Başlangıçta çalıştır (sadece Erişilebilirlik)</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Komutun oturumunuz başlar başlamaz çalıştırılması için bu şıkkı seçin.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+</section>
+
+<section xml:id="prefs-look-and-feel"><info><title>Görünüş ve İşleyiş</title></info>
+
+  <section xml:id="prefs-appearance"><info><title>Görünüm Tercihleri</title></info>
+    <para><application>Görünüm</application> tercih aracı masaüstünüzün görünümünün çeşitli yönlerini yapılandırmanıza imkân verir:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Tema,</para>
+      </listitem>
+      <listitem>
+        <para>Masaüstü Zemini,</para>
+      </listitem>
+      <listitem>
+        <para>Yazıtipleri,</para>
+      </listitem>
+      <listitem>
+        <para>Kullanıcı Arayüzü.</para>
+      </listitem>
+     </itemizedlist>
+
+  <section xml:id="prefs-theme"><info><title>Tema Tercihleri</title></info>
+    <anchor xml:id="goscustdesk-12"/>
+    <anchor xml:id="goscustdesk-54"/>
+    <anchor xml:id="goscustdesk-82"/>
+  
+    <indexterm><primary>temalar</primary> <secondary>kontrol seçeneklerinin ayarı</secondary></indexterm>
+    <indexterm><primary>temalar</primary> <secondary>pencere kenarı seçeneklerinin ayarı</secondary></indexterm>
+    <indexterm><primary>temalar</primary> <secondary>ikon seçeneklerinin ayarı</secondary></indexterm>
+    <indexterm><primary>pencereler</primary> <secondary>kenar teması seçeneklerinin ayarı</secondary></indexterm>
+    <indexterm><primary>tercih araçları</primary> <secondary>Tema</secondary></indexterm>
+
+    <para>Temalar, MATE Masaüstünün bir kısmının görünümünü belirten koordineli ayarlar grubudur. MATE Masaüstünün görünümünü değiştirmek için tema seçebilirsiniz. Tema seçmek için <application>Tema</application> sekme bölümünü kullanın. Mevcut temaların listesinden seçim yapabilirsiniz. Mevcut temaların listesi erişilebilirlik ihtiyacı olan kullanıcılar için birkaç tema içerir.</para>
+    <para>Temalar, MATE Masaüstünün değişik bölümlerini aşağıdaki gibi etkileyen ayarlar içerir:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Denetimler</term>
+        <listitem>
+          <para xml:lang="en"><indexterm xml:lang="en"><primary>GTK+
+themes</primary><see>themes, controls options</see></indexterm><indexterm xml:lang="en"><primary>themes</primary><secondary>controls options</secondary><tertiary>introduction</tertiary></indexterm>The controls setting for a theme determines
+the visual appearance of windows, panels, and applets. The controls setting
+also determines the visual appearance of the MATE-compliant interface items
+that appear on windows, panels, and applets, such as menus, icons, and buttons.
+Some controls setting options that are available are designed for special
+accessibility needs. You can choose an option for the controls setting from
+the <guilabel>Controls</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Renkler</term>
+        <listitem>
+           <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>themes</primary><secondary>color options</secondary><tertiary>introduction</tertiary></default:indexterm><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>color themes</primary><see>themes, color options</see></default:indexterm>Temalar için renk ayarı çeşitli kullanıcı arayüzü unsurlarının rengini belirler. <guilabel>Temayı Özelleştir</guilabel> penceresinde <guilabel>Renkler</guilabel> sekme bölümünde çeşitli renk çifti seçebilirsiniz.</para>
+           <note><para>Birbirleriyle iyi bir kontrast oluşturan renk çiftlerini seçmek önemlidir, aksi takdirde metin okunması zor bir hale gelebilir.</para></note>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Pencere kenarı</term>
+        <listitem>
+          <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>themes</primary><secondary>window frame options</secondary><tertiary>introduction</tertiary></default:indexterm><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>Marco themes</primary><see>themes, window frame options</see></default:indexterm>Temalar için pencere kenarı ayarı sadece pencere çerçevelerinin görünümünü belirler. Pencere kenarı ayarı için <guilabel>Temayı Özelleştir</guilabel> penceresinde <guilabel>Pencere Kenarı</guilabel> sekme bölümünde bir şık seçebilirsiniz.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>İkonlar</term>
+        <listitem>
+          <para><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>themes</primary><secondary>icons options</secondary><tertiary>introduction</tertiary></default:indexterm><default:indexterm xmlns="http://docbook.org/ns/docbook"><primary>icon themes</primary><see>themes, icons options</see></default:indexterm>Temaların ikon ayarı masaüstü zemini ve paneller üzerindeki ikonların görünümünü belirler. İkon ayarı için <guilabel>Temayı Özelleştir</guilabel> penceresinin <guilabel>Simgeler</guilabel> sekme bölümünde bir şık seçebilirsiniz.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Belirteç</term>
+        <listitem>
+          <para xml:lang="en"><indexterm xml:lang="en"><primary>themes</primary><secondary>pointer options</secondary><tertiary>introduction</tertiary></indexterm><indexterm xml:lang="en"><primary>pointer themes</primary><see>themes, pointer options</see></indexterm>The pointer setting for a theme determines the appearance of
+and size of the mouse pointer. You can choose the options for setting the pointer from the <guilabel>Pointer</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <section xml:id="goscustdesk-61"><info><title>Özel bir Tema Oluşturmak</title></info>
+      
+      <para><guilabel>Tema</guilabel> sekme bölümündeki temalar, değişik denetim seçenekleri, pencere kenarı seçenekleri ve ikon seçenekleri birleşimidir. Değişik denetim seçenekleri, pencere kenarı seçenekleri ve ikon seçenekleri kombinasyonları kullanan özel bir tema oluşturabilirsiniz.</para>
+      <para>Özel bir tema oluşturmak için aşağıdaki adımları izleyin:</para>
+      <orderedlist>
+        <listitem>
+          <para><application>Görünüm</application> tercih aracını başlatın. <guilabel>Tema</guilabel> sekme bölümünü açın.</para>
+        </listitem>
+        <listitem>
+          <para>Tema listesinde bir tema seçin.</para>
+        </listitem>
+        <listitem>
+          <para><guibutton>Özelleştir</guibutton> düğmesine tıklayın. <guilabel>Temayı Özelleştir</guilabel> diyaloğu görüntülenecektir.</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>Denetimler</guilabel> sekme bölümündeki listeden özel temada kullanmak istediğiniz denetim seçeneklerini seçin. Mevcut denetim seçenekleri listesi erişilebilirlik ihtiyacı olan kullanıcılar için çeşitli seçenekler içerir.</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>Pencere Kenarı</guilabel> sekme bölümünü görüntülemek için <guilabel>Pencere Kenarı</guilabel> sekmesine tıklayın. Mevcut seçenekler listesinden özel temada kullanmak istediğiniz pencere kenarı şıkkını seçin. Mevcut pencere kenarı seçenekleri listesi, erişilebilirlik ihtiyacı olan kullanıcılar için çeşitli seçenekler içerir.</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>Simgeler</guilabel> sekme bölümünü görüntülemek için <guilabel>Simgeler</guilabel> sekmesine tıklayın. Mevcut seçenekler listesinden özel temada kullanmak istediğiniz ikon şıklarını seçin. Mevcut ikon seçenekleri erişilebilirlik ihtiyacı olan kullanıcılar için çeşitli seçenekler içerir.</para>
+        </listitem>
+        <listitem>
+          <para><guilabel>Temayı Özelleştir</guilabel> diyaloğunu kapatmak için <guibutton>Kapat</guibutton> düğmesine tıklayın.</para>
+        </listitem>
+        <listitem>
+          <para><application>Görünüm</application> tercihleri aracında <guibutton>Farklı Kaydet</guibutton> düğmesine tıklayın. <guilabel>Temayı Farklı Kaydet</guilabel> diyaloğu görüntülenecektir.</para>
+        </listitem>
+        <listitem>
+          <para>Diyalogda özel tema için bir isim ile kısa bir açıklama yazın ve <guilabel>Kaydet</guilabel> düğmesine tıklayın. Özel tema artık mevcut temalar listenizde yer alacaktır.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="goscustdesk-62"><info><title>Yeni bir Tema Kurmak</title></info>
+      <para>Mevcut temalar listesine bir tema ilave edebilirsiniz. Yeni tema tarlanmış ve ziplenmiş bir arşiv dosyası olmalıdır. Yani, yeni tema bir <filename>.tar.gz</filename> dosyası olmalıdır.</para>
+      <para>Yeni bir tema kurmak için şu adımları takip edin:</para>
+      <orderedlist>
+        <listitem>
+          <para><application>Görünüm</application> tercih aracını başlatın. <guilabel>Tema</guilabel> sekme bölümünü açın.</para>
+        </listitem>
+        <listitem>
+          <para><guibutton>Kur</guibutton> düğmesine tıklayın. Bir dosya seçici diyalog görüntülenir.</para>
+        </listitem>
+        <listitem>
+          <para>Yer girişi alanında tema arşiv dosyasının konumunu girin. Veya dosya listesinde tema arşiv dosyasını seçin. Dosyayı seçtikten sonra <guibutton>Aç</guibutton> düğmesine tıklayın.</para>
+        </listitem>
+        <listitem>
+          <para>Yeni temayı kurmak için <guibutton>Kur</guibutton> düğmesine tıklayın.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+<!--How does this work nowadays ?
+    <sect4 id="goscustdesk-80">
+      <title>To Install a New Theme Option</title>
+      <para>You can install new controls options, window frame options, or icons
+options. You can find many controls options on the Internet.</para>
+      <para>To install a new controls option, window frame option, or icons option,
+perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Start the <application>Appearance</application> preference tool.
+          Open the <guilabel>Theme</guilabel> tabbed section.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Customize</guibutton> button.
+An <guilabel>Customize Theme</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the tab for the type of theme that you want to install.
+For example, to install an icons option, click on the <guilabel>Icons</guilabel>
+tab.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Install Theme</guibutton> button.
+A <guilabel>Theme Installation</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Enter the location of the option archive file in the drop-down
+combination box. Alternatively, to browse for the file, click on the <guibutton>Browse</guibutton> button. When you have selected the file, click <guibutton>OK</guibutton>.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Install</guibutton> button to install
+the new option. </para>
+        </listitem>
+      </orderedlist>
+    </sect4>
+-->
+
+    <section xml:id="goscustdesk-81"><info><title>Bir Tema Seçeneğini Silmek</title></info>
+      <para>Denetim seçeneklerini, pencere kenarı seçeneklerini veya ikon seçeneklerini silebilirsiniz.</para>
+      <para>Bir denetim seçeneğini, pencere kenarı seçeneğini veya ikon seçeneğini silmek için aşağıdaki adımları takip edin:</para>
+      <orderedlist>
+        <listitem>
+          <para><application>Görünüm</application> tercih aracını başlatın. <guilabel>Tema</guilabel> sekme bölümünü açın.</para>
+        </listitem>
+        <listitem>
+          <para><guibutton>Özelleştir</guibutton> düğmesine tıklayın. <guilabel>Temayı Özelleştir</guilabel> diyaloğu görüntülenecektir.</para>
+        </listitem>
+        <listitem>
+          <para>Silmek istediğiniz seçenek türü ile alakalı sekmeye tıklayın.</para>
+        </listitem>
+        <listitem>
+          <para>Silmek istediğiniz tema seçeneğini seçin.</para>
+        </listitem>
+        <listitem>
+          <para>Seçili seçeneği silmek için <guibutton>Sil</guibutton> düğmesini kullanın. Bütün sistemi kapsayan tema seçeneklerini silemeyeceğinizi unutmayın.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+
+  <section xml:id="prefs-desktopbackground"><info><title>Masaüstü Zemini Tercihleri</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-7"/>       
+    <indexterm><primary>masaüstü</primary> <secondary>arkaplanı özelleştirme</secondary></indexterm>
+    <indexterm><primary>MATE Masaüstü tercih araçları</primary> <see>tercih araçları</see></indexterm>
+    <indexterm><primary>tercih araçları</primary> <secondary>Zemin</secondary></indexterm>
+    <indexterm><primary>arkaplanlar</primary> <secondary>masaüstü arkaplanını özelleştirme</secondary></indexterm>
+    <para xml:lang="en">The <xref linkend="overview-desktop"/> background is the image or color that is applied to your
+desktop. You can open <guilabel>Background</guilabel> tabbed section in the <application>Appearance</application> preference tool by right-clicking on the desktop and choosing <guimenuitem>Change Desktop Background</guimenuitem>, as well as from the <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu></menuchoice> menu.</para>
+    <para>Masaüstü zeminini aşağıdaki yollarla özelleştirebilirsiniz:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Masaüstü zemini için bir resim seçin. Resim masaüstü zemin renginin üzerine konulur. Masaüstü zemin rengi eğer şeffaf bir resim seçerseniz ya da resim tüm masaüstünü kaplamıyorsa görünür.</para>
+      </listitem>
+      <listitem>
+        <para>Masaüstü zemini için bir renk seçin. Düz bir renk seçebilir ya da iki renk ile dereceli renk geçişi etkisi oluşturabilirsiniz. Dereceli renk geçişi etkisi bir rengin kademeli olarak başka bir renge karışmasını yansıtan görsel bir efekttir.</para>
+      </listitem>
+    </itemizedlist>
+    <tip><para xml:lang="en">You can also drag a color or a pattern to the desktop from the <guilabel>Backgrounds
+and Emblems</guilabel> dialog in the <application>Caja</application> file manager (see <xref linkend="caja-backgrounds-and-emblems"/>).</para></tip>
+    <para><xref linkend="goscustdesk-TBL-14"/>, değiştirebileceğiniz zemin tercihlerini listeler.</para>
+    <table frame="topbot" xml:id="goscustdesk-TBL-14"><info><title>Masaüstü Zemini Tercihleri</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec0" colwidth="18.86*"/>
+        <colspec colname="colspec1" colwidth="47.14*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Diyalog Unsuru</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Tanımlama</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guibutton>Masaüstü Zemini</guibutton></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Listeden bir resim seçin. Bilgisayarınızdaki herhangi bir resmi seçmek için de <guibutton>Ekle</guibutton> düğmesini kullanabilirsiniz.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Stil</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Resmin nasıl görüntüleneceğini belirtmek için <guilabel>Stil</guilabel> açılır menüsünden aşağıdaki seçeneklerden birini seçin:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Ortala</guilabel>: Resmi masaüstünün ortasında, resmin orijinal boyutlarını değiştirmeden görüntüler.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Odaklama</guilabel>: Resmi tüm masaüstünü kaplayacak şekilde genişletir, gerekirse oranlarını da değiştirir.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Ölçekle</guilabel>: Resmi ekranın uçlarına gelecek şekilde genişletir ve oranlarını korur.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Esnet</guilabel>: Görüntünün daha küçük boyutunu ekran uçlarına ulaşana kadar büyültür; görüntü diğer boyutta kırpılabilir.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Karo</guilabel>:  Orijinal boyutlu resmi ne kadar gerekirse o kadar çoğaltır ve resimleri birbirleri ardına ekranın tamamını kaplayacak şekilde görüntüler.</para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0">
+              <para><guilabel>Ekle</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0">
+              <para/>
+              <para>Bilgisayarınızda bir resme göz atmak için  <guibutton>Ekle</guibutton> düğmesine tıklayın. Standart bir dosya seçici görüntülenecektir. İstediğiniz resmi seçin ve <guibutton>Aç</guibutton> düğmesine tıklayın.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0">
+              <para><guilabel>Kaldır</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0">
+              <para>Kaldırmak istediğiniz resmi seçip <guilabel>Kaldır</guilabel> düğmesine tıklayın. Bu, resmi mevcut arkaplan resimlerinden kaldırır, ancak resmi bilgisayarınızdan silmez.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Renkler</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Bir renk şeması belirtmek için <guilabel>Stil</guilabel> açılır menüsündeki seçenekler ve renk seçme düğmelerini kullanın.</para>
+              <para>Aşağıdaki yollardan biriyle bir renk şeması belirtebilirsiniz:</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Masaüstü zemini için tek bir renk belirtmek istiyorsanız <guilabel>Arkaplan Stili</guilabel> açılır menüsünden <guilabel>Düz renk</guilabel> şıkkını seçin.</para>
+                  <para>İstediğiniz rengi seçmek için <guibutton>Renk</guibutton> düğmesine tıklayın. <guilabel>Bir Renk Seç</guilabel>  diyaloğu görüntülenecektir.</para>
+                </listitem>
+                <listitem>
+                  <para>Açılır menü listesinde <guilabel>Arkaplan Stili</guilabel>nden <guilabel>Yatay geçiş</guilabel>i seçin. Bu seçenek, ekranın sol ucundan sağ ucuna dereceli renk geçiş efekti oluşturur.</para>
+                  <para><guilabel>Bir Renk Seç</guilabel> diyaloğunu görüntülemek için <guibutton>Sol Renk</guibutton> düğmesine tıklayın. Sol kenarda görüntülenmesini istediğiniz rengi seçin.</para>
+                  <para><guibutton>Sağ Renk</guibutton> düğmesine tıklayın. Sağ kenarda görüntülenmesini istediğiniz rengi seçin.</para>
+                </listitem>
+                <listitem>
+                  <para>Açılır menü listesinde <guilabel>Arkaplan Stili</guilabel>nden <guilabel>Dik geçiş</guilabel>i seçin. Bu seçenek, ekranın üst ucundan alt ucuna dereceli renk geçiş efekti oluşturur.</para>
+                  <para><guilabel>Bir Renk Seç</guilabel> diyaloğunu görüntülemek için <guibutton>Üst Renk</guibutton> düğmesine tıklayın. Üst kenarda görüntülenmesini istediğiniz rengi seçin.</para>
+                  <para><guibutton>Alt Renk</guibutton> düğmesine tıklayın. Alt kenarda görüntülenmesini istediğiniz rengi seçin.</para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section xml:id="prefs-font"><info><title>Yazıtipi Tercihleri</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-38"/>
+    <anchor xml:id="goscustdesk-83"/>
+    <anchor xml:id="goscustdesk-94"/>
+    <indexterm><primary>tercih araçları</primary> <secondary>Yazıtipi</secondary></indexterm>
+    <indexterm><primary>yazıtipleri</primary> <secondary>masaüstü</secondary></indexterm>
+    <indexterm><primary>yazıtipleri</primary> <secondary>uygulamalar</secondary></indexterm>
+    <indexterm><primary>yazıtipleri</primary> <secondary>pencere başlığı</secondary></indexterm>
+    <indexterm><primary>yazıtipleri</primary> <secondary>terminal</secondary></indexterm>
+    <indexterm><primary>yazıtipleri</primary> <secondary>oluşturma</secondary></indexterm>
+    <para>Masaüstünün çeşitli bölümlerinde hangi yazıtiplerinin kullanılacağını ve ekranda yazıtiplerinin nasıl görüntüleneceklerini seçmek için <application>Görünüm</application> tercih aracında <guilabel>YazıtipleriFonts</guilabel> sekme bölümünü kullanın.</para>
+
+    <section xml:id="prefs-font-choose"><info><title>Yazıtiplerini Seçme</title></info>
+      <para>Yazıtipi seçme düğmesi, yazı tipinin ismini ve nokta boyutunu gösterir. İsim ayrıca kalın, italik veya normal tipte gösterilir.</para>
+      <para>Yazıtipini değiştirmek için yazıtipi seçme düğmesine tıklayın. Yazıtipi seçme diyaloğu açılır. Listeden yazıtipi ailesini, biçemini ve nokta boyutunu seçin. Önizleme alanı güncel seçiminizi gösterir. Değişiklikleri kabul etmek ve masaüstünü güncellemek için <guibutton>Tamam</guibutton> düğmesini tıklayın.</para>
+      <para>Masaüstünün aşağıdaki bölümleri için yazıtipi seçebilirsiniz:</para>
+
+      <variablelist>
+       	<varlistentry>
+      	  <term><guilabel>Uygulama yazıtipi</guilabel></term>
+      	  <listitem>
+      	    <para>Bu yazıtipi menülerde, araç çubuklarında ve uygulamaların diyalog kutularında kullanılır.</para>
+      	  </listitem>
+      	</varlistentry>
+      	<varlistentry>
+      	  <term><guilabel>Belge yazıtipi</guilabel></term>
+      	  <listitem>
+      	    <para>Bu yazıtipi uygulamalarda belge görüntülemek için kullanılır.</para>
+      	    <note><para>Bazı uygulamalarda bu seçimi uygulamanın tercihler diyaloğunda geçersiz kılıp yerine başka bir seçimde bulunabilirsiniz.</para></note>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Masaüstü yazıtipi</guilabel></term>
+      	  <listitem>
+      	    <para>Bu yazıtipi masaüstünde ikon etiketlerinde kullanılır.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Pencere başlık yazıtipi</guilabel></term>
+      	  <listitem>
+      	    <para>Bu yazıtipi pencerelerin başlık çubuklarında kullanılır.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Sabit genişlikli yazıtipi</guilabel></term>
+      	  <listitem>
+      	    <para>Bu yazıtipi <application>Terminal</application> uygulamasında ve programlamayla alakalı uygulamalarda kullanılır.</para>
+      	  </listitem>
+      	</varlistentry>
+      	</variablelist>
+  	</section>
+	
+  	<section xml:id="prefs-font-rendering"><info><title>Yazıtipi Oluşturma</title></info>
+      <para>Yazıtiplerinin ekranda görüntülenmeleriyle alakalı şu seçenekleri ayarlayabilirsiniz:</para>
+	
+    	<variablelist>
+     	<varlistentry>
+    	  <term><guilabel>Oluşturma</guilabel></term>
+    	  <listitem>
+    	    <para>Ekranınızda yazıtiplerinin nasıl oluşturulacaklarını belirlemek için aşağıdaki seçeneklerden birini seçin:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Siyah-beyaz</guilabel>: Yazıtiplerini sadece siyah beyaz olarak oluşturur. Düzgünleştirilmediklerinden ötürü karakterlerin kenarları bazen pürüzlü görünebilir. <firstterm>Düzgünleştirme</firstterm>, yani antialiasing, karakterlerin kenarlarına daha yumuşak görünmelerinği sağlamak için uygulanan bir etkidir.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>En iyi şekiller</guilabel>: Yazıtiplerini mümkün olduğunda düzgünleştirir (antialiasing). Bu şıkkı standart Katot Işını Tübü (Cathode Ray Tube, CRT) ekranlarında kullanın.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>En iyi koyuluk</guilabel>: Yazıtiplerini en keskin karşıtlık oluşacak şekilde ayarlar, ayrıca karakterlerin yumuşak kenarları olması için yazıtiplerini düzgünleştirir. Bu seçenek, MATE Masaüstü'nün görme engelli kullanıcılara erişilebilirliğini artırabilir.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Alt piksel yumuşatma (LCD ekranlar)</guilabel>: Sıvı kristal ekran (Liquid Crystal Display, LCD) piksellerinin her birinin şeklini kullanan teknikler ile yazıtiplerini yumuşak bir şekilde oluşturur. LCD ya da düz ekranlarla bu seçeneği kullanın.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+     	<varlistentry>
+    	  <term><guibutton>Ayrıntılar</guibutton></term>
+    	  <listitem>
+    	    <para>Ekranınınzda yazıtiplerinin nasıl oluşturulacakları hakkında daha detaylı ayarlar için bu düğmeye tıklayın.</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Çözünürlük (inç başına nokta)</guilabel>: Ekranınız yazıtiplerini oluşturduğunda kullanılacak çözünürlüğü belirlemek için bu kutucuğu kullanın.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Yumuşatma</guilabel>: Yazıtiplerinin nasıl düzgünleştirileceklerini belirlemek için şıklardan birini seçin.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Düzeltme</guilabel>: <firstterm>Düzeltme</firstterm>, yani Hinting, küçük boyutlarda ve düşük ekran çözünürlüklerinde yazıtiplerinin kalitesini arttıran bir yazıtipi oluşturma tekniğidir. Düzeltmenin yazıtiplerinize nasıl uygulanacağını belirlemek için şıklardan birini seçin.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Alt Piksel Sırası</guilabel>: Yazıtiplerinizin alt piksel renk sırasını belirlemek için şıklardan birinin seçin. Bu seçeneği LCD ya da düz ekranlar için kullanın.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+    </variablelist>
+   
+    </section>
+
+<!-- go to fonts folder no longer exists
+    <sect4 id="goscustdesk-83">
+      <title>Previewing a Font</title>
+      <indexterm>
+        <primary>fonts</primary>
+        <secondary>previewing</secondary>
+      </indexterm>
+      <para>A preview of a font shows the characters of a font at different sizes, as well as copyright and technical information. To preview a font, perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Open the <application>Appearance</application> preference tool by choosing <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu><guimenuitem>Font</guimenuitem></menuchoice> in the top panel.</para>
+        </listitem>
+        <listitem><para>Click on <guibutton>Details</guibutton>.</para></listitem>
+        <listitem><para>Click on <guibutton>Go to font folder</guibutton>. The <guilabel>Fonts</guilabel> folder opens.</para></listitem>
+        <listitem>
+          <para>Open a font to display a preview.</para>
+        </listitem>
+      </orderedlist>
+    </sect4>
+-->
+
+<!-- go to fonts folder no longer exists
+    <sect4 id="goscustdesk-94">
+      <title>Adding a TrueType Font</title>
+      <para>To add a TrueType font to your system, perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Open the <application>Font</application> preference tool by choosing <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu><guimenuitem>Font</guimenuitem></menuchoice> in the panel menubar.</para>
+        </listitem>
+        <listitem><para>Click on <guibutton>Details</guibutton>.</para></listitem>
+        <listitem><para>Click on <guibutton>Go to font folder</guibutton>. The <guilabel>Fonts</guilabel> folder opens.</para></listitem>      
+        <listitem>
+          <para>Open a file manager window and select the TrueType font that
+you want to add.</para>
+        </listitem>
+        <listitem>
+          <para>Copy the TrueType font file that you want to add to the <guilabel>Fonts</guilabel> folder.</para>
+        </listitem>
+      </orderedlist>
+      <warning><para>The new font will not appear in the <guilabel>Fonts</guilabel> folder until you next log in. You will need to relaunch applications for them to have access to the new font. These are known bugs in Mate.</para></warning>
+      
+      <tip><para>You can also open the <guilabel>Fonts</guilabel> folder by typing the following URI into <application>Caja</application> file manager's <link linkend="caja-open-location">Open Location dialog</link>: <command>fonts:///</command>.</para></tip>
+    </sect4>
+-->
+  </section>
+
+  <section xml:id="prefs-menustoolbars"><info><title>Arayüz Tercihleri</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustuserinter-2"/>    
+    <indexterm><primary>araç çubukları, görünüşün özelleştirilmesi</primary></indexterm>
+    <indexterm><primary>tercih araçları</primary> <secondary>Menüler ve Araç Çubukları</secondary></indexterm>
+    <indexterm><primary>menüler</primary> <secondary>uygulamalarda, görünüşün özelleştirilmesi</secondary></indexterm>
+    <para>MATE'nin bir parçası olan uygulamaların menüleri ile menü ve araç çubuklarının görünümünü özelleştirmek için <application>Görünüm</application> tercih aracında <guilabel>Arayüz</guilabel> sekme bölümünü kullanabilirsiniz.</para>
+    <para>Ayarlarda değişikliklere gittiğinizde, önizleme pencerede güncellenecektir. Bu, hiçbir uygulama penceresi açık değilse bile değişiklikleri görmenizde imkân sağlar.</para>
+    <variablelist>
+     	<varlistentry>
+    	  <term><guilabel>Menülerde ikonları göster</guilabel></term>
+    	  <listitem>
+    	    <para>Uygulama menüleri ve panel menüsündeki unsurların yanında bir ikon görüntülemek için bu şıkkı seçin. Her menü unsurunun ikonu olmayabilir.</para>
+    	  </listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term><guilabel>Düzenlebilir menü kısayol tuşları</guilabel></term>
+	      <listitem><para>Bu şıkkı seçmeniz, menü unsurları için yeni klavye kısayolları belirlemenize imkân verir.</para>
+	      <para>Herhangi bir uygulama kısayol tuşunu değiştirmek için menüyü açın ve fare belirtecini değiştirmek istediğiniz menü unsurunun üzerine getirip yeni tuş kombinasyonuna basın. Kısayol tuşlarını kaldırmak için <keycap>Backspace</keycap> veya <keycap>Delete</keycap> tuşuna basın.</para>
+	      <warning>
+	        <para>Bu işlevi kullanırken herhangi bir komuta yeni bir kısayol tuşu atamanızın aynı zamanda onu eski bir komuttan kaldırması durumunda ikaz edilmezsiniz.</para>
+	        <para>Bİr komut için orijinal, varsayılan klavye kısayolunu geri getirmenin hiçbir yolu yoktur.</para>
+	        <para>Bu işlev, normalde Kopyalama için <keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo> gibi tüm uygulamalarda ortak olan kısayolları muhafaza etmez. Bu, MATE uygulamalarınızda tutarsızlıklara neden olabilir.</para>
+	      </warning>
+	      </listitem>
+      </varlistentry>
+     	<varlistentry>
+    	  <term><guilabel>Araç çubuğu düğme etiketleri</guilabel></term>
+    	  <listitem>
+    	    <para>MATE uyumlu uygulamalarda araç çubuklarında ne görüntüleneceğini belirtmek için aşağıdaki şıklardan birini seçin:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>İkonlar Altında Metin</guilabel>: Her düğmede metin ve ikon bulunan araç çubukları görüntülemek için bu şıkkı seçin.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>İkonların Yanında Metin</guilabel>: Her düğmesinde bir ikon bulunan ve en önemlilerinde metin de bulunan araç çubukları görüntülemek için bu şıkkı seçin.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Sadece İkonlar</guilabel>: Her düğmesinde sadece ikon bulunan araç çubukları görüntülemek için bu şıkkı seçin.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Sadece Metin</guilabel>: Her düğmesinde sadece metin bulunan araç çubukları görüntülemek için bu şıkkı seçin.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+    </variablelist>
+  </section>
+  </section>
+
+  <section xml:id="prefs-windows"><info><title>Pencere Tercihleri</title></info>
+    <!-- preserve for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-58"/>    
+
+    <indexterm><primary>pencere yöneticisi</primary> <secondary>özelleştirme</secondary></indexterm>
+    <indexterm><primary>tercih araçları</primary> <secondary>Pencereler</secondary></indexterm>
+    <para>MATE Masaüstü'ndeki pencerelerin davranışını özelleştirmek için <application>Pencereler</application> tercih aracını kullanın.</para>
+    <para><xref linkend="goscustwindows-TBL-14"/> değiştirebileceğiniz pencere tercihlerini listeler.</para>
+    <table frame="topbot" xml:id="goscustwindows-TBL-14"><info><title>Pencere Tercihleri</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec0" colwidth="18.86*"/>
+        <colspec colname="colspec1" colwidth="47.14*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Diyalog Unsuru</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Tanımlama</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Fare bir pencerenin üzerine geldiğinde onu yükselt</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Belirteç pencerenin üstündeyken odaklanmayı o pencereye vermek için bu şıkkı seçin. Pencere, odaklanmayı başka bir pencerenin üzerine gelmenize dek muhafaza eder.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Belirli bir süre sonra seçilen pencereleri yükselt</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Pencereleri odaklanmayı aldıklarından kısa bir müddet sonra yükseltmek için bu şıkkı seçin.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Yükseltmeden önceki gecikme</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Pencerenin odaklanmayı almasının ardından yükseltilmesi için beklenecek süreyi belirtmeye yarar.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Bu işlemi gerçekleştirmek için başlık çubuğuna çift tıklayın</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Herhangi bir pencerenin başlık çubuğuna çift tıkladığınızda oluşacak davranışı seçmeye yarar. Aşağıdaki şıklardan birini seçin:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Büyült</guilabel>: Pencereyi en büyük boyutuna büyültür.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Dikey Büyült</guilabel>: Pencereyi genişliğini değiştirmeden dikey olarak en büyük boyutuna büyültür.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Yatay Büyült</guilabel>: Pencereyi yüksekliğini değiştirmeden yatay olarak en büyük boyutuna büyültür.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Küçült</guilabel>: Pencereyi küçültür.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Yukarı sar</guilabel>: Sadece başlığı görünecek şekilde pencereyi sarar.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Hiçbiri</guilabel>: Hiçbir şey yapmaz.</para>
+                </listitem>
+              </itemizedlist>
+              <para>Eğer bir pencere zaten büyültülmüşse ya da yukarı sarılmışsa, başlık çubuğuna çift tıklamak onu normal durumuna geri alacaktır.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Bir pencereyi taşımak için, bu tuşa basılı tutarak pencereyi sürükleyin:</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Taşımak için bir pencereyi sürüklediğinizde basılı tutacağınız tuşu seçin.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <note>
+      <para>Control, Alt ve Süper tuşlarının klavyedeki konumları, Klavye Düzeni Seçenekleri diyaloğu vasıtasıyla değiştirilebilir, <xref linkend="prefs-keyboard-layoutoptions"/> sayfasına bakın.</para>
+    </note>
+  </section>
+
+  <section xml:id="prefs-screensaver"><info><title>Ekran koruyucu Tercihleri</title></info>
+    <indexterm><primary>tercih araçları</primary> <secondary>ekran koruyucu</secondary></indexterm>
+    <para><firstterm>Ekran koruyucu</firstterm> , bilgisayarınız kullanılmadığı zaman ekranınızda hareketli resimler görüntüler. Ekran koruyucuları aynı zamanda eski ekranların aynı resmi uzun bir süre görüntülemesi sebebiyle zarar görmesine engel olur. Ekran koruyucuyu durdurmak ve masaüstüne dönmek için farenizi hareket ettirin ya da klavyede bir tuşa basın.</para>
+    <para>Ekran koruyucu türünü, ekran koruyucunun başlamasından önce gececek süreyi ve masaüstüne dönmek için parola gerekip gerekmediğini ayarlamak için <application>Ekran koruyucu</application> tercih aracını kullanın.</para>
+    <para>Aşarğıdaki ayarları değiştirebilirsiniz:</para>
+    <variablelist>
+    	<varlistentry>
+    	  <term>Ekran koruyucu</term>
+    	  <listitem><para>Listeden <guilabel>Ekran koruyucu teması</guilabel>nı seçin. Ekran koruycu temasının küçültülmüş bir sürümü gösterilir. Seçili temayı tüm ekranda görüntülemek için <guibutton>Önizleme</guibutton> düğmesine tıklayın. Önizleme esnasında ekran koruyucu temalarını denemek için ekranın üstündeki ok düğmelerini kullanın.</para>
+    	  <itemizedlist>
+	        <listitem><para><guilabel>Boş ekran</guilabel> teması hiçbir resim görüntülemez ve siyah bir ekran gösterir.</para></listitem>
+	        <listitem><para><guilabel>Rastgele</guilabel> teması, listeden rastgele görüntülenecek bir ekran koruyucu seçer.</para></listitem>
+        </itemizedlist>
+    	  <para>Listenin kalanında hangi ekran koruyucuların gösterildikleri dağıtıcınıza veya satıcınıza bağlıdır.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Sonrasında bilgisayarı boş duran olarak say…</term>
+    	  <listitem><para>Sizden fareyi hareket ettirmek ya da klavyede yazmak gibi bir girdi olmaksızın geçen belirtilen sürenin ardından bilgisayarınız boş duran olarak kabul edilir. Bu, güç yönetimini (mesela ekranınız kapatılabilir) veya anlık mesajlaşmayı (sohbet uygulamaları durumunuzu "uzakta" olarak ayarlayabilirler) etkileyebilir. Süreyi dakika ya da saat olarak ayarlarmak için kaydırıcıyı kullanın.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Bilgisayar bekleme durumundayken ekran koruyucuyu etkinleştir</term>
+    	  <listitem><para>Belirlenen müddet sonrasında ekran koruyucunun başlatılması için bu şıkkı seçin.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Ekran koruyucu etkinken ekranı kilitle</term>
+    	  <listitem><para>Bu şık etkinken masaüstüne dönmek isterseniz ekran koruyucu size parolanızı soracaktır. Ekranınızı kilitlemek hakkında daha fazla bilgi için <xref linkend="lock-screen"/> sayfasına bakın.</para></listitem>  	
+    	</varlistentry>
+  </variablelist>
+  </section>
+</section>
+
+<section xml:id="prefs-internet-and-network"><info><title>İnternet ve Ağ</title></info>
+
+  <section xml:id="prefs-network-admin"><info><title>Ağ Ayarları</title></info>
+    <para><application>Ağ Ayarları</application>, sisteminizin diğer bilgisayarlara ve İnternet'e nasıl bağlanacağını belirtmenize imkân sağlar.</para>
+    <para><application>Ağ Ayarları</application>nı başlattığınızda size yönetici parolanız sorulacaktır. Bunun sebebi bu araçla yapılan değişikliklerin tüm sistemi etkileyecek olmalarıdır.</para>
+
+  <section xml:id="prefs-network-admin-getting-started"><info><title>Başlangıç</title></info>
+    <para><application>Ağ Ayarları</application> nın ana penceresi dört sekme bölümü içerir:</para>
+    <variablelist>
+	 <varlistentry>
+	   <term><guilabel>Bağlantılar</guilabel></term>
+	   <listitem>
+		<para>Tüm ağ arayüzlerini gösterir, ayrıca ayarlarını değiştirmenize de imkân sağlar.</para>
+	   </listitem>
+	 </varlistentry>
+
+	 <varlistentry>
+	   <term><guilabel>Genel</guilabel></term>
+	   <listitem>
+		<para>Sisteminizin makine ismini ve alan ismini değiştirmenize imkân verir.</para>
+	   </listitem>
+	 </varlistentry>
+
+    	 <varlistentry>
+	   <term><guilabel>DNS</guilabel></term>
+	   <listitem>
+		<para>İki bölüm içerir, <guilabel>DNS sunucuları</guilabel> bilgisayarınızın alan adlarından IP adreslerini çözümlemek için kullandığı sunuculardır. Arama alanları, alan adı belirtilmemişse sisteminizin herhangi bir makineyi aramak için kullanacağı varsayılan alanlardır.</para>
+	   </listitem>
+	 </varlistentry>
+
+	 <varlistentry>
+	   <term><guilabel>Makineler</guilabel></term>
+	   <listitem>
+		<para>Diğer bilgisayarlara erişmek için kullanılacak takma adların listesini gösterir.</para>
+	   </listitem>
+	 </varlistentry>
+    </variablelist>
+  </section>
+
+  <section xml:id="prefs-network-admin-usage"><info><title>Kullanım</title></info>
+
+    <section xml:id="tool-modify-connection"><info><title>Bir bağlantının ayarlarının değiştirilmesi</title></info>
+	 <para><guilabel>Bağlantılar</guilabel> bölümünde değiştirmek istediğiniz arayüzü seçin ve <guilabel>Özellikler</guilabel> düğmesine tıklayın, arayüz türüne göre değişik verileri değiştirme imkânına sahip olursunuz.</para>
+
+	 <variablelist>
+	   <varlistentry>
+		<term>Ethernet ve IRLAN arayüzleri</term>
+		<listitem>
+		  <para>Arayüzün nasıl yapılandırıldığını değiştirebilirsiniz (DHCP ya da el ile), eğer arayüz el ile yapılandırıldıysa IP adresini, ağ maskesini ve ağ geçidini de değiştirebilirsiniz.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>Kablosuz arayüzler</term>
+		<listitem>
+		  <para>Arayüzün nasıl yapılandırıldığını değiştirebilirsiniz (DHCP ya da el ile), eğer arayüz el ile yapılandırıldıysa IP adresini, ağ maskesini ve ağ geçidini değiştirebilirsiniz, ayrıca bu arayüz için ağ ismini de (ESSID) ayarlayabilirsiniz.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>Paralel çizgi arayüzleri</term>
+		<listitem>
+		  <para>Arayüzün IP adresini ve uzaktaki IP adresini de değiştirebilirsiniz.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>PPP/Modem arayüzleri</term>
+		<listitem>
+		  <para>Modem cihazını, numaranın darbeli mi yoksa DTMF sesleriyle mi çevrileceğini, modem ses düzeyini, telefon numarasını, İnternet erişim sağlayıcısının verdiği kullanıcı ismiyle  parolayı ve diğer gelişmiş PPP ayarlarını değiştirebilirsiniz.</para>
+		</listitem>
+	   </varlistentry>
+	 </variablelist>
+    </section>
+
+    <section><info><title>Bir arayüzün etkinleştirilmesi veya devre dışı bırakılması</title></info>
+	 <para><guilabel>Bağlantılar</guilabel> bölümünde, arayüzün yanındaki kutucuğa etkinleştirmek ya da devre dışı bırakmak için tıklayın.</para>
+    </section>
+    
+    <section><info><title>Makine isminizin ve alan adınızın değiştirilmesi</title></info>
+	 <para><guilabel>Genel</guilabel> bölümünde, makine adı veya alan adı metin kutuları içeriğini değiştirin.</para>
+    </section>
+
+    <section><info><title>Yeni bir alan adı sunucusu eklenmesi</title></info>
+	 <para><guilabel>DNS Sunucuları</guilabel> bölümünde <guilabel>Ekle</guilabel> düğmesine tıklayıp yeni liste satırını yeni alan adı sunucusu ile doldurun.</para>
+    </section>
+
+    <section><info><title>Bir alan adı sunucusunun silinmesi</title></info>
+	 <para><guilabel>DNS Sunucuları</guilabel> bölümünde, listeden bir DNS IP adresi seçin ve <guilabel>Sil</guilabel> düğmesine tıklayın.</para>
+    </section>
+
+    <section><info><title>Yeni bir arama alanı eklenmesi</title></info>
+	 <para><guilabel>Arama Alanları</guilabel> bölümünde <guilabel>Ekle</guilabel> düğmesine tıklayın ve yeni liste satırını yeni arama alanıyla doldurun.</para>
+    </section>
+
+    <section><info><title>Bir arama alanının silinmesi</title></info>
+	 <para><guilabel>Arama Alanları</guilabel> bölümünde listeden bir arama alanı seçin ve <guilabel>Sil</guilabel> düğmesine tıklayın.</para>
+    </section>
+
+    <section><info><title>Yeni bir makine takma adı eklenmesi</title></info>
+	 <para><guilabel>Makineler</guilabel> bölümünde, <guilabel>Ekle</guilabel> düğmesine tıklayın ve açılan pencerede IP adresini ve işaret edecek takma adları yazın.</para>
+    </section>
+
+    <section><info><title>Bir makine takma adının değiştirilmesi</title></info>
+	 <para><guilabel>Makineler</guilabel> bölümünde bir takma ad seçin, listeden <guilabel>Özellikler</guilabel> düğmesine tıklayın ve açılan pencerede takma ad ayarlarını değiştirin.</para>
+    </section>
+
+    <section><info><title>Bir makine takma adının silinmesi</title></info>
+	 <para><guilabel>Makineler</guilabel> bölümünde listeden bir takma ad seçin ve <guilabel>Sil</guilabel> düğmesine tıklayın.</para>
+    </section>
+
+    <section xml:id="prefs-network-admin-add-new-profile"><info><title>Güncel ağ yapılandırmanızın bir "Konum" olarak kaydedilmesi</title></info>
+	 <para><guilabel>Konumlar</guilabel> menüsünün yanındaki <guilabel>Ekle</guilabel>  düğmesine basın, açılan pencerede konum ismini belirtin.</para>
+    </section>
+
+    <section><info><title>Bir konumun silinmesi</title></info>
+	 <para><guilabel>Konumlar</guilabel> menüsünün yanındaki <guilabel>Kaldır</guilabel> düğmesine basın, seçili profil silinecektir.</para>
+    </section>
+
+    <section><info><title>Bir konuma geçil yapılması</title></info>
+	 <para><guilabel>Konumlar</guilabel> menüsünden bir mekân seçin, tüm yapılandırma otomatik olarak seçili konumunkine geçecektir.</para>
+    </section>
+
+  </section>
+  </section>
+
+  <section xml:id="prefs-networkproxy"><info><title>Ağ Vekil Tercihleri</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-50"/>       
+    <indexterm><primary>tercih araçları</primary> <secondary>Ağ Vekili</secondary></indexterm>
+    <indexterm><primary>ağ vekili</primary> <secondary>ayar tercihleri</secondary></indexterm>
+    <indexterm><primary>İnternet</primary> <secondary>bağlantı yapılandırılması</secondary></indexterm>
+    <indexterm><primary>vekil</primary> <secondary>ayar tercihleri</secondary></indexterm>
+    <para><application>Ağ Vekil Tercihleri</application> sisteminizin İnternet'e nasıl bağlanacağını yapılandırmanıza imkân verir.</para>
+    <para>MATE Masaüstü'nü bir <firstterm>vekil sunucu</firstterm>ya bağlanacak şekilde yapılandırabilirsiniz ve vekil sunucunun ayrıntılarını belirtebilirsiniz. Vekil sunucular başka bir sunucuya giden talepleri yakalarlar ve mümkünse bu talebi kendileri yerine getirirler. Vekil sunucunun İnternet Protokolü (IP) adresini ya da alan adını girebilirsiniz. <firstterm>Alan adı</firstterm>, ağdaki bir bilgisayar için benzersiz bir alfabetik tanımlayıcıdır. <firstterm>IP adresi</firstterm> ise ağdaki bir bilgisayar için benzersiz sayısal bir tanımlayıcıdır.</para>
+    <para>Değişik yerlerde değişik vekil sunucusu yapılandırmaları kullanmanız muhtemel olduğundan dolayı <application>Ağ Vekil Tercihleri</application>, ayrı vekil yapılandırmaları tanımlamanıza ve bunlar arası geçişi pencerenin üst köşesindeki <guilabel>Konum</guilabel> açılır menüsü ile yapmanız mümkündür. Yeni bir konum için bir vekil yapılandırması oluşturmak için <guilabel>Yeni Konum</guilabel>u seçin. Konumlar, pencerenin alt köşesindeki <guilabel>Konumu Sil</guilabel> düğmesiyle kaldırılabilir.</para>
+  
+    <variablelist>
+      <varlistentry>
+        <term><guilabel>Doğrudan İnternet bağlantısı</guilabel></term>
+        <listitem><para>İnternet'e vekil sunucusuz bağlanmak için bu şıkkı seçin.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Elle vekil ayarı</guilabel></term>
+        <listitem><para>İnternet'e bir vekil sunucu vasıtasıyla bağlanmak ve vekil ayarlarını elle yapılandırmak için bu şıkkı seçin.</para>
+
+        <variablelist>
+          <varlistentry>
+            <term><guilabel>HTTP vekili</guilabel></term>
+            <listitem>
+              <para>HTTP servisleri talep ettiğinizde kullanılacak vekil sunucunun IP adresini ya da alan adını girin. Vekil sunucudaki HTTP servisinin port numarasını <guilabel>Port</guilabel> etiketli alana girin.</para>
+              <para>Şayet HTTP vekil sunucusu kimlik doğrulaması gerektiriyorsa, <guibutton>Ayrıntılar</guibutton> düğmesine tıklayıp kullanıcı isminizi ve parolanızı girin.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>Güvenli HTTP vekili</guilabel></term>
+            <listitem><para>HTTP servisleri talep ettiğinizde kullanılacak vekil sunucunun IP adresini ya da alan adını girin. Vekil sunucudaki HTTP servisinin port numarasını <guilabel>Port</guilabel> etiketli alana girin. Vekil sunucudaki güvenli HTTP servisinin port numarasını <guilabel>Port</guilabel> etiketli alana girin.</para></listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>FTP vekili</guilabel></term>
+            <listitem><para>FTP servisleri talep ettiğinizde kullanılacak vekil sunucunun alan adını veya IP adresini girin. Vekil sunucudaki FTP servisinin port numarasını <guilabel>Port</guilabel> etiketli alana girin.</para></listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><guilabel>Socks makinesi</guilabel></term>
+            <listitem><para>Kullanılacak Socks makinesinin IP adresini ya da alan adını girin. Socks protokolünün vekil sunucudaki port numarasını <guilabel>Port</guilabel> etiketli alana girin.</para></listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem></varlistentry>
+      <varlistentry><term><guilabel>Otomatik vekil ayarları</guilabel></term><listitem><para>İnternet'e bir vekil sunucusuyla bağlanmak istiyorsanız ve vekil sunucusunu otomatik olarak yapılandırmak istiyorsanız bu şıkkı seçin.</para>
+      <para>Otomatik vekil yapılandırması taraycınızın bir ağ sunucusundan indireceği PAC dosyası vasıtasıyla yapılır. Eğer <guilabel>Otomatik yapılandırma URL'si</guilabel> alanında bir PAC dosyası için bağlantı belirtmezseniz, taraycınız otomatik olarak bir tane bulmaya çalışacaktır.</para>
+      <variablelist>
+      <varlistentry><term><guilabel>Otomatik yapılandırma URL'si</guilabel></term><listitem><para>Vekil sunucuyu otomatik olarak yapılandırmak için gerekli bilgileri içeren bir PAC dosyası için bağlantı girin.</para></listitem></varlistentry>
+      </variablelist></listitem></varlistentry>
+    </variablelist>
+    
+    <para>Hangi makinelerin vekil sunucuyu kullanmaması gerektiğini <guilabel>Yok Sayılan Makineler</guilabel> sekme bölümündeki <guilabel>Makine Listesini Yok Say</guilabel> kısmında belirtin. Bu makinelere eriştiğinizde, İnternet'e doğrudan, yani vekil sunucu kullanmadan bağlanırsınız.</para>
+  </section>
+
+  <section xml:id="prefs-remotedesktop"><info><title>Uzak Masaüstü Tercihleri</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-90"/>
+    <indexterm><primary>oturum paylaşımı tercihlerinin ayarlanması</primary></indexterm>           
+    <para><application>Uzak Masaüstü</application> tercih aracı birçok kullanıcı arasında MATE Masaüstü'nü paylaşmanıza ve oturum paylaşımı tercihlerini ayarlamanıza imkân verir.</para>
+    <para><xref linkend="goscustdesk-TBL-91"/> ayarlayabileceğiniz oturum paylaşımı tercihlerini listeler. Bu tercihlerin sisteminizin güvenliğine doğrudan etkisi olur.</para>
+    <table frame="topbot" xml:id="goscustdesk-TBL-91"><info><title>Oturum Paylaşımı Tercihleri</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec18" colwidth="19.21*"/>
+        <colspec colname="colspec19" colwidth="46.79*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Diyalog Unsuru</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Tanımlama</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Diğer kullanıcıların masaüstünüzü görmesine izin ver</guilabel></para>
+            </entry>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para>Uzaktaki kullanıcıların oturumunuzu görebilmeleri için bu şıkkı seçin. Uzaktaki kullanıcının tüm klavye, belirteç ve pano olayları görmezden gelinir.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para><guilabel>Diğer kullanıcıların masaüstünüzün kontrolünü almasına izin ver</guilabel></para>
+            </entry>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para>Diğer kullanıcıların uzak bir konumdan oturumunuza erişmesi ve onun kontrolünü alabilmeleri için bu şıkkı seçin.</para>
+            </entry>
+          </row>
+          <!--
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para>
+                <guilabel>Users
+can view your desktop using this command:</guilabel>
+                
+              </para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Click on the command text to send it to
+another user by email.</para>
+            </entry>
+          </row>
+          -->
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para><guilabel>Bir kullanıcı masaüstünüze erişip onun kontrolünü almaya çalıştığı zaman</guilabel></para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Bir kullanıcı oturumunuzu görüntülemeye veya kontrol etmeye çalıştığında aşağıdaki güvenlik hususlarını seçin:<itemizedlist><listitem><para><guilabel>Sizden teyit istensin:</guilabel> Uzaktaki kullanıcıların oturumunuzu paylaşmak istediklerinde sizden onay istenmesi için bu şıkkı seçin. Bu seçenek oturumunuza bağlanan diğer kullanıcılardan haberdar olmanızı sağlar. Ayrıca uzaktaki kullanıcının oturumunuza ne zaman bağlanmasının uygun olduğunu da ayarlayabilirsiniz.</para></listitem><listitem><para><guilabel>Kullanıcının şu parolayı girmesini mecburi kılın:</guilabel> Kimlik doğrulaması kullanılıyorsa uzaktaki kullanıcının kimliğinin doğrulanması için bu şıkkı seçin. Bu seçenek ilâve bir güvenlik düzeyi sunar.</para></listitem></itemizedlist></para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para><guilabel>Parorla</guilabel></para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Oturumunuzu görüntülemek ya da kontrol etmek isteyen istemcinin girmesi gereken parolayı belirtin.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>  
+</section>
+
+<section xml:id="prefs-hardware"><info><title>Donanım</title></info>
+	
+  <section xml:id="prefs-keyboard"><info><title>Klavye Tercihleri</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustperiph-2"/>       
+    <indexterm><primary>tercih araçları</primary> <secondary>Klavye</secondary></indexterm>
+    <indexterm><primary>klavye</primary> <secondary>genel tercihlerin yapılandırılması</secondary></indexterm>
+    <para>Klavyeniz için otomatik tekrarlama tercihlerini ve yazım molası ayarlarını yapılandırmak için <application>Klavye</application> tercih aracını kullanın.</para>
+    <!--
+    adds no information until each tab can be briefly summarized.
+    
+    <para>You can set the preferences for the <application>Keyboard</application>
+preference tool in the following functional areas:</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <guilabel>Keyboard</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Typing Break</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Layouts</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Layout Options</guilabel>
+        </para>
+      </listitem>
+    </itemizedlist>
+    -->
+    <para xml:lang="en">To open the <xref linkend="prefs-keyboard-a11y"/> tool, click the <guibutton>Accessibility</guibutton> button.</para>    
+    <section xml:id="goscustdesk-40"><info><title>Klavye Tercihleri</title></info>
+      
+      <para>Genel klavye tercihlerini ayarlamak için <guilabel>Genel</guilabel> sekme bölümünü kullanın.</para>
+      <para><xref linkend="goscustperiph-TBL-3"/>, değiştirebileceğiniz klavye tercihlerini listeler.</para>
+      <table frame="topbot" xml:id="goscustperiph-TBL-3"><info><title>Klavye Tercihleri</title></info>
+        
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Tuş basılı kaldığında klavye tekrar etsin</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Klavye tekrarlamasını etkinleştirmek için bu şıkkı seçin. Eğer klavye tekrarı etkinse, herhangi bir tuşa basıp onu basılı tuttuğunuzda tuşla ilişkili eylem tekrar edecek şekilde yerine getirilir. Mesela bir harf tuşuna basıp onu basılı tutarsanız o harf tekrar tekrar yazılır.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Gecikme</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Bir tuşa bastığınız zamandan eylemin tekrarlanacağı zamana kadar sürecek gecikmeyi seçin.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Hız</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Eylemin tekrarlanacağı hızı seçin.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Metin alanlarında imlecin yanıp sönmesi</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>İmlecin metin alanlarında ve kutularında yanıp sönmesi için bu şıkkı seçin.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Hız</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Metin alanlarında ve kutularında imlecin yanıp sönme hızını belirtmek için kaydıracı kullanın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para><guilabel>Ayarları kontrol etmek için deneyin</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Bu deneme alanı klavye ayarlarının siz yazarken görünümü nasıl etkilediğini görebilmenizi sağlayan etkileşimli bir arayüzdür. Ayarlarınızın etkisini denemek için bu alana metin girin.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="prefs-keyboard-layouts"><info><title>Klavye Düzeni Tercihleri</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscustdesk-100"/>         
+      <para>Klavyenizin lisanını ve modeli ile imalatçısını belirtmek için <guilabel>Düzenler</guilabel> sekme bölümün kullanın.</para>
+      <para>Bu, MATE'nin klavyenizdeki özel ortam tuşlarını kullanmasına ve dili için doğru karakterlerin göstermesine imkân sağlar.</para>
+      
+      <variablelist>
+	      <varlistentry>
+	        <term><guilabel>Klavye modeli</guilabel></term>
+	        <listitem><para xml:lang="en">Use the browse button (labeled with the currently selected keyboard model) to choose another keyboard make and model.</para></listitem>
+	      </varlistentry>
+	      <varlistentry>
+	        <term><guilabel>Her pencere için ayrı düzen</guilabel></term>
+	        <listitem><para>Bu şık seçildiğinde, her pencere kendi klavye düzenini kullanır. Başka bir düzene geçiş, sadece güncel pencereyi etkileyecektir.</para>
+	        <para>Bu, mesela bir kelime işlemcisinde Rus klavye düzeni ile metin girmenize, ardından da İnternet taraycınıza geçip İngiliz klavye düzenini kullanmanıza imkân sağlar.</para></listitem>
+              </varlistentry>
+	      <varlistentry>
+	        <term><guilabel>Seçili Düzenler</guilabel></term>
+	        <listitem><para>Yazarken klavyenizin oluşturduğu harfleri değiştirmek için seçili düzenler arasında geçiş yapabilirsiniz. Bir düzen ilave etmek için <guibutton>Ekle</guibutton> düğmesine tıklayın. Azami dört düzeniniz olabilir. Bir düzeni kaldırmak için onu seçip <guibutton>Kaldır</guibutton> düğmesine tıklayın.</para>
+	        <para>Klavye düzenleri arasında geçiş yapmak için <application>Klavye Göstergesi</application> panel uygulamacığını kullanın.</para>
+                 <para>Seçili düzenler listesine yeni bir düzen ilave etmek için <guibutton>Ekle</guibutton> düğmesine tıklayın. Bu, herhangi bir düzeni ülke veya dile göre seçmenize imkân sağlayan düzen seçme diyaloğunu açar.</para> 
+	        </listitem>
+	      </varlistentry>
+      </variablelist>
+      
+      <para>Tüm klavye ayarlarını sisteminiz ve dilinizin başlangıç hallerine geri almak için <guibutton>Öntanımlılara Sıfırla</guibutton> düğmesine tıklayın.</para>
+
+      <para><guilabel>Klavye Düzen Seçenekleri</guilabel> diyaloğunu açmak için <guibutton>Seçenekler</guibutton> düğmesine tıklayın.</para>
+   </section>
+    
+    <section xml:id="prefs-keyboard-layoutoptions"><info><title>Klavye Düzen Seçenekleri</title></info> 
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscustdesk-101"/>
+      <para xml:lang="en">The <guilabel>Keyboard Layout Options</guilabel> dialog has options for the behavior of keyboard modifier keys and certain shortcut options.</para>
+      <para>Mevcut seçenekleri görüntülemek için herbir grup etiketini genişletin. Kalın yazıtipli bir etiket grup dahilindeki seçeneklerin varsayılan ayarlardan değiştirildiklerini gösterir.</para>
+      <note><para>Bu diyalogda gösterilen seçenekler kullandığınız X pencere sistemine göre değişiklik gösterebilir. Aşağıdaki seçeneklerden hepsi sisteminizde listelenmemiş olabilir ve gösterilen seçeneklerin tümü sisteminizde çalışmayabilir.</para></note>
+
+      <!-- the options of mystery!!!       
+           for future reference, these are in
+           /etc/X11/xkb/rules/xorg.xml
+      -->
+      <variablelist>
+        <varlistentry>
+                <term><guilabel>Bazı tuşlara Euro simgesinin eklenmesi</guilabel></term>
+                <listitem>
+                  <para>€ Euro para birimi simgesini herhangi bir tuşa üçüncü düzey karakter olarak eklemek için bu seçenekleri kullanın. Bu sembole erişmek için bir <guilabel>3. düzeyi seçecek tuş</guilabel> atamanız gerekir.</para>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Alt/Win davranışı</guilabel></term>
+                <listitem><para xml:lang="en">
+                  This group of options allows you to assign the behavior of Unix modifier keys Super, Meta, and Hyper to the <keycap>Alt</keycap> and <keycap>Windows</keycap> keys on your keyboard.
+                </para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>CapsLock tuşunun davranışı</guilabel></term>
+                <listitem><para>Bu grupta <keycap>Caps Lock</keycap> tuşu için birçok seçenek bulunur.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Compose tuşunun konumu</guilabel></term>
+                <listitem>
+                  <para>Compose tuşu tek bir karakteri birden fazla tuşun birleşmesiyle oluşturmanıza imkân verir. Bu, klavye düzeninizde mevcut olmayan ve şapkası bulunan bir harfi oluşturmak için kullanılır. Mesela, e-acute harfini elde etmek için Compose tuşuna, sonra <keycap>'</keycap> tuşuna ardından da <keycap>e</keycap> tuşuna basın.</para>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Control tuşunun konumu</guilabel></term>
+                <listitem><para>Bu seçenek grubunu eski klavyelerdeki düzene göre <keycap>Ctrl</keycap> tuşunun konumunu ayarlamak için kullanabilirsiniz.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Shift/Kilitleme işleyişini grupla</guilabel></term>
+                <listitem><para>Basıldığında klavye düzeninizi değiştirecek tuşları ya da tuş birleşimini seçin.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Çeşitli uyumluluk seçenekleri</guilabel></term>
+                <listitem>
+                  <variablelist>
+	                  <varlistentry>
+	                    <term><guilabel>Shift ve sayısal tuş takımı MS Windows'daki şekilde çalışır.</guilabel></term>
+                    	<listitem>
+                    	  <para>Bu şık seçildiğinde, <keycap>NumLock</keycap> kapalıysa, <keycap>Shift</keycap> tuşunu sayısal tuş takımı ile kullanmak güncel seçimi genişletir.</para>
+                    	  <para xml:lang="en">With this option unselected, use <keycap>Shift</keycap> with keys on the numerical pad to obtain the reverse of the current behavior for that key. For example, when <keycap>NumLock</keycap> is off, the <keycap>8</keycap> key acts as an up-arrow. Press <keycombo><keycap>Shift</keycap><keycap>8</keycap></keycombo> to type an '8'.</para></listitem>
+                    	</varlistentry>
+                    	<varlistentry><term><guilabel>Bir sunucuda ele alınan özel tuşlar (Ctrl+Alt+&lt;tuş&gt;).</guilabel></term>
+	<listitem><para>Bazı klavye kısayollarının MATE tarafından yönetilmeleri yerine X pencereleme sistemine gönderilmeleri için bu şıkkı seçin.</para></listitem>
+</varlistentry>
+                    </variablelist>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Üçüncü seviye seçiciler</guilabel></term>
+                <listitem>
+                  <para><firstterm>Üçüncü seviye</firstterm> tuşları, bir tuşa <keycap>Shift</keycap> ile basmanız nasıl o tuşa tek basmanızdan değişik bir karakter elde etmenize yarıyorsa, herhangi bir tuştan üçüncü bir karakter elde etmenize imkân verir.</para>
+                  <para>Üçüncü seviye değiştirici tuş olarak davranmasını istediğiniz tuşu seçmek için bu grubu kullanın.</para>
+                  <para>Üçüncü seviye bir tuş ile <keycap>Shift</keycap>  tuşuna basmak, herhangi bir tuştan dördüncü bir karakter elde etmenize yarar.</para>
+                  <para>Klavye düzeniniz için üçüncü ve dördüncü seviye karakterler <application>Klavye Göstergesi</application> Düzen Görünüm Penceresinde gösterilir.</para>
+                  <!-- better link, pending CVS commit of gswitchit docs: "help:gswitchit?layout-view" -->
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term><guilabel>Diğer yerleşimi göstermek için klavye LED'ini kullan.</guilabel></term>
+                <listitem>
+                  <para>Klavyenizdeki ışıklı göstergelerden birinin alternatif bir klavye düzeni kullanıldığında bunu göstermesi gerektiğini belirtmek için bu şıkkı kullanın.</para>
+                  <note><para>Seçili klavye ışığı artık standart işlevini göstermeyecektir. Mesela, Caps Lock ışığı <keycap>Caps Lock tuşuna</keycap> tepki vermeyecektir.</para></note>
+                </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+
+    <section xml:id="prefs-keyboard-a11y"><info><title>Klavye Erişilebilirlik Tercihleri</title></info>
+    <indexterm><primary>AccessX</primary> <see>tercih araçları, Klavye Erişilebilirliği</see></indexterm>
+    <indexterm><primary>klavye</primary> <secondary>erişilebilirlik seçeneklerinin yapılandırılması</secondary></indexterm>
+    <indexterm><primary>erişilebilirlik</primary> <secondary>klavye yapılandırması</secondary></indexterm>
+    <indexterm><primary>tercih araçları</primary> <secondary>Klavye Erişilebilirliği</secondary></indexterm>
+
+    <!-- Maintained for 2.8 compatibility -->
+      <anchor xml:id="goscustaccess-6"/>
+      <anchor xml:id="goscustaccess-8"/>
+      <anchor xml:id="goscustaccess-9"/>
+      <para><guilabel>Erişilebilirlik</guilabel> sekme bölümü birçok tuşa aynı anda basmaya gerek kalmadan kısayol tuşlarını kullanmak veya kazaen yapılan tuşa basmaları filtrelemek gibi seçenekleri ayarlamanıza imkân verir. Bu işlevler AccessX olarak da bilinir.</para>
+
+       <para>Bu bölüm, ayarlayabileceğiniz tercihlerin her birini açıklar. Klavye erişilebilirliğinin daha fazla göreve yönelik bir açıklaması için <citetitle>MATE Masaüstü Erişilebilirlik Kılavuzu </citetitle>'na bakın.</para>
+
+      <para><xref linkend="goscustdesk-TBL-85"/> değiştirebileceğiniz erişilebilirlik tercihlerini listeler.</para>
+     <table frame="topbot" xml:id="goscustdesk-TBL-85"><info><title>Erişilebilirlik Tercihleri</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry>
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Erişilebilirlik özellikleri klavye kısayolları ile açılabilir ya da kapatılabilir</guilabel></para>
+                </entry>
+                <entry valign="top">
+                   <para>Bildirim alanında erişilebilirlik işlevlerine hızlı erişim sunan bir ikon göstermek için bu şıkkı seçin.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Eşzamanlı tuş basımlarını taklit et</guilabel></para>
+                  <indexterm><primary>erişilebilirlik</primary> <secondary>yapışkan tuşlar</secondary></indexterm>
+                </entry>
+                <entry valign="top">
+                <para>Tuşlara sırayla basmak vasıtasıyla birden çok eşzamanlı tuşa basma işlemini yapmak için bu şıkkı seçin. Alternatif olarak, yapışkan tuşlar işlevini etkinleştirmek için <keycap>Shift</keycap> tuşuna beş defa basın.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                    <para><guilabel>Eğer iki tuşa birlikte basılırsa yapışkan tuşları etkisizleştir</guilabel></para>
+                </entry>
+                <entry valign="top">
+                    <para>İki tuşa aynı anda bastığınızda tuşlara sırayla basarak birden çok eşzamanlı tuşa basım yapamayacağınızı belirtmek için bu şıkkı seçin.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Sadece uzun tuş basımlarını kabul et</guilabel></para>
+                  <indexterm><primary>erişilebilirlik</primary> <secondary>yavaş tuşlar</secondary></indexterm>
+                </entry>
+                <entry valign="top">
+                <para xml:lang="en">Select this option to control the period that you must press-and-hold
+a key before acceptance. Alternatively, to enable the slow keys feature, press-and-hold <keycap>Shift</keycap> for eight seconds.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Gecikme</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para xml:lang="en">Use the slider
+to specify the period that you must press-and-hold
+a key before acceptance.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Hızlı çoklu tuş basmalarını yoksay</guilabel></para>
+                  <indexterm><primary>erişilebilirlik</primary> <secondary>sıçrama tuşları</secondary></indexterm>
+                </entry>
+                <entry valign="top">
+                <para>Bir tuş girişini kabul etmek ve klavyenin tuş tekrarlama özelliklerini kontrol etmek için bu şıkkı seçin.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Gecikme</guilabel></para>
+                </entry>
+                <entry valign="top">
+                   <para>Basılı bir tuşun otomatik olarak tekrarlanmasından önce beklenecek süreyi belirtmek için kaydırıcıyı kullanın.</para>
+                </entry>
+             </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Ayarları kontrol etmek için deneyin</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Bu deneme alanı klavye ayarlarının siz yazarken görünümü nasıl etkilediğini görebilmenizi sağlayan etkileşimli bir arayüzdür. Ayarlarınızın etkisini denemek için bu alana metin girin.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>Klavye erişilebilirlik işlevleri için sesle geribildirimi yapılandırmak için <guibutton>Ses Geri Beslemesi</guibutton> düğmesine tıklayın. Bu, <guilabel>Klavye Erişilebilirliği Ses Geri Beslemesi</guilabel> penceresini açar.</para>
+    </section>
+
+   <section><info><title>Klavye Erişilebilirliği Ses Geri Beslemesi</title></info>
+      <para>Klavye erişilebilirlik işlevleri için ses geri beslemesini yapılandırın.</para>
+      <para><xref linkend="goscustdesk-TBL-86"/> değiştirebileceğiniz ses geri beslemesi tercihlerini listeler.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-86"><info><title>Ses Geri Beslemesi Tercihleri</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry>
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Erişilebilirlik özellikleri kapatıldığında ya da açıldığında biple</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Yapışkan tuşlar ya da yavaş tuşlar gibi bir özellik etkinleştirildiğinde ya da devre dışı bırakıldığında duyulabilen bir belirti için bu şıkkı seçin.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Geçiş tuşu basıldığında biple</guilabel></para>
+                 <indexterm><primary>erişilebilirlik</primary> <secondary>geçiş tuşları</secondary></indexterm>
+              </entry>
+	      <entry valign="top">
+                 <para>Herhangi bir geçiş tuşuna basıldığında duyulabilir bir belirti için bu şıkkı seçin. Bir geçiş tuşu etkinleştirildiğinde tek bir bip duyarsınız. Bir geçiş tuşu devre dışı bırakıldığında iki bip duyarsınız.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Değiştirici tuş basıldığında biple</guilabel></para>
+              </entry>
+              <entry valign="top">
+                 <para>Değiştirici bir tuşa basıldığında duyulabilir belirti için bu şıkkı seçin.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Bir tuşa basıldığında biple</guilabel></para>
+              </entry>
+              <entry valign="top">
+                 <para>Herhangi bir tuşa basıldığında duyulabilir belirti için bu şıkkı seçin.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Tuş kabul edildiğinde biple</guilabel></para>
+              </entry>
+              <entry valign="top">
+                 <para>Herhangi bir tuş kabul edildiğinde duyulabilir belirti için bu şıkkı seçin.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para><guilabel>Tuş kabul edilmediğinde biple</guilabel></para>
+              </entry>
+              <entry valign="top">
+                 <para>Herhangi bir tuş reddedildiğinde duyulabilir belirti için bu şıkkı seçin.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+   </section>
+ 
+   <section><info><title>Fare Tuşu Tercihleri</title></info>
+     <anchor xml:id="goscustaccess-10"/>
+     <para><guilabel>Fare Tuşları</guilabel> sekme bölümündeki şıklar, klavyeyi farenin yerini alacak şekilde yapılandırmanıza imkân sağlar.</para>
+      <para><xref linkend="goscustdesk-TBL-88"/>değiştirebileceğiniz fare tuşu tercihlerini listeler.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-88"><info><title>Yazım Molası Tercihleri</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry>
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Belirteç klavye ile kontrol edilebilir</guilabel></para>
+                <indexterm><primary>erişilebilirlik</primary> <secondary>fare tuşları</secondary></indexterm>
+              </entry>
+              <entry valign="top">
+               <para>Sayısal tuş takımının fare eylemlerini taklit etmesi için bu şıkkı seçin. Tuşların listesini ve eşdeğerlerini <citetitle>MATE Masaüstü Erişilebilirlik Kılavuzu</citetitle>'nun <citetitle>Fareyi Taklit Edecek Klavyeyi Etkinleştirmek</citetitle> başlığında bulabilirsiniz.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Hızlanma</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Belirtecin azami hıza ulaşmasından önce geçecek süreyi belirtmek için kaydırıcıyı kullanın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Hız</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Belirtecin ekran üstünde hareket ettiğindeki azami hızını belirtmek için kaydırıcıyı kullanın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Gecikme</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para xml:lang="en">Use the slider to specify the period that must pass
+after a keypress before the pointer moves.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+  </section>
+
+    <section xml:id="goscustdesk-86"><info><title>Yazım Molası Tercihleri</title></info>
+      
+      <para>Klavye ve fareyi uzun bir süre kullanmanızın ardından MATE'nin size istirahat etmenizi hatırlatması için Yazım Molası Tercihlerini yapılandırın. Yazım Molası sırasında ekran kilitlenecektir.</para>
+      <para><xref linkend="goscustdesk-TBL-87"/> değiştirebileceğiniz yazım molası tercihlerini listeler.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-87"><info><title>Yazım Molası Tercihleri</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry>
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Yazım molasını mecburi kılmak için ekranı kilitle</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Bir yazım molası vermeniz gerektiğinde ekranı kilitlemek için  bu şıkkı seçin.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Çalışma aralıkları süresi</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Yazım molası vakti gelmeden önce ne kadar süre çalışabileceğinizi belirtmek için kutucuğu kullanın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Mola aralıkları süresi</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Mola süresini belirtmek için kutucuğu kullanın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Molaların ertelenmesine izin ver</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Yazın molalarını erteleyebilmek istiyorsanız bu şıkkı seçin.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para>Eğer klavye ve fareyi <guilabel>Mola süresi</guilabel>ne eşit bir süre boyunca kullanmazsanız, güncel çalışma aralığı sıfırlanacaktır.</para></note>
+    </section>    
+  </section>
+
+  <section xml:id="prefs-mouse"><info><title>Fare Tercihleri</title></info>
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="goscustperiph-5"/>
+    <indexterm><primary>tercih araçları</primary> <secondary>Fare</secondary></indexterm>
+    <indexterm><primary>fare</primary> <secondary>yapılandırma</secondary></indexterm>
+
+    <para><application>Fare</application> tercih aracıyla şunları yapabilirsiniz:</para>
+    <itemizedlist>
+      <listitem>
+        <para>fareyi sağ el veya sol el ile kullanmak için yapılandırmak,</para>
+      </listitem>
+      <listitem>      
+        <para>fare hareketinin hızı ve hassasiyetini belirtmek,</para>
+      </listitem>
+      <listitem>
+        <para>farenin erişilebilirlik özelliklerini yapılandırmak.</para>
+      </listitem>
+    </itemizedlist>
+    
+    <section xml:id="goscustdesk-55"><info><title>Genel Fare Tercihleri</title></info>
+      <para>Fare tuşlarının sağ veya sol el ile kullanım için yapılandırılmasını belirtmek ve farenizin hızıyla hassasiyetini yapılandırmak için <guilabel>Genel</guilabel> sekme bölümünü kullanın.</para>
+      <para><xref linkend="goscustperiph-TBL-6"/> değiştirebileceğiniz genel fare tercihlerini listeler.</para>
+
+    <!-- convert to variablelist -->
+    <table frame="topbot" xml:id="goscustperiph-TBL-6"><info><title>Fare Tuşu Tercihleri</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Sağlak</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Farenizi sağ el ile kullanım için yapılandırmak istiyorsanız bu şıkkı seçin. Farenizi sağ el ile kullanım için yapılandırdığınızda, sol fare düğmesi ana düğmedir ve sağ fare düğmesi ikincil düğmedir.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Solak</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Farenizi sol el ile kullanım için yapılandırmak istiyorsanız bu şıkkı seçin. Farenizi sol el ile kullanım için yapılandırdığınızda, sol fare düğmesi ile sağ düğmenin işlevleri yer değiştirir.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Control tuşuna basıldığında belirtecin konumunu göster</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Control tuşuna basıp tuşu bıraktığınızda fare belirteci canlandırılmasının etkinleştirilmesi için bu şıkkı seçin. Bu özellik fare belirtecinin konumunu bulmanıza yardımcı olabilir.</para>
+                <note>
+                  <para>Klavyedeki Control tuşunun konumu Klavye Düzeni Seçenekleri diyaloğunda değiştirilebilir, daha fazla bilgi için <xref linkend="prefs-keyboard-layoutoptions"/> sayfasına bakın.</para>
+                </note>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Hızlanma</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Farenizi hareket ettirdiğinizde fare belirtecinizin ekranınızda hareket hızını belirlemek için kaydırıcıyı kullanın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Duyarlılık</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Fare belirtecinizin farenizin hareketlerine olan duyarlılığını belirlemek için kaydırıcıyı kullanın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Eşik</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Taşıma eyleminin sürükle-ve-bırak eylemi olarak yorumlanmasından önce bir unsuru taşımanız gereken mesafeyi belirtmek için kaydırıcıyı kullanın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Zaman Aşımı</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Çift tıklama yaptığınızda iki tıklama arasında geçebilecek süreyi belirlemek için kaydırıcıyı kullanın. Eğer birinci ve ikinci tıklamalar arasındaki aralık burada belirtilen süreyi aşarsa, eylem çift tıklama olarak yorumlanmaz.</para>
+                <para>Çift tıklama hassasiyetini denemek için ampul ikonunu kullanın: tek bir tıklama sırasında ampul kısa bir süre yanacak, çift tıklama içinse yanık kalacaktır.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscustdesk-53"><info><title>Fare Erişilebilirlik Tercihleri</title></info>
+      <para>Fare tuşlarına tıklamada veya belirtecin kesin konumunu belirlemede zorluk yaşayan kullanıcılara  yardımcı olabilecek özellikleri yapılandırmak için <guilabel>Erişilebilirlik</guilabel> sekme bölümünü kullanın:</para>
+      <itemizedlist>
+         <listitem>
+            <para>Ana fare tuşuna basıp tuşu basılı tutarak bağlam menüsü açın; bu, sadece tek bir düğme kullanabilen kullanıcılar için faydalıdır.</para>
+         </listitem>
+         <listitem>
+            <para>Fakrlı fare tuşu tıklama işlemlerini yazılım ile gerçekleştirin; bu, hiçbir düğme kullanamayan kullanıcılar için faydalıdır. Yapılabilecek olan tıklama türleri şunlardır: <variablelist>
+                 <varlistentry>
+                   <term>Tek tıklama</term>
+                   <listitem>
+                     <para>Ana fare düğmesi ile tek bir tıklama</para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term>Çift tıklama</term>
+                   <listitem>
+                     <para>Ana fare düğmesi ile çift tıklama</para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term>Sürükleme tıklaması</term>
+                   <listitem>
+                     <para>Sürükleme işlemi başlatan tıklama</para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term>İkincil tıklama</term>
+                   <listitem>
+                     <para>İkincil fare düğmesi ile tek bir tıklama</para>
+                   </listitem>
+                 </varlistentry>
+               </variablelist></para>
+         </listitem>
+      </itemizedlist>
+      <para><xref linkend="goscustdesk-TBL-47"/> değiştireblieceğiniz fare erişilebilirlik tercihlerini listeler:</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-47"><info><title>Fare Hareket Tercihleri</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="30.10*"/>
+          <colspec colwidth="69.90*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry>
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Ana düğmeyi basılı tutarak ikincil tıklamayı tetikle</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Ana fare düğmesini uzun bir süre basılı tutarak ikincil tıklamaları taklit etmeyi etkinleştirmek için bu şıkkı seçin.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Taklit Edilen İkincil Tıklama</guilabel> bölümünde <guilabel>Gecikme</guilabel> kaydırıcısı</para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>İkincil tıklamayı taklit etmek için ana düğmenin ne kadar süreyle basılması geretkiğini ayarlamak için kaydırıcıyı kullanın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Belirteç hareketini durdururken tıkla</guilabel>v</para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Fare durduğunda otomatik tıklamaları etkinleştirmek için bu şıkkı seçin. Tıklama türünün nasıl seçildiğini yapılandırmak için <guilabel>Bekleyince Tıkla</guilabel> bölümündeki ilave tercihleri kullanın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Bekleyince Tıkla</guilabel> bölümündeki <guilabel>Gecikme</guilabel> kaydırıcısı</para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Tıklama tetiklenmeden önce belirtecin ne kadar süre hareketsiz kalması gerektiğini belirtmek için kaydırıcıyı kullanın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Hareket Eşiği</guilabel> kaydırıcısı</para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Belirtecin hareketsiz sayılırken ne kadar hareket edebileceğini belirlemek için kaydırıcıyı kullanın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Tıklama türünü önceden seç</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Bir pencere veya panel uygulamasından gerçekleştirilecek tıklama türünü seçmek için bu şıkkı seçin.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Tıklama türü penceresini göster</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Bu şık etkinleştirildiğinde, değişik tıklama türleri (tek tıklama, çift tıklama, sürükleme tıklaması veya ikincil tıklama) bir pencerede seçilebilir.</para> 
+                <note><para><guilabel>Bekleyince Tıkla</guilabel> panel uygulamacığı pencere yerine kullanılabilir.</para></note>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Tıklama türünü fare hareketleriyle seç</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Tıklama türünü fareyi belli bir istikamette hareket ettirerek seçmek için bu şıkkı seçin. Bu seçeneğin altındaki dört açılan kutu, farklı tıklama türlerine yönlendirmeler atamanıza izin verir. Her istikametin sadece bir tıklama türü için kullanılabileceğini unutmayın.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Tek tıklama</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Tek tıklama tetiklemek için hangi istikametin kullanılacağını seçin.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Çift tıklama</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Çift tıklama tetiklemek için hangi istikametin kullanılacağını seçin.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>Sürükleme tıklaması</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Sürükleme tıklaması tetiklemek için hangi istikametin kullanılacağını seçin.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para><guilabel>İkincil tıklama</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>İkincil tıklama tetiklemek için hangi istikametin kullanılacağını seçin.</para> 
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+
+  <section xml:id="goscustdesk-70"><info><title>Ekran</title></info>
+    <indexterm><primary>tercih araçları</primary> <secondary>Ekran</secondary></indexterm>
+    <para>Bilgisayarınızın kullandığı ekranları yapılandırmak için <application>Ekran Tercihleri</application>ni kullanın.</para>
+<note><para>Dizüstü klavyelerin çoğunda <application>Ekran Tercihleri</application>ni başlatmadan tipik ekran yapılandırmaları arasında geçiş yapmak için  <keycombo><keycap>Fn</keycap><keycap>F7</keycap></keycombo> birleşimini kullanabilirsiniz.</para></note>
+<para>Ekranlarınızın nasıl düzenlendiğini ayarlamak için pencerenin sol üst kısmındaki monitörlerin grafik gösterimlerini sürükleyin. Hangi dikdörtgenin hangi ekrana denk geldiğini belirlemenize yardımcı olmak için <application>Ekran Tercihleri</application> her ekranın üst sol köşesinde küçük etiketler görüntüler.</para>
+<para><application>Ekran Tercihleri</application>nde yaptığınız değişiklikler <guibutton>Uygula</guibutton> düğmesine tıklamadığınız sürece etkili olmaz. Ayarlar değişiklikleri teyit etmezseniz ayarları önceki yapılandırmaya geri alacaktır. Bunun amacı, kötü ayarların bilgisayarınızı kullanılmaz hâle getirmesine mani olmaktır.</para>
+
+<variablelist>
+	<varlistentry>
+    <term><guilabel>Tüm ekranlarda aynı görüntü</guilabel></term>
+    <listitem><para>Bu şık seçildiğinde, masaüstünüzün tamamı tek bir ekrana sığacak ve her ekran masaüstünüzün aynı kopyasını görüntüleyecektir. Şık seçilmediğinde, masaüstünüz birden çok ekrana yayılacak ve her ekran masaüstünün sadece bir bölümünü gösterecektir.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Ekranları tespit et</guilabel></term>
+    <listitem><para>Yakın geçmişte eklenen ya da bağlanan ekranları bulmak için bu düğmeye tıklayın.</para></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term><guilabel>Ekranları panelde göster</guilabel></term>
+    <listitem><para>Bu şık seçildiğinde, <application>Ekran Tercihleri</application>ni açmadan hızlı bir şekilde bazı ayarları değiştirebilmeniz için panele bir ikon eklenecektir.</para></listitem>
+  </varlistentry>
+</variablelist>
+
+<para>Aşağıdaki liste her ekran için ayarlayabileceğiniz seçenekleri açıklar. Güncel olarak seçili ekran, grafiksel temsili koyu siyah bir çizgiye sahip olandır. Ayrıca bölüm etiketinin zemin rengi ile de belirtilir.</para>
+
+<variablelist>
+	<varlistentry>
+    <term><guilabel>Açık</guilabel> / <guilabel>Kapalı</guilabel></term>
+    <listitem><para>Her bir ekran <guilabel>Kapalı</guilabel> şıkkı seçilerek tamamen devre dışı bırakılabilir.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Çözünürlük</guilabel></term>
+    <listitem><para>Açılır menüden güncel olarak seçili ekranın kullanacağı çözünürlüğü seçin. <emphasis>Çözünürlük</emphasis>, ekranın piksel olarak boyutlarını ifade eder. Daha yüksek bir çözünürlük daha fazla şeyin ekrana sığacağı anlamına gelir, ancak her şey daha küçük olacaktır.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Tazeleme hızı</guilabel></term>
+    <listitem><para xml:lang="en">Select the refresh rate to use for the currently
+                selected monitor from the drop-down list. The <emphasis>refresh
+                rate</emphasis> determines how often the computer redraws the
+                screen. A too low refresh rate (below 60) makes the monitor
+                flicker and can cause discomfort to your eyes. This is less
+                of a problem on LCDs.
+              </para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Çevirme</guilabel></term>
+    <listitem><para>Seçili olan monitör için yönü seçin. Bu seçenek tüm grafik kartlarında desteklenmeyebilir.</para></listitem>
+  </varlistentry>
+</variablelist>
+</section>
+
+  <section xml:id="goscustmulti-2"><info><title>Ses Tercihleri</title></info>
+    
+    <indexterm><primary>tercih araçları</primary> <secondary>Ses</secondary></indexterm>
+    <indexterm><primary>ses</primary> <secondary>ayar tercihleri</secondary></indexterm>
+    <indexterm><primary>ses</primary> <secondary>olayları seslerle ilişkilendirmek</secondary></indexterm>
+    <indexterm><primary>olaylar, seslerle ilişkilendirmek</primary></indexterm>
+    <indexterm><primary>seviye</primary></indexterm>
+    <para><application>Ses</application> tercih aracı, ses girişi ve çıkışı için cihazları ve ses seviyesini kontrol etmenize imkân sağlar. Belli bir olay meydana geldiğinde hangi sesin çalınacağını da belirleyebilirsiniz.</para>
+    <para><application>Ses</application> tercih aracının ayarlarını şu işlevsel alanlarda özelleştirebilirsiniz:</para>
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Sound Etkileri</guilabel></para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Giriş</guilabel></para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Çıkış</guilabel></para>
+      </listitem>
+    </itemizedlist>
+    <para>Genel çıkış ses seviyesini pencerenin üst kısmındaki <guilabel>Çıkış ses seviyesi</guilabel> kaydırıcısını kullanarak değiştirebilirsiniz. <guilabel>Sessiz</guilabel> şık kutusu mevcut ses seviyesini bozmadan geçici olarak sesi tamamen kapatmanıza izin verir.</para>
+
+    <section xml:id="goscustdesk-48"><info><title>Ses Etkileri Tercihleri</title></info>
+      <para>Ses temaları, menülerden bir unsur seçmek, bir düğmeye tıklamak ya da bir diyalog açmak gibi değişik olaylarla ilişkili ses efektleri koleksiyonlarıdır. En öne çıkan olay seslerinden biri sıklıkla bir klavye girdi hatasına dikkat çekmek için çalınan <emphasis>Sistem Zili</emphasis> sesidir. Bir ses teması seçip zil sesini değiştirmek için <application>Ses</application> tercih aracının <guilabel>Ses Etkileri</guilabel> sekme bölümünü kullanın.</para>
+      <para><xref linkend="goscustmulti-TBL-6"/> değiştirebileceğiniz ses etkileri tercihlerini listeler.</para>
+      <table frame="topbot" xml:id="goscustmulti-TBL-6"><info><title>Ses Etkileri Tercihleri</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Uyarı ses seviyesi</guilabel> kaydırıcısı</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Olay seslerinin seviyesini kontrol etmek için <guilabel>Uyarı ses seviyesi</guilabel> kaydırıcısını kullanın.</para>
+                <para><guilabel>Sessiz</guilabel> şık kutusu, güncel ses seviyesini değiştirmeden geçici olarak olay seslerini kapatmanıza imkân verir.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Ses Teması </guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Farklı bir ses teması seçmek için bu kutuyu kullanın.</para>
+                <para>Tüm olay seslerini kapatmak için <guilabel>Ses yok</guilabel> şıkkını seçin.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Bir uyarı sesi seçin </guilabel> listesi</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Sistem Zili için bu listeden alternatif bir ses seçin.</para>
+                <para>Bir liste unsuru seçmeniz sesi çaldıracaktır.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Pencere ve tuş seslerini etkinleştir </guilabel> şık kutusu</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Düğme tıklamaları ve pencerelerle ilişkili (diyalog ya da menü ortaya çıktığındaki gibi) olaylar için ses duymak istemiyorsanız bu şıkkı seçmeyin.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section><info><title>Ses Girişi Tercihleri</title></info>
+      <para>Ses girişi tercihlerinizi ayarlamak için <guilabel>Giriş</guilabel> sekme bölümünü kullanın.</para>
+      <para><xref linkend="goscustdesk-TBL-1"/> değiştirebileceğiniz ses girişi tercihlerini listeler.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-1"><info><title>Ses Girişi Tercihleri</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para><guilabel>Giriş ses seviyesi </guilabel> kaydırıcısı</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Giriş seviyesini belirlemek için giriş ses seviyesi kaydırıcısını kullanın.</para>
+                <para><guilabel>Sessiz </guilabel> şık kutusu güncel giriş seviyesini bozmadan geçici olarak tüm girişi kapatmanıza imkân verir.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Giriş seviyesi</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Giriş ses seviyesi</guilabel> görüntüsü uygun giriş seviyesini seçmeye yardımcı olmak için görsel geri bildirim sağlar.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para><guilabel>Ses girişi için bir aygıt seçin </guilabel> listesi</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Ses girişi almak istediğiniz cihazı seçin.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para>Bir uygulama ses girişi için dinlemede bulunduğunda ses girişi seviyesinin panelin bildirim alanında görüntülenen mikrofon ikonu ile de kontrol edilebileceğini unutmayın.</para></note>
+    </section>
+
+    <section><info><title>Ses Çıkışı Tercihleri</title></info>
+      <para>Ses çıkışı tercihlerinizi ayarlamak için <guilabel>ÇIkış</guilabel> sekme bölümünü kullanın.</para>
+      <para><xref linkend="goscustdesk-TBL-2"/> değiştirebileceğiniz ses çıkışı tercihlerini listeler.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-2"><info><title>Ses Çıkışı Tercihleri</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para><guilabel>Çıkış ses seviyesi </guilabel> kaydırıcısı</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Genel ses çıkışı seviyesini belirlemek için Çıkış ses seviyesi kaydırıcısını kullanın.</para>
+                <para><guilabel>Sessiz </guilabel> şık kutusu güncel ses seviyesini bozmadan geçici olarak tüm çıkışı kapatmanıza izin verir.</para>
+                <para><guilabel>Çıkış ses seviyesi</guilabel> kaydırıcısının sekme bölümünün üzerinde, pencerenin üst kısmında yer aldığını unutmayın.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para><guilabel>Ses çıkışı için bir aygıt seçin </guilabel> listesi</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Ses çıkışını duymak istediğiniz cihazı seçin.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para><guilabel>Denge </guilabel> kaydırıcısı</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Birden fazla kanalı bulunan (mesela stereo veya 5.1) çıkış cihazlarının sağ/sol dengesini belirlemek için <guilabel>Denge</guilabel> kaydırıcısını kullanın.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para>Ses çıkış seviyesinin panelin bildirim alanındaki hoparlör ikonu ile de belirlenebileceğini unutmayın.</para></note>
+    </section>
+
+    <section xml:id="goscustdesk-41"><info><title>Uygulama Ses Tercihleri</title></info>
+      <para>Her bir uygulamanın çaldığı sesi tek tek belirlemek için <guilabel>Uygulamalar</guilabel> sekme bölümünü kullanın.</para>
+      <para>Güncel olarak ses çıkaran her bir uygulama ismi ve ikonuyla tanımlanır.</para>
+    </section>
+  </section>
+
+<!--
+<sect2 id="goscustdesk-79">
+<title>Customizing PalmOS Devices</title>
+<indexterm><primary>preference tools</primary><secondary>PalmOS devices</secondary>
+</indexterm><para>Information to be supplied in a future release.</para>
+</sect2>
+-->
+</section>
+
+<section xml:id="prefs-system"><info><title>Sistem</title></info>
+
+  <section xml:id="prefs-sessions"><info><title>Oturum Tercihleri</title></info>
+    <!-- preserve for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustsession-5"/>   
+    <indexterm><primary>tercih araçları</primary> <secondary>Oturumlar</secondary></indexterm>
+    <indexterm><primary>oturumlar</primary> <secondary>tercihler</secondary></indexterm>
+    <indexterm><primary>başlangıç uygulamaları</primary> <secondary>özelleştirme</secondary></indexterm>
+    <para><application>Oturumlar</application> tercih aracı oturumlarınızı yönetmenize imkân verir. Oturum tercihlerinizi ayarlayabilir ve bir oturum açtığınızda hangi uygulamaların başlatılacağını belirtebilirsiniz. Oturumlarınızı MATE Masaüstündeki uygulamaların durumunu kaydetmeleri için ayarlayabilir ve başka bir oturum açtığınızda bu durumu geri getirebilirsiniz. Bu tercih aracını birden çok MATE oturumunu yönetmek için de kullanabilirsiniz.</para>
+    <para>Aşağıdaki işlevsel alanlarda oturumlar ve başlangıç uygulamaları için ayarları özelleştirebilirsiniz:</para>
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Oturum Seçenekleri</guilabel></para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Başlangıç Uygulamaları</guilabel></para>
+      </listitem>
+    </itemizedlist>
+
+    <section xml:id="goscustsession-16"><info><title>Oturum Tercihlerinin Ayarlanması</title></info>
+      <indexterm><primary>oturumlar</primary> <secondary>seçeneklerin ayarlanması</secondary></indexterm>
+      <para>Birden çok oturumu yönetmek ve güncel oturum için tercih ayarlamak için <guilabel>Oturum Seçenekleri</guilabel> sekme bölümünü kullanın.</para>
+      <para><xref linkend="goscustsession-TBL-11"/> değiştirebileceğiniz oturum seçeneklerini listeler.</para>
+      <table frame="topbot" xml:id="goscustsession-TBL-11"><info><title>Oturum Seçenekleri</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec0" colwidth="18.86*"/>
+          <colspec colname="colspec1" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Çıkarken çalışan uygulamaları kendiliğinden hatırla</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <indexterm><primary>başlangıç uygulamaları</primary> <secondary>oturumla-yönetilen</secondary></indexterm>
+                <para>Oturum yöneticisinin çıkış yapılırken oturumunuzun durumunu kaydetmesini istiyorsanız bu şıkkı seçin. Oturum yöneticisi çıkış yapılırken açık olan ve oturumla yönetilen uygulamalar ile oturumla yönetilen uygulamalarla ilişkili ayarları kaydedecektir. Bir daha oturum açtığınızda bu uygulamalar kaydedilmiş ayarlar ile otomatik olarak başlatılacaktır.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Güncel olarak çalışan uygulamaları hatırla</guilabel></para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <indexterm><primary>başlangıç uygulamaları</primary> <secondary>oturumla-yönetilen</secondary></indexterm>
+                <para>Eğer oturum yöneticisinin oturumunuzun güncel durumunu kaydetmesini istiyorsanız bu şıkkı seçin. Oturum yöneticisi açık olan oturumla yönetilen uygulamaları ve oturumla yönetilen uygulamalarla ilişkili ayarları kaydedecektir. Bir daha oturum açtığınızda, bu uygulamalar kaydedilmiş ayarlar ile otomatik olarak başlatılacaktır.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscustsession-12"><info><title>Başlangıç Uygulamalarının Yapılandırılması</title></info>
+      <indexterm><primary>başlangıç uygulamaları</primary> <secondary>oturumla-yönetilmeyen</secondary></indexterm>
+      <para>Oturumla yönetilmeyen <firstterm>başlangıç uygulamalarını</firstterm> belirtmek için <application>Oturumlar</application> tercih aracının <guilabel>Başlangıç Uygulamaları</guilabel> sekme bölümünü kullanın. Başlangıç uygulamaları, bir oturum başlattığınızda otomatik olarak başlatılan uygulamalardır. Oturumla yönetilmeyen uygulamaları çalıştıracak komutları <guilabel>Başlangıç Uygulamaları</guilabel> sekme bölümünde belirtirsiniz. Bir oturum açtığınızda komutlar otomatik olarak çalıştırılacaktır.</para>
+      <para>Oturumla yönetilen uygulamaları da otomatik olarak başlatabilirsiniz. Daha fazla bilgi için <xref linkend="goscustsession-16"/> sayfasına bakın.</para>
+      <para><xref linkend="goscustsession-TBL-19"/> değiştirebileceğiniz başlangıç uygulamaları tercihlerini listeler.</para>
+      <table frame="topbot" xml:id="goscustsession-TBL-19"><info><title>Başlangıç Uygulamaları Tercihleri</title></info>
+        <tgroup cols="2">
+          <colspec colname="col1" colwidth="18.86*"/>
+          <colspec colname="col2" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colname="col1" colsep="0">
+                <para>Diyalog Unsuru</para>
+              </entry>
+              <entry colname="col2" colsep="0">
+                <para>Tanımlama</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="col1" colsep="0" rowsep="0" valign="top">
+                <para><guilabel> Ek başlangıç programları</guilabel></para>
+              </entry>
+              <entry colname="col2" colsep="0" rowsep="0" valign="top">
+                <para>Bu tabloyu aşağıdaki belirtildiği gibi oturumla yönetilmeyen uygulamaları yönetmek için kullanın:</para>
+                <itemizedlist>
+                  <listitem>
+                    <para xml:lang="en">To add a startup application, click on the <guibutton>Add</guibutton> button. The <guilabel>New Startup Program</guilabel> dialog is displayed. Enter the name of the application in the <guilabel>Name</guilabel> field. Then enter the command to start the application in the <guilabel>Command</guilabel> field. You can also specify a comment in the <guilabel>Comment</guilabel> field</para>
+                  </listitem>
+                  <listitem>
+                    <para>Bir başlangıç uygulamasını düzenlemek için başlangıç uygulamasını seçip <guibutton>Düzenle</guibutton> düğmesine tıklayın. <guilabel>Başlangıç Programı Düzenle</guilabel> diyaloğu görüntülenecektir. Komutu değiştirmek ve başlangıç uygulamasının başlama sırasını değiştirmek için diyaloğu kullanın.</para>
+                  </listitem>
+                  <listitem>
+                    <para>Herhangi bir başlangıç uygulamasını silmek için başlangıç uygulamasını seçip <guilabel>Kaldır</guilabel> düğmesine tıklayın.</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+</section>
+</chapter>

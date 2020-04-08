@@ -1,0 +1,1559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="panels" xml:lang="es">
+    <info><title>Usar los paneles</title>
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Adolfo Jayme Barrientos</db:firstname>
+      </db:personname>
+      <db:email>fitojb@ubuntu.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2018</db:year>
+      
+      <db:holder>Adolfo Jayme Barrientos</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Jorge González</db:firstname>
+      </db:personname>
+      <db:email>jorgegonz@svn.gnome.org</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2007-2010</db:year>
+      
+      <db:holder>Jorge González</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Francisco Javier F. Serrador</db:firstname>
+      </db:personname>
+      <db:email>serrador@cvs.gnome.org</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2003-2006</db:year>
+      
+      <db:holder>Francisco Javier F. Serrador</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Pablo Gonzalo del Campo</db:firstname>
+      </db:personname>
+      <db:email>pablodc@bigfoot.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2002-2003</db:year>
+      
+      <db:holder>Pablo Gonzalo del Campo</db:holder>
+    </db:copyright>
+  </info>
+  
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gospanel-1"/>
+
+  <!-- Desktop Overview / Panels -->
+  <anchor xml:id="gosoverview-502"/>
+
+  <highlights>
+    <para>Este capítulo describe cómo usar los paneles de la parte superior e inferior del escritorio MATE, cómo personalizar los objetos que aparecen en ellos, y cómo añadir paneles nuevos al escritorio.</para>
+  </highlights>
+
+  <section xml:id="panels-intro"><info><title>Introducción</title></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gospanel-2"/>
+
+    <indexterm xml:lang="en">
+      <primary>panels</primary>
+      <secondary>introduction</secondary>
+    </indexterm>
+
+    <para>Un panel es un área en el Escritorio MATE donde tiene acceso a ciertas acciones e información, sin importar el estado de sus ventanas de aplicación. Por ejemplo, en los paneles predeterminados de MATE, puede lanzar aplicaciones, ver la fecha y la hora, controlar el volumen de sonido del sistema y más.</para> 
+    <para>Puede personalizar los paneles a su gusto. Puede cambiar su comportamiento y apariencia, añadir y quitar objetos de sus paneles, crear paneles múltiples, y elegir diferentes propiedades, objetos y fondos para cada panel. También puede ocultar paneles.</para>
+    <para>Por defecto, el escritorio de MATE contiene un panel en la parte superior del borde de la pantalla, y un panel en el borde inferior de la pantalla. Las secciones siguientes describen estos paneles.</para>
+
+    <section xml:id="top-panel"><info><title>Panel del borde superior</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-6"/>         
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>top edge panel</secondary>
+        <see>top edge panel</see>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>top edge panel</primary>
+        <secondary>introduction</secondary>
+      </indexterm>
+      <para>Por omisión, el panel del borde superior contiene los siguientes objetos:</para>
+      <note><para>Su distribución de MATE puede haber alterado esta configuración predeterminada.</para></note>
+           
+      <variablelist>
+      	<varlistentry>
+      		<term>Miniaplicación <application>Barra de menú</application> </term>
+      		<listitem><para>La barra de menú del panel contiene los menús <guimenu>Aplicaciones</guimenu>, <guimenu>Lugares</guimenu>, y <guimenu>Sistema</guimenu>. Para obtener más información acerca de la barra de menú, vea la <xref linkend="menubar"/>.</para></listitem>
+      	</varlistentry>
+      	<varlistentry>
+      	  <term>Un conjunto de iconos de lanzamiento de aplicaciones</term>
+          <listitem><para>El número exacto de iconos depende de su distribución de MATE, pero en general encontrará al menos un lanzador para el <application>Navegador Web</application>, una <application>Cleinte de correo-e</application> y el <application>Visor de ayuda</application>. Pulse sobre cualquier icono lanzador para abrir la aplicación correspondiente.</para></listitem>
+        </varlistentry>
+      	<varlistentry>
+      	  <term>Miniaplicación <application>Área de notificación </application> </term>
+          <listitem><para>Muestra los iconos de otras aplicaciones que pueden requerir su atención, o que quizá quiera acceder sin cambiar de su ventana de aplicación actual. Para más acerca de ésto, vea la <xref linkend="panels-notification-area"/>.</para>
+          <para>Hasta que una aplicación añade un icono al área de notificación, sólo es visible una barra estrecha.</para>
+          </listitem>
+        </varlistentry>
+
+         
+        <varlistentry>
+          <term>Miniaplicación <application>Reloj</application></term>
+          <listitem><para xml:lang="en">The <application>Clock</application> shows the current
+      time. Click on the time to open a small calendar. You can also view a world map by clicking the <guilabel>Locations</guilabel> expansion label. For more on this, see the <link xlink:href="help:mate-clock">Clock Applet Manual</link>.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Miniaplicación <application>Control del volumen</application></term>
+          <listitem><para xml:lang="en">The <application>Volume Control</application> enables you to control the volume of the speakers on your system. For more on this, see the Volume Control Manual.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term xml:lang="en">
+          <indexterm xml:lang="en">
+            <primary>top edge panel</primary>
+            <secondary>window list icon</secondary>
+          </indexterm>
+          <application>Window Selector</application> icon</term>
+          <listitem><para>El <application>Selector de ventanas</application> lista todas sus ventanas abiertas. Para darle el foco a una ventana, pulse en el icono del selector de ventanas en el extremo derecho del panel del borde superior, después seleccione la ventana. Para obtener más información acerca de ésto consulte la <xref linkend="windows-focus"/>.</para></listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+
+    <section xml:id="bottom-panel"><info><title>Panel del borde inferior</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-3"/>        
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>bottom edge panel</secondary>
+        <see>bottom edge panel</see>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>bottom edge panel</primary>
+        <secondary>introduction</secondary>
+      </indexterm>
+      <para>Por omisión, el panel del borde inferior contiene los objetos siguientes:</para>
+      <note><para>Su distribución de MATE puede haber alterado esta configuración predeterminada.</para></note>
+      <indexterm xml:lang="en">
+        <primary>bottom edge panel</primary>
+        <secondary>default contents</secondary>
+      </indexterm>            
+      <variablelist>
+      	<varlistentry>
+      		<term>Botón <guibutton>Mostrar escritorio</guibutton></term>
+      		<listitem><para xml:lang="en">Click on this button to minimize all open windows and show the desktop. Click it again to restore all the windows to their previous state.</para></listitem>
+      	</varlistentry>
+      	<varlistentry>
+      		<term>Miniaplicación <application>Lista de ventanas</application></term>
+      		<listitem><para>Muestra un botón para cada ventana que esté abierta. La <application>Lista de ventanas</application> le permite minimizar y restaurar ventanas. Para obtener más información acerca de esto, consulte la <xref linkend="windowlist"/>.</para></listitem>
+      	</varlistentry>
+      	<varlistentry>
+      		<term>La miniaplicación <application>Selector de áreas de trabajo</application></term>
+      		<listitem><para>Le permite cambiar entre sus áreas de trabajo. Para más información acerca de las áreas de trabajo, vea la <xref linkend="overview-workspaces"/>.</para></listitem>
+      	</varlistentry>      	
+      </variablelist>
+    </section>
+  </section>
+
+  <section xml:id="gospanel-5"><info><title>Gestión de paneles</title></info>
+    <!-- Desktop Overview / Panels / To Create Panels -->
+    <anchor xml:id="gosoverview-26"/>
+    <anchor xml:id="gospanel-11"/><!-- To Interact With a Panel -->
+    <indexterm xml:lang="en">
+      <primary>panels</primary>
+      <secondary>managing</secondary>
+    </indexterm>
+    <para>En las siguientes secciones se describe cómo gestionar sus paneles.</para>
+    <para>Para interactuar con un panel debe pulsar en el espacio vacío en el panel, en vez de en cualquiera de los objetos que contiene. Si los botones de ocultación no están visibles en un panel, también puede pulsar con el botón del medio o con el botón derecho sobre unan de ellas para seleccionar el panel.</para>
+
+    <section xml:id="gospanel-12"><info><title>Mover un panel</title></info>
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>moving</secondary>
+      </indexterm>	  
+	  <para>Para mover un panel a otra parte de la pantalla pulse y mantenga pulsada <keycap>Alt</keycap> y arrastre el panel a su nueva ubicación. Pulse en cualquier espacio vacío en el panel para comenzar a arrastrar.</para>
+      <para>Un panel que no está establecido para expandirse al anchura total de la pantalla se puede arrastrar fuera del borde de la pantalla y colocarse en cualquier parte. Vea la <xref linkend="panel-properties"/> para los detalles acerca de cómo establecer la propiedad de expansión de un panel.</para>
+    </section>
+
+    <section xml:id="panel-properties"><info><title>Propiedades del panel</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-28"/>         
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>modifying properties</secondary>
+      </indexterm>
+      <para>Puede cambiar las propiedades de cada panel, como la posición del panel, el comportamiento de ocultación y la apariencia visual.</para>
+      <para>Para modificar las propiedades de un panel, pulse con el botón derecho del ratón en un espacio vacío en el panel, después elija <guimenuitem>Propiedades</guimenuitem>. El diálogo de <guilabel>Propiedades del panel</guilabel> contiene dos solapas, <guilabel>General</guilabel> y <guilabel>Fondo</guilabel>.</para>
+      
+      <section xml:id="panel-properties-general"><info><title>Solapa de propiedades generales</title></info>
+        <para>En la solapa <guilabel>General</guilabel>, puede modificar el tamaño del panel, la posición y las propiedades de ocultación. La siguiente tabla describe los elementos del diálogo en la sección de la solapa <guilabel>General</guilabel>:</para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colname="colspec0" colwidth="28.57*"/>
+            <colspec colname="colspec1" colwidth="71.43*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>Elemento de diálogo</para>
+                </entry>
+                <entry>
+                  <para>Descripción</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry colname="colspec0">
+                  <para xml:lang="en">
+                    <guilabel>Orientation</guilabel>
+                  </para>
+                </entry>
+                <entry colname="colspec1">
+                  <para>Seleccione la posición del panel en su pantalla. Pulse en la posición requerida para el panel.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Size</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>Use el marcador incrementable para especificar el tamaño máximo del panel.</para>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec0">
+                  <para xml:lang="en">
+                    <guilabel>Expand</guilabel>
+                  </para>
+                </entry>
+                <entry colname="colspec1">
+                  <para>Por omisión, un panel se expande a la longitud total del borde de la pantalla donde está situado. Un panel que no se expande se puede mover fuera de los bordes de la pantalla a cualquier parte de la pantalla.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Autohide</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>Seleccione esta opción si quiere que el panel sólo sea completamente visible cuando el puntero del ratón esté sobre el. El panel se oculta de la pantalla junto con su borde principal, dejando una parte estrecha a lo largo del borde del escritorio. Mueva el puntero del ratón sobre la parte visible para hacer que aparezca totalmente en la pantalla.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Show hide buttons</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>Seleccione esta opción para mostrar los botones de ocultación en cada extremo del panel. Al pulsar en un botón de ocultación el panel se mueve hacia ese lado, ocultándose fuera de la pantalla y dejando sólo el botón de ocultación del otro extremo visible. Pulse en este botón de ocultación para que el panel se vea completamente.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Arrows on hide buttons</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>Seleccione esta opción para mostrar flechas en los botones de ocultación, si el botón de ocultación está activado.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </section>
+
+      <section xml:id="panel-properties-background"><info><title>Solapa de propiedades del fondo</title></info>
+        <para>Puede elegir el tipo de fondo para el panel en la solapa <guilabel>Fondo</guilabel>. Las opciones son las siguientes:</para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colwidth="32.32*"/>
+            <colspec colwidth="67.68*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>Elemento de diálogo</para>
+                </entry>
+                <entry>
+                  <para>Descripción</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>None (use system theme)</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para xml:lang="en">Select this option to have the panel use the settings in the <xref linkend="prefs-theme"/> tool. This keeps your panel's background looking the same as the rest of the desktop and applications.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Solid color</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>Seleccione esta opción para especificar un solo color para el fondo del panel. Pulse el botón <guibutton>Color</guibutton> para mostrar el diálogo del selector del color. Elija el color que quiera desde el diálogo de selección del color.</para>
+                  <para>Use el deslizador <guilabel>Estilo</guilabel> para especificar el grado de transparencia u opacidad del color. Por ejemplo, para hacer el panel transparente, mueva el deslizador al lado <guilabel>Transparente</guilabel>.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Background image</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>Seleccione esta opción para especificar una imagen para el fondo del panel. Pulse el botón para examinar para un archivo de imagen. Cuando haya seleccionado el archivo, pulse <guibutton>Aceptar</guibutton>.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+        
+        <!-- section folded in: preserve id for backwards compatibility: 2.12 -->
+        <anchor xml:id="gospanel-61"/>
+        <indexterm xml:lang="en">
+          <primary>panels</primary>
+          <secondary>changing background</secondary>
+        </indexterm>
+        <!-- Shaun, why does this bit here change the vertical space between the previous 
+        table and the following paragraph? -->
+             
+        <para>Puede arrastrar un color o imagen en un panel para establecer el color o imagen como el fondo del panel. Puede arrastrar un color o imagen desde muchas aplicaciones. Por ejemplo:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Puede arrastrar un color desde cualquier diálogo de selección de color.</para>     
+          </listitem>
+          <listitem>
+            <para>Puede arrastrar un archivo de imagen desde el gestor de archivos <application>Caja</application> para establecerla como el fondo del panel.</para>     
+          </listitem>
+          <listitem>
+            <para xml:lang="en">You can drag a color or a pattern from the <guilabel>Backgrounds
+  and Emblems</guilabel> dialog (see <xref linkend="caja-backgrounds-and-emblems"/>) in <application>Caja</application> file manager to a panel to set it as the background.</para>         
+          </listitem>
+        </itemizedlist>
+        <para>Pulse <guibutton>Cerrar</guibutton> para cerrar el diálogo de <guilabel>Propiedades del panel</guilabel>.</para>
+      </section>
+    </section>
+
+    <section xml:id="gospanel-7"><info><title>Ocultar un panel</title></info>
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>hiding</secondary>
+      </indexterm>
+      <para>Puede ocultar o mostrar un panel si tiene botones de ocultación. Si los botones de ocultación no están visibles en un panel, modifique las propiedades del panel para que los botones de ocultación estén visibles.</para>
+      <para>Los botones de ocultación están a cada lado del panel. Los botones de ocultación contienes un icono de flecha opcional. La siguiente ilustración muestra los botones de ocultación.</para>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/four_hide_button.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>A horizontal panel and a vertical panel, both with hide buttons.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <para>Para ocultar un panel pulse en uno de los botones de ocultación. El panel se reduce en la dirección de la flecha el botón de ocultación. El botón de ocultación al otro extremo del panel permanece visible.</para>
+      <para>Para mostrar un panel oculto de nuevo, pulse el botón de ocultación visible. El panel se expande en la dirección de la flecha en el botón de ocultación. Ambos botones ahora son visibles.</para>
+      <para xml:lang="en">You can set a panel to autohide. When you set autohide, the panel hides
+automatically when the mouse is not pointing to the panel. The panel reappears
+when you point to the part of the screen where the panel resides. To set your
+panel to autohide, modify the properties of the panel as per the instructions in <xref linkend="panel-properties"/>.</para>
+    </section>
+
+    <section xml:id="gospanel-10"><info><title>Añadir un panel nuevo</title></info>
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>adding new</secondary>
+      </indexterm>
+      <para>Para añadir un panel, pulse con el botón derecho en un espacio vacío en cualquier panel, después elija <guimenuitem>Panel nuevo</guimenuitem>.  El panel nuevo se añade al Escritorio MATE. El panel nuevo no contiene ningún objeto. Puede personalizar el panel nuevo para que se adapte a sus preferencias.</para>
+    </section>
+
+    <section xml:id="gospanel-31"><info><title>Borrar un panel</title></info>
+      <!-- Desktop Overview / Panels / To Delete Panels -->
+      <anchor xml:id="gosoverview-508"/>
+      <indexterm xml:lang="en">
+        <primary>panels</primary>
+        <secondary>deleting</secondary>
+      </indexterm>
+      <para>Para borrar un panel del Escritorio MATE, pulse con el botón derecho del ratón en el panel que quiere borrar, después elija <menuchoice><guimenuitem>Borrar este panel</guimenuitem></menuchoice>.</para>
+      <note>
+        <para>Debe tener siempre al menos un panel en el Escritorio MATE, Si tiene solo un panel en el Escritorio MATE, no puede borrar ese panel.</para>
+      </note>
+    </section>
+  </section>
+  
+  <!-- =============================================== managing panel objects -->
+  <section xml:id="gospanel-8"><info><title>Objetos del panel</title></info>
+    <!-- Desktop Overview / Panels / To Manipulate Panel Objects -->
+    <anchor xml:id="gosoverview-21"/>
+    <indexterm xml:lang="en">
+      <primary>panels</primary>
+      <secondary>panel objects</secondary>
+      <see>panel objects</see>
+    </indexterm>
+    <para>Esta sección describe los objetos que puede añadir a sus paneles y usar de sus paneles.</para>
+    <section xml:id="gospanel-100"><info><title>Interactuar con los objetos del panel</title></info>
+      
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>interacting with</secondary>
+      </indexterm>
+      <para>Use los botones del ratón para interactuar con un objeto del panel de la siguientes formas:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Pulsación-izquierda</term>
+          <listitem>
+            <para>Lanza el objeto del panel.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Pulsación-central</term>
+          <listitem>
+            <para>Le permite agarrar un objeto, después arrastrar el objeto a un lugar nuevo.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Pulsación-derecha</term>
+          <listitem>
+            <para>Abre el menú emergente del objeto del panel.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <section xml:id="gospanel-39"><info><title>Para seleccionar una miniaplicación</title></info>
+        <indexterm xml:lang="en">
+          <primary>applets</primary>
+          <secondary>selecting</secondary>
+        </indexterm>
+        <para>Se aplican algunas restricciones acerca de donde puede pulsar en una miniaplicación para mostrar el menú emergente del objeto del panel, o para mover la miniaplicación, tal como sigue:</para>
+        <itemizedlist>
+          <listitem>
+            <para xml:lang="en">Some applets have popup menus of applet-specific commands
+  that open when you right-click on particular parts of the applet. For example,
+  the <application><xref linkend="windowlist"/></application> applet has a vertical handle on
+  the left side, and buttons that represent your windows on the right side.
+  To open the panel object popup menu for the <application>Window List</application>
+  applet, you must right-click on the handle. If you right-click on a button
+  on the right side, a popup menu for the button opens.</para>
+          </listitem>
+          <listitem>
+            <para>Algunas miniaplicaciones tienen áreas que no puede usar para seleccionar la miniaplicación. Por ejemplo, la miniaplicación <application>Línea de comandos</application> tiene un campo en el cual introducir comandos. No puede pulsar con el botón central o derecho en este campo para seleccionar la miniaplicación. En su lugar pulse con el botón central o derecho en otra parte de la miniaplicación.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+    </section>
+
+    <section xml:id="panels-addobject"><info><title>Añadir un objeto a un panel</title></info>
+      <!-- preserve for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-15"/>   
+
+      <!-- Desktop Overview / Panels / To Add Objects to Panels -->
+      <anchor xml:id="gosoverview-4"/>
+      <anchor xml:id="gospanel-40"/><!-- To Add an Applet to a Panel -->
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>adding</secondary>
+      </indexterm>
+      <para>Para añadir un objeto a un panel, realice los pasos siguientes:</para>
+      <orderedlist>
+        <listitem><para>Pulse con el botón derecho en un espacio vacío en un panel para abrir el menú emergente del panel.</para></listitem>
+        <listitem><para>Elija <guimenu>Añadir al panel</guimenu>.</para>
+          <para xml:lang="en">The <guilabel>Add to Panel</guilabel> dialog opens.The available panel objects are listed alphabetically, with <xref linkend="launchers"/> at the top.</para>
+          <tip><para>Puede teclear una parte del nombre o descripción de un objeto en la caja <guilabel>Buscar</guilabel>. Esto reducirá la lista de estos objetos que coinciden con lo que teclea.</para>
+          <para>Para restaurar la lista completa, borre el texto en la caja <guilabel>Buscar</guilabel>.</para>
+          </tip>
+        </listitem>
+        <listitem><para>O arrastre un objeto de la lista a un panel, o seleccione un objeto desde la lista y pulse <guibutton>Añadir</guibutton> para añadirlo al punto del panel donde pulsó por primera vez.</para></listitem>
+      </orderedlist>
+      
+      <para>Además puede añadir cualquier elemento en el menú <guimenu>Aplicaciones</guimenu> al panel: pulse con el botón derecho del ratón y elija <guimenuitem>Añadir este lanzador al panel</guimenuitem>.</para>
+
+      <para>Cada lanzador se corresponde con un archivo <filename>.desktop</filename>. Puede arrastrar un archivo <filename>.desktop</filename> a sus paneles para añadir el lanzador al panel.</para>
+<!--Each menu corresponds to a directory. You can drag the directory on to your panels to add the directory to the panel as a menu object. Is this still true?-->
+    </section>
+
+    <section xml:id="gospanel-9"><info><title>Modificar las propiedades de un objeto</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-41"/><!-- To Modify Preferences for an Applet -->
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>modifying properties</secondary>
+      </indexterm>
+      <para xml:lang="en">Some panel objects, such as launchers and drawers,
+have a set of associated properties. The properties are different for each
+type of object. The properties specify details such as the following: <itemizedlist><listitem><para xml:lang="en">The command that starts a launcher application.</para></listitem><listitem><para xml:lang="en">The location of the source files for a menu.</para></listitem><listitem><para xml:lang="en">The icon that represents the object.</para></listitem></itemizedlist></para>
+      <para>Para modificar las propiedades de un objeto realice las pasos siguientes:</para>
+      <orderedlist>
+        <listitem>
+          <indexterm xml:lang="en">
+            <primary>panel object popup menu, illustration</primary>
+          </indexterm>
+          <para>Pulse con el botón derecho del ratón en el objeto para abrir el menú emergente del objeto, tal como se muestra en la <xref linkend="gospanel-FIG-54"/>.</para>
+          <figure xml:id="gospanel-FIG-54"><info><title>Menú emergente del objeto del panel</title></info>
+            
+            <screenshot>
+              <mediaobject xml:lang="en">
+                <imageobject>
+                  <imagedata fileref="figures/panel_object_popup_menu.png" format="PNG"/>
+                </imageobject>
+                <textobject>
+                  <phrase>Panel object popup menu. Menu items: Properties, Remove From Panel, Lock, Move.</phrase>
+                </textobject>
+              </mediaobject>
+            </screenshot>
+          </figure>
+        </listitem>
+        <listitem>
+          <para>Elija <guimenuitem>Propiedades</guimenuitem>. Use el diálogo <guilabel>Propiedades</guilabel> para modificar las propiedades como se requieran. Las propiedades en el diálogo <guilabel>Propiedades</guilabel> dependen de qué objeto seleccione en el paso 1.</para>
+        </listitem>
+        <listitem>
+          <para>Cierre el diálogo <guilabel>Propiedades</guilabel>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="gospanel-32"><info><title>Mover un objeto del panel</title></info>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>moving</secondary>
+      </indexterm>
+      <para>Puede mover los objetos del panel dentro de un panel, y desde un panel a otro panel. Puede mover objetos entre paneles y cajones.</para>
+      <para>Para mover un objeto del panel, pulse con el botón central y mantenga pulsado en el objeto y arrastre el objeto a la posición nueva. Cuando suelte el botón central del ratón, el objeto se ancla en la posición nueva.</para>
+      <para>Alternativamente, puede usar el menú emergente del objeto del panel para mover el objeto como sigue:</para>
+      <orderedlist>
+        <listitem>
+          <para>Pulse con el botón derecho en el objeto, después elija <guimenuitem>Mover</guimenuitem>.</para>
+        </listitem>
+        <listitem>
+          <para>Apunte a la nueva posición del objeto, después pulse cualquier botón del ratón para anclar el objeto a la nueva posición. Esta posición puede estar en cualquier panel que esté actualmente en el Escritorio MATE.</para>
+        </listitem>
+      </orderedlist>
+      <para>El movimiento de un objeto del panel afecta la posición de otros objetos en el panel. Para controlar cómo los objetos se mueven en un panel, puede especificar un modo de movimiento. Para especificar el modo de movimiento, pulse una de las teclas siguientes mientras mueve el objeto del panel:</para>
+      <informaltable frame="topbot">
+        <tgroup cols="3" colsep="0" rowsep="0">
+          <colspec colname="colspec2" colwidth="15.00*"/>
+          <colspec colname="colspec1" colwidth="30.00*"/>
+          <colspec colname="colspec3" colwidth="54.00*"/>
+          <thead>
+            <row rowsep="1">
+              <entry colname="colspec2">
+                <para>Tecla</para>
+              </entry>
+              <entry>
+                <para>Modo de movimiento</para>
+              </entry>
+              <entry colname="colspec3">
+                <para>Descripción</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec2" valign="top">
+                <para>Sin tecla</para>
+              </entry>
+              <entry colname="colspec1" valign="top">
+                <para>Movimiento conmutado</para>
+              </entry>
+              <entry colname="colspec3" valign="top">
+                <para>El objeto intercambia el lugar con otros objetos del panel. El movimiento conmutado es el modo de movimiento predeterminado.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec2" valign="top">
+                <para>Tecla <keycap>Alt</keycap></para>
+              </entry>
+              <entry valign="top">
+                <para>Movimiento libre</para>
+              </entry>
+              <entry colname="colspec3" valign="top">
+                <para>El objeto salta sobre otros objetos del panel al siguiente espacio vacío en el panel.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec2" valign="top">
+                <para>Tecla <keycap>Mayús</keycap></para>
+              </entry>
+              <entry valign="top">
+                <para>Movimiento empujando</para>
+              </entry>
+              <entry colname="colspec3" valign="top">
+                <para>El objeto empuja a otros objetos del panel a lo largo de éste.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </section>
+
+    <section xml:id="gospanel-566"><info><title>Bloquear un objeto del panel</title></info>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>locking</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>locking panel objects</primary>
+      </indexterm>
+      <para>Puede bloquear objetos del panel para que los objetos permanezcan en la misma posición en el panel. Esta característica es útil si no quiere que algunos objetos del panel cambien de posición cuando mueva otros objetos del panel.</para>
+      <para>Para bloquear un objeto en la posición actual en el panel, pulse con el botón derecho del ratón para abrir el menú de objeto del panel, después elija <guimenuitem>Bloquear al panel</guimenuitem>. Deseleccione esto para desbloquear el objeto.</para>
+    </section>
+
+    <section xml:id="gospanel-33"><info><title>Quitar un objeto del panel</title></info>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>removing</secondary>
+      </indexterm>
+      <para>Para quitar un objeto de un panel pulse con el botón derecho del ratón en el objeto para abrir el menú emergente del objeto del panel, después elija <guimenuitem>Quitar del panel</guimenuitem>.</para>
+    </section>
+  </section>
+  
+  <!-- ============================================== big bag o' panel objects -->
+  <!-- <remark>won't work because of yelp topic clumping</remark>
+    <para>This section describes the different objects you can add to your panels.</para>
+    <para>For a list of the objects that are on the top and bottom panels by default, see <xref linkend="top-panel"/> and <xref linkend="bottom-panel"/>.</para>
+  -->
+  <section xml:id="gospanel-17"><info><title>Miniaplicaciones</title></info>
+    <indexterm xml:lang="en">
+      <primary>applets</primary>
+      <secondary>introduction</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>panel objects</primary>
+      <secondary>applets</secondary>
+      <see>applets</see>
+    </indexterm>
+    <para>Una miniaplicación es una aplicación pequeña cuyo interfaz de usuario reside con el panel. La siguiente figura muestra las siguientes miniaplicaciones, de izquierda a derecha:</para>
+    <itemizedlist>
+      <listitem>
+        <para xml:lang="en"><application><xref linkend="windowlist"/></application>: Displays the windows
+currently open on your system.</para>
+      </listitem>
+      <listitem>
+        <para><application>Control de volumen</application>: Le permite controlar el volumen del altavoz en su sistema.</para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en"><link xlink:href="help:mate-clock"><application>Clock</application></link>: Shows the current date and time.</para>
+      </listitem>
+    </itemizedlist>
+    <screenshot>
+      <mediaobject xml:lang="en">
+        <imageobject>
+          <imagedata fileref="figures/sample_applet.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase>Sample applets. The context describes the graphic.</phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </section>  
+
+  <section xml:id="launchers"><info><title>Lanzadores</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="gospanel-16"/>
+    <indexterm xml:lang="en">
+      <primary>panel objects</primary>
+      <secondary>launchers</secondary>
+      <see>launchers</see>
+    </indexterm>
+    <para>Un <firstterm>lanzador</firstterm> es un objeto que realiza una acción específica cuando se abre.</para>
+    <para>Puede encontrar lanzadores en los paneles, en la barra de menú del panel, y en el escritorio. Un lanzador se representa por un icono en todos estos lugares.</para>
+    <para>Podría usar un lanzador para hacer cualquiera de lo siguiente:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Iniciar una aplicación particular.</para>
+      </listitem>
+      <listitem>
+        <para>Ejecutar un comando.</para>
+      </listitem>
+      <listitem>
+        <para>Abrir una carpeta.</para>
+      </listitem>
+      <listitem>
+        <para>Abrir un navegador web en una página particular de la web.</para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">Open special <firstterm>Uniform Resource Identifiers</firstterm>
+(URIs). The MATE Desktop contains special URIs that enable you to access
+particular functions from the file manager. <indexterm xml:lang="en"><primary>special URI
+locations</primary><secondary>and launchers</secondary></indexterm></para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Puede modificar las propiedades de un lanzador. Por ejemplo, las propiedades de un lanzador incluyen el nombre del lanzador, el icono que representa el lanzador, y cómo se ejecuta el lanzador. Para más información acerca de esto, vea la <xref linkend="launchers-modify"/>.</para>
+    <note><para>En ciertas situaciones, un lanzador en un menú quizá no muestre un icono. Por ejemplo, si no especifica ningún icono para que se muestre, o si el menú entero está configurado para que no muestre iconos.</para></note>
+
+    <section xml:id="gospanel-34"><info><title>Añadir un lanzador a un panel</title></info>
+      <indexterm xml:lang="en">
+        <primary>launchers</primary>
+        <secondary>adding to panel</secondary>
+      </indexterm>
+      <para>Puede añadir un lanzador a un panel de una de las siguientes maneras:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Desde el menú emergente del panel</para>
+          <para xml:lang="en">Right-click on any vacant space on the panel,
+then choose <guimenu>Add to Panel</guimenu>. The <guilabel>Add to Panel</guilabel> dialog opens (see <xref linkend="panels-addobject"/>).</para>
+          <para>Para crear un lanzador nuevo, seleccione <guilabel>Lanzador de aplicación personalizado</guilabel> de la lista. Se muestra un diálogo <guilabel>Crear lanzador</guilabel>. Para obtener más información acerca de las propiedades en este diálogo, consulte la <xref linkend="launchers-properties"/>.</para>
+          <para>Alternativamente, para añadir un lanzador existente al panel, seleccione <guilabel>Lanzador de aplicación</guilabel> de la lista. Elija el lanzador que quiera añadir de la lista de elementos del menú.</para>
+        </listitem>
+        <listitem>
+          <para>De cualquier menú</para>
+          <para>Para añadir un lanzador a un panel desde un menú, realice uno de los siguientes pasos:</para>
+          <itemizedlist>
+            <listitem><para>Abra un menú que contenga el lanzador. Arrastre el lanzador al panel.</para></listitem>
+            <listitem><para>Abra el menú que contiene el lanzador desde el panel donde quiere que resida el lanzador. Elija <guimenuitem>Añadir este lanzador al panel</guimenuitem>. Éste método sólo funcionará si el lanzador está en un submenú del menú que ha abierto.</para></listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>Desde el gestor de archivos</para>
+          <para>Para añadir un lanzador a un panel desde el gestor de archivos, busque el archivo <filename>.desktop</filename> para el lanzador en su sistema de archivos, después arrastre el archivo <filename>.desktop</filename> al panel.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section xml:id="launchers-modify"><info><title>Modificar un lanzador</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-36"/>        
+      <indexterm xml:lang="en">
+        <primary>launchers</primary>
+        <secondary>modifying properties</secondary>
+      </indexterm>
+      <para>Para modificar las propiedades de un lanzador en un panel, realice los siguientes pasos:</para>
+      <orderedlist>
+        <listitem>
+          <para>Pulse con el botón derecho en el lanzador para abrir el menú emergente del objeto del panel.</para>
+        </listitem>
+        <listitem>
+          <para>Elija <guimenuitem>Propiedades</guimenuitem>. Use el diálogo <guilabel>Propiedades del lanzador</guilabel> para modificar las propiedades como se requieran. Para más información acerca del diálogo  <guilabel>Propiedades del lanzador</guilabel>, vea <xref linkend="launchers-properties"/>.</para>
+        </listitem>
+        <listitem>
+          <para>Pulse <guibutton>Cerrar</guibutton> para cerrar el diálogo de <guilabel>Propiedades del lanzador</guilabel>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="launchers-properties"><info><title>Propiedades del lanzador</title></info> 
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-52"/><!-- To Create a Launcher With the Create Launcher Dialog -->
+         
+      <para>Cuando crea o edita un lanzador, se pueden establecer las siguientes propiedades:</para>
+      <variablelist>
+        <varlistentry><term>Tipo</term>
+          <listitem>
+            <para>Use la lista desplegable para especificar si este lanzador inicia una aplicación o abre un documento:</para>
+            <variablelist>
+              <varlistentry><term>Aplicaciones</term>
+                <listitem>
+                  <para>El lanzador inicia una aplicación.</para>
+                </listitem>     
+              </varlistentry>
+              <varlistentry><term>Aplicación en terminal</term>
+                <listitem>
+                  <para>El lanzador inicia una aplicación a través de una ventana del terminal.</para>
+                </listitem>     
+              </varlistentry>
+              <varlistentry><term>Lugar</term>
+                <listitem>
+                  <para>El lanzador abre un archivo, una página web u otra ubicación.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <para>Si está editando un lanzador de ubicación, no se mostrará esta lista desplegable. Si está editando el lanzador de una aplicación la opción <guilabel>Ubicación</guilabel> no estará disponible.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry><term>Nombre</term>
+          <listitem>
+            <para>Este es el nombre que se muestra si añade el lanzador al menú o al escritorio.</para>
+          </listitem>     
+        </varlistentry>
+        <varlistentry><term>Comando</term>
+          <listitem>
+            <para>Para un lanzador de aplicaciones, especifique un comando para ejecutar cuando pulse en el lanzador. Para comandos de ejemplo, vea la <xref linkend="launchers-properties-commands"/>.</para>
+          </listitem>     
+        </varlistentry>
+        <varlistentry><term>Lugar</term>
+          <listitem>
+            <para>Para un lanzador de ubicaciones, especifique la ubicación que se debe abrir. Pulse <guibutton>Examinar</guibutton> para seleccionar una ubicación en su equipo o escriba una dirección para lanzar una página web. Para ver ubicación de ejemplo consulte la <xref linkend="launchers-properties-commands"/>.</para>
+          </listitem>     
+        </varlistentry>
+        <varlistentry><term>Comentario</term>
+          <listitem>
+            <para>Esto se muestra como un consejo cuando apunta al icono del lanzador en el panel.</para>
+          </listitem>     
+        </varlistentry>
+      </variablelist>
+      
+      <para>Para cambiar el icono para el lanzador, pulse el botón que muestra el icono actual. Se muestra un diálogo selector de iconos. Elija un icono del diálogo.</para>
+  
+      <section xml:id="launchers-properties-commands"><info><title>Comandos del lanzador y de ubicaciones</title></info>
+        <!-- Maintained for backwards compatibility: 2.14 -->
+        <anchor xml:id="gospanel-556"/>        
+        <para>Debajo puede encontrar ejemplos de comandos y lugares que puede usar en el diálogo <guilabel>Propiedades del lanzador</guilabel>.</para>
+        
+        <para>Si elige <guilabel>Aplicación</guilabel> o <guilabel>Aplicación en terminal</guilabel> de la caja desplegable de combinación <guilabel>Tipo</guilabel>, entonces se mostrará una caja de texto <guilabel>Comando</guilabel>. La siguiente tabla muestra algunos comandos de ejemplo y las acciones que los comandos realizan:</para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colname="colspec0" colwidth="47.36*"/>
+            <colspec colname="colspec1" colwidth="52.64*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>Comando de ejemplo de aplicación</para>
+                </entry>
+                <entry>
+                  <para>Acción</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry colname="colspec0" valign="top">
+                  <para xml:lang="en">
+                    <command>pluma</command>
+                  </para>
+                </entry>
+                <entry colname="colspec1" valign="top">
+                  <para>Inicia la aplicación del editor de textos <application>pluma</application>.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <command>pluma /home/user/loremipsum.txt</command>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>Abre el archivo <filename>/home/usuario/loremipsum.txt</filename> en la aplicación del editor de textos <application>pluma</application>.</para>
+                </entry>
+              </row>
+              <row>
+                <entry colname="colspec0" valign="top">
+                  <para xml:lang="en">
+                    <command>caja /home/user/Projects</command>
+                  </para>
+                </entry>
+                <entry colname="colspec1" valign="top">
+                  <para>Abre la carpeta <filename>/home/usuario/Proyectos</filename> en una ventana del examinador de archivos.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+        <para xml:lang="en">If you choose <guilabel>Location</guilabel> from the <guilabel>Type</guilabel>
+drop-down box, the <guilabel>Location</guilabel> text box will be displayed. The following table
+shows some sample locations and the actions that will happen if you click on the launcher:<indexterm xml:lang="en"><primary>special URIs</primary><secondary>launchers</secondary></indexterm></para>
+        <informaltable frame="topbot">
+          <tgroup cols="2" colsep="0" rowsep="0">
+            <colspec colname="colspec0" colwidth="47.36*"/>
+            <colspec colname="colspec1" colwidth="52.64*"/>
+            <thead>
+              <row rowsep="1">
+                <entry>
+                  <para>Ubicación de ejemplo</para>
+                </entry>
+                <entry>
+                  <para>Acción</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry colname="colspec0" valign="top">
+                  <para xml:lang="en">
+                    <command>file:///home/user/loremipsum.txt</command>
+                  </para>
+                </entry>
+                <entry colname="colspec1" valign="top">
+                  <para>Abre el archivo <filename>/home/usuario/loremipsum.txt</filename> en el visor predeterminado para este tipo de archivos.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <command>file:///home/user/Projects</command>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>Abre la carpeta <filename>/home/usuario/Proyectos</filename> en una ventana del examinador de archivos.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <command>http://www.mate-desktop.org</command>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>Abre el sitio web de MATE en su navegador predeterminado.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <command>ftp://ftp.mate-desktop.org</command>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para>Abre el sitio FTP de MATE en su navegador predeterminado.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </section>
+    </section>    
+  </section>
+
+  <section xml:id="gospanel-557"><info><title>Botones</title></info>
+    <indexterm xml:lang="en">
+      <primary>buttons</primary>
+      <secondary>adding to panel</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>action buttons</primary>
+      <see>buttons</see>
+    </indexterm>
+    <para>Puede añadir botones a sus paneles para proporcionar acceso rápido a acciones y funciones comunes.</para>
+
+    <section xml:id="gospanel-563"><info><title>Botón de Forzar salida</title></info>
+      <indexterm xml:lang="en">
+        <primary>buttons</primary>
+        <secondary>Force Quit</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Force Quit button</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Force Quit button</primary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>terminating applications</primary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>applications</primary>
+        <secondary>terminating</secondary>
+      </indexterm>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/force_quit.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Force Quit icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <para>El botón <guibutton>Forzar el cierre</guibutton> le permite seleccionar una ventana para terminar una aplicación. Este botón es útil si quiere terminar una aplicación que no responda a sus comandos, por ejemplo si la aplicación se ha congelado o colgado.</para>
+      <para>Para añadir un botón <guibutton>Forzar el cierre</guibutton> a un panel, pulse con el botón derecho del ratón en cualquier espacio vacío del panel. Elija <guimenu>Añadir al panel</guimenu>, después elija <application>Forzar el cierre</application> desde el diálogo Añadir al panel. Para obtener más información acerca de esto consulte la <xref linkend="panels-addobject"/>.</para>
+      <para>Para terminar una aplicación, pulse el botón <guibutton>Forzar el cierre</guibutton>, después pulse en una ventana de la aplicación que quiere terminar. Si no quiere terminar una aplicación tras pulsar en el botón <guibutton>Forzar el cierre</guibutton>, pulse <keycap>Esc</keycap>.</para>
+    </section>
+
+    <section xml:id="panel-lock-screen"><info><title>Botón bloquear pantalla</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-21"/>
+
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/lockscreen_icon.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Lock screen icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <indexterm xml:lang="en">
+        <primary>buttons</primary>
+        <secondary>Lock</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Lock button</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Lock button</primary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>locking screen</primary>
+      </indexterm>
+      <para>El botón <guibutton>Bloquear pantalla</guibutton> bloquea su pantalla y activa su salvapantallas. Para acceder a su sesión otra vez, debe introducir su contraseña.</para>
+      <para>Para añadir un botón <guibutton>Bloquear pantalla</guibutton> a un panel, pulse con el botón derecho del ratón en cualquier espacio vacío del panel. Elija <guimenu>Añadir al panel</guimenu>, después elija <application>Bloquear pantalla</application> desde el diálogo Añadir al panel. Vea la <xref linkend="panels-addobject"/> para más acerca de ésto.</para>
+      <para>Pulse con el botón derecho del ratón el botón <guibutton>Bloquear pantalla</guibutton> para abrir un menú de comandos relacionados con el salvapantallas. La <xref linkend="gosstartsession-TBL-83"/> describe los comandos que están disponibles en el menú.</para>
+      <table frame="topbot" xml:id="gosstartsession-TBL-83"><info><title>Elementos del menú bloquear pantalla</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="colspec0" colwidth="43.55*"/>
+          <colspec colname="colspec1" colwidth="56.45*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Elemento del Menú</para>
+              </entry>
+              <entry>
+                <para>Función</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guimenuitem>Activate Screensaver</guimenuitem>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Activa el salvapantallas inmediatamente.</para>
+                <para>Esto también bloqueará la pantalla si ha seleccionado <guilabel>Bloquear pantalla cuando el salvapantallas esté activo</guilabel> en la herramienta de preferencias del  <application>Salvapantallas</application>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guimenuitem>Lock Screen</guimenuitem>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Bloquea la pantalla inmediatamente. Este comando realiza la misma función que cuando pulsa el botón <guibutton>Bloquear pantalla</guibutton>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guimenuitem>Propiedades</guimenuitem></para>
+              </entry>
+              <entry valign="top">
+                <para xml:lang="en">Opens the <xref linkend="prefs-screensaver"/> tool, with which you can configure the type of screensaver that is displayed when you lock the screen.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="gospanel-20"><info><title>Botón de salida</title></info>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/logout_icon.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Log Out icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <indexterm xml:lang="en">
+        <primary>buttons</primary>
+        <secondary>Log Out</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Log Out button</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Log Out button</primary>
+      </indexterm>
+      <para>El botón <guibutton>Salir</guibutton> le permite cerrar la sesión de MATE o cambiar a una cuenta de usuario diferente.</para>
+      <para>Para añadir un botón <guibutton>Salir</guibutton> a un panel, pulse con el botón derecho del ratón en cualquier espacio vacío del panel. Elija <guimenu>Añadir al panel</guimenu>, después elija <application>Bloquear pantalla</application> desde el diálogo Añadir al panel. Para obtener más información acerca de esto, consulte la <xref linkend="panels-addobject"/>.</para>
+      <para>Para cerrar su sesión o cambiar de usuario pulse el botón <guibutton>Salir</guibutton> y después pulse el botón apropiado en el diálogo que aparece.</para>
+    </section>
+
+    <section xml:id="gospanel-555"><info><title>Botón ejecutar</title></info>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/run_button.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Run Application icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <indexterm xml:lang="en">
+        <primary>buttons</primary>
+        <secondary>Run</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Run button</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Run button</primary>
+      </indexterm>
+      <para>El botón <guibutton>Ejecutar</guibutton> abre el diálogo <guilabel>Ejecutar aplicación</guilabel>, que le permite iniciar aplicaciones eligiéndolas de una lista.</para>
+      <para>Para añadir un botón <guibutton>Ejecutar</guibutton> a un panel, pulse con el botón derecho del ratón en cualquier espacio vacío del panel. Elija <guimenu>Añadir al panel</guimenu>, después elija <application>Ejecutar</application> desde el diálogo Añadir al panel. Para obtener más información acerca de esto, consulte la <xref linkend="panels-addobject"/>.</para>
+      <para>Para abrir el diálogo <application>Ejecutar aplicación</application> pulse el botón <guibutton>Ejecutar</guibutton>.</para>
+      <para>Para obtener más información acerca del diálogo <guilabel>Ejecutar aplicación</guilabel>, consulte la <xref linkend="gospanel-23"/>.</para>
+    </section>
+
+    <section xml:id="gospanel-554"><info><title>Botón de búsqueda</title></info>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/searchtool_button.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Search Tool icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <indexterm xml:lang="en">
+        <primary>buttons</primary>
+        <secondary>Search</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Search button</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Search button</primary>
+      </indexterm>
+      <para>El botón <guibutton>Buscar</guibutton> abre la <application>Herramienta de búsqueda</application> que le permite buscar archivos en su equipo.</para>
+      <para>Para añadir un botón <guibutton>Buscara</guibutton> a un panel, pulse con el botón derecho del ratón en cualquier espacio vacío del panel. Elija <guimenu>Añadir al panel</guimenu>, después elija <application>Buscar archivos...</application> desde el diálogo Añadir al panel. Para obtener más información acerca de esto, consulte la <xref linkend="panels-addobject"/>.</para>
+      <para>Para abrir la <application>Herramienta de búsqueda</application> pulse el botón <guibutton>Buscar</guibutton>.</para>
+      <para xml:lang="en">For more information on the <application>Search Tool</application>,
+see the <link xlink:href="help:mate-search-tool">Search Tool Manual</link>.</para>
+    </section>
+
+    <section xml:id="gospanel-564"><info><title>Botón de mostrar escritorio</title></info>
+      <indexterm xml:lang="en">
+        <primary>buttons</primary>
+        <secondary>Minimize Windows</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Minimize
+Windows button</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Minimize Windows
+button</primary>
+      </indexterm>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/show_desktop_button.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Show Desktop icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <para>Puede usar el botón <guibutton>Mostrar escritorio</guibutton> para minimizar todas las ventanas abiertas y mostrar el escritorio.</para>
+      <para>Para añadir un botón <guibutton>Mostrar el escritorio</guibutton> a un panel, pulse con el botón derecho del ratón en cualquier espacio vacío del panel. Elija <guimenu>Añadir al panel</guimenu>, después elija <application>Mostrar el escritorio</application> desde el diálogo Añadir al panel. Para obtener más información acerca de esto, consulte la <xref linkend="panels-addobject"/>.</para>
+      <para>Para minimizar todas las ventanas y mostrar el escritorio, pulse el botón <guibutton>Mostrar el escritorio</guibutton>. Para restaurar todas las ventanas a sus estados anteriores, púlselo de nuevo.</para>
+    </section>
+  </section>
+
+  <section xml:id="panel-menus"><info><title>Menús</title></info>
+    <!-- Desktop Overview / Menus -->
+    <anchor xml:id="gosoverview-42"/>
+    <anchor xml:id="gospanel-37"/>
+
+    <indexterm xml:lang="en">
+      <primary>menus</primary>
+      <secondary>adding to panel</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>panel objects</primary>
+      <secondary>menus</secondary>
+    </indexterm>
+    <para>Puede añadir los siguientes tipos de menú a sus paneles:</para>
+    <itemizedlist>
+      <listitem>
+        <para xml:lang="en"><guimenu>Menu Bar</guimenu>: You can access almost
+all the standard applications, commands, and configuration options from
+the menus in the Menu Bar. It contains the <guimenu>Applications</guimenu>, 
+<guimenu>Places</guimenu>, and <guimenu>System</guimenu> menus.</para>
+        <para>Para añadir una <guimenu>Barra de menús</guimenu> a un panel, pulse con el botón derecho del ratón en cualquier espacio vacío del panel. Elija <guimenu>Añadir al panel</guimenu>, después elija <application>Barra de menús</application> desde el diálogo Añadir al panel. Para obtener más información acerca de esto, consulte la <xref linkend="panels-addobject"/>.</para>
+      </listitem>
+      <listitem>
+        <para><guimenu>Menú principal</guimenu>: El Menú principal contiene los mismos elementos que la Barra de menú pero los organiza en menús en lugar de en un árbol. Como resultado ocupa menos espacio en los paneles.</para>
+        <para>Para añadir un <guibutton>Menú principal</guibutton> a un panel, pulse con el botón derecho del ratón en cualquier espacio vacío del panel. Elija <guimenu>Añadir al panel</guimenu>, después elija <application>Menú principal</application> desde el diálogo Añadir al panel. Para obtener más información acerca de esto consulte la <xref linkend="panels-addobject"/>.</para>
+      </listitem>
+      <listitem>
+        <para><guimenu>Submenús</guimenu>: Puede añadir un submenú a la Barra de menú o al Menú principal directamente al panel. Por ejemplo, puede añadir al panel el submenú <guimenu>Juegos</guimenu> del menú <guimenu>Aplicaciones</guimenu>.</para>
+        <para>Para añadir un submenú a un panel, abra el submenú, pulse con el botón derecho sobre un lanzador, después elija <menuchoice><guimenu>Menú completo</guimenu><guimenuitem>Añadir esto como menú al panel</guimenuitem></menuchoice>.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section xml:id="gospanel-18"><info><title>Cajones</title></info>
+    <indexterm xml:lang="en">
+      <primary>panel objects</primary>
+      <secondary>drawers</secondary>
+      <see>drawers</see>
+    </indexterm>
+    <para>Un cajón es una extensión de un panel. Puede abrir y cerrar un cajón de la misma manera que puede mostrar y ocultar un panel. Un cajón puede contener todos los objetos de un panel, incluyendo lanzadores, menús, miniaplicaciones y otros cajones. Cuando abre un cajón, puede usar los objetos de la misma forma que en un panel.</para>
+    <para>La figura siguiente muestra un cajón abierto que contiene dos objetos del panel.</para>
+    <screenshot>
+      <mediaobject xml:lang="en">
+        <imageobject>
+          <imagedata fileref="figures/open_drawer.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase>Open drawer. The context describes the graphic.</phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+    <para>La flecha en el icono indica que el icono representa un cajón o menú.</para>
+    <para>Puede añadir, mover y quitar objetos de los cajones de la misma forma que puede añadir, mover y quitar objetos de los paneles.</para>
+
+    <section xml:id="gospanel-42"><info><title>Para abrir y cerrar un cajón</title></info>
+      <indexterm xml:lang="en">
+        <primary>drawers</primary>
+        <secondary>opening</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>drawers</primary>
+        <secondary>closing</secondary>
+      </indexterm>
+      <para>Para abrir un cajón, pulse en el objeto del cajón en un panel. Puede cerrar un cajón de las siguientes formas:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Pulse en el icono del cajón.</para>
+        </listitem>
+        <listitem>
+          <para>Pulse el botón de ocultar cajón.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section xml:id="gospanel-420"><info><title>Para añadir un cajón al panel</title></info>
+      <indexterm xml:lang="en">
+        <primary>drawers</primary>
+        <secondary>adding to panel</secondary>
+      </indexterm>
+      <para>Puede añadir un cajón a un panel de las siguientes formas:</para>
+      <variablelist>
+      <varlistentry>
+        <term>Desde el menú emergente del panel</term>
+        <listitem>
+          <orderedlist>
+            <listitem><para>Pulse con el botón derecho del ratón en cualquier espacio vacío en el panel, después elija <guimenuitem>Añadir al panel</guimenuitem>.</para></listitem>
+            <listitem><para>En el diálogo <application>Añadir al panel</application> seleccione <guilabel>Cajón</guilabel>. Pulse <guibutton>Añadir</guibutton>, después <guibutton>Cerrar</guibutton>.</para></listitem>
+          </orderedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>De cualquier menú</term>
+        <listitem>
+          <para>Puede añadir un menú como un objeto cajón a un panel.</para>
+          <para>Para añadir un menú como un cajón a un panel, abra el menú desde el panel. Pulse con el botón derecho en cualquier lanzador en el menú, después elija <menuchoice><guimenu>Menú entero</guimenu><guimenuitem>Añadir esto como un cajón al panel</guimenuitem></menuchoice>.</para>
+        </listitem>
+      </varlistentry>
+      </variablelist>
+    </section>
+
+    <section xml:id="gospanel-54"><info><title>Para añadir un objeto a un cajón</title></info>
+      <indexterm xml:lang="en">
+        <primary>drawers</primary>
+        <secondary>adding objects to</secondary>
+      </indexterm>
+      <para>Puede añadir un objeto a un cajón de la misma manera que puede añadir objetos a paneles. Para más información, vea la <xref linkend="panels-addobject"/>.</para>
+    </section>
+
+    <section xml:id="gospanel-550"><info><title>Para modificar las propiedades del cajón</title></info>
+      <indexterm xml:lang="en">
+        <primary>drawers</primary>
+        <secondary>modifying properties</secondary>
+      </indexterm>
+      <para>Puede modificar las propiedades de cada cajón individualmente. Por ejemplo, puede cambiar la apariencia visual del cajón y dónde tiene el cajón los botones de ocultación.</para>
+      <para>Para modificar las propiedades de un cajón, realice los siguientes pasos:</para>
+      <orderedlist>
+        <listitem>
+          <para>Pulse con el botón derecho sobre el cajón, después elija <guimenuitem>Propiedades</guimenuitem> para mostrar el diálogo de <guilabel>Propiedades del cajón</guilabel>. El diálogo muestra la solapa <guilabel>General</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Seleccione las propiedades para el cajón en el diálogo. La tabla siguiente describe los elementos en la solapa <guilabel>General</guilabel>:</para>
+          <informaltable frame="topbot">
+            <tgroup cols="2" colsep="0" rowsep="0">
+              <colspec colname="colspec0" colwidth="28.57*"/>
+              <colspec colname="colspec1" colwidth="71.43*"/>
+              <thead>
+                <row rowsep="1">
+                  <entry>
+                    <para>Elemento de diálogo</para>
+                  </entry>
+                  <entry>
+                    <para>Descripción</para>
+                  </entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry colname="colspec0">
+                    <para xml:lang="en">
+                      <guilabel>Size</guilabel>
+                    </para>
+                  </entry>
+                  <entry colname="colspec1">
+                    <para>Especifique la anchura del cajón al abrirse.</para>
+                  </entry>
+                </row>
+                <row>
+                  <entry colname="colspec0">
+                    <para xml:lang="en">
+                      <guilabel>Icon</guilabel>
+                    </para>
+                  </entry>
+                  <entry colname="colspec1">
+                    <para>Elija un icono para representar el cajón. Pulse el botón <guibutton>Icono</guibutton> para mostrar un diálogo selector de iconos. Elija un icono desde el diálogo y pulse <guibutton>Aceptar</guibutton> para confirmar su elección.</para>
+                  </entry>
+                </row>
+                <row>
+                  <entry valign="top">
+                    <para xml:lang="en">
+                      <guilabel>Show hide buttons</guilabel>
+                    </para>
+                  </entry>
+                  <entry valign="top">
+                    <para>Seleccione esta opción para mostrar los botones de ocultación en su panel. Cuando pulse sobre uno de los botones se cerrará el cajón.</para>
+                  </entry>
+                </row>
+                <row>
+                  <entry valign="top">
+                    <para xml:lang="en">
+                      <guilabel>Arrows on hide buttons</guilabel>
+                    </para>
+                  </entry>
+                  <entry valign="top">
+                    <para>Seleccione esta opción para mostrar flechas en los botones de ocultación, si el botón de ocultación está activado.</para>
+                  </entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </listitem>
+        <listitem>
+          <para>Puede usar la solapa <guilabel>Fondo</guilabel> para establecer el fondo para un cajón. Para más información acerca de cómo completar la sección de la solapa <guilabel>Fondo</guilabel>, vea el paso acerca de este tema en la <xref linkend="panel-properties"/>. Además puede arrastrar un color o imagen en un cajón para establecer el color o imagen como el fondo del cajón. Para obtener más información consulte la <xref linkend="panel-properties-background"/>.</para>
+        </listitem>
+        <listitem>
+          <para>Pulse <guibutton>Cerrar</guibutton> para cerrar el diálogo de <guilabel>Propiedades del cajón</guilabel>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+
+  <section xml:id="panel-default"><info><title>Objetos predeterminados del panel</title></info>
+    <!-- a temporary home for things that should one day be in a greater list of panel objects -->
+    
+    <para>Esta sección cubre los objetos del panel que aparecen en el escritorio predeterminado de MATE.</para>
+    
+    <section xml:id="panel-windowselector"><info><title>Miniaplicación del selector de ventanas</title></info> 
+      <!-- preserve for backwards compatibility: 2.12 -->
+      <anchor xml:id="gosmarco-27"/>
+
+      <indexterm xml:lang="en">
+        <primary>top edge panel</primary>
+        <secondary>window selector icon</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>window selector</primary>
+        <secondary>top edge panel</secondary>
+      </indexterm>
+      <para>Puede ver una lista de todas las ventanas que están actualmente abiertas. Puede además elegir una ventana para darle el foco. Para ver la lista de ventanas, pulse en la miniaplicación <application>Selector de ventanas</application>. La figura siguiente muestra un ejemplo de la miniaplicación <application>Selector de ventanas</application>:</para>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/openwindows_menu.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Window selector applet displayed from the top edge panel.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <para>Para darle el foco a una ventana, seleccione la ventana desde la miniaplicación <application>Selector de ventanas</application>.</para>
+      <para>El <application>Selector de ventanas</application> lista las ventanas en todas las áreas de trabajo. Las ventanas en todas las áreas de trabajo distintas del área actual se muestran bajo una línea separadora.</para>
+    </section>  
+
+    <section xml:id="panels-notification-area"><info><title>Miniaplicación de área de notificación</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="gospanel-567"/>
+
+      <indexterm xml:lang="en">
+        <primary>applets</primary>
+        <secondary>Notification Area</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>panel objects</primary>
+        <secondary>Notification
+Area applet</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>Notification Area applet</primary>
+      </indexterm>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/notification_area_icon.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Notification Area icon.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <para>La miniaplicación <application>Área de notificación</application> muestra iconos desde varias aplicaciones para indicar actividad en la aplicación. Por ejemplo, cuando usa la aplicación <application>Reproductor de CD</application>para reproducir un CD, se muestra un icono de CD en la miniaplicación <application>Área de notificación</application> El gráfico de arriba ilustra el icono del CD en la miniaplicación <application>Área de notificación</application>.</para>
+    </section>
+     
+    <section xml:id="goseditmainmenu-65"><info><title>Barra de menú</title></info>
+      <screenshot>
+        <mediaobject xml:lang="en">
+          <imageobject>
+            <imagedata fileref="figures/menu_bar_applet.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Menu Bar applet. Menus: Applications, Places, System.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+      <para xml:lang="en">The <application>Menu Bar</application> contains the 
+      <guimenu>Applications</guimenu>, <guimenu>Places</guimenu>, and 
+      <guimenu>System</guimenu> menus. You can access
+  almost all the standard applications, commands, and configuration options
+  from the <application>Menu Bar</application>. For more on using the Menu Bar, see <xref linkend="menubar"/>.</para>
+    </section>
+
+<!-- This has been pasted from the Window List manual so that the Window List applet help is integrated into the GUG. -->
+<!-- This section needs gross refactoring (making task-based for starters) -->
+
+ <section xml:id="windowlist"><info><title>Lista de ventanas</title></info>
+	 <para>La miniaplicación <application>Lista de ventanas</application> le permite administrar las ventanas que están abiertas en el escritorio MATE. La Lista de ventanas usa un botón para representar cada una de las ventanas o grupo de ventanas que están abiertas. El estado de los botones en la miniaplicación varía dependiendo del estado de la ventana que el botón representa. La siguiente tabla explica los posibles estados de los botones de la <application>Lista de ventanas</application>.</para>
+	<informaltable>
+	<tgroup cols="2">
+	<colspec colname="col1"/>
+	<colspec colname="col2"/>
+	<thead>
+	<row valign="top">
+	<entry colname="col1"><para>Estado</para></entry>
+	<entry colname="col2"><para>Indica...</para></entry>
+	</row>
+	</thead>
+	<tbody>
+	<row valign="top">
+	<entry colname="col1"><para>El botón está pulsado.</para></entry>
+	<entry colname="col2"><para>La ventana tiene el foco.</para></entry>
+	</row>
+	<row valign="top">
+	<entry colname="col1"><para>El botón aparece desvanecido. El texto del botón está rodeado por corchetes cuadrados.</para></entry>
+	<entry colname="col2"><para>La ventana está minimizada.</para></entry>
+	</row> 
+	<row valign="top">
+	<entry colname="col1"><para>El botón no está presionado y no está desvanecido.</para></entry>
+	<entry colname="col2"><para>Se muestra la ventana en el escritorio y no está minimizada.</para></entry>
+	</row>
+	<row valign="top">
+	<entry colname="col1"><para>Hay un número entre paréntesis al final del botón de título.</para></entry>
+	<entry colname="col2"><para>El botón representa un grupo de botones.</para></entry>
+	</row>
+	</tbody>
+	</tgroup>
+	</informaltable>
+
+<!-- ================ Usage ================================ -->
+  <section xml:id="windowlist-usage"><info><title>Uso</title></info>
+	 <para>Puede usar <application>Lista de ventanas</application> para realizar las siguientes tareas:</para>
+	<itemizedlist>
+	<listitem>
+	<para>Dar el foco a una ventana</para>
+	<para>Si pulsa sobre el botón Lista de ventanas que representa una ventana que está en el escritorio pero no tiene el foco, la miniaplicación le da el foco a esa ventana.</para>
+	</listitem>
+	<listitem>
+	<para>Para minimizar una ventana</para>
+	<para>Si pulsa el botón Lista de ventanas que representa la ventana que tiene el foco, la miniaplicación minimiza la ventana.</para>
+	</listitem>
+	<listitem>
+	<para>Para restaurar una ventana minimizada</para>
+	<para>Si pulsa el botón de la Lista de ventanas que representa una ventana minimizada, la miniaplicación restaura esa ventana.</para>
+	</listitem>
+	</itemizedlist>
+	
+	<para>Puede cambiar el orden de los botones de la Lista de ventanas arrastrando un botón a otro lugar en la Lista de ventanas.</para>
+	
+  </section>
+<!-- ============= Preferences ============================= -->
+  <section xml:id="windowlist-prefs"><info><title>Preferencias</title></info> 
+	 <para>Para configurar la <application>Lista de ventanas</application>, pulse con el botón derecho del ratón sobre el manejador a la izquierda de los botones, después elija <guimenuitem>Preferencias</guimenuitem>. Se pueden cambiar las siguientes preferencias:</para>
+    
+    <!-- Maintained for compatibility -->
+    <anchor xml:id="windowlist-prefs-behavior"/>
+    <anchor xml:id="windowlist-prefs-size"/>
+    
+	 <variablelist>
+	 <varlistentry><term xml:lang="en"><guilabel>Window List Content</guilabel> </term>
+	 <listitem>
+	 <para>Para especificar qué ventanas se mostrarán en la Lista de ventanas, seleccione una de las siguientes opciones:</para>
+	 	<itemizedlist>
+	 	<listitem>
+	 	<para xml:lang="en"><guilabel>Show windows from current workspace</guilabel></para>
+	 	<para>Seleccione esta opción para mostrar las ventanas que están abiertas en el área de trabajo actual.</para>
+	 	</listitem>
+	 	<listitem><para xml:lang="en"><guilabel>Show windows from all workspaces</guilabel></para>
+	 	<para>Seleccione esta opción para mostrar las ventanas que están abiertas en todas las áreas de trabajo.</para>
+	 	</listitem>
+	 	</itemizedlist>
+	 </listitem>
+	 </varlistentry>
+	 
+	 <varlistentry><term xml:lang="en"><guilabel>Window Grouping</guilabel> </term>
+	 <listitem>
+	 <para>Para especificar cuándo la Lista de ventanas debería agrupará ventanas que pertenezcan al mismo proceso, seleccione una de las siguientes opciones:</para>
+		<itemizedlist>
+	 	<listitem>
+	 	<para xml:lang="en"><guilabel>Never group windows</guilabel></para>
+	 	<para>Seleccione esta opción para no agrupar nunca ventanas del mismo proceso bajo un botón.</para>
+		</listitem>
+	 	<listitem>
+	 	<para xml:lang="en"><guilabel>Group windows when space is limited</guilabel></para>
+	 	<para>Seleccione esta opción para agrupar ventanas del mismo proceso bajo un botón cuando el espacio en el panel esté restringido.</para>
+		</listitem>
+	 	<listitem>
+	 	<para xml:lang="en"><guilabel>Always group windows</guilabel></para>
+	 	<para>Seleccione esta opción para agrupar siempre las ventanas del mismo proceso bajo un botón.</para>
+		</listitem>
+		</itemizedlist>
+	 </listitem>
+	 </varlistentry>
+	 
+	 <varlistentry><term xml:lang="en"><guilabel>Restoring Minimized Windows</guilabel> </term>
+	 <listitem>
+	 <para>Para definir cómo se comporta la Lista de ventanas cuando restaure ventanas, seleccione una de las siguientes opciones:</para>
+	 	<itemizedlist>
+	 	<listitem>
+	 	<para xml:lang="en"><guilabel>Restore to current workspace</guilabel></para>
+	 	<para>Seleccione esta opción para restaurar una ventana de la miniaplicación al área de trabajo actual, incluso si la ventana no está actualmente ne el área de trabajo actual.</para>
+	 	</listitem>
+	 	<listitem><para xml:lang="en"><guilabel>Restore to native workspace</guilabel></para>
+	 	<para>Seleccione esta opción para cambiar al área de trabajo en el que la ventana estaba originalmente cuando restaure la ventana desde la miniaplicación.</para>
+	 	</listitem>
+	 	</itemizedlist>
+	 <para>Estas opciones sólo están disponibles si <guilabel>Mostrar las ventanas de todas las áreas de trabajo</guilabel> está seleccionada en la sección <guilabel>Contenido de la lista de ventanas</guilabel> del diálogo.</para>
+	 </listitem>
+	 </varlistentry>
+	 </variablelist>
+
+  </section>
+ </section>
+
+  </section>
+</chapter>

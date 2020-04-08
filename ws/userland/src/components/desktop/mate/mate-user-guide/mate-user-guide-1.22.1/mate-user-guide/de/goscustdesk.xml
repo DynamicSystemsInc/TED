@@ -1,0 +1,2533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="prefs" xml:lang="de">
+    <info><title>Anpassen der Arbeitsumgebung</title></info>
+  
+  <!-- ids in this section are gradually being converted 
+  to something like 'prefs-mouse'.
+  remember to add an anchor for the old id in the right place -->
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="goscustdesk-6"/>
+
+  <!-- Desktop Overview / Desktop Preferences -->
+  <anchor xml:id="gosoverview-55"/>
+  
+  <!-- ids of sections removed from this document for 2.14 -->
+  <anchor xml:id="goscustdesk-10"/><!-- Customizing Your Panels -->
+
+  <highlights>
+    <para>In diesem Kapitel wird beschrieben, wie Sie die MATE-Arbeitsumgebung mit den grundlegenden Einstellungwerkzeugen anpassen.</para>
+  </highlights>
+  <!-- move the following to its own section, "Using Pref Tools"? -->
+  <para xml:lang="en">A preference tool is a small application that allows you to change settings in the MATE Desktop. Each preference tool covers a particular aspect of your computer. For example, with the <application>Mouse</application> preference tool you can set your mouse to left-handed or right-handed use, or change the speed of the pointer on the screen. With the <application>Windows</application> preference tool you can set behavior common to all windows such as the way in which you select them with the mouse.</para>
+  <para>Zum Öffnen eines Einstellungswerkzeuges wählen Sie <menuchoice><guimenu>System</guimenu><guisubmenu>Einstellungen</guisubmenu></menuchoice> im oberen Panel. Wählen Sie das gewünschte Werkzeug aus dem Untermenü.</para>
+  <para>Bis auf wenige Ausnahmen werden die mit den Einstellungswerkzeugen vorgenommenen Änderungen unmittelbar angewendet, ohne dass Sie das Einstellungswerkzeug zuvor schließen müssen. Sie können das Fenster des Einstellungswerkzeuges offen halten, während Sie die Änderungen ausprobieren, und können dann nach Ihren Wünschen weitere Änderungen testen.</para>
+  <para>Einige Anwendungen oder Systemkomponenten fügen Ihre eigenen Einstellungswerkzeuge zum Menü hinzu.</para>
+  <note><para>Einige Einstellungswerkzeuge erlauben Ihnen, grundlegende Teile Ihres Systems zu verändern, daher werden Systemverwalter-Rechte benötigt. Wenn Sie ein Einstellungswerkzeug öffnen, fragt Sie ein Dialogfenster nach Ihrem Passwort. Diese Einstellungswerkzeuge befinden sich im Untermenü <menuchoice><guimenu>System</guimenu><guisubmenu>Systemverwaltung</guisubmenu></menuchoice>. Diese Menü enthält außerdem komplexere Werkzeuge für das Verwalten und aktualisieren Ihres Systems.</para></note>
+
+<section xml:id="prefs-personal"><info><title>Persönlich</title></info>
+  
+  <!-- Was Login Photo prefs, could go to About Me if that was enabled by default -->
+  <anchor xml:id="goscustdesk-95"/>
+
+  <section xml:id="goscustaccess-11"><info><title>Einstellungen für Hilfstechnologien</title></info>
+    <indexterm xml:lang="en">
+      <primary>accessibility</primary>
+      <secondary>setting assistive technology
+preferences</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Assistive Technologies</secondary>
+    </indexterm>
+    <para>Verwenden Sie das <application>Hilfstechnologien</application>-Einstellungswerkzeug zur Aktivierung von Hilfstechnologien in der MATE-Arbeitsumgebung. Das <application>Hilfstechnologien</application>-Einstellungswerkzeug können Sie ebenfalls einsetzen, um andere Einstellungswerkzeuge zu starten, die auf Hilfstechnologien bezogene Einstellmöglichkeiten bieten.</para>
+    <itemizedlist>
+      <listitem>
+        <para><guibutton>Bevorzugte Anwendungen</guibutton> ermöglicht Ihnen festzulegen, welche Barrierefreiheits-Anwendungen automatisch beim Anmelden gestartet werden sollen. Siehe <xref linkend="prefs-preferredapps"/></para>
+      </listitem>
+      <listitem>
+        <para>In <guibutton>Tastatur-Barrierefreiheit</guibutton> können Sie Barrierefreiheits-Funktionen der Tastatur wie klebrige Tasten, Tastenverzögerungen und springende Tasten einstellen. Siehe <xref linkend="prefs-keyboard-a11y"/>.</para>
+      </listitem>
+      <listitem>
+        <para>Mit der <guibutton>Maus-Barrierefreiheit</guibutton> können Sie die Barrierefreiheits-Funktionen der Maus wie beispielsweise den verzögerten Klick einstellen. Weitere Informationen hierzu finden Sie in <xref linkend="goscustdesk-53"/>.</para>
+      </listitem>
+    </itemizedlist>
+    <para><xref linkend="goscustaccess-TBL-14"/> listet die Einstellungen für den Hilfstechnologien auf, die Sie ändern können.</para>
+    <table frame="topbot" xml:id="goscustaccess-TBL-14"><info><title>Einstellungen für Hilfstechnologien</title></info>
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colwidth="50*"/>
+        <colspec colwidth="50*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Dialogfeldelement</para>
+            </entry>
+            <entry>
+              <para>Beschreibung</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry valign="top">
+              <para xml:lang="en">
+                <guilabel>Enable assistive technologies</guilabel>
+              </para>
+            </entry>
+            <entry valign="top">
+              <para>Wählen Sie diese Option aus, um die Hifstechnologien in der MATE-Arbeitsumgebung zu aktivieren.</para>
+              <para>Aus technischen Gründen ist es notwendig, dass Sie sich nach dem Aktivieren dieser Option neu anmelden, damit die Änderungen wirksam werden. </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section xml:id="prefs-keyboard-shortcuts"><info><title>Einstellungen der Tastenkürzel</title></info>
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="goscustdesk-39"/>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Keyboard Shortcuts</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>configuring</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>keyboard shortcuts</primary>
+      <secondary>configuring</secondary>
+    </indexterm>
+    <para>Verwenden Sie das Einstellungstool <application>Tastaturkurzbefehle</application>, um die Standardtastenkürze an Ihre Anforderungen anzupassen.</para>    
+    
+    <para>Ein <firstterm>Tastenkürzel</firstterm> ist eine Taste oder eine Tastenkombination, die eine Alternative zur Standardvorgehensweise für eine Aktion bietet. Weitere Informationen über Tastenkürzel sowie eine Liste der Standard-Tastenkürzel in MATE finden Sie in <xref linkend="keyboard-skills"/>.</para>
+
+    <para>Zum Bearbeiten einer Tastenkombination führen Sie die folgenden Schritte aus:</para>
+    <orderedlist>
+	    <listitem><para xml:lang="en">
+	    Double-click on the shortcut that you want to edit. If you are using the keyboard, use the arrow keys to select the shortcut and press <keycap>Return</keycap>.</para></listitem>
+	    <listitem>
+	      <para>Drücken sie die neue Taste oder Tastenkombination, welche Sie der Aktion zuordnen wollen.</para>
+	      <para>Um ein Tastenkürzel zu löschen, drücken sie die <keycap>Rücktaste</keycap>. Die Aktion ist nun als <guilabel>Deaktiviert</guilabel> markiert.</para>
+	    </listitem>
+    </orderedlist>
+    
+    <para>Um die Zuweisung eines Tastenkürzels abzubrechen, klicken Sie auf eine beliebige Stelle im Fenster oder drücken Sie <keycap>Escape</keycap>.</para>
+    
+    <para>Die von Ihnen anpassbaren Kürzel sind wie folgt gruppiert:</para>
+    
+    <variablelist>
+    	<varlistentry><term>Arbeitsfläche</term>
+    	  <listitem><para xml:lang="en">These are general shortcuts for the whole desktop, such as logging out, locking your screen (see <xref linkend="lock-screen"/>), opening the panel menubar (see <xref linkend="menubar"/>), or launching a web browser.</para></listitem>
+    	</varlistentry>
+    	<varlistentry><term>Audio</term>
+    	  <listitem><para>Tastenkürzel zur Steuerung Ihres Musik-Abspielers und zur Einstellung der Systemlautstärke.</para></listitem>
+    	</varlistentry>
+    	<varlistentry><term>Fensterverwaltung</term>
+    	  <listitem><para>Tastenkürzel für die Arbeit mit Fenstern und Arbeitsflächen, wie beispielsweise zum Maximieren oder Verschieben des aktuellen Fensters auf eine andere Arbeitsfläche. Weitere Informationen über solche Aktionen finden Sie in <xref linkend="windows-manipulating"/> und <xref linkend="overview-workspaces"/>.</para></listitem>
+    	</varlistentry>
+        <varlistentry><term>Eingabehilfen</term>
+          <listitem><para>Tastenkürzel zum Starten von Hilfstechnologien, wie Bildschirmleser und -lupe sowie einer Bildschirmtastatur.</para></listitem>
+        </varlistentry>
+        <varlistentry><term>Benutzerdefinierte Tastenkombinationen</term>
+          <listitem><para>Benutzerdefinierte Tastenkürzel, die mit dem Knopf <guilabel>Hinzufügen</guilabel> festgelegt wurden. Dieser Abschnitt wird nur dann angezeigt, wenn tatsächlich benutzerdefinierte Tastenkürzel vorhanden sind.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>Um ein benutzerdefiniertes Kürzel hinzuzufügen, verwenden Sie den Knopf <guilabel>Hinzufügen</guilabel> im Aktionsbereich. Sie müssen einen Namen und einen Befehl für das neue Tastenkürzel eingeben. Das neue benutzerdefinierte Tastenkürzel erscheint in der Liste und kann auf die gleiche Weise wie die voreingestellten Tastenkürzel bearbeitet werden.</para>
+    <para>Zum Entfernen eines benutzerdefinierten Tastenkürzels verwenden Sie den Knopf <guibutton>Entfernen</guibutton>.</para>
+  </section>  
+
+  <section xml:id="prefs-preferredapps"><info><title>Bevorzugte Anwendungen</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdoc-2"/>       
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Preferred Applications</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>default applications</primary>
+      <see>preferred applications</see>
+    </indexterm>
+    <para>Verwenden Sie das Einstellungswerkzeug <application>Bevorzugte Anwendungen</application>, um die Anwendungen festzulegen, die die Arbeitsumgebung verwenden soll, wenn er eine Anwendung für Sie startet. So können Sie beispielsweise einen Webbrowser (<application>Epiphany</application>, <application>Mozilla Firefox</application>, <application>Opera</application> …) starten, wenn Sie auf einen Link in anderen Anwendungen wie E-Mail- oder Dokumentenbetrachtern klicken.</para>
+
+	<para><application>Bevorzugte Anwendungen</application> finden Sie im Menü <menuchoice><guimenu>System</guimenu><guisubmenu>Einstellungen</guisubmenu><guimenuitem>Bevorzugte Anwendungen</guimenuitem></menuchoice>.</para>
+    <para>Sie können die Einstellungen für das Einstellungstool <application>Bevorzugte Anwendungen</application> in folgenden funktionalen Bereichen anpassen.</para>
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Internet</guilabel> (Web, Mail)</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Unterhaltungsmedien</guilabel> (Audio- und Videoabspieler)</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>System</guilabel> (Terminal)</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Barrierefreiheit</guilabel> (Visuell, Mobilität)</para>
+      </listitem>
+    </itemizedlist>
+    
+    <para>Für jede Kategorie bevorzugter Anwendungen wird in einem Ausklappmenü eine Liste möglicher Anwendungen angezeigt, aus denen Sie wählen können. Der Inhalt dieser Liste hängt davon ab, welche Anwendungen auf Ihrem Rechner installiert sind.</para>
+    <para>In jeder der Kategorien können Sie mit dem letzten Menüeintrag (<guimenuitem>Benutzerdefiniert</guimenuitem>) den Befehl einstellen, der vom System ausgeführt wird, wenn die spezifische Startaktion ausgeführt wird.</para>
+    
+    <section xml:id="goscustlookandfeel-32"><info><title>Benutzerdefinierte Befehlszeilen-Optionen</title></info>
+      <indexterm xml:lang="en">
+        <primary>preferred applications</primary>
+        <secondary>custom command</secondary>
+      </indexterm>
+      <para>Die folgende Tabelle fasst die verschiedenen Optionen zusammen, die Ihnen bei der Auswahl von <guimenuitem>Benutzerdefiniert</guimenuitem> im Ausklappmenü der Anwendung zur Verfügung stehen.</para>
+      <table frame="topbot" xml:id="goscustlookandfeel-TBL-37"><info><title>Benutzerdefinierte Befehlszeilen-Optionen</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec0" colwidth="18.86*"/>
+          <colspec colname="colspec1" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Command</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Geben Sie den zum Starten der benutzerdefinierten Anwendung erforderlichen Befehl ein. Bei einem <application>Webbrowser</application> und einem <application>E-Mail-Betrachter</application> können Sie ein <literal>%s</literal> nach dem Befehl verwenden, um der Anwendung mitzuteilen, dass sie die von Ihnen angeklickte Adresse oder E-Mail-Adresse öffnen soll. Die genauen Befehlszeilenargumente hängen von der jeweiligen Anwendung ab.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Run in terminal</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Wählen Sie diese Option aus, um den Befehl in einem Terminal-Fenster auszuführen. Diese Option eignet sich für eine Anwendung, welche kein Fenster für die Ausführung erstellt.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Execute flag (Terminal only)</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para>Die meisten Terminalanwendungen verfügen über eine Option, welche bewirkt, dass die angehängten Befehlszeilenoptionen als ausführbare Befehle betrachtet werden (<option>-x</option> für <application>mate-terminal</application>). Geben Sie diese Option hier ein. Dies wird zum Beispiel dann verwendet, wenn ein Befehl eines Starters ausgeführt werden soll, für den der Typ »Anwendung im Terminal« gewählt wurde.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Run at start (Accessibility only)</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">Select this option to run the command as soon as your session begins.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+</section>
+
+<section xml:id="prefs-look-and-feel"><info><title>Darstellung</title></info>
+
+  <section xml:id="prefs-appearance"><info><title>Einstellungen des Erscheinungsbildes</title></info>
+    <para>Das <application>Erscheinungsbild</application>-Einstellungswerkzeug erlaubt Ihnen die Anpassung verschiedener Aspekte des Aussehens Ihrer Arbeitsumgebung:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Thema,</para>
+      </listitem>
+      <listitem>
+        <para>Arbeitsflächenhintergrund,</para>
+      </listitem>
+      <listitem>
+        <para>Schriften,</para>
+      </listitem>
+      <listitem>
+        <para>Fensterinhalt.</para>
+      </listitem>
+     </itemizedlist>
+
+  <section xml:id="prefs-theme"><info><title>Themen-Einstellungen</title></info>
+    <anchor xml:id="goscustdesk-12"/>
+    <anchor xml:id="goscustdesk-54"/>
+    <anchor xml:id="goscustdesk-82"/>
+  
+    <indexterm xml:lang="en">
+      <primary>themes</primary>
+      <secondary>setting controls options</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>themes</primary>
+      <secondary>setting window frame options</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>themes</primary>
+      <secondary>setting icons options</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>windows</primary>
+      <secondary>setting frame theme options</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Theme</secondary>
+    </indexterm>
+
+    <para>Ein Thema ist eine Gruppe koordinierter Einstellungswerte, die das visuelle Erscheinungsbild eines Teils der MATE-Arbeitsumgebung festlegen. Sie können Themen auswählen, um das Erscheinungsbild der MATE-Arbeitsumgebung zu ändern. Verwenden Sie den Reiter <application>Thema</application>, um ein Thema auszuwählen. Sie können aus einer Liste der verfügbaren Themen wählen. Die Liste der verfügbaren Themen enthält auch mehrere Themen für Benutzer mit Barrierefreiheits-Erfordernissen.</para>
+    <para>Ein Thema enthält Einstellungen, die verschiedene Teile der MATE-Arbeitsumgebung beeinflussen, wie folgende:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Steuerung</term>
+        <listitem>
+          <para xml:lang="en"><indexterm xml:lang="en"><primary>GTK+
+themes</primary><see>themes, controls options</see></indexterm><indexterm xml:lang="en"><primary>themes</primary><secondary>controls options</secondary><tertiary>introduction</tertiary></indexterm>The controls setting for a theme determines
+the visual appearance of windows, panels, and applets. The controls setting
+also determines the visual appearance of the MATE-compliant interface items
+that appear on windows, panels, and applets, such as menus, icons, and buttons.
+Some controls setting options that are available are designed for special
+accessibility needs. You can choose an option for the controls setting from
+the <guilabel>Controls</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Farben</term>
+        <listitem>
+           <para xml:lang="en"><indexterm xml:lang="en"><primary>themes</primary><secondary>color options</secondary><tertiary>introduction</tertiary></indexterm><indexterm xml:lang="en"><primary>color themes</primary><see>themes, color options</see></indexterm>The color setting for
+a theme determines the color of various user interface elements. You can choose several pairs of colors from the <guilabel>Colors</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+           <note><para>Es ist vorteilhaft, sich gut voneinander abhebende Farben zu verwenden, anderenfalls könnte Text nur schwer zu lesen sein.</para></note>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Fensterrahmen</term>
+        <listitem>
+          <para xml:lang="en"><indexterm xml:lang="en"><primary>themes</primary><secondary>window frame options</secondary><tertiary>introduction</tertiary></indexterm><indexterm xml:lang="en"><primary>Marco themes</primary><see>themes, window frame options</see></indexterm>The window frame setting for
+a theme determines the appearance of the frames around windows only. You can
+choose an option for the window frame setting from the <guilabel>Window Border</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Symbole</term>
+        <listitem>
+          <para xml:lang="en"><indexterm xml:lang="en"><primary>themes</primary><secondary>icons options</secondary><tertiary>introduction</tertiary></indexterm><indexterm xml:lang="en"><primary>icon themes</primary><see>themes, icons options</see></indexterm>The icon setting for a theme determines the appearance of
+the icons on panels and the desktop background. You can choose an option for
+the icon setting from the <guilabel>Icons</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Zeiger</term>
+        <listitem>
+          <para xml:lang="en"><indexterm xml:lang="en"><primary>themes</primary><secondary>pointer options</secondary><tertiary>introduction</tertiary></indexterm><indexterm xml:lang="en"><primary>pointer themes</primary><see>themes, pointer options</see></indexterm>The pointer setting for a theme determines the appearance of
+and size of the mouse pointer. You can choose the options for setting the pointer from the <guilabel>Pointer</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <section xml:id="goscustdesk-61"><info><title>So erstellen Sie ein benutzerdefiniertes Thema</title></info>
+      
+      <para>Die im Reiter <application>Thema</application> aufgelisteten Themen sind verschiedene Kombinationen aus Fensterinhalten, Fensterrahmenoptionen und Symboloptionen. Sie können ein benutzerdefiniertes Thema erzeugen, das verschiedene Kombinationen aus Fensterinhalten, Fensterrahmenoptionen und Symboloptionen verwendet.</para>
+      <para>Zum Erstellen eines benutzerdefinierten Themas führen Sie die folgende Schritte aus:</para>
+      <orderedlist>
+        <listitem>
+          <para>Starten Sie das Einstellungswerkzeug <application>Erscheinungsbild</application>. Öffnen Sie den Reiterabschnitt <guilabel>Thema</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Wählen Sie ein Thema aus der Themenliste aus.</para>
+        </listitem>
+        <listitem>
+          <para>Klicken Sie auf den Knopf <guibutton>Anpassen …</guibutton>. Der Dialog <guilabel>Thema anpassen</guilabel> wird angezeigt.</para>
+        </listitem>
+        <listitem>
+          <para>Wählen Sie die Fensterinhalt-Option, die Sie im benutzerdefinierten Thema verwenden möchten, in der Liste im Reiter <guilabel>Fensterinhalt</guilabel> aus. Die Liste der Fensterinhalt-Optionen enthält verschiedene Optionen für Benutzer mit Barrierefreiheits-Erfordernissen.</para>
+        </listitem>
+        <listitem>
+          <para>Klicken Sie auf den Reiter <guilabel>Fensterrahmen</guilabel>, um den Reiterabschnitt <guilabel>Fensterrahmen</guilabel> anzuzeigen. Wählen Sie die Fensterrahmen-Option, die Sie im benutzerdefinierten Thema verwenden möchten, in der Liste der verfügbaren Optionen aus. Die Liste der Fensterrahmen-Optionen enthält verschiedene Optionen für Benutzer mit Barrierefreiheits-Erfordernissen.</para>
+        </listitem>
+        <listitem>
+          <para>Klicken Sie auf den Reiter <guilabel>Symbole</guilabel>, um den Reiterabschnitt <guilabel>Symbole</guilabel> anzuzeigen. Wählen Sie die Symbol-Option, die Sie im benutzerdefinierten Thema verwenden möchten, in der Liste der verfügbaren Optionen aus. Die Liste der Symbol-Optionen enthält verschiedene Optionen für Benutzer mit Barrierefreiheits-Erfordernissen.</para>
+        </listitem>
+        <listitem>
+          <para>Klicken Sie auf den Knopf <guibutton>Schließen</guibutton>, um den Dialog <guilabel>Thema anpassen</guilabel> zu schließen.</para>
+        </listitem>
+        <listitem>
+          <para>Klicken Sie im Einstellungswerkzeug <application>Erscheinungsbild</application> auf den Knopf <guibutton>Speichern unter …</guibutton>. Der Dialog <guilabel>Thema speichern</guilabel> wird angezeigt.</para>
+        </listitem>
+        <listitem>
+          <para>Geben Sie einen Namen und eine Kurzbeschreibung Ihres benutzerdefinierten Themas in den Dialog ein und klicken dann auf <guibutton>Speichern</guibutton>. Das benutzerdefineirte Thema erscheint ab sofort in der Liste der verfügbaren Themen.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="goscustdesk-62"><info><title>So installieren Sie ein neues Thema</title></info>
+      <para>Sie können ein Thema zur Liste der verfügbaren Themen hinzufügen. Das neue Thema muss eine Archivdatei sein. Das bedeutet, dass die Datei eine <filename>.tar.gz</filename>-Datei sein muss.</para>
+      <para>Zum Installieren eines neuen Themas führen Sie die folgenden Schritte aus:</para>
+      <orderedlist>
+        <listitem>
+          <para>Starten Sie das Einstellungswerkzeug <application>Erscheinungsbild</application>. Öffnen Sie den Reiterabschnitt <guilabel>Thema</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Klicken Sie auf den Knopf <guibutton>Installieren …</guibutton>. Es erscheint ein Dialog zur Dateiauswahl.</para>
+        </listitem>
+        <listitem>
+          <para>Geben Sie den Ort der Themen-Archivdatei in das Auswahl-Kombinationsfeld ein. Alternativ wählen Sie die Themen-Archivdatei in der Liste aus. Wenn Sie die Datei ausgewählt haben, klicken Sie auf <guibutton>Öffnen</guibutton>.</para>
+        </listitem>
+        <listitem>
+          <para>Klicken Sie auf den Knopf <guibutton>Installieren</guibutton>, um das neue Thema zu installieren.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+<!--How does this work nowadays ?
+    <sect4 id="goscustdesk-80">
+      <title>To Install a New Theme Option</title>
+      <para>You can install new controls options, window frame options, or icons
+options. You can find many controls options on the Internet.</para>
+      <para>To install a new controls option, window frame option, or icons option,
+perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Start the <application>Appearance</application> preference tool.
+          Open the <guilabel>Theme</guilabel> tabbed section.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Customize</guibutton> button.
+An <guilabel>Customize Theme</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the tab for the type of theme that you want to install.
+For example, to install an icons option, click on the <guilabel>Icons</guilabel>
+tab.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Install Theme</guibutton> button.
+A <guilabel>Theme Installation</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Enter the location of the option archive file in the drop-down
+combination box. Alternatively, to browse for the file, click on the <guibutton>Browse</guibutton> button. When you have selected the file, click <guibutton>OK</guibutton>.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Install</guibutton> button to install
+the new option. </para>
+        </listitem>
+      </orderedlist>
+    </sect4>
+-->
+
+    <section xml:id="goscustdesk-81"><info><title>So entfernen Sie eine Themen-Option:</title></info>
+      <para>Sie können Optionen für Fensterinhalte, Fensterrahmen oder Symbole entfernen.</para>
+      <para>Zum Enfernen einer Kontrolloption, einer Fensterrahmenoption oder einer Symboloption führen Sie die folgenden Schritte aus:</para>
+      <orderedlist>
+        <listitem>
+          <para>Starten Sie das Einstellungswerkzeug <application>Erscheinungsbild</application>. Öffnen Sie den Reiterabschnitt <guilabel>Thema</guilabel>.</para>
+        </listitem>
+        <listitem>
+          <para>Klicken Sie auf den Knopf <guibutton>Anpassen …</guibutton>. Der Dialog <guilabel>Thema anpassen</guilabel> wird angezeigt.</para>
+        </listitem>
+        <listitem>
+          <para>Klicken Sie auf den Reiter mit der Option, die sie entfernen wollen.</para>
+        </listitem>
+        <listitem>
+          <para>Wählen Sie die zu löschende Themenoption aus.</para>
+        </listitem>
+        <listitem>
+          <para>Verwenden Sie den Knopf <guibutton>Löschen</guibutton>, um das ausgewählte Thema zu löschen. Bedenken Sie, dass Sie systemweit installierte Themen nicht löschen können.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+
+  <section xml:id="prefs-desktopbackground"><info><title>Einstellungen für den Arbeitsflächenhintergrund</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-7"/>       
+    <indexterm xml:lang="en">
+      <primary>desktop</primary>
+      <secondary>customizing background</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>MATE Desktop preference tools</primary>
+      <see>preference tools</see>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Background</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>backgrounds</primary>
+      <secondary>customizing desktop background</secondary>
+    </indexterm>
+    <para xml:lang="en">The <xref linkend="overview-desktop"/> background is the image or color that is applied to your
+desktop. You can open <guilabel>Background</guilabel> tabbed section in the <application>Appearance</application> preference tool by right-clicking on the desktop and choosing <guimenuitem>Change Desktop Background</guimenuitem>, as well as from the <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu></menuchoice> menu.</para>
+    <para>Sie haben folgende Möglichkeiten, den Arbeitsflächenhintergrund anzupassen:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Wählen Sie ein Bild aus, das auf dem Arbeitsflächenhintergrund angezeigt werden soll. Das Bild überlagert die Hintergrundfarbe der Arbeitsfläche. Die Hintergrundfarbe der Arbeitsfläche sehen Sie, wenn Sie ein transparentes Bild auswählen oder wenn das Bild nicht den gesamten Arbeitsflächenhintergrund ausfüllt.</para>
+      </listitem>
+      <listitem>
+        <para>Wählen Sie eine Farbe für den Arbeitsflächenhintergrund aus. Sie können eine durchgehende Farbe auswählen oder einen Übergangseffekt aus zwei Farben erzeugen. Ein Übergangseffekt ist ein visueller Effekt, bei dem eine Farbe allmählich in eine andere Farbe übergeht.</para>
+      </listitem>
+    </itemizedlist>
+    <tip><para xml:lang="en">You can also drag a color or a pattern to the desktop from the <guilabel>Backgrounds
+and Emblems</guilabel> dialog in the <application>Caja</application> file manager (see <xref linkend="caja-backgrounds-and-emblems"/>).</para></tip>
+    <para><xref linkend="goscustdesk-TBL-14"/> enthält eine Liste der Hintergrundeinstellungen, die von Ihnen konfiguriert werden können.</para>
+    <table frame="topbot" xml:id="goscustdesk-TBL-14"><info><title>Einstellungen für den Arbeitsflächenhintergrund</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec0" colwidth="18.86*"/>
+        <colspec colname="colspec1" colwidth="47.14*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Dialogfeldelement</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Beschreibung</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guibutton>Desktop Background</guibutton>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Wählen Sie ein Bild aus der Liste. Alternativ können Sie <guibutton>Hinzufügen …</guibutton> wählen, um ein beliebiges Bild auf Ihrem Rechner auszuwählen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Style</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Um festzulegen, wie das Bild angezeigt werden soll, wählen Sie eine der folgenden Optionen in der Aufklappliste <guilabel>Stil</guilabel> aus:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Zentriert</guilabel>:Zeigt das Bild in der Mitte der Arbeitsfläche an, unter Erhaltung der Originalgröße des Bildes.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Gestreckt</guilabel>: Vergrößert das Bild so weit, dass die gesamte Arbeitsfläche ausgefüllt ist. Die Seitenverhältnisse des Bildes werden dabei angepasst.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Skaliert</guilabel>: Vergrößert das Bild bis in die Bildschirmecken unter Beibehaltung der Seitenverhältnisse des Bildes.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Zoom</guilabel>: Vergrößert das Bild bis in die Bildschirmecken; das Seitenverhältnis des Bildes wird dabei angepasst.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Gekachelt</guilabel>: Dupliziert das Bild (unter Beibehaltung der Originalgröße) so oft wie nötig, und reiht die Bilder aneinander, bis sie die gesamte Arbeitsfläche ausfüllen.</para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0">
+              <para xml:lang="en">
+                <guilabel>Add</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0">
+              <para/>
+              <para>Klicken Sie auf <guilabel>Hinzufügen …</guilabel>, um auf Ihrem Rechner nach einer Bilddatei zu suchen. Ein Standard-Dateiauswahldialog wird geöffnet. Wählen Sie das gewünschte Bild aus und klicken sie auf <guibutton>Öffnen</guibutton>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0">
+              <para><guilabel>Entfernen</guilabel></para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0">
+              <para>Wählen Sie das Bild aus, das Sie entfernen wollen, und klicken Sie auf <guilabel>Entfernen</guilabel>. Dies entfernt das Bild aus der Liste der verfügbaren Hintergründe, löscht das eigentliche Bild auf Ihrem Rechner jedoch nicht.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Colors</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Zum Festlegen eines Farbschemas verwenden Sie die Optionen in der Auswahlliste <guilabel>Hintergrund-Stil</guilabel> sowie die Farbauswahl-Knöpfe.</para>
+              <para>Sie können eine der folgenden Möglichkeiten zum Festlegen eines Farbschemas nutzen:</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Wählen Sie <guilabel>Einfarbig</guilabel> im Auswahl-Listenfeld <guilabel>Hintergrund-Stil</guilabel>, um eine Farbe für die Arbeitsfläche festzulegen.</para>
+                  <para>Zur Auswahl der gewünschten Farbe klicken Sie auf den Knopf <guibutton>Farbe</guibutton>. Es erscheint das Dialogfeld <guilabel>Wählen Sie eine Farbe aus</guilabel>. Wählen Sie eine Farbe, und klicken Sie auf <guibutton>OK</guibutton>.</para>
+                </listitem>
+                <listitem>
+                  <para>Wählen Sie <guilabel>Horizontaler Verlauf</guilabel> im Auswahl-Listenfeld <guilabel>Hintergrund-Stil</guilabel>. Mit dieser Option erzeugen Sie einen Übergangseffekt vom linken zum rechten Bildschirmrand.</para>
+                  <para>Klicken Sie auf den Knopf <guibutton>Farbe links</guibutton>, um das Dialogfeld <guilabel>Wählen Sie eine Farbe aus</guilabel> aufzurufen. Wählen Sie die Farbe aus, die am linken Rand erscheinen soll.</para>
+                  <para>Klicken Sie auf den Knopf <guibutton>Farbe rechts</guibutton>. Wählen Sie die Farbe aus, die am rechten Rand erscheinen soll.</para>
+                </listitem>
+                <listitem>
+                  <para>Wählen Sie <guilabel>Vertikaler Verlauf</guilabel> im Auswahl-Listenfeld <guilabel>Hintergrund-Stil</guilabel>. Damit erzeugen Sie einen Übergangseffekt vom oberen zum unteren Bildschirmrand.</para>
+                  <para>Klicken Sie auf den Knopf <guibutton>Farbe oben</guibutton>, um das Dialogfeld <guilabel>Wählen Sie eine Farbe aus</guilabel> aufzurufen. Wählen Sie die Farbe aus, die am oberen Rand erscheinen soll.</para>
+                  <para>Klicken Sie auf den Knopf <guibutton>Farbe unten</guibutton>. Wählen Sie die Farbe aus, die am unteren Rand erscheinen soll.</para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section xml:id="prefs-font"><info><title>Einstellungen für Schriften</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-38"/>
+    <anchor xml:id="goscustdesk-83"/>
+    <anchor xml:id="goscustdesk-94"/>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Font</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>fonts</primary>
+      <secondary>desktop</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>fonts</primary>
+      <secondary>applications</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>fonts</primary>
+      <secondary>window title</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>fonts</primary>
+      <secondary>terminal</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>fonts</primary>
+      <secondary>rendering</secondary>
+    </indexterm>
+    <para>Wählen Sie im Reiter <guilabel>Schriften</guilabel>des Einstellungswerkzeugs <application>Erscheinungsbild</application> die Schriftarten aus, die in den Anwendungen und auf der Arbeitsfläche verwendet werden sollen.</para>
+
+    <section xml:id="prefs-font-choose"><info><title>Schriften auswählen</title></info>
+      <para>Der Schriftwähler-Knopf zeigt den Namen der Schrift und deren Größe in Punkt. Der Name wird sowohl in normaler, als auch in fetter und kursiver Schrift dargestellt.</para>
+      <para>Um die Schrift zu ändern, klicken Sie auf den Schriftwähler-Knopf. Der Schriftauswahldialog wird geöffnet. Wählen Sie die Schriftfamilie, den Stil und die Größe in Punkt in den Listen aus. Der Vorschaubereich zeigt die aktuelle Auswahl an. Klicken sie auf <guibutton>OK</guibutton>, um die Änderungen zu bestätigen und die Arbeitsumgebung zu aktualisieren.</para>
+      <para>Schriften können Sie für die folgenden Teile der Arbeitsumgebung wählen:</para>
+
+      <variablelist>
+       	<varlistentry>
+      	  <term xml:lang="en"><guilabel>Application font</guilabel></term>
+      	  <listitem>
+      	    <para>Diese Schrift wird in Anwendungen für Menüleisten, Werkzeugleisten und Dialogfeldern verwendet.</para>
+      	  </listitem>
+      	</varlistentry>
+      	<varlistentry>
+      	  <term xml:lang="en"><guilabel>Document font</guilabel></term>
+      	  <listitem>
+      	    <para>Diese Schrift wird in Anwendungen zur Anzeige von Dokumenten verwendet.</para>
+      	    <note><para>In einigen Anwendungen können Sie diese Auswahl im Einstellungsdialog der Anwendung überschreiben.</para></note>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term xml:lang="en"><guilabel>Desktop font</guilabel></term>
+      	  <listitem>
+      	    <para>Diese Schriftart wird in den Symbolbeschriftungen auf der Arbeitsflächen verwendet.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term><guilabel>Fenstertitelschriftart</guilabel></term>
+      	  <listitem>
+      	    <para>Diese Schrift wird in den Titelleisten der Fenster verwendet.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term xml:lang="en"><guilabel>Fixed width font</guilabel></term>
+      	  <listitem>
+      	    <para>Diese Schriftart wird in der <application>Terminal</application>-Anwendungen und in Anwendungen verwendet, die mit Programmierung zu tun haben.</para>
+      	  </listitem>
+      	</varlistentry>
+      	</variablelist>
+  	</section>
+	
+  	<section xml:id="prefs-font-rendering"><info><title>Schriftwiedergabe</title></info>
+      <para>Sie können bezüglich der Schriftwiedergabe auf dem Bildschirm folgende Optionen wählen:</para>
+	
+    	<variablelist>
+     	<varlistentry>
+    	  <term xml:lang="en"><guilabel>Rendering</guilabel></term>
+    	  <listitem>
+    	    <para>Um festzulegen, wie die Schriftwiedergabe in Ihrer Arbeitsumgebung erfolgen soll, wählen Sie eine der folgenden Optionen aus:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Schwarz-Weiß</guilabel>: Stellt Schriften ausschließlich in Schwarz-weiß dar. Die Ränder der Zeichen erscheinen in einigen Fällen ausgefranst, weil die Zeichen nicht geglättet sind. <firstterm>Antialiasing</firstterm> ist ein Effekt, der auf die Ränder der Zeichen angewendet wird, um diese weicher aussehen zu lassen. </para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Beste Form</guilabel>: Glättet die Schriften, sofern dies möglich ist. Verwenden Sie diese Option bei Standard-Rörenmonitoren (CRT).</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Bester Kontrast</guilabel>: Stellt die Schriften so ein, dass die größtmögliche Schärfe erreicht wird. Die Schriften werden außerdem geglättet, so dass die Zeichen glatte Ränder aufweisen. Diese Option verbessert eventuell die Zugänglichkeit der MATE-Arbeitsumgebung für Sehbehinderte.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Glättung mittels Subpixel (LCDs)</guilabel>: Verwendet Techniken zur Auswertung der Form der Pixel auf Flüssigkristall(LCD)-Bildschirmen, um Schriften geglättet wiederzugeben. Verwenden sie diese Option bei LCD- oder Flachbildschirmen.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+     	<varlistentry>
+    	  <term><guibutton>Details</guibutton></term>
+    	  <listitem>
+    	    <para>Klicken Sie auf diesen Knopf, um weitere Details zur Schriftwiedergabe auf Ihrem Bildschirm anzugeben.</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Auflösung (Pixel pro Zoll)</guilabel>: Verwenden Sie dieses Einstellfeld, um die Bildschirmauflösung für die Schriftwiedergabe anzugeben.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Glättung</guilabel>: Wählen sie eine der Optionen, um festzulegen, wie die Schriften geglättet werden.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Hinting</guilabel>: <firstterm>Hinting</firstterm> ist eine Technik zur Schriftwiedergabe, die die Qualität bei kleinen Schriften und niedrigen Bildschirmauflösungen verbessert. Wählen Sie eine der Optionen, um anzugeben, wie Sie Hinting auf Ihre Schriften anwenden wollen.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Reihenfolge der Subpixel</guilabel>: Wählen Sie eine der Optionen, um die Farbreihenfolge der Subpixel für Ihre Schriften zu bestimmen. Verwenden sie diese Option bei LCD- oder Flachbildschirmen.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+    </variablelist>
+   
+    </section>
+
+<!-- go to fonts folder no longer exists
+    <sect4 id="goscustdesk-83">
+      <title>Previewing a Font</title>
+      <indexterm>
+        <primary>fonts</primary>
+        <secondary>previewing</secondary>
+      </indexterm>
+      <para>A preview of a font shows the characters of a font at different sizes, as well as copyright and technical information. To preview a font, perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Open the <application>Appearance</application> preference tool by choosing <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu><guimenuitem>Font</guimenuitem></menuchoice> in the top panel.</para>
+        </listitem>
+        <listitem><para>Click on <guibutton>Details</guibutton>.</para></listitem>
+        <listitem><para>Click on <guibutton>Go to font folder</guibutton>. The <guilabel>Fonts</guilabel> folder opens.</para></listitem>
+        <listitem>
+          <para>Open a font to display a preview.</para>
+        </listitem>
+      </orderedlist>
+    </sect4>
+-->
+
+<!-- go to fonts folder no longer exists
+    <sect4 id="goscustdesk-94">
+      <title>Adding a TrueType Font</title>
+      <para>To add a TrueType font to your system, perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Open the <application>Font</application> preference tool by choosing <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu><guimenuitem>Font</guimenuitem></menuchoice> in the panel menubar.</para>
+        </listitem>
+        <listitem><para>Click on <guibutton>Details</guibutton>.</para></listitem>
+        <listitem><para>Click on <guibutton>Go to font folder</guibutton>. The <guilabel>Fonts</guilabel> folder opens.</para></listitem>      
+        <listitem>
+          <para>Open a file manager window and select the TrueType font that
+you want to add.</para>
+        </listitem>
+        <listitem>
+          <para>Copy the TrueType font file that you want to add to the <guilabel>Fonts</guilabel> folder.</para>
+        </listitem>
+      </orderedlist>
+      <warning><para>The new font will not appear in the <guilabel>Fonts</guilabel> folder until you next log in. You will need to relaunch applications for them to have access to the new font. These are known bugs in Mate.</para></warning>
+      
+      <tip><para>You can also open the <guilabel>Fonts</guilabel> folder by typing the following URI into <application>Caja</application> file manager's <link linkend="caja-open-location">Open Location dialog</link>: <command>fonts:///</command>.</para></tip>
+    </sect4>
+-->
+  </section>
+
+  <section xml:id="prefs-menustoolbars"><info><title>Einstellungen des Fensterinhalts</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustuserinter-2"/>    
+    <indexterm xml:lang="en">
+      <primary>toolbars, customizing appearance</primary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Menus &amp; Toolbars</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>menus</primary>
+      <secondary>in applications, customizing appearance</secondary>
+    </indexterm>
+    <para>Im Reiter <guilabel>Fensterinhalt</guilabel> des Einstellungswerkzeuges <application>Erscheinungsbild</application> können Sie das Aussehen der Menüs, Menüleisten und Werkzeugleisten von Anwendungen anpassen, die Teil von MATE sind.</para>
+    <para>Wenn Sie Einstellungen ändern, wird die Vorschauansicht im Fenster aktualisiert. Das erlaubt Ihnen, die Änderungen zu betrachten, wenn gegenwärtig keine Anwendungsfenster geöffnet sind.</para>
+    <variablelist>
+     	<varlistentry>
+    	  <term xml:lang="en"><guilabel>Show icons in menus</guilabel></term>
+    	  <listitem>
+    	    <para>Wählen Sie diese Option aus, um neben jeder Funktion in einem Menü ein Symbol anzuzeigen. Einige Menüpunkte besitzen kein Symbol.</para>
+    	  </listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term xml:lang="en"><guilabel>Editable menu shortcut keys</guilabel></term>
+	      <listitem><para>Wählen Sie diese Option aus, um neue Tastenkürzel für Menüeinträge festzulegen.</para>
+	      <para>Um ein Tastenkürzel in einer Anwendung zu ändern, öffnen Sie das Menü. Bewegen Sie dann den Mauszeiger über den Menüeintrag, den Sie ändern wollen, und drücken dann die neue Tastenkombination. Um ein Tastenkürzel zu entfernen, drücken Sie auf <keycap>Löschen</keycap> oder <keycap>Entf</keycap>.</para>
+	      <warning>
+	        <para>Wenn Sie diese Funktion verwenden, werden Sie bei der Zuweisung eines neuen Kürzels nicht gewarnt, falls dieses Kürzel schon einer anderen Aktion zugewiesen wurde und die alte Zuweisung daher gelöscht wird.</para>
+	        <para>Es gibt keine Möglichkeit, die ursprünglichen Standard-Tastenkürzel für einen Befehl wiederherzustellen.</para>
+	        <para>Diese Funktion berücksichtigt keine Tastenkürzel, die normalerweise in allen Anwendungen zum Einsatz kommen, wie <keycombo><keycap>Strg</keycap><keycap>C</keycap></keycombo> zum Kopieren. Dies würde zu Inkonsistenzen in Ihrer MATE-Arbeitsumgebung führen.</para>
+	      </warning>
+	      </listitem>
+      </varlistentry>
+     	<varlistentry>
+    	  <term xml:lang="en"><guilabel>Toolbar button labels</guilabel></term>
+    	  <listitem>
+    	    <para>Wählen Sie eine der folgenden Optionen, um den Inhalt der Werkzeugleisten in MATE-konformen Anwendungen festzulegen:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Text unter Symbolen</guilabel>:Wählen Sie diese Option aus, um Werkzeugleisten mit Text sowie einem Symbol auf jedem Knopf anzuzeigen.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Text neben Symbolen</guilabel>:Wählen Sie diese Option aus, um Werkzeugleisten nur mit einem Symbol auf den Knöpfen und mit Text auf den wichtigsten Knöpfen anzuzeigen.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Nur Symbole</guilabel>:Wählen Sie diese Option aus, um Werkzeugleisten nur mit einem Symbol auf jedem Knopf anzuzeigen.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Nur Text</guilabel>:Wählen Sie diese Option aus, um Werkzeugleisten nur mit Text auf jedem Knopf anzuzeigen.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+    </variablelist>
+  </section>
+  </section>
+
+  <section xml:id="prefs-windows"><info><title>Einstellungen für Fenster</title></info>
+    <!-- preserve for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-58"/>    
+
+    <indexterm xml:lang="en">
+      <primary>window manager</primary>
+      <secondary>customizing</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Windows</secondary>
+    </indexterm>
+    <para>Verwenden Sie das <application>Fenster</application>-Einstellungswerkzeug, um das Verhalten der Fenster in der MATE-Arbeitsumgebung anzupassen.</para>
+    <para><xref linkend="goscustwindows-TBL-14"/>enthält eine Liste der Fenster-Einstellungen, die von Ihnen geändert werden können.</para>
+    <table frame="topbot" xml:id="goscustwindows-TBL-14"><info><title>Einstellungen für Fenster</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec0" colwidth="18.86*"/>
+        <colspec colname="colspec1" colwidth="47.14*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Dialogfeldelement</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Beschreibung</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Select windows when the mouse moves over them</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Wählen Sie diese Option, um ein Fenster zu aktivieren, wenn sich die Maus darüber befindet. Das Fenster wird wieder inaktiv, wenn Sie die Maus zu einem anderen Fenster verschieben.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Raise selected windows after an interval</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Wählen Sie diese Option, wenn Sie aktivierte Fenster nach einer vorgegebenen Zeit nach dem Aktivieren des Fensters anheben wollen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Interval before raising</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Geben Sie den Wartezeit an, bis ein Fenster nach der Aktivierung angehoben wird.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Double-click titlebar to perform this action</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Wählen Sie die auszuführende Aktion beim Doppelklick auf die Titelleiste eines Fensters. Wählen Sie aus einer der folgenden Optionen:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Maximieren</guilabel>: Maximiert das Fenster.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Vertikal maximieren</guilabel>: Maximiert das Fenster vertikal, ohne dessen Breite zu verändern.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Horizontal maximieren</guilabel>: Maximiert das Fenster horizontal, ohne dessen Höhe zu verändern.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Minimieren</guilabel>: Minimiert das Fenster.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Aufrollen</guilabel>: Rollt das Fenster auf.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Nichts</guilabel>: Nichts tun.</para>
+                </listitem>
+              </itemizedlist>
+              <para>Falls ein Fenster schon maximiert oder eingerollt ist, doppelklicken Sie auf die Titelleiste, um das Fenster in seinen normalen Zustand zurückkehren zu lassen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>To move a window, press-and-hold this key then grab the window</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Wählen Sie die Taste, die beim Verschieben eines Fensters gedrückt gehalten werden soll.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <note>
+      <para>Die Position der Strg-, Alt- und Super-Tasten können im Tastatureinstellungsdialog angepasst werden, siehe <xref linkend="prefs-keyboard-layoutoptions"/>.</para>
+    </note>
+  </section>
+
+  <section xml:id="prefs-screensaver"><info><title>Bildschirmschoner-Einstellungen</title></info>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>screensaver</secondary>
+    </indexterm>
+    <para>Ein <firstterm>Bildschirmschoner</firstterm> zeigt bewegte Bilder auf Ihrem Bildschirm an, wenn Ihr Rechner nicht genutzt wird. Bildschirmschoner schützen auch ältere Monitore vor Schäden, die durch die Anzeige desselben Bildes über einen längeren Zeitraum hervorgerufen werden können. Um den Bildschirmschoner zu beenden und zur Arbeitsumgebung zurückzukehren, bewegen Sie die Maus oder drücken eine beliebige Taste auf der Tastatur. </para>
+    <para>Verwenden Sie das Einstellungswerkzeug <application>Bildschirmschoner</application>, um den Typ des Bildschirmschoners und die Zeit bis zu dessen Start festzulegen sowie zu bestimmen, ob nach der Rückkehr in die Arbeitsumgebung ein Passwort benötigt wird. </para>
+    <para>Sie eine die folgenden Einstellungen ändern:</para>
+    <variablelist>
+    	<varlistentry>
+    	  <term>Bildschirmschoner</term>
+    	  <listitem><para>Wähklen Sie das <guilabel>Bildschirmschonerthema</guilabel> in der Liste aus. Eine verkleinerte Version des gewählten Bildschirmschoners wird angezeigt. Klicken Sie auf <guibutton>Vorschau</guibutton>, um das gewählte Thema auf dem gesamten Bildschirm anzuzeigen. Während der Vorschau können Sie mit den Pfeil-Knöpfen an der Oberseite des Bildschirms durch die Liste der Bildschirmschonerthemen blättern. </para>
+    	  <itemizedlist>
+	        <listitem><para>Das Thema <guilabel>Leerer Bildschirm</guilabel> zeigt kein Bild und folglich einen schwarzen Bildschirm an.</para></listitem>
+	        <listitem><para>Das Thema <guilabel>Zufällig</guilabel> wählt einen Bildschirmschoner aus der Liste per Zufall aus.</para></listitem>
+        </itemizedlist>
+    	  <para>Welche Bildschirmschoner im Rest der Liste angezeigt werden, ist abhängig von Ihrem Distributor.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Sitzung auf untätig setzen nach …</term>
+    	  <listitem><para>Ihr Rechner wird untätig, sobald diese Zeit ohne eine Aktivität Ihrerseits verstrichen ist, wie z. B. Mausbewegungen oder Tastaturbedienungen. Dies beeinflusst die Energieverwaltung (beispielsweise wird der Monitor abgeschaltet) oder das Sofortnachrichtenprogramm (was den Status auf »Abwesend« setzt). Verwenden Sie den Schieberegler, um die gewünschte Zeitspanne in Minuten oder Stunden einzustellen.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Bildschirmschoner aktivieren, wenn der Rechner untätig ist</term>
+    	  <listitem><para>Wählen Sie diese Option aus, um den Bildschirmschoner nach dem Verstreichen der angegebenen Zeitspanne zu starten.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Bildschirm sperren, wenn der Bildschirmschoner aktiv ist</term>
+    	  <listitem><para>Wenn diese Option ausgewählt ist, wird Sie der Bildschirmschoner nach Ihrem Passwort fragen, wenn Sie versuchen, zur Arbeitsumgebung zurückzukehren. Weitere Informationen über das Sperren des Bildschirms finden Sie in <xref linkend="lock-screen"/>.</para></listitem>  	
+    	</varlistentry>
+  </variablelist>
+  </section>
+</section>
+
+<section xml:id="prefs-internet-and-network"><info><title>Internet und Netzwerk</title></info>
+
+  <section xml:id="prefs-network-admin"><info><title>Netzwerk-Einstellungen</title></info>
+    <para>Die <application>Netzwerkeinstellungen</application> erlauben Ihnen die Anpassung, wie sich Ihr System mit anderen Rechnern und mit dem Internet verbindet.</para>
+    <para>Sie werden nach dem Systemverwalter-Passwort gefragt, wenn Sie die <application>Netzwerkeinstellungen</application> starten. Der Grund dafür ist, dass die von Ihnen mit diesem Einstellungswerkzeug getätigten Änderungen das gesamte System beeinflussen.</para>
+
+  <section xml:id="prefs-network-admin-getting-started"><info><title>Erste Schritte</title></info>
+    <para>Das Hauptfenster der <application>Netzwerkeinstellungen</application> enthält drei Reiterabschnitte:</para>
+    <variablelist>
+	 <varlistentry>
+	   <term xml:lang="en"><guilabel>Connections</guilabel></term>
+	   <listitem>
+		<para>Zeigt alle Netzwerkschnittstellen und erlaubt Ihnen, deren Einstellungen anzupassen.</para>
+	   </listitem>
+	 </varlistentry>
+
+	 <varlistentry>
+	   <term xml:lang="en"><guilabel>General</guilabel></term>
+	   <listitem>
+		<para>Erlaubt Ihnen die Anpassung des Rechnernamens und des Domänennamens Ihres Systems.</para>
+	   </listitem>
+	 </varlistentry>
+
+    	 <varlistentry>
+	   <term><guilabel>DNS</guilabel></term>
+	   <listitem>
+		<para>Enthält zwei Abschnitte: Im Abschnitt <guilabel>DNS-Server</guilabel> legen Sie fest, welcher Rechner für die Auflösung der IP-Adressen aus den Domänennamen benutzt wird. Der Abschnitt <guilabel>Suchdomänen</guilabel> enthält die vorgegebenen Domänen, wo Ihr System nach Rechnern sucht, wenn keine Domäne angegeben wird.</para>
+	   </listitem>
+	 </varlistentry>
+
+	 <varlistentry>
+	   <term xml:lang="en"><guilabel>Hosts</guilabel></term>
+	   <listitem>
+		<para>Zeigt die Liste der Aliase für den Zugriff auf andere Rechner.</para>
+	   </listitem>
+	 </varlistentry>
+    </variablelist>
+  </section>
+
+  <section xml:id="prefs-network-admin-usage"><info><title>Verwendung</title></info>
+
+    <section xml:id="tool-modify-connection"><info><title>So ändern Sie Verbindungseinstellungen</title></info>
+	 <para>Wählen Sie im Abschnitt <guilabel>Verbindungen</guilabel> die zu bearbeitende Schnittstelle aus und klicken Sie auf den Knopf <guilabel>Eigenschaften</guilabel>. Abhängig von der Art der Schnittstelle sind Sie in der Lage, hier verschiedene Daten zu ändern.</para>
+
+	 <variablelist>
+	   <varlistentry>
+		<term>Ethernet- und IRLAN-Schnittstellen</term>
+		<listitem>
+		  <para>Sie können anpassen, wie die Schnittstelle konfiguriert wird (DHCP oder manuell). Falls die Schnittstelle manuell konfiguriert wird, können sie auch die IP-Adresse der Schnittstelle, die Netzmaske und das Gateway anpassen.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>Drahtlose Schnittstellen</term>
+		<listitem>
+		  <para>Sie können anpassen, wie die Schnittstelle konfiguriert wird (DHCP oder manuell). Falls die Schnittstelle manuell konfiguriert wird, können sie auch die IP-Adresse der Schnittstelle, die Netzmaske und das Gateway anpassen, sowie den Netzwerknamen (ESSID) der Schnittstelle.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>Parallele Schnittstellen</term>
+		<listitem>
+		  <para>Sie können sowohl die IP-Adresse der Schnittstelle anpassen, als auch die entfernte IP-Adresse.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>PPP/Modem-Schnittstellen</term>
+		<listitem>
+		  <para>Sie können am Modemgerät ändern, ob Sie Mehrfrequenz- oder Impulswahl verwenden wollen, die Modemlautstärke, die Einwahlnummer, den Benutzernamen und das Passwort, was Sie von Ihrem Internet-Serviceanbieter erhalten haben, sowie weitere auf die PPP-Einwahl bezogenen Einstellungen.</para>
+		</listitem>
+	   </varlistentry>
+	 </variablelist>
+    </section>
+
+    <section><info><title>So aktivieren oder deaktivieren Sie eine Schnittstelle</title></info>
+	 <para>Aktivieren oder deaktivieren Sie das Kontrollfeld neben der Schnittstelle im Abschnitt <guilabel>Verbindungen</guilabel>.</para>
+    </section>
+    
+    <section><info><title>So ändern Sie Ihren Rechnernamen und Domänennamen</title></info>
+	 <para>Im Abschnitt <guilabel>Allgemein</guilabel> ändern sie den Rechnernamen oder Domänennamen in den Eingabefeldern.</para>
+    </section>
+
+    <section><info><title>So fügen Sie einen neuen Domain-Name-Server hinzu</title></info>
+	 <para>Im Abschnitt <guilabel>DNS-Server</guilabel> klicken Sie auf den Knopf <guilabel>Hinzufügen</guilabel> und geben in die neue Listenzeile den neuen DNS-Server ein.</para>
+    </section>
+
+    <section><info><title>So entfernen Sie einen Domain Name Server (DNS)</title></info>
+	 <para>Im Abschnitt <guilabel>DNS-Server</guilabel> wählen Sie eine DNS-IP-Adresse aus der Liste und klicken dann auf den Knopf <guilabel>Entfernen</guilabel>.</para>
+    </section>
+
+    <section><info><title>So fügen Sie eine neue Suchdomäne hinzu</title></info>
+	 <para>Im Abschnitt <guilabel>Suchdomänen</guilabel> klicken Sie auf den Knopf <guilabel>Hinzufügen</guilabel> und geben in die neue Listenzeile die neue Suchdomäne ein.</para>
+    </section>
+
+    <section><info><title>So entfernen Sie eine Suchdomäne</title></info>
+	 <para>Im Abschnitt <guilabel>Suchdomänen</guilabel> wählen Sie eine Suchdomäne in der Liste und klicken dann auf den Knopf <guilabel>Entfernen</guilabel>.</para>
+    </section>
+
+    <section><info><title>So fügen Sie einen neuen Rechner-Alias hinzu</title></info>
+	 <para>Im Abschnitt <guilabel>Rechner</guilabel> klicken Sie auf den Knopf <guilabel>Hinzufügen</guilabel> und geben in das aufklappende Fenster eine IP-Adresse und die darauf verweisenden Aliase ein.</para>
+    </section>
+
+    <section><info><title>So ändern Sie einen Alias</title></info>
+	 <para>Wählen Sie einen der Aliase im Abschnitt <guilabel>Rechner</guilabel> aus und klicken dann auf den Knopf <guilabel>Eigenschaften</guilabel>. Dann können Sie die Alias-Einstellungen im aufklappenden Fenster anpassen.</para>
+    </section>
+
+    <section><info><title>So entfernen Sie einen Alias</title></info>
+	 <para>Wählen Sie einen der Aliase im Abschnitt <guilabel>Rechner</guilabel> aus und klicken dann auf den Knopf <guilabel>Entfernen</guilabel>.</para>
+    </section>
+
+    <section xml:id="prefs-network-admin-add-new-profile"><info><title>So speichern Sie Ihre aktuelle Netzwerkonfiguration als »Ort«</title></info>
+	 <para>Klicken Sie auf den Knopf <guilabel>Hinzufügen</guilabel> neben dem <guilabel>Orte</guilabel>-Menü. Dann geben Sie in dem aufklappenden Fenster den Namen des Ortes ein.</para>
+    </section>
+
+    <section><info><title>So entfernen Sie einen Standort</title></info>
+	 <para>Klicken Sie auf den Knopf <guilabel>Entfernen</guilabel> neben dem Menü <guilabel>Standort</guilabel>, daraufhin wird das gewählte Standortprofil entfernt.</para>
+    </section>
+
+    <section><info><title>So wechseln Sie den Standort</title></info>
+	 <para>Wählen Sie im Auswahlmenü <guilabel>Standort</guilabel> einen Ort aus, sämtliche Konfigurationseinstellungen werden automatisch auf den gewählten Standort angepasst.</para>
+    </section>
+
+  </section>
+  </section>
+
+  <section xml:id="prefs-networkproxy"><info><title>Netzwerk-Proxy-Einstellungen</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-50"/>       
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Network Proxy</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>network proxy</primary>
+      <secondary>setting preferences</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>Internet</primary>
+      <secondary>configuring connection</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>proxy</primary>
+      <secondary>setting preferences</secondary>
+    </indexterm>
+    <para>Das Einstellungswerkzeug <application>Netzwerk-Proxy-Einstellungen</application> erlaubt Ihnen einzustellen, wie sich Ihr System mit dem Internet verbindet.</para>
+    <para>Mit dem Einstellungswerkzeug <application>Netzwerk-Proxy</application> können Sie die Netzwerkverbindungen des Systems konfigurieren. Sie haben die Möglichkeit, den Bildschirm mit einem <glossterm>Proxy-Server</glossterm> zu verbinden und die Details des Proxy-Servers anzugeben. Ein Proxy-Server ist ein Server, der Anforderungen an einen anderen Server abfängt und selbst bearbeitet, sofern er dazu in der Lage ist. Sie können den Domain Name Service (DNS)-Namen oder die Internet Protocol (IP)-Adresse des Proxy-Servers eingeben. Ein <firstterm>DNS-Name</firstterm> ist eine eindeutige Kennung für einen Rechner in einem Netzwerk. Eine <firstterm>IP-Adresse</firstterm> ist eine eindeutige numerische Kennung für einen Rechner in einem Netzwerk.</para>
+    <para>Seit es möglich ist, verschiedene Proxy-Konfigurationen an verschiedenen Orten zu nutzen, können Sie diese in den <application>Netzwerk-Proxy-Einstellungen</application> angeben. Sie können dann zwischen den verschiedenen Konfigurationen mittels der Auswahlliste <guilabel>Standort</guilabel> oben im Fenster wechseln. Wählen Sie <guilabel>Neuer Standort</guilabel>, um eine Proxy-Konfiguration für einen neuen Ort zu erstellen. Standorte können mit dem Knopf <guilabel>Standort löschen</guilabel> unten im Fenster entfernt werden.</para>
+  
+    <variablelist>
+      <varlistentry>
+        <term><guilabel>Direkte Internetverbindung</guilabel></term>
+        <listitem><para>Wählen Sie diese Option aus, wenn Sie sich nicht über einen Proxy-Server mit dem Internet verbinden möchten.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term xml:lang="en"><guilabel>Manual proxy configuration</guilabel></term>
+        <listitem><para>Wählen Sie diese Option, wenn Sie sich über einen Proxy-Server mit dem Internet verbinden, und Sie diesen Proxy-Server per Hand konfigurieren möchten.</para>
+
+        <variablelist>
+          <varlistentry>
+            <term xml:lang="en"><guilabel>HTTP proxy</guilabel></term>
+            <listitem>
+              <para>Geben Sie den DNS-Namen oder die IP-Adresse des Proxy-Servers ein, den Sie für die Anfrage an einen HTTP-Dienst verwenden wollen. Geben Sie die Portnummer des HTTP-Dienstes auf dem Proxy-Server im Einstellfeld <guilabel>Port</guilabel> ein.</para>
+              <para>Falls der HTTP-Proxy-Server eine Legitimierung erfordert, klicken Sie auf <guibutton>Details</guibutton>, um Benutzername und Passwort einzugeben.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term xml:lang="en"><guilabel>Secure HTTP proxy</guilabel></term>
+            <listitem><para>Geben Sie den DNS-Namen oder die IP-Adresse des Proxy-Servers ein, den Sie für die Anfrage an einen sicheren HTTP-Dienst verwenden wollen. Geben Sie die Portnummer des sicheren HTTP-Dienstes auf dem Proxy-Server im Einstellfeld <guilabel>Port</guilabel> ein.</para></listitem>
+          </varlistentry>
+          <varlistentry>
+            <term xml:lang="en"><guilabel>FTP proxy</guilabel></term>
+            <listitem><para>Geben Sie den DNS-Namen oder die IP-Adresse des Proxy-Servers ein, den Sie für die Anfrage an einen FTP-Dienst verwenden wollen. Geben Sie die Portnummer des FTP-Dienstes auf dem Proxy-Server im Einstellfeld <guilabel>Port</guilabel> ein.</para></listitem>
+          </varlistentry>
+          <varlistentry>
+            <term xml:lang="en"><guilabel>Socks host</guilabel></term>
+            <listitem><para>Geben Sie den für den Socks-Rechner zu verwendenden DNS-Namen oder die IP-Adresse des Proxy-Servers ein. Geben Sie die Portnummer des Socks-Protokolls auf dem Proxy-Server im Einstellfeld <guilabel>Port</guilabel> ein.</para></listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem></varlistentry>
+      <varlistentry><term xml:lang="en"><guilabel>Automatic proxy
+      configuration</guilabel></term><listitem><para>Wählen Sie diese Option, wenn Sie sich über einen Proxy-Server mit dem Internet verbinden wollen, und wenn Sie möchten, dass dieser Proxy-Server automatisch konfiguriert wird.</para>
+      <para>Die automatische Proxy-Konfiguration geschieht durch eine sogenannte PAC-Datei, die Ihr Browser von einem Webserver herunterladen kann. Falls Sie keine Adresse für eine PAC-Datei im Eintrag <guilabel>Autoconfiguration URL</guilabel> angeben, versucht Ihr Browser, diese Adresse automatisch zu ermitteln.</para>
+      <variablelist>
+      <varlistentry><term xml:lang="en"><guilabel>Autoconfiguration
+      URL</guilabel></term><listitem><para>Geben Sie den URL einer PAC-Datei ein, welche die benötigten Informationen für die automatische Konfiguration des Proxy-Servers enthält.</para></listitem></varlistentry>
+      </variablelist></listitem></varlistentry>
+    </variablelist>
+    
+    <para>In der <guilabel>Liste von zu ignorierenden Rechnern</guilabel> im Reiter <guilabel>Erweiterte Konfiguration</guilabel> können sie festlegen, welche Rechner nicht den Proxy-Server verwenden sollen. Wenn Sie auf diese Rechner zugreifen, verbinden sie sich direkt ohne Proxy-Server mit dem Internet.</para>
+  </section>
+
+  <section xml:id="prefs-remotedesktop"><info><title>Einstellungen für entfernte Bildschirme</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-90"/>
+    <indexterm xml:lang="en">
+      <primary>setting session sharing preferences</primary>
+    </indexterm>           
+    <para>Das Einstellungswerkzeug <application>Entfernter Bildschirm</application> erlaubt Ihnen, eine MATE-Sitzung mit mehreren Benutzern zu teilen sowie die Einstellungen für das Teilen von Sitzungen anzupassen.</para>
+    <para><xref linkend="goscustdesk-TBL-91"/> enthält eine Liste der Freigabeoptionen für Sitzungen, die von Ihnen konfiguriert werden können. Diese Einstellungen haben direkten Einfluss auf den Sicherheitsstatus Ihres Systems.</para>
+    <table frame="topbot" xml:id="goscustdesk-TBL-91"><info><title>Einstellungen zur Freigabe persönlicher Dateien</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec18" colwidth="19.21*"/>
+        <colspec colname="colspec19" colwidth="46.79*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Dialogfeldelement</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Beschreibung</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Allow other users to view your desktop</guilabel>
+              </para>
+            </entry>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para>Wählen Sie diese Option, wenn Sie entfernten Benutzern erlauben möchten, Ihre Sitzung anzuzeigen. Alle Tastatureingaben, Mausaktionen und mittels der Zwischenablage des entfernten Benutzers ausgeführten Vorgänge werden dabei ignoriert.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Allow other users to control your desktop</guilabel>
+              </para>
+            </entry>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para>Wählen Sie diese Option, um anderen zu ermöglichen, auf Ihre Sitzung von einem entfernten Ort aus zuzugreifen.</para>
+            </entry>
+          </row>
+          <!--
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para>
+                <guilabel>Users
+can view your desktop using this command:</guilabel>
+                
+              </para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Click on the command text to send it to
+another user by email.</para>
+            </entry>
+          </row>
+          -->
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para xml:lang="en">
+                <guilabel>When
+a user tries to view or control your desktop</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para xml:lang="en">Select the following security
+considerations when a user tries to view or control your session:<itemizedlist><listitem><para xml:lang="en"><guilabel>Ask you for confirmation:</guilabel> Select this
+option if you want remote users to ask you for confirmation when they want
+to share your session. This option enables you to be aware of other users
+who connect to your session. You can also decide what time is suitable for
+the remote user to connect to your session.</para></listitem><listitem><para xml:lang="en"><guilabel>Require the user to enter this password:</guilabel>
+Select this option to authenticate the remote user if authentication is used.
+This option provides an extra level of security.</para></listitem></itemizedlist></para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para xml:lang="en">
+                <guilabel>Password</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Geben Sie das Passwort ein, welches der Benutzer eingeben muss, welcher Ihre Sitzung anzeigen oder steuern will.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>  
+</section>
+
+<section xml:id="prefs-hardware"><info><title>Hardware</title></info>
+	
+  <section xml:id="prefs-keyboard"><info><title>Tastatur-Einstellungen</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustperiph-2"/>       
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Keyboard</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>keyboard</primary>
+      <secondary>configuring general preferences</secondary>
+    </indexterm>
+    <para>Verwenden Sie das Einstellungstool <application>Tastatur</application>, um die automatischen Wiederholungseinstellungen für die Tastatur auszuwählen und die mit der Tastatur erzeugten Zeilenumbrüche zu konfigurieren.</para>
+    <!--
+    adds no information until each tab can be briefly summarized.
+    
+    <para>You can set the preferences for the <application>Keyboard</application>
+preference tool in the following functional areas:</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <guilabel>Keyboard</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Typing Break</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Layouts</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Layout Options</guilabel>
+        </para>
+      </listitem>
+    </itemizedlist>
+    -->
+    <para xml:lang="en">To open the <xref linkend="prefs-keyboard-a11y"/> tool, click the <guibutton>Accessibility</guibutton> button.</para>    
+    <section xml:id="goscustdesk-40"><info><title>Tastatur-Einstellungen</title></info>
+      
+      <para>Verwenden Sie den Reiter <guilabel>Allgemein</guilabel>, um allgemeine Tastatureinstellungen festzulegen.</para>
+      <para><xref linkend="goscustperiph-TBL-3"/> enthält eine Liste der Tastatureinstellungen, die von Ihnen konfiguriert werden können.</para>
+      <table frame="topbot" xml:id="goscustperiph-TBL-3"><info><title>Tastatur-Einstellungen</title></info>
+        
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Key presses repeat when key is held down</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Wählen Sie die Option, um die Tastaturwiederholung zu aktivieren. Wenn die Tastaturwiederholung aktiviert ist und Sie eine Taste gedrückt halten, wird die mit der Taste verknüpfte Aktion mehrfach ausgeführt. Halten Sie beispielsweise eine Buchstabentaste gedrückt, wird der Buchstabe mehrfach eingegeben.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Verzögerung</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Wählen Sie den Wert für die Verzögerung vom Drücken einer Taste bis zum Wiederholen der Aktion.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Speed</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Wählen Sie die Geschwindigkeit aus, mit der die Aktion wiederholt wird.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Cursor blinks in text boxes and fields</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Wählen Sie die Option aus, um den Cursor in Feldern und Textfeldern blinken zu lassen.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Speed</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Verwenden Sie den Schieberegler, um die Geschwindigkeit einzustellen, mit der der Cursor in Feldern und Textfeldern blinken soll.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para xml:lang="en">
+                  <guilabel>Type to test settings</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Der Testbereich ist eine interaktive Oberfläche, in der Sie sehen können, wie sich die Tastatureinstellungen bei der Eingabe auf die Anzeige auswirken. Geben Sie in den Testbereich Text ein, um die Wirkung der Einstellungen zu testen.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="prefs-keyboard-layouts"><info><title>Einstellungen der Tastaturbelegung</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscustdesk-100"/>         
+      <para>Verwenden Sie den Reiter <guilabel>Belegungen</guilabel>, um die Spracheinstellungen für die Tastatur sowie deren Marke und Modell festzulegen.</para>
+      <para>Dies erlaubt MATE, die speziellen Medientasten Ihrer Tastatur zu verwenden, sowie die Anzeige der korrketen Zeichen für die Sprache Ihrer Tastatur.</para>
+      
+      <variablelist>
+	      <varlistentry>
+	        <term><guilabel>Tastaturmodell</guilabel></term>
+	        <listitem><para xml:lang="en">Use the browse button (labeled with the currently selected keyboard model) to choose another keyboard make and model.</para></listitem>
+	      </varlistentry>
+	      <varlistentry>
+	        <term xml:lang="en"><guilabel>Separate layout for each window</guilabel></term>
+	        <listitem><para>Wenn diese Option ausgewählt ist, hat jedes Fenster seine eigene Tastaturbelegung. Ein Wechsel zu einer anderen Belegung wird nur auf das aktuelle Fenster angewendet.</para>
+	        <para>Dies ermöglicht Ihnen beispielsweise mit einer russischen Tastaturbelegung in einer Textverarbeitung zu arbeiten, und dann zu Ihrem Webbrowser zu wechseln und dort die Eingaben mit einer englischen Tastaturbelegung auszuführen.</para></listitem>
+              </varlistentry>
+	      <varlistentry>
+	        <term xml:lang="en"><guilabel>Selected Layouts</guilabel></term>
+	        <listitem><para>Sie können zwischen den gewählten Belegungen während der Eingebe wechseln, um die von der Tastatur ausgegebenen Zeichen zu ändern. Um eine Belegung hinzuzufügen, klicken sie auf <guibutton>Hinzufügen</guibutton>. Sie können bis zu vier Belegungen verwenden. Um eine Belegung zu entfernen, wählen Sie sie aus und klicken auf <guibutton>Entfernen</guibutton>.</para>
+	        <para xml:lang="en">To switch between keyboard layouts, use the <application>Keyboard Indicator</application> panel applet. <!-- better link to the specific page, but not yet suitable for a direct link: help:gswitchit?gswitchit-applet-switching --></para>
+                 <para>Um eine Belegung zur Liste der ausgewählten Belegungen hinzuzufügen, klicken Sie auf den Knopf <guibutton>Hinzufügen</guibutton>. Ein Auswahldialog wird geöffnet, in welchem Sie eine Belegung entsprechend Ihrer Sprache oder Ihres Landes auswählen können.</para> 
+	        </listitem>
+	      </varlistentry>
+      </variablelist>
+      
+      <para>Klicken Sie auf <guibutton>Auf Vorgabewerte zurücksetzen</guibutton>, um alle Tastaturbelegungseinstellungen auf ihren ursprünglichen Status Ihres Systems und Ihrer Sprache zurückzusetzen.</para>
+
+      <para>Klicken Sie auf den Knopf <guibutton>Belegungsoptionen</guibutton> um den Dialog  <guilabel>Tastaturbelegungseinstellungen</guilabel> zu öffnen.</para>
+   </section>
+    
+    <section xml:id="prefs-keyboard-layoutoptions"><info><title>Einstellungen der Tastaturbelegung</title></info> 
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscustdesk-101"/>
+      <para xml:lang="en">The <guilabel>Keyboard Layout Options</guilabel> dialog has options for the behavior of keyboard modifier keys and certain shortcut options.</para>
+      <para>Klappen Sie jede der Gruppen aus, um die verfügbaren Optionen anzuzeigen. Eine Beschriftung in Fettschrift zeigt an, dass die Gruppe von den Standardeinstellungen abweichende Einstellungen enthält.</para>
+      <note><para>Die in diesem Dialog angezeigten Optionen sind von dem von Ihnen verwendeten X-Window-System abhängig. Eventuell könnten nicht alle Optionen auf Ihrem System aufgelistet sein, möglicherweise funktionieren aber auch nicht alle der aufgelisteten Optionen auf Ihrem System.</para></note>
+
+      <!-- the options of mystery!!!       
+           for future reference, these are in
+           /etc/X11/xkb/rules/xorg.xml
+      -->
+      <variablelist>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Adding the EuroSign to certain keys</guilabel></term>
+                <listitem>
+                  <para>Verwenden Sie diese Optionen, um das Euro-Währungssymbol »€« zu einer Taste in deren Drittbelegung hinzuzufügen. Um auf das Symbol zugreifen zu können, müssen Sie eine <guilabel>Auswahltaste der dritten Ebene</guilabel> bestimmen.</para>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Alt/Win key behavior</guilabel></term>
+                <listitem><para xml:lang="en">
+                  This group of options allows you to assign the behavior of Unix modifier keys Super, Meta, and Hyper to the <keycap>Alt</keycap> and <keycap>Windows</keycap> keys on your keyboard.
+                </para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>CapsLock key behavior</guilabel></term>
+                <listitem><para>Diese Gruppe bietet verschiedene Optionen für die <keycap>Caps Lock</keycap>-Taste.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Compose key position</guilabel></term>
+                <listitem>
+                  <para>Die Compose-Tasten erlauben Ihnen, zwei Tastenbetätigungen zu kombinieren, um ein einzelnes Zeichen auszugeben. Dies ist notwendig, um ein akzentuiertes Zeichen auszugeben, das sich möglicherweidse nicht in Ihrer Tastaturbelegung befindet. Beispielsweise drücken Sie die Compose-Taste, dann <keycap>'</keycap>, dann <keycap>e</keycap>, um ein akzentuiertes »e« zu erzeugen.</para>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Control key position</guilabel></term>
+                <listitem><para>Verwenden Sie diese Optionsgruppe, um die Position der <keycap>Strg</keycap>-Taste an die Gegebenheiten älterer Tastaturen anzupassen.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Group Shift/Lock behavior</guilabel></term>
+                <listitem><para>Wählen Sie die Tasten oder Tastenkombinationen aus, mit denen Sie zu einer anderen Tastaturbelegung wechseln wollen.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Miscellaneous compatibility options</guilabel></term>
+                <listitem>
+                  <variablelist>
+	                  <varlistentry>
+	                    <term xml:lang="en"><guilabel>Shift with numpad keys works as in MS Windows.</guilabel></term>
+                    	<listitem>
+                    	  <para>Wenn diese Option aktiviert ist, erweitert die <keycap>Umschalttaste</keycap> zusammen mit den Tasten des Nummernblocks bei ausgeschaltetem <keycap>NumLock</keycap> die aktuelle Auswahl.</para>
+                    	  <para xml:lang="en">With this option unselected, use <keycap>Shift</keycap> with keys on the numerical pad to obtain the reverse of the current behavior for that key. For example, when <keycap>NumLock</keycap> is off, the <keycap>8</keycap> key acts as an up-arrow. Press <keycombo><keycap>Shift</keycap><keycap>8</keycap></keycombo> to type an '8'.</para></listitem>
+                    	</varlistentry>
+                    	<varlistentry><term xml:lang="en"><guilabel>Special keys (Ctrl+Alt+&lt;key&gt;) handled in a server.</guilabel></term>
+	<listitem><para>Wählen Sie diese Option, wenn bestimmte Tastaturkürzel direkt an das X-Window-System weitergereicht werden sollen, anstatt von MATE verarbeitet zu werden.</para></listitem>
+</varlistentry>
+                    </variablelist>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Third level choosers</guilabel></term>
+                <listitem>
+                  <para>Die <firstterm>dritte Ebene</firstterm> einer Taste ermöglicht Ihnen die Eingabe eines dritten Zeichens mit einer Taste, ebenso wie die gedrückt gehaltene <keycap>Umschalttaste</keycap> beim Druck einer Taste ein anderes Zeichen ausgibt als ein Druck auf die Taste allein.</para>
+                  <para>Verwenden Sie diese Gruppe, um eine Taste als Modifikationstaste der dritten Ebene auszuwählen.</para>
+                  <para>Das Drücken der Dritte-Ebene-Taste zusammen mit der <keycap>Umschalttaste</keycap> gibt das vierte Zeichen einer Taste aus.</para>
+                  <para xml:lang="en">The third and fourth level characters for your keyboard layout are shown in the <application>Keyboard Indicator</application> Layout View Window.</para>
+                  <!-- better link, pending CVS commit of gswitchit docs: "help:gswitchit?layout-view" -->
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Use keyboard LED to show alternative group.</guilabel></term>
+                <listitem>
+                  <para>Verwenden Sie diese Option, wenn eine der LEDs Ihrer Tastatur leuchten soll, wenn eine alternative Tastaturbelegung benutzt wird.</para>
+                  <note><para>Die ausgewählte Tastatur-LED zeigt nicht mehr ihre Standardfunktion an. Beispielsweise reagiert »CapsLock« nicht mehr auf die <keycap>Caps Lock</keycap>-Taste.</para></note>
+                </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+
+    <section xml:id="prefs-keyboard-a11y"><info><title>Einstellungen für den Tastaturzugriff</title></info>
+    <indexterm xml:lang="en">
+      <primary>AccessX</primary>
+      <see>preference tools, Keyboard Accessibility</see>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>keyboard</primary>
+      <secondary>configuring accessibility options</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>accessibility</primary>
+      <secondary>configuring keyboard</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Keyboard Accessibility</secondary>
+    </indexterm>
+
+    <!-- Maintained for 2.8 compatibility -->
+      <anchor xml:id="goscustaccess-6"/>
+      <anchor xml:id="goscustaccess-8"/>
+      <anchor xml:id="goscustaccess-9"/>
+      <para>Im Reiter <guilabel>Barrierefreiheit</guilabel> können Sie Optionen wie Filterung unbeabsichtigter Tastenbedienungen oder die Verwendung von Tastenkürzeln ohne Gedrückthalten verschiedener Tasten einstellen. Dieses Funktionsmerkmal ist auch als AccessX bekannt.</para>
+
+       <para xml:lang="en">This section describes each of the preferences you can set. For a more task-oriented description of keyboard accessibility, see the <citetitle>MATE Desktop Accessibility Guide</citetitle>.</para>
+
+      <para><xref linkend="goscustdesk-TBL-85"/> listet die Barrierefreiheits-Einstellungen auf, die Sie ändern können.</para>
+     <table frame="topbot" xml:id="goscustdesk-TBL-85"><info><title>Barrierefreiheits-Einstellungen</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry>
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+             <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Accessibility features can be toggled with keyboard shortcuts</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                   <para>Wählen Sie diese Option, um im Benachrichtigungsfeld ein Symbol anzuzeigen, welches schnellen Zugriff auf die Barrierefreiheits-Funktionen ermöglicht.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Simulate simultaneous keypresses</guilabel>
+                  </para>
+                  <indexterm xml:lang="en">
+                    <primary>accessibility</primary>
+                    <secondary>sticky keys</secondary>
+                  </indexterm>
+                </entry>
+                <entry valign="top">
+                <para>Wählen Sie diese Option, wenn Tastenkombinationen durch Tastenfolgen, also das Drücken mehrerer Tasten hintereinander, ersetzt werden sollen. Alternativ können Sie die Einrastfunktion durch fünfmaliges Drücken der <keycap>Umschalt</keycap>-Taste aktivieren.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                    <para xml:lang="en">
+                      <guilabel>Disable sticky keys if two keys are pressed together</guilabel>
+                    </para>
+                </entry>
+                <entry valign="top">
+                    <para>Geben Sie mit dieser Option an, dass zum gleichzeitigen Drücken von zwei Tasten nicht mehr zwei Tasten nacheinander gedrückt werden können.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Only accept long keypresses</guilabel>
+                  </para>
+                  <indexterm xml:lang="en">
+                    <primary>accessibility</primary>
+                    <secondary>slow keys</secondary>
+                  </indexterm>
+                </entry>
+                <entry valign="top">
+                <para xml:lang="en">Select this option to control the period that you must press-and-hold
+a key before acceptance. Alternatively, to enable the slow keys feature, press-and-hold <keycap>Shift</keycap> for eight seconds.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Verzögerung</guilabel></para>
+                </entry>
+                <entry valign="top">
+                  <para xml:lang="en">Use the slider
+to specify the period that you must press-and-hold
+a key before acceptance.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Ignore fast duplicate keypresses</guilabel>
+                  </para>
+                  <indexterm xml:lang="en">
+                    <primary>accessibility</primary>
+                    <secondary>bounce keys</secondary>
+                  </indexterm>
+                </entry>
+                <entry valign="top">
+                <para>Wählen Sie diese Option, um eine Tastatureingabe zu akzeptieren und die Wiederholungscharakteristik der Tastatur festzulegen.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para><guilabel>Verzögerung</guilabel></para>
+                </entry>
+                <entry valign="top">
+                   <para>Verwenden Sie den Schieberegler, um die Wartezeit zwischen dem ersten Tastendruck und der automatischen Wiederholung festzulegen, wenn Sie die Taste gedrückt halten. </para>
+                </entry>
+             </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Type to test settings</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Der Testbereich ist eine interaktive Oberfläche, in der Sie sehen können, wie sich die Tastatureinstellungen bei der Eingabe auf die Anzeige auswirken. Geben Sie in den Testbereich Text ein, um die Wirkung der Einstellungen zu testen.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>Um die akustische Rückmeldung für die Barrierefreiheits-Funktionen zu aktivieren, klicken Sie auf den Knopf <guibutton>Signaltöne</guibutton>. Der Dialog <guilabel>Tastatur-Barrierefreiheit - Signaltöne</guilabel> wird geöffnet.</para>
+    </section>
+
+   <section><info><title>Tastatur-Barrierefreiheit – Signaltöne</title></info>
+      <para>Stellen Sie die akustischen Rückmeldungen für die Barrierefreiheits-Funktionen des Tastaturzugriffs ein.</para>
+      <para><xref linkend="goscustdesk-TBL-86"/> enthält eine Liste der Einstellungen für Signaltöne, die von Ihnen geändert werden können.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-86"><info><title>Einstellungen für akustische Rückmeldungen</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry>
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Beep when accessibility features are turned on or off</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Wählen Sie diese Option, falls ein akustisches Signal ertönen soll, wenn eine Funktion wie die Einrastfunktion oder die Anschlagverzögerung aktiviert bzw. deaktiviert wird.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para xml:lang="en">
+                   <guilabel>Beep when a toggle key is pressed</guilabel>
+                 </para>
+                 <indexterm xml:lang="en">
+                    <primary>accessibility</primary>
+                    <secondary>toggle keys</secondary>
+                  </indexterm>
+              </entry>
+	      <entry valign="top">
+                 <para>Wählen Sie diese Option, damit beim Drücken einer Umschalttaste ein akustisches Signal ertönt. Beim Aktivieren einer Umschalttaste ertönt ein akustisches Signal. Beim Deaktivieren einer Umschalttaste ertönen zwei akustische Signale.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para xml:lang="en">
+                   <guilabel>Beep when a modifier key is pressed</guilabel>
+                 </para>
+              </entry>
+              <entry valign="top">
+                 <para>Wählen Sie diese Option, damit beim Drücken einer Kombinationstaste ein akustisches Signal ertönt.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para xml:lang="en">
+                   <guilabel>Beep when a key is pressed</guilabel>
+                 </para>
+              </entry>
+              <entry valign="top">
+                 <para>Wählen Sie diese Option, falls ein akustisches Signal ertönen soll, wenn eine Taste gedrückt wird.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para xml:lang="en">
+                   <guilabel>Beep when a key is accepted</guilabel>
+                 </para>
+              </entry>
+              <entry valign="top">
+                 <para>Wählen Sie diese Option, falls ein akustisches Signal ertönen soll, wenn eine Taste akzeptiert wird.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para xml:lang="en">
+                   <guilabel>Beep when a key is rejected</guilabel>
+                 </para>
+              </entry>
+              <entry valign="top">
+                 <para>Wählen Sie diese Option, falls ein akustisches Signal ertönen soll, wenn eine Taste abgewiesen wird.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+   </section>
+ 
+   <section><info><title>Einstellungen für die Maustasten</title></info>
+     <anchor xml:id="goscustaccess-10"/>
+     <para>Die Optionen im Reiter <guilabel>Maustasten</guilabel> ermöglichen Ihnen die Konfiguration der Tastatur als Maus-Ersatz.</para>
+      <para><xref linkend="goscustdesk-TBL-88"/> enthält eine Liste der Maustasteneinstellungen, die von Ihnen konfiguriert werden können:</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-88"><info><title>Einstellungen für Tipppausen</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry>
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Pointer can be controlled using the keypad</guilabel>
+                </para>
+                <indexterm xml:lang="en">
+                  <primary>accessibility</primary>
+                  <secondary>mouse keys</secondary>
+                </indexterm>
+              </entry>
+              <entry valign="top">
+               <para xml:lang="en">Select this option to make the numeric keypad emulate mouse actions. The list of keys and their equivalences is in the <citetitle>MATE Desktop Accessibility Guide</citetitle> under the heading <citetitle>To Enable the Keyboard to Emulate the Mouse</citetitle>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Beschleunigung</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para>Verwenden Sie den Schieberegler, um festzulegen, wie schnell der Mauszeiger auf die maximale Geschwindigkeit beschleunigt werden soll.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                   <guilabel>Speed</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Legen Sie mit dieser Einstellung die maximale Geschwindigkeit fest, mit der sich der Mauszeiger über den Bildschirm bewegt.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para><guilabel>Verzögerung</guilabel></para>
+              </entry>
+              <entry valign="top">
+                <para xml:lang="en">Use the slider to specify the period that must pass
+after a keypress before the pointer moves.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+  </section>
+
+    <section xml:id="goscustdesk-86"><info><title>Einstellungen für Tipppausen</title></info>
+      
+      <para>Die Einstellung einer Tipppause bewirkt, dass MATE Sie daran erinnert eine Pause einzulegen, nachdem Sie längere Zeit mit Tastatur und Maus gearbeitet haben. Während einer Tipppause wird der Bildschirm gesperrt.</para>
+      <para><xref linkend="goscustdesk-TBL-87"/> enthält eine Liste der typischen Tipppausen-Einstellungen, die von Ihnen geändert werden können.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-87"><info><title>Einstellungen für Tipppausen</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry>
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Lock screen to enforce typing break</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Wählen Sie diese Option, um den Bildschirm während einer Tipppause zu sperren.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Work interval lasts</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>In diesem Einstellfeld legen Sie fest, wie lange Sie arbeiten können. bevor eine Tipppause eingelegt wird.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Break interval lasts</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Verwenden Sie dieses Feld, um die Länge Ihrer Arbeitspausen festzulegen.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Allow postponing of breaks</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Wählen Sie diese Option aus, wenn Sie in der Lage sein möchten, Tipppausen zu verschieben.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para>Wenn Sie die Benutzung der Tastatur und der Maus für eine Zeitspanne unterbrechen, die der Einstellung für die <guilabel>Tipppause</guilabel> entspricht, wird der aktuelle Arbeitsintervall zurückgesetzt.</para></note>
+    </section>    
+  </section>
+
+  <section xml:id="prefs-mouse"><info><title>Einstellungen für die Maus</title></info>
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="goscustperiph-5"/>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Mouse</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>configuring</secondary>
+    </indexterm>
+
+    <para>Mit dem Einstellungswerkzeug <application>Maus</application> können Sie:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Ihre Maus für rechtshändigen oder linkshändigen Gebrauch einstellen,</para>
+      </listitem>
+      <listitem>      
+        <para>die Geschwindigkeit und Empfindlichkeit der Mausbewegungen angeben,</para>
+      </listitem>
+      <listitem>
+        <para>die Barrierefreiheits-Funktionen der Maus konfigurieren.</para>
+      </listitem>
+    </itemizedlist>
+    
+    <section xml:id="goscustdesk-55"><info><title>Allgemeine Einstellungen für die Maus</title></info>
+      <para>Verwenden Sie den Reiter <guilabel>Allgemein</guilabel>, um festzulegen, ob die Maustasten für die linke Hand konfiguriert werden sollen. Sie können auch den Verzögerungswert für die Klicks beim Doppelklicken einstellen.</para>
+      <para><xref linkend="goscustperiph-TBL-6"/> enthält eine Liste der Maustasteneinstellungen, die von Ihnen konfiguriert werden können.</para>
+
+    <!-- convert to variablelist -->
+    <table frame="topbot" xml:id="goscustperiph-TBL-6"><info><title>Einstellungen für die Maustasten</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Right-handed</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Wählen Sie diese Option aus, um die Maus für den Gebrauch mit der rechten Hand zu konfigurieren. In diesem Fall ist die linke Maustaste die primäre Maustaste und die rechte die sekundäre Maustaste.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Left-handed</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Wählen Sie diese Option aus, um die Maus für den Gebrauch mit der linken Hand zu konfigurieren. In diesem Fall werden die Funktionen der linken und der rechten Maustaste getauscht.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Show position of pointer when the Control key is pressed</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Wählen Sie diese Option aus, um eine Mauszeigeranimation zu aktivieren, wenn Sie die Taste <keycap>Strg</keycap> drücken und loslassen. Diese Funktion kann Ihnen das Auffinden des Mauszeigers erleichtern.</para>
+                <note>
+                  <para>Die Position der Strg-Taste kann in den Tastaturbelegungseinstellungen angepasst werden, siehe <xref linkend="prefs-keyboard-layoutoptions"/>.</para>
+                </note>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para><guilabel>Beschleunigung</guilabel></para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Verwenden Sie den Schieberegler, um die Geschwindigkeit festzulegen, mit der sich der Mauszeiger beim Bewegen der Maus auf dem Bildschirm bewegt.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Sensitivity</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Verwenden Sie den Schieberegler, um festzulegen, wie empfindlich der Mauszeiger auf Bewegungen der Maus reagieren soll.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Threshold</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Verwenden Sie den Schieberegler, um die Strecke festzulegen, die ein Objekt verschoben werden muss, bevor die Verschiebungsaktion als Ziehen-und-ablegen-Aktion interpretiert wird.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Timeout</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Verwenden Sie den Schieberegler, um die Zeitspanne festzulegen, die maximal zwischen den Klicks beim Doppelklicken liegen darf. Wenn das Intervall zwischen dem ersten und dem zweiten Klick länger als der hier festgelegte Wert ist, wird die Aktion nicht als Doppelklick interpretiert.</para>
+                <para>Verwenden Sie das Glühlampen-Symbol, um den Doppelklickintervall zu testen. Das Licht wird bei einem einfachen Klick kurz aufleuchten, bzw. bei einem Doppelklick eingeschalztet bleiben.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscustdesk-53"><info><title>Barrierefreiheits-Einstellungen der Maus</title></info>
+      <para>Verwenden Sie den Reiter <guilabel>Barrierefreiheit</guilabel> zur Einstellung der Barrierefreiheits-Funktionen für Benutzer, denen das exakte Setzen des Mauszeigers oder die Bedienung der Maustasten schwerfällt:</para>
+      <itemizedlist>
+         <listitem>
+            <para>Öffnen eines Kontextmenüs durch Klicken und Gedrückthalten der primären Maustaste. Dies ist nützlich für Benutzer, die nur eine Taste bedienen können.</para>
+         </listitem>
+         <listitem>
+            <para xml:lang="en">
+              Perform different types of mouse button click by software; this useful for users that are not able to manipulate any buttons. The types of click that can be performed are:
+               <variablelist>
+                 <varlistentry>
+                   <term xml:lang="en">Single click</term>
+                   <listitem>
+                     <para xml:lang="en">
+                       A single click of the primary mouse button
+                     </para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term xml:lang="en">Double click</term>
+                   <listitem>
+                     <para xml:lang="en">
+                        A double click of the primary mouse button
+                     </para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term xml:lang="en">Drag click</term>
+                   <listitem>
+                     <para xml:lang="en">
+                       A click that begins a drag operation
+                     </para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term xml:lang="en">Secondary click</term>
+                   <listitem>
+                     <para xml:lang="en">
+                       A single click of the secondary mouse button
+                     </para>
+                   </listitem>
+                 </varlistentry>
+               </variablelist>
+            </para>
+         </listitem>
+      </itemizedlist>
+      <para><xref linkend="goscustdesk-TBL-47"/> enthält eine Liste der Mausbewegungseinstellungen, die von Ihnen konfiguriert werden können:</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-47"><info><title>Einstellungen für Mausbewegungen</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="30.10*"/>
+          <colspec colwidth="69.90*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry>
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Trigger secondary click by holding down the primary button</guilabel>
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Wählen Sie diese Option, um simulierte Klicks der sekundären Maustaste durch längeres Drücken der primären Maustaste zu ermöglichen.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Schieberegler <guilabel>Verzögerung</guilabel> im Abschnitt <guilabel>Simulierter Kontextklick</guilabel> section</para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Verwenden Sie den Schieberegler, um festzulegen, wie lange die primäre Maustaste gedrückt werden muss, um eine Bedienung der sekundären Maustaste zu simulieren.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Initiate click when stopping pointer movement</guilabel>
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Wählen Sie diese Option, um automatische Klicks auszuführen, wenn die Mausbewegung gestoppt wird. Zusätzliche Einstellungen für den Klicktyp sind im Abschnitt <guilabel>Verzögerter Klick</guilabel> möglich.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Schieberegler <guilabel>Verzögerung</guilabel> im Abschnitt <guilabel>Verzögerter Klick</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Verwenden Sie diesen Schieberegler, um anzugeben, wie lange der Mauszeiger ruhen muss, bevor ein automatischer Klick ausgeführt wird.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Schieberegler <guilabel>Bewegungsschwellwert</guilabel></para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Verwenden Sie den Schieberegler, um festzulegen, wie empfindlich der Mauszeiger auf Bewegungen der Maus reagieren soll.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Choose type of click beforehand</guilabel>
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Wählen Sie diese Option, um den Typ des auszzuführenden Klicks aus einem Fenster oder Panel-Applet zu wählen.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Show click type window</guilabel>
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Wenn diese Option aktiviert ist, können die verschiedenen Klicktypen (eiinfacher Klick, Mitziehklick, oder Kontextklick) in einem Fenster ausgewählt werden.</para> 
+                <note><para>Das Panel-Applet <guilabel>Verzögerter Klick</guilabel> kann anstelle des Fensters verwendet werden.</para></note>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Choose type of click with mouse gestures</guilabel> 
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Wählen Sie diese Option, um den Typ des auszuführenden Klicks durch Bewegen der Maus in einer bestimmten Richtung auszuwählen. Die vier Kombinationsfelder unterhalb dieser Option ermöglichen die Zuordnung von Bewegungsrichtungen zu jedem der Klicktypen. Beachten Sie, dass jede Richtung nur für einen Klicktyp verwendet werden kann.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Single click</guilabel> 
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Wählen Sie die Richtung, um einen einfachen Klick auszuführen.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Double click</guilabel> 
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Wählen Sie die Richtung, um einen Doppelklick auszuführen.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Drag click</guilabel> 
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Wählen Sie die Richtung, um einen Mitziehklick auszuführen.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Secondary click</guilabel> 
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para>Wählen Sie die Richtung, um einen Kontextklick auszuführen.</para> 
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+
+  <section xml:id="goscustdesk-70"><info><title>Bildschirme</title></info>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Display</secondary>
+    </indexterm>
+    <para>Verwenden Sie die <application>Bildschirmeinstellungen</application>, um die Bildschirme zu konfigurieren, die Ihr Rechner verwendet.</para>
+<note><para>Auf den meisten Laptop-Tastaturen können Sie die Tastenkombination <keycombo><keycap>Fn</keycap><keycap>F7</keycap></keycombo> verwenden, um zwischen den verschiedenen Bildschirmkonfigurationen umzuschalten, ohne die <application>Bildschirmeinstellungen</application> zu starten.</para></note>
+<para>Sie können die Anordnung der grafischen Repräsentationen der Bildschirme im oberen linken Teil des Fensters mit der Maus durch Ziehen und Ablegen verändern, um festzulegen, wie diese zu einer gemeinsamen Arbeitsfläche verbunden werden. Beachten Sie, dass die <application>Bildschirmeinstellungen</application> kleine »Aufkleber« in der linken oberen Ecke jedes Bildschirms anzeigen, um Ihnen bei der richtigen Zuordnung der Bildschirme zu den angezeigten Darstellungen zu helfen.</para>
+<para>Im Gegensatz zu den meisten anderen Einstellungswerkzeugen werden die von Ihnen getätigten Änderungen in den <application>Bildschirmeinstellungen</application> erst dann angewendet, wenn Sie auf den Knopf <guibutton>Anwenden</guibutton> klicken. Wenn Sie dies nicht tun, kehrt es zu den vorherigen Einstellungen zurück. Dies ist ein Schutz vor falschen Anzeigeeinstellungen, die Ihren Rechner unbenutzbar machen könnten.</para>
+
+<variablelist>
+	<varlistentry>
+    <term xml:lang="en"><guilabel>Same image in all monitors</guilabel></term>
+    <listitem><para>Wenn diese Option ausgewählt ist, dann wird die gesamte Arbeitsfläche einem einzelnen Bildschirm zugeordnet, so dass jeder Bildschirm das gleiche Bild Ihrer Arbeitsfläche zeigt. Wenn sie nicht ausgewählt ist, wird Ihre Arbeitsfläche über mehrere Bildschirme verteilt, so dass jeder Bildschirm einen Teil der Arbeitsfläche zeigt.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term><guilabel>Monitore erkennen</guilabel></term>
+    <listitem><para>Klicken Sie auf diesen Knopf, um nach Bildschirmen suchen zu lassen, die kürzlich hinzugefügt oder angeschlossen wurden.</para></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term xml:lang="en"><guilabel>Show monitors in panel</guilabel></term>
+    <listitem><para>Wenn diese Option ausgewählt ist, wird ein Symbol im Panel platziert, welches Ihnen die schnelle Änderung bestimmter Einstellungen ermöglicht, ohne die <application>Bildschirmeinstellungen</application> zu öffnen.</para></listitem>
+  </varlistentry>
+</variablelist>
+
+<para>Die folgende Liste enthält die Einstellungen, die Sie für jeden Bildschirm ändern können. Der gegenwärtig ausgewählte Bildschirm ist derjenige, dessen grafische Darstellung von einem schwarzen Rand umgeben ist. Durch die Hintergrundfarbe der Abschnittsbezeichnung wird dies ebenfalls angezeigt.</para>
+
+<variablelist>
+	<varlistentry>
+    <term><guilabel>Ein</guilabel> / <guilabel>Aus</guilabel></term>
+    <listitem><para>Einzelne Bildschirme können vollständig deaktiviert werden, indem Sie auf <guilabel>Aus</guilabel> klicken.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term xml:lang="en"><guilabel>Resolution</guilabel></term>
+    <listitem><para>Wählen Sie die für den gegenwärtig ausgewählten Bildschirm zu verwendende Auflösung in der Auswahlliste aus. <emphasis>Auflösung</emphasis> bezieht sich auf die Dimensionen der Bildpunkte des Bildschirms. Eine höhere Auflösung bedeutet, dass mehr Dinge auf den Bildschirm passen, aber alles kleiner dargestellt wird.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term xml:lang="en"><guilabel>Refresh rate</guilabel></term>
+    <listitem><para xml:lang="en">Select the refresh rate to use for the currently
+                selected monitor from the drop-down list. The <emphasis>refresh
+                rate</emphasis> determines how often the computer redraws the
+                screen. A too low refresh rate (below 60) makes the monitor
+                flicker and can cause discomfort to your eyes. This is less
+                of a problem on LCDs.
+              </para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term xml:lang="en"><guilabel>Rotation</guilabel></term>
+    <listitem><para>Geben Sie die Drehung für den gegenwärtig ausgewählten Bildschirm an. Diese Option wird nicht von allen Grafikkarten unterstützt.</para></listitem>
+  </varlistentry>
+</variablelist>
+</section>
+
+  <section xml:id="goscustmulti-2"><info><title>Sound-Einstellungen</title></info>
+    
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Sound</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>sound</primary>
+      <secondary>setting preferences</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>sound</primary>
+      <secondary>associating events with sounds</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>events, associating sounds with</primary>
+    </indexterm>
+    <indexterm><primary>Lautstärke</primary></indexterm>
+    <para>Mit dem Einstellungswerkzeug <application>Klang</application> können Sie Geräte steuern und die Lautstärke für Eingabe und Ausgabe bestimmen. Außerdem können Sie festlegen, welche Klänge bei welchem speziellen Ereignis ausgegeben werden.</para>
+    <para>Die Einstellungen für das Einstellungstool <application>Sound</application> können in den folgenden funktionellen Bereichen angepasst werden:</para>
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Klangereignisse</guilabel></para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">
+          <guilabel>Input</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Ausgabe</guilabel></para>
+      </listitem>
+    </itemizedlist>
+    <para>Die allgemeine Wiedergabelautstärke können Sie mit dem Schieberegler <guilabel>Wiedergabelautstärke</guilabel> am oberen Rand des Fensters einstellen. Das Ankreuzfeld <guilabel>Stumm</guilabel> ermöglicht Ihnen das vorübergehende Unterdrücken der Wiedergabe, ohne die Einstellung der Lautstärke zu beeinflussen.</para>
+
+    <section xml:id="goscustdesk-48"><info><title>Einstellungen für Klangereignisse</title></info>
+      <para>Ein Klangthema ist eine Sammlung von Klangeffekten, die sich verschiedenen Ereignissen zuordnen lassen, wie Öffnen eines Dialoges, Anklicken eines Knopfes oder Auswahl eines Eintrages in einem Menü. Einer der bekanntesten Ereignisklänge ist die <emphasis>Systemglocke</emphasis>, die oft bei einem Eingabefehler der Tastatur ertönt. Verwenden Sie den Reiter <guilabel>Klangeffekte</guilabel> des <application>Klang</application>-Einstellungswerkzeugs, um ein anderes Klangthema zu wählen und den Klang der Systemglocke zu ändern.</para>
+      <para><xref linkend="goscustmulti-TBL-6"/> enthält eine Liste der Einstellungen für Klangeffekte, die von Ihnen konfiguriert werden können.</para>
+      <table frame="topbot" xml:id="goscustmulti-TBL-6"><info><title>Einstellungen für Klangereignisse</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para>Schieberegler <guilabel>Warnlautstärke</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Legen Sie mit dem Schieberegler <guilabel>Warnlautstärke</guilabel> die Lautstärke für Ereignisklänge fest.</para>
+                <para>Das Ankreuzfeld <guilabel>Stumm</guilabel> erlaubt die vorübergehende Unterdrückung von Ereignisklängen, ohne die aktuelle Lautstärke ändern zu müssen.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Sound Theme </guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Benutzen Sie dieses Kombinationsfeld, um ein anderes Klangthema zu wählen.</para>
+                <para>Wählen Sie <guilabel>Keine Klänge</guilabel>, um alle Ereignisklänge abzuschalten.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para>Liste <guilabel>Wählen Sie einen Warnklang</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Wählen Sie einen alternativen Klang für die Systemglocke in dieser Liste aus.</para>
+                <para>Die Auswahl eines Elementes aus der Liste spielt den Klang ab.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para>Ankreuzfeld <guilabel>Fenster- und Knopfklänge einschalten</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Deaktivieren Sie diese Option, falls Sie keine Klänge für fensterbezogene Ereignisse und Knopfklicks hören wollen, beispielsweise in einem Dialog oder einem erscheinenden Menü.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section><info><title>Einstellungen für Aufnahme</title></info>
+      <para>Verwenden Sie den Reiter <guilabel>Aufnahme</guilabel>, um die Einstellungen für Klangaufnahmen festzulegen.</para>
+      <para><xref linkend="goscustdesk-TBL-1"/> enthält eine Liste der Einstellungen zur Klangaufnahme, die von Ihnen konfiguriert werden können.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-1"><info><title>Einstellungen für Aufnahme</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para>Schieberegler <guilabel>Aufnahmelautstärke</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Verwenden Sie den Schieberegler für die Aufnahmelautstärke, um den Aufnahmepegel anzupassen.</para>
+                <para>Das Ankreuzfeld <guilabel>Stumm</guilabel> erlaubt die vorübergehende Unterdrückung aller Aufnahmen, ohne die aktuelle Lautstärke ändern zu müssen.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Input level</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Das <guilabel>Aufnahmeniveau</guilabel> stellt eine visuelle Rückmeldung bereit, die Ihnen bei der Wahl einer passenden Aufnahmelautstärke hilft.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para>Liste <guilabel>Legen Sie ein Gerät zur Klangaufnahme fest</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Wählen Sie das Gerät, von dem Sie Klänge aufnehmen wollen.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para>Beachten Sie, dass die Aufnahmelautstärke auch über das im Benachrichtigungsfeld des Panels angezeigte Mikrofon-Symbol geregelt werden kann, wenn eine Anwendung zur Klangaufnahme bereit ist.</para></note>
+    </section>
+
+    <section><info><title>Einstellungen für die Wiedergabe</title></info>
+      <para>Verwenden Sie den Reiter <guilabel>Wiedergabe</guilabel>, um die Einstellungen für Klangausgaben festzulegen.</para>
+      <para><xref linkend="goscustdesk-TBL-2"/> enthält eine Liste Einstellungen für die Wiedergabe, die von Ihnen konfiguriert werden können.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-2"><info><title>Einstellungen für die Wiedergabe</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para>Schieberegler <guilabel>Wiedergabelautstärke</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Verwenden Sie den Schieberegler für die Ausgabelautstärke, um die allgemeine Ausgabelautstärke festzulegen.</para>
+                <para>Das Ankreuzfeld <guilabel>Stumm</guilabel> erlaubt die vorübergehende Unterdrückung aller Ausgaben, ohne die aktuelle Lautstärke ändern zu müssen.</para>
+                <para>Bedenken Sie, dass sich der Schieberegler <guilabel>Wiedergabelautstärke</guilabel> im oberen Bereich des Fensters (oberhalb der Reiter) befindet. </para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para>Liste <guilabel>Legen Sie ein Gerät zur Klangausgabe fest</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Wählen Sie hier das Gerät aus, über das Sie die Klangausgabe hören wollen.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para>Schieberegler <guilabel>Balance</guilabel></para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Mit dem <guilabel>Balance</guilabel>-Schieberegler können Sie  für Geräte mit mehr als einem Ausgabekanal (z.B. Stereo oder 5.1) die Balance zwischen dem linken und rechten Kanal steuern.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para>Beachten Sie, dass die Ausgabelautstärke auch durch über das im Benachrichtigungsfeld des Panels angezeigte Lautsprechersymbol beeinflusst werden kann.</para></note>
+    </section>
+
+    <section xml:id="goscustdesk-41"><info><title>Anwendungsgebundene Einstellungen für Klänge</title></info>
+      <para>Im Reiter <guilabel>Anwendungen</guilabel> können Sie die Lautstärke der abgespielten Klänge für individuelle Anwendungen festlegen.</para>
+      <para>Jede Anwendung, die gegenwärtig Klänge abspielt, wird durch deren Namen und Symbol kenntlich gemacht.</para>
+    </section>
+  </section>
+
+<!--
+<sect2 id="goscustdesk-79">
+<title>Customizing PalmOS Devices</title>
+<indexterm><primary>preference tools</primary><secondary>PalmOS devices</secondary>
+</indexterm><para>Information to be supplied in a future release.</para>
+</sect2>
+-->
+</section>
+
+<section xml:id="prefs-system"><info><title>System</title></info>
+
+  <section xml:id="prefs-sessions"><info><title>Sitzungs-Einstellungen</title></info>
+    <!-- preserve for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustsession-5"/>   
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Sessions</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>sessions</primary>
+      <secondary>preferences</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>startup applications</primary>
+      <secondary>customizing</secondary>
+    </indexterm>
+    <para>Mit dem Einstellungswerkzeug <application>Sitzungen</application> können Sie Ihre Sitzungen verwalten. Sie können Sitzungseinstellungen festlegen, beim Start einer Sitzung zu startende Anwendungen angeben, Sitzungen so konfigurieren, dass sie den Anwendungsstatus in der Arbeitsumgebung speichern und zu Beginn der nächsten Sitzung wiederherstellen, und sogar mehrere MATE-Sitzungen verwalten.</para>
+    <para>Die Einstellungen für Sitzungen und Startanwendungen können Sie in folgenden funktionalen Bereichen anpassen.</para>
+    <itemizedlist>
+      <listitem>
+        <para xml:lang="en">
+          <guilabel>Session Options</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">
+          <guilabel>Startup Programs</guilabel>
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <section xml:id="goscustsession-16"><info><title>Festlegen von Sitzungs-Einstellungen</title></info>
+      <indexterm xml:lang="en">
+        <primary>sessions</primary>
+        <secondary>setting options</secondary>
+      </indexterm>
+      <para>Verwenden Sie den Reiter <guilabel>Sitzungsoptionen</guilabel>, um mehrere Sitzungen zu verwalten und Einstellungen für die aktuelle Sitzung festzulegen.</para>
+      <para><xref linkend="goscustsession-TBL-11"/> enthält eine Liste der Sitzungsoptionen, die von Ihnen konfiguriert werden können.</para>
+      <table frame="topbot" xml:id="goscustsession-TBL-11"><info><title>Sitzungsoptionen</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec0" colwidth="18.86*"/>
+          <colspec colname="colspec1" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Automatically remember running applications when logging out</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <indexterm xml:lang="en">
+                  <primary>startup applications</primary>
+                  <secondary>session-managed</secondary>
+                </indexterm>
+                <para>Wählen Sie diese Option aus, wenn die Sitzungsverwaltung den aktuellen Status der Sitzung speichern soll. Die Sitzungsverwaltung speichert die von der Sitzung verwalteten geöffneten Anwendungen und die mit diesen Anwendungen verbundenen Einstellungen. Zu Beginn der nächsten Sitzung werden die Anwendungen automatisch und mit den gespeicherten Einstellungen gestartet.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Remember currently running applications</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <indexterm xml:lang="en">
+                  <primary>startup applications</primary>
+                  <secondary>session-managed</secondary>
+                </indexterm>
+                <para>Wählen Sie diese Option aus, wenn der Sitzungsmanager den aktuellen Status der Sitzung speichern soll. Der Sitzungsmanager speichert die von der Sitzung verwalteten geöffneten Anwendungen und die mit diesen Anwendungen verbundenen Einstellungen. Zu Beginn der nächsten Sitzung werden die Anwendungen automatisch und mit den gespeicherten Einstellungen gestartet.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscustsession-12"><info><title>Konfigurieren von Startanwendungen</title></info>
+      <indexterm xml:lang="en">
+        <primary>startup applications</primary>
+        <secondary>non-session-managed</secondary>
+      </indexterm>
+      <para>Legen Sie im Reiter <guilabel>Startprogramme</guilabel> des Einstellungswerkzeugs <application>Sitzungen</application> die nicht sitzungsverwalteten <firstterm>Startanwendungen</firstterm> fest. Startanwendungen sind Anwendungen, die zu Beginn einer Sitzung automatisch gestartet werden. Die Befehle für die Ausführung der nicht von der Sitzung verwalteten Anwendungen geben Sie im Reiter <guilabel>Startprogramme</guilabel> an. Die Befehle werden zum Zeitpunkt Ihrer Anmeldung automatisch ausgeführt.</para>
+      <para>Sie können auch von der Sitzung verwaltete Anwendungen automatisch starten. Weitere Informationen finden Sie unter <xref linkend="goscustsession-16"/>.</para>
+      <para><xref linkend="goscustsession-TBL-19"/> enthält eine Liste der Einstellungen für Startanwendungen, die von Ihnen konfiguriert werden können.</para>
+      <table frame="topbot" xml:id="goscustsession-TBL-19"><info><title>Einstellungen für die Startprogramme</title></info>
+        <tgroup cols="2">
+          <colspec colname="col1" colwidth="18.86*"/>
+          <colspec colname="col2" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colname="col1" colsep="0">
+                <para>Dialogfeldelement</para>
+              </entry>
+              <entry colname="col2" colsep="0">
+                <para>Beschreibung</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="col1" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel> Additional startup programs</guilabel>
+                </para>
+              </entry>
+              <entry colname="col2" colsep="0" rowsep="0" valign="top">
+                <para>Verwenden Sie diese Tabelle wie folgt, um nicht von der Sitzung verwaltete Startanwendungen zu verwalten:</para>
+                <itemizedlist>
+                  <listitem>
+                    <para xml:lang="en">To add a startup application, click on the <guibutton>Add</guibutton> button. The <guilabel>New Startup Program</guilabel> dialog is displayed. Enter the name of the application in the <guilabel>Name</guilabel> field. Then enter the command to start the application in the <guilabel>Command</guilabel> field. You can also specify a comment in the <guilabel>Comment</guilabel> field</para>
+                  </listitem>
+                  <listitem>
+                    <para>Zum Bearbeiten einer Startanwendung wählen Sie sie aus und klicken dann auf den Knopf <guibutton>Bearbeiten</guibutton>. Es erscheint das Dialogfeld <guilabel>Startprogramm bearbeiten</guilabel>. Verwenden Sie das Dialogfeld, um den Befehl und den Platz in der Startreihenfolge für die Startanwendung zu bearbeiten.</para>
+                  </listitem>
+                  <listitem>
+                    <para>Zum Löschen einer Startanwendung wählen Sie sie aus und klicken dann auf den Knopf <guilabel>Löschen</guilabel>.</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+</section>
+</chapter>

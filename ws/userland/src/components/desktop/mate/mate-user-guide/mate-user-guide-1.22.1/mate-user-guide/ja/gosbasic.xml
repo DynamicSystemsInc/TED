@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="basic-skills" xml:lang="ja">
+    <info><title>必要なスキル</title></info>
+
+<!-- Maintained for 2.8 compatibility -->
+<anchor xml:id="part1-1"/>
+<anchor xml:id="gosbasic-1"/>
+<anchor xml:id="gosbasic-46"/> <!-- was Using Windows -->
+
+<highlights>
+  <para>この章では MATE デスクトップで作業する際に必要となる基本的な「<firstterm>スキル</firstterm>」(操作に関する技量) を紹介します。</para>
+</highlights>
+
+<section xml:id="mouse-skills"><info><title>マウスに関するスキル</title></info>
+  
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-2"/>
+
+  <indexterm xml:lang="en">
+    <primary>basic skills</primary>
+    <secondary>mouse skills</secondary>
+  </indexterm>
+  <indexterm xml:lang="en">
+    <primary>mouse</primary>
+    <secondary>basic skills</secondary>
+  </indexterm>
+  
+  <!-- Notes for future development of the mouse section
+  Contents list:
+  * buttons
+  * click, drag, etc
+  * what you actually do with those: the concept of focus, selection, etc. 
+    basically, an introduction to the 'noun, verb' grammar of GUIs
+  * pointers
+  -->
+
+  <para>この節ではマウス・ボタンの役割やいろいろな種類のポインタが存在している意味について説明します。</para>
+
+    <para>マウスは「<ulink type="http" url="http://ja.wikipedia.org/wiki/%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%87%E3%83%90%E3%82%A4%E3%82%B9">ポインティング・デバイス</ulink>」の一種で、これを使うとマウスの「ポインタ」を画面上で移動させることができます。通常ポインタは小さな矢印で表現され、これを使って画面上にある任意のオブジェクトを指すことができます。マウスのボタンを押下すると、マウスのポインタが指しているオブジェクトに対して特定のアクションを実行できます (何を実行するかはマウスのボタンのうちどのボタンを押下したかに依存します)。</para>
+
+  <section xml:id="mouse-conventions"><info><title>マウスのボタンに関する決まり事</title><titleabbrev>いろいろなボタン</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-44"/>
+
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>button conventions</secondary>
+    </indexterm>
+
+    <para xml:lang="en">The instructions in this manual are for three buttoned, right-handed mouse devices, the most common type.
+        If you use another type of mouse or pointing device, you should take care to locate the corresponding buttons on your mouse.  If you use a left-handed mouse,
+        see the paragraph on setting mouse orientation below.
+    </para>
+
+        <note><para xml:lang="en">If you set your mouse device to be left-handed, you should reverse the mouse button
+        conventions used in this manual. This is normally also implied in most documentation and in many
+        applications.</para></note>
+
+    <para>マウスの中には中ボタンがないものがあります。2つボタン式のマウス・デバイスをお持ちならば、お使いのシステムは <firstterm>chording</firstterm> を使って中ボタンを模擬するような設定になっているかもしれません。もし chording を利用しているならば、右と左のボタンを同時に押下することで中ボタンのクリックを模擬することになります。MATE デスクトップを使う際に中ボタンが必要なることはめったにありません。</para>
+
+    <para>本ドキュメントで使用しているマウス・ボタンの意味は次のとおりです:</para>
+    <variablelist>
+      <varlistentry>
+        <term>左ボタン</term>
+        <listitem><para>マウス・デバイスの左側にあるボタンです。これはオブジェクトを選択したり有効にしたりなど、デスクトップの操作全般で利用するボタンです。本ドキュメントでは特殊な状態を除いて、「クリックする」と言った場合は左ボタンをクリックするということを意味します。</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>中ボタン</term>
+        <listitem><para>マウス・デバイスの真ん中にあるボタンです。ホィール式のマウスでは、そのホィールを押すことと中ボタンをクリックすることは同じです。</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>右ボタン</term>
+        <listitem><para>マウス・デバイスの右側にあるボタンです。このボタンはよくポインタが指しているオブジェクトのコンテキスト・メニューを表示する際に使用します。</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para><application>マウスの設定</application>ツールを使ってマウス・デバイスの向きを反転します。それから、このドキュメントやその他の MATE ドキュメントで引用しているマウス・ボタンをそれぞれ逆向きにして解釈してください。マウスの設定について詳細は「<xref linkend="prefs-mouse"/>」をご覧ください。</para>
+
+  </section>
+
+  <section xml:id="mouse-actions"><info><title>マウスの操作</title><titleabbrev>いろいろなアクション</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-45"/>
+    <anchor xml:id="gosbasic-6"/>
+    
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>action conventions</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>action terminology</secondary>
+    </indexterm>
+    
+    <para>次の用語はマウスを使って操作するアクションを説明するために本ドキュメントで引用しているものです:</para>
+    
+    <!-- convert to variablelist -->
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="36.36*"/>
+        <colspec colname="colspec1" colwidth="63.64*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>動作</para>
+            </entry>
+            <entry>
+              <para>定義</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>クリック</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>左ボタンを押下してからマウスを移動しないでそのまま解放すること</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>左クリック</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>「<emphasis>クリックする</emphasis>」と同じ (この左クリックという用語は<emphasis>右クリック</emphasis>と併用した際に混乱させないよう明示的するために使用する)</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>中クリック</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>中ボタンを押下してからマウスを移動しないでそのまま解放すること</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>右クリック</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>右ボタンを押下してからマウスを移動しないでそのまま解放すること</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>ダブル・クリック</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>マウスを移動しないで左ボタンの押下と解放をすばやく2回繰り返すこと (<emphasis>ダブル・クリックの間隔</emphasis>という設定を変更することでダブル・クリックの感度を設定することができる; 詳細は「<xref linkend="prefs-mouse"/>」を参照のこと)</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>クリック・アンド・ドラッグ</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>左ボタンを押下して解放せずにそのままマウスを移動して、最後に押下していたボタンを解放すること</para>
+                            
+              <para>マウスを使ったドラッグ操作はいろいろなコンテキストで使用します。マウスを使って画面内でオブジェクトを移動します。そのオブジェクトはマウス・ボタンを放した場所に<emphasis>ドロップ</emphasis>されます。この操作を<emphasis>ドラッグ・アンド・ドロップ</emphasis>とも呼びます。ユーザ・インタフェースの要素をクリックして移動することをまれに<emphasis>グラブ</emphasis> (捕捉する) と呼びます。</para>		  
+			  
+			                
+              <para>例えば、ウィンドウのタイトルバーをドラッグすることでウィンドウの位置を変更したり、任意のウィンドウからファイルを表すアイコンをドラッグして別のウィンドウに移動するといった操作が可能である</para>           
+              
+              <para>マウスの左ボタンは通常ドラッグ操作で使用するが、中ボタンもまれにもう一つのドラッグ操作として利用する場合がある</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>クリックしたまま</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>左ボタンを押下したまま解放しないこと</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>actions</secondary>
+    </indexterm>
+
+    <para>マウスを使って次に示すようなアクションを実行することが可能になっています:</para>
+    
+    <!--
+    Problem with the word 'action' here, since it's already used
+    to describe things like click, drag, etc. Suggestion: tasks?
+    -->
+
+    <variablelist>
+      <varlistentry>
+        <term>左ボタン</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>文字列を選択する</para></listitem>
+            <listitem><para>アイテムを選択する</para></listitem>
+            <listitem><para>アイテムをドラッグする</para></listitem>
+            <listitem><para>アイテムを利用可能な状態にする</para></listitem>
+          </itemizedlist>        
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>中ボタン</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>文字列を貼り付ける</para></listitem>
+            <listitem><para>アイテムを移動する</para></listitem>
+            <listitem><para>ウィンドウを背面に移動する</para></listitem>
+          </itemizedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>右ボタン</term>
+        <listitem><para>マウスの右ボタンを使って任意のアイテムに対するコンテキスト・メニューを開きます (提供されていれば)。ほとんどのアイテムに対して、<keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo> というキーボード・ショートカットを使い同様のコンテキスト・メニューを開くことも可能です。</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>例えばファイル・マネージャでファイルを表示している際に、マウスの左ボタンをクリックしてファイルを選択し、マウスの左ボタンをダブル・クリックすしてファイルを開きます。マウスの右ボタンをクリックしてそのファイルに対するコンテキスト・メニューを開きます。</para>
+
+    <tip><para>ほとんどのアプリケーションで、マウスの左ボタンを使って任意の文字列を選択しマウスの中ボタンを使ってその文字列を別のアプリケーションに貼り付けることができるようになっています。これは <firstterm>primary selection paste</firstterm> と呼ばれ、通常のクリップボード操作とは別に動作するものです。</para></tip>
+
+    <tip><para>アイテムを一つ以上選択したいのであれば、<keycap>Ctrl</keycap> キーを押下したままにしておくと複数のアイテムを選択できます。あるいは <keycap>Shift</keycap> キーを押下したまま隣接している範囲のアイテムを一括選択できます。さらに、空いている場所でドラッグを開始し矩形領域を描くようにドラッグを継続することで <firstterm>Bounding Box</firstterm> (伸び縮みする選択ボックス) を使い複数のアイテムを選択できるようになっています。</para></tip>
+
+  </section>
+
+  <section xml:id="mouse-pointers"><info><title>マウスのポインタ</title><titleabbrev>いろいろなポインタ</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-7"/>
+
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>pointers</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>pointers</primary>
+      <see>mouse pointers</see>
+    </indexterm>
+
+    <para>マウスを利用していると、マウスのポインタが変化することがあります。この機能は特定の操作や特定の場所、そして特定の状態といったものをユーザに「フィードバック」するために用意されています。</para>
+
+   <para>次に示すマウスのポインタは別の画面で動作しているかのように表示されます:</para>
+   
+   <note><para xml:lang="en">Your mouse pointers will differ from those shown here if you are using a different pointer theme. Your distributor or vendor may have set a different default theme.</para></note>
+   
+   <variablelist>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/normal_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Normal pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Normal pointer
+        </term>
+        <listitem><para>マウスを通常使用している間はこのポインタが表示されます。</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/busy_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Busy pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Busy pointer
+        </term>
+        <listitem><para>このポインタはタスクを実行しているウィンドウの上で表示されます。このようなウィンドウにマウスを使って入力フォーカスを与えることはできませんが、別のウィンドウへ移動して作業することはできます。</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/resize_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Resize pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Resize pointer
+        </term>
+        <listitem><para>このポインタはユーザ・インタフェースの一部の大きさを変更できる手段を手に入れたことを表します。このポインタはウィンドウの境界線やウィンドウにあるペインとリサイズ・ハンドルの間で表示されます。矢印の向きはそれぞれ大きさを変更できる向きを表しています。</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/hyperlink_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Hand pointer</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Hand pointer
+        </term>
+        <listitem><para>これは、例えばウェブ・ページにある<glossterm>ハイパー・テキストのリンク</glossterm>の上にポインタを置いた時に表示されます。このポインタはリンクをクリックして新しいドキュメントを読み込んだりアクションを実行できるということを表しています。</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/ibeam_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>I-beam pointer</phrase>
+            </textobject>
+          </inlinemediaobject>
+          I-beam pointer
+        </term>
+        <listitem><para>このポインタは選択または編集が可能な文字列の上にマウスを置いた時に表示されます。文字列を入力したい場所や選択した文字列をドラッグしたい場所をクリックするとカーソルが表示されます。</para></listitem>
+      </varlistentry>      
+    </variablelist>      
+      
+   <para>次に示すマウス・ポインタはファイルや文字列の一部といった任意のアイテムを1つドラッグしている時に表示されます。これらはマウスのボタンを解放してドラッグ中のオブジェクトをドロップした結果を表しています。</para>      
+      
+    <variablelist>      
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/move_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Move pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Move pointer
+        </term>
+        <listitem><para>このポインタは、任意のオブジェクトをドロップして、そのオブジェクトが新しい場所に移動したことを表しています。</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/copy_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Copy pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Copy pointer
+        </term>
+        <listitem><para>このポインタは、任意のオブジェクトをドロップして、そのオブジェクトの複製がドロップした場所に生成されたことをを表しています。</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/link_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Symbolic link pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Symbolic link pointer
+        </term>
+        <listitem><para>このポインタは、任意のオブジェクトをドロップして、そのオブジェクトに対する<firstterm>シンボリックリンク</firstterm>がドロップした場所に生成されたことをを表しています。シンボリックリンクとは別のファイルやフォルダを指す特別なファイルの一つです。詳細は「<xref linkend="caja-symlink"/>」をご覧ください。</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/ask_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Ask pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Ask pointer
+        </term>
+        <listitem><para>このポインタは、任意のオブジェクトをドロップして、何かアクションを選択する必要があることを表しています。通常はメニューが表示されて、実行する青くションを選択できるようになっています。</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/not_available_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Not available pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Not available pointer
+        </term>
+        <listitem><para>このポインタは、マウスが現在ある場所にはオブジェクトをドロップできないことを表しています。マウスのボタンを解放しても何も起こりません。ドラッグしていたオブジェクトは元の場所に戻ります。</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/move_panel_object_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Move panel object pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Move panel object pointer
+        </term>
+        <listitem><para>このポインタはパネルやパネル・オブジェクトをマウスの中ボタンを押下しながらドラッグしている時に表示されます。パネルに関して詳細は「<xref linkend="panels"/>」をご覧ください。</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/movewindow_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Move window pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Move window pointer
+        </term>
+        <listitem><para>このポインタは、ウィンドウを移動するためにドラッグしていると表示されます。ウィンドウの移動に関して詳細は「<xref linkend="windows-manipulating"/>」をご覧ください。</para></listitem>
+      </varlistentry>
+
+    </variablelist>
+  </section>
+</section>
+
+<section xml:id="keyboard-skills"><info><title>キーボードに関するスキル</title></info>
+  
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-51"/>
+
+  <indexterm xml:lang="en">
+    <primary>basic skills</primary>
+    <secondary>keyboard skills</secondary>
+  </indexterm>
+  <indexterm xml:lang="en">
+    <primary>keyboard</primary>
+    <secondary>basic skills</secondary>
+  </indexterm>
+
+  <para>MATE デスクトップにおいて、マウスを使って実行できる作業のほとんどはキーボードを使って実行することも可能です。<firstterm>ショートカット・キー</firstterm>は素早く作業を実行するために用意されているキーの総称です。</para>
+
+  <para>ショートカット・キーを使って一般的な MATE デスクトップの作業を実行したり、パネルやウィンドウなどのインタフェース経由で作業を実施することができるようになっています。さらに、アプリケーションの中からショートカット・キーを利用することも可能です。ショートカット・キーを独自に定義する場合は、<application>キーボード・ショートカット</application>という設定ツールを使用します。キーボード・ショートカットの設定について詳細については「<xref linkend="prefs-keyboard-shortcuts"/>」をご覧ください。</para>
+
+  <note><para>ほとんどの PC で用意されているキーボードには Windows オペレーティング・システム向けに二つの特殊なキーが追加されています。それは Microsoft Windows™のロゴが付いた Windows キーとコンテキスト・メニューを呼び出すキーです。</para>
+  <para>MATE デスクトップにおいて、Windows キーは<firstterm>スーパー・キー</firstterm>という追加の修飾キーとして扱うように設定される場合が多いです。コンテキスト・メニューを呼び出すキーは、ちょうど <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo> というキーボード・ショートカットで実現する、選択したアイテムのコンテキスト・メニューにアクセスするような使い方が可能になっています。</para></note>
+
+  <para>さらに、キーボードの操作性 (アクセシビリティ) に関する機能を使って MATE デスクトップを好みの設定に変更することも可能になっています。キーボードの操作性に関する機能については「<xref linkend="prefs-keyboard-a11y"/>」をご覧ください。</para>
+
+  <para>これ以降の節ではデスクトップとアプリケーションの中で利用できるショートカット・キーについて説明します。</para>
+
+  <section xml:id="shortcuts-global"><info><title>グローバルなショートカット・キーについて</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-62"/>
+
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>global</secondary>
+    </indexterm>
+
+    <para>グローバルなショートカット・キーを使うと、キーボードから現在選択しているウィンドウやアプリケーションだけではなく、デスクトップに関連した操作を実行できます。次の表にグローバルなショートカット・キーの一例を示します:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>ショートカット・キー</para>
+            </entry>
+            <entry>
+              <para>機能</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F1</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para><guimenu>アプリケーションのメニュー</guimenu>を開く</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F2</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para><guilabel>アプリケーションの実行</guilabel>ダイアログを表示する (詳細は「<xref linkend="tools-run-app"/>」を参照のこと)</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en">
+                <keycap>Print Screen</keycap>
+              </para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>デスクトップ全体のスクリーンショットを取得する (詳細は「<xref linkend="tools-screenshot"/>」を参照のこと)</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>Print Screen</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>現在フォーカスが当たっているウィンドウのスクリーンショットを取得する</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>Arrow keys</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>現在のワークスペースから指定した方向にあるワークスペースに切り替える (複数のワークスペースを利用して作業する際の詳細については「<xref linkend="overview-workspaces"/>」を参照のこと)</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>D</keycap></keycombo>
+              </para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>すべてのウィンドウを最小化してデスクトップにフォーカスを与える</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>Tab</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>画面中央にウィンドウの一覧が表示され、表示されているウィンドウの間でフォーカスを切り替える (キーを解放した時のウィンドウにフォーカスが与えられる; 同時に <keycap>Shift</keycap> キーも押下すると逆順で選択できる)</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>Tab</keycap></keycombo>
+              </para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>画面中央に一覧が表示され、パネルとデスクトップとの間でフォーカスを切り替える (キーを解放した時のウィンドウにフォーカスが与えられる; 同時に <keycap>Shift</keycap> キーも押下すると逆順で選択できる)</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-window"><info><title>ウィンドウのショートカット・キーについて</title></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-58"/>
+
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>window</secondary>
+    </indexterm>
+
+    <para>ウィンドウのショートカット・キーを使うと現在フォーカスが当たっているウィンドウでの作業をキーボードから実行することができます。次の表にウィンドウのショートカット・キーの一例を示します:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>ショートカット・キー</para>
+            </entry>
+            <entry>
+              <para>機能</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>Tab</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>画面中央にウィンドウの一覧が表示され、表示されているウィンドウの間でフォーカスを切り替える (キーを解放した時のウィンドウにフォーカスが与えられる; 同時に <keycap>Shift</keycap> キーも押下すると逆順で選択できる)</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F4</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>現在フォーカスが当たっているウィンドウを閉じる</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F5</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>現在フォーカスが当たっているウィンドウの最大化を解除する (最大化されていれば)</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F7</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>現在フォーカスが当たっているウィンドウを移動する (このショートカット・キーを押下した後にマウスまたは矢印キーを使ってウィンドウを移動し、マウスのボタンをクリックするかキーボード上のいずれかのキーを押下して移動を完了する)</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F8</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para xml:lang="en">Resize the currently focused window.  After pressing this
+              shortcut, you can resize the window using either the mouse or
+              the arrow keys.  To finish resizing, click the mouse or press
+              any key on the keyboard.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F9</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>現在フォーカスが当たっているウインドウを最小化する</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F10</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>現在フォーカスが当たっているウインドウを最大化する</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>spacebar</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>現在フォーカスが当たっているウィンドウのウィンドウ・メニューを開く (ウィンドウ・メニューからウィンドウを最小化したり、ワークスペース間を移動したり、ウィンドウ自身を閉じるといった操作を実行できる)</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>Arrow keys</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>現在フォーカスが当たっているウィンドウを指定した向きにある別のワークスペースへ移動する (複数のワークスペースを利用して作業する際の詳細については「<xref linkend="overview-workspaces"/>」をご覧ください)</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-apps"><info><title>アクション・キーについて</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-59"/>
+    <anchor xml:id="gosbasic-61"/> <!-- was Panel Shortcut Keys -->
+
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>application</secondary>
+    </indexterm>
+
+    <para>アプリケーションのショートカット・キーを使うとアプリケーションの操作をキーボードから実行できるようになります。ショートカット・キーを使うことにより、マウスを使う場合よりも素早く操作を実行できます。次の表にアプリケーションで共通なショートカット・キーの一例を示します:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>ショートカット・キー</para>
+            </entry>
+            <entry>
+              <para>動作</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>N</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>新しいドキュメントまたはウィンドウを生成する</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>X</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>選択している文字列や矩形領域を切り取りクリップボードに格納する</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>C</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>選択している文字列や矩形領域をコピーしてクリップボードに格納する</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>V</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>クリップボードの内容を貼り付ける</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Z</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>最後に実行した操作を取り消す</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>S</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>現在のドキュメントをディスクに保存する</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para xml:lang="en"><keycap>F1</keycap></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>アプリケーションのオンライン・ヘルプを呼び出す</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+
+    <para>これらのショートカット・キーに加え、すべてのアプリケーションでユーザ・インタフェースを操作するための一連のキーをサポートしています。これらのキーを使うと、マウスを使って実施する通常の操作をキーボードから実行できます。次の表にインタフェースを制御するキーの一例を示します:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>キー</para>
+            </entry>
+            <entry>
+              <para>動作</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>矢印キーまたは <keycap>Tab</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>インタフェースまたはリストにあるアイテムで制御を移動させる</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Enter</keycap> または<keycap>スペースバー</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>選択したアイテムを実行したり確定する</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycap>F10</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>アプリケーション・ウィンドウの一番左側にあるメニューを開く</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Shift</keycap><keycap>F10</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>選択したアイテムに対してコンテキスト・メニューを開く</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycap>Esc</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>メニュー項目を選択せずにメニューと閉じる、またはドラッグ操作をキャンセルする</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-access"><info><title>アクセス・キーについて</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-63"/>
+
+    <indexterm xml:lang="en">
+      <primary>access keys</primary>
+    </indexterm>
+
+    <para>「<firstterm>メニューバー</firstterm>」とはウィンドウの最上端にあるバーのことで、アプリケーションのメニューが格納されています。「<firstterm>アクセス・キー</firstterm>」とはメニューバーやメニュー、あるいはダイアログなどで下線が付与されている文字で、このキーは任意のアクションを実行する際に利用します。メニューバーの場合だと、各メニューのアクセス・キーに相当する文字にそれぞれ下線が付与されています。</para>
+
+    <para>メニューを開く場合、<keycap>Alt</keycap> キーを押下したままアクセス・キーに相当するキーを押下します。メニューの中にあるメニュー項目のアクセス・キーにはそれぞれ下線が付与されています。メニューが表示された際に任意のメニューを選択するには、単にメニュー項目に対応するアクセス・キーを押下するだけです。</para>
+
+    <para>例えば、<application>ヘルプ</application>・アプリケーションで新しいウィンドウを開く場合は <keycombo><keycap>Alt</keycap><keycap>F</keycap></keycombo> キーを押下して<guimenu>ファイル</guimenu>・メニューを開き、続いて <keycap>N</keycap> キーを押下して<guimenuitem>新しいウィンドウ</guimenuitem>というメニュー項目を有効にします。</para>
+
+    <para>さらにアクセス・キーを使ってダイアログの中にあるインタフェースの要素にもアクセスできます。ダイアログの場合、インタフェースの要素に対応するほとんどの文字に下線が付与されています。特定のインタフェースにアクセスする際は <keycap>Alt</keycap> キーを押したままアクセス・キーを押下してください。</para>
+  </section>
+</section>
+
+</chapter>

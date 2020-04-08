@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="sessions" xml:lang="zh-CN">
+    <info><title>桌面会话</title>
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Christopher Meng</db:firstname>
+      </db:personname>
+      <db:email>i@cicku.me</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2012-2013</db:year>
+      
+      <db:holder>Christopher Meng</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>ravix</db:firstname>
+      </db:personname>
+      <db:email>dr.neemous@gmail.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2013</db:year>
+      
+      <db:holder>ravix</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Dianjin Wang</db:firstname>
+      </db:personname>
+      <db:email>1132321739qq@gmail.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2012</db:year>
+      
+      <db:holder>Dianjin Wang</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Cravix</db:firstname>
+      </db:personname>
+      <db:email>dr.neemous@gmail.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2013</db:year>
+      
+      <db:holder>Cravix</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>nyanyh</db:firstname>
+      </db:personname>
+      <db:email>rebuilty@gmail.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2013</db:year>
+      
+      <db:holder>nyanyh</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>liulitchi</db:firstname>
+      </db:personname>
+      <db:email>xingzuo88@qq.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2013</db:year>
+      
+      <db:holder>liulitchi</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>玉堂白鹤</db:firstname>
+      </db:personname>
+      <db:email>yjwork@qq.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2015</db:year>
+      
+      <db:holder>玉堂白鹤</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Mingye Wang</db:firstname>
+      </db:personname>
+      <db:email>arthur200126@gmail.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2015-2016</db:year>
+      
+      <db:holder>Mingye Wang</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>白铭骢</db:firstname>
+      </db:personname>
+      <db:email>jeffbai@aosc.xyz</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2015-2016</db:year>
+      
+      <db:holder>白铭骢</db:holder>
+    </db:copyright>
+  
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>刘子兴</db:firstname>
+      </db:personname>
+      <db:email>liushuyu@aosc.xyz</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2015-2016</db:year>
+      
+      <db:holder>刘子兴</db:holder>
+    </db:copyright>
+  </info>
+  
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosgetstarted-1"/>
+
+  <highlights>
+    <para>本章的内容是关于登录、关闭 MATE 和启动、结束桌面会话的。</para>
+  </highlights>
+
+  <section xml:id="gosgetstarted-69"><info><title>开始一个会话</title></info>
+    <indexterm xml:lang="en">
+      <primary>sessions</primary>
+      <secondary>starting</secondary>
+    </indexterm>
+    <para xml:lang="en">A <firstterm>session</firstterm> is the period you spend using MATE, between logging in and logging out. During a session, you use your applications, print, browse the web, and so on.</para>
+    <para>登录 MATE 开始您的会话。登录界面是您到 MATE 桌面的一扇门，它需要您输入用户名和密码，并选择在 MATE 的会话期间所使用的语言等。</para>
+    <tip><para>一般而言，您需要以注销来结束会话，但您也可以选择保存会话中的状态并在下一次使用 MATE 时恢复它：更多信息请参阅： <xref linkend="prefs-sessions"/>。</para></tip>
+    
+    <!--
+    2.14 has moved all this out of the standard dialogs.
+    
+    The session manager saves and restores the following: 
+    <itemizedlist>
+      <listitem>
+        <para>The appearance and behavior settings, for example fonts, colors,
+and mouse settings. </para>
+      </listitem>
+      <listitem>
+        <para>The applications that you were running, for example file manager
+and text editor windows. You cannot save and restore applications that the
+session manager does not manage. For example, if you start the <application>vi</application> editor from the command line in a terminal window, session
+manager cannot restore your editing session. </para>
+      </listitem>
+    </itemizedlist>
+    -->
+    
+    
+    <section xml:id="gosstartsession-85"><info><title>登录到 MATE</title></info>
+      <indexterm xml:lang="en">
+        <primary>sessions</primary>
+        <secondary>logging in</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>logging in</primary>
+        <secondary>to session</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>start session</primary>
+      </indexterm>
+      <para>要登录一个会话，请执行以下步骤：</para>
+      <orderedlist>
+        <listitem>
+          <para>在登录界面点击 <guilabel>会话</guilabel> 图标，并在列表中可用的桌面环境中选择 MATE 桌面。大多数用户并不需要这一步操作，通常 MATE 作为了默认的桌面环境。</para>
+        </listitem>
+        <listitem>
+          <para>在登录界面的 <guilabel>用户名</guilabel> 文本框中输入您的用户名，然后按一下 <keycap>回车键</keycap>。</para>
+        </listitem>
+        <listitem>
+          <para>在登录界面的 <guilabel>密码</guilabel> 输入框里输入您的密码，然后按一下 <keycap>回车键</keycap>。</para>
+        </listitem>
+      </orderedlist>
+      <para>正确输入后，您会看到一个启动画面提示 MATE 正在启动。当桌面显示完整后，表示 MATE 已经准备好了，您就可以开始使用您的计算机了。</para>
+      <para>如果您是首次登录，会话管理器会启动一个新的会话。如果您在之前已经登录过，并在上次会话注销时保存了设定，那么会话管理器会恢复您之前的会话。</para>
+      <para>如果在您登录之前想关机或者重启系统，点击登录界面上的 <guilabel>系统</guilabel> 图标。出来一个对话框，选择您需要的选项然后点击 <guibutton>确定</guibutton>。</para>
+      <para>您的系统发行版或销售者可能替换了登录界面，因而不再有 <guilabel>系统</guilabel> 图标。在这种情况下，关机可以通过点击<guilabel>其他</guilabel> 图标，或者点击单独的 <guibutton>关机</guibutton> 按钮。</para>
+<!--What about failsafe mate?-->
+    </section>
+
+    <section xml:id="gosstartsession-86"><info><title>使用不同的语言</title></info>
+      <indexterm xml:lang="en">
+        <primary>sessions</primary>
+        <secondary>different language, logging
+in</secondary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>language, logging in in different</primary>
+      </indexterm>
+      <indexterm xml:lang="en">
+        <primary>logging in</primary>
+        <secondary>to session in different language</secondary>
+      </indexterm>
+      <para>执行以下操作以使用其他语言的会话。</para>
+      <orderedlist>
+        <listitem>
+          <para>在登录界面点击 <guilabel>语言</guilabel>  图标，在列表中选择您需要的语言。</para>
+        </listitem>
+        <listitem>
+          <para>在登录界面的 <guilabel>用户名</guilabel> 文本框中输入您的用户名，然后按一下 <keycap>回车键</keycap>。</para>
+        </listitem>
+        <listitem>
+          <para>在登录界面的 <guilabel>密码</guilabel> 输入框里输入您的密码，然后按一下 <keycap>回车键</keycap>。</para>
+        </listitem>
+      </orderedlist>
+      <note>
+        <para xml:lang="en">When you log in to a session in a different language, you are changing 
+the language for the user interface but are not changing the keyboard layout. 
+To choose a different keyboard layout, use the 
+<application>Keyboard Indicator</application> applet.</para>
+      </note>
+      <tip>
+        <para>您的系统发行版或销售者可能替换了登录界面，因而不再有 <guilabel>语言</guilabel> 图标。在这种情况下，关机选项可能可以通过点击 <guilabel>其他</guilabel> 图标来找到。</para>
+      </tip>
+    </section>
+  </section>
+
+  <section xml:id="lock-screen"><info><title>锁定屏幕</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="gosstartsession-1"/>        
+    <screenshot>
+      <mediaobject xml:lang="en">
+        <imageobject>
+          <imagedata fileref="figures/lockscreen_icon.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase>Lock screen icon.</phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+    <indexterm xml:lang="en">
+      <primary>sessions</primary>
+      <secondary>locking screen</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>locking screen</primary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>Lock button</primary>
+    </indexterm>
+    <para xml:lang="en">Locking your screen prevents access to your applications and information, allowing you to leave your computer unattended. While your screen is locked, the screensaver runs.</para>
+    
+    <para>要锁定屏幕，请执行以下操作：</para>
+    <itemizedlist>
+      <listitem>
+        <para>选择 <menuchoice><guimenu>系统</guimenu><guimenuitem>锁定屏幕</guimenuitem></menuchoice>。</para>
+      </listitem>
+      <listitem>
+        <para>如果 <guibutton>锁定屏幕</guibutton> 按钮显示在面板上，点击<guibutton>锁定屏幕</guibutton> 按钮。</para>
+        <note><para><guibutton>锁定屏幕</guibutton> 按钮在默认并不显示在面板上。要添加它请参考 <xref linkend="panels-addobject"/>。</para></note>
+      </listitem>
+    </itemizedlist>
+    <para>要解锁屏幕时请移动您的鼠标或按下任意按键，在锁定屏幕对话框中输入您的密码，然后按一下 <keycap>回车键</keycap>。</para>
+    <para xml:lang="en">If another user wants to use the computer while it is locked, they can move the mouse or press a key and then click <guibutton>Switch User</guibutton>. The login screen will be displayed, and they can log in using their user account. They will not be able to access any of your applications or information. When they log out, the screen will be locked again and you can access your session by unlocking the screen.</para>
+  <para>您可以给锁定屏幕的用户留一条信息。移动鼠标或按任意键然后点击 <guibutton>留言</guibutton>。在文本框里输入留言，然后点<guibutton>保存</guibutton> 按钮。当这个用户解锁屏幕时，会看到您的留言。 </para>
+  </section>
+
+  <section xml:id="gosstartsession-2"><info><title>程序设定为在登录时自动启动</title></info>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Sessions</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>sessions</primary>
+      <secondary>startup</secondary>
+    </indexterm>
+  <para>在登录会话时，您可以选择一些可靠的程序同时自动启动。例如，您可以让浏览器在登录时自动启动。在登录时自动启动的程序叫 <firstterm>自启动程序</firstterm>。自启动程序在您登出或注消时，由会话管理器自动保存并安全关闭，在下次登录时重新启动。</para>
+  <para><application>会话</application> 首选项工具，允许您定义哪些程序可以在登录时自动启动。它有两个面板： <guilabel>启动程序</guilabel> 面板和 <guilabel>选项</guilabel> 面板。</para>
+
+    <section xml:id="gosstartsession-21"><info><title>启动程序</title></info>
+        <!-- Preserve IDs for backwards compatibility -->
+        <anchor xml:id="gosstartsession-6"/>
+        <anchor xml:id="gosstartsession-10"/>
+      <para>您可以使用自启动程序面板来添加、设置和删除一个程序。</para>
+      <para>在面板里列出了自启动的程序。列表中简要描述了每个程序，同时还有一个复选框，显示是否自启动这个程序。没有选中的程序在您登录时也不会自动运行。</para>
+
+      <section xml:id="gosstartsession-211"><info><title>启动程序</title></info>
+       <para>要允许一个程序自动启动，打勾选中程序前面的复选框。</para>
+       <para>要禁用一个自启动程序，不选中前面的复选框。</para>
+      </section>
+
+      <section xml:id="gosstartsession-212"><info><title>添加自启动程序</title></info>
+       <para>要添加一个对象到面板中，请按以下步骤操作：</para>
+       <procedure>
+        <step>
+         <para>点击 <guibutton>添加</guibutton> 按钮。出来一个 <application>添加启动程序</application> 对话框。</para>
+        </step>
+        <step>
+         <para>在 <guilabel>名称</guilabel> 文本框里，输入自启动程序的名称。</para>
+        </step>
+        <step>
+         <para>在 <guilabel>命令</guilabel> 文本框里输入运行这个程序的命令。例如，输入 <userinput>pluma</userinput> 将会启动 <application>Pluma 文本编辑器</application>。如果您不知道确切的命令，可以点 <guibutton>浏览</guibutton> 按钮来选择一个命令。</para>
+        </step>
+        <step>
+         <para>在 <guilabel>注释</guilabel> 文本框里输入这个程序的描述。这个描述会显示在启动程序列表里。</para>
+        </step>
+        <step>
+         <para>点击 <guibutton>添加</guibutton> 按钮。这个程序就被添加到启动程序列表里了，同时前面的复选框处于选中(允许)状态。</para>
+        </step>
+       </procedure>
+      </section>
+
+      <section xml:id="gosstartsession-213"><info><title>删除一项自启动程序</title></info>
+       <para>要删除一项启动程序，在启动程序列表中选择它，然后单击 <guibutton>删除</guibutton>。</para>
+      </section>
+
+      <section xml:id="gosstartsession-214"><info><title>编辑一项启动程序</title></info>
+       <para>要编辑一个已经存在的启动项，在列表里选中它，然后点 <guibutton>编辑</guibutton> 按钮。在出来的对话框里，您可以编辑程序的属性。更多相关信息，请参阅：<xref linkend="gosstartsession-212"/>。</para>
+      </section>
+    </section>
+    
+    <section xml:id="gosstartsession-22"><info><title>会话选项标签</title></info>
+      <!-- Preserve IDs for backwards compatibility -->
+      <anchor xml:id="gosstartsession-9"/>
+      <anchor xml:id="gosgetstarted-74"/>
+      <para>会话管理器可以记住退出时那些程序是运行的，并且能够在下次登录时自动运行。如果您比较喜欢这样，可以打勾选中 <guilabel>注销时自动记录当前运行的程序</guilabel>。</para>
+    </section>
+  </section>
+  
+  <section xml:id="shutdown"><info><title>结束一个会话。</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="gosgetstarted-73"/>        
+    <indexterm xml:lang="en">
+      <primary>sessions</primary>
+      <secondary>ending</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>sessions</primary>
+      <secondary>logging out</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>logging out</primary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>quit</primary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>shutdown</primary>
+    </indexterm>  
+    <!--  
+    commenting this out for now. A shot of the shutdown button would be good too.
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/logout_icon.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase>Log Out icon.</phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+    -->
+    <para>当您使用完自己的电脑，可以选择下面的动作之一：</para>
+    <itemizedlist>
+      <listitem>
+        <para>注销以允许其他用户使用。要从 MATE 注销，选择 <menuchoice><guimenu>系统</guimenu><guimenuitem>注销<replaceable>用户名</replaceable></guimenuitem></menuchoice>。</para>
+      </listitem>
+      <listitem>
+        <para>关闭计算机并切断电源。要关闭计算机，点菜单 <menuchoice><guimenu>系统</guimenu><guimenuitem>关机</guimenuitem></menuchoice>，然后在出来的对话框里点 <guibutton>关机</guibutton> 按钮。。</para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">Depending on your computer's configuration, you can also <firstterm>Hibernate</firstterm> your computer. During hibernation, less power is used, but all the applications and documents that you have open are preserved and will still be open when you resume from hibernation. You can resume from hibernation by moving your mouse or pressing a key.</para>
+      </listitem>
+    </itemizedlist>
+    
+    <note>
+        <para>一些销售者和发行版允许您通过两种方法来休眠您的计算机，一般叫做休眠和 <firstterm>挂起</firstterm>。它们都可以保存您打开的文件和程序，但一种是关闭计算机电源，另一种是让计算机运行在很少电流状态。</para>
+    </note>
+       
+    <para>当您退出时有程序仍然有未保存的工作时，程序会提示您。您可以选择保存工作或者不保存而注销或关机。</para>
+
+    <para xml:lang="en">Before you end a session, you might want to save your current
+settings so that you can restore the session later. In the <xref linkend="prefs-sessions"/> tool, you can select an option to automatically
+save your current settings.</para>
+  </section>
+</chapter>

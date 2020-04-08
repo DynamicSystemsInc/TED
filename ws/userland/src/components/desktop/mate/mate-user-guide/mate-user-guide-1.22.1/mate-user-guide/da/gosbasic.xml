@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="basic-skills" xml:lang="da">
+    <info><title>Grundlæggende viden</title></info>
+
+<!-- Maintained for 2.8 compatibility -->
+<anchor xml:id="part1-1"/>
+<anchor xml:id="gosbasic-1"/>
+<anchor xml:id="gosbasic-46"/> <!-- was Using Windows -->
+
+<highlights>
+  <para>Dette afsnit beskriver den grundlæggende viden, du skal bruge for at arbejde med MATE-skrivebordet.</para>
+</highlights>
+
+<section xml:id="mouse-skills"><info><title>Musbeskrivelse</title></info>
+  
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-2"/>
+
+  <indexterm><primary>grundlæggende viden</primary> <secondary>musbeskrivelse</secondary></indexterm>
+  <indexterm><primary>mus</primary> <secondary>grundlæggende viden</secondary></indexterm>
+  
+  <!-- Notes for future development of the mouse section
+  Contents list:
+  * buttons
+  * click, drag, etc
+  * what you actually do with those: the concept of focus, selection, etc. 
+    basically, an introduction to the 'noun, verb' grammar of GUIs
+  * pointers
+  -->
+
+  <para>Dette afsnit beskriver hvad museknapperne gør, og hvad de forskellige markører betyder.</para>
+
+    <para>En mus er en pegeenhed, som gør at du kan flytte musemarkøren på skærmen. Musemarkøren er normalt en lille pil, som du styrer mod objekter på skærmen. Tryk på en museknap vil udføre en bestemt handling på filobjektet som musemarkøren er placeret over, afhængig af hvilken knap der trykkes på.</para>
+
+  <section xml:id="mouse-conventions"><info><title>Konventioner for museknapper</title><titleabbrev>Knapper</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-44"/>
+
+    <indexterm><primary>mus</primary> <secondary>knapkonventioner</secondary></indexterm>
+
+    <para>Instruktionerne i denne manual er for højrehånds museenheder med tre knapper, den mest gængse type. Hvis du bruger en anden slags mus eller pegeenhed, så skal du finde de tilsvarende knapper på din mus. Hvis du bruger en venstrehånds mus så se afsnittet om at indstille musen nedenfor.</para>
+
+        <note><para>Hvis du indstiller din museenhed til venstre hånd, så skal du vende museknapkonventionerne om i denne manual. Dette bruges normalt også i det meste dokumentation og i mange programmer.</para></note>
+
+    <para>Nogle mus mangler den midterste knap. Hvis du har en museenhed med to knapper, så er dit system måske konfigureret til at bruge <firstterm>chording</firstterm>, hvor den midterste knap simuleres. Hvis chording er aktiveret, så vil et tryk på venstre og højre museknap på samme tid simulere den midterste museknap. Den midterste knap er ikke nødvendig for at kunne bruge MATE.</para>
+
+    <para>Konventionerne for museknappen anvendt i denne manual er som følger:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Venstre museknap</term>
+        <listitem><para>Knappen på venstre side af musen. Dette er den vigtigste knap, brugt til at vælge, aktivere, trykke på knapper etc. Når du bliver bedt om at »klikke«, så er det underforstået, at du skal klikke på den venstre knap, med  mindre andet er specifikt angivet.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Midterste museknap</term>
+        <listitem><para>Den midterste knap på en museenhed. På mange mus med et rullehjul, kan rullehjullet trykkes ned som det midterste museknapklik.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Højre museknap</term>
+        <listitem><para>Knappen på højre side af en musenhed. Ofte viser denne knap en kontekstmenu for objektet under markøren.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Brug <application>Musepræferencer</application> til at ændre retningen for din musenhed. Du skal så vende konventionerne for museknappen om i denne manual og anden MATE-dokumentation. Se <xref linkend="prefs-mouse"/> for yderligere information om indstilling af dine musepræferencer.</para>
+
+  </section>
+
+  <section xml:id="mouse-actions"><info><title>Musehandlinger</title><titleabbrev>Handlinger</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-45"/>
+    <anchor xml:id="gosbasic-6"/>
+    
+    <indexterm><primary>mus</primary> <secondary>konventioner for handlinger</secondary></indexterm>
+    <indexterm><primary>mus</primary> <secondary>terminologi for handlinger</secondary></indexterm>
+    
+    <para>De følgende konventioner bruges i denne manual til at beskrive handlinger, du udfører med musen.</para>
+    
+    <!-- convert to variablelist -->
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="36.36*"/>
+        <colspec colname="colspec1" colwidth="63.64*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Handling</para>
+            </entry>
+            <entry>
+              <para>Definition</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Klik</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Tryk på og frigiv den venstre museknap, uden at flytte musen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Venstreklik</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Svarer til <emphasis>klik</emphasis>. Betegnelsen »venstreklik« bruges når der kan være forvirring med <emphasis>højreklik</emphasis>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Midterklik</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Tryk og frigiv den midterste museknap, uden at flytte musen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Højreklik</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Tryk og frigiv den højre museknap, uden at bevæge musen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Dobbeltklik</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Tryk og frigiv den venstre museknap to gange hurtig efter hinanden uden at flytte musen. Du kan konfigurere følsomheden på dobbeltklik ved at ændre indstillingen <emphasis>Tidsudløb for dobbeltklik</emphasis>: Se <xref linkend="prefs-mouse"/> for yderligere information.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Klik og træk</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Tryk og frigiv ikke den venstre museknap, og flyt så musen stadig med knappen trykket ned og frigiv så knappen.</para>
+                            
+              <para>Træk med musen bruges i mange forskellige kontekster. Denne flytter et objekt omkring på skærmen med musen. Objektet <emphasis>smides</emphasis> på placeringen hvor museknappen frigives. Denne handling kaldes også for <emphasis>træk og slip</emphasis>. Et klik på et element på grænsefladen for at flytte elementet kaldes undertiden for et <emphasis>grab</emphasis>.</para>		  
+			  
+			                
+              <para>For eksempel kan du ændre placeringen af et vindue ved at trække via dets titelbjælke, eller flytte en fil ved at trække dets ikon fra et vindue og »smide« det på et andet.</para>           
+              
+              <para>Den venstre museknap bruges normalt til at udføre træk-handlinger, selvom den midterste museknap undertiden anvendes for en alternativ træk-handling.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Klik og hold</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Frigiv ikke den venstre museknap</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    
+    <indexterm><primary>mus</primary> <secondary>handlinger</secondary></indexterm>
+
+    <para>Du kan udføre de følgende handlinger med musen:</para>
+    
+    <!--
+    Problem with the word 'action' here, since it's already used
+    to describe things like click, drag, etc. Suggestion: tasks?
+    -->
+
+    <variablelist>
+      <varlistentry>
+        <term>Venstre museknap</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>Vælg tekst.</para></listitem>
+            <listitem><para>Vælg elementer.</para></listitem>
+            <listitem><para>Træk elementer.</para></listitem>
+            <listitem><para>Aktiver elementer.</para></listitem>
+          </itemizedlist>        
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Midterste museknap</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>Indsæt tekst.</para></listitem>
+            <listitem><para>Flyt elementer.</para></listitem>
+            <listitem><para>Flyt vinduer bagerst.</para></listitem>
+          </itemizedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Højre museknap</term>
+        <listitem><para>Brug den højre museknap for at åbne en kontekstmenu for et element, hvis en menu findes. For de fleste elementer kan du også bruge genvejstasten <keycombo><keycap>Skift</keycap> <keycap>F10</keycap></keycombo> til at åbne kontekstmenuen når elementet er blevet valgt.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Når du ser på filer i filhåndteringen, så vælger du en fil ved at klikke på den med venstre museknap og åbner en fil ved at dobbeltklikke med den venstre museknap. Et klik med de højre museknap viser en kontekstmenu for den fil.</para>
+
+    <tip><para>I de fleste programmer kan du vælge tekst med venstre museknap og indsætte teksten i et andet program ved at bruge midterste museknap. Dette kaldes for primær markeringsindsættelse, og fungerer separat fra dine normale udklipsholderoperationer.</para></tip>
+
+    <tip><para>For at vælge mere end et element kan du holde tasten <keycap>Ctrl</keycap> ned for at vælge flere elementer, eller holde tasten <keycap>Skift</keycap> nede for at vælge et løbende antal elementer. Du kan også trække en <firstterm>afgrænsningsboks</firstterm> for at vælge flere elementer ved at starte trækket i det tomme rum omkring elementerne og lave et rektangel.</para></tip>
+
+  </section>
+
+  <section xml:id="mouse-pointers"><info><title>Musemarkører</title><titleabbrev>Markører</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-7"/>
+
+    <indexterm><primary>mus</primary> <secondary>markører</secondary></indexterm>
+    <indexterm><primary>markører</primary> <see>musemarkører</see></indexterm>
+
+    <para>Når du bruger musen, så kan udseendet af musemarkøren ændre sig. Udseendet på markøren giver information om en bestemt handling, placering eller tilstand.</para>
+
+   <para>De følgende musemarkører vises når musen passerer forskellige elementer på skærmen:</para>
+   
+   <note><para>Dine musemarkører kan være anderledes end dem vist her, hvis du bruger et andet markørtema. Din distributør eller leverandør kan have angivet et andet standardtema.</para></note>
+   
+   <variablelist>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/normal_pointer.png"/> </imageobject> <textobject> <phrase>Normal markør.</phrase> </textobject> </inlinemediaobject> Normal markør</term>
+        <listitem><para>Denne markør vises under normal brug af musen.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/busy_pointer.png"/> </imageobject> <textobject> <phrase>Optaget markør.</phrase> </textobject> </inlinemediaobject> Optaget markør</term>
+        <listitem><para>Denne markør fremgår over et vindue som er i gang med en opgave. Du kan ikke bruge musen på dette vindue, men du kan flytte musen til et andet vindue og arbejde der.</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/resize_pointer.png"/> </imageobject> <textobject> <phrase>Ændr størrelse-markør.</phrase> </textobject> </inlinemediaobject> Ændr størrelse-markør</term>
+        <listitem><para>Markøren indikerer at du kan tage kontrollen for at ændre størrelsen på dele af brugerfladen. Fremgår over kanterne af vinduer og over ændr størrelse-håndtag mellem paneler i et vindue. Retningen af pilene indikerer i hvilken retning du kan ændre størrelsen.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/hyperlink_pointer.png"/> </imageobject> <textobject> <phrase>Håndmarkør</phrase> </textobject> </inlinemediaobject> Håndmarkør</term>
+        <listitem><para>Denne markør fremkommer over en <glossterm>hyperteksthenvisning</glossterm>, f.eks. på en internetside. Denne markør indikerer at du kan klikke på henvisningen for at indlæse et nyt dokument eller udføre en handling.</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/ibeam_pointer.png"/> </imageobject> <textobject> <phrase>I-bjælke markør</phrase> </textobject> </inlinemediaobject> I-bjælke markør</term>
+        <listitem><para>Denne markør vises når musen er over tekst, som du kan vælge eller redigere. Klik for at placere markøren hvor du ønsker at taste tekst, eller træk for at vælge tekst.</para></listitem>
+      </varlistentry>      
+    </variablelist>      
+      
+   <para>De følgende musemarkører vises når et element trækkes såsom en fil, eller et stykke tekst. De indikerer resultatet ved at frigive museknappen for at smide objektet der flyttes.</para>      
+      
+    <variablelist>      
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/move_pointer.png"/> </imageobject> <textobject> <phrase>Flyt-markør.</phrase> </textobject> </inlinemediaobject> Flyt markør</term>
+        <listitem><para>Denne markør indikerer, at når du slipper objektet, så flyttes objektet fra den gamle placering til den nye placering.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/copy_pointer.png"/> </imageobject> <textobject> <phrase>Kopieringsmarkør.</phrase> </textobject> </inlinemediaobject> Kopieringsmarkør</term>
+        <listitem><para>Denne markør indikerer, at når du slipper objektet, så oprettes en kopi af objektet. det sted det slippes.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/link_pointer.png"/> </imageobject> <textobject> <phrase>Symbolsk henvisning-markør.</phrase> </textobject> </inlinemediaobject> Symbolsk henvisning-markør</term>
+        <listitem><para>Denne markør indikerer, at der oprettes en <firstterm>symbolsk henvisning</firstterm> til objekter, der hvor du slipper objektet. En symbolsk henvisning er en speciel slags fil, som peger til en anden fil eller mappe. For mere om dette se <xref linkend="caja-symlink"/>.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/ask_pointer.png"/> </imageobject> <textobject> <phrase>Spørg-markør.</phrase> </textobject> </inlinemediaobject> Spørg-markør</term>
+        <listitem><para>Denne markør indikerer, at når du slipper objektet, så får du en valgmulighed. En menu vil åbne sig og du kan vælge hvilken handling du ønsker at udføre. For eksempel kan du flytte, kopiere eller oprette en symbolsk henvisning.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/not_available_pointer.png"/> </imageobject> <textobject> <phrase>Ikke tilgængelig-markør.</phrase> </textobject> </inlinemediaobject> Ikke tilgængelig-markør</term>
+        <listitem><para>Denne markør indikerer at du ikke kan slippe objektet på den nuværende placering. Frigiv musen nu og det vil ikke have nogen effekt: objektet vil blive returneret til sin oprindelige placering.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/move_panel_object_pointer.png"/> </imageobject> <textobject> <phrase>Flyt panelobjekt-markør.</phrase> </textobject> </inlinemediaobject> Flyt panelobjekt-markør</term>
+        <listitem><para>Denne markør vises når du trækker et panel eller et panelobjekt med midterste museknap. Se <xref linkend="panels"/> for yderligere information om paneler.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/movewindow_pointer.png"/> </imageobject> <textobject> <phrase>Flyt vindue-markør.</phrase> </textobject> </inlinemediaobject> Flyt vindue-markør</term>
+        <listitem><para>Denne markør vises når du trækker et vindue for at flytte det. Se <xref linkend="windows-manipulating"/> for yderligere information om at flytte vinduer.</para></listitem>
+      </varlistentry>
+
+    </variablelist>
+  </section>
+</section>
+
+<section xml:id="keyboard-skills"><info><title>Tastaturet</title></info>
+  
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-51"/>
+
+  <indexterm><primary>grundlæggende viden</primary> <secondary>tastaturbeskrivelse</secondary></indexterm>
+  <indexterm><primary>tastatur</primary> <secondary>grundlæggende viden</secondary></indexterm>
+
+  <para>For næsten alle opgaver du kan udføre med musen, kan du bruge tastaturet til at udføre den samme opgave. <firstterm>Genvejstaster</firstterm> er taster som giver en hurtig måde til at udføre en opgave.</para>
+
+  <para>Du kan bruge genvejstaster til at udføre generelle opgaver i MATE-skrivebordet og arbejde med grænsefladelementer såsom paneler og vinduer. Du kan også bruge genvejstaster i programmer. For at tilpasse dine genvejstaster, så brug præferenceværktøjet <application>Tastaturgenveje</application>. Se <xref linkend="prefs-keyboard-shortcuts"/> for yderligere information om konfiguration af genvejstaster.</para>
+
+  <note><para>Mange pc-tastaturer har to specielle taster til Windowsoperativsystemet: en tast med et Microsoft Windows™-logo og en tast til at tilgå kontekstmenuer.</para>
+  <para>I MATE er Windowstasten ofte konfigureret til at fungere som en yderligere modifikationstast, kaldt <firstterm>Supertast</firstterm>. Kontekstmenutasten kan bruges til at tilgå konteksmenuen for det valgte element, ligesom genvejstatsen <keycombo><keycap>Skift</keycap><keycap>F10</keycap></keycombo> kan.</para></note>
+
+  <para>Du kan også ændre MATE-skrivebordspræferencerne til at bruge tastaturtilgængelighedsfunktioner. Se <xref linkend="prefs-keyboard-a11y"/> for yderligere information om tastaturtilgængelighedsfunktioner.</para>
+
+  <para>De følgende afsnit beskriver genvejstasterne, du kan bruge i skrivebrodet og programmerne.</para>
+
+  <section xml:id="shortcuts-global"><info><title>Globale genvejstaster</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-62"/>
+
+    <indexterm><primary>genvejstaster</primary> <secondary>globale</secondary></indexterm>
+
+    <para>Globale genvejstaster gør at du du kan bruge tastaturet til at udføre opgaver relateret til dit skrivebord, frem for opgaver på det valgte vindue eller program. Den følgende tabel viser nogle globale genvejstaster:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Genvejstast</para>
+            </entry>
+            <entry>
+              <para>Funktion</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F1</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Åbn <guimenu>Programmenuen</guimenu>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F2</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Vis dialogen <guilabel>Kør program</guilabel>. Se <xref linkend="tools-run-app"/> for yderligere information.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Udskriv skærm</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Tag et skærmbillede af hele skrivebordet. Se <xref linkend="tools-screenshot"/> for yderligere information.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Udskriv skærm</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Tag et skærmbillede af vinduet i fokus.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>Piletaster</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Skift til arbejdsrummet til den angivne retning fra det nuværende arbejdsrum. Se <xref linkend="overview-workspaces"/> for yderligere information om arbejdet med flere arbejdsrum.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>D</keycap></keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Minimer alle vinduer og sæt fokus på skrivebordet.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Tab</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Skift mellem vinduer. En liste over vinduer du kan vælge igennem vises. Frigiv tasterne for at vælge et vindue. Du kan trykke på tasten <keycap>Skift</keycap> for at løbe igennem vinduerne i omvendt rækkefølge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>Tab</keycap></keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Skifter fokus mellem panelerne og skrivebrodet. En liste med elementer du kan vælge vises. Frigiv tasterne for at vælge et element. Du kan trykke på <keycap>Skift</keycap> for at gå igennem elementerne i omvendt rækkefølge.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-window"><info><title>Vinduesgenvejstaster</title></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-58"/>
+
+    <indexterm><primary>genvejstaster</primary> <secondary>vindue</secondary></indexterm>
+
+    <para>Vinduesgenvejstaster  gør det muligt at bruge tastaturet til at udføre opgaver på vinduet i fokus. Den følgende tabel viser nogle af vinduesgenvejstasterne:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Genvejstast</para>
+            </entry>
+            <entry>
+              <para>Funktion</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Tab</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Skift mellem vinduer. En liste over vinduer du kan vælge igennem vises. Frigiv tasterne for at vælge et vindue. Du kan trykke på tasten <keycap>Skift</keycap> for at løbe igennem vinduerne i omvendt rækkefølge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F4</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Luk vinduet i fokus</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F5</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Fjern maksimering på aktuelt vindue, hvis det er maksimeret.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F7</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Flytter vinduet i fokus. Efter tryk på genvejen kan du flytte vinduet via enten musen eller piletasterne. For at afslutte bevægelsen, klik på musen eller tryk på en tast på tastaturet.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F8</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Ændr vinduet i fokus. Efter tryk på denne genvej kan du ændre størrelsen på vinduet via enten musen eller piletasterne. For at afslutte, klik på musen eller tryk på en tast på tastaturet.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F9</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Minimer aktuelt vindue.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F10</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Maksimer aktuelt vindue.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>mellemrum</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Åbn vinduesmenuen for det valgte vindue. Vinduesmenuen gør det muligt at udføre handlinger på vinduet, såsom minimering, flytning mellem arbejdsrum og lukning.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Skift</keycap><keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>Piletasterne</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Flyt det aktuelle vindue til et andet arbejdsrum i den angivne retning. Se <xref linkend="overview-workspaces"/> for yderligere information om arbejde med flere arbejdsrum.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-apps"><info><title>Programtaster</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-59"/>
+    <anchor xml:id="gosbasic-61"/> <!-- was Panel Shortcut Keys -->
+
+    <indexterm><primary>genvejstaster</primary> <secondary>program</secondary></indexterm>
+
+    <para>Programgenvejstaster gør det muligt at udføre programopgaver. Du kan bruge genvejstaster til at udføre programhandlinger hurtigere end med musen. Den følgende tabel viser nogle gængse genvejstaster for programmer:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Genvejstast</para>
+            </entry>
+            <entry>
+              <para>Handling</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>N</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Opret et nyt dokument eller vindue.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>X</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Klip den valgte tekst og placer den i udklipsholderen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>C</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Kopier den valgte tekst til udklipsholderen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>V</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Indsæt indholdet af udklipsholderen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Z</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Fortryd den seneste handling.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>S</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Gem det nuværende dokument til disken.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycap>F1</keycap></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Indlæs hjælpedokumentet for programmet.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+
+    <para>Udover disse genvejstaster understøtter alle programmer et sæt af taster til at navigere og arbejde med brugerfladen. Disse taster gør at du kan udføre operationer, som du normalt ville udføre med en mus. Den følgende tabel beskriver nogle af disse kontroltaster til brugerfladen:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Taster</para>
+            </entry>
+            <entry>
+              <para>Handling</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Piletaster eller <keycap>Indryk</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Flyt mellem kontroller i brugerfladen eller elementer i en liste.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Retur</keycap> eller <keycap>mellemrum</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Aktiver eller vælg det valgte element.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>F10</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Aktiver menuen længst mod venstre for programvinduet.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Skift</keycap><keycap>F10</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Aktier kontekstmenuen for det valgte element.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Esc</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Luk en menu uden at vælge et menuelement, eller afbryd en træk-operation.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-access"><info><title>Adgangstaster</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-63"/>
+
+    <indexterm><primary>adgangstaster</primary></indexterm>
+
+    <para>En <firstterm>menubjælke</firstterm> er en bjælke øverst i vinduet, som indeholder menuerne for programmet. En <firstterm>adgangstast</firstterm> er et understreget bogstav i en menubjælke, menu eller dialog, som du kan bruge til at udføre en handling. På en menubjælke, er adgangstasten for hver menu understreget.</para>
+
+    <para>Hold <keycap>Alt</keycap>-tasten ned og tryk så på en adgangstast for at åbne en menu. I menuen er adgangstasten for hver menuelement understreget. For at vælge et menuelement når en menu vises, så kan du bare trykke på adgangstasten for menuelementet.</para>
+
+    <para>For eksempel, for at åbne et nyt vindue i programmet <application>Hjælp</application>, tryk på <keycombo><keycap>Alt</keycap><keycap>F</keycap></keycombo> for at åbne menuen <guimenu>Fil</guimenu>, tryk så på <keycap>N</keycap> for at aktivere menuelementet <guimenuitem>Nyt vindue</guimenuitem>.</para>
+
+    <para>Du kan også bruge adgangstaster til at tilgå elementer i en dialog. I en dialog er et bogstav i de fleste dialogelementer understreget. For at tilgå et bestemt dialogelement, så hold <keycap>Alt</keycap> nede og tryk så på adgangstasten.</para>
+  </section>
+</section>
+
+</chapter>

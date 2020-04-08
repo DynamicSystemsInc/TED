@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="basic-skills" xml:lang="el">
+    <info><title>Βασικές ικανότητες</title></info>
+
+<!-- Maintained for 2.8 compatibility -->
+<anchor xml:id="part1-1"/>
+<anchor xml:id="gosbasic-1"/>
+<anchor xml:id="gosbasic-46"/> <!-- was Using Windows -->
+
+<highlights>
+  <para>Αυτό το κεφάλαιο σας εισάγει τις βασικές ικανότητες που χρειάζεστε για να εργαστείτε με την επιφάνεια εργασίας MATE.</para>
+</highlights>
+
+<section xml:id="mouse-skills"><info><title>Ικανότητες ποντικιού</title></info>
+  
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-2"/>
+
+  <indexterm xml:lang="en">
+    <primary>basic skills</primary>
+    <secondary>mouse skills</secondary>
+  </indexterm>
+  <indexterm xml:lang="en">
+    <primary>mouse</primary>
+    <secondary>basic skills</secondary>
+  </indexterm>
+  
+  <!-- Notes for future development of the mouse section
+  Contents list:
+  * buttons
+  * click, drag, etc
+  * what you actually do with those: the concept of focus, selection, etc. 
+    basically, an introduction to the 'noun, verb' grammar of GUIs
+  * pointers
+  -->
+
+  <para>Αυτή η ενότητα περιγράφει τη χρήση των κουμπιών ποντικιού, και τη σημασία των διαφόρων ειδών δείκτη ποντικιού.</para>
+
+    <para>Ένα ποντίκι είναι μία δεικτική συσκευή που σας επιτρέπει να μετακινείτε το δείκτη ποντικιού στην οθόνη. Ο δείκτης ποντικιού είναι συνήθως ένα μικρό βέλος με το οποίο δείχνετε αντικείμενα στην οθόνη. Πιέζοντας κάποιο κουμπί στο ποντίκι εκτελείτε μία συγκεκριμένη ενέργεια στο αντικείμενο πάνω στο οποίο βρίσκεται ο δείκτης, και εξαρτάται από το ποιο κουμπί πιέζετε στο ποντίκι.</para>
+
+  <section xml:id="mouse-conventions"><info><title>Συμβάσεις κουμπιών ποντικιού</title><titleabbrev>Κουμπιά</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-44"/>
+
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>button conventions</secondary>
+    </indexterm>
+
+    <para xml:lang="en">The instructions in this manual are for three buttoned, right-handed mouse devices, the most common type.
+        If you use another type of mouse or pointing device, you should take care to locate the corresponding buttons on your mouse.  If you use a left-handed mouse,
+        see the paragraph on setting mouse orientation below.
+    </para>
+
+        <note><para xml:lang="en">If you set your mouse device to be left-handed, you should reverse the mouse button
+        conventions used in this manual. This is normally also implied in most documentation and in many
+        applications.</para></note>
+
+    <para>Ορισμένες συσκευές ποντικιού δε διαθέτουν μεσαίο κουμπί. Aν έχετε συσκευή ποντικιού δύο κουμπιών, τότε το σύστημά σας μπορεί να είναι διαμορφωμένο ώστε να χρησιμοποιεί <firstterm>κούρδισμα</firstterm> επιτρέποντας την προσομοίωση τρίτου κουμπιού. Αν το κούρδισμα είναι ενεργοποιημένο, χρειάζεται να πατηθούν ταυτόχρονα το δεξί και το αριστερό κουμπί του ποντικιού , για να προσομοιωθεί το μεσαίο κουμπί. Ένα μεσαίο κουμπί δεν είναι αυστηρά αναγκαίο για τη χρήση του MATE.</para>
+
+    <para>Οι συνθήκες κουμπιού για το ποντίκι που χρησιμοποιούνται σε αυτό το εγχειρίδιο είναι οι ακόλουθες:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Αριστερό κουμπί ποντικιού</term>
+        <listitem><para>Το κουμπί στην αριστερή πλευρά μιας συσκευής ποντικιού. Αυτό είναι το βασικό κουμπί ποντικιού, που χρησιμοποιείται για επιλογή, ενεργοποίηση, πάτημα κουμπιών κ.λπ... Όταν σας προτρέπουν να κάνετε "κλικ" αυτό συνεπάγεται το πάτημα του αριστερού κουμπιού, εκτός αν σας δίνεται διαφορετική συγκεκριμένη οδηγία.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Μεσαίο κουμπί ποντικιού</term>
+        <listitem><para>Το μεσαίο κουμπί μιας συσκευής ποντικιού. Σε πολλές συσκευές ποντικιού με ροδέλα κύλισης, η ροδέλα κύλισης μπορεί να έχει τη δυνατότητα να πιέζεται και να χρησιμοποιείται ως μεσαίο κουμπί.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Δεξί κουμπί ποντικιού</term>
+        <listitem><para>Το κουμπί στη δεξιά πλευρά μίας συσκευής ποντικιού. Συχνά, αυτό το κουμπί εμφανίζει ένα μενού σχετικό με το αντικείμενο κάτω από τον δείκτη.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Χρησιμοποιείστε τις <application>Προτιμήσεις ποντικιού</application> για να αντιστρέψετε τη διεύθυνση της συσκευής ποντικιού. Θα χρειαστείτε σε αυτήν την περίπτωση να αντιστρέψετε τις συνθήκες των κουμπιών για το ποντίκι που χρησιμοποιούνται σε αυτό το εγχειρίδιο και άλλες τεκμηριώσεις MATE. Δείτε την <xref linkend="prefs-mouse"/> για περισσότερες πληροφορίες σχετικά με τη ρύθμιση για τις προτιμήσεις του ποντικιού σας.</para>
+
+  </section>
+
+  <section xml:id="mouse-actions"><info><title>Ενέργειες ποντικιού</title><titleabbrev>Ενέργειες</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-45"/>
+    <anchor xml:id="gosbasic-6"/>
+    
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>action conventions</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>action terminology</secondary>
+    </indexterm>
+    
+    <para>Οι ακόλουθες συνθήκες χρησιμοποιούνται σε αυτό το εγχειρίδιο για την περιγραφή ενεργειών που μπορείτε να εκτελέσετε με το ποντίκι:</para>
+    
+    <!-- convert to variablelist -->
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="36.36*"/>
+        <colspec colname="colspec1" colwidth="63.64*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Ενέργεια</para>
+            </entry>
+            <entry>
+              <para>Ορισμός</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Κλικ</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Πιέστε και ελευθερώστε το αριστερό κουμπί του ποντικιού, χωρίς να κινήσετε το ποντίκι.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Αριστερό κλικ ποντικιού</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Ίδιο όπως <emphasis>κλικ</emphasis>. Ο όρος 'αριστερό κλικ' χρησιμοποιείται όπου μπορεί να υπάρξει σύγχυση με το <emphasis>δεξί κλικ</emphasis>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Μεσαίο κλικ ποντικιού</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Πιέστε και ελευθερώστε το μεσαίο κουμπί του ποντικιού, χωρίς να κινήσετε το ποντίκι.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Δεξί κλικ ποντικιού</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Πιέστε και ελευθερώστε το δεξί κουμπί του ποντικιού, χωρίς να κινήσετε το ποντίκι.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Διπλό κλικ</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Πιέστε και ελευθερώστε το αριστερό κουμπί του ποντικιού δύο φορές σε γρήγορη διαδοχή χωρίς να μετακινήσετε το ποντίκι. Μπορείτε να ρυθμίσετε την ευαισθησία στα διπλά κλικ αλλάζοντας τη ρύθμιση <emphasis>Διάρκεια διπλού κλικ</emphasis>: δείτε την <xref linkend="prefs-mouse"/> για περισσότερες πληροφορίες.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Πάτημα και σύρσιμο</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Πιέστε και μην ελευθερώσετε το αριστερό κουμπί του ποντικιού, και κατόπιν μετακινείστε το ποντίκι με το κουμπί πατημένο, και ελευθερώστε το στο τέλος της μετακίνησης.</para>
+                            
+              <para>Η ενέργεια συρμού με το ποντίκι χρησιμοποιείται σε πολλές διαφορετικές περιστάσεις. Αυτό μετακινεί ένα αντικείμενο μέσα στην οθόνη με το ποντίκι. Το αντικείμενο <emphasis>αφήνεται</emphasis> στην τοποθεσία όπου το κουμπί του ποντικιού ελευθερώνεται. Αυτή η ενέργεια επίσης ονομάζεται <emphasis>σύρσιμο και άφημα</emphasis>. Κάνοντας κλικ σε ένα στοιχείο της διεπαφής για τη μετακίνησή του μερικές φορές ονομάζεται <emphasis>άδραγμα</emphasis>.</para>		  
+			  
+			                
+              <para>Για παράδειγμα, μπορείτε να αλλάξετε τη θέση ενός παραθύρου σέρνοντάς το από τη γραμμή τίτλου, ή να μετακινήσετε ένα αρχείο σέρνοντας το εικονίδιό του από ένα παράθυρο και αφήνοντάς το σε ένα άλλο.</para>           
+              
+              <para>Το αριστερό κουμπί ποντικιού χρησιμοποιείται συνήθως για εκτέλεση ενεργειών με συρμό, αν και το μεσαίο κουμπί ποντικιού μερικές φορές χρησιμοποιείται για κάποια εναλλακτική ενέργεια συρμού.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Πάτημα και κράτημα</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Πιέστε και μην ελευθερώσετε το αριστερό κουμπί ποντικιού.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>actions</secondary>
+    </indexterm>
+
+    <para>Μπορείτε να εκτελέσετε τις παρακάτω ενέργειες με το ποντίκι:</para>
+    
+    <!--
+    Problem with the word 'action' here, since it's already used
+    to describe things like click, drag, etc. Suggestion: tasks?
+    -->
+
+    <variablelist>
+      <varlistentry>
+        <term>Αριστερό κουμπί ποντικιού</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>Επιλογή κειμένου.</para></listitem>
+            <listitem><para>Επιλογή αντικειμένων.</para></listitem>
+            <listitem><para>Σύρσιμο αντικειμένων.</para></listitem>
+            <listitem><para>Ενεργοποίηση αντικειμένων.</para></listitem>
+          </itemizedlist>        
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Μεσαίο κουμπί ποντικιού</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>Επικόλληση κειμένου.</para></listitem>
+            <listitem><para>Μετακίνηση αντικειμένων.</para></listitem>
+            <listitem><para>Μετακίνηση παραθύρου στο πίσω μέρος.</para></listitem>
+          </itemizedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Δεξί κουμπί ποντικιού</term>
+        <listitem><para>Χρησιμοποιείστε το δεξί κουμπί του ποντικιού για να ανοίξετε ένα σχετικό μενού για ένα αντικείμενο, αν υπάρχει τέτοιο μενού. Για τα περισσότερα αντικείμενα, μπορείτε επίσης να χρησιμοποιήσετε τη συντόμευση πληκτρολογίου <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo> για να ανοίξετε το σχετικό μενού αφού επιλέξετε το αντικείμενο.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Για παράδειγμα, όταν προβάλλετε αρχεία στο διαχειριστή αρχείων, επιλέγετε ένα αρχείο κάνοντας κλικ με το αριστερό κουμπί ποντικιού και ανοίγετε ένα αρχείο κάνοντας διπλό κλικ πάλι με το αριστερό κουμπί. Κάνοντας κλικ με το δεξί κουμπί θα εμφανιστεί ένα σχετικό μενού για εκείνο το αρχείο.</para>
+
+    <tip><para>Στις περισσότερες εφαρμογές, μπορείτε να επιλέξετε κείμενο με το αριστερό κουμπί του ποντικιού και να το επικολλήσετε σε μία άλλη εφαρμογή χρησιμοποιώντας το μεσαίο κουμπί. Αυτό ονομάζεται πρωτεύουσα επικόλληση επιλογής, και λειτουργεί ξεχωριστά από τις κανονικές λειτουργίες του προχείρου.</para></tip>
+
+    <tip><para>Για να επιλέξετε περισσότερα από ένα αντικείμενα, μπορείτε να κρατήσετε πατημένο το πλήκτρο <keycap>Ctrl</keycap> για την επιλογή πολλαπλών αντικειμένων, ή κρατήστε πατημένο το πλήκτρο <keycap>Shift</keycap> για να επιλέξετε μία συνεχή ποσότητα αντικειμένων. Μπορείτε επίσης να σύρετε ένα <firstterm>περιορισμένο κουτί</firstterm> για την επιλογή πολλών αντικειμένων αρχίζοντας να σέρνετε το δείκτη στον κενό χώρο γύρω από τα αντικείμενα και σχηματίζοντας ένα παραλληλόγραμμο.</para></tip>
+
+  </section>
+
+  <section xml:id="mouse-pointers"><info><title>Δείκτες ποντικιού</title><titleabbrev>Δείκτες</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-7"/>
+
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>pointers</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>pointers</primary>
+      <see>mouse pointers</see>
+    </indexterm>
+
+    <para>Καθώς χρησιμοποιείτε το ποντίκι, η εμφάνιση του δείκτη του ποντικιού μπορεί να μεταβληθεί. Η εμφάνιση του δείκτη παρέχει ανάδραση σχετικά με κάποια συγκεκριμένη λειτουργία, τοποθεσία, ή κατάσταση.</para>
+
+   <para>Οι ακόλουθοι δείκτες ποντικιού παρουσιάζονται καθώς το ποντίκι περνάει πάνω από διάφορα στοιχεία της οθόνης:</para>
+   
+   <note><para xml:lang="en">Your mouse pointers will differ from those shown here if you are using a different pointer theme. Your distributor or vendor may have set a different default theme.</para></note>
+   
+   <variablelist>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/normal_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Normal pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Normal pointer
+        </term>
+        <listitem><para>Ο δείκτης ποντικιού εμφανίζεται κατά τη διάρκεια κανονικής χρήσης του ποντικιού.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/busy_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Busy pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Busy pointer
+        </term>
+        <listitem><para>Αυτός ο δείκτης εμφανίζεται πάνω από ένα παράθυρο κατά τη διάρκεια εκτέλεσης κάποιας εργασίας. Δεν έχετε τη δυνατότητα να χρησιμοποιήσετε το ποντίκι για να εισάγετε οτιδήποτε σε αυτό το παράθυρο, αλλά μπορείτε να μεταβείτε σε κάποιο άλλο παράθυρο και να εργαστείτε σε αυτό.</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/resize_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Resize pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Resize pointer
+        </term>
+        <listitem><para>Αυτός ο δείκτης υποδεικνύει ότι μπορείτε να χρησιμοποιήσετε τον έλεγχο για την αλλαγή μεγέθους τμημάτων της διεπαφής. Αυτό εμφανίζεται πάνω από τα άκρα των παραθύρων και μεταβάλλει το μέγεθος χειριστών ανάμεσα στα πλαίσια σε ένα παράθυρο. Η διεύθυνση των βελών προσδιορίζει προς ποια διεύθυνση μπορείτε να αλλάξετε μέγεθος.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/hyperlink_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Hand pointer</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Hand pointer
+        </term>
+        <listitem><para>Ο δείκτης εμφανίζεται όταν περνάτε πάνω από ένα <glossterm>δεσμό υπερκειμένου</glossterm>, σε μία ιστοσελίδα για παράδειγμα. Αυτός ο δείκτης υποδεικνύει ότι μπορείτε να κάνετε κλικ στο δεσμό για να φορτώσετε ένα νέο έγγραφο ή να εκτελέσετε κάποια ενέργεια.</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/ibeam_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>I-beam pointer</phrase>
+            </textobject>
+          </inlinemediaobject>
+          I-beam pointer
+        </term>
+        <listitem><para>Αυτός ο δείκτης εμφανίζεται όταν το ποντίκι βρίσκεται πάνω από κείμενο που μπορείτε να επιλέξετε ή να επεξεργαστείτε. Κάντε κλικ για να τοποθετήσετε το δρομέα στο σημείο που θέλετε να πληκτρολογήσετε κείμενο, ή σύρετε για να επιλέξετε κείμενο.</para></listitem>
+      </varlistentry>      
+    </variablelist>      
+      
+   <para>Οι παρακάτω δείκτες ποντικιού εμφανίζονται όταν σύρετε ένα αντικείμενο όπως ένα αρχείο, ή ένα τμήμα κειμένου. Υποδεικνύουν το αποτέλεσμα της ελευθέρωσης του κουμπιού στο ποντίκι για το άφημα του αντικειμένου που μεταφέρεται.</para>      
+      
+    <variablelist>      
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/move_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Move pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Move pointer
+        </term>
+        <listitem><para>Αυτός ο δείκτης υποδεικνύει ότι όταν αφήσετε το αντικείμενο, αυτό μετακινείται από την προηγούμενη στην νέα τοποθεσία.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/copy_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Copy pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Copy pointer
+        </term>
+        <listitem><para>Αυτός ο δείκτης υποδεικνύει ότι όταν αφήσετε το αντικείμενο, δημιουργείται ένα αντίγραφο του αντικειμένου στη θέση που το αφήνετε.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/link_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Symbolic link pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Symbolic link pointer
+        </term>
+        <listitem><para>Αυτός ο δείκτης σας υποδεικνύει ότι όταν αφήσετε το αντικείμενο, δημιουργείται ένας <firstterm>συμβολικός δεσμός</firstterm> προς το αντικείμενο εκεί που αφήνετε το αντικείμενο αυτό. Ένας συμβολικός δεσμός είναι ένας ειδικός τύπος αρχείου που οδηγεί σε άλλο αρχείο ή φάκελο. Για περισσότερες λεπτομέρειες πάνω σε αυτό, δείτε την <xref linkend="caja-symlink"/>.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/ask_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Ask pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Ask pointer
+        </term>
+        <listitem><para>Αυτός ο δείκτης σας δείχνει ότι όταν αφήσετε το αντικείμενο, θα έχετε μία επιλογή ενεργειών. Θα εμφανιστεί ένα μενού για να σας δώσει τη δυνατότητα να επιλέξετε ποια ενέργεια θα προτιμούσατε να εκτελέσετε. Για παράδειγμα, μπορεί να σας δοθεί η δυνατότητα να μετακινήσετε, να αντιγράψετε, ή να δημιουργήσετε ένα συμβολικό δεσμό.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/not_available_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Not available pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Not available pointer
+        </term>
+        <listitem><para>Αυτός ο δείκτης υποδεικνύει ότι δε μπορείτε να αφήσετε το αντικείμενο στη συγκεκριμένη τοποθεσία. Ελευθέρωση του κουμπιού στο ποντίκι αυτή τη στιγμή δε θα επιφέρει κανένα αποτέλεσμα: το αντικείμενο που σύρατε θα επιστρέψει στην αρχική του τοποθεσία.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/move_panel_object_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Move panel object pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Move panel object pointer
+        </term>
+        <listitem><para>Αυτός ο δείκτης εμφανίζεται όταν σύρετε έναν πίνακα εφαρμογών ή ένα αντικείμενο πίνακα εφαρμογών με το μεσαίο κουμπί του ποντικιού. Δείτε το <xref linkend="panels"/> για περισσότερες πληροφορίες πάνω στους πίνακες εφαρμογών.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/movewindow_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Move window pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Move window pointer
+        </term>
+        <listitem><para>Αυτός ο δείκτης ποντικιού εμφανίζεται όταν σύρετε ένα παράθυρο για να το μετακινήσετε. Δείτε την <xref linkend="windows-manipulating"/> για περισσότερες πληροφορίες στη μετακίνηση παραθύρων.</para></listitem>
+      </varlistentry>
+
+    </variablelist>
+  </section>
+</section>
+
+<section xml:id="keyboard-skills"><info><title>Ικανότητες πληκτρολογίου</title></info>
+  
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-51"/>
+
+  <indexterm xml:lang="en">
+    <primary>basic skills</primary>
+    <secondary>keyboard skills</secondary>
+  </indexterm>
+  <indexterm xml:lang="en">
+    <primary>keyboard</primary>
+    <secondary>basic skills</secondary>
+  </indexterm>
+
+  <para>Σχεδόν για κάθε ενέργεια που μπορείτε να εκτελέσετε με το ποντίκι, έχετε τη δυνατότητα να την εκτελέσετε και με το πληκτρολόγιο. Τα <firstterm>Πλήκτρα συντόμευσης</firstterm> σας παρέχουν ένα γρήγορο τρόπο για την εκτέλεση μιας ενέργειας.</para>
+
+  <para>Μπορείτε να χρησιμοποιήσετε πλήκτρα συντόμευσης για να εκτελείτε γενικές ενέργειες στην επιφάνεια εργασίας MATE και να εργάζεστε με αντικείμενα διεπαφής όπως πίνακες εφαρμογών και παράθυρα. Μπορείτε επίσης να χρησιμοποιήσετε τα πλήκτρα συντόμευσης σε εφαρμογές. Για να προσαρμόσετε τα πλήκτρα συντόμευσης, χρησιμοποιείστε το εργαλείο προτίμησης <application>Συντομεύσεις πληκτρολογίου</application>. Δείτε την <xref linkend="prefs-keyboard-shortcuts"/> για περισσότερες πληροφορίες σχετικά με διαμόρφωση συντομεύσεων πληκτρολογίου.</para>
+
+  <note><para>Πολλοί πληκτρολόγια PC διαθέτουν δύο ειδικά πλήκτρα για το λειτουργικό σύστημα Windows: ένα πλήκτρο με το λογότυπο Microsoft Windows™και ένα πλήκτρο για πρόσβαση σε σχετικά μενού.</para>
+  <para>Στο MATE, το πλήκτρο Windows είναι συχνά ρυθμισμένο να λειτουργεί ως επιπρόσθετο πλήκτρο τροποποιητή, με το όνομα <firstterm>πλήκτρο Super</firstterm>. Το σχετικό πλήκτρο μενού μπορεί να χρησιμοποιηθεί για πρόσβαση στο σχετικό μενού του επιλεγμένου αντικειμένου, όπως και η συντόμευση <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>.</para></note>
+
+  <para>Μπορείτε επίσης να τροποποιήσετε τις προτιμήσεις της επιφάνειας εργασίας MATE για να χρησιμοποιήσετε ιδιότητες προσιτότητας. Δείτε την <xref linkend="prefs-keyboard-a11y"/> για περισσότερες πληροφορίες σχετικά με τις ιδιότητες προσιτότητας.</para>
+
+  <para>Οι παρακάτω ενότητες περιγράφουν τα πλήκτρα συντόμευσης που μπορείτε να χρησιμοποιήσετε στην επιφάνεια εργασίας και τις εφαρμογές.</para>
+
+  <section xml:id="shortcuts-global"><info><title>Καθολικά πλήκτρα συντόμευσης</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-62"/>
+
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>global</secondary>
+    </indexterm>
+
+    <para>Το καθολικά πλήκτρα συντόμευσης σας δίνουν τη δυνατότητα να χρησιμοποιείτε το πληκτρολόγιο για να εκτελείτε ενέργειες σχετικές με την επιφάνεια εργασίας, παρά στο τρέχον επιλεγμένο παράθυρο ή εφαρμογή. Ο παρακάτω πίνακας παρουσιάζει μερικά καθολικά πλήκτρα συντόμευσης:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Πλήκτρο συντόμευσης</para>
+            </entry>
+            <entry>
+              <para>Λειτουργία</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F1</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Άνοιγμα <guimenu>Μενού εφαρμογών</guimenu>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F2</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Εμφάνιση διαλόγου <guilabel>Εκτέλεση εφαρμογής</guilabel>. Δείτε την <xref linkend="tools-run-app"/> για περισσότερες πληροφορίες.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en">
+                <keycap>Print Screen</keycap>
+              </para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Λήψη στιγμιότυπου για ολόκληρη την επιφάνεια εργασίας. Δείτε την <xref linkend="tools-screenshot"/> για περισσότερες λεπτομέρειες.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>Print Screen</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Λήψη στιγμιότυπου οθόνης του τρέχοντος εστιασμένου παραθύρου.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>Arrow keys</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Εναλλαγή στους χώρους εργασίας στη συγκεκριμένη διεύθυνση του τρέχοντος χώρου εργασίας. Δείτε την <xref linkend="overview-workspaces"/> για περισσότερες πληροφορίες πάνω στην εργασία σε πολλαπλούς χώρους εργασίας.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>D</keycap></keycombo>
+              </para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Ελαχιστοποίηση όλων των παραθύρων και εστίαση στην επιφάνεια εργασίας.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>Tab</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Εναλλαγή μεταξύ παραθύρων. Εμφανίζεται μία λίστα παραθύρων που μπορείτε να επιλέξετε. Ελευθερώστε τα πλήκτρα για να επιλέξετε ένα παράθυρο. Μπορείτε να πιέσετε το πλήκτρο <keycap>Shift</keycap> για να μεταβείτε κυκλικά στα παράθυρα με αντίστροφη σειρά.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>Tab</keycap></keycombo>
+              </para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Εναλλάξτε την εστίαση μεταξύ των πινάκων εφαρμογών και της επιφάνειας εργασίας. Θα εμφανιστεί μία λίστα αντικειμένων που μπορείτε να επιλέξετε. Ελευθερώστε τα πλήκτρα για να επιλέξετε ένα αντικείμενο. Μπορείτε να πιέσετε το πλήκτρο <keycap>Shift</keycap> για με μεταβείτε κυκλικά στα αντικείμενα με αντίστροφη σειρά.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-window"><info><title>Πλήκτρα συντόμευσης παραθύρου</title></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-58"/>
+
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>window</secondary>
+    </indexterm>
+
+    <para>Τα πλήκτρα συντόμευσης παραθύρου σας επιτρέπουν τη χρήση του πληκτρολογίου για την εκτέλεση ενεργειών στο τρέχον εστιασμένο παράθυρο. Ο παρακάτω πίνακας παρουσιάζει μερικά πλήκτρα συντόμευσης παραθύρου:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Πλήκτρο συντόμευσης</para>
+            </entry>
+            <entry>
+              <para>Λειτουργία</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>Tab</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Εναλλαγή μεταξύ παραθύρων. Εμφανίζεται μία λίστα παραθύρων που μπορείτε να επιλέξετε. Ελευθερώστε τα πλήκτρα για να επιλέξετε ένα παράθυρο. Μπορείτε να πιέσετε το πλήκτρο <keycap>Shift</keycap> για να μεταβείτε κυκλικά στα παράθυρα με αντίστροφη σειρά.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F4</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Κλείσιμο τρέχοντος εστιασμένου παραθύρου.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F5</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Απομεγιστοποιείστε το τρέχον παράθυρο, αν αυτό είναι μεγιστοποιημένο.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F7</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Μετακίνηση τρέχοντος εστιασμένου παραθύρου. Αφού πιέσετε αυτό το πλήκτρο συντόμευσης, μπορείτε να μετακινήσετε το παράθυρο με το ποντίκι ή τα πλήκτρα βελών. Για να τελειώσετε τη μετακίνηση, κάντε κλικ με το ποντίκι ή πιέστε οποιοδήποτε πλήκτρο στο πληκτρολόγιο.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F8</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para xml:lang="en">Resize the currently focused window.  After pressing this
+              shortcut, you can resize the window using either the mouse or
+              the arrow keys.  To finish resizing, click the mouse or press
+              any key on the keyboard.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F9</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Ελαχιστοποίηση τρέχοντος παραθύρου.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F10</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Μεγιστοποίηση τρέχοντος παραθύρου.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>spacebar</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Ανοίξτε ένα μενού παραθύρου για το τρέχον επιλεγμένο παράθυρο. Το μενού παραθύρου σας επιτρέπει να εκτελείτε ενέργειες στο παράθυρο, όπως ελαχιστοποίηση, μετακίνηση μεταξύ χώρων εργασίας, και κλείσιμο.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>Arrow keys</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Μετακινείστε το τρέχον παράθυρο σε κάποιο άλλο χώρο εργασίας στην καθορισμένη διεύθυνση. Δείτε την <xref linkend="overview-workspaces"/> για περισσότερες πληροφορίες σχετικά με την εργασία σε πολλαπλούς χώρους εργασίας.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-apps"><info><title>Πλήκτρα εφαρμογών</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-59"/>
+    <anchor xml:id="gosbasic-61"/> <!-- was Panel Shortcut Keys -->
+
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>application</secondary>
+    </indexterm>
+
+    <para>Τα πλήκτρα συντόμευσης εφαρμογών σας επιτρέπουν να εκτελείτε ενέργειες για την εφαρμογή. Μπορείτε να χρησιμοποιήσετε πλήκτρα συντόμευσης για να εκτελέσετε ενέργειες εφαρμογής γρηγορότερα από ότι αν χρησιμοποιούσατε ένα ποντίκι. Ο παρακάτω πίνακας παρουσιάζει μία λίστα με μερικά συνήθη πλήκτρα συντόμευσης εφαρμογών:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Πλήκτρο συντόμευσης</para>
+            </entry>
+            <entry>
+              <para>Ενέργεια</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>N</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Δημιουργία νέου εγγράφου ή παραθύρου.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>X</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Αποκοπή του επιλεγμένου κειμένου στο πρόχειρο.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>C</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Αντιγραφή του επιλεγμένου κειμένου στο πρόχειρο.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>V</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Επικόλληση του αποθηκευμένου κειμένου από το πρόχειρο.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Z</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Αναίρεση της τελευταίας ενέργειας.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>S</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Αποθήκευση του τρέχοντος εγγράφου στο δίσκο.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para xml:lang="en"><keycap>F1</keycap></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Φόρτωση του εγγράφου βοήθειας διαδικτύου για την εφαρμογή.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+
+    <para>Πέρα από αυτά τα πλήκτρα συντόμευσης, όλες οι εφαρμογές υποστηρίζουν ένα σύνολο πλήκτρων για περιήγηση και εργασία με τη διεπαφή χρήστη. Αυτά τα πλήκτρα σάς επιτρέπουν να εκτελείτε ενέργειες που μπορούν κανονικά να εκτελεστούν με τη χρήση του ποντικιού. Ο παρακάτω πίνακας περιγράφει μερικά πλήκτρα ελέγχου για τη διεπαφή:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Πλήκτρα</para>
+            </entry>
+            <entry>
+              <para>Ενέργεια</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Βελάκια ή το πλήκτρο <keycap>Tab</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Μετακίνηση μεταξύ ελέγχων στη διεπαφή ή αντικειμένων σε μία λίστα.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Enter</keycap> ή <keycap>διάστημα</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Ενεργοποίηση ή επιλογή αντικειμένου.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycap>F10</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Ενεργοποίηση του πλέον αριστερού μενού στο παράθυρο εφαρμογής.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Shift</keycap><keycap>F10</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Ενεργοποίηση του μενού περιεχομένου για το επιλεγμένο αντικείμενο.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycap>Esc</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Κλείσιμο μενού χωρίς επιλογή αντικειμένου από μενού, ή ακύρωση ενέργειας συρμού.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-access"><info><title>Πλήκτρα πρόσβασης</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-63"/>
+
+    <indexterm xml:lang="en">
+      <primary>access keys</primary>
+    </indexterm>
+
+    <para>Μία <firstterm>γραμμή μενού</firstterm> είναι μία γραμμή στο πάνω μέρος ενός παραθύρου που περιέχει τα μενού για την εφαρμογή. Ένα <firstterm>πλήκτρο πρόσβασης</firstterm> είναι ένα υπογραμμισμένο γράμμα σε μία γραμμή μενού, ένα μενού ή διάλογο το οποίο μπορείτε να χρησιμοποιείτε για την εκτέλεση κάποιας ενέργειας. Σε μία γραμμή μενού, το πλήκτρο πρόσβασης για κάθε μενού εμφανίζεται υπογραμμισμένο.</para>
+
+    <para>Για το άνοιγμα ενός μενού, κρατήστε πατημένο το πλήκτρο <keycap>Alt</keycap>, και κατόπιν πιέστε το πλήκτρο πρόσβασης. Στο μενού, το πλήκτρο πρόσβασης για κάθε μενού είναι υπογραμμισμένο. Για να επιλέξετε ένα αντικείμενο μενού όταν το μενού προβάλλεται, μπορείτε απλά να πιέσετε το πλήκτρο πρόσβασης για το αντικείμενο του μενού.</para>
+
+    <para>Για παράδειγμα, για να ανοίξετε ένα νέο παράθυρο στην εφαρμογή <application>Βοήθεια</application>, πιέστε <keycombo><keycap>Alt</keycap><keycap>Α</keycap></keycombo> για να ανοίξετε το μενού <guimenu>Αρχείο</guimenu>, και κατόπιν πιέστε <keycap>N</keycap> για να ενεργοποιήσετε το αντικείμενο του μενού <guimenuitem>Νέο παράθυρο</guimenuitem>.</para>
+
+    <para>Μπορείτε επίσης να χρησιμοποιήσετε τα πλήκτρα πρόσβασης για να έχετε πρόσβαση στοιχεία σε ένα διάλογο. Σε ένα διάλογο, στα περισσότερα στοιχεία ένα γράμμα εμφανίζεται υπογραμμισμένο. Για να έχετε πρόσβαση σε ένα συγκεκριμένο στοιχείο διαλόγου, κρατήστε πατημένο <keycap>Alt</keycap>, και κατόπιν πιέστε το πλήκτρο πρόσβασης.</para>
+  </section>
+</section>
+
+</chapter>

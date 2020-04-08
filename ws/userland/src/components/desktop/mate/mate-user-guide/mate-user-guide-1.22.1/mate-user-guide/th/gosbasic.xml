@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="basic-skills" xml:lang="th">
+    <info><title>ทักษะเบื้องต้น</title>
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Akom Chotiphantawanon</db:firstname>
+      </db:personname>
+      <db:email>knight2000@gmail.com</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2016</db:year>
+      
+      <db:holder>Akom Chotiphantawanon</db:holder>
+    </db:copyright>
+  </info>
+
+<!-- Maintained for 2.8 compatibility -->
+<anchor xml:id="part1-1"/>
+<anchor xml:id="gosbasic-1"/>
+<anchor xml:id="gosbasic-46"/> <!-- was Using Windows -->
+
+<highlights>
+  <para>บทนี้จะแนะนำทักษะเบื้องต้นที่จำเป็นสำหรับการใช้งานเดสก์ท็อป MATE</para>
+</highlights>
+
+<section xml:id="mouse-skills"><info><title>ทักษะการใช้เมาส์</title></info>
+  
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-2"/>
+
+  <indexterm xml:lang="en">
+    <primary>basic skills</primary>
+    <secondary>mouse skills</secondary>
+  </indexterm>
+  <indexterm xml:lang="en">
+    <primary>mouse</primary>
+    <secondary>basic skills</secondary>
+  </indexterm>
+  
+  <!-- Notes for future development of the mouse section
+  Contents list:
+  * buttons
+  * click, drag, etc
+  * what you actually do with those: the concept of focus, selection, etc. 
+    basically, an introduction to the 'noun, verb' grammar of GUIs
+  * pointers
+  -->
+
+  <para>หัวข้อนี้จะอธิบายหน้าที่ของปุ่มต่าง ๆ ของเมาส์ และความหมายของตัวชี้แบบต่าง ๆ</para>
+
+    <para>เมาส์เป็นอุปกรณ์ชี้ตำแหน่งที่คุณสามารถใช้เลื่อนตัวชี้เมาส์ไปมาบนหน้าจอ ตัวชี้เมาส์โดยปกติจะเป็นรูปลูกศรเล็ก ๆ ที่ใช้ชี้ไปยังวัตถุต่าง ๆ ที่แสดงบนหน้าจอ การกดปุ่มเมาส์จะกระทำการบางอย่างกับวัตถุที่ตัวชี้เมาส์ชี้อยู่ ขึ้นอยู่กับปุ่มที่กด</para>
+
+  <section xml:id="mouse-conventions"><info><title>ข้อตกลงเกี่ยวกับปุ่มเมาส์</title><titleabbrev>ปุ่มต่าง ๆ</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-44"/>
+
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>button conventions</secondary>
+    </indexterm>
+
+    <para xml:lang="en">The instructions in this manual are for three buttoned, right-handed mouse devices, the most common type.
+        If you use another type of mouse or pointing device, you should take care to locate the corresponding buttons on your mouse.  If you use a left-handed mouse,
+        see the paragraph on setting mouse orientation below.
+    </para>
+
+        <note><para xml:lang="en">If you set your mouse device to be left-handed, you should reverse the mouse button
+        conventions used in this manual. This is normally also implied in most documentation and in many
+        applications.</para></note>
+
+    <para>เมาส์บางชนิดไม่มีปุ่มกลาง ถ้าคุณมีเมาส์ที่มีสองปุ่ม คุณก็อาจตั้งค่าในระบบของคุณให้ใช้ <firstterm>การผสมปุ่ม</firstterm> เพื่อสังเคราะห์การกดเมาส์ปุ่มกลางได้ ถ้ามีการผสมปุ่ม คุณสามารถกดเมาส์ปุ่มซ้ายและขวาพร้อมกันเพื่อแทนการกดปุ่มกลางได้ แต่การใช้เมาส์ปุ่มกลางก็ไม่ได้จำเป็นต่อการใช้ MATE แต่อย่างใด</para>
+
+    <para>ข้อตกลงเรื่องการใช้ปุ่มเมาส์ในคู่มือนี้คือ:</para>
+    <variablelist>
+      <varlistentry>
+        <term>ปุ่มซ้ายเมาส์</term>
+        <listitem><para>ปุ่มที่อยู่ด้านซ้ายของตัวเมาส์ เป็นปุ่มหลักของเมาส์ ใช้ในการเลือก เรียกทำงาน กดปุ่มกด ฯลฯ เมื่อคุณถูกบอกให้ "คลิก" ก็จะหมายความว่าให้คลิกด้วยปุ่มซ้าย นอกจากจะระบุเป็นอย่างอื่น</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>ปุ่มกลางเมาส์</term>
+        <listitem><para>ปุ่มกลางของเมาส์ โดยในเมาส์จำนวนมากจะเป็นล้อหมุน ล้อหมุนดังกล่าวสามารถกดลงได้ เพื่อเป็นการกดปุ่มกลางของเมาส์</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>ปุ่มขวาเมาส์</term>
+        <listitem><para>ปุ่มที่อยู่ด้านขวาของตัวเมาส์ บ่อยครั้งที่ปุ่มนี้จะใช้แสดงเมนูตามบริบทของวัตถุที่ตัวชี้ชี้อยู่</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>คุณสามารถใช้ <application>การปรับแต่งเมาส์</application> ได้ ถ้าต้องการกลับด้านของปุ่มเมาส์เพื่อใช้เมาส์มือซ้าย และเมื่อกลับด้านแล้ว คุณก็จะต้องกลับด้านการกดปุ่มจากข้อตกลงที่ใช้ในคู่มือนี้ รวมทั้งในเอกสารอื่นของ MATE ด้วย ดูข้อมูลเพิ่มเติมเกี่ยวกับการปรับแต่งเมาส์ได้ที่ <xref linkend="prefs-mouse"/></para>
+
+  </section>
+
+  <section xml:id="mouse-actions"><info><title>การกระทำเกี่ยวกับเมาส์</title><titleabbrev>การกระทำ</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-45"/>
+    <anchor xml:id="gosbasic-6"/>
+    
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>action conventions</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>action terminology</secondary>
+    </indexterm>
+    
+    <para>เราจะใช้ข้อตกลงต่อไปนี้ในคู่มือนี้เมื่อกล่าวถึงการกระทำต่าง ๆ ที่คุณจะทำกับเมาส์:</para>
+    
+    <!-- convert to variablelist -->
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="36.36*"/>
+        <colspec colname="colspec1" colwidth="63.64*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>การกระทำ</para>
+            </entry>
+            <entry>
+              <para>ความหมาย</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>คลิก</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>กดปุ่มซ้ายของเมาส์แล้วปล่อย โดยไม่มีการเลื่อนเมาส์</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>คลิกซ้าย</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>เหมือนกับ <emphasis>คลิก</emphasis> คำว่า 'คลิกซ้าย' จะใช้เฉพาะในกรณีที่อาจมีความสับสนกับ <emphasis>คลิกขวา</emphasis></para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>คลิกกลาง</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>กดปุ่มกลางของเมาส์แล้วปล่อย โดยไม่มีการเลื่อนเมาส์</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>คลิกขวา</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>กดปุ่มขวาของเมาส์แล้วปล่อย โดยไม่มีการเลื่อนเมาส์</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>ดับเบิลคลิก</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>กดและปล่อยปุ่มซ้ายของเมาส์สองครั้งติด ๆ กัน โดยไม่มีการเลื่อนเมาส์ คุณสามารถตั้งค่าความไวของดับเบิลคลิกได้โดยเปลี่ยนค่า <emphasis>ความเร็วของดับเบิลคลิก</emphasis>: ดูข้อมูลเพิ่มเติมได้จาก <xref linkend="prefs-mouse"/></para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en">Click-and-drag</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>กดปุ่มซ้ายเมาส์ค้างโดยไม่ปล่อย เลื่อนเมาส์ไปในขณะที่ยังกดค้างอยู่นั้น แล้วปล่อยปุ่มในที่สุด</para>
+                            
+              <para xml:lang="en">Dragging with the mouse is used in many different contexts.
+              			  
+
+              This moves an object around the screen with the mouse. The 
+              object is <emphasis>dropped</emphasis> at the 
+              location where the mouse button 
+              is released. This action is also called 
+              <emphasis>drag-and-drop</emphasis>. Clicking on an element of the interface to
+              move it is sometimes called a <emphasis>grab</emphasis>.</para>		  
+			  
+			                
+              <para>ตัวอย่างเช่น คุณสามารถเปลี่ยนตำแหน่งของหน้าต่างได้ โดยจับแถบชื่อหน้าต่างลากไป หรือย้ายแฟ้มได้ โดยลากไอคอนของแฟ้มจากหน้าต่างหนึ่งไปวางในอีกหน้าต่างหนึ่ง</para>           
+              
+              <para>การลากโดยปกติจะใช้ปุ่มซ้ายของเมาส์ แต่ก็มีบ้างที่ใช้ปุ่มกลางเพื่อให้เป็นการลากอีกแบบหนึ่งที่ต่างออกไป</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>คลิกค้าง</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>กดปุ่มซ้ายเมาส์โดยไม่ปล่อย</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>actions</secondary>
+    </indexterm>
+
+    <para>คุณสามารถกระทำสิ่งต่อไปนี้ได้โดยใช้เมาส์:</para>
+    
+    <!--
+    Problem with the word 'action' here, since it's already used
+    to describe things like click, drag, etc. Suggestion: tasks?
+    -->
+
+    <variablelist>
+      <varlistentry>
+        <term>ปุ่มซ้ายเมาส์</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>เลือกข้อความ</para></listitem>
+            <listitem><para>เลือกรายการ</para></listitem>
+            <listitem><para>ลากรายการ</para></listitem>
+            <listitem><para>เรียกใช้รายการ</para></listitem>
+          </itemizedlist>        
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>ปุ่มกลางเมาส์</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>แปะข้อความ</para></listitem>
+            <listitem><para>ย้ายรายการ</para></listitem>
+            <listitem><para>ย้ายหน้าต่างไปด้านหลัง</para></listitem>
+          </itemizedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>ปุ่มขวาเมาส์</term>
+        <listitem><para>ใช้ปุ่มขวาเมาส์เปิดเมนูตามบริบทของรายการถ้ามีเมนูสำหรับรายการนั้น สำหรับรายการส่วนใหญ่แล้ว คุณสามารถใช้ปุ่มลัด <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo> เพื่อเปิดเมนูตามบริบทของรายการ หลังจากที่รายการนั้นถูกเลือกแล้วได้เช่นกัน</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>ตัวอย่างเช่น ในขณะที่ดูรายชื่อแฟ้มในโปรแกรมจัดการแฟ้ม คุณสามารถเลือกแฟ้มโดยคลิกด้วยปุ่มซ้ายเมาส์ และเปิดแฟ้มได้โดยดับเบิลคลิกด้วยปุ่มซ้ายเมาส์ การคลิกด้วยปุ่มขวาเมาส์จะเปิดเมนูตามบริบทของแฟ้มนั้น</para>
+
+    <tip><para>ในโปรแกรมส่วนใหญ่ คุณสามารถเลือกข้อความด้วยปุ่มซ้ายเมาส์ แล้วแปะข้อความนั้นลงในอีกโปรแกรมหนึ่งได้โดยใช้ปุ่มกลาง การแปะนี้เรียกว่าการแปะสิ่งที่เลือกโดยตรง (primary selection paste) ซึ่งจะทำงานแยกต่างหากจากการใช้คลิปบอร์ดตามปกติ</para></tip>
+
+    <tip><para>การเลือกมากกว่าหนึ่งรายการ ทำได้โดยกดปุ่ม <keycap>Ctrl</keycap> ค้างไว้ แล้วเลือกเพิ่มทีละรายการ หรือกดปุ่ม <keycap>Shift</keycap> ค้างไว้ เพื่อเลือกรายการเป็นช่วง นอกจากนี้ คุณยังสามารถลาก <firstterm>กล่องขอบเขต</firstterm> เพื่อเลือกหลายรายการได้ โดยเริ่มลากจากพื้นที่ว่างรอบ ๆ รายการทั้งหลาย แล้วลากเพื่อสร้างขอบเขตรูปสี่เหลี่ยมผืนผ้าล้อมรอบรายการที่ต้องการ</para></tip>
+
+  </section>
+
+  <section xml:id="mouse-pointers"><info><title>ตัวชี้เมาส์</title><titleabbrev>ตัวชี้</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-7"/>
+
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>pointers</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>pointers</primary>
+      <see>mouse pointers</see>
+    </indexterm>
+
+    <para>ในระหว่างที่คุณใช้เมาส์ รูปร่างของตัวชี้เมาส์สามารถเปลี่ยนแปลงได้ รูปร่างของตัวชี้จะบอกข้อมูลเกี่ยวกับการกระทำ ตำแหน่งที่ตั้ง หรือสถานะบางอย่าง</para>
+
+   <para>ตัวชี้เมาส์ต่อไปนี้จะแสดงเมื่อเมาส์เคลื่อนไปอยู่ในส่วนต่าง ๆ ของหน้าจอ</para>
+   
+   <note><para xml:lang="en">Your mouse pointers will differ from those shown here if you are using a different pointer theme. Your distributor or vendor may have set a different default theme.</para></note>
+   
+   <variablelist>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/normal_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Normal pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Normal pointer
+        </term>
+        <listitem><para>ตัวชี้นี้จะปรากฏขณะใช้เมาส์ตามปกติ</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/busy_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Busy pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Busy pointer
+        </term>
+        <listitem><para>ตัวชี้นี้จะปรากฏบนหน้าต่างที่กำลังทำงานบางอย่าง คุณไม่สามารถใช้เมาส์สั่งงานหน้าต่างดังกล่าวได้ แต่คุณสามารถเลื่อนเมาส์ไปสั่งงานหน้าต่างอื่นได้</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/resize_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Resize pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Resize pointer
+        </term>
+        <listitem><para>ตัวชี้นี้บ่งบอกว่าคุณสามารถจับยึดเครื่องมือควบคุมนั้นเพื่อปรับขนาดส่วนต่าง ๆ ของส่วนติดต่อผู้ใช้ได้ ตัวชี้นี้จะปรากฏบนกรอบหน้าต่าง และบนมือจับปรับขนาดระหว่างช่องในหน้าต่าง ทิศทางของลูกศรจะบ่งบอกทิศทางที่สามารถปรับขนาดได้</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/hyperlink_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Hand pointer</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Hand pointer
+        </term>
+        <listitem><para>ตัวชี้นี้จะปรากฏเมื่อคุณเลื่อนเมาส์ไปอยู่บน <glossterm>ลิงก์ไฮเพอร์เท็กซ์</glossterm> ในหน้าเว็บ เป็นต้น ตัวชี้นี้บ่งบอกว่าคุณสามารถคลิกเพื่อเปิดเอกสารใหม่ หรือกระทำการบางอย่างได้</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/ibeam_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>I-beam pointer</phrase>
+            </textobject>
+          </inlinemediaobject>
+          I-beam pointer
+        </term>
+        <listitem><para>ตัวชี้นี้จะแสดงเมื่อเมาส์ไปอยู่บนข้อความที่คุณสามารถเลือกหรือแก้ไขได้ คุณสามารถคลิกเพื่อกำหนดตำแหน่งเคอร์เซอร์เพื่อป้อนข้อความ หรือสามารถลากเพื่อเลือกข้อความได้</para></listitem>
+      </varlistentry>      
+    </variablelist>      
+      
+   <para>ตัวชี้เมาส์ต่อไปนี้จะแสดงขณะลากรายการเช่นแฟ้มหรือข้อความ โดยจะบ่งบอกผลของการปล่อยปุ่มเมาส์เพื่อวางวัตถุที่กำลังลาก</para>      
+      
+    <variablelist>      
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/move_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Move pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Move pointer
+        </term>
+        <listitem><para>ตัวชี้นี้บ่งบอกว่า เมื่อคุณวางวัตถุ วัตถุนั้นจะถูกย้ายจากตำแหน่งเดิมมาที่ตำแหน่งใหม่</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/copy_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Copy pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Copy pointer
+        </term>
+        <listitem><para>ตัวชี้นี้บ่งบอกว่า เมื่อคุณวางวัตถุ จะสร้างสำเนาของวัตถุนั้นในที่ที่คุณวาง</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/link_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Symbolic link pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Symbolic link pointer
+        </term>
+        <listitem><para>ตัวชี้นี้บ่งบอกว่า เมื่อคุณวางวัตถุ จะสร้าง <firstterm>จุดเชื่อมโยง</firstterm> ไปยังวัตถุนั้นในที่ที่คุณวาง จุดเชื่อมโยง (symbolic link) เป็นแฟ้มชนิดพิเศษที่ชี้ไปยังแฟ้มหรือโฟลเดอร์อื่น ดูข้อมูลเพิ่มเติมได้จาก <xref linkend="caja-symlink"/></para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/ask_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Ask pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Ask pointer
+        </term>
+        <listitem><para>ตัวชี้นี้บ่งบอกว่า เมื่อคุณวางวัตถุ จะถามว่าคุณต้องการทำอะไร จะมีเมนูเปิดขึ้นเพื่อให้คุณเลือกการกระทำที่ต้องการ เช่น คุณอาจย้าย คัดลอก หรือสร้างจุดเชื่อมโยงก็ได้</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/not_available_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Not available pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Not available pointer
+        </term>
+        <listitem><para>ตัวชี้นี้บ่งบอกว่า คุณไม่สามารถวางวัตถุที่ตำแหน่งนั้นได้ การปล่อยปุ่มเมาส์จะไม่มีผลอะไร วัตถุที่ลากจะกลับไปที่จุดตั้งต้นเหมือนเดิม</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/move_panel_object_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Move panel object pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Move panel object pointer
+        </term>
+        <listitem><para>ตัวชี้นี้จะปรากฏขณะลากพาเนลหรือวัตถุพาเนลด้วยปุ่มกลางเมาส์ ดูข้อมูลเพิ่มเติมเกี่ยวกับพาเนลได้ที่ <xref linkend="panels"/></para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term xml:lang="en">
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata format="PNG" fileref="figures/movewindow_pointer.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>Move window pointer.</phrase>
+            </textobject>
+          </inlinemediaobject>
+          Move window pointer
+        </term>
+        <listitem><para>ตัวชี้นี้จะปรากฏขณะลากย้ายหน้าต่าง ดูข้อมูลเพิ่มเติมเกี่ยวกับการย้ายหน้าต่างได้ที่ <xref linkend="windows-manipulating"/></para></listitem>
+      </varlistentry>
+
+    </variablelist>
+  </section>
+</section>
+
+<section xml:id="keyboard-skills"><info><title>ทักษะการใช้แป้นพิมพ์</title></info>
+  
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-51"/>
+
+  <indexterm xml:lang="en">
+    <primary>basic skills</primary>
+    <secondary>keyboard skills</secondary>
+  </indexterm>
+  <indexterm xml:lang="en">
+    <primary>keyboard</primary>
+    <secondary>basic skills</secondary>
+  </indexterm>
+
+  <para>การสั่งงานเกือบทุกอย่างที่คุณทำด้วยเมาส์ได้ สามารถสั่งด้วยแป้นพิมพ์ได้เช่นกัน <firstterm>ปุ่มลัด (Shortcut keys)</firstterm> คือปุ่มที่ช่วยให้คุณสั่งงานอย่างเร็วได้</para>
+
+  <para>คุณสามารถใช้ปุ่มลัดสั่งงานทั่วไปสำหรับเดสก์ท็อป MATE และสั่งงานส่วนติดต่อต่าง ๆ อย่างพาเนลและหน้าต่างได้ รวมทั้งใช้ในโปรแกรมต่าง ๆ ได้ด้วย การปรับเปลี่ยนปุ่มลัด ทำได้โดยใช้เครื่องมือปรับแต่ง <application>ปุ่มลัด</application> ดูข้อมูลเพิ่มเติมเกี่ยวกับการปรับแต่งปุ่มลัดได้ที่ <xref linkend="prefs-keyboard-shortcuts"/></para>
+
+  <note><para>แป้นพิมพ์พีซีจำนวนมากจะมีปุ่มพิเศษสองปุ่มสำหรับระบบปฏิบัติการวินโดวส์ คือปุ่มที่มีโลโก้ของ Microsoft Windows™ และปุ่มสำหรับเปิดเมนูตามบริบท</para>
+  <para>ใน MATE ปุ่มวินโดวส์มักจะถูกตั้งค่าให้ใช้เป็นปุ่มประกอบเพิ่มเติม เรียกว่า <firstterm>ปุ่มซูเปอร์</firstterm> ส่วนปุ่มเมนูบริบทก็สามารถใช้เปิดเมนูตามบริบทของรายการที่เลือกอยู่ได้ เหมือนกับการใช้ปุ่มลัด <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo> นั่นเอง</para></note>
+
+  <para>คุณสามารถปรับแต่งเดสก์ท็อป MATE ให้ใช้เทคโนโลยีสิ่งอำนวยความสะดวกสำหรับแป้นพิมพ์ได้ ดูข้อมูลเพิ่มเติมเกี่ยวกับเทคโนโลยีสิ่งอำนวยความสะดวกสำหรับแป้นพิมพ์ได้ที่ <xref linkend="prefs-keyboard-a11y"/></para>
+
+  <para>หัวข้อต่าง ๆ ต่อไปนี้จะอธิบายปุ่มลัดที่คุณสามารถใช้ได้ทั่วทั้งเดสก์ท็อปและโปรแกรมต่าง ๆ</para>
+
+  <section xml:id="shortcuts-global"><info><title>ปุ่มลัดสำหรับทั้งเดสก์ท็อป</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-62"/>
+
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>global</secondary>
+    </indexterm>
+
+    <para>ปุ่มลัดสำหรับทั้งเดสก์ท็อปจะช่วยให้คุณใช้แป้นพิมพ์สั่งงานต่าง ๆ เกี่ยวกับเดสก์ท็อป ไม่ใช่การสั่งงานสำหรับหน้าต่างหรือโปรแกรมปัจจุบัน ตารางต่อไปนี้แสดงรายชื่อบางส่วนของปุ่มลัดสำหรับทั้งเดสก์ท็อป</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>ปุ่มลัด</para>
+            </entry>
+            <entry>
+              <para>หน้าที่</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F1</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>เปิดเมนู <guimenu>โปรแกรม</guimenu></para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F2</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>เปิดกล่องโต้ตอบ <guilabel>เรียกโปรแกรม</guilabel> ดูข้อมูลเพิ่มเติมได้ที่ <xref linkend="tools-run-app"/></para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en">
+                <keycap>Print Screen</keycap>
+              </para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>จับภาพหน้าจอของพื้นโต๊ะทั้งหมด ดูข้อมูลเพิ่มเติมได้ที่ <xref linkend="tools-screenshot"/></para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>Print Screen</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>จับภาพหน้าจอของหน้าต่างที่ได้โฟกัสอยู่</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>Arrow keys</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>สลับไปยังพื้นที่ทำงานที่อยู่ในทิศทางที่ระบุเมื่อเทียบกับพื้นที่ทำงานปัจจุบัน ดูข้อมูลเพิ่มเติมเกี่ยวกับการใช้พื้นที่ทำงานหลายอันได้ที่ <xref linkend="overview-workspaces"/></para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>D</keycap></keycombo>
+              </para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>ย่อเก็บหน้าต่างทั้งหมดและโฟกัสไปที่พื้นโต๊ะ</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>Tab</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>เลือกสลับหน้าต่าง รายชื่อหน้าต่างที่คุณสามารถเลือกได้จะปรากฏ ปล่อยปุ่มเมื่อได้หน้าต่างที่ต้องการ คุณสามารถกดปุ่ม <keycap>Shift</keycap> เพื่อวนหาหน้าต่างในทิศทางย้อนกลับได้</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>Tab</keycap></keycombo>
+              </para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>สลับโฟกัสไปมาระหว่างพาเนลและพื้นโต๊ะ รายชื่อของรายการที่คุณสามารถเลือกได้จะปรากฏ ปล่อยปุ่มเมื่อได้รายการที่ต้องการ คุณสามารถกดปุ่ม <keycap>Shift</keycap> เพื่อวนหารายการในทิศทางย้อนกลับได้</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-window"><info><title>ปุ่มลัดสำหรับหน้าต่าง</title></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-58"/>
+
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>window</secondary>
+    </indexterm>
+
+    <para>ปุ่มลัดสำหรับหน้าต่างจะช่วยให้คุณใช้แป้นพิมพ์สั่งงานต่าง ๆ กับหน้าต่างที่กำลังได้โฟกัส ตารางต่อไปนี้แสดงรายชื่อบางส่วนของปุ่มลัดสำหรับหน้าต่าง</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>ปุ่มลัด</para>
+            </entry>
+            <entry>
+              <para>หน้าที่</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>Tab</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>เลือกสลับหน้าต่าง รายชื่อหน้าต่างที่คุณสามารถเลือกได้จะปรากฏ ปล่อยปุ่มเมื่อได้หน้าต่างที่ต้องการ คุณสามารถกดปุ่ม <keycap>Shift</keycap> เพื่อวนหาหน้าต่างในทิศทางย้อนกลับได้</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F4</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>ปิดหน้าต่างปัจจุบันที่ได้โฟกัสอยู่</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F5</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>เลิกขยายแผ่หน้าต่าง ถ้ากำลังขยายแผ่อยู่</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F7</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>ย้ายหน้าต่างปัจจุบันที่ได้โฟกัสอยู่ หลังจากกดปุ่มลัดนี้แล้ว คุณสามารถย้ายหน้าต่างโดยใช้เมาส์หรือปุ่มลูกศรก็ได้ เมื่อได้ตำแหน่งที่ต้องการแล้ว จบการย้ายได้โดยคลิกเมาส์หรือกดปุ่มใดก็ได้บนแป้นพิมพ์</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F8</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para xml:lang="en">Resize the currently focused window.  After pressing this
+              shortcut, you can resize the window using either the mouse or
+              the arrow keys.  To finish resizing, click the mouse or press
+              any key on the keyboard.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F9</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>ย่อเก็บหน้าต่างปัจจุบัน</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>F10</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>ขยายแผ่หน้าต่างปัจจุบัน</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Alt</keycap><keycap>spacebar</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>เปิดเมนูหน้าต่างสำหรับหน้าต่างปัจจุบัน เมนูหน้าต่างจะช่วยให้คุณสั่งกระทำการต่าง ๆ กับหน้าต่างได้ เช่น ย่อเก็บ ย้ายไปพื้นที่ทำงานอื่น หรือปิดหน้าต่าง</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Alt</keycap>
+                <keycap>Arrow keys</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>ย้ายหน้าต่างปัจจุบันไปยังพื้นที่ทำงานอื่นในทิศทางที่กำหนด ดูข้อมูลเพิ่มเติมเกี่ยวกับการใช้พื้นที่ทำงานหลายอันได้ที่ <xref linkend="overview-workspaces"/></para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-apps"><info><title>ปุ่มลัดสำหรับโปรแกรม</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-59"/>
+    <anchor xml:id="gosbasic-61"/> <!-- was Panel Shortcut Keys -->
+
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>application</secondary>
+    </indexterm>
+
+    <para>ปุ่มลัดสำหรับโปรแกรมช่วยคุณสั่งงานต่าง ๆ กับโปรแกรม โดยสามารถสั่งได้เร็วกว่าการใช้เมาส์ ตารางต่อไปนี้แสดงปุ่มลัดพื้นฐานสำหรับโปรแกรม:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>ปุ่มลัด</para>
+            </entry>
+            <entry>
+              <para>การกระทำ</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>N</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>สร้างเอกสารหรือหน้าต่างใหม่</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>X</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>ตัดข้อความหรือพื้นที่ที่เลือก แล้วเก็บไว้ในคลิปบอร์ด</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>C</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>คัดลอกข้อความหรือพื้นที่ที่เลือกเข้าในคลิปบอร์ด</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>V</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>แปะเนื้อหาจากคลิปบอร์ด</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>Z</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>เรียกคืนการกระทำล่าสุด</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para xml:lang="en"><keycombo>
+                <keycap>Ctrl</keycap><keycap>S</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>บันทึกเอกสารปัจจุบันลงดิสก์</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para xml:lang="en"><keycap>F1</keycap></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>เปิดเอกสารคู่มือวิธีใช้สำหรับโปรแกรม</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+
+    <para>นอกจากปุ่มลัดเหล่านี้แล้ว ทุกโปรแกรมยังรองรับชุดปุ่มที่ใช้ท่องดูและสั่งงานส่วนติดต่อผู้ใช้ โดยปุ่มเหล่านี้สามารถช่วยคุณทำงานต่าง ๆ ที่โดยปกติคุณอาจจะสั่งด้วยเมาส์ ตารางต่อไปนี้อธิบายบางส่วนของปุ่มควบคุมส่วนติดต่อผู้ใช้:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>ปุ่ม</para>
+            </entry>
+            <entry>
+              <para>การกระทำ</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>ปุ่มลูกศรหรือ <keycap>Tab</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>ย้ายไปมาในรายการต่าง ๆ ในส่วนติดต่อผู้ใช้ หรือในรายชื่อ</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Enter</keycap> หรือ <keycap>spacebar</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>เรียกใช้หรือเลือกรายการ</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycap>F10</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>เปิดเมนูซ้ายสุดของหน้าต่างโปรแกรม</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycombo>
+                <keycap>Shift</keycap><keycap>F10</keycap>
+              </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>เปิดเมนูตามบริบทของรายการที่เลือก</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para xml:lang="en"><keycap>Esc</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>ปิดเมนูโดยไม่เลือกรายการใด หรือยกเลิกการลาก</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-access"><info><title>คีย์ด่วน</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-63"/>
+
+    <indexterm xml:lang="en">
+      <primary>access keys</primary>
+    </indexterm>
+
+    <para><firstterm>แถบเมนู</firstterm> คือแถบที่อยู่บนสุดของหน้าต่างซึ่งบรรจุเมนูสำหรับโปรแกรม <firstterm>คีย์ด่วน (access key)</firstterm> คือตัวอักษรที่ขีดเส้นใต้ในแถบเมนู เมนู หรือกล่องโต้ตอบ ซึ่งคุณสามารถใช้สั่งกระทำการได้ บนแถบเมนู คีย์ด่วนสำหรับแต่ละเมนูจะขีดเส้นใต้ไว้</para>
+
+    <para>การเปิดเมนูด้วยคีย์ด่วน ทำได้โดยกด <keycap>Alt</keycap> ค้างไว้ แล้วกดอักขระคีย์ด่วน แต่เมื่อเปิดเมนูแล้ว คุณสามารถเลือกรายการในเมนูได้โดยแค่กดคีย์ด่วนของรายการที่ต้องการ (ไม่ต้องใช้ <keycap>Alt</keycap>)</para>
+
+    <para>ตัวอย่างเช่น ในการเปิดหน้าต่างใหม่ในโปรแกรม <application>Yelp</application> คุณก็กด <keycombo><keycap>Alt</keycap><keycap>ฟ</keycap></keycombo> ตามด้วย <keycap>ห</keycap> เพื่อเรียกรายการเมนู <guimenuitem>หน้าต่างใหม่</guimenuitem></para>
+
+    <para>นอกจากนี้ คุณยังสามารถใช้คีย์ด่วนในการเข้าถึงองค์ประกอบต่าง ๆ ในกล่องโต้ตอบได้ด้วย ในกล่องโต้ตอบ องค์ประกอบส่วนใหญ่จะขีดเส้นใต้ตัวอักษรไว้ตัวหนึ่ง คุณสามารถเข้าถึงองค์ประกอบในกล่องโต้ตอบได้โดยกด <keycap>Alt</keycap> ค้างไว้ แล้วกดอักษรที่เป็นคีย์ด่วนนั้น</para>
+  </section>
+</section>
+
+</chapter>

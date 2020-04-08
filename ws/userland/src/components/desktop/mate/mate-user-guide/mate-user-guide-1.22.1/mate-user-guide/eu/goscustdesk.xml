@@ -1,0 +1,2746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="prefs" xml:lang="eu">
+    <info><title>Mahaigaina konfiguratzea</title></info>
+  
+  <!-- ids in this section are gradually being converted 
+  to something like 'prefs-mouse'.
+  remember to add an anchor for the old id in the right place -->
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="goscustdesk-6"/>
+
+  <!-- Desktop Overview / Desktop Preferences -->
+  <anchor xml:id="gosoverview-55"/>
+  
+  <!-- ids of sections removed from this document for 2.14 -->
+  <anchor xml:id="goscustdesk-10"/><!-- Customizing Your Panels -->
+
+  <highlights>
+    <para>Kapitulu honetan, MATE mahaigaina pertsonalizatzeko hobespen-tresnak nola erabili azaltzen da.</para>
+  </highlights>
+  <!-- move the following to its own section, "Using Pref Tools"? -->
+  <para xml:lang="en">A preference tool is a small application that allows you to change settings in the MATE Desktop. Each preference tool covers a particular aspect of your computer. For example, with the <application>Mouse</application> preference tool you can set your mouse to left-handed or right-handed use, or change the speed of the pointer on the screen. With the <application>Windows</application> preference tool you can set behavior common to all windows such as the way in which you select them with the mouse.</para>
+  <para>Hobespen-tresna bat irekitzeko, hautatu <menuchoice><guimenu>Sistema</guimenu><guisubmenu>Hobespenak</guisubmenu></menuchoice> goiko panelean. Aukeratu behar duzun tresna azpimenuan.</para>
+  <para>Salbuespen gutxi batzuekin, hobespen-tresna batean ezarpenetan egiten dituzun aldaketek berehala dute eragina, hobespen-tresna itxi beharrik gabe. Hobespen-tresna irekita utz dezakezu aldaketak probatzen dituzun bitartean, eta gero aldaketa gehiago egin, nahi izanez gero.</para>
+  <para>Aplikazio batzuek edo sistema-osagai batzuek beharbada beren hobespen-tresnak gehituko dituzte menuan.</para>
+  <note><para>Hobespen-tresna batzuek sistemako oinarrizko zatiak aldatzeko aukera ematen dute, eta, horregatik, administratzaile-baimena eskatzen dute. Hobespen-tresna irekitzean, pasahitza eskatuko dizu elkarrizketa-koadro batek. <menuchoice><guimenu>Sistema</guimenu><guisubmenu>Administrazioa</guisubmenu></menuchoice> azpimenuan aurkituko dituzu. Sistema kudeatzeko eta eguneratzeko utilitate-aplikazio konplexuagoak ere aurkituko dituzu menu horretan.</para></note>
+
+<section xml:id="prefs-personal"><info><title>Pertsonala</title></info>
+  
+  <!-- Was Login Photo prefs, could go to About Me if that was enabled by default -->
+  <anchor xml:id="goscustdesk-95"/>
+
+  <section xml:id="goscustaccess-11"><info><title>Laguntza-teknologien hobespenak</title></info>
+    <indexterm xml:lang="en">
+      <primary>accessibility</primary>
+      <secondary>setting assistive technology
+preferences</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Assistive Technologies</secondary>
+    </indexterm>
+    <para xml:lang="en">Use the <application>Assistive Technologies</application> preference tool to enable assistive technologies
+in the MATE Desktop. You can also use the <application>Assistive Technology</application> preference tool to open other preference tools which contain preferences related to assistive technologies.</para>
+    <itemizedlist>
+      <listitem>
+        <para xml:lang="en"><guibutton>Preferred Applications</guibutton> lets you specify assistive technology applications to start automatically when you log in. See <xref linkend="prefs-preferredapps"/></para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en"><guibutton>Keyboard Accessibility</guibutton> lets you configure keyboard accessibility features such as sticky keys, slow keys or bounce keys.
+        See <xref linkend="prefs-keyboard-a11y"/></para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en"><guibutton>Mouse Accessibility</guibutton> lets you configure mouse accessibility features such as dwell clicking. See <xref linkend="goscustdesk-53"/></para>
+      </listitem>
+    </itemizedlist>
+    <para><xref linkend="goscustaccess-TBL-14"/> taulan zuk alda ditzakezun laguntza-teknologiaren hobespenak zerrendatzen dira.</para>
+    <table frame="topbot" xml:id="goscustaccess-TBL-14"><info><title>Laguntza-teknologiaren hobespenak</title></info>
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colwidth="50*"/>
+        <colspec colwidth="50*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Elkarrizketa-koadroko elementua</para>
+            </entry>
+            <entry>
+              <para>Azalpena</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry valign="top">
+              <para xml:lang="en">
+                <guilabel>Enable assistive technologies</guilabel>
+              </para>
+            </entry>
+            <entry valign="top">
+              <para>Gaitu aukera hau laguntza-teknologiak gaitzeko MATE mahaigainean.</para>
+              <para xml:lang="en">Note that for technical reasons, you have to log in
+again after enabling this option for it to be fully effective.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section xml:id="prefs-keyboard-shortcuts"><info><title>Laster-teklen hobespenak</title></info>
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="goscustdesk-39"/>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Keyboard Shortcuts</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>shortcut keys</primary>
+      <secondary>configuring</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>keyboard shortcuts</primary>
+      <secondary>configuring</secondary>
+    </indexterm>
+    <para>Erabili <application>Laster-teklak</application> hobespen-tresna, laster-tekla lehenetsiak zure beharren arabera pertsonalizatzeko.</para>    
+    
+    <para><firstterm>Laster-tekla</firstterm> tekla bat edo teklen konbinazio bat da, ekintzak egiteko ohiko moduen alternatiba gisa erabiltzen dena. Laster-teklei buruzko informazio gehiago eta MATEko laster-tekla lehenetsien zerrenda bat nahi izanez gero, ikusi <xref linkend="keyboard-skills"/>.</para>
+
+    <para>Laster-teklak pertsonalizatzeko, egin urrats hauek:</para>
+    <orderedlist>
+	    <listitem><para xml:lang="en">
+	    Double-click on the shortcut that you want to edit. If you are using the keyboard, use the arrow keys to select the shortcut and press <keycap>Return</keycap>.</para></listitem>
+	    <listitem>
+	      <para>Sakatu ekintzari esleitu nahi diozun tekla edo tekla-konbinazio berria.</para>
+	      <para>Laster-tekla bat garbitzeko, sakatu <keycap>Atzera</keycap>. Orduan ekintza <guilabel>Desgaituta</guilabel> gisa markatuta geratuko da.</para>
+	    </listitem>
+    </orderedlist>
+    
+    <para>Laster-tekla bat esleitzea bertan behera uzteko, egin klik leihoko beste edozein lekutan edo sakatu <keycap>Ihes</keycap>.</para>
+    
+    <para>Hona hemen pertsonaliza ditzakezun laster-teklak multzoka banatuta:</para>
+    
+    <variablelist>
+    	<varlistentry><term>Mahaigaina </term>
+    	  <listitem><para xml:lang="en">These are general shortcuts for the whole desktop, such as logging out, locking your screen (see <xref linkend="lock-screen"/>), opening the panel menubar (see <xref linkend="menubar"/>), or launching a web browser.</para></listitem>
+    	</varlistentry>
+    	<varlistentry><term>Soinua</term>
+    	  <listitem><para>Musika-erreproduzitzailea eta sistemaren bolumena kontrolatzeko laster-teklak.</para></listitem>
+    	</varlistentry>
+    	<varlistentry><term>Leiho-kudeaketa</term>
+    	  <listitem><para>Leihoekin eta laneko areekin erabiltzeko laster-teklak, hala nola uneko leihoa maximizatzeko edo lekuz aldatzeko, edo beste laneko area batera aldatzeko, besteak beste. Informazio gehiago nahi izanez gero era horretako ekintzei buruz, ikusi <xref linkend="windows-manipulating"/> eta <xref linkend="overview-workspaces"/>.</para></listitem>
+    	</varlistentry>
+        <varlistentry><term>Erabilerraztasuna</term>
+          <listitem><para xml:lang="en">Shortcuts for starting assistive technologies, such as
+            a screen reader, a magnifier or an on-screen keyboard.</para></listitem>
+        </varlistentry>
+        <varlistentry><term>Lasterbide pertsonalizatuak</term>
+          <listitem><para xml:lang="en">Custom shortcuts that have been added with the <guilabel>Add</guilabel> button. This section will not be shown if there are no custom shortcuts.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para xml:lang="en">
+      To add a custom shortcut, use the <guilabel>Add</guilabel> button in the action area. You have to provide a name and a command for the new shortcut. The new custom shortcut will appear in the list of shortcuts and can be edited in the same way as the predefined shortcuts.
+    </para>
+    <para xml:lang="en">
+      To remove a custom shortcut, use the <guilabel>Remove</guilabel> button.
+    </para>
+  </section>  
+
+  <section xml:id="prefs-preferredapps"><info><title>Hobetsitako aplikazioak</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdoc-2"/>       
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Preferred Applications</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>default applications</primary>
+      <see>preferred applications</see>
+    </indexterm>
+    <para xml:lang="en">Use the <application>Preferred
+Applications</application> preference tool to specify the applications that
+you want the MATE Desktop to use when the MATE Desktop starts an application
+for you. For example, you can specify the web browser application (<application>Epiphany
+</application>, <application>Mozilla Firefox</application>, <application>Opera</application>
+...) to launch when you click on a link in other applications such as 
+email clients or document viewers.</para>
+
+	<para><application>Hobetsitako aplikazioak</application> aurkitzeko, hautatu <menuchoice><guimenu>Sistema</guimenu><guisubmenu>Hobespenak</guisubmenu><guimenuitem>Hobetsitako aplikazioak</guimenuitem></menuchoice>.</para>
+    <para><application>Hobetsitako aplikazioak</application> hobespen-tresnaren ezarpenak eremu funtzional hauetan pertsonaliza ditzakezu:</para>
+    <itemizedlist>
+      <listitem>
+        <para xml:lang="en">
+          <guilabel>Internet</guilabel> (Web, Mail)
+        </para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">
+          <guilabel>Multimedia</guilabel> (Multimedia Player)
+        </para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">
+          <guilabel>System</guilabel> (Terminal)
+        </para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">
+          <guilabel>Accessibility</guilabel> (Visual, Mobility)
+        </para>
+      </listitem>
+    </itemizedlist>
+    
+    <para xml:lang="en">For each preferred application category, a drop-down menu contains a list of possible applications you can choose from. The list depends on the applications installed on your computer.</para>
+    <para xml:lang="en">In each category, the last item in the menu (<guimenuitem>Custom</guimenuitem>) permits you to customize the command used by the system when the specific launch action occurs.</para>
+    
+    <section xml:id="goscustlookandfeel-32"><info><title xml:lang="en">Custom Command Options</title></info>
+      <indexterm xml:lang="en">
+        <primary>preferred applications</primary>
+        <secondary>custom command</secondary>
+      </indexterm>
+      <para xml:lang="en">The following table summarizes the various options you can choose from when you select
+<guimenuitem>Custom</guimenuitem> in the drop-down application menu.</para>
+      <table frame="topbot" xml:id="goscustlookandfeel-TBL-37"><info><title xml:lang="en">Custom command options</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec0" colwidth="18.86*"/>
+          <colspec colname="colspec1" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Command</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">Enter the command to execute to start the custom application. For the <application>Web
+Browser</application> and the <application>Mail Reader</application> applications, you can include a <literal>%s</literal>
+after the command to tell the application to use the URL or Email address you clicked on. The exact command arguments
+may depend on the specific application.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Run in terminal</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">Select this option to run the command in a terminal window. Select this option for an
+ application that does not create a window in which to run.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Execute flag (Terminal only)</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">Most terminal applications have an option that cause them to treat the remaining command line options as
+commands to run (<option>-x</option> for <application>mate-terminal</application>).  Enter this option here.
+ For example, this is used when executing a command of a launcher for which the chosen type is Application in Terminal.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Run at start (Accessibility only)</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">Select this option to run the command as soon as your session begins.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+</section>
+
+<section xml:id="prefs-look-and-feel"><info><title>Itxura eta izaera</title></info>
+
+  <section xml:id="prefs-appearance"><info><title>Itxuraren hobespenak</title></info>
+    <para xml:lang="en">The <application>Appearance</application> preference tool lets
+    you configure various aspects of how your desktop looks:</para>
+    <itemizedlist>
+      <listitem>
+        <para xml:lang="en">Theme,</para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">Desktop Background,</para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">Fonts,</para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">User Interface.</para>
+      </listitem>
+     </itemizedlist>
+
+  <section xml:id="prefs-theme"><info><title>Gaiaren hobespenak</title></info>
+    <anchor xml:id="goscustdesk-12"/>
+    <anchor xml:id="goscustdesk-54"/>
+    <anchor xml:id="goscustdesk-82"/>
+  
+    <indexterm xml:lang="en">
+      <primary>themes</primary>
+      <secondary>setting controls options</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>themes</primary>
+      <secondary>setting window frame options</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>themes</primary>
+      <secondary>setting icons options</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>windows</primary>
+      <secondary>setting frame theme options</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Theme</secondary>
+    </indexterm>
+
+    <para xml:lang="en">A theme is a group of coordinated settings that specifies
+the visual appearance of a part of the MATE Desktop. You can choose themes
+to change the appearance of the MATE Desktop. Use the <application>Theme</application> tabbed section to select a theme. You can choose from a list
+of available themes. The list of available themes includes several themes
+for users with accessibility requirements. </para>
+    <para>Gai baten ezarpenek MATE mahaigaineko hainbat zatiri eragiten diete:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Kontrolak</term>
+        <listitem>
+          <para xml:lang="en"><indexterm xml:lang="en"><primary>GTK+
+themes</primary><see>themes, controls options</see></indexterm><indexterm xml:lang="en"><primary>themes</primary><secondary>controls options</secondary><tertiary>introduction</tertiary></indexterm>The controls setting for a theme determines
+the visual appearance of windows, panels, and applets. The controls setting
+also determines the visual appearance of the MATE-compliant interface items
+that appear on windows, panels, and applets, such as menus, icons, and buttons.
+Some controls setting options that are available are designed for special
+accessibility needs. You can choose an option for the controls setting from
+the <guilabel>Controls</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Koloreak</term>
+        <listitem>
+           <para xml:lang="en"><indexterm xml:lang="en"><primary>themes</primary><secondary>color options</secondary><tertiary>introduction</tertiary></indexterm><indexterm xml:lang="en"><primary>color themes</primary><see>themes, color options</see></indexterm>The color setting for
+a theme determines the color of various user interface elements. You can choose several pairs of colors from the <guilabel>Colors</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+           <note><para xml:lang="en">It is important to choose pairs of colors that have a good contrast with each other,
+           otherwise text may become hard to read.</para></note>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Leiho-markoa</term>
+        <listitem>
+          <para xml:lang="en"><indexterm xml:lang="en"><primary>themes</primary><secondary>window frame options</secondary><tertiary>introduction</tertiary></indexterm><indexterm xml:lang="en"><primary>Marco themes</primary><see>themes, window frame options</see></indexterm>The window frame setting for
+a theme determines the appearance of the frames around windows only. You can
+choose an option for the window frame setting from the <guilabel>Window Border</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Ikonoak</term>
+        <listitem>
+          <para xml:lang="en"><indexterm xml:lang="en"><primary>themes</primary><secondary>icons options</secondary><tertiary>introduction</tertiary></indexterm><indexterm xml:lang="en"><primary>icon themes</primary><see>themes, icons options</see></indexterm>The icon setting for a theme determines the appearance of
+the icons on panels and the desktop background. You can choose an option for
+the icon setting from the <guilabel>Icons</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Erakuslea</term>
+        <listitem>
+          <para xml:lang="en"><indexterm xml:lang="en"><primary>themes</primary><secondary>pointer options</secondary><tertiary>introduction</tertiary></indexterm><indexterm xml:lang="en"><primary>pointer themes</primary><see>themes, pointer options</see></indexterm>The pointer setting for a theme determines the appearance of
+and size of the mouse pointer. You can choose the options for setting the pointer from the <guilabel>Pointer</guilabel> tabbed section in the <guilabel>Customize Theme</guilabel> window.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <section xml:id="goscustdesk-61"><info><title>Gai pertsonalizatu bat sortzeko</title></info>
+      
+      <para xml:lang="en">The themes that are listed in the <guilabel>Theme</guilabel>
+tabbed section are different combinations of controls options, window frame options,
+and icon options. You can create a custom theme that uses different combinations
+of controls options, window frame options, and icon options.</para>
+      <para>Gai pertsonalizatu bat sortzeko, egin urrats hauek:</para>
+      <orderedlist>
+        <listitem>
+          <para xml:lang="en">Start the <application>Appearance</application> preference tool.
+          Open the <guilabel>Theme</guilabel> tabbed section.</para>
+        </listitem>
+        <listitem>
+          <para>Hautatu gai bat gaien zerrendatik.</para>
+        </listitem>
+        <listitem>
+          <para xml:lang="en">Click on the <guibutton>Customize</guibutton> button. A <guilabel>Customize Theme</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Hautatu gai pertsonalizatuan erabili nahi duzun kontrol-aukera <guilabel>Kontrolak</guilabel> atal fitxadunean. Zerrenda horretan erabilerraztasun-beharrak dituzten erabiltzaileentzako hainbat kontrol-aukera daude.</para>
+        </listitem>
+        <listitem>
+          <para>Egin klik <guilabel>Leiho-ertza</guilabel> fitxan <guilabel>Leiho-ertza</guilabel> atal fitxaduna bistaratzeko. Hautatu gai pertsonalizatuan erabili nahi duzun leiho-markoaren aukera erabilgarri dauden aukeren zerrendan. Zerrenda horretan erabilerraztasun-beharrak dituzten erabiltzaileentzako leiho-markoen hainbat aukera daude.</para>
+        </listitem>
+        <listitem>
+          <para>Egin klik <guilabel>Ikonoak</guilabel> fitxan, <guilabel>Ikonoak</guilabel> atal fitxaduna bistaratzeko. Hautatu gai pertsonalizatuan erabili nahi dituzun ikono-aukera erabilgarri dauden aukeren zerrendan. Zerrenda horretan erabilerraztasun-beharrak dituzten erabiltzaileentzako hainbat ikono-aukera daude.</para>
+        </listitem>
+        <listitem>
+          <para xml:lang="en">Click <guibutton>Close</guibutton> to close the <guilabel>Customize Theme</guilabel> dialog.</para>
+        </listitem>
+        <listitem>
+          <para xml:lang="en">On the <application>Appearance</application> preferences tool,
+click on the <guibutton>Save As</guibutton> button. A <guilabel>Save Theme
+As</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Idatzi gai pertsonalizatuaren izena eta azalpen labur bat elkarrizketa-koadro horretan, eta gero, egin klik <guibutton>Gorde</guibutton> botoian. Orain, gai pertsonalizatua erabilgarri dauden gaien zerrendan agertuko da.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section xml:id="goscustdesk-62"><info><title>Gai berri bat instalatzeko</title></info>
+      <para>Gai bat gehi dezakezu erabilgarri dauden gaien zerrendan. Gai berriak konprimatutako fitxategi bat izan behar du. Hau da, <filename>.tar.gz</filename> fitxategi bat izan behar du.</para>
+      <para>Gai berri bat instalatzeko, egin urrats hauek:</para>
+      <orderedlist>
+        <listitem>
+          <para xml:lang="en">Start the <application>Appearance</application> preference tool.
+           Open the <guilabel>Theme</guilabel> tabbed section.</para>
+        </listitem>
+        <listitem>
+          <para xml:lang="en">Click on the <guibutton>Install</guibutton> button.
+A file chooser dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para xml:lang="en">Enter the location of the theme archive file in the location
+entry. Alternatively, select the theme archive file in the file list. When you have selected the file, click <guibutton>Open</guibutton>.</para>
+        </listitem>
+        <listitem>
+          <para>Egin klik <guibutton>Instalatu</guibutton> botoian gai berria instalatzeko.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+<!--How does this work nowadays ?
+    <sect4 id="goscustdesk-80">
+      <title>To Install a New Theme Option</title>
+      <para>You can install new controls options, window frame options, or icons
+options. You can find many controls options on the Internet.</para>
+      <para>To install a new controls option, window frame option, or icons option,
+perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Start the <application>Appearance</application> preference tool.
+          Open the <guilabel>Theme</guilabel> tabbed section.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Customize</guibutton> button.
+An <guilabel>Customize Theme</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the tab for the type of theme that you want to install.
+For example, to install an icons option, click on the <guilabel>Icons</guilabel>
+tab.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Install Theme</guibutton> button.
+A <guilabel>Theme Installation</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Enter the location of the option archive file in the drop-down
+combination box. Alternatively, to browse for the file, click on the <guibutton>Browse</guibutton> button. When you have selected the file, click <guibutton>OK</guibutton>.</para>
+        </listitem>
+        <listitem>
+          <para>Click on the <guibutton>Install</guibutton> button to install
+the new option. </para>
+        </listitem>
+      </orderedlist>
+    </sect4>
+-->
+
+    <section xml:id="goscustdesk-81"><info><title>Gai-aukera bat ezabatzeko</title></info>
+      <para>Kontrol-aukerak, leiho-markoen aukerak edo ikono-aukerak ezaba ditzakezu.</para>
+      <para>Kontrolen, leiho-markoen edo ikonoen aukera bat ezabatzeko, egin urrats hauek:</para>
+      <orderedlist>
+        <listitem>
+          <para xml:lang="en">Start the <application>Appearance</application> preference tool.
+          Open the <guilabel>Theme</guilabel> tabbed section.</para>
+        </listitem>
+        <listitem>
+          <para xml:lang="en">Click on the <guibutton>Customize</guibutton> button.
+A <guilabel>Customize Theme</guilabel> dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Egin klik ezabatu nahi duzun aukera motan.</para>
+        </listitem>
+        <listitem>
+          <para xml:lang="en">Select the theme option you want to delete.</para>
+        </listitem>
+        <listitem>
+          <para xml:lang="en">Use the <guibutton>Delete</guibutton> button to delete the
+          selected option. Note that you can not delete system-wide theme
+          options.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+
+  <section xml:id="prefs-desktopbackground"><info><title>Mahaigainaren atzeko planoaren hobespenak</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-7"/>       
+    <indexterm xml:lang="en">
+      <primary>desktop</primary>
+      <secondary>customizing background</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>MATE Desktop preference tools</primary>
+      <see>preference tools</see>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Background</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>backgrounds</primary>
+      <secondary>customizing desktop background</secondary>
+    </indexterm>
+    <para xml:lang="en">The <xref linkend="overview-desktop"/> background is the image or color that is applied to your
+desktop. You can open <guilabel>Background</guilabel> tabbed section in the <application>Appearance</application> preference tool by right-clicking on the desktop and choosing <guimenuitem>Change Desktop Background</guimenuitem>, as well as from the <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu></menuchoice> menu.</para>
+    <para>Honela pertsonaliza dezakezu mahaigainaren atzeko planoa:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Hautatu irudi bat mahaigainaren atzeko planorako. Irudia atzeko planoaren kolorearen gainean jarriko da. Mahaigainaren atzeko planoko kolorea ikusgai egongo da, irudi gardena hautatzen baduzu edo irudiak mahaigain osoa betetzen ez badu.</para>
+      </listitem>
+      <listitem>
+        <para>Hautatu kolore bat mahaigainaren atzeko planorako. Kolore lisoa hauta dezakezu, edo gradientearen efektua sor dezakezu bi kolore erabiliz. Gradientearen efektua kolore bat pixkanaka beste kolore batekin nahasten den efektu bisuala da.</para>
+      </listitem>
+    </itemizedlist>
+    <tip><para xml:lang="en">You can also drag a color or a pattern to the desktop from the <guilabel>Backgrounds
+and Emblems</guilabel> dialog in the <application>Caja</application> file manager (see <xref linkend="caja-backgrounds-and-emblems"/>).</para></tip>
+    <para><xref linkend="goscustdesk-TBL-14"/> taulan zuk alda ditzakezun atzeko planoaren hobespenak zerrendatzen dira.</para>
+    <table frame="topbot" xml:id="goscustdesk-TBL-14"><info><title>Mahaigainaren atzeko planoaren hobespenak</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec0" colwidth="18.86*"/>
+        <colspec colname="colspec1" colwidth="47.14*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Elkarrizketa-koadroko elementua</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Azalpena</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guibutton>Desktop Background</guibutton>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">Choose an image from the list.  Alternately, you can use the
+<guibutton>Add</guibutton> button to choose any image on your computer.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Style</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Irudia nola bistaratu zehazteko, hautatu aukera hauetako bat <guilabel>Estiloa</guilabel> goitibeherako zerrendatik:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Zentratua</guilabel>: irudia mahaigainaren erdian bistaratzen du, irudien jatorrizko tamaina mantenduz.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Bete pantaila</guilabel>: irudia mahaigaina estaltzeko handitzen du, irudiaren proportzioak aldatuz behar izanez gero.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Eskalatu</guilabel>: irudia pantailaren tamainara egokitu arte handitzen du, eta irudiaren neurri erlatiboak mantentzen ditu.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Zooma</guilabel>: irudiaren neurri txikia pantailaren tamainara egokitu arte handitzen du, eta irudia beste neurri batzuetan moztuta ager daiteke.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Mosaikoan</guilabel>: irudia jatorrizko tamainan errepikatzen du eta irudiak bata bestearen jarraian bistaratzen dtiu mahaigain osoa bete arte</para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0">
+              <para xml:lang="en">
+                <guilabel>Add</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0">
+              <para/>
+              <para xml:lang="en">Click on the <guibutton>Add</guibutton> to browse for
+an image on your computer.  A standard file selector will be presented.  Choose
+the image you want and click <guibutton>Open</guibutton>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0">
+              <para xml:lang="en">
+                <guilabel>Remove</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0">
+              <para xml:lang="en">Choose the image that you want to remove,
+then click <guilabel>Remove</guilabel>.  This removes the image from the list of available wallpapers; however, it does not delete the image from your computer.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Colors</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">To specify a color scheme, use  the options
+in the <guilabel>Style</guilabel> drop-down list, and the color
+selector buttons.</para>
+              <para>Kolore-eskema hauetako bat zehaztu dezakezu modu hauetako batean:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Atzeko planoaren estiloa</guilabel> goitibeherako zerrendan hautatu <guilabel>Kolore lisoa</guilabel>, kolore bakar bat zehazteko mahaigainaren atzeko planorako.</para>
+                  <para>Behar duzun kolorea aukeratzeko, egin klik <guibutton>Kolorea</guibutton> botoian. <guilabel>Aukeratu kolorea</guilabel> elkarrizketa-koadroa bistaratzen da. Aukeratu nahi duzun kolorea eta egin klik <guibutton>Ados</guibutton> botoian.</para>
+                </listitem>
+                <listitem>
+                  <para>Hautatu <guilabel>Gradiente horizontala</guilabel> <guilabel>Atzeko planoaren estiloa</guilabel> goitibeherako zerrendan. Aukera horrek gradientearen efektua sortzen du pantailaren ezkerretik eskuinera.</para>
+                  <para>Egin klik <guibutton>Ezkerreko kolorea</guibutton> botoian <guilabel>Aukeratu kolorea</guilabel> elkarrizketa-koadroa irekitzeko. Aukeratu ezkerreko aldean agertzea nahi duzun kolorea.</para>
+                  <para>Egin klik <guibutton>Eskuineko kolorea</guibutton> botoian. Aukeratu eskuineko aldean agertzea nahi duzun kolorea.</para>
+                </listitem>
+                <listitem>
+                  <para>Hautatu <guilabel>Gradiente bertikala</guilabel> <guilabel>Atzeko planoaren estiloa</guilabel> goitibeherako zerrendan. Aukera horrek gradientearen efektua sortzen du pantailan goitik behera.</para>
+                  <para>Egin klik <guibutton>Goiko kolorea</guibutton> botoian <guilabel>Aukeratu kolorea</guilabel> elkarrizketa-koadroa irekitzeko. Aukeratu goian agertzea nahi duzun kolorea.</para>
+                  <para>Egin klik <guibutton>Beheko kolorea</guibutton> botoian. Aukeratu behean agertzea nahi duzun kolorea.</para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section xml:id="prefs-font"><info><title>Letra-tipoaren hobespenak</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-38"/>
+    <anchor xml:id="goscustdesk-83"/>
+    <anchor xml:id="goscustdesk-94"/>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Font</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>fonts</primary>
+      <secondary>desktop</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>fonts</primary>
+      <secondary>applications</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>fonts</primary>
+      <secondary>window title</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>fonts</primary>
+      <secondary>terminal</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>fonts</primary>
+      <secondary>rendering</secondary>
+    </indexterm>
+    <para xml:lang="en">Use the <guilabel>Fonts</guilabel> tabbed section in the <application>Appearance</application> preference tool
+to choose which fonts are used in different parts of the desktop, and the way in which fonts are displayed on the screen.</para>
+
+    <section xml:id="prefs-font-choose"><info><title>Letra-tipoak aukeratzea</title></info>
+      <para>Letra-tipoa hautatzeko botoiak letra-tipoaren izena eta letraren puntu-tamaina erakusten ditu. Izena lodiz, etzanda eta arrunta motetan ere erakusten da.</para>
+      <para>Letra-tipoa aldatzeko, egin klik letra-tipoa hautatzeko botoian. Letra-tipoaren hautatzailearen elkarrizketa-koadroa irekiko da. Hautatu letra-tipoaren familia, estiloa eta puntu-tamaina zerrendetatik. Uneko aukera erakusten du aurrebistaren areak. Egin klik <guibutton>Ados</guibutton> botoian aldaketa onartzeko eta mahaigaina eguneratzeko.</para>
+      <para>Letra-tipoak aukera ditzakezu mahaigainaren zati hauetarako:</para>
+
+      <variablelist>
+       	<varlistentry>
+      	  <term xml:lang="en"><guilabel>Application font</guilabel></term>
+      	  <listitem>
+      	    <para>Aplikazioen menuetan, tresna-barretan eta elkarrizketa-koadroetan erabiltzen da letra-tipo hau.</para>
+      	  </listitem>
+      	</varlistentry>
+      	<varlistentry>
+      	  <term xml:lang="en"><guilabel>Document font</guilabel></term>
+      	  <listitem>
+      	    <para>Aplikazioetan dokumentuak bistaratzeko erabiltzen da letra-tipo hau.</para>
+      	    <note><para>Aplikazio batzuetan aukera hau gainidatz dezakezu aplikazioaren hobespenen elkarrizketa-koadroan.</para></note>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term xml:lang="en"><guilabel>Desktop font</guilabel></term>
+      	  <listitem>
+      	    <para>Mahaigaineko ikonoen etiketetan erabiltzen da.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term xml:lang="en"><guilabel>Window title font</guilabel></term>
+      	  <listitem>
+      	    <para>Leihoen titulu-barretan erabiltzen da.</para>
+      	  </listitem>
+      	</varlistentry>
+       	<varlistentry>
+      	  <term xml:lang="en"><guilabel>Fixed width font</guilabel></term>
+      	  <listitem>
+      	    <para><application>Terminala</application> aplikazioan eta programazioarekin zerikusia duten aplikazioetan erabiltzen da letra-tipo hau.</para>
+      	  </listitem>
+      	</varlistentry>
+      	</variablelist>
+  	</section>
+	
+  	<section xml:id="prefs-font-rendering"><info><title>Letra-tipoak errendatzea</title></info>
+      <para>Letra-tipoak pantailan bistaratzeko moduari dagokionez, aukera hauek ezar ditzakezu:</para>
+	
+    	<variablelist>
+     	<varlistentry>
+    	  <term xml:lang="en"><guilabel>Rendering</guilabel></term>
+    	  <listitem>
+    	    <para>Pantailako letra-tipoak nola errendatu zehazteko, hautatu aukera hauetako bat:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Monokromoa</guilabel>: zuri-beltzean bakarrik errendatzen ditu letra-tipoak. Kasu batzuetan, karaktereen ertzak zorrotzak ager daitezke, karaktereei ez baitzaie antialiasing-a aplikatzen. <firstterm>Antialiasing-a</firstterm> karaktereen ertzei aplikatzen zaien efektua da, karaktereek itxura leunagoa izan dezaten.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Forma onenak</guilabel>: letra-tipoei antialias efektua aplikatzen die posible den neurrian. Erabili aukera hori Katode Izpien Hodiko (CRT) monitore estandarretan.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Kontraste onena</guilabel>: letra-tipoak doitzen ditu kontrasterik garbiena emateko, eta letra-tipoei antialiasing-a aplikatzen die karaktereek ertz leunak izan ditzaten. Aukera horrek MATE mahaigaineko erabilerraztasuna hobetu dezake ikusmen-arazoak dituzten erabiltzaileentzat.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Azpipixelen leuntzea (LCDak)</guilabel>: Kristal Likidozko Pantailetako (LCD) pixel indibidualen formaz baliatzen diren teknikak erabiltzen ditu letra-tipoak leunki errendatzeko. Erabili aukera hori LCD pantailetan edo pantaila lauetan.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+     	<varlistentry>
+    	  <term xml:lang="en"><guibutton>Details</guibutton></term>
+    	  <listitem>
+    	    <para>Egin klik botoi horretan pantailako letra-tipoak errendatzeko xehetasun gehiago zehazteko.</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Bereizmena (puntu hazbeteko)</guilabel>: erabili biratze-botoi hori pantailak letra-tipoak errendatzen dituenean erabili beharreko bereizmena zehazteko.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Leuntzea</guilabel>: hautatu aukeretako bat letra-tipoei antialiasing-a nola aplikatu zehazteko.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Aholkuak</guilabel>: Aholkuak letra-tipoak errendatzeko teknika da eta tamaina txikiko letra-tipoen eta bereizmen baxuko pantailen kalitatea hobetzen du. hautatu aukera bat letra-tipoei aholkua nola aplikatu zehazteko.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Azpipixelen ordena</guilabel>: hautatu aukeretariko bat azpipixelen koloreen ordena letra-tipoentzako ezartzeko. Erabili aukera hori LCD pantailetan edo pantaila lauetan.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+    </variablelist>
+   
+    </section>
+
+<!-- go to fonts folder no longer exists
+    <sect4 id="goscustdesk-83">
+      <title>Previewing a Font</title>
+      <indexterm>
+        <primary>fonts</primary>
+        <secondary>previewing</secondary>
+      </indexterm>
+      <para>A preview of a font shows the characters of a font at different sizes, as well as copyright and technical information. To preview a font, perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Open the <application>Appearance</application> preference tool by choosing <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu><guimenuitem>Font</guimenuitem></menuchoice> in the top panel.</para>
+        </listitem>
+        <listitem><para>Click on <guibutton>Details</guibutton>.</para></listitem>
+        <listitem><para>Click on <guibutton>Go to font folder</guibutton>. The <guilabel>Fonts</guilabel> folder opens.</para></listitem>
+        <listitem>
+          <para>Open a font to display a preview.</para>
+        </listitem>
+      </orderedlist>
+    </sect4>
+-->
+
+<!-- go to fonts folder no longer exists
+    <sect4 id="goscustdesk-94">
+      <title>Adding a TrueType Font</title>
+      <para>To add a TrueType font to your system, perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Open the <application>Font</application> preference tool by choosing <menuchoice><guimenu>System</guimenu><guisubmenu>Preferences</guisubmenu><guimenuitem>Font</guimenuitem></menuchoice> in the panel menubar.</para>
+        </listitem>
+        <listitem><para>Click on <guibutton>Details</guibutton>.</para></listitem>
+        <listitem><para>Click on <guibutton>Go to font folder</guibutton>. The <guilabel>Fonts</guilabel> folder opens.</para></listitem>      
+        <listitem>
+          <para>Open a file manager window and select the TrueType font that
+you want to add.</para>
+        </listitem>
+        <listitem>
+          <para>Copy the TrueType font file that you want to add to the <guilabel>Fonts</guilabel> folder.</para>
+        </listitem>
+      </orderedlist>
+      <warning><para>The new font will not appear in the <guilabel>Fonts</guilabel> folder until you next log in. You will need to relaunch applications for them to have access to the new font. These are known bugs in Mate.</para></warning>
+      
+      <tip><para>You can also open the <guilabel>Fonts</guilabel> folder by typing the following URI into <application>Caja</application> file manager's <link linkend="caja-open-location">Open Location dialog</link>: <command>fonts:///</command>.</para></tip>
+    </sect4>
+-->
+  </section>
+
+  <section xml:id="prefs-menustoolbars"><info><title xml:lang="en">Interface Preferences</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustuserinter-2"/>    
+    <indexterm xml:lang="en">
+      <primary>toolbars, customizing appearance</primary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Menus &amp; Toolbars</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>menus</primary>
+      <secondary>in applications, customizing appearance</secondary>
+    </indexterm>
+    <para xml:lang="en">You can use the <guilabel>Interface</guilabel> tabbed section in the <application>Appearance</application> preference tool to customize the appearance
+of menus, menubars, and toolbars for applications that are part of MATE.</para>
+    <para>Ezarpenak aldatu ahala, leihoaren aurrebista eguneratu egiten da. Horrela aldaketak ikus ditzakezu, nahiz eta une horretan leihorik ez eduki irekita.</para>
+    <variablelist>
+     	<varlistentry>
+    	  <term xml:lang="en"><guilabel>Show icons in menus</guilabel></term>
+    	  <listitem>
+    	    <para>Hautatu aukera hau elementuen ondoan ikonoak erakusteko aplikazio-menuetan eta panelaren menuan. Menu-elementu guztiek ez daukate ikonoa.</para>
+    	  </listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term xml:lang="en"><guilabel>Editable menu shortcut keys</guilabel></term>
+	      <listitem><para>Aukera hau hautatzean laster-tekla berriak defini ditzakezu menu-elementuentzat.</para>
+	      <para>Aplikazio baten laster-tekla aldatzeko, ireki menua, eta saguarekin seinalatu aldatu nahi duzun menu-elementua, eta ondoren sakatu tekla-konbinazioa. Laster-tekla bat kentzeko, sakatu <keycap>Atzera</keycap> edo <keycap>Ezabatu</keycap> tekla.</para>
+	      <warning>
+	        <para>Eginbide hori erabiltzean, ez duzu abisurik jasoko laster-tekla bat esleitzen diozunean komando bati, beste komando batetik kenduz.</para>
+	        <para>Ez dago modurik komando baten jatorrizko laster-tekla berrezartzeko.</para>
+	        <para>Eginbide honek ez ditu mantentzen aplikazio guztietan komunak diren laster-teklak, adibidez <keycombo><keycap>Ktrl</keycap><keycap>C</keycap></keycombo> kopiatzeko funtziorako. Inkoherentzietarako bide eman lezake MATE aplikazioetan.</para>
+	      </warning>
+	      </listitem>
+      </varlistentry>
+     	<varlistentry>
+    	  <term xml:lang="en"><guilabel>Toolbar button labels</guilabel></term>
+    	  <listitem>
+    	    <para>hautatu aukera hauetako bat, zer bistaratu zehazteko MATErekin bateragarriak diren aplikazioetan:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <para><guilabel>Testua ikonoen azpian</guilabel>: hautatu aukera hori tresna-barrako ikono bakoitzean testua eta ikonoa bistaratzeko.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Testua ikonoen ondoan</guilabel>: hautatu aukera hori tresna-barrako botoi guztiak ikono batekin eta botoi garrantzitsuenak testuarekin bistaratzeko.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Ikonoak bakarrik</guilabel>: hautatu aukera hori tresna-barrako botoi guztiak ikonoarekin bakarrik bistaratzeko.</para>
+                    </listitem>
+                    <listitem>
+                      <para><guilabel>Testua bakarrik</guilabel>: hautatu aukera hori tresna-barrako botoi guztiak testuarekin bakarrik bistaratzeko.</para>
+                    </listitem>
+                  </itemizedlist>
+    	  </listitem>
+    	</varlistentry>
+    </variablelist>
+  </section>
+  </section>
+
+  <section xml:id="prefs-windows"><info><title>Leihoen hobespenak</title></info>
+    <!-- preserve for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-58"/>    
+
+    <indexterm xml:lang="en">
+      <primary>window manager</primary>
+      <secondary>customizing</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Windows</secondary>
+    </indexterm>
+    <para>Erabili <application>Leihoak</application> hobespen-tresna leihoek MATE mahaigainean izango duten portaera pertsonalizatzeko.</para>
+    <para><xref linkend="goscustwindows-TBL-14"/> taulan zuk alda ditzakezun leiho-hobespenak zerrendatzen dira.</para>
+    <table frame="topbot" xml:id="goscustwindows-TBL-14"><info><title>Leihoen hobespenak</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec0" colwidth="18.86*"/>
+        <colspec colname="colspec1" colwidth="47.14*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Elkarrizketa-koadroko elementua</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Azalpena</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Select windows when the mouse moves over them</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Hautatu aukera hori leiho bati fokua emateko leiho hori seinalatzen duzunean. Fokua leiho horretan edukiko da beste leiho bat seinalatu arte.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Raise selected windows after an interval</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Hautatu aukera hori leihoa goratzeko leihoak fokua jaso eta handik pixka batera.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Interval before raising</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Zehaztu zenbat denbora itxaron behar den fokua jaso duen leihoa goratu arte.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Double-click titlebar to perform this action</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Hautatu gertatzea nahi duzun portaera leihoaren titulu-barran klik bikoitza egitean. Hautatu aukera hauetako bat:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><guilabel>Maximizatu</guilabel>: leihoa maximizatzen du.</para>
+                </listitem>
+                <listitem>
+                  <para xml:lang="en"><guilabel>Maximize Vertically</guilabel>: Maximizes the window vertically without changing its width.</para>
+                </listitem>
+                <listitem>
+                  <para xml:lang="en"><guilabel>Maximize Horizontally</guilabel>: Maximizes the window horizontally without changing its height.</para>
+                </listitem>
+                <listitem>
+                  <para xml:lang="en"><guilabel>Minimize</guilabel>: Minimizes the window.</para>
+                </listitem>
+                <listitem>
+                  <para><guilabel>Bildu</guilabel>: bildu leihoa.</para>
+                </listitem>
+                <listitem>
+                  <para xml:lang="en"><guilabel>None</guilabel>: Do nothing.</para>
+                </listitem>
+              </itemizedlist>
+              <para xml:lang="en">If a window is already maximized or rolled up, double-clicking 
+              on the titlebar will return it to its normal state.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>To move a window, press-and-hold this key then grab the window</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+              <para>Hautatu sakatuta edukitzeko tekla leihoa lekuz aldatzeko gainean klik egiten duzunean.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <note>
+      <para xml:lang="en">The position of the Control, Alt and Super keys on the keyboard can be modified in the 
+      Keyboard Layout Options dialog, see <xref linkend="prefs-keyboard-layoutoptions"/>. 
+      </para>
+    </note>
+  </section>
+
+  <section xml:id="prefs-screensaver"><info><title>Pantaila-babeslearen hobespenak</title></info>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>screensaver</secondary>
+    </indexterm>
+    <para><firstterm>Pantaila-babesleak</firstterm> mugitzen diren irudiak erakusten ditu pantailan ordenagailua erabiltzen ari ez denean. Horrez gain, irudi bera denbora luzez bistaratzeagatik monitore zaharrak hondatzea eragozten du pantaila-babesleak. Pantaila-babeslea geldiarazi eta mahaigainera itzultzeko, mugitu sagua edo sakatu teklatuko tekla bat.</para>
+    <para>Erabili <application>Pantaila-babeslea</application> hobespen-tresna pantaila-babeslearen mota ezartzeko, pantaila-babeslea abiarazi aurretik igaro beharreko denbora zehazteko, eta mahaigainera itzultzeko pasahitza beharko den edo ez erabakitzeko.</para>
+    <para>Ezarpen hauek alda ditzakezu:</para>
+    <variablelist>
+    	<varlistentry>
+    	  <term>Pantaila-babeslea</term>
+    	  <listitem><para>Hautatu <guilabel>Pantaila-babeslearen gaia</guilabel> zerrendan. Pantaila-babeslearen gaiaren bertsio murriztu bat erakusten da. Sakatu <guibutton>Aurrebista</guibutton>, hautatutako gaia erakusteko pantaila osoan. Aurrebistan, erabili pantailaren goialdeko gezi-botoiak pantaila-babesleen gaien zerrendan batetik bestera joateko.</para>
+    	  <itemizedlist>
+	        <listitem><para><guilabel>Pantaila hutsa</guilabel> gaiak ez du irudirik bistaratzen, eta pantaila huts bat bakarrik erakusten du.</para></listitem>
+	        <listitem><para><guilabel>Ausazkoa</guilabel> gaiak pantaila-babesle bat aukeratzen du zerrendatik ausaz.</para></listitem>
+        </itemizedlist>
+    	  <para>Banatzailearen edo salatzailearen araberakoak izango dira zerrendako gainerako pantaila-babesak.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Utzi ordenagailua inaktibo denbora hau igarotakoan...</term>
+    	  <listitem><para>Ordenagailua inaktibo geratuko da denbora hori igarotakoan, sarrerarik ez bada egon zure aldetik, sagua mugitzea edo zerbait idaztea, esate baterako. Horrek eragina izan dezake energia-kudeaketan (monitorea egonean gera daiteke adibidez), edo istanteko mezularitzan (beharbada berriketan aritzeko programek "kanpoan" egoeran jarriko zaituzte). Erabili graduatzailea denboraren iraupena zehazteko minututan edo ordutan.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Aktibatu pantaila-babesa ordenagailua inaktibo dagoenean</term>
+    	  <listitem><para>Hautatu aukera hau pantaila-babesa abiaraztea nahi baduzu ezarritako denbora igarotakoan.</para></listitem>
+    	</varlistentry>
+    	<varlistentry>
+    	  <term>Blokeatu pantaila pantaila-babeslea aktibo dagoenean</term>
+    	  <listitem><para>Aukera hori hautatuta dagoenean, pantaila-babesak pasahitza eskatuko dizu mahaigainera itzultzen saiatzen zarenean. Informazio gehiago nahi izanez gero pantaila blokeatzeari buruz, ikusi <xref linkend="lock-screen"/>.</para></listitem>  	
+    	</varlistentry>
+  </variablelist>
+  </section>
+</section>
+
+<section xml:id="prefs-internet-and-network"><info><title>Internet eta sarea</title></info>
+
+  <section xml:id="prefs-network-admin"><info><title>Sareko ezarpenak</title></info>
+    <para><application>Sareko ezarpenak</application> aukerarekin zehaztu dezakezu sistema nola konektatzen den beste ordenagailuetara eta Internetera.</para>
+    <para>Administratzailearen pasahitza eskatuko zaizu <application>Sareko ezarpenak</application> abiarazten duzunean. Tresna horrekin egindako aldaketek sistema guztian eragina dutelako eskatzen da pasahitza.</para>
+
+  <section xml:id="prefs-network-admin-getting-started"><info><title>Erabiltzen hasteko</title></info>
+    <para><application>Sareko ezarpenak</application>-en leiho nagusiak lau atal fitxadun ditu:</para>
+    <variablelist>
+	 <varlistentry>
+	   <term xml:lang="en"><guilabel>Connections</guilabel></term>
+	   <listitem>
+		<para>Sareko interfaze guztiak erakusten ditu, eta interfaze horien ezarpenak aldatzeko aukera ematen du.</para>
+	   </listitem>
+	 </varlistentry>
+
+	 <varlistentry>
+	   <term xml:lang="en"><guilabel>General</guilabel></term>
+	   <listitem>
+		<para>Sistemaren ostalari-izena eta domeinu-izena aldatzeko aukera ematen dizu.</para>
+	   </listitem>
+	 </varlistentry>
+
+    	 <varlistentry>
+	   <term xml:lang="en"><guilabel>DNS</guilabel></term>
+	   <listitem>
+		<para>Bi atal ditu: <guilabel>DNS zerbitzariak</guilabel> erabiltzen ditu ordenagailuak domeinu-izenetako IP helbideak ebazteko. <guilabel>Bilaketa-domeinuak</guilabel> erabiltzen ditu sistemak ostalariak bilatzeko domeinu lehenetsi gisa, domeinurik zehazten ez denean.</para>
+	   </listitem>
+	 </varlistentry>
+
+	 <varlistentry>
+	   <term xml:lang="en"><guilabel>Hosts</guilabel></term>
+	   <listitem>
+		<para>Ordenagailuak atzitzeko aliasen zerrenda erakusten du.</para>
+	   </listitem>
+	 </varlistentry>
+    </variablelist>
+  </section>
+
+  <section xml:id="prefs-network-admin-usage"><info><title>Erabilera</title></info>
+
+    <section xml:id="tool-modify-connection"><info><title>Konexio-ezarpenak aldatzeko</title></info>
+	 <para><guilabel>Konexioak</guilabel> atalean, hautatu aldatu nahi duzun interfazea eta sakatu <guilabel>Propietateak</guilabel> botoia; interfaze motaren arabera, mota desberdinetako datuak aldatzeko aukera izango duzu.</para>
+
+	 <variablelist>
+	   <varlistentry>
+		<term>Ethernet eta IRLAN interfazeak</term>
+		<listitem>
+		  <para>Interfazea konfiguratzeko modua alda dezakezu (DHCP bidez edo eskuz). Interfazea eskuz konfiguratzen bada, interfazearen IP helbidea, sare-maskara eta atebidea ere alda ditzakezu.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>Haririk gabeko interfazeak</term>
+		<listitem>
+		  <para>Interfazea konfiguratzeko modua alda dezakezu (DHCP bidez edo eskuz). Interfazea eskuz konfiguratzen bada, interfazearen IP helbidea, sare-maskara eta atebidea ere alda ditzakezu, eta interfazearen sare-izena (ESSID) ere bai.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>Linea paraleloko interfazeak</term>
+		<listitem>
+		  <para>Interfazearen IP helbidea alda dezakezu, bai eta urruneko IP helbidea ere.</para>
+		</listitem>
+	   </varlistentry>
+
+	   <varlistentry>
+		<term>PPP/Modem interfazeak</term>
+		<listitem>
+		  <para>Modema alda dezakezu, tonuak edo pultsuak markatzea deitzea nahi duzun, modemaren bolumena, telefono-zenbakia, ISPak emandako erabiltzaile-izena eta pasahitza, eta PPPrako beste ezarpen aurreratu batzuk ere bai.</para>
+		</listitem>
+	   </varlistentry>
+	 </variablelist>
+    </section>
+
+    <section><info><title>Interfaze bat aktibatzeko edo desaktibatzeko</title></info>
+	 <para><guilabel>Konexioak</guilabel> atalean, gaitu edo desgaitu interfazearen ondoko kontrol-laukia.</para>
+    </section>
+    
+    <section><info><title>Ostalari-izena eta domeinu-izena aldatzeko</title></info>
+	 <para><guilabel>Orokorra</guilabel> atalean, aldatu ostalari-izena edo domeinu-izena testu-koadroak.</para>
+    </section>
+
+    <section><info><title>Domeinu-izenen zerbitzari bat gehitzeko</title></info>
+	 <para><guilabel>DNS zerbitzariak</guilabel> atalean, sakatu <guilabel>Gehitu</guilabel> botoia eta beste zerrenda berriaren errenkada domeinu-izenen zerbitzari berriarekin.</para>
+    </section>
+
+    <section><info><title>Domeinu-izenen zerbitzari bat ezabatzeko</title></info>
+	 <para><guilabel>DNS zerbitzariak</guilabel> atalean, hautatu DNS IP helbide bat zerrendatik eta sakatu <guilabel>Ezabatu</guilabel> botoia.</para>
+    </section>
+
+    <section><info><title>Bilaketa-domeinu berri bat gehitzeko</title></info>
+	 <para><guilabel>DNS zerbitzariak</guilabel> atalean, sakatu <guilabel>Gehitu</guilabel> botoia eta beste zerrenda berriaren errenkada bilaketa-domeinu berriarekin.</para>
+    </section>
+
+    <section><info><title>Bilaketa-domeinu bat ezabatzeko</title></info>
+	 <para><guilabel>Bilaketa-domeinuak</guilabel> atalean, hautatu bilaketa-domeinu bat zerrendatik eta sakatu <guilabel>Ezabatu</guilabel> botoia.</para>
+    </section>
+
+    <section><info><title>Ostalari-alias berri bat gehitzeko</title></info>
+	 <para><guilabel>Ostalariak</guilabel> atalean, sakatu <guilabel>Gehitu</guilabel> botoia eta idatzi IP helbide bat eta hori seinalatuko duten aliasak bistaratzen den leihoan.</para>
+    </section>
+
+    <section><info><title>Ostalari-alias bat aldatzeko</title></info>
+	 <para><guilabel>Ostalariak</guilabel> atalean, hautatu alias bat, sakatu <guilabel>Propietateak</guilabel> botoia zerrendatik eta aldatu aliasaren ezarpenak bistaratzen den leihoan.</para>
+    </section>
+
+    <section><info><title>Ostalari-alias bat ezabatzeko</title></info>
+	 <para><guilabel>Ostalariak</guilabel> atalean, hautatu alias bat zerrendatik eta sakatu <guilabel>Ezabatu</guilabel> botoia.</para>
+    </section>
+
+    <section xml:id="prefs-network-admin-add-new-profile"><info><title>Uneko sare-konfigurazioa "kokaleku" gisa gordetzeko</title></info>
+	 <para>Sakatu <guilabel>Kokalekuak</guilabel> menuaren ondoko <guilabel>Gehitu</guilabel> botoia, eta zehaztu kokalekuaren izena bistaratzen den leihoan.</para>
+    </section>
+
+    <section><info><title>Kokaleku bat ezabatzeko</title></info>
+	 <para>Sakatu <guilabel>Kokalekuak</guilabel> menuaren ondoko <guilabel>Kendu</guilabel> botoia, eta hautatutako profila ezabatu egingo da.</para>
+    </section>
+
+    <section><info><title>Kokaleku batera aldatzeko</title></info>
+	 <para>Hautatu kokaleku bat <guilabel>Kokalekuak</guilabel> menuan, eta konfigurazio guztia automatikoki pasako da hautatutako kokalekura.</para>
+    </section>
+
+  </section>
+  </section>
+
+  <section xml:id="prefs-networkproxy"><info><title>Sareko proxy-aren hobespenak</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-50"/>       
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Network Proxy</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>network proxy</primary>
+      <secondary>setting preferences</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>Internet</primary>
+      <secondary>configuring connection</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>proxy</primary>
+      <secondary>setting preferences</secondary>
+    </indexterm>
+    <para xml:lang="en">The <application>Network Proxy Preferences</application>
+    enables you to configure how your system connects to the Internet.</para>
+    <para xml:lang="en">You can configure the MATE Desktop to connect to a <firstterm>proxy server</firstterm>,
+    and specify the details of the proxy server. A proxy server is a server that intercepts requests
+    to another server, and fulfills the request itself, if it can. You can enter the domain name or
+    the Internet Protocol (IP) address of the proxy server. A <firstterm>domain name</firstterm> is
+    a unique alphabetic identifier for a computer on a network. An <firstterm>IP address</firstterm>
+    is a unique numeric identifier for a computer on a network.</para>
+    <para xml:lang="en">Since it is possible that you need to use a different proxy configuration in different places,
+    <application>Network Proxy Preferences</application> allows you to define separate proxy configurations
+    and switch between them using the <guilabel>Location</guilabel> drop-down box at the top of the window.
+    Choose <guilabel>New Location</guilabel> to create a proxy configuration for a new location. Locations
+    can be removed using the <guilabel>Delete Location</guilabel> button at the bottom of the window.</para>
+  
+    <variablelist>
+      <varlistentry>
+        <term xml:lang="en"><guilabel>Direct internet connection</guilabel></term>
+        <listitem><para xml:lang="en">Select this option to connect to the Internet without a proxy server.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term xml:lang="en"><guilabel>Manual proxy configuration</guilabel></term>
+        <listitem><para xml:lang="en">Select this option to connect to the Internet through a proxy server and
+        configure the proxy settings manually.</para>
+
+        <variablelist>
+          <varlistentry>
+            <term xml:lang="en"><guilabel>HTTP proxy</guilabel></term>
+            <listitem>
+              <para xml:lang="en">Enter the domain name or IP address of the proxy server to use when you request
+              an HTTP service. Enter the port number of the HTTP service on the proxy server in the
+              <guilabel>Port</guilabel> field.</para>
+              <para xml:lang="en">If the HTTP proxy server requires authentication, click the <guibutton>Details</guibutton>
+              button to enter your username and password.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term xml:lang="en"><guilabel>Secure HTTP proxy</guilabel></term>
+            <listitem><para xml:lang="en">Enter the domain name or IP address of the proxy server to use when you
+            request a secure HTTP service. Enter the port number of the secure HTTP service on
+            the proxy server in the <guilabel>Port</guilabel> field.</para></listitem>
+          </varlistentry>
+          <varlistentry>
+            <term xml:lang="en"><guilabel>FTP proxy</guilabel></term>
+            <listitem><para xml:lang="en">Enter the domain name or IP address of the proxy server to use when you
+            request an FTP service. Enter the port number of the FTP service on the proxy server in
+            the <guilabel>Port</guilabel> field.</para></listitem>
+          </varlistentry>
+          <varlistentry>
+            <term xml:lang="en"><guilabel>Socks host</guilabel></term>
+            <listitem><para xml:lang="en">Enter the domain name or IP address of the Socks host to use. Enter the port
+            number for the Socks protocol on the proxy server in the <guilabel>Port</guilabel> field.</para></listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem></varlistentry>
+      <varlistentry><term xml:lang="en"><guilabel>Automatic proxy
+      configuration</guilabel></term><listitem><para>Hautatu aukera hau Internetera proxy zerbitzariaren bidez konektatu nahi baduzu, eta proxy zerbitzaria automatikoki konfiguratu nahi baduzu.</para>
+      <para xml:lang="en">Automatic proxy configuration works by means of a so-called PAC file, which your browser downloads from a web server. If you don't specify the URL for a PAC file in the <guilabel>Autoconfiguration URL</guilabel> entry, your browser 
+      will try to locate one automatically.</para>
+      <variablelist>
+      <varlistentry><term xml:lang="en"><guilabel>Autoconfiguration
+      URL</guilabel></term><listitem><para xml:lang="en">Enter the URL of a PAC file that contains the information required to configure the proxy
+    server automatically.</para></listitem></varlistentry>
+      </variablelist></listitem></varlistentry>
+    </variablelist>
+    
+    <para xml:lang="en">Set which hosts should not use the proxy in the <guilabel>Ignore Host List</guilabel> in the <guilabel>Ignored Hosts</guilabel> tabbed section. When you access these hosts, you will connect to the Internet directly without a proxy.</para>
+  </section>
+
+  <section xml:id="prefs-remotedesktop"><info><title>Urruneko mahaigainaren hobespenak</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustdesk-90"/>
+    <indexterm xml:lang="en">
+      <primary>setting session sharing preferences</primary>
+    </indexterm>           
+    <para><application>Urruneko mahaigaina</application> hobespen-tresnak aukera ematen dizu MATE mahaigainaren saio bat partekatzeko hainbat erabiltzaileren artean eta saio-partekatzearen hobespenak ezartzeko.</para>
+    <para><xref linkend="goscustdesk-TBL-91"/> taulak zuk alda ditzakezun saio-partekatzearen hobespenak zerrendatzen ditu. Hobespen horiek zuzeneko eragina dute sistemaren segurtasunean.</para>
+    <table frame="topbot" xml:id="goscustdesk-TBL-91"><info><title>Saio-partekatzearen hobespenak</title></info>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="colspec18" colwidth="19.21*"/>
+        <colspec colname="colspec19" colwidth="46.79*"/>
+        <thead>
+          <row>
+            <entry colsep="0" rowsep="1">
+              <para>Elkarrizketa-koadroko elementua</para>
+            </entry>
+            <entry colsep="0" rowsep="1">
+              <para>Azalpena</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Allow other users to view your desktop</guilabel>
+              </para>
+            </entry>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para>Hautatu aukera hau urruneko erabiltzaileei zure saioa ikusten uzteko. Urruneko erabiltzailearen teklatu, erakusle eta arbelaren gertaera guztiei ez ikusi egingo zaie.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para xml:lang="en">
+                <guilabel>Allow other users to control your desktop</guilabel>
+              </para>
+            </entry>
+            <entry colsep="0" rowsep="0" valign="top">
+              <para>Hautatu aukera hau bestei zure saioa ikusten eta kontrolatzen uzteko urruneko kokaleku batetik.</para>
+            </entry>
+          </row>
+          <!--
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para>
+                <guilabel>Users
+can view your desktop using this command:</guilabel>
+                
+              </para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Click on the command text to send it to
+another user by email.</para>
+            </entry>
+          </row>
+          -->
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para xml:lang="en">
+                <guilabel>When
+a user tries to view or control your desktop</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para xml:lang="en">Select the following security
+considerations when a user tries to view or control your session:<itemizedlist><listitem><para xml:lang="en"><guilabel>Ask you for confirmation:</guilabel> Select this
+option if you want remote users to ask you for confirmation when they want
+to share your session. This option enables you to be aware of other users
+who connect to your session. You can also decide what time is suitable for
+the remote user to connect to your session.</para></listitem><listitem><para xml:lang="en"><guilabel>Require the user to enter this password:</guilabel>
+Select this option to authenticate the remote user if authentication is used.
+This option provides an extra level of security.</para></listitem></itemizedlist></para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec18" colsep="0" rowsep="0">
+              <para xml:lang="en">
+                <guilabel>Password</guilabel>
+              </para>
+            </entry>
+            <entry colname="colspec19" colsep="0" rowsep="0">
+              <para>Sartu zure saioa ikusten edo kontrolatzen saiatzen den bezeroak sartu behar duen pasahitza.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>  
+</section>
+
+<section xml:id="prefs-hardware"><info><title>Hardwarea</title></info>
+	
+  <section xml:id="prefs-keyboard"><info><title>Teklatuaren hobespenak</title></info>
+    <!-- preserve id for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustperiph-2"/>       
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Keyboard</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>keyboard</primary>
+      <secondary>configuring general preferences</secondary>
+    </indexterm>
+    <para>Erabili <application>Teklatua</application> hobespen-tresna teklaturako errepikatze automatikoaren ezarpenak hautatzeko eta idazketa-etenaren ezarpenak konfiguratzeko..</para>
+    <!--
+    adds no information until each tab can be briefly summarized.
+    
+    <para>You can set the preferences for the <application>Keyboard</application>
+preference tool in the following functional areas:</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <guilabel>Keyboard</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Typing Break</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Layouts</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <guilabel>Layout Options</guilabel>
+        </para>
+      </listitem>
+    </itemizedlist>
+    -->
+    <para xml:lang="en">To open the <xref linkend="prefs-keyboard-a11y"/> tool, click the <guibutton>Accessibility</guibutton> button.</para>    
+    <section xml:id="goscustdesk-40"><info><title>Teklatuaren hobespenak</title></info>
+      
+      <para xml:lang="en">Use the <guilabel>General</guilabel> tabbed section to set general
+keyboard preferences.</para>
+      <para><xref linkend="goscustperiph-TBL-3"/> taulan zuk alda ditzakezun teklatu-hobespenak zerrendatzen dira.</para>
+      <table frame="topbot" xml:id="goscustperiph-TBL-3"><info><title>Teklatuaren hobespenak</title></info>
+        
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Key presses repeat when key is held down</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Hautatu aukera hau teklatuko errepikatzea gaitzeko. Aukera hori gaituta badago, tekla bat sakatuta duzun bitartean tekla horri dagokion ekintza behin eta berriz errepikatuko da. Adibidez, karaktere-tekla bat sakatuta edukitzen baduzu, karaktere hori behin eta berriz idatziko da.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Delay</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Hautatu zenbat denbora itxaron behar den tekla sakatzen denetik ekintza errepikatu arte.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Speed</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Hautatu ekintza zein abiaduratan errepikatu behar den.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Cursor blinks in text boxes and fields</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Hautatu aukera hori kurtsoreak keinu egin dezan eremu eta testu-koadroetan.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Speed</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para>Erabili graduatzailea zehazteko kurtsoreak zein abiaduratan egin behar duen keinu eremu eta testu-koadroetan.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para xml:lang="en">
+                  <guilabel>Type to test settings</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para>Proba-area interfaze interaktiboa da, eta idaztean teklatuaren ezarpenak egiaztatzeko aukera ematen dizu. Idatzi testua proba-arean zure ezarpenek duten eragina ikusteko.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="prefs-keyboard-layouts"><info><title>Teklatu-diseinuaren hobespenak</title></info>
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscustdesk-100"/>         
+      <para>Erabili <guilabel>Diseinuak</guilabel> atal fitxaduna teklatuaren hizkuntza ezartzeko, baita erabiltzen ari zaren teklatuaren marka eta modeloa ere.</para>
+      <para>Horrela teklatuko multimedia-tekla bereziak erabil ahal izango ditu MATEk, eta tekla egokiak erakutsiko ditu, teklatuaren hizkuntzarekin bat etorriz.</para>
+      
+      <variablelist>
+	      <varlistentry>
+	        <term xml:lang="en"><guilabel>Keyboard model</guilabel></term>
+	        <listitem><para xml:lang="en">Use the browse button (labeled with the currently selected keyboard model) to choose another keyboard make and model.</para></listitem>
+	      </varlistentry>
+	      <varlistentry>
+	        <term xml:lang="en"><guilabel>Separate layout for each window</guilabel></term>
+	        <listitem><para>Aukera hau hautatuta dagoenean, leiho bakoitzak bere teklatu-diseinua izango du. Beste diseinu batera aldatzeak uneko leihoan bakarrik izango du eragina.</para>
+	        <para xml:lang="en">This allows you to type with a Russian keyboard layout in a word processor, then switch to your web browser and type with an English keyboard layout, for example. </para></listitem>
+              </varlistentry>
+	      <varlistentry>
+	        <term xml:lang="en"><guilabel>Selected Layouts</guilabel></term>
+	        <listitem><para>Hautatutako diseinuen artean alda dezakezu teklatua, idaztean sortzen dituen karaktereak aldatzeko. Diseinu bat gehitzeko, sakatu <guibutton>Gehitu</guibutton>. Lau diseinu arte eduki ditzakezu. Diseinu bat kentzeko, hautatu eta sakatu <guibutton>Kendu</guibutton>.</para>
+	        <para xml:lang="en">To switch between keyboard layouts, use the <application>Keyboard Indicator</application> panel applet. <!-- better link to the specific page, but not yet suitable for a direct link: help:gswitchit?gswitchit-applet-switching --></para>
+                 <para xml:lang="en">To add a layout to the list of selected layouts, click the <guibutton>Add</guibutton> button. It opens a layout chooser dialog, which lets you select a layout by country or by language.</para> 
+	        </listitem>
+	      </varlistentry>
+      </variablelist>
+      
+      <para>Hautatu <guibutton>Berrezarri lehenespenak</guibutton> teklatu-diseinuen ezarpen guztiak sistemaren eta konfigurazio lokalaren hasierako egoerara itzultzeko.</para>
+
+      <para xml:lang="en">Click the <guibutton>Layout Options</guibutton> button to open the <guilabel>Keyboard Layout Options</guilabel> dialog.</para>
+   </section>
+    
+    <section xml:id="prefs-keyboard-layoutoptions"><info><title>Teklatu-diseinuaren aukerak</title></info> 
+      <!-- preserve id for backwards compatibility: 2.12 -->
+      <anchor xml:id="goscustdesk-101"/>
+      <para xml:lang="en">The <guilabel>Keyboard Layout Options</guilabel> dialog has options for the behavior of keyboard modifier keys and certain shortcut options.</para>
+      <para>Zabaldu talde-etiketa bakoitza aukera erabilgarriak erakusteko. Etiketa bat lodiz badago, esan nahi du taldeko aukerak aldatu egin direla ezarpen lehenetsitik.</para>
+      <note><para xml:lang="en">The options shown in this dialog depend on the X windowing system you are using. Not all the following options might be listed on your system, and not all the options shown might work on your system.</para></note>
+
+      <!-- the options of mystery!!!       
+           for future reference, these are in
+           /etc/X11/xkb/rules/xorg.xml
+      -->
+      <variablelist>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Adding the EuroSign to certain keys</guilabel></term>
+                <listitem>
+                  <para xml:lang="en">Use these options to add the Euro currency symbol € to a key as a third-level character. To access this symbol, you must assign a <guilabel>third level chooser</guilabel>.</para>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Alt/Win key behavior</guilabel></term>
+                <listitem><para xml:lang="en">
+                  This group of options allows you to assign the behavior of Unix modifier keys Super, Meta, and Hyper to the <keycap>Alt</keycap> and <keycap>Windows</keycap> keys on your keyboard.
+                </para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>CapsLock key behavior</guilabel></term>
+                <listitem><para>Talde honek hainbat aukera ditu <keycap>Blok Maius</keycap> teklarentzat.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Compose key position</guilabel></term>
+                <listitem>
+                  <para>Compose teklarekin bi tekla-sakatze konbina ditzakezu karaktere bakar bat idazteko. Ziur asko teklatuan agertzen ez diren karaktere azentudunak sortzeko erabiltzen da. Adibidez, sakatu Compose tekla, ondoren <keycap>'</keycap> eta ondoren <keycap>e</keycap> e azentuduna idazteko.</para>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Control key position</guilabel></term>
+                <listitem><para>Erabili aukera hauek <keycap>Ktrl</keycap> teklaren posizioa ezartzeko, teklatu zaharragoen diseinuarekin bat etor dadin.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Group Shift/Lock behavior</guilabel></term>
+                <listitem><para>Hautatu teklak edo tekla-konbinazioak, sakatzean teklatuaren diseinua aldatzeko.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Miscellaneous compatibility options</guilabel></term>
+                <listitem>
+                  <variablelist>
+	                  <varlistentry>
+	                    <term xml:lang="en"><guilabel>Shift with numpad keys works as in MS Windows.</guilabel></term>
+                    	<listitem>
+                    	  <para>Aukera hori hautatuta daukazula <keycap>Maius</keycap> erabiltzen baduzu zenbakizko teklatuko teklekin <keycap>BlokZenb</keycap> desaktibatuta dagoela, uneko hautapena hedatzen da.</para>
+                    	  <para xml:lang="en">With this option unselected, use <keycap>Shift</keycap> with keys on the numerical pad to obtain the reverse of the current behavior for that key. For example, when <keycap>NumLock</keycap> is off, the <keycap>8</keycap> key acts as an up-arrow. Press <keycombo><keycap>Shift</keycap><keycap>8</keycap></keycombo> to type an '8'.</para></listitem>
+                    	</varlistentry>
+                    	<varlistentry><term xml:lang="en"><guilabel>Special keys (Ctrl+Alt+&lt;key&gt;) handled in a server.</guilabel></term>
+	<listitem><para>Hautatu aukera hau zenbait laster-tekla pasatzeko x leiho-sistemara pasatzeko, MATEk maneiatu beharrean.</para></listitem>
+</varlistentry>
+                    </variablelist>
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Third level choosers</guilabel></term>
+                <listitem>
+                  <para><firstterm>Hirugarren mailako</firstterm> tekla batek tekla horren hirugarren karakterea baliatzeko aukera ematen dizu, hau da, <keycap>Maius</keycap> beste tekla batekin batera sakatzean lortzen dugun karakterea ez da tekla hori bakarrik sakatuta lortuko genukeenaren berdina.</para>
+                  <para>Erabili talde hau, hirugarren mailako tekla aldatzaile gisa zein tekla erabili nahi duzun zehazteko.</para>
+                  <para>Hirugarren mailako tekla eta <keycap>Maius</keycap> sakatzean laugarren mailako beste karaktere bat lortuko dugu.</para>
+                  <para xml:lang="en">The third and fourth level characters for your keyboard layout are shown in the <application>Keyboard Indicator</application> Layout View Window.</para>
+                  <!-- better link, pending CVS commit of gswitchit docs: "help:gswitchit?layout-view" -->
+                </listitem>
+        </varlistentry>
+        <varlistentry>
+                <term xml:lang="en"><guilabel>Use keyboard LED to show alternative group.</guilabel></term>
+                <listitem>
+                  <para>Erabili aukera hau teklatuko ordezko teklatu-diseinua erabiltzen ari garela adieraz dezan argi-adierazleetako batek.</para>
+                  <note><para>Hautatutako teklatuko argiak une horretatik aurrera ez du bere funtzio estandarra beteko. Adibidez, Blok Maius argiak ez dio erantzungo <keycap>Blok Maius teklari</keycap>.</para></note>
+                </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+
+    <section xml:id="prefs-keyboard-a11y"><info><title>Teklatuaren erabilerraztasunaren hobespenak</title></info>
+    <indexterm xml:lang="en">
+      <primary>AccessX</primary>
+      <see>preference tools, Keyboard Accessibility</see>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>keyboard</primary>
+      <secondary>configuring accessibility options</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>accessibility</primary>
+      <secondary>configuring keyboard</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Keyboard Accessibility</secondary>
+    </indexterm>
+
+    <!-- Maintained for 2.8 compatibility -->
+      <anchor xml:id="goscustaccess-6"/>
+      <anchor xml:id="goscustaccess-8"/>
+      <anchor xml:id="goscustaccess-9"/>
+      <para xml:lang="en">The <guilabel>Accessibility</guilabel> tabbed section allows you to set  options such as filtering out accidental keypresses and using shortcut keys without having to hold down several keys at once. These features are also known as AccessX.</para>
+
+       <para xml:lang="en">This section describes each of the preferences you can set. For a more task-oriented description of keyboard accessibility, see the <citetitle>MATE Desktop Accessibility Guide</citetitle>.</para>
+
+      <para xml:lang="en"><xref linkend="goscustdesk-TBL-85"/> lists the accessibility preferences
+ that you can modify.</para>
+     <table frame="topbot" xml:id="goscustdesk-TBL-85"><info><title xml:lang="en">Accessibility Preferences</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry>
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+             <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Accessibility features can be toggled with keyboard shortcuts</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                   <para xml:lang="en">
+                     Select this option to show an icon in the notification 
+                     area that offers quick access to accessibility features.
+                   </para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Simulate simultaneous keypresses</guilabel>
+                  </para>
+                  <indexterm xml:lang="en">
+                    <primary>accessibility</primary>
+                    <secondary>sticky keys</secondary>
+                  </indexterm>
+                </entry>
+                <entry valign="top">
+                <para>Hautatu aukera hori hainbat tekla-sakatze aldi berean burutzeko teklak segidan sakatuz. Bestela, tekla itsaskorren eginbidea gaitzeko, sakatu <keycap>Maius</keycap> bost aldiz.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                    <para xml:lang="en">
+                      <guilabel>Disable sticky keys if two keys are pressed together</guilabel>
+                    </para>
+                </entry>
+                <entry valign="top">
+                    <para xml:lang="en">Select this option to specify that when you press two keys simultaneously,
+you can no longer press keys in sequence to perform multiple simultaneous
+keypresses.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Only accept long keypresses</guilabel>
+                  </para>
+                  <indexterm xml:lang="en">
+                    <primary>accessibility</primary>
+                    <secondary>slow keys</secondary>
+                  </indexterm>
+                </entry>
+                <entry valign="top">
+                <para xml:lang="en">Select this option to control the period that you must press-and-hold
+a key before acceptance. Alternatively, to enable the slow keys feature, press-and-hold <keycap>Shift</keycap> for eight seconds.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Delay</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                  <para xml:lang="en">Use the slider
+to specify the period that you must press-and-hold
+a key before acceptance.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Ignore fast duplicate keypresses</guilabel>
+                  </para>
+                  <indexterm xml:lang="en">
+                    <primary>accessibility</primary>
+                    <secondary>bounce keys</secondary>
+                  </indexterm>
+                </entry>
+                <entry valign="top">
+                <para xml:lang="en">Select this option to accept a key input and to control the key repeat characteristics
+of the keyboard.</para>
+                </entry>
+             </row>
+             <row>
+                <entry valign="top">
+                  <para xml:lang="en">
+                    <guilabel>Delay</guilabel>
+                  </para>
+                </entry>
+                <entry valign="top">
+                   <para xml:lang="en">Use the slider to specify the interval to wait after the first
+keypress before the automatic repeat of a pressed key.</para>
+                </entry>
+             </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Type to test settings</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Proba-area interfaze interaktiboa da, eta idaztean teklatuaren ezarpenak egiaztatzeko aukera ematen dizu. Idatzi testua proba-arean zure ezarpenek duten eragina ikusteko.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para xml:lang="en">To configure audio feedback for keyboard accessibility features,
+      click the <guibutton>Audio Feedback</guibutton> button. It opens the
+      <guilabel>Keyboard Accessibility Audio Feedback</guilabel> window.</para>
+    </section>
+
+   <section><info><title>_Teklatuaren erabilerraztasuna: audioaren erantzuna</title></info>
+      <para xml:lang="en">Configure audio feedback for keyboard accessibility features.</para>
+      <para xml:lang="en"><xref linkend="goscustdesk-TBL-86"/> lists the audio feedback preferences
+      that you can modify.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-86"><info><title xml:lang="en">Audio Feedback Preferences</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry>
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Beep when accessibility features are turned on or off</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Hautatu aukera hori jakinarazpen entzungarria jasotzeko ezaugarri bat (adibidez, tekla itsaskorrak edo tekla motelak) aktibatzen edo desaktibatzen denean.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para xml:lang="en">
+                   <guilabel>Beep when a toggle key is pressed</guilabel>
+                 </para>
+                 <indexterm xml:lang="en">
+                    <primary>accessibility</primary>
+                    <secondary>toggle keys</secondary>
+                  </indexterm>
+              </entry>
+	      <entry valign="top">
+                 <para>Hautatu aukera hori txandakatze-tekla bat sakatzean jakinarazpen entzungarria jasotzeko. Txandakatze-tekla aktibatzen denean jakinarazpen bat entzungo duzu. Txandakatze-tekla desaktibatzen denean bi jakinarazpen entzungo dituzu.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para xml:lang="en">
+                   <guilabel>Beep when a modifier key is pressed</guilabel>
+                 </para>
+              </entry>
+              <entry valign="top">
+                 <para xml:lang="en">Select this option for an audible indication when you 
+                 press a modifier key.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para xml:lang="en">
+                   <guilabel>Beep when a key is pressed</guilabel>
+                 </para>
+              </entry>
+              <entry valign="top">
+                 <para xml:lang="en">Select this option for an audible indication when  
+                 a key is pressed.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para xml:lang="en">
+                   <guilabel>Beep when a key is accepted</guilabel>
+                 </para>
+              </entry>
+              <entry valign="top">
+                 <para xml:lang="en">Select this option for an audible indication when  
+                 a key is accepted.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                 <para xml:lang="en">
+                   <guilabel>Beep when a key is rejected</guilabel>
+                 </para>
+              </entry>
+              <entry valign="top">
+                 <para xml:lang="en">Select this option for an audible indication when  
+                 a key is rejected.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+   </section>
+ 
+   <section><info><title xml:lang="en">Mouse Keys Preferences</title></info>
+     <anchor xml:id="goscustaccess-10"/>
+     <para xml:lang="en">The options in the <guilabel>Mouse Keys</guilabel> tabbed section
+     let you configure the keyboard as a substitute for the mouse.</para>
+      <para xml:lang="en"><xref linkend="goscustdesk-TBL-88"/> lists the mouse keys preferences
+ that you can modify.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-88"><info><title>Idazketa-etenen hobespenak</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry>
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Pointer can be controlled using the keypad</guilabel>
+                </para>
+                <indexterm xml:lang="en">
+                  <primary>accessibility</primary>
+                  <secondary>mouse keys</secondary>
+                </indexterm>
+              </entry>
+              <entry valign="top">
+               <para xml:lang="en">Select this option to make the numeric keypad emulate mouse actions. The list of keys and their equivalences is in the <citetitle>MATE Desktop Accessibility Guide</citetitle> under the heading <citetitle>To Enable the Keyboard to Emulate the Mouse</citetitle>.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                   <guilabel>Acceleration</guilabel> 
+                </para>
+              </entry>
+              <entry valign="top">
+                <para xml:lang="en">Use the slider to specify how long it takes the pointer to accelerate to maximum speed.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                   <guilabel>Speed</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para xml:lang="en">Use the slider
+to specify the maximum speed that the pointer moves across
+the screen.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Delay</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para xml:lang="en">Use the slider to specify the period that must pass
+after a keypress before the pointer moves.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+  </section>
+
+    <section xml:id="goscustdesk-86"><info><title>Idazketa-etenen hobespenak</title></info>
+      
+      <para>Konfiguratu Idazketa-etenaren hobespenak, denbora luzez teklatua eta sagua erabiltzen aritutakoan atseden hartzea komeni zaizula gogorarazteko MATEk. Idazketa-etenak irauten duen bitartean pantaila blokeatuta egongo da.</para>
+      <para><xref linkend="goscustdesk-TBL-87"/> taulan zuk alda ditzakezun idazketa-etenaren hobespenak zerrendatzen dira.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-87"><info><title>Idazketa-etenen hobespenak</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="50*"/>
+          <colspec colwidth="50*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry>
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Lock screen to enforce typing break</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Hautatu aukera hau pantaila blokeatzeko idazketa-eten batean zauden bitartean.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Work interval lasts</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Erabili biratze-botoi hori idazketa-etena gertatu aurretik zenbat denbora egin dezakezun lan zehazteko.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Break interval lasts</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Erabili biratze-botoi hori idazketa-etenek zenbateko iraupena eduki behar duten zehazteko.</para>
+              </entry>
+            </row>
+            <row>
+              <entry valign="top">
+                <para xml:lang="en">
+                  <guilabel>Allow postponing of breaks</guilabel>
+                </para>
+              </entry>
+              <entry valign="top">
+                <para>Hautatu aukera hori etenak atzeratzea nahi baldin baduzu.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para><guilabel>Etena</guilabel> ezarpenaren berdina den denbora-tarte batean teklatua eta sagua erabiltzeari uzten badiozu, uneko lanaldia berrezarriko da.</para></note>
+    </section>    
+  </section>
+
+  <section xml:id="prefs-mouse"><info><title>Saguaren hobespenak</title></info>
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="goscustperiph-5"/>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Mouse</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>mouse</primary>
+      <secondary>configuring</secondary>
+    </indexterm>
+
+    <para><application>Sagua</application> hobespen-tresnarekin hauek egin ditzakezu:</para>
+    <itemizedlist>
+      <listitem>
+        <para>sagua eskuineko eskuarekin edo ezkerreko eskuarekin erabiltzeko konfiguratu,</para>
+      </listitem>
+      <listitem>      
+        <para xml:lang="en">specify the speed and sensitivity of mouse movement,</para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">configure mouse accessibility features.</para>
+      </listitem>
+    </itemizedlist>
+    
+    <section xml:id="goscustdesk-55"><info><title xml:lang="en">General Mouse Preferences</title></info>
+      <para xml:lang="en">Use the <guilabel>General</guilabel> tabbed section to specify whether
+      the mouse buttons are configured for left-hand or right-hand use and configure
+      the speed and sensitivity of your mouse.</para>
+      <para xml:lang="en"><xref linkend="goscustperiph-TBL-6"/> lists the general mouse preferences
+that you can modify.</para>
+
+    <!-- convert to variablelist -->
+    <table frame="topbot" xml:id="goscustperiph-TBL-6"><info><title>Sagu-botoien hobespenak</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Right-handed</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">Select this option to configure your mouse for right-hand use. When you configure your mouse for right-hand use, the left mouse button is the primary button and the right mouse button is the secondary button.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Left-handed</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Hautatu aukera hori sagua ezkerreko eskuarekin erabiltzeko konfiguratzeko. Hautatu aukera hori sagua ezkerreko eskuarekin erabiltzeko konfiguratzeko.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Show position of pointer when the Control key is pressed</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">Select this option to enable a mouse pointer animation
+when you press and release the Control key. This feature can assist
+you to locate the mouse pointer.</para>
+                <note>
+                  <para xml:lang="en">The position of the Control key on the keyboard can be 
+                  modified in the Keyboard Layout Options dialog, see 
+                  <xref linkend="prefs-keyboard-layoutoptions"/>.</para>
+                </note>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Acceleration</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Erabili graduatzaile hori saguaren erakuslea pantailan zein abiaduratan mugituko den zehazteko.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Sensitivity</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Erabili graduatzaile hori saguaren erakusleak zenbateko sentikortasuna eduki behar duen zehazteko sagua mugitzen duzunean.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Threshold</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Erabili graduatzaile hori elementu bat zenbat mugitu behar duzun zehazteko sistemak arrastatu eta jaregin ekintzatzat interpreta dezan.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Timeout</guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para>Erabili graduatzaile hori klik bikoitzeko kliken artean zenbat denbora igaro behar duen zehazteko. Lehen eta bigarren klikaren arteko tarteak gainditu egiten badu hor zehaztutako denbora, ekintza ez da interpretatuko klik bikoitz gisa.</para>
+                <para>Erabili bonbillaren ikonoa sentikortasuna egiaztatzeko: bonbilla une batez argituko da klik egitean, baina piztuta mantenduko da klik bikoitzarekin.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscustdesk-53"><info><title xml:lang="en">Mouse Accessibility Preferences</title></info>
+      <para xml:lang="en">Use the <guilabel>Accessibility</guilabel> tabbed section to configure
+      accessibility features that can help people who have difficulty with exact positioning of the pointer or with pressing the mouse buttons:</para>
+      <itemizedlist>
+         <listitem>
+            <para xml:lang="en">
+              Open a contextual menu by clicking and holding the primary mouse button; this is useful for users that can manipulate only one button.
+            </para>
+         </listitem>
+         <listitem>
+            <para xml:lang="en">
+              Perform different types of mouse button click by software; this useful for users that are not able to manipulate any buttons. The types of click that can be performed are:
+               <variablelist>
+                 <varlistentry>
+                   <term xml:lang="en">Single click</term>
+                   <listitem>
+                     <para xml:lang="en">
+                       A single click of the primary mouse button
+                     </para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term xml:lang="en">Double click</term>
+                   <listitem>
+                     <para xml:lang="en">
+                        A double click of the primary mouse button
+                     </para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term xml:lang="en">Drag click</term>
+                   <listitem>
+                     <para xml:lang="en">
+                       A click that begins a drag operation
+                     </para>
+                   </listitem>
+                 </varlistentry>
+                 <varlistentry>
+                   <term xml:lang="en">Secondary click</term>
+                   <listitem>
+                     <para xml:lang="en">
+                       A single click of the secondary mouse button
+                     </para>
+                   </listitem>
+                 </varlistentry>
+               </variablelist>
+            </para>
+         </listitem>
+      </itemizedlist>
+      <para xml:lang="en"><xref linkend="goscustdesk-TBL-47"/> lists the mouse accessibility preferences
+that you can modify:</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-47"><info><title>Sagu-mugimenduaren hobespenak</title></info>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colwidth="30.10*"/>
+          <colspec colwidth="69.90*"/>
+          <thead>
+            <row rowsep="1">
+              <entry>
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry>
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Trigger secondary click by holding down the primary button</guilabel>
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">Select this option to enable simulated secondary clicks by pressing the primary mouse button for an extended time.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Delay</guilabel> slider in the <guilabel>Simulated Secondary Click</guilabel> section
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">Use the slider to specify how long the primary button must be pressed to simulate a secondary click.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Initiate click when stopping pointer movement</guilabel>
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">Select this option to enable automatic clicks when the mouse stops. Use the additional preferences in the <guilabel>Dwell Click</guilabel> section to configure how the type of click is chosen.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Delay</guilabel> slider in the <guilabel>Dwell Click</guilabel> section
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">Use the slider to specify how long the pointer must remain at rest before an automatic click will be triggered.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Motion threshold</guilabel> slider 
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">Use the slider to specify how much the pointer may move to still be considered at rest.</para>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Choose type of click beforehand</guilabel>
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">Select this option to pick the type of click to perform 
+                from a window or panel applet.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Show click type window</guilabel>
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  When this option is enabled, the different types of click (single click, double click, drag click or secondary click) can be selected in a window.</para> 
+                <note><para xml:lang="en">The <guilabel>Dwell Click</guilabel> panel applet can
+                be used instead of the window.</para></note>
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Choose type of click with mouse gestures</guilabel> 
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">Select this option to pick the type of click by moving the mouse in a certain direction. The four combo boxes below this option allow to assign directions to the different types of click. Note that each direction can be used only for one type of click.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Single click</guilabel> 
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  Choose the direction to trigger a single click.
+                </para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Double click</guilabel> 
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  Choose the direction to trigger a double click.
+                </para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Drag click</guilabel> 
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  Choose the direction to trigger a drag click.
+                </para> 
+              </entry>
+            </row>
+            <row>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Secondary click</guilabel> 
+                </para>
+              </entry>
+              <entry rowsep="0" colsep="0" valign="top">
+                <para xml:lang="en">
+                  Choose the direction to trigger a secondary click.
+                </para> 
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+
+  <section xml:id="goscustdesk-70"><info><title>Pantailak</title></info>
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Display</secondary>
+    </indexterm>
+    <para xml:lang="en">Use <application>Monitor Preferences</application>
+to configure the monitors that your computer uses.</para>
+<note><para xml:lang="en">On most laptop keyboards, you can use the key combination
+<keycombo><keycap>Fn</keycap><keycap>F7</keycap></keycombo> to cycle between
+several typical monitor configurations without starting <application>Monitor Preferences</application>.
+</para></note>
+<para xml:lang="en">Drag the graphical representations of the monitors in
+the upper left part of the window to set how your monitors are arranged.
+<application>Monitor Preferences</application> displays small labels in the top
+left corner of each monitor to help you identify which rectangle corresponds
+to which monitor.</para>
+<para xml:lang="en">Changes you make in <application>Monitor Preferences</application>
+don't take effect until you click the <guibutton>Apply</guibutton> button.
+Settings will revert to their previous settings unless you confirm the changes.
+This is to prevent bad display settings from rendering your computer unusable.</para>
+
+<variablelist>
+	<varlistentry>
+    <term xml:lang="en"><guilabel>Same image in all monitors</guilabel></term>
+    <listitem><para xml:lang="en">When this option is selected, your entire desktop will fit on
+    a single monitor, and every monitor will show the same copy of your desktop.
+    When it is not selected, your desktop spans multiple monitors, and each monitor
+    shows only a part of your entire desktop.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term xml:lang="en"><guilabel>Detect monitors</guilabel></term>
+    <listitem><para xml:lang="en">Click this button to find monitors that have been recently
+    added or plugged in.</para></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term xml:lang="en"><guilabel>Show monitors in panel</guilabel></term>
+    <listitem><para xml:lang="en">When this option is selected, an icon will be placed on your
+    panel allowing you to quickly change certain settings without opening
+    <application>Monitor Preferences</application>.</para></listitem>
+  </varlistentry>
+</variablelist>
+
+<para xml:lang="en">The following list explains the options you can set for each monitor.
+The currently selected monitor is the one whose graphical representation has
+a bold black outline.  It is also indicated by the background color of the
+section label.</para>
+
+<variablelist>
+	<varlistentry>
+    <term xml:lang="en"><guilabel>On</guilabel> / <guilabel>Off</guilabel></term>
+    <listitem><para xml:lang="en">Individual monitors can be completely disabled by
+    selecting <guilabel>Off</guilabel>.</para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term xml:lang="en"><guilabel>Resolution</guilabel></term>
+    <listitem><para xml:lang="en">Select the resolution to use for the currently selected
+    monitor from the drop-down list. <emphasis>Resolution</emphasis>
+    refers to the pixel dimensions of the screen. A larger
+    resolution means that more things fit on the screen, but
+    everything will be smaller.
+    </para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term xml:lang="en"><guilabel>Refresh rate</guilabel></term>
+    <listitem><para xml:lang="en">Select the refresh rate to use for the currently
+                selected monitor from the drop-down list. The <emphasis>refresh
+                rate</emphasis> determines how often the computer redraws the
+                screen. A too low refresh rate (below 60) makes the monitor
+                flicker and can cause discomfort to your eyes. This is less
+                of a problem on LCDs.
+              </para></listitem>
+  </varlistentry>
+	<varlistentry>
+    <term xml:lang="en"><guilabel>Rotation</guilabel></term>
+    <listitem><para xml:lang="en">Select the rotation for the currently selected monitor.
+    This option may not be supported on all graphics cards.</para></listitem>
+  </varlistentry>
+</variablelist>
+</section>
+
+  <section xml:id="goscustmulti-2"><info><title>Soinu-hobespenak</title></info>
+    
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Sound</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>sound</primary>
+      <secondary>setting preferences</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>sound</primary>
+      <secondary>associating events with sounds</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>events, associating sounds with</primary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>volume</primary>
+    </indexterm>
+    <para xml:lang="en">The <application>Sound</application> preference tool enables
+you to control devices and volume for sound input and output. 
+You can also specify which sounds to play when particular events occur.</para>
+    <para><application>Soinua</application> hobespen-tresnaren ezarpenak eremu funtzional hauetan pertsonaliza ditzakezu:</para>
+    <itemizedlist>
+      <listitem>
+        <para xml:lang="en">
+          <guilabel>Sound Events</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">
+          <guilabel>Input</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">
+          <guilabel>Output</guilabel>
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para xml:lang="en">You can change the overall output volume using the <guilabel>Output volume</guilabel> slider at the top of the window. The <guilabel>Mute</guilabel> checkbox allows to temporarily suppress all output without disturbing the current volume.</para>
+
+    <section xml:id="goscustdesk-48"><info><title xml:lang="en">Sound Effects Preferences</title></info>
+      <para xml:lang="en">A sound theme is collection of sound effects that are associated to various events, such as opening a dialog, clicking a button or selecting an item in a menu. One of the most prominent event sounds is the <emphasis>System Bell</emphasis> sound that often played to indicate a keyboard input error. Use the <guilabel>Sound Effects</guilabel> tabbed section of the <application>Sound</application> preference tool to choose a sound theme and modify the bell sound.</para>
+      <para xml:lang="en"><xref linkend="goscustmulti-TBL-6"/> lists the sound effects preferences that you can modify.</para>
+      <table frame="topbot" xml:id="goscustmulti-TBL-6"><info><title xml:lang="en">Sound Effects Preferences</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en"><guilabel>Alert Volume</guilabel> slider</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">Use the <guilabel>Alert Volume</guilabel> slider to
+control the volume for event sounds.</para>
+                <para xml:lang="en">The <guilabel>Mute</guilabel> checkbox allows to
+                temporarily suppress event sounds without modifying the
+                current volume.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Sound Theme </guilabel>
+                </para>
+              </entry>
+              <entry colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">Use this combobox to select a different sound theme.</para>
+                <para xml:lang="en">Choose <guilabel>No sounds</guilabel> to turn off all event sounds.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en"><guilabel>Choose an alert sound </guilabel> list</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">Choose an alternative sound for the System Bell from this list.</para>
+                <para xml:lang="en">Selecting a list element plays the sound.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en"><guilabel>Enable window and button sounds </guilabel> checkbox</para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">Uncheck this option if you don't want to hear sounds
+                for window-related events (such as a dialog or a menu appearing)
+                and button clicks.
+                </para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section><info><title xml:lang="en">Sound Input Preferences</title></info>
+      <para xml:lang="en">Use the <guilabel>Input</guilabel> tabbed section to set your 
+      preferences for sound input.</para>
+      <para xml:lang="en"><xref linkend="goscustdesk-TBL-1"/> lists the sound input preferences that you can modify.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-1"><info><title xml:lang="en">Sound Input Preferences</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para xml:lang="en">
+                  <guilabel>Input volume </guilabel> slider
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para xml:lang="en">Use the input volume slider to control the input level.</para>
+                <para xml:lang="en">The <guilabel>Mute </guilabel> checkbox allows to temporarily suppress all input without disturbing the current input level.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Input level</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">The <guilabel>Input level</guilabel> display provides
+                visual feedback that helps to select a suitable input volume.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para xml:lang="en">
+                  <guilabel>Choose a device for sound input </guilabel> list
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para xml:lang="en">Choose the device that you want to receive sound input
+                from.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para xml:lang="en">Note that the input volume can also be controlled with
+      the microphone icon that is shown in the notification area of the panel
+      when an application is listening for sound input.</para></note>
+    </section>
+
+    <section><info><title xml:lang="en">Sound Output Preferences</title></info>
+      <para xml:lang="en">Use the <guilabel>Output</guilabel> tabbed section to set your 
+      preferences for sound output.</para>
+      <para xml:lang="en"><xref linkend="goscustdesk-TBL-2"/> lists the
+sound output preferences that you can modify.</para>
+      <table frame="topbot" xml:id="goscustdesk-TBL-2"><info><title xml:lang="en">Sound Output Preferences</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec18" colwidth="19.21*"/>
+          <colspec colname="colspec19" colwidth="46.79*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para xml:lang="en">
+                  <guilabel>Output volume </guilabel> slider
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para xml:lang="en">Use the output volume slider to control the overall output volume.</para>
+                <para xml:lang="en">The <guilabel>Mute </guilabel> checkbox allows to temporarily suppress all output without disturbing the current volume.</para>
+                <para xml:lang="en">Note that the <guilabel>Output volume</guilabel> slider 
+                is located above the tabbed section at the top of the window.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para xml:lang="en">
+                  <guilabel>Choose a device for sound output </guilabel> list
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para xml:lang="en">Choose the device that you want to hear sound output
+                from.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec18" colsep="0" rowsep="0">
+                <para xml:lang="en">
+                  <guilabel>Balance </guilabel> slider
+                </para>
+              </entry>
+              <entry colname="colspec19" colsep="0" rowsep="0">
+                <para xml:lang="en">Use the <guilabel>Balance</guilabel> slider to control
+                the left/right balance of an output device that has more than
+                one channel (e.g. stereo or 5.1).</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note><para xml:lang="en">Note that the output volume can also be controlled with
+      the speaker icon that is shown in the notification area of the panel.</para></note>
+    </section>
+
+    <section xml:id="goscustdesk-41"><info><title xml:lang="en">Application Sound Preferences</title></info>
+      <para xml:lang="en">Use the <guilabel>Applications</guilabel> tabbed section to 
+      control the volume of sound played by individual applications.</para>
+      <para xml:lang="en">Each application that is currently playing sound is identified
+      by its name and icon.</para>
+    </section>
+  </section>
+
+<!--
+<sect2 id="goscustdesk-79">
+<title>Customizing PalmOS Devices</title>
+<indexterm><primary>preference tools</primary><secondary>PalmOS devices</secondary>
+</indexterm><para>Information to be supplied in a future release.</para>
+</sect2>
+-->
+</section>
+
+<section xml:id="prefs-system"><info><title>Sistema</title></info>
+
+  <section xml:id="prefs-sessions"><info><title>Saio-hobespenak</title></info>
+    <!-- preserve for backwards compatibility: 2.12 -->
+    <anchor xml:id="goscustsession-5"/>   
+    <indexterm xml:lang="en">
+      <primary>preference tools</primary>
+      <secondary>Sessions</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>sessions</primary>
+      <secondary>preferences</secondary>
+    </indexterm>
+    <indexterm xml:lang="en">
+      <primary>startup applications</primary>
+      <secondary>customizing</secondary>
+    </indexterm>
+    <para><application>Saioak</application> hobespen-tresnak saioak kudeatzeko aukera ematen dizu. Saioen hobespenak ezarri eta saio bat abiaraztean zein aplikazio abiarazi behar diren zehatz dezakezu. MATE mahaigaineko aplikazioen egoera gordetzeko eta beste saio bat hastean egoera leheneratzeko konfigura ditzakezu saioak. Hobespen-tresna hori MATEren saio bat baino gehiago kudeatzeko ere erabil dezakezu.</para>
+    <para>Saioen ezarpenak eta abioko aplikazioak pertsonaliza ditzakezu eremu funtzional hauetan:</para>
+    <itemizedlist>
+      <listitem>
+        <para xml:lang="en">
+          <guilabel>Session Options</guilabel>
+        </para>
+      </listitem>
+      <listitem>
+        <para xml:lang="en">
+          <guilabel>Startup Programs</guilabel>
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <section xml:id="goscustsession-16"><info><title>Saio-hobespenak ezartzea</title></info>
+      <indexterm xml:lang="en">
+        <primary>sessions</primary>
+        <secondary>setting options</secondary>
+      </indexterm>
+      <para>Erabili <guilabel>Saio-aukerak</guilabel> atal fitxaduna saio bat baino gehiago kudeatzeko eta uneko saioaren hobespenak ezartzeko.</para>
+      <para>Alda ditzakezun saio-aukerak zerrendatzen dira hemen: <xref linkend="goscustsession-TBL-11"/>.</para>
+      <table frame="topbot" xml:id="goscustsession-TBL-11"><info><title>Saio-aukerak</title></info>
+        <tgroup cols="2" colsep="1" rowsep="1">
+          <colspec colname="colspec0" colwidth="18.86*"/>
+          <colspec colname="colspec1" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colsep="0" rowsep="1">
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry colsep="0" rowsep="1">
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Automatically remember running applications when logging out</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <indexterm xml:lang="en">
+                  <primary>startup applications</primary>
+                  <secondary>session-managed</secondary>
+                </indexterm>
+                <para xml:lang="en">Select this
+option if you want the session manager to save the state of your session 
+when logging out. The session manager saves the session-managed applications 
+that are open, and the settings associated with the session-managed applications 
+when you log out. The next time that you start a session, the applications start 
+automatically, with the saved settings.</para>
+              </entry>
+            </row>
+            <row>
+              <entry colname="colspec0" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel>Remember currently running applications</guilabel>
+                </para>
+              </entry>
+              <entry colname="colspec1" colsep="0" rowsep="0" valign="top">
+                <indexterm xml:lang="en">
+                  <primary>startup applications</primary>
+                  <secondary>session-managed</secondary>
+                </indexterm>
+                <para>Hautatu aukera hau saio-kudeatzaileak saioaren uneko egoera gordetzea nahi baduzu. Saio-kudeatzaileak saioak kudeatzen dituen irekitako aplikazioak eta aplikazio horiekin lotutako ezarpenak gordetzen ditu. Hurrengo saioa hastean, aplikazioak automatikoki abiaraziko dira gordetako ezarpenekin.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section xml:id="goscustsession-12"><info><title>Abioko programak konfiguratzea</title></info>
+      <indexterm xml:lang="en">
+        <primary>startup applications</primary>
+        <secondary>non-session-managed</secondary>
+      </indexterm>
+      <para>Erabili <application>Saioak</application> hobespen-tresnako <guilabel>Abioko programak</guilabel> atal fitxaduna saioak kudeatu gabeko <firstterm>abioko aplikazioak</firstterm> zehazteko. Abioko aplikazioak saioa hastean automatikoki abiarazten diren aplikazioak dira. Saioak kudeatzen ez dituen aplikazioak exekutatzen dituzten komandoak zehaztu behar dituzu <guilabel>Abioko programak</guilabel> atal fitxadunean. Komandoak automatikoki exekutatzen dira saioa hastean.</para>
+      <para>Saioak kudeatzen dituen aplikazioak ere automatikoki abiaraz ditzakezu. Informazio gehiago nahi izanez gero, ikusi <xref linkend="goscustsession-16"/>.</para>
+      <para><xref linkend="goscustsession-TBL-19"/> taulan zuk alda ditzakezun abioko aplikazioen hobespenak zerrendatzen dira.</para>
+      <table frame="topbot" xml:id="goscustsession-TBL-19"><info><title>Abioko programen hobespenak</title></info>
+        <tgroup cols="2">
+          <colspec colname="col1" colwidth="18.86*"/>
+          <colspec colname="col2" colwidth="47.14*"/>
+          <thead>
+            <row>
+              <entry colname="col1" colsep="0">
+                <para>Elkarrizketa-koadroko elementua</para>
+              </entry>
+              <entry colname="col2" colsep="0">
+                <para>Azalpena</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry colname="col1" colsep="0" rowsep="0" valign="top">
+                <para xml:lang="en">
+                  <guilabel> Additional startup programs</guilabel>
+                </para>
+              </entry>
+              <entry colname="col2" colsep="0" rowsep="0" valign="top">
+                <para>Erabili taula hau saio-kudeaketarik gabeko abioko aplikazioak kudeatzeko, honela:</para>
+                <itemizedlist>
+                  <listitem>
+                    <para xml:lang="en">To add a startup application, click on the <guibutton>Add</guibutton> button. The <guilabel>New Startup Program</guilabel> dialog is displayed. Enter the name of the application in the <guilabel>Name</guilabel> field. Then enter the command to start the application in the <guilabel>Command</guilabel> field. You can also specify a comment in the <guilabel>Comment</guilabel> field</para>
+                  </listitem>
+                  <listitem>
+                    <para>Abioko aplikazio bat editatzeko, hautatu abioko aplikazioa eta egin klik <guibutton>Editatu</guibutton> botoian. <guilabel>Editatu abioko programa</guilabel> elkarrizketa-koadroa bistaratuko da. Erabili elkarrizketa-koadro hori abioko aplikazioaren komandoa eta abioko ordena aldatzeko.</para>
+                  </listitem>
+                  <listitem>
+                    <para xml:lang="en">To delete a startup application, select the startup application,
+then click on the <guilabel>Remove</guilabel> button.</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+</section>
+</chapter>

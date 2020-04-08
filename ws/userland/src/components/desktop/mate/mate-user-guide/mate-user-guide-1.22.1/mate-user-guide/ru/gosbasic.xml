@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?db.chunk.max_depth 3?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:id="basic-skills" xml:lang="ru">
+    <info><title>Основные навыки</title>
+    <db:othercredit class="translator">
+      <db:personname>
+        <db:firstname>Алексей Кабанов</db:firstname>
+      </db:personname>
+      <db:email>ak099@mail.ru</db:email>
+    </db:othercredit>
+    <db:copyright>
+      
+        <db:year>2018</db:year>
+      
+      <db:holder>Алексей Кабанов</db:holder>
+    </db:copyright>
+  </info>
+
+<!-- Maintained for 2.8 compatibility -->
+<anchor xml:id="part1-1"/>
+<anchor xml:id="gosbasic-1"/>
+<anchor xml:id="gosbasic-46"/> <!-- was Using Windows -->
+
+<highlights>
+  <para>Эта глава описывает основные навыки, которые необходимы для работы в среде MATE.</para>
+</highlights>
+
+<section xml:id="mouse-skills"><info><title>Навыки работы с мышью</title></info>
+  
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-2"/>
+
+  <indexterm><primary>базовые навыки</primary><secondary>навыки владения мышью</secondary></indexterm>
+  <indexterm><primary>мышь</primary><secondary>базовые навыки</secondary></indexterm>
+  
+  <!-- Notes for future development of the mouse section
+  Contents list:
+  * buttons
+  * click, drag, etc
+  * what you actually do with those: the concept of focus, selection, etc. 
+    basically, an introduction to the 'noun, verb' grammar of GUIs
+  * pointers
+  -->
+
+  <para>В этом разделе описывается, что делают кнопки мыши и что означают различные указатели.</para>
+
+    <para>Мышь — это указывающее устройство, с помощью которого можно перемещать указатель мыши на экране. Указатель мыши — это, как правило, маленькая стрелка, с помощью которой можно указывать на объекты на экране. Нажав кнопку мыши, можно выполнить определённое действие над тем объектом, над которым располагается указатель мыши, в зависимости от нажатой кнопки.</para>
+
+  <section xml:id="mouse-conventions"><info><title>Соглашения о кнопках мыши</title><titleabbrev>Кнопки</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-44"/>
+
+    <indexterm><primary>мышь</primary><secondary>соглашения о кнопках</secondary></indexterm>
+
+    <para xml:lang="en">The instructions in this manual are for three buttoned, right-handed mouse devices, the most common type.
+        If you use another type of mouse or pointing device, you should take care to locate the corresponding buttons on your mouse.  If you use a left-handed mouse,
+        see the paragraph on setting mouse orientation below.
+    </para>
+
+        <note><para xml:lang="en">If you set your mouse device to be left-handed, you should reverse the mouse button
+        conventions used in this manual. This is normally also implied in most documentation and in many
+        applications.</para></note>
+
+    <para>У некоторых мышей нет средней кнопки. Если у вас двухкнопочная мышь, то ваша система может быть настроена на использование <firstterm>аккордов</firstterm>, имитирующих нажатие средней кнопки. При включённых аккордах вы можете нажать одновременно левую и правую кнопки мыши — это будет воспринято как нажатие средней кнопки. Средняя кнопка никоим образом не обязательна для использования MATE.</para>
+
+    <para>В этом руководстве используются следующие наименования кнопок мыши:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Левая кнопка мыши</term>
+        <listitem><para>Кнопка на левой стороне мыши. Это основная кнопка мыши. Она используется для выделения, активации, нажатия кнопок и тому подобных действий. Если вам предложено «щёлкнуть», подразумевается, что щёлкать следует левой кнопкой мыши, если явно не указано обратное.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Средняя кнопка мыши</term>
+        <listitem><para>Средняя кнопка устройства мыши. На многих мышах, имеющих колёсико, нажатие колёсика приравнивается к нажатию средней кнопки мыши.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Правая кнопка мыши</term>
+        <listitem><para>Кнопка с правой стороны устройства мыши. Часто при нажатии этой кнопки появляется контекстное меню для объекта, находящегося под указателем.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Чтобы сменить ориентацию мыши на обратную, используйте инструмент <application>Параметры мыши</application>. При этом также нужно будет сменить соглашения о названиях кнопок мыши, используемые в этом руководстве и в других документах MATE, на обратные. Подробнее об установке параметров мыши смотрите <xref linkend="prefs-mouse"/>.</para>
+
+  </section>
+
+  <section xml:id="mouse-actions"><info><title>Действия мышью</title><titleabbrev>Действия</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosgetstarted-45"/>
+    <anchor xml:id="gosbasic-6"/>
+    
+    <indexterm><primary>мышь</primary><secondary>соглашения о действиях</secondary></indexterm>
+    <indexterm><primary>мышь</primary><secondary>терминология действий</secondary></indexterm>
+    
+    <para>В этом руководстве используются следующие обозначения действий, производимых мышью:</para>
+    
+    <!-- convert to variablelist -->
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="36.36*"/>
+        <colspec colname="colspec1" colwidth="63.64*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Действие</para>
+            </entry>
+            <entry>
+              <para>Определение</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Щёлкнуть</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Нажмите и отпустите левую кнопку мыши, не передвигая мышь.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Щелчок левой кнопкой</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Тоже, что и <emphasis>щёлкнуть</emphasis>. Термин «щёлкнуть левой кнопкой мыши» используется, когда его можно спутать с <emphasis>щелчком правой кнопкой мыши</emphasis>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Щелчок средней кнопкой</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Нажмите и отпустите среднюю кнопку мыши, не передвигая мышь.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Щелчок правой кнопкой</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Нажмите и отпустите правую кнопку мыши, не передвигая мышь.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Дважды щёлкнуть</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Дважды быстро нажмите и отпустите левую кнопку мыши, не передвигая мышь. Можно настроить чувствительность к двойным щелчкам, изменив параметр <emphasis>задержки двойного щелчка</emphasis>: подробнее об этом смотрите <xref linkend="prefs-mouse"/>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Щелчок и перетаскивание</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Нажмите, но не отпускайте левую кнопку мыши, затем перемещайте мышь с нажатой кнопкой, и, наконец, отпустите кнопку.</para>
+                            
+              <para>Перетаскивание мышью используется в различных целях. Оно позволяет перемещать объект по экрану с помощью мыши. Объект <emphasis>бросается</emphasis> в том месте, где отпускается кнопка мыши. Это действие также называют <emphasis>"перенести и бросить"</emphasis>. О щелчке на элементе для его последующего перемещения иногда говорят <emphasis>"схватить"</emphasis>.</para>		  
+			  
+			                
+              <para>Например, можно изменить положение окна, перетащив его заголовок. Также можно переместить файл, схватив его значок в одном окне и бросив на другое.</para>           
+              
+              <para>Для перетаскивания обычно используется левая кнопка мыши. Иногда для особого перетаскивания используется средняя кнопка.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Щёлкнуть и не отпускать</para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Нажмите, но не отпускайте левую кнопку мыши.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    
+    <indexterm><primary>мышь</primary><secondary>действия</secondary></indexterm>
+
+    <para>С помощью мыши можно производить следующие действия:</para>
+    
+    <!--
+    Problem with the word 'action' here, since it's already used
+    to describe things like click, drag, etc. Suggestion: tasks?
+    -->
+
+    <variablelist>
+      <varlistentry>
+        <term>Левая кнопка мыши</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>Выделять текст.</para></listitem>
+            <listitem><para>Выделять элементы.</para></listitem>
+            <listitem><para>Перетаскивать элементы.</para></listitem>
+            <listitem><para>Активировать элементы.</para></listitem>
+          </itemizedlist>        
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Средняя кнопка мыши</term>
+        <listitem>
+          <itemizedlist>
+            <listitem><para>Вставлять текст.</para></listitem>
+            <listitem><para>Передвигать элементы.</para></listitem>
+            <listitem><para>Перемещать окна на задний план.</para></listitem>
+          </itemizedlist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Правая кнопка мыши</term>
+        <listitem><para>Используйте правую кнопку мыши, чтобы открывать контекстные меню элементов, если таковые имеются. Для большинства элементов можно также нажать <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>, предварительно выделив элемент — это также откроет контекстное меню.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Например, при просмотре файлов в файловом менеджере можно выделить файл, щёлкнув на нём левой кнопкой мыши, и открыть его, дважды щёлкнув левой кнопкой. Щелчок правой кнопкой мыши вызовет контекстное меню файла.</para>
+
+    <tip><para>В большинстве приложений можно выделить текст левой кнопкой мыши и вставить его в другое приложение, используя средную кнопку. Это называется вставкой основного выделения и используется независимо от обычных операций с буфером обмена.</para></tip>
+
+    <tip><para>Чтобы выделить несколько элементов, можно нажать и удерживать клавишу <keycap>Ctrl</keycap> для выделения элементов по одному, или клавишу <keycap>Shift</keycap> для выделения группы подряд идущих элементов. Можно также перетащить <firstterm>обрамляющую рамку</firstterm>, чтобы выбрать несколько элементов. Для этого начните перетаскивать из пустого места рядом с элементами, затем переместите мышь, чтобы изобразить прямоугольник.</para></tip>
+
+  </section>
+
+  <section xml:id="mouse-pointers"><info><title>Указатели мыши</title><titleabbrev>Указатели</titleabbrev></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-7"/>
+
+    <indexterm><primary>мышь</primary><secondary>указатели</secondary></indexterm>
+    <indexterm><primary>указатели</primary><see>указатели мыши</see></indexterm>
+
+    <para>По мере того, как вы используете мышь, вид её указателя может изменяться. Вид указателя даёт вам сведения о действии, месте или состоянии.</para>
+
+   <para>Во время перемещения над различными частями экрана указатель может меняться следующим образом:</para>
+   
+   <note><para>Указатели мыши могут иметь вид, отличающийся от показанного здесь, если используется другая тема указателя. Производитель или продавец вашей системы мог установить другую тему по умолчанию.</para></note>
+   
+   <variablelist>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/normal_pointer.png"/> </imageobject> <textobject> <phrase>Обычный указатель.</phrase> </textobject> </inlinemediaobject> Обычный указатель</term>
+        <listitem><para>Это указатель при обычном использовании мыши.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject><imageobject><imagedata format="PNG" fileref="figures/busy_pointer.png"/></imageobject><textobject><phrase>Указатель "Система занята".</phrase></textobject></inlinemediaobject>Указатель "Система занята"</term>
+        <listitem><para>Этот указатель появляется над окном, которое занято выполнением задания. В такое окно нельзя ничего ввести с помощью мыши, но можно переместиться в другое окно и работать в нём.</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term><inlinemediaobject><imageobject><imagedata format="PNG" fileref="figures/resize_pointer.png"/></imageobject><textobject><phrase>Указатель изменения размера.</phrase></textobject></inlinemediaobject>Указатель изменения размера.</term>
+        <listitem><para>Этот указатель показывает, что можно схватить объект и изменить его размеры. Он появляется над границами окна и над разделителями областей. Направление стрелок показывает, в каких направлениях можно изменять размеры.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/hyperlink_pointer.png"/> </imageobject> <textobject> <phrase>Указатель в виде руки</phrase> </textobject> </inlinemediaobject> Указатель в виде руки</term>
+        <listitem><para>Этот указатель появляется над <glossterm>гиперссылками</glossterm>, например, над ссылками на веб-странице. Этот указатель показывает, что можно щёлкнуть на ссылке, чтобы загрузить новый документ или произвести действие.</para></listitem>
+      </varlistentry>      
+      <varlistentry>
+        <term><inlinemediaobject><imageobject><imagedata format="PNG" fileref="figures/ibeam_pointer.png"/></imageobject><textobject><phrase>Указатель I-луча</phrase></textobject></inlinemediaobject>Указатель I-луча</term>
+        <listitem><para>Этот указатель появляется над текстом, который можно выделять или изменять. Щёлкните мышью, чтобы поместить курсор в том месте, где хотите набирать текст; либо перетащите, чтобы выделить текст.</para></listitem>
+      </varlistentry>      
+    </variablelist>      
+      
+   <para>Следующие указатели показываются при перетаскивании объектов — например, файлов или кусков текста. Они показывают, что произойдёт при отпускании кнопки мыши и сбрасывании перетаскиваемого объекта.</para>      
+      
+    <variablelist>      
+      <varlistentry>
+        <term><inlinemediaobject><imageobject><imagedata format="PNG" fileref="figures/move_pointer.png"/></imageobject><textobject><phrase>Указатель перемещения.</phrase></textobject></inlinemediaobject>Указатель перемещения</term>
+        <listitem><para>Этот указатель показывает, что после отпускания кнопки мыши объект будет перемещён из старого место в новое.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject><imageobject><imagedata format="PNG" fileref="figures/copy_pointer.png"/></imageobject><textobject><phrase>Указатель копирования.</phrase></textobject></inlinemediaobject>Указатель копирования</term>
+        <listitem><para>Этот указатель показывает, что при отпускании мыши в новом месте будет создана копия перетаскиваемого объекта.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject><imageobject><imagedata format="PNG" fileref="figures/link_pointer.png"/></imageobject><textobject><phrase>Указатель "символическая ссылка".</phrase></textobject></inlinemediaobject>Указатель "символическая ссылка"</term>
+        <listitem><para>Этот указатель показывает, что при отпускании кнопки мыши будет создана <firstterm>символьная ссылка</firstterm> на объект. Символьная ссылка — это особая разновидность файла, которая указывает на другой файл или папку. Подробнее об этом смотрите <xref linkend="caja-symlink"/>.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject><imageobject><imagedata format="PNG" fileref="figures/ask_pointer.png"/></imageobject><textobject><phrase>Указатель вопроса.</phrase></textobject></inlinemediaobject>Указатель вопроса</term>
+        <listitem><para>Этот указатель показывает, что, когда вы бросите объект, вам будет предложено выбрать желаемое действие из меню. Например, вам может быть предложено переместить объект, скопировать его или создать символьную ссылку.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject> <imageobject> <imagedata format="PNG" fileref="figures/not_available_pointer.png"/> </imageobject> <textobject> <phrase>Указатель "недоступно".</phrase> </textobject> </inlinemediaobject>Указатель "недоступно"</term>
+        <listitem><para>Этот указатель означает, что нельзя бросить объект в данном месте. Если отпустить кнопку мыши в этом месте, ничего не произойдёт: перетаскиваемый объект вернётся на своё исходное место.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject><imageobject><imagedata format="PNG" fileref="figures/move_panel_object_pointer.png"/></imageobject><textobject><phrase>Указатель перемещения панели.</phrase></textobject></inlinemediaobject>Указатель перемещения панели.</term>
+        <listitem><para>Этот указатель появляется при перетаскивании панелей или объектов панели с помощью средней кнопки мыши. Подробнее о панелях смотрите <xref linkend="panels"/>.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><inlinemediaobject><imageobject><imagedata format="PNG" fileref="figures/movewindow_pointer.png"/></imageobject><textobject><phrase>Указатель перемещения окна.</phrase></textobject></inlinemediaobject>Указатель перемещения окна</term>
+        <listitem><para>Этот указатель появляется, когда вы схватываете окно для его переноса. Подробнее о перемещении окон смотрите <xref linkend="windows-manipulating"/>.</para></listitem>
+      </varlistentry>
+
+    </variablelist>
+  </section>
+</section>
+
+<section xml:id="keyboard-skills"><info><title>Навыки работы с клавиатурой</title></info>
+  
+
+  <!-- Maintained for 2.8 compatibility -->
+  <anchor xml:id="gosbasic-51"/>
+
+  <indexterm><primary>базовые навыки</primary><secondary>навыки владения клавиатурой</secondary></indexterm>
+  <indexterm><primary>клавиатура</primary><secondary>базовые навыки</secondary></indexterm>
+
+  <para>Почти каждую задачу, выполняемую мышью, можно выполнить и при помощи клавиатуры. <firstterm>Комбинации клавиш</firstterm> — это сочетания клавиш, которые позволяют быстро выполнять задачи.</para>
+
+  <para>Можно использовать комбинации клавиш для выполнения общих задач в среде MATE и для работы с составными частями интерфейса — например, панелями и окнами. Также можно использовать комбинации клавиш в приложениях. Чтобы настроить комбинации клавиш, используйте инструмент <application>Комбинации клавиш клавиатуры</application>. Подробнее о настройке комбинаций клавиш смотрите <xref linkend="prefs-keyboard-shortcuts"/>.</para>
+
+  <note><para>Многие клавиатуры для ПК имеют две особые клавиши для операционной системы Windows: клавишу с логотипом Microsoft Windows™ и клавишу доступа к контекстным меню.</para>
+  <para>В среде MATE клавиша Windows часто настраивается как дополнительная клавиша-модификатор и называется <firstterm>клавишей Super</firstterm>. Клавишу контекстного меню можно использовать, чтобы обращаться к контекстному меню выделенного элемента — так же, как и сочетание клавиш <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>.</para></note>
+
+  <para>Также можно настроить рабочую среду MATE для использования специальных возможностей клавиатуры. Подробнее об этих возможностях смотрите <xref linkend="prefs-keyboard-a11y"/>.</para>
+
+  <para>В следующих разделах описаны комбинации клавиш, которые можно использовать во всей среде и в приложениях.</para>
+
+  <section xml:id="shortcuts-global"><info><title>Общие комбинации клавиш</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-62"/>
+
+    <indexterm><primary>горячие клавиши</primary><secondary>глобальные</secondary></indexterm>
+
+    <para>Общие комбинации клавиш позволяют вам использовать клавиатуру для выполнения действий над рабочей средой, а не над текущим окном или приложением. В следующей таблице описаны некоторые общие комбинации клавиш:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Комбинация клавиш</para>
+            </entry>
+            <entry>
+              <para>Функция</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F1</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Открыть меню <guimenu>Приложения</guimenu>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F2</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Открыть диалоговое окно <guilabel>Выполнить программу</guilabel>. Подробнее смотрите <xref linkend="tools-run-app"/>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Print Screen</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Сделать снимок всего экрана. Подробнее смотрите <xref linkend="tools-screenshot"/>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Print Screen</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Сделать снимок окна, которое в данный момент имеет фокус.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>клавиши со стрелками</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Переключиться в рабочее место, расположенное в указанном направлении относительно текущего. Подробнее о работе с несколькими рабочими местами смотрите <xref linkend="overview-workspaces"/>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>D</keycap></keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Свернуть все окна и передать фокус рабочему столу.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Tab</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Переключаться между окнами. Появится список окон, которые можно выбрать. Отпустите клавиши, чтобы выбрать окно. Можно нажать <keycap>Shift</keycap>, чтобы переключаться между окнами в обратном порядке.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>Tab</keycap></keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Переключить фокус между панелями и рабочим столом. Появляется список объектов, которые можно выделить. Отпустите клавиши, чтобы выбрать объект. Можно нажать <keycap>Shift</keycap>, чтобы переключаться между объектами в обратном порядке.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-window"><info><title>Комбинации клавиш для работы с окнами</title></info>
+    
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-58"/>
+
+    <indexterm><primary>горячие клавиши</primary><secondary>окно</secondary></indexterm>
+
+    <para>Комбинации клавиш для работы с окнами позволяют вам использовать клавиатуру для совершения действий над текущим окном. В следующей таблице описаны некоторые из этих комбинаций:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="35.67*"/>
+        <colspec colname="colspec1" colwidth="64.33*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Комбинация клавиш</para>
+            </entry>
+            <entry>
+              <para>Функция</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>Tab</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Переключаться между окнами. Появится список окон, которые можно выбрать. Отпустите клавиши, чтобы выбрать окно. Можно нажать <keycap>Shift</keycap>, чтобы переключаться между окнами в обратном порядке.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F4</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Закрыть текущее окно.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F5</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Вернуть текущее окно к исходному размеру, если ранее оно было развёрнуто.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F7</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Переместить текущее окно. После нажатия этих клавиш можно перемещать окно с помощью мыши или стрелок на клавиатуре. Чтобы завершить перемещение, щёлкните мышью или нажмите любую клавишу на клавиатуре.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F8</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para xml:lang="en">Resize the currently focused window.  After pressing this
+              shortcut, you can resize the window using either the mouse or
+              the arrow keys.  To finish resizing, click the mouse or press
+              any key on the keyboard.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F9</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Свернуть текущее окно.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>F10</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Развернуть текущее окно.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Alt</keycap><keycap>пробел</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Открыть меню текущего окна. Меню окна позволяет выполнять действия над ним — например, свернуть его, переместить на другое рабочее место или закрыть.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Alt</keycap> <keycap>клавиши со стрелками</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Переместить текущее окно на другое рабочее место в указанном направлении. Подробнее о работе с несколькими рабочими местами смотрите <xref linkend="overview-workspaces"/>.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-apps"><info><title>Клавиши приложений</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-59"/>
+    <anchor xml:id="gosbasic-61"/> <!-- was Panel Shortcut Keys -->
+
+    <indexterm><primary>горячие клавиши</primary><secondary>приложение</secondary></indexterm>
+
+    <para>Комбинации клавиш приложений позволяют выполнять задачи, связанные с приложениями. С помощью таких комбинаций можно работать быстрее, чем с использованием одной лишь мыши. В следующей таблице описаны некоторые часто используемые комбинации клавиш приложений:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Комбинация клавиш</para>
+            </entry>
+            <entry>
+              <para>Действие</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>N</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Создать новый документ или окно.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>X</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Вырезать выделенный текст или область и поместить его в буфер обмена.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>C</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Скопировать выделенный текст или область в буфер обмена.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>V</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Вставить содержимое буфера обмена.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>Z</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Отменить последнее действие.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycombo> <keycap>Ctrl</keycap><keycap>S</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Сохранить текущий документ.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0">
+              <para><keycap>F1</keycap></para>
+            </entry>
+            <entry colname="colspec1">
+              <para>Загрузить электронную справку по приложению.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+
+    <para>Помимо этих комбинаций клавиш, все приложения поддерживают набор клавиш для перемещения по ним и работы с их интерфейсом. С помощью этих клавиш вы можете выполнять те действия, которые обычно производятся мышью. Некоторые из них приведены в следующей таблице:</para>
+
+    <informaltable frame="topbot">
+      <tgroup cols="2" colsep="0" rowsep="0">
+        <colspec colname="colspec0" colwidth="45.00*"/>
+        <colspec colname="colspec1" colwidth="55.00*"/>
+        <thead>
+          <row rowsep="1">
+            <entry>
+              <para>Клавиши</para>
+            </entry>
+            <entry>
+              <para>Действие</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para>Клавиши со стрелками или <keycap>Tab</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Переместиться между элементами интерфейса или пунктами списка.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Enter</keycap> или <keycap>пробел</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Активировать или выбрать выделенный элемент.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>F10</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Активировать самое левое меню в окне приложения.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycombo> <keycap>Shift</keycap><keycap>F10</keycap> </keycombo></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Активировать контекстное меню для выделенного элемента.</para>
+            </entry>
+          </row>
+          <row>
+            <entry colname="colspec0" valign="top">
+              <para><keycap>Esc</keycap></para>
+            </entry>
+            <entry colname="colspec1" valign="top">
+              <para>Закрыть меню, не выбирая пункт, или отменить перетаскивание.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="shortcuts-access"><info><title>Клавиши доступа</title></info>
+    
+
+    <!-- Maintained for 2.8 compatibility -->
+    <anchor xml:id="gosbasic-63"/>
+
+    <indexterm><primary>клавиши специальных возможностей</primary></indexterm>
+
+    <para><firstterm>Строка меню</firstterm> — это область в верхней части окна, содержащая доступные в приложении меню. <firstterm>Клавиша доступа</firstterm> — это подчёркнутая буква в строке меню, меню или диалоговом окне, которая позволяет выполнить соответствующее дейстие. В строке меню клавиши доступа для каждого меню подчёркиваются.</para>
+
+    <para>Чтобы открыть меню, нажмите и удерживайте клавишу <keycap>Alt</keycap>, затем нажмите клавишу доступа. В каждом пункте меню соответствующая клавиша доступа подчёркнута. Чтобы выбрать пункт из меню, когда это меню показано на экране, можно просто нажать соответствующую ему клавишу доступа.</para>
+
+    <para>Например, чтобы открыть новое окно в программе просмотра справки, нажмите <keycombo><keycap>Alt</keycap><keycap>Ф</keycap></keycombo> — при этом откроется меню <guimenu>Файл</guimenu>. Затем нажмите <keycap>С</keycap>, чтобы выбрать пункт меню <guimenuitem>Создать окно</guimenuitem>.</para>
+
+    <para>Можно также использовать клавиши доступа, чтобы обращаться к элементам диалогового окна. На большинстве элементов диалоговых окон подчёркнута одна буква. Чтобы обратиться к элементу окна, нажмите и удерживайте <keycap>Alt</keycap>, затем нажмите соответствующую клавишу доступа.</para>
+  </section>
+</section>
+
+</chapter>
