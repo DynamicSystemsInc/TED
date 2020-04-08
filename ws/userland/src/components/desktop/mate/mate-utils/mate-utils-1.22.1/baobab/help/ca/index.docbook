@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "1.10">
+<!ENTITY manrevision "1.10">
+<!ENTITY date "July 2015">
+<!ENTITY app "Disk Usage Analyzer">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+  
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="ca">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual de l'analitzador de l'ús dels discs</title>
+
+    <abstract role="description">
+      <para>L'analitzador de l'ús dels discs és un visualitzador gràfic, basat en menús, que podeu utilitzar per visualitzar i monitorar l'ús del vostre disc i l'estructura de les carpetes.</para>
+    </abstract>
+
+    <copyright lang="en"><year>2019</year><holder>Projecte de Documenatció de MATE</holder></copyright>
+    <copyright><year>2006</year> <holder>Fabio Marzocca</holder></copyright> 
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+    <publisher> 
+      <publishername>Projecte de documentació de MATE</publishername>
+    </publisher> 
+    <publisher> 
+      <publishername>Projecte de documentació de GNOME</publishername>
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Es concedeix el permís per copiar, distribuir i / o modificar aquest document sota els termes de la GFDL (GNU Free Documentation License), versió 1.1 o qualsevol versió posterior publicada per la Free Software Foundation que tinguin les seccions invariants, i sense cap text a la portada. Podeu trobar una còpia de la GFDL en aquest <ulink type="help" url="help:fdl">enllaç</ulink> o bé al fitxer COPYING-DOCS que es distribueix amb aquest manual.</para>
+         <para>Aquest manual forma part d'una col·lecció de manuals de MATE que estan distribuïts sota la GFDL. Si voleu distribuir aquest manual per separat de la col·lecció, podeu fer-ho afegint una còpia de la llicència al manual, tal com es descriu a la secció 6 de la llicència.</para>
+
+	<para>Molts dels noms utilitzats per les empreses per distingir els seus productes i serveis es consideren marques comercials. Quan aquests noms apareixen en qualsevol documentació de MATE, i els membres del projecte de documentació de MATE en són conscients, els noms tenen lletres majúscules o bé comencen en majúscules.</para>
+
+	<para>EL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT S'OFEREIXEN SOTA ELS TERMES DE LA LLICÈNCIA DE DOCUMENTACIÓ LLIURE DE GNU, TENINT EN COMPTE QUE: <orderedlist>
+		<listitem>
+		  <para>EL DOCUMENT S'OFEREIX «TAL COM ÉS», SENSE CAP TIPUS DE GARANTIA, NI EXPLÍCITA NI IMPLÍCITA; AIXÒ INCLOU, SENSE LIMITAR-S'HI, LES GARANTIES QUE EL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT NO TINGUI DEFECTES, SIGUI COMERCIALITZABLE, SIGUI ADEQUAT PER A UN ÚS CONCRET O NO INFRINGEIXI CAP LLEI. TOT EL RISC PEL QUE FA A LA QUALITAT, EXACTITUD I RENDIMENT DEL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT ÉS VOSTRE. EN CAS QUE EL DOCUMENT RESULTÉS DEFECTUÓS EN QUALSEVOL ASPECTE, VÓS (NO PAS L'ESCRIPTOR INICIAL, L'AUTOR O CAP ALTRE COL·LABORADOR) ASSUMIU TOT EL COST DE MANTENIMENT, REPARACIÓ O CORRECCIÓ. AQUESTA RENÚNCIA DE GARANTIA CONSTITUEIX UNA PART ESSENCIAL D'AQUESTA LLICÈNCIA. NO S'AUTORITZA L'ÚS DE CAP DOCUMENT O VERSIÓ MODIFICADA DEL DOCUMENT EXCEPTE SOTA AQUESTA RENÚNCIA DE GARANTIA; I</para>
+		</listitem>
+		<listitem>
+		  <para>EN CAP CAS I SOTA CAP INTERPRETACIÓ LEGAL, JA SIGUI PER AGREUJAMENT (INCLOENT-HI LA NEGLIGÈNCIA), CONTRACTE O ALTRE CAS, L'AUTOR, L'ESCRIPTOR ORIGINAL, QUALSEVOL DELS COL·LABORADORS O DISTRIBUÏDORS DEL DOCUMENT O UNA VERSIÓ MODIFICADA DEL DOCUMENT NI CAP PROVEÏDOR D'AQUESTES PARTS NO SERAN RESPONSABLES DAVANT DE NINGÚ PER CAP DANY DIRECTE, INDIRECTE, ESPECIAL, ACCIDENTAL O CONSECUTIU DE QUALSEVOL TIPUS; AIXÒ INCLOU, SENSE LIMITAR-S'HI, ELS DANYS PER PÈRDUA DE CLIENTS, INTERRUPCIONS DE LA FEINA, FALLADA O MALFUNCIONAMENT DE L'ORDINADOR, O QUALSEVOL ALTRA PÈRDUA O DANY RELACIONAT AMB L'ÚS DEL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT, FINS I TOT SI S'HA INFORMAT AQUESTA PART DE LA POSSIBILITAT D'AQUESTS DANYS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+
+   <authorgroup>
+      <author role="maintainer" lang="en"><surname>Equip de documentació de MATE</surname> <affiliation> <orgname>Escriptori MATE</orgname> </affiliation></author>
+   <author><firstname>Fabio</firstname> <surname>Marzocca</surname> <affiliation> <orgname>Projecte de documentació de GNOME</orgname> <address> <email>thesaltydog@gmail.com</email> </address> </affiliation></author> 
+
+   <author role="maintainer"><firstname>Fabio</firstname> <surname>Marzocca</surname> <affiliation> <address><email>thesaltydog@gmail.com</email></address> </affiliation></author>
+      
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+   <othercredit role="translator">
+		<firstname>Latin</firstname> 
+		<surname>Translator 1</surname> 
+		<affiliation> 
+	  	<orgname>Latin Translation Team</orgname> 
+	  	<address> <email>translator@gnome.org</email> </address> 
+		</affiliation>
+		<contrib>Latin translation</contrib>
+   </othercredit>
+-->
+    </authorgroup>
+
+	<releaseinfo revision="1.10" role="review">
+	</releaseinfo>
+
+    <revhistory>
+      <revision><revnumber>Versió 1.10 del manual de l'analitzador de l'ús dels discs</revnumber> <date>Juliol de 2015</date> <revdescription> 
+	  		<para role="author" lang="en">Wolfgang Ulbrich</para>
+	  		<para role="publisher">Projecte de documentació de MATE</para>
+		</revdescription></revision>
+      <revision><revnumber>Versió 1.0 del manual de l'analitzador de l'ús dels discs</revnumber> <date>Abril de 2006</date> <revdescription> 
+	  		<para role="author">Emmanuele Bassi <email>ebassi@gmail.com</email></para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+		</revdescription></revision>
+    </revhistory> 
+
+    <releaseinfo>Aquest manual descriu la versió 1.10 de l'analitzador de l'ús dels discs.</releaseinfo> 
+    
+    <legalnotice> 
+      <title>Retroacció</title> 
+      <para>Per informar d'un error o fer un suggeriment sobre l'aplicació de l'analitzador de l'ús dels discs o d'aquest manual, seguiu les instruccions de la <ulink url="help:mate-user-guide/feedback" type="help">pàgina de retroacció de MATE</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Robert Antoni Buj Gelonch</firstname>
+      </personname>
+      <email>rbuj@fedoraproject.org</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2018</year>
+      
+        <year>2019</year>
+      
+      <holder>Robert Antoni Buj Gelonch</holder>
+    </copyright>
+  </articleinfo> 
+
+  <indexterm><primary>Analitzador de l'ús dels discs</primary></indexterm> 
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+
+  <sect1 id="baobab-introduction"> 
+    <title>Introducció</title> 
+
+      <para>L'<application>analitzador de l'ús dels discs</application> és una aplicació gràfica, basada en menús, per analitzar l'ús dels discs en qualsevol entorn MATE. L'<application>analitzador de l'ús dels discs</application> pot explorar fàcilment tot l'arbre del sistema de fitxers, o una branca específica del directori sol·licitat per l'usuari (local o remot).</para>
+       <para>També detecta automàticament en temps real els canvis realitzats al vostre directori d'usuari, així com en qualsevol dispositiu muntat o desmuntat. L'<application>analitzador de l'ús dels discs</application> també proporciona una finestra gràfica de l'arbre d'assignació per a cada carpeta seleccionada.</para>
+
+  </sect1>
+
+<!-- ================ Getting Started ================================ -->
+	<sect1 id="baobab-getting-started">
+	<title>Primers passos</title>
+
+    <para>L'<application>analitzador de l'ús dels discs</application> es pot iniciar de tres maneres:</para>
+	 <itemizedlist>
+    <listitem><para>des del menú de MATE <menuchoice><guimenu>Aplicacions</guimenu><guimenuitem>Accessoris</guimenuitem></menuchoice>;</para>
+    		</listitem>
+    <listitem><para>des de la finestra d'un terminal;</para>
+    		</listitem>
+    <listitem><para>des d'«Obre amb...» de Caja;</para>
+    		</listitem>
+    </itemizedlist> 
+
+
+<para>Si voleu iniciar l'<application>analitzador de l'ús dels discs</application> des d'un terminal, només cal que teclegeu:</para> 
+  
+<para><command>mate-disk-usage-analyzer &lt;tot_el_camí_fins_al_directori&gt;</command> i després premeu <keycap>Retorn</keycap>.</para>  
+<para/> 
+	<para>Si es llança des del menú de Mate, l'<application>analitzador de l'ús dels discs</application> s'inicia i es manté en un estat de repòs, a l'espera d'una acció de l'usuari.</para> 
+    <para>Quan inicieu l'<application>analitzador de l'ús dels discs</application> des del menú de Mate, es mostra la finestra següent.</para>
+
+    <!-- ==== Figure ==== -->
+      <figure id="baobab-fig"> 
+	<title>Finestra de l'analitzador de l'ús dels discs</title> 
+	<screenshot> 
+	  <mediaobject><imageobject> <imagedata fileref="figures/baobab_window.png" format="PNG"/> </imageobject> <textobject> <phrase>Mostra la finestra principal de l'analitzador de l'ús dels discs. Conté la barra de menús, l'àrea de visualització, les barres de desplaçament i la barra d'estat.</phrase> </textobject></mediaobject> 
+	</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+
+<para>Aleshores l'usuari pot:</para>
+	<itemizedlist>
+    <listitem><para>iniciar una exploració de tot el sistema de fitxers;</para>
+    		</listitem>
+    <listitem><para>seleccionar una branca de directori local específica per explorar-la</para>
+    		</listitem>
+    <listitem><para>seleccionar un servidor remot i una carpeta per explorar-la</para>
+    		</listitem>
+    <listitem><para>establir les preferències</para>
+    		</listitem>
+	</itemizedlist>
+
+
+</sect1>
+
+<!-- ================ Usage ================================ -->
+
+  <sect1 id="baobab-usage"> 
+    <title>Utilització</title>
+
+    <sect2 id="baobab-fullscan">
+      <title>Exploració de tot el sistema de fitxers</title>
+        <para>Per iniciar una exploració de tot el sistema de fitxers, seleccioneu des del menú <menuchoice><guimenu>Analitzador</guimenu><guimenuitem>Explora el sistema de fitxers</guimenuitem></menuchoice>, o premeu damunt del botó <guibutton>Explora el sistema de fitxers</guibutton> de la barra d'eines.</para>
+
+	<para>Quan acabi el procés d'exploració, obtindreu l'arbre complet del vostre sistema de fitxers, similar al de la figura següent.</para>    
+
+    <!-- ==== Figure ==== -->
+      <figure id="baobab-fullscan-fig"> 
+	<title>Exploració de tot el sistema de fitxers de l'analitzador de l'ús dels discs</title> 
+	<screenshot> 
+	  <mediaobject><imageobject> <imagedata fileref="figures/baobab_fullscan.png" format="PNG"/> </imageobject> <textobject> <phrase>Mostra la finestra de l'exploració de tot el sistema de fitxers de l'analitzador de l'ús dels discs. Conté la barra de menús, l'àrea de visualització, les barres de desplaçament i la barra d'estat.</phrase> </textobject></mediaobject> 
+	</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+    
+    	<note><para>Quan executeu una exploració de tot el sistema de fitxers, la finestra de l'<application>analitzador de l'ús dels discs</application> començarà a dibuixar l'arbre tan aviat com el fil comenci a explorar el sistema de fitxers. Si hi ha alguna partició gran muntada al sistema de fitxers, també s'explora.</para></note>
+    
+    <para>L'<application>analitzador de l'ús dels discs</application> mostrarà les mides a l'arbre de directoris com espai assignat. Això vol dir que les mides mostrades es refereixen a l'ús del disc real i no a la mida del directori apreciable. Si voleu veure la mida del fitxer apreciable, desmarqueu <menuchoice><guimenu>Vista</guimenu><guimenuitem>Espai assignat</guimenuitem></menuchoice> .</para>
+    
+    <warning><para>L'<application>analitzador de l'ús dels discs</application> no comptarà el directori /proc, ni tampoc la mida de cap fitxer que no estigui relacionada amb un fitxer «pla», d'aquesta manera els enllaços simbòlics, els blocs de caràcters, els dispositius de blocs, no formaran part de la mida del directori.</para></warning>
+   
+    <para>Els enllaços forts es gestionen d'una manera diferent: aquest primer enllaç fort es compta com un fitxer normal, mentre que els enllaços posteriors al mateix dispositiu de l'inode no es comptabilitzen al total, sinó que es ressalta a la columna de la dreta de la finestra.</para>
+        </sect2>
+	
+	<sect2 id="baobab-folderscan">
+      <title>Exploració d'una sola carpeta</title>
+
+    <para>Per iniciar una exploració d'una sola carpeta, seleccioneu des del menú <menuchoice><guimenu>Analitzador</guimenu><guimenuitem>Explora la carpeta...</guimenuitem></menuchoice>, o premeu damunt del botó <guibutton>Explora una carpeta</guibutton> de la barra d'eines.</para>
+
+	</sect2>
+
+	<sect2 id="baobab-remotescan">
+      <title>Exploració remota</title>
+      
+      <para>Si necessiteu explorar la carpeta remota d'un servidor, només feu clic a la icona de la barra d'eines <guibutton>Explora una carpeta remota</guibutton> o seleccioneu des del menú <menuchoice><guimenu>Analitzador</guimenu><guimenuitem>Explora una carpeta remota</guimenuitem></menuchoice>, i obtindreu el quadre de diàleg següent. L'<application>analitzador de l'ús dels discs</application> pot connectar-se a un servidor a través de ssh, ftp, smb, http i https.</para>
+ 
+     <!-- ==== Figure ==== -->
+      <figure id="baobab-remote-fig"> 
+        <title>Exploració d'una carpeta remota de l'analitzador de l'ús dels discs</title> 
+		<screenshot> 
+	 	 <mediaobject><imageobject> <imagedata fileref="figures/baobab_remote.png" format="PNG"/> </imageobject> <textobject> <phrase>Mostra el diàleg de carpeta remota de l'analitzador de l'ús dels discs. </phrase> </textobject></mediaobject> 
+		</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+   
+	</sect2> 
+
+  </sect1>
+
+
+<!-- ============= Preferences =============================== -->
+  <sect1 id="baobab-preferences">
+    <title>Preferències</title>
+    
+    <para>Per canviar les preferències de l'aplicació de l'<application>analitzador de l'ús dels discs</application>, seleccioneu <menuchoice><guimenu>Edita</guimenu><guimenuitem>Preferències</guimenuitem></menuchoice>.</para>
+ 
+   <!-- ==== Figure ==== -->
+      <figure id="baobab-preferences-fig"> 
+      	<title>Finestra de preferències de l'analitzador de l'ús dels discs</title> 
+	<screenshot> 
+	  <mediaobject><imageobject> <imagedata fileref="figures/baobab_prefs.png" format="PNG"/> </imageobject> <textobject> <phrase>Finestra de preferències </phrase> </textobject></mediaobject> 
+	</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+  
+  <sect2 id="baobab-scan-preferences">
+      <title>Seleccionar els dispositius a explorar</title>
+  <para>A la primera part de la finestra de preferències, es mostren tots els dispositius muntats que s'han detectat. Feu clic a la casella de selecció per incloure o excloure la partició a les operacions d'exploració del sistema de fitxers.</para>
+  <note><para>El dispositiu muntat a «/» no es pot excloure de l'exploració.</para></note>
+  </sect2>
+ 
+   <sect2 id="baobab-monitor-preferences">
+      <title>Habilitar el monitoratge de la carpeta d'usuari</title>
+      <para>Si aquesta opció està marcada, l'<application>analitzador de l'ús dels discs</application> monitorarà constantment qualsevol canvi extern al directori d'usuari i avisarà a l'usuari si s'afegeix o es treu un fitxer.</para>  
+   </sect2>  
+	</sect1>
+<!-- ================ Treemaps ================================ -->
+
+  <sect1 id="baobab-treemaps"> 
+  <title>Arbres d'assignació</title>
+
+    <para>Els conceptes dels <guilabel>arbres d'assignació</guilabel> han estat desenvolupats per Ben Shneiderman en la dècada dels 90. Llegiu la seva <ulink type="http" url="http://www.cs.umd.edu/hcil/treemap-history/index.shtml">visió sobre els arbres d'assignació</ulink>.</para>
+    
+       <!-- ==== Figure ==== -->
+      <figure id="baobab-treemap-fig"> 
+        <title>Finestra de l'arbre d'assignació de l'analitzador de l'ús dels discs</title>
+	<screenshot> 
+	  <mediaobject><imageobject> <imagedata fileref="figures/baobab_treemaps.png" format="PNG"/> </imageobject> <textobject> <phrase>Teoria dels arbres d'assignació. Mostra 2 diagrames d'arbres d'assignació </phrase> </textobject></mediaobject> 
+	</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+  
+    
+    <para>La figura mostra un exemple de la teoria dels arbres d'assignació. Cadascun dels nodes (com es mostren al diagrama d'arbre) té un nom (una lletra) i una mida associada (un nombre). La mida de les fulles pot representar, per exemple, la mida dels fitxers per separat, la mida dels nodes que no són fulles és la suma de les mides dels seus fills.</para> 
+    
+    <para>L'arbre d'assignació es construeix a través de la subdivisió recursiva del rectangle inicial. La mida de cada sub-rectangle correspon a la mida del node. La direcció de la subdivisió s'alterna per nivell: primer horitzontalment, després verticalment, etcètera. Com a resultat, el rectangle inicial es parteix en rectangles més petits, de manera que la mida de cadascun dels rectangles reflecteix la mida de la fulla. L'estructura de l'arbre també es reflecteix a l'arbre d'assignació, com un resultat de la seva construcció. El color i l'anotació es poden utilitzar per donar informació extra sobre les fulles.</para>
+
+	<note><para>Els arbres d'assignació són molt eficaços quan la mida és la característica més important a mostrar.</para></note>
+  </sect1>
+  <!-- ================ Ringschart ================================ -->
+
+  <sect1 id="baobab-ringschart"> 
+  <title>Diagrama d'anells</title>
+
+    <para>El <guilabel>diagrama d'anells</guilabel> és una representació gràfica de l'ús dels discs mitjançant una carpeta concreta. Quan es llança l'aplicació, es notifica l'ús del sistema de fitxers tal com es pot veure a la següent figura:</para>
+
+    <!-- ==== Figure ==== -->
+    <figure id="baobab-filesystem_scan"> 
+      <title>L'analitzador de l'ús dels discs mostrant un diagrama d'anells amb l'ús del sistema de fitxers</title>
+      <screenshot> 
+	<mediaobject><imageobject> <imagedata fileref="figures/baobab_ringschart1.png" format="PNG"/> </imageobject> <textobject> <phrase>Després de llançar l'aplicació, es mostra l'ús del sistema de fitxers. La representació gràfica està a la dreta. </phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure>
+    <!-- ==== End of Figure ==== -->
+
+    <para>Quan inicieu l'exploració d'una carpeta, l'arbre de les subcarpetes es crea i es mostra al costat esquerre. Cadascuna de les files conté informació sobre el nom, quant espai ocupa (percentatge i mida en KB, MB o GB) i el nombre d'elements (sumant fitxers i directoris). Quan acaba aquest procés, el <guilabel>diagrama d'anells</guilabel> està dibuixat al costat dret. Si ho atureu abans que s'hagi completat, només es fa una representació parcial en funció dels directoris, dels quals l'ús està malmès.</para>
+
+
+    <!-- ==== Figure ==== -->
+    <figure id="baobab-folder_scan"> 
+      <title>L'analitzador de l'ús dels discs mostrant un diagrama d'anells amb l'ús d'una carpeta</title>
+      <screenshot> 
+	<mediaobject><imageobject> <imagedata fileref="figures/baobab_ringschart2.png" format="PNG"/> </imageobject> <textobject> <phrase>Després d'explorar una carpeta. </phrase> </textobject></mediaobject> 
+      </screenshot> 
+    </figure>
+    <!-- ==== End of Figure ==== -->
+    
+    <para>El <guilabel>diagrama d'anells</guilabel> està format per un conjunt d'anells niats al voltant d'un cercle central. Aquest cercle simbolitza la carpeta arrel de l'arbre parcial (és a dir, la carpeta que l'usuari ha seleccionat per explorar). Cadascun dels anells representa un nivell en l'arbre parcial, és a dir, les subcarpetes de la carpeta arrel es representaran al primer anell, i els nivells més profunds de l'arbre corresponen als anells exteriors a la gràfica. Cadascuna de les subcarpetes està representada per un sector de l'anell, el seu angle és proporcional a la mida del contingut de la carpeta, i està pintat amb un color diferent per facilitar la visualització. Es poden dibuixar fins a cinc nivells; en cas que una carpeta d'aquest últim cinquè nivell contingui més subcarpetes, aquesta situació s'assenyalarà amb la presència d'una corba negra al cantó de la vora del sector de l'anell de la carpeta. Quan se selecciona una carpeta sense més subcarpetes per ser l'arrel de l'arbre parcial, només es dibuixa el cercle intern. Quan el punter del ratolí es mou per sobre d'una de les carpetes de la gràfica, es ressaltarà i apareixerà una informació sobre la informació sobre el seu nom i la seva mida. Si hi ha subcarpetes, apareixeran indicadors petits grisos que indiquen els seus noms. És possible que no es mostrin tots els noms de les subcarpetes, per evitar superposicions.</para>
+
+    <para>Podeu pujar i baixar per les files de la llista (expandint de manera opcional aquelles amb subcarpetes), la representació gràfica canviarà utilitzant la carpeta seleccionada com a arrel de l'arbre parcial a representar. També es pot navegar per les carpetes des del mateix <guilabel>diagrama d'anells</guilabel>. Si feu clic amb el botó esquerre del ratolí dins d'una carpeta, us moureu més endins amb l'establiment de l'arrel de la gràfica a aquesta carpeta. Si premeu el botó central (sense importar el lloc, sempre que feu clic a l'interior del marc del <guilabel>diagrama d'anells</guilabel>) obtindreu el comportament contrari, fent un pas enrere a la jerarquia.</para>
+
+    <para>El percentatge del radi del seu pare que s'utilitza per a una carpeta donada, és directament proporcional a la relació entre la seva mida i els seus pares. És fàcil entendre que la mida d'una carpeta és igual o més petita que la dels seus pares. Encara que només es mostren directoris en aquesta representació gràfica, es tenen en compte els fitxers per calcular la quantitat d'espai ocupat per les carpetes.</para>
+  </sect1>
+</article>

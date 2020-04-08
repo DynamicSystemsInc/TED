@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY app "Dictionary">
+<!ENTITY applet "Dictionary Applet">
+<!ENTITY appversion "1.10">
+<!ENTITY date "July 2015">
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY manrevision "1.10.0">
+]>
+<!-- This file describes the Dictionary applet and application. -->
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified 11 April, 2002
+  
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="es">
+<!-- please do not change the id; for translations, change language to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title lang="en">Dictionary Manual</title>
+
+    <abstract role="description">
+      <para lang="en">
+        Dictionary enables you to look up definitions and correct spellings
+        of words.
+      </para>
+    </abstract>
+
+    <copyright lang="en"><year>2015</year> <holder>Proyecto de Documentación de MATE</holder></copyright>   
+    <copyright lang="en">
+      <year>2005</year>
+      <holder>Emmanuele Bassi</holder>
+    </copyright>
+    
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+   
+    <publisher>
+      <publishername>Proyecto de documentación de MATE</publishername>
+    </publisher> 
+    <publisher> 
+      <publishername>Proyecto de documentación de GNOME</publishername>
+    </publisher>
+     <legalnotice id="legalnotice">
+	<para>Se concede permiso para copiar, distribuir o modificar este documento según las condiciones de la GNU Free Documentation License (GFDL), Versión 1.1 o cualquier versión posterior publicada por la Free Software Foundation sin Secciones invariantes, Textos de portada y Textos de contraportada. Encontrará una copia de la GFDL en este <ulink type="help" url="help:fdl">enlace</ulink> o en el archivo COPYING-DOCS distribuido con este manual.</para>
+         <para>Este manual es parte de la colección de manuales MATE distribuidos bajo el GFDL. Si quiere distribuir este manual separadamente de la colección, puede hacerlo añadiendo una copia de la licencia al manual, como está descrito en la sección 6 de la licencia.</para>
+
+	<para>Muchos de los nombres usados por empresas para distinguir sus productos y servicios se mencionan como marcas comerciales. Donde aparezcan dichos nombres en cualquier documentación MATE, y para que los miembros del proyecto de documentación reconozcan dichas marcas comerciales, dichos nombres se imprimen en mayúsculas o iniciales mayúsculas.</para>
+
+	<para>EL DOCUMENTO Y LAS VERSIONES MODIFICADAS DEL DOCUMENTO SE PROPORCIONAN BAJO LOS TÉRMINOS DE LA LICENCIA GRATUITA DE DOCUMENTACIÓN DE GNU CON EL ACUERDO ADICIONAL DE:<orderedlist>
+		<listitem>
+		  <para>EL DOCUMENTO SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, NI EXPLÍCITA NI IMPLÍCITA INCLUYENDO, SIN LIMITACIÓN, GARANTÍA DE QUE EL DOCUMENTO O VERSIÓN MODIFICADA DE ÉSTE CAREZCA DE DEFECTOS COMERCIALES, SEA ADECUADO A UN FIN CONCRETO O INCUMPLA ALGUNA NORMATIVA. TODO EL RIESGO RELATIVO A LA CALIDAD, PRECISIÓN Y UTILIDAD DEL DOCUMENTO O SU VERSIÓN MODIFICADA RECAE EN USTED. SI CUALQUIER DOCUMENTO O VERSIÓN MODIFICADA DE AQUÉL RESULTARA DEFECTUOSO EN CUALQUIER ASPECTO, USTED (Y NO EL REDACTOR INICIAL, AUTOR O CONTRIBUYENTE) ASUMIRÁ LOS COSTES DE TODA REPARACIÓN, MANTENIMIENTO O CORRECCIÓN NECESARIOS. ESTA RENUNCIA DE GARANTÍA ES UNA PARTE ESENCIAL DE ESTA LICENCIA. NO SE AUTORIZA EL USO DE NINGÚN DOCUMENTO NI VERSIÓN MODIFICADA DE ÉSTE POR EL PRESENTE, SALVO DENTRO DEL CUMPLIMIENTO DE LA RENUNCIA;Y</para>
+		</listitem>
+		<listitem>
+		  <para>BAJO NINGUNA CIRCUNSTANCIA NI BAJO NINGUNA TEORÍA LEGAL, SEA POR ERROR (INCLUYENDO NEGLIGENCIA), CONTRATO O DE ALGÚN OTRO MODO, EL AUTOR, EL ESCRITOR INICIAL, CUALQUIER CONTRIBUIDOR, O CUALQUIER DISTRIBUIDOR DEL DOCUMENTO O VERSIÓN MODIFICADA DEL DOCUMENTO, O CUALQUIER PROVEEDOR DE CUALQUIERA DE ESAS PARTES, SERÁ RESPONSABLE ANTE NINGUNA PERSONA POR NINGÚN DAÑO DIRECTO, INDIRECTO, ESPECIAL, INCIDENTAL O DERIVADO DE NINGÚN TIPO, INCLUYENDO, SIN LIMITACIÓN DAÑOS POR PÉRDIDA DE MERCANCÍAS, PARO TÉCNICO, FALLO INFORMÁTICO O MAL FUNCIONAMIENTO O CUALQUIER OTRO POSIBLE DAÑO O PÉRDIDAS DERIVADAS O RELACIONADAS CON EL USO DEL DOCUMENTO O SUS VERSIONES MODIFICADAS, AUNQUE DICHA PARTE HAYA SIDO INFORMADA DE LA POSIBILIDAD DE QUE SE PRODUJESEN DICHOS DAÑOS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+
+    <authorgroup>
+      <author role="maintainer" lang="en"><surname>MATE-Dokumentationsteam</surname> <affiliation> <orgname>Mate desktop</orgname> </affiliation></author>
+      <author role="maintainer" lang="en"> 
+	<firstname>Emmanuele</firstname> 
+	<surname>Bassi</surname> 
+	<affiliation> 
+	  <address><email>ebassi@gmail.com</email></address> 
+	</affiliation> 
+      </author> 
+
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+	<firstname>Latin</firstname> 
+	<surname>Translator 1</surname> 
+	<affiliation> 
+	  <orgname>Latin Translation Team</orgname> 
+	  <address> <email>translator@gnome.org</email> </address> 
+	</affiliation>
+	<contrib>Latin translation</contrib>
+      </othercredit>
+-->
+
+    </authorgroup>
+
+    <revhistory>
+      <revision lang="en"> 
+	<revnumber>Dictionary Manual V1.10.0</revnumber> 
+	<date>July 2015</date> 
+	<revdescription> 
+	  <para role="author" lang="en">Wolfgang Ulbrich
+	  </para>
+	  <para role="publisher" lang="en">MATE Documentation Project</para>
+	</revdescription> 
+      </revision>
+      <revision lang="en"> 
+	<revnumber>Dictionary Manual V1.10.0</revnumber> 
+	<date>July 2015</date> 
+	<revdescription> 
+	  <para role="author" lang="en">Emmanuele Bassi</para>
+	  <para role="publisher" lang="en">GNOME Documentation Project</para>
+	</revdescription> 
+      </revision>
+    </revhistory> 
+
+    <releaseinfo lang="en">This manual describes version 1.10 of Dictionary.</releaseinfo> 
+    <legalnotice> 
+      <title>Comentarios</title> 
+      <para lang="en">To report a bug or make a suggestion regarding the Dictionary
+      application or this manual, follow the directions in the
+      <ulink url="help:mate-user-guide/feedback" type="help">MATE Feedback
+      Page</ulink>.</para>
+      
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Adolfo Jayme Barrientos</firstname>
+      </personname>
+      <email>fitojb@ubuntu.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2018</year>
+      
+      <holder>Adolfo Jayme Barrientos</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Jorge González</firstname>
+      </personname>
+      <email>jorgegonz@svn.gnome.org</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2007-2010</year>
+      
+      <holder>Jorge González</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Francisco Javier F. Serrador</firstname>
+      </personname>
+      <email>serrador@cvs.gnome.org</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2003-2006</year>
+      
+      <holder>Francisco Javier F. Serrador</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Pablo Gonzalo del Campo</firstname>
+      </personname>
+      <email>pablodc@bigfoot.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2002-2003</year>
+      
+      <holder>Pablo Gonzalo del Campo</holder>
+    </copyright>
+  </articleinfo> 
+
+  <indexterm lang="en"> 
+    <primary>Dictionary</primary> 
+  </indexterm> 
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+  <sect1 id="mate-dictionary-introduction"> 
+    <title>Introducción</title>
+
+    <para lang="en">The <application>Dictionary</application> application enables you to
+    search words and terms on a dictionary source.</para>
+    
+  </sect1>
+
+<!-- ============= Getting Started =========================== -->  
+  <sect1 id="mate-dictionary-getting-started">
+    <title>Cómo empezar</title>
+    
+<!-- ============= To Start Dictionary ======================= -->
+    <sect2 id="mate-dictionary-start-application">
+      <title lang="en">To Start Dictionary</title>
+      
+      <para lang="en">You can start <application>Dictionary</application> in the following
+      ways:</para>
+      
+      <variablelist>
+        	<varlistentry>
+        	  <term>Menú <guimenu>Aplicaciones</guimenu></term>
+        	  <listitem>
+        	    <para lang="en">Choose <menuchoice><guisubmenu>Accessories</guisubmenu>
+        	      <guimenuitem>Dictionary</guimenuitem></menuchoice>.
+        	    </para>
+        	  </listitem>
+        	</varlistentry>
+    	<varlistentry>
+    	  <term>Línea de comandos</term>
+    	  <listitem>
+    	    <para lang="en">Execute the following command: <command>mate-dictionary</command></para>
+    	  </listitem>
+    	</varlistentry>
+      </variablelist>
+      
+      <para lang="en">Once started, the <application>Dictionary</application> window is
+      displayed:</para>
+      
+      <figure id="mate-dictionary-fig">
+        <title lang="en">Dictionary Window</title>
+        <screenshot> 
+          <mediaobject lang="en">
+            <imageobject>
+              <imagedata fileref="figures/mate-dictionary-application.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Shows Dictionary main window.</phrase></textobject> 
+          </mediaobject>
+        </screenshot>
+      </figure>
+
+    </sect2>
+
+  </sect1>
+  
+<!-- ============= Usage ===================================== -->
+  <sect1 id="mate-dictionary-usage">
+    <title>Uso</title>
+    
+    <sect2 id="mate-dictionary-lookup">
+      <title lang="en">Looking up a word</title>
+      
+      <para lang="en">To look up a word, type it into the <guilabel>entry field</guilabel>
+      and press <keycap>Enter</keycap>.</para>
+    
+      <para lang="en">If some definition for the word is found, it will appear inside
+      the main window area:</para>
+
+      <figure id="mate-dictionary-lookup-fig">
+        <title lang="en">Dictionary Window</title>
+        <screenshot> 
+          <mediaobject lang="en">
+            <imageobject>
+              <imagedata fileref="figures/mate-dictionary-lookup.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Shows a definition inside the Dictionary main window.</phrase></textobject> 
+          </mediaobject>
+        </screenshot>
+      </figure>
+      
+      <para lang="en">Otherwise, an error dialog will appear, with a message explaining the
+      nature of the error.</para>
+    
+    </sect2>
+    
+    <sect2 id="mate-dictionary-save">
+      <title lang="en">Save look up results</title>
+      
+      <para lang="en">To save the results of a look up, choose <menuchoice><guimenu>File</guimenu><guimenuitem>Save a Copy</guimenuitem></menuchoice>. Enter a name for the file in the <guilabel>Save a Copy</guilabel> dialog, then click <guibutton>Save</guibutton>.</para>
+    
+    </sect2>
+    
+    <sect2 id="mate-dictionary-print">
+      <title lang="en">Print look up results</title>
+      
+      <para lang="en">To print the results of a look up, choose <menuchoice><guimenu>File</guimenu><guimenuitem>Print</guimenuitem></menuchoice>.</para>
+
+      <para lang="en">Inside the <guilabel>Print</guilabel> dialog you can select the
+      printer to use, the paper format, the number of copies.</para>
+
+      <para lang="en">To see a preview of what will be printed, click
+      <guibutton>Preview</guibutton>.</para>
+
+      <para lang="en">To print, click <guibutton>Print</guibutton>.</para>
+    
+    </sect2>
+    
+    <sect2 id="mate-dictionary-find">
+      <title lang="en">Find Text</title>
+
+      <figure id="mate-dictionary-find-fig">
+        <title lang="en">Dictionary Window</title>
+        <screenshot> 
+          <mediaobject lang="en">
+            <imageobject>
+              <imagedata fileref="figures/mate-dictionary-find.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Shows the Dictionary Find pane inside the main window.</phrase></textobject> 
+          </mediaobject>
+        </screenshot>
+      </figure>
+
+      
+      <para lang="en">To find text inside the results of a look up, perform the following
+      steps:</para>
+      
+      <orderedlist>
+        <listitem><para lang="en">Choose <menuchoice> <guimenu>Edit</guimenu> <guimenuitem>Find</guimenuitem> </menuchoice>
+        to display the <guilabel>Find</guilabel> pane.</para></listitem>
+        <listitem><para lang="en">Type the text you want to find inside the <guilabel>Search</guilabel>
+        entry.</para></listitem>
+        <listitem><para lang="en">To find the next occurrence of the text, click <guibutton>Next</guibutton>.
+        To find the previous occurrence of the text, click
+        <guibutton>Previous</guibutton>.</para></listitem>
+      </orderedlist>
+    
+    </sect2>
+      
+  </sect1>
+
+<!-- ============= Preferences =============================== -->
+  <sect1 id="mate-dictionary-preferences">
+    <title>Preferencias</title>
+    
+    <para lang="en">To change the <application>Dictionary</application> application
+    preferences, choose <menuchoice><guimenu>Edit</guimenu><guimenuitem>Preferences</guimenuitem></menuchoice>.</para>
+
+<!-- ============= Source Tab ================================ -->
+    <sect2 id="mate-dictionary-source-tab">
+      <title>Fuentes de diccionario</title>
+
+      <figure id="mate-dictionary-sources-fig">
+        <title lang="en">Dictionary Window</title>
+        <screenshot> 
+          <mediaobject lang="en">
+            <imageobject>
+              <imagedata fileref="figures/mate-dictionary-preferences-source.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Shows the Source tab of the Preferences dialog.</phrase></textobject> 
+          </mediaobject>
+        </screenshot>
+      </figure>
+
+      <para lang="en">To change the dictionary source used to look up words, select
+      the desired source from the list.</para>
+    </sect2>
+    
+<!-- ============= Add Source ================================ -->
+    <sect2 id="mate-dictionary-add-source">
+      <title lang="en">Adding a new source</title>
+
+      <figure id="mate-dictionary-add-source-fig">
+        <title lang="en">Dictionary Window</title>
+        <screenshot> 
+          <mediaobject lang="en">
+            <imageobject>
+              <imagedata fileref="figures/mate-dictionary-add-source.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Shows the Add Source dialog.</phrase></textobject> 
+          </mediaobject>
+        </screenshot>
+      </figure>
+
+      <para lang="en">To add a new dictionary source, perform the following steps:</para>
+
+      <orderedlist>
+        <listitem><para lang="en">Click on the <guibutton>Add</guibutton> button</para></listitem>
+	<listitem><para lang="en">Edit the name of the new source inside the <guilabel>Description</guilabel> entry</para></listitem>
+	<listitem><para lang="en">Change the transport type of the new source using the <guilabel>Transport</guilabel> combo box</para></listitem>
+	<listitem><para lang="en">Edit the attributes of the new source</para></listitem>
+	<listitem><para lang="en">Click <guibutton>Add</guibutton></para></listitem>
+      </orderedlist>
+
+      <para lang="en">Different source transport types uses different attributes.  This
+      is the list of available attributes per transport type:</para>
+
+      <informaltable frame="all">
+        <tgroup cols="2" colsep="1" rowsep="1">
+	  <thead>
+	    <row valign="top">
+	      <entry><para>Transporte</para></entry>
+	      <entry><para>Atributos</para></entry>
+	    </row>
+	  </thead>
+	  <tbody>
+	    <row valign="top">
+	      <entry><para lang="en">Dictionary Server</para></entry>
+	      <entry>
+	        <para lang="en">Hostname: the hostname of the dictionary server</para>
+		<para lang="en">Port: the port of the dictionary server</para>
+              </entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </informaltable>
+    
+    </sect2>
+
+<!-- ============= Remove Source ============================= -->
+    <sect2 id="mate-dictionary-remove-source">
+      <title lang="en">Removing a source</title>
+      
+      <para lang="en">To remove a dictionary source, perform the following steps:</para>
+
+      <orderedlist>
+        <listitem><para lang="en">Select the source you wish to remove</para></listitem>
+	<listitem><para lang="en">Click the <guibutton>Remove</guibutton> button</para></listitem>
+      </orderedlist>
+
+      <warning><para lang="en">If you remove a dictionary source it will be permanently
+      deleted from the list of available sources.  Also, as some sources might
+      be defined system-wide you may actually not be able to remove
+      them unless you have the right ownership privileges.</para></warning>
+      
+    </sect2>
+    
+<!-- ============= Print Tab ================================= -->
+    <sect2 id="mate-dictionary-print-tab">
+      <title>Opciones de Impresión</title>
+
+      <figure id="mate-dictionary-print-fig">
+        <title lang="en">Dictionary Window</title>
+        <screenshot> 
+          <mediaobject lang="en">
+            <imageobject>
+              <imagedata fileref="figures/mate-dictionary-preferences-print.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Shows the Print tab inside the Preferences dialog.</phrase></textobject> 
+          </mediaobject>
+        </screenshot>
+      </figure>
+
+      <para lang="en">If you want to change the font name and size used when printing,
+      perform the following steps:</para>
+
+      <orderedlist>
+        <listitem><para lang="en">Click on the <guilabel>Print Font</guilabel> button</para></listitem>
+	<listitem><para lang="en">Select the font and size you wish to use</para></listitem>
+	<listitem><para lang="en">Click <guibutton>Ok</guibutton></para></listitem>
+      </orderedlist>
+	
+    </sect2>
+    
+  </sect1>
+
+<!-- ============= Dictionary Applet ======================== -->
+  <sect1 id="mate-dictionary-applet">
+  <title lang="en">The Dictionary Applet</title>
+  
+  <para lang="en">The <application>Dictionary</application> application comes with a
+  panel applet, the <application>Dictionary Applet</application>.  You can add
+  the <application>Dictionary Applet</application> applet to a panel and look
+  up words in dictionaries.</para>
+
+  <figure id="mate-dictionary-applet-fig">
+    <title lang="en">Dictionary Applet Window</title>
+    <screenshot> 
+      <mediaobject lang="en">
+        <imageobject>
+          <imagedata fileref="figures/mate-dictionary-applet.png" format="PNG"/>
+        </imageobject>
+        <textobject><phrase>Shows Dictionary Applet.</phrase></textobject> 
+      </mediaobject>
+    </screenshot>
+  </figure>
+
+
+<!-- ============= Dictionary Applet Start ================== -->
+    <sect2 id="mate-dictionary-applet-start">
+      <title lang="en">To Start Dictionary Applet</title>
+    
+      <para lang="en">To add <application>Dictionary Applet</application> to a panel, right-click
+      on the panel, then choose <guimenuitem>Add to Panel</guimenuitem>.
+      Select Dictionary Applet in the <application>Add to the panel</application>
+      dialog, then click <guibutton>OK</guibutton>.</para>
+      
+    </sect2>
+
+<!-- ============= Dictionary Applet Start ================== -->
+    <sect2 id="mate-dictionary-applet-usage">
+      <title lang="en">Using the Dictionary Applet</title>
+      
+      <para lang="en">To look up a word, type it into the <guilabel>entry field</guilabel>,
+      and press <keycap>Enter</keycap> or right-click on the dictionary icon
+      and then choose <guimenuitem>Look up</guimenuitem>.
+      </para>
+      
+      <para lang="en">If some definition for the word was found, a window will appear,
+      with the text of the definitions:</para>
+
+      <figure id="mate-dictionary-applet-window-fig">
+        <title lang="en">Dictionary Applet Window</title>
+        <screenshot> 
+          <mediaobject lang="en">
+            <imageobject>
+              <imagedata fileref="figures/mate-dictionary-applet-window.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Shows Dictionary Applet main window.</phrase></textobject> 
+          </mediaobject>
+        </screenshot>
+      </figure>
+      
+      <para lang="en">Click <guibutton>Save</guibutton> to save the definitions to a
+      text file.  Click <guibutton>Print</guibutton> to print the definitions.
+      Click <guibutton>Clear</guibutton> to clear the definitions.</para>
+      
+      <para lang="en">You can make the window disappear by left-clicking on the dictionary
+      icon or by pressing <keycap>Esc</keycap>.</para>
+
+    </sect2>
+    
+    <sect2 id="mate-dictionary-applet-preferences">
+      <title>Preferencias</title>
+      
+      <para lang="en">To configure the <application>Dictionary Applet</application>, right-click on
+      the dictionary icon, then choose <guimenuitem>Preferences</guimenuitem>.</para>
+      
+      <para lang="en">The <guilabel>Preferences</guilabel> dialog is the same used by
+      the <application>Dictionary</application> application, so refer to
+      <xref linkend="mate-dictionary-preferences"/></para>
+      
+    </sect2>
+    
+  </sect1>
+
+</article>

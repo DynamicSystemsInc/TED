@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "1.10">
+<!ENTITY manrevision "1.10">
+<!ENTITY date "July 2015">
+<!ENTITY app "System Log Viewer">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+  
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="ms">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual Pelihat Log Sistem</title>
+
+    <abstract role="description">
+      <para>Pelihat Log Sistem ialah antaramuka pengguna bergrafik untuk melihat dan memantau fail log sistem.</para>
+    </abstract>
+
+    <copyright lang="en"><year>2019</year> <holder>Projek Dokumentasi MATE</holder></copyright>
+    <copyright><year>2003</year> <holder>Sun Microsystems</holder></copyright> 
+    <copyright><year>2000</year> <holder>Judith Samson</holder></copyright> 
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+    <publisher> 
+      <publishername>Projek Dokumentasi MATE</publishername>
+    </publisher> 
+    <publisher> 
+      <publishername>Projek Dokumentasi GNOME</publishername>
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Keizinan diberi untuk menyalin, mengedar dan/atau mengubahsuai dokumen ini bawah terma Lesen Dokumentasi Bebas GNU (GDFL), bagi Versi 1.1 atau mana-mana versi terkemudian yang telah diterbitkan oleh Free Software Foundation tanpa Seksyen Tak Varian, tanpa Teks Muka-Hadapan, dan tanpa Teks Muka Belakang. Anda boleh temui satu salinan GFDL dalam <ulink type="help" url="help:fdl">pautan</ulink> ini atau di dalam fail COPYING-DOCS yang disertakan bersama-sama panduan ini.</para>
+         <para>Panduan ini adalah sebahagian dari koleksi panduan MATE yang diedar bawah GFDL. Jika anda mahu edar panduan ini secara berasingan dari koleksi asalnya, anda boleh membuat sedemikian dengan menambah satu salinan lesen ke dalam panduan sepertimana yang dijelaskan dalam seksyen 6 lesen tersebut.</para>
+
+	<para>Kebanyakan nama digunakan oleh syarikat untuk membezakan produk dan perkhidmatan mereka dituntut sebagai tanda dagangan. Jika nama tersebut ada di dalam dokumentasi MATE, dan ahli-ahli Projek Dokumentasi MATE sedar akan tanda dagangan tersebut, kerana nama-nama tersebut telah di huruf besarkan atau huruf awalnya telah dihuruf besarkan.</para>
+
+	<para>DOKUMEN DAN VERSI UBAHSUAI DOKUMEN DISEDIAKAN BAWAH TERMA LESEN DOKUMENTASI BEBAS GNU DENGAN PERKARA BERIKUT: <orderedlist>
+		<listitem>
+		  <para>DOKUMEN DISEDIAKAN SEBAGAI DASAR "SEBAGAIMANA ADANYA", TANPA JAMINAN ATAS APA JUA, SAMA ADA DIUNGKAP ATAU DILAKSANA, TERMASUKLAH, TANPA HAD, JAMINAN TERHADAP DOKUMEN ATAU VERSI UBAHSUAI DOKUMEN ADALAH BEBAS MASALAH KEBOLEHNIAGAAN. SESUAI ATAS TUJUAN TERTENTU ATAU BUKAN-PELANGGARAN. KESELURUHAN RISIKO ATAS KUALITI, KETEPATAN, DAN PRESTASI DOKUMEN ATAU VERSI UBAHSUAI DOKUMEN TERLETAK PADA DIRI ANDA. SEKIRANYA TERDAPAT MANA-MANA DOKUMEN ATAU VERSI UBAHSUAI DOKUMEN YANG BERMASALAH DALAM APA JUA BENTUK, ANDA (BUKAN PENULIS, PENGARANG ATAU MANA-MANA PENYUMBANG ASAL) MENANGGUNG KOS APA JUA PERKHIDMATAN, PEMBAIKAN ATAU PEMBETULAN YANG DIPERLUKAN. PENAFIAN JAMINAN INI TERBENTUK SEBAGAI BAHAGIAN PENTING LESEN INI. MAKA TIDAK PENGGUNAAN MANA-MANA DOKUMEN ATAU VERSI UBAHSUAI DOKUMEN DIIZINKAN KECUALI TERTAKLUK DI BAWAH PENAFIAN INI; DAN</para>
+		</listitem>
+		<listitem>
+		  <para>TANPA DI BAWAH APA-APA KEADAAN DAN TEORI PERUNDANGAN, SAMA ADA DALAM TORT (TERMASUKLAH KECUAIAN), KONTRAK, ATAU SEUMPAMA DENGANNYA, SI PENGARANG, PENULIS ASAL, MANA-MANA PENYUMBANG, ATAU MANA-MANA PENGEDAR DOKUMEN ATAU VERSI UBAHSUAI DOKUMEN, ATAU MANA-MANA PEMBEKAL ATAS APA JUA KUMPULAN, JUGA PADA MANA-MANA INDIVIDU ATAS KEROSAKAN SECARA LANGSUNG ATAU TIDAK LANGSUNG, SECARA KHUSUS, TIDAK SENGAJA ATAU, KEROSAKAN LANJUTAN TERHADAP SESIAPA SAHAJA, TERMASUKLAH TANPA HAD BAGI KEROSAKAN NAMA BAIK, GANGGUAN KERJA, KEGAGALAN ATAU KEROSAKAN KOMPUTER, ATAU MANA-MANA  MAHUPUN SEMUA KEROSAKAN LAIN BERKAITAN PENGGUNAAN DOKUMEN DAN VERSI UBAHSUAI DOKUMEN, WALAUPUN PIHAK TERSEBUT TELAH DIMAKLUMKAN ADANYA KEBARANGKALIAN KEROSAKAN SEBEGITU BOLEH BERLAKU.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+
+   <authorgroup>
+      <author role="maintainer" lang="en"><surname>MATE-Dokumentationsteam</surname> <affiliation> <orgname>Mate desktop</orgname> </affiliation></author>
+   <author><firstname>Sun</firstname> <surname>Pasukan Dokumentasi GNOME</surname> <affiliation> <orgname>Sun Microsystems</orgname> <address> <email>gdocteam@sun.com</email> </address> </affiliation></author> 
+
+   <author><firstname>Judith</firstname> <surname>Samson</surname> <affiliation> <orgname>Projek Dokumentasi GNOME</orgname> <address> <email>judith@samsonsource.com</email> </address> </affiliation></author> 
+   
+    <author><firstname>Paul</firstname> <surname>Cutler</surname> <affiliation> <orgname>Projek Dokumentasi GNOME</orgname> <address> <email>pcutler@gnome.org</email> </address> </affiliation></author> 
+
+   <author role="maintainer"><firstname>Vincent</firstname> <surname>Noel</surname> <affiliation> <address><email>vincent.noel@gmail.com</email></address> </affiliation></author>
+      
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+   <othercredit role="translator">
+		<firstname>Latin</firstname> 
+		<surname>Translator 1</surname> 
+		<affiliation> 
+	  	<orgname>Latin Translation Team</orgname> 
+	  	<address> <email>translator@gnome.org</email> </address> 
+		</affiliation>
+		<contrib>Latin translation</contrib>
+   </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+           <revision lang="en"><revnumber>Manual Pelihat Log Sistem V1.10</revnumber> <date>Julai 2015</date> <revdescription> 
+	  		<para role="author" lang="en">Wolfgang Ulbrich</para>
+	  		<para role="publisher" lang="en">Projek Dokumentasi MATE</para>
+		</revdescription></revision>
+            <revision><revnumber>Manual Pelihat Log Sistem V2.5</revnumber> <date>Oktober 2009</date> <revdescription> 
+	  		<para role="author">Paul Cutler <email>pcutler@gnome.org</email></para>
+	  		<para role="publisher">Projek Dokumentasi GNOME</para>
+		</revdescription></revision>
+      <revision><revnumber>Manual Pelihat Log Sistem V2.4</revnumber> <date>Oktober 2005</date> <revdescription> 
+	  		<para role="author">Vincent Noel <email>vincent.noel@gmail.com</email></para>
+	  		<para role="publisher">Projek Dokumentasi GNOME</para>
+		</revdescription></revision>
+      <revision><revnumber>Panduan Pelihat Log Sistem V2.3</revnumber> <date>Oktober 2002</date> <revdescription> 
+	  		<para role="author">Sun Pasukan Dokumentasi GNOME <email>gdocteam@sun.com</email></para>
+	  		<para role="publisher">Projek Dokumentasi GNOME</para>
+		</revdescription></revision>
+      <revision><revnumber>Panduan Pelihat Log Sistem V2.2</revnumber> <date>Ogos 2002</date> <revdescription> 
+	  		<para role="author">Sun Pasukan Dokumentasi GNOME <email>gdocteam@sun.com</email></para>
+	  		<para role="publisher">Projek Dokumentasi GNOME</para>
+		</revdescription></revision>
+      <revision><revnumber>Panduan Pelihat Log Sistem V2.1</revnumber> <date>Julai 2002</date> <revdescription> 
+	  		<para role="author">Sun Pasukan Dokumentasi GNOME <email>gdocteam@sun.com</email></para>
+	  		<para role="publisher">Projek Dokumentasi GNOME</para>
+		</revdescription></revision>
+      <revision><revnumber>Panduan Pelihat Log Sistem V2.0</revnumber> <date>Mei 2002</date> <revdescription> 
+	  		<para role="author">Sun Pasukan Dokumentasi GNOME <email>gdocteam@sun.com</email></para>
+	  		<para role="publisher">Projek Dokumentasi GNOME</para>
+		</revdescription></revision> 
+      <revision><revnumber>Panduan Logview</revnumber> <date>2000</date> <revdescription> 
+	  		<para role="author">Judith Samson <email>judith@samsonsource.com</email></para>
+	  		<para role="publisher">Projek Dokumentasi GNOME</para>
+			</revdescription></revision> 
+    </revhistory> 
+
+    <releaseinfo>Panduan ini menerangkan versi 1.10 bagi Pelihat Log Sistem.</releaseinfo> 
+    <legalnotice> 
+      <title>Maklumbalas</title> 
+      <para>Untuk melaporkan pepijat atau membuat saranan berkenaan aplikasi Pelihat Log Sistem atau panduan ini, ikuti arahan di dalam <ulink url="help:mate-user-guide/feedback" type="help">Halaman Maklumbalas MATE</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  </articleinfo> 
+
+  <indexterm><primary>Pelihat Log Sistem</primary></indexterm> 
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+
+  <sect1 id="syslog-introduction"> 
+    <title>Pengenalan</title> 
+
+      <para><application>Pelihat Log Sistem</application> ialah pelihat terpacu-menu, bergrafik yang anda boleh guna untuk melihat dan memantau log sistem anda. <application>Pelihat Log Sistem</application> bersertakan dengan beberapa fungsi yang dapat membantu pengurusan log anda, termasuklah pantau log dan papar statistik log.</para>
+
+      <para><application>Pelihat Log Sistem</application>, berguna jika anda berjinak-jinak dengan pentadbiran sistem kerana ia menyediakan paparan log yang lebih mudah dan mesra-pengguna berbanding fail log berteks semata-mata. Ia juga beguna bagi pentadbir berpengalaman, kerana ia mengandungi pemantau yang membolehkan anda pantau log-log penting dan kritikal.</para>
+
+      <warning><para><application>Pelihat Log Sistem</application> hanya berguna jika anda mempunyai capaian pada fail log sistem, iaitu umumnya memerlukan capaian root.</para></warning>
+
+  </sect1>
+
+  <sect1 id="syslog-getting-started">
+    <title>Membiasakan Diri</title> 
+
+    <para>Anda boleh memulakan <application>Pelihat Log Sistem</application> dengan cara berikut:</para> 
+    <variablelist>
+    	<varlistentry>
+    		<term>Menu <guimenu>Aplikasi</guimenu></term>
+    		<listitem>
+    		<para>Pilih <menuchoice><guisubmenu>Alatan Sistem</guisubmenu><guimenuitem>Pelihat Fail Log</guimenuitem></menuchoice>.</para>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>Baris perintah</term>
+    		<listitem>
+    		<para>Taip <command>mate-system-log</command>, kemudian ketik <keycap>Return</keycap>.</para>
+    		<para> 		 
+    		</para> 
+    		</listitem>
+    	</varlistentry>
+    </variablelist>
+
+    <para>Ketika anda memulakan <application>Pelihat Log Sistem</application>, tetingkap berikut dipaparkan.</para>
+
+    <!-- ==== Figure ==== -->
+      <figure id="syslog-fig"> 
+	<title>Tetingkap Pelihat Log Sistem</title> 
+	<screenshot> 
+	  <mediaobject><imageobject> <imagedata fileref="figures/syslog_window.png" format="PNG"/> </imageobject> <textobject> <phrase>Menunjukkan tetingkap utama Pelihat Log Sistem. Ia mengandungi palang menu, kawasan paparan, palang tatal, dan palang status. </phrase> </textobject></mediaobject> 
+	</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+    <para>Kali pertama anda memulakan <application>Pelihat Log Sistem</application>, aplikasi akan memaparkan beberapa fail log secara lalai (seperti <filename>var/log/messages</filename>). Log yang dibuka tersenarai di sebelah kiri tetingkap aplikasi. Log terpilih di dalam senarai ini dipaparkan dalam kawasan utama tetingkap aplikasi.</para>
+
+      <para>Secara lalai, <application>Pelihat Log Sistem</application> memantau setiap log dibuka, dan apa-apa perubahan muncul secara automatik di dalam tetingkap utama. Sila rujuk <xref linkend="syslog-monitor"/> untuk maklumat lanjut.</para>
+
+  </sect1>
+
+<!-- ================ Usage ================================ -->
+
+  <sect1 id="syslog-usage"> 
+    <title>Penggunaan</title>
+
+    <sect2 id="syslog-open">
+    	<title>Melihat Log</title>
+    	<para>Untuk melihat fail log, pilih <menuchoice><guimenu>Fail</guimenu><guimenuitem>Buka</guimenuitem></menuchoice>. Dalam dialog <guilabel>Buka Log</guilabel>, pilih log yang mahu dibuka, kemudian klik <guibutton>Buka</guibutton>. Guna palang tatal untuk menatal fail log.</para>
+
+        <para>Anda boleh membuka sebanyak mana fail log yang dikehendaki. <application>Pelihat Log Sistem</application> memaparkan satu log pada satu masa dalam tetingkap <guilabel>Pelihat Log Sistem</guilabel>. Log yang telah dibuka tersenarai di bahagian kiri tetingkap aplikasi. Manakala, log terpilih dalam senarai ini akan dipaparkan dalam kawasan utama tetingkap aplikasi. Untuk memaparkan log lain yang sudah dibuka dalam <application>Pelihat Log Sistem</application>, hanya klik log tersebut di dalam senarai log.</para>
+
+        <para>Perhatian, <application>Pelihat Log Sistem</application> juga membenarkan anda buka log berzip (nama fail yang berakhir dengan ".gz").</para>
+    </sect2>
+
+    <sect2 id="syslog-selection">
+    <title>Menyalin Baris Log ke dalam Papan Keratan</title>
+    <para>Untuk menyalin satu atau lebih baris log ke dalam papan keratan, hanya pilih baris dikehendaki di dalam kawasan utama dan pilih pilihan menu <menuchoice><guimenu>Sunting</guimenu><guimenuitem>Salin</guimenuitem></menuchoice>. Jika anda mahu menyalin keseluruhan log ke dalam papan keratan, pilih semua melalui pilihan menu <menuchoice><guimenu>Sunting</guimenu><guimenuitem>Pilih Semua</guimenuitem></menuchoice>, kemudian pilih <menuchoice><guimenu>Sunting</guimenu><guimenuitem>Salin</guimenuitem></menuchoice>.</para>
+    </sect2>
+
+    <sect2 id="syslog-hide-sidebar">
+    <title>Menyembunyikan Palang Sisi</title>
+    <para>Untuk menyembunyikan palang sisi kiri, yang mengandungi senarai log dan kalendar, hanya pilih pilihan menu <menuchoice><guimenu>Lihat</guimenu><guimenuitem>Anak tetingkap sisi</guimenuitem></menuchoice>.</para>
+    </sect2>
+    
+    <sect2 id="syslog-monitor">
+    	<title>Memantau Log</title>
+    	<para>Anda boleh gunakan <application>Pelihat Log Sistem</application> untuk memantau log. Secara lalai, semua log dibuka dalam <application>Pelihat Log Sistem</application> dipantau perubahannya. Jika baris baharu ditambah ke dalam log yang dipantau oleh <application>Pelihat Log Sistem</application>, nama log yang ditebalkan akan muncul di dalam senarai log. Jika log semasa dipapar dalam kawasan utama, baris baharu akan muncul secara automatik dipenghujung log dan, selepas lima saat, nama log akan kembali seperti asalnya.</para>
+
+    </sect2>
+    
+    <sect2 id="syslog-stats">
+    	<title>Melihat Maklumat Log</title>
+    	<para>Maklumat log umumnya dipapar dalam palang status, ia termasuklah :</para> 
+    	<itemizedlist>
+    		<listitem><para>Bilangan baris dalam log.</para>
+    		</listitem>
+    		<listitem><para>Saiz log dalam bait.</para>
+    		</listitem>
+    		<listitem><para>Tarikh terakhir log diubahsuai.</para>
+    		</listitem>
+    	</itemizedlist> 
+        <para>Palang status boleh dipapar atau disembunyikan melalui pilihan <menuchoice><guimenu>Lihat</guimenu> <guimenuitem>Palang Status</guimenuitem></menuchoice>.</para>
+    </sect2>
+    
+    <sect2 id="syslog-close">
+    	<title>Menutup Log</title>
+    	<para>Untuk menutup fail log, pilih <menuchoice><guimenu>Fail</guimenu><guimenuitem>Tutup</guimenuitem></menuchoice>.</para>
+    </sect2>
+    
+    <sect2 id="syslog-exit">
+    	<title>Keluar dari Pelihat Log Sistem</title>
+    	<para>Untuk keluar dari <application>Pelihat Log Sistem</application>, pilih <menuchoice><guimenu>Fail</guimenu><guimenuitem>Keluar</guimenuitem></menuchoice>.</para>
+    </sect2>
+ 
+  </sect1>
+
+</article>

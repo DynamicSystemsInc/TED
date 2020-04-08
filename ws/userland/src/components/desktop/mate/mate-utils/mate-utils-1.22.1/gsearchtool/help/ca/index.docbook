@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "1.10">
+<!ENTITY manrevision "1.10">
+<!ENTITY date "July 2015">
+<!ENTITY app "Search for Files">
+<!ENTITY ug "MATE Desktop User Guide">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Jan 25, 2005  
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="ca">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual de la cerca de fitxers</title>
+
+    <abstract role="description">
+      <para>Una eina de cerca per trobar fitxers, carpetes i documents al vostre ordinador.</para>
+    </abstract>
+
+    <copyright lang="en"><year>2019</year><holder>Projecte de Documenatció de MATE</holder></copyright>
+    <copyright><year>2005</year> <holder>Dennis Cranston</holder></copyright>
+    <copyright><year>2002</year> <year>2003</year> <year>2004</year> <holder>Sun Microsystems</holder></copyright> 
+    <copyright><year>2000</year> <holder>Alexander Kirillov</holder></copyright>
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+    <publisher> 
+      <publishername>Projecte de documentació de MATE</publishername>
+    </publisher> 
+    <publisher> 
+      <publishername>Projecte de documentació de GNOME</publishername>
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Es concedeix el permís per copiar, distribuir i / o modificar aquest document sota els termes de la GFDL (GNU Free Documentation License), versió 1.1 o qualsevol versió posterior publicada per la Free Software Foundation que tinguin les seccions invariants, i sense cap text a la portada. Podeu trobar una còpia de la GFDL en aquest <ulink type="help" url="help:fdl">enllaç</ulink> o bé al fitxer COPYING-DOCS que es distribueix amb aquest manual.</para>
+         <para>Aquest manual forma part d'una col·lecció de manuals de MATE que estan distribuïts sota la GFDL. Si voleu distribuir aquest manual per separat de la col·lecció, podeu fer-ho afegint una còpia de la llicència al manual, tal com es descriu a la secció 6 de la llicència.</para>
+
+	<para>Molts dels noms utilitzats per les empreses per distingir els seus productes i serveis es consideren marques comercials. Quan aquests noms apareixen en qualsevol documentació de MATE, i els membres del projecte de documentació de MATE en són conscients, els noms tenen lletres majúscules o bé comencen en majúscules.</para>
+
+	<para>EL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT S'OFEREIXEN SOTA ELS TERMES DE LA LLICÈNCIA DE DOCUMENTACIÓ LLIURE DE GNU, TENINT EN COMPTE QUE: <orderedlist>
+		<listitem>
+		  <para>EL DOCUMENT S'OFEREIX «TAL COM ÉS», SENSE CAP TIPUS DE GARANTIA, NI EXPLÍCITA NI IMPLÍCITA; AIXÒ INCLOU, SENSE LIMITAR-S'HI, LES GARANTIES QUE EL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT NO TINGUI DEFECTES, SIGUI COMERCIALITZABLE, SIGUI ADEQUAT PER A UN ÚS CONCRET O NO INFRINGEIXI CAP LLEI. TOT EL RISC PEL QUE FA A LA QUALITAT, EXACTITUD I RENDIMENT DEL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT ÉS VOSTRE. EN CAS QUE EL DOCUMENT RESULTÉS DEFECTUÓS EN QUALSEVOL ASPECTE, VÓS (NO PAS L'ESCRIPTOR INICIAL, L'AUTOR O CAP ALTRE COL·LABORADOR) ASSUMIU TOT EL COST DE MANTENIMENT, REPARACIÓ O CORRECCIÓ. AQUESTA RENÚNCIA DE GARANTIA CONSTITUEIX UNA PART ESSENCIAL D'AQUESTA LLICÈNCIA. NO S'AUTORITZA L'ÚS DE CAP DOCUMENT O VERSIÓ MODIFICADA DEL DOCUMENT EXCEPTE SOTA AQUESTA RENÚNCIA DE GARANTIA; I</para>
+		</listitem>
+		<listitem>
+		  <para>EN CAP CAS I SOTA CAP INTERPRETACIÓ LEGAL, JA SIGUI PER AGREUJAMENT (INCLOENT-HI LA NEGLIGÈNCIA), CONTRACTE O ALTRE CAS, L'AUTOR, L'ESCRIPTOR ORIGINAL, QUALSEVOL DELS COL·LABORADORS O DISTRIBUÏDORS DEL DOCUMENT O UNA VERSIÓ MODIFICADA DEL DOCUMENT NI CAP PROVEÏDOR D'AQUESTES PARTS NO SERAN RESPONSABLES DAVANT DE NINGÚ PER CAP DANY DIRECTE, INDIRECTE, ESPECIAL, ACCIDENTAL O CONSECUTIU DE QUALSEVOL TIPUS; AIXÒ INCLOU, SENSE LIMITAR-S'HI, ELS DANYS PER PÈRDUA DE CLIENTS, INTERRUPCIONS DE LA FEINA, FALLADA O MALFUNCIONAMENT DE L'ORDINADOR, O QUALSEVOL ALTRA PÈRDUA O DANY RELACIONAT AMB L'ÚS DEL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT, FINS I TOT SI S'HA INFORMAT AQUESTA PART DE LA POSSIBILITAT D'AQUESTS DANYS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+
+    <authorgroup>
+      <author role="maintainer" lang="en"><surname>Equip de documentació de MATE</surname> <affiliation> <orgname>Mantenidor de cerca de fitxers</orgname> </affiliation></author> 
+      <author><firstname>Dennis</firstname> <surname>Cranston</surname> <affiliation> <orgname>Mantenidor de cerca de fitxers</orgname> <address>dennis_cranston@yahoo.com</address> </affiliation></author> 
+      <author><firstname>Sun</firstname> <surname>Equip de documentació de GNOME</surname> <affiliation> <orgname>Sun Microsystems</orgname> <address/> </affiliation></author> 
+      <author><firstname>Alexander</firstname> <surname>Kirillov</surname> <affiliation> <orgname>Projecte de documentació de GNOME</orgname> <address> <email>kirillov@math.sunysb.edu</email> </address> </affiliation></author> 
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+	<firstname>Latin</firstname> 
+	<surname>Translator 1</surname> 
+	<affiliation> 
+	  <orgname>Latin Translation Team</orgname> 
+	  <address> <email>translator@gnome.org</email> </address> 
+	</affiliation>
+	<contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+ <revhistory>
+ <!-- <revision> 
+	<revnumber>&app; Manual V&manrevision;</revnumber> 
+	<date>&date;</date> 
+	<revdescription> 
+	  <para role="author">Sun GNOME Documentation Team</para>
+	  <para role="publisher">MATE Documentation Project</para>
+	</revdescription> 
+ </revision>
+-->
+   <revision lang="en"><revnumber>Versió 1.10 del manual de cerca de fitxers</revnumber> <date>Juliol de 2015</date> <revdescription> 
+	  		<para role="author" lang="en">Wolfgang Ulbrich</para>
+	  		<para role="publisher" lang="en">Mantenidor de cerca de fitxers</para>
+			</revdescription></revision>
+   <revision><revnumber>Versió 2.7 del manual de cerca de fitxers</revnumber> <date>Juny de 2005</date> <revdescription> 
+	  		<para role="author">Joachim Noreiko <email>jnoreiko@yahoo.com</email></para>
+	  		<para role="publisher">Mantenidor de cerca de fitxers</para>
+			</revdescription></revision>
+  <revision><revnumber>Versió 2.6 del manual de cerca de fitxers</revnumber> <date>Gener de 2005</date> <revdescription> 
+	  		<para role="author">Dennis Cranston <email>dennis_cranston@yahoo.com</email></para>
+	  		<para role="publisher">Mantenidor de cerca de fitxers</para>
+			</revdescription></revision>
+ <revision><revnumber>Versió 2.4 del manual de cerca de fitxers</revnumber> <date>Febrer de 2004</date> <revdescription> 
+	  		<para role="author">Equip de documentació de GNOME de Sun</para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+			</revdescription></revision>
+ <revision><revnumber>Versió 2.3 del manual de cerca de fitxers</revnumber> <date>Setembre de 2002</date> <revdescription> 
+	  		<para role="author">Equip de documentació de GNOME de Sun</para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+			</revdescription></revision>
+ <revision><revnumber>Versió 2.2 del manual de cerca de fitxers</revnumber> <date>Agost de 2002</date> <revdescription> 
+	  		<para role="author">Equip de documentació de GNOME de Sun</para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+			</revdescription></revision> 
+ <revision><revnumber>Versió 2.1 del manual de cerca de fitxers</revnumber> <date>Juliol de 2002</date> <revdescription> 
+	  		<para role="author">Equip de documentació de GNOME de Sun</para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+			</revdescription></revision> 
+ <revision><revnumber>Versió 2.0 del manual de cerca de fitxers</revnumber> <date>Maig de 2002</date> <revdescription> 
+	  		<para role="author">Equip de documentació de GNOME de Sun</para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+			</revdescription></revision> 
+ <revision><revnumber>Manual de cerca de fitxers</revnumber> <date>2000</date> <revdescription> 
+	  <para role="author">Alexander Kirillov <email>kirillov@math.sunysb.edu</email></para>
+	  <para role="publisher">Projecte de documentació de GNOME</para>
+	</revdescription></revision> 
+ </revhistory> 
+
+    <releaseinfo>Aquest manual descriu la versió 1.10 de cerca de fitxers.</releaseinfo> 
+    <legalnotice> 
+      <title>Retroacció</title> 
+      <para>Per informar d'un error o fer un suggeriment sobre l'aplicació de cerca de fitxers o d'aquest manual, seguiu les instruccions de la <ulink url="help:mate-user-guide/feedback" type="help">pàgina de retroacció de MATE</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Robert Antoni Buj Gelonch</firstname>
+      </personname>
+      <email>rbuj@fedoraproject.org</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2018</year>
+      
+        <year>2019</year>
+      
+      <holder>Robert Antoni Buj Gelonch</holder>
+    </copyright>
+  </articleinfo> 
+
+  <indexterm><primary>Eina de cerca</primary></indexterm> 
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+
+  <sect1 id="gsearchtool-introduction"> 
+    <title>Introducció</title> 
+    <para>L'aplicació <application>Cerca de fitxers</application> us permet cercar fitxers al vostre sistema. Per realitzar una cerca bàsica, podeu teclejar un nom de fitxer o un nom de fitxer parcial, amb comodins o sense. Per refinar la cerca, podeu aplicar opcions de cerca addicionals.</para>
+    <para><application>Cerca de fitxers</application> utilitza les ordres d'UNIX <command>find</command>, <command>grep</command> i <command>locate</command>. Per defecte, quan es realitza una cerca bàsica, <application>Cerca de fitxers</application> primer utilitza l'ordre <command>locate</command>, i a continuació, utilitza l'ordre més lenta però més exhaustiva <command>find</command>.</para>
+    <para>La distinció de majúscules i minúscules depèn del vostre sistema operatiu. Per exemple, a Linux, les ordres <command>find</command>, <command>grep</command> i <command>locate</command> admeten l'opció <literal>-i</literal>, de manera que totes les cerques distingeixen majúscules i minúscules.</para>
+  </sect1>
+
+  <sect1 id="gsearchtool-getting-started">
+    <title>Primers passos</title> 
+
+    <para>Podeu iniciar <application>Cerca de fitxers</application> de les maneres següents:</para> 
+    <variablelist>
+    	<varlistentry>
+    		<term>Des d'una <guimenu>barra de menús</guimenu> en un tauler</term>
+    		<listitem>
+    		<para>Seleccioneu <menuchoice><guisubmenu>Llocs</guisubmenu><guimenuitem>Cerca de fitxers...</guimenuitem></menuchoice></para>
+    		</listitem>
+    	</varlistentry>
+   	<varlistentry>
+    		<term>Des d'un <guimenu>menú principal</guimenu> en un tauler</term>
+    		<listitem>
+    		<para>Seleccioneu <menuchoice><guimenuitem>Cerca de fitxers...</guimenuitem></menuchoice></para>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>Des d'una línia d'ordres</term>
+    		<listitem>
+    		<para>Executeu l'ordre següent: <command>mate-search-tool</command></para>
+    		<para> 		 
+    		</para> 
+    		</listitem>
+    	</varlistentry>
+    </variablelist>
+
+    <para>Quan inicieu <application>Cerca de fitxers</application>, es mostra la finestra següent.</para>
+
+    <!-- ==== Figure ==== -->
+      <figure id="mainwindow-fig"> 
+	<title>Finestra de Cerca de fitxers</title> 
+	<screenshot> 
+	  <mediaobject><imageobject><imagedata fileref="figures/mate-search-tool_window.png" format="PNG"/> </imageobject> <textobject> <phrase>Mostra la finestra principal de Cerca de fitxers. </phrase> </textobject></mediaobject> 
+	</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+
+  </sect1>
+
+<!-- ================ Usage ================================ -->
+
+  <sect1 id="gsearchtool-usage"> 
+    <title>Utilització</title>
+
+    <sect2 id="gsearchtool-simple">
+    <title>Com realitzar una cerca bàsica</title>
+    
+    <para>Per realitzar una cerca bàsica d'un fitxer al sistema, realitzeu els passos següents:</para>
+    <orderedlist>
+    <listitem><para>Introduïu el text de cerca al camp <guilabel>El nom conté</guilabel>. El text de cerca pot ser un nom de fitxer complet o parcial, amb comodins o sense, com es mostra a la taula següent:</para>
+
+      <informaltable frame="all">
+        <tgroup cols="3" colsep="1" rowsep="1">
+          <colspec colname="COLSPEC0" colwidth="33*"/>
+          <colspec colname="COLSPEC1" colwidth="33*"/>
+          <colspec colname="COLSPEC2" colwidth="34*"/>
+          <thead>
+            <row valign="top">
+              <entry colname="COLSPEC0">
+                <para>El nom conté el text</para></entry>
+              <entry colname="COLSPEC1">
+                <para>Exemple</para></entry>
+              <entry colname="COLSPEC2">
+                <para>Resultat</para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row valign="top">
+              <entry>
+                <para>Nom de fitxer complet o parcial</para>
+              </entry>
+              <entry>
+                <para><userinput>fitxer.txt</userinput></para>
+              </entry>
+              <entry>
+                <para><application>Cerca de fitxers</application> cerca tots els fitxers que contenen el text <userinput>fitxer.txt</userinput> al nom de fitxer.</para>
+              </entry>
+            </row>
+            <row valign="top">
+              <entry>
+                <para>Nom de fitxer parcial combinat amb comodins (*, [, ])</para>
+              </entry>
+              <entry>
+                <para><userinput>*.[ch]</userinput></para>
+              </entry>
+              <entry>
+                <para><application>Cerca de fitxers</application> cerca tots els fitxers que tenen l'extensió <userinput>.c</userinput> o <userinput>.h</userinput>.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </listitem>
+    <listitem><para>Al camp <guilabel>Cerca a la carpeta</guilabel>, seleccioneu la carpeta o el dispositiu des de la qual voleu que comenci <application>Cerca de fitxers</application>.</para></listitem>
+    <listitem><para>Feu clic a <guibutton>Cerca</guibutton> per realitzar la cerca.</para>
+    </listitem>
+    </orderedlist>
+    <para><application>Cerca de fitxers</application> cerca al directori que especifiqueu, així com als subdirectoris del directori. <application>Cerca de fitxers</application> mostra els resultats de la cerca al quadre de llista <guilabel>Resultats de la cerca</guilabel>. Si <application>Cerca de fitxers</application> no troba cap fitxer que coincideixi amb els criteris de la cerca, l'aplicació mostra el missatge «No s'ha trobat cap fitxer» al quadre de llista <guilabel>Resultats de la cerca</guilabel>.</para>
+    <para>Per defecte, <application>Cerca de fitxers</application> farà una cerca ràpida utilitzant l'ordre <command>locate</command> seguida d'una segona cerca més exhaustiva utilitzant l'ordre <command>find</command>. L'ordre <command>locate</command> és més ràpida perquè utilitza una base de dades d'informació sobre fitxers. Si aquesta base de dades té més d'una setmana d'antiguitat, <application>Cerca de fitxers</application> podria avisar-vos que els resultats de la cerca poden estar desactualitzats i us ofereixen l'opció per inhabilitar la cerca ràpida. Per actualitzar la base de dades, executeu l'ordre <command>updatedb</command> amb l'usuari root.</para>
+  </sect2>
+    
+    <sect2 id="gsearchtool-advanced">
+    <title>Com afegir opcions de cerca</title>
+    <para>Podeu afegir opcions addicionals per cercar un fitxer al sistema. Per afegir opcions de cerca, seguiu els passos següents:</para>
+  	<orderedlist>
+    		<listitem><para>Feu clic al text <guilabel>Seleccioneu més opcions</guilabel>.</para></listitem>
+    		<listitem><para>Feu clic a la llista desplegable <guilabel>Opcions disponibles</guilabel>.</para></listitem>
+    		<listitem><para>Seleccioneu l'opció de cerca que voleu aplicar.</para></listitem>
+    		<listitem><para>Feu clic a <guibutton>Afegeix</guibutton>.</para></listitem>
+    		<listitem><para>Especifiqueu la informació de cerca necessària per a l'opció de cerca, tal com es descriu a <xref linkend="tbl-search-rules"/>.</para></listitem>
+    		<listitem><para>Repetiu els passos anteriors per a cadascuna de les opcions de cerca que voleu aplicar.</para></listitem>
+    	</orderedlist>	
+    	<para>Per treure una opció de cerca de la cerca actual, feu clic al botó <guibutton>Suprimeix</guibutton> que està al costat de l'opció.</para>
+    	<para>Per inhabilitar les opcions de cerca de la cerca actual, feu clic al botó <guilabel>Seleccioneu més opcions</guilabel>.</para>
+    
+    <table id="tbl-search-rules" frame="topbot">
+    <title>Opcions de cerca</title> 
+		  <tgroup cols="2" colsep="1" rowsep="1">
+			 <colspec colname="COLSPEC0" colwidth="33*"/>
+			 <colspec colname="COLSPEC1" colwidth="33*"/>
+			 <thead> 
+				<row valign="top"> 
+				  <entry> 
+					 <para>Nom de l'opció</para></entry> 
+				  <entry> 
+					 <para>Descripció</para></entry> 
+				</row> 
+			 </thead> 
+			 <tbody> 
+				<row valign="top"> 
+				  <entry> 
+					 <para>Conté el text</para></entry> 
+				  <entry> 
+					 <para>Cerca els fitxers de tipus text pla que contenen el text especificat.</para></entry>  
+				</row> 
+				<row valign="top"> 
+				  <entry> 
+					 <para>La data de modificació és anterior a</para></entry> 
+				  <entry> 
+					 <para>Cerca els fitxers que s'han modificat abans del període especificat en dies.</para></entry>  
+				</row>
+				<row valign="top"> 
+				  <entry> 
+					 <para>La data de modificació és posterior a</para></entry> 
+				  <entry> 
+					 <para>Cerca els fitxers que s'han modificat després del període especificat en dies.</para></entry>  
+				</row>
+				<row valign="top"> 
+				  <entry> 
+					 <para>La mida és almenys</para></entry> 
+				  <entry> 
+					 <para>Cerca els fitxers que són iguals o més grans que la mida especificada en kilobytes.</para></entry>  
+				</row>
+				<row valign="top"> 
+				  <entry> 
+					 <para>La mida és com a molt</para></entry> 
+				  <entry> 
+					 <para>Cerca els fitxers que són iguals o més petits que la mida especificada en kilobytes.</para></entry>  
+				</row>
+				<row valign="top"> 
+				  <entry> 
+					 <para>El fitxer està buit</para></entry> 
+				  <entry> 
+					 <para>Cerca els fitxers buits.</para></entry>  
+				</row> 
+				<row valign="top"> 
+				  <entry> 
+					 <para>Propietari del fitxer</para></entry> 
+				  <entry> 
+					 <para>Cerca els fitxers que són propietat de l'usuari especificat. Teclegeu el nom de l'usuari al quadre de text proporcionat.</para></entry>  
+				</row> 
+				<row valign="top"> 
+				  <entry> 
+					 <para>Grup del fitxer</para></entry> 
+				  <entry> 
+					 <para>Cerca els fitxers que són propietat del grup especificat. Teclegeu el nom del grup al quadre de text proporcionat.</para></entry>  
+				</row> 
+				<row valign="top"> 
+				  <entry> 
+					 <para>No es reconeix el propietari</para></entry> 
+				  <entry> 
+					 <para>Cerca els fitxers que són propietat d'un usuari o grup desconegut del sistema.</para></entry>  
+				</row> 
+				<row valign="top"> 
+				  <entry> 
+					 <para>El nom no conté</para></entry> 
+				  <entry> 
+					 <para>Cerca els noms de fitxer que no contenen la cadena que introduïu. Introduïu un nom de fitxer complet o un nom de fitxer parcial amb comodins al camp proporcionat. Utilitzeu * per indicar una seqüència de caràcters. Utilitzeu ? per indicar un sol caràcter. La cerca distingeix majúscules i minúscules.</para></entry>
+				</row> 
+				<row valign="top"> 
+				  <entry> 
+					 <para>El nom coincideix amb una expressió regular</para></entry> 
+				  <entry> 
+					 <para>Cerca els fitxers que contenen l'expressió regular especificada al seu camí o nom del fitxer. Teclegeu l'expressió regular al quadre de text proporcionat.</para></entry>  
+				</row>
+				<row valign="top"> 
+				  <entry> 
+					 <para>Mostra els fitxers ocults i de còpia de seguretat</para></entry> 
+				  <entry> 
+					 <para>Inclou els fitxers ocults i de còpia de seguretat a la cerca.</para></entry>  
+				</row> 
+				<row valign="top"> 
+				  <entry> 
+					 <para>Segueix els enllaços simbòlics</para></entry> 
+				  <entry> 
+					 <para>Segueix els enllaços simbòlics quan se cerquen fitxers.</para></entry>  
+				</row> 
+				<row valign="top"> 
+				  <entry> 
+					 <para>Exclou altres sistemes de fitxers</para></entry> 
+				  <entry> 
+					 <para>Cerca als directoris que es troben al mateix sistema de fitxers que el directori d'inici.</para></entry>  
+				</row> 
+				 				
+			 </tbody> 
+		  </tgroup> 
+		</table> 
+    
+    </sect2>
+
+    <sect2 id="gsearchtool-stop">
+    <title>Com aturar una cerca</title>
+    <para>Feu clic a <guibutton>Atura</guibutton> per aturar <application>Cerca de fitxers</application> abans que completi la cerca.</para>
+    </sect2>
+    
+    <sect2 id="gsearchtool-view">
+    <title>Com obrir un fitxer mostrat</title>
+    <para>Per obrir un fitxer mostrat al quadre de llista <guilabel>Resultats de la cerca</guilabel>, realitzeu uns dels passos següents:</para>
+    <itemizedlist>
+    <listitem><para>Feu clic dret al fitxer, i després seleccioneu <guimenuitem>Obre</guimenuitem>.</para></listitem>
+     <listitem><para>Feu doble clic al fitxer.</para></listitem>
+    </itemizedlist>
+    <para>Per obrir la carpeta que conté un fitxer mostrat al quadre de llista <guilabel>Resultats de la cerca</guilabel>, feu clic dret al fitxer, i després seleccioneu <guimenuitem>Obre la carpeta contenidora</guimenuitem>.</para>
+    </sect2>
+
+    <sect2 id="gsearchtool-delete">
+    <title>Com suprimir un fitxer mostrat</title>
+    <para>Per suprimir un fitxer mostrat al quadre de llista <guilabel>Resultats de la cerca</guilabel>, feu clic dret al fitxer, i després seleccioneu <guimenuitem>Mou a la paperera</guimenuitem>.</para>
+    </sect2>
+    
+    <!--
+    <sect2 id="gsearchtool-search-command">
+    <title>To View the Search Command Used by &app;</title>
+    <para>To view the command that <application>&app;</application> used to perform the previous search, choose <menuchoice><guimenu>Search</guimenu><guimenuitem>Show Command</guimenuitem></menuchoice>. The <guilabel>Search Command Line</guilabel> displays the command. </para>
+    </sect2>
+    -->
+    
+    <sect2 id="gsearchtool-savetofile">
+    <title>Com desar els resultats de la cerca</title>
+    <para>Per desar els resultats de l'última cerca realitzada per <application>Cerca de fitxers</application>, feu clic dret a la llista <guilabel>Resultats de la cerca</guilabel>, després seleccioneu <guimenuitem>Anomena i desa els resultats</guimenuitem>. Introduïu el nom del fitxer al qual voleu desar els resultats i, a continuació, feu clic a Desa.</para>
+    </sect2>
+ 
+  </sect1>
+
+<!-- ============= Settings ============================== -->
+
+  <sect1 id="gsearchtool-settings-gsettings-keys">
+    <title>Ajusts</title> 
+
+    <para><application>Cerca de fitxers</application> proporciona les claus gsettings per modificar el seu comportament. Els valors gsettings es poden canviar amb l'inici de l'<application>Editor de configuracions</application> de les maneres següents:</para> 
+    <variablelist>
+    	<varlistentry>
+    		<term>Menú <guimenu>Aplicacions</guimenu></term>
+    		<listitem>
+    		<para>Seleccioneu <menuchoice><guisubmenu>Eines del sistema</guisubmenu><guimenuitem>Editor dconf</guimenuitem></menuchoice>.</para>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>Línia d'ordres</term>
+    		<listitem>
+    		<para>Executeu l'ordre següent: <command>dconf-editor</command></para> 
+    		</listitem>
+    	</varlistentry>	
+    </variablelist>
+    
+    <sect2 id="gsearchtool-disablequicksearch">
+    <title>Inhabilita la cerca ràpida</title>
+    <para>Nom de la clau: org.mate.search-tool.disable-quick-search</para>
+    <para>Valor predeterminat: false</para>
+    <para><application>Cerca de fitxers</application> accelera les cerques del nom de fitxer utilitzant l'ordre <command>locate</command>. <command>Locate</command> proporciona una manera segura per indexar i cercar ràpidament els noms de fitxers. Perquè <command>locate</command> es basa en un índex de fitxers, la llista <guilabel>resultats de la cerca</guilabel> pot no estar sempre al dia.</para>
+    </sect2>
+
+    <sect2 id="gsearchtool-disablesecondscan">
+    <title>Inhabilita el segon pas de la cerca ràpida</title>
+    <para>Nom de la clau: org.mate.search-tool.disable-quick-search-second-scan</para>
+    <para>Valor predeterminat: false</para>
+    <para>Després completar una cerca ràpida, <application>Cerca de fitxers</application> farà una cerca exhaustiva utilitzant l'ordre <command>find</command>. El propòsit d'aquesta segona exploració és trobar els fitxers que no s'hagin indexat. Els fitxers que coincideixen amb els criteris de cerca s'afegeixen a la llista <guilabel>Resultats de la cerca</guilabel> mantenint la llista actualitzada.</para>
+    </sect2>
+
+    <sect2 id="gsearchtool-quicksearchexclude">
+    <title>Camins exclosos de la cerca ràpida</title>
+    <para>Nom de la clau: org.mate.search-tool.quick-search-excluded-paths</para>
+    <para>Valors predeterminats: [/mnt/*,/media/*,/dev/*,/tmp/*,/proc/*,/var/*]</para>
+    <para><application>Cerca de fitxers</application> no realitzarà cap cerca ràpida als camins definits per aquesta clau. Les cerques del nom de fitxer als camins definits utilitzaran l'ordre <command>find</command>. S'admeten els comodins «*» i «?».</para>
+    </sect2>
+
+    <sect2 id="gsearchtool-secondscanexclude">
+    <title>Camins exclosos del segon pas de la cerca ràpida</title>
+    <para>Nom de la clau: org.mate.search-tool.quick-search-second-scan-excluded-paths</para>
+    <para>Valors predeterminats: [/]</para>
+    <para><application>Cerca de fitxers</application> no realitzarà una segona exploració després d'una cerca ràpida als camins definits per aquesta clau. Les cerques ràpides als camins definits no seran seguides d'una cerca exhaustiva utilitzant l'ordre <command>find</command>. S'admeten els comodins «*» i «?».</para>
+    </sect2>
+
+    <sect2 id="gsearchtool-showoptions">
+    <title>Mostra les opcions addicionals</title>
+    <para>Nom de la clau: org.mate.search-tool.show-additional-options</para>
+    <para>Valor predeterminat: false</para>
+    <para>Aquesta clau determina si la secció <guilabel>Seleccioneu més opcions</guilabel> s'expandeix quan s'inicia <application>Cerca de fitxers</application>.</para>
+    </sect2>
+    
+  </sect1>
+
+</article>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "1.10">
+<!ENTITY manrevision "1.10">
+<!ENTITY date "July 2015">
+<!ENTITY app "System Log Viewer">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+  
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="ca">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual del visualitzador de registres del sistema</title>
+
+    <abstract role="description">
+      <para>El visualitzador de registres del sistema és una interfície gràfica d'usuari per visualitzar i monitorar els fitxers de registres del sistema.</para>
+    </abstract>
+
+    <copyright lang="en"><year>2019</year><holder>Projecte de Documenatció de MATE</holder></copyright>
+    <copyright><year>2003</year> <holder>Sun Microsystems</holder></copyright> 
+    <copyright><year>2000</year> <holder>Judith Samson</holder></copyright> 
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+    <publisher> 
+      <publishername>Projecte de documentació de MATE</publishername>
+    </publisher> 
+    <publisher> 
+      <publishername>Projecte de documentació de GNOME</publishername>
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Es concedeix el permís per copiar, distribuir i / o modificar aquest document sota els termes de la GFDL (GNU Free Documentation License), versió 1.1 o qualsevol versió posterior publicada per la Free Software Foundation que tinguin les seccions invariants, i sense cap text a la portada. Podeu trobar una còpia de la GFDL en aquest <ulink type="help" url="help:fdl">enllaç</ulink> o bé al fitxer COPYING-DOCS que es distribueix amb aquest manual.</para>
+         <para>Aquest manual forma part d'una col·lecció de manuals de MATE que estan distribuïts sota la GFDL. Si voleu distribuir aquest manual per separat de la col·lecció, podeu fer-ho afegint una còpia de la llicència al manual, tal com es descriu a la secció 6 de la llicència.</para>
+
+	<para>Molts dels noms utilitzats per les empreses per distingir els seus productes i serveis es consideren marques comercials. Quan aquests noms apareixen en qualsevol documentació de MATE, i els membres del projecte de documentació de MATE en són conscients, els noms tenen lletres majúscules o bé comencen en majúscules.</para>
+
+	<para>EL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT S'OFEREIXEN SOTA ELS TERMES DE LA LLICÈNCIA DE DOCUMENTACIÓ LLIURE DE GNU, TENINT EN COMPTE QUE: <orderedlist>
+		<listitem>
+		  <para>EL DOCUMENT S'OFEREIX «TAL COM ÉS», SENSE CAP TIPUS DE GARANTIA, NI EXPLÍCITA NI IMPLÍCITA; AIXÒ INCLOU, SENSE LIMITAR-S'HI, LES GARANTIES QUE EL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT NO TINGUI DEFECTES, SIGUI COMERCIALITZABLE, SIGUI ADEQUAT PER A UN ÚS CONCRET O NO INFRINGEIXI CAP LLEI. TOT EL RISC PEL QUE FA A LA QUALITAT, EXACTITUD I RENDIMENT DEL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT ÉS VOSTRE. EN CAS QUE EL DOCUMENT RESULTÉS DEFECTUÓS EN QUALSEVOL ASPECTE, VÓS (NO PAS L'ESCRIPTOR INICIAL, L'AUTOR O CAP ALTRE COL·LABORADOR) ASSUMIU TOT EL COST DE MANTENIMENT, REPARACIÓ O CORRECCIÓ. AQUESTA RENÚNCIA DE GARANTIA CONSTITUEIX UNA PART ESSENCIAL D'AQUESTA LLICÈNCIA. NO S'AUTORITZA L'ÚS DE CAP DOCUMENT O VERSIÓ MODIFICADA DEL DOCUMENT EXCEPTE SOTA AQUESTA RENÚNCIA DE GARANTIA; I</para>
+		</listitem>
+		<listitem>
+		  <para>EN CAP CAS I SOTA CAP INTERPRETACIÓ LEGAL, JA SIGUI PER AGREUJAMENT (INCLOENT-HI LA NEGLIGÈNCIA), CONTRACTE O ALTRE CAS, L'AUTOR, L'ESCRIPTOR ORIGINAL, QUALSEVOL DELS COL·LABORADORS O DISTRIBUÏDORS DEL DOCUMENT O UNA VERSIÓ MODIFICADA DEL DOCUMENT NI CAP PROVEÏDOR D'AQUESTES PARTS NO SERAN RESPONSABLES DAVANT DE NINGÚ PER CAP DANY DIRECTE, INDIRECTE, ESPECIAL, ACCIDENTAL O CONSECUTIU DE QUALSEVOL TIPUS; AIXÒ INCLOU, SENSE LIMITAR-S'HI, ELS DANYS PER PÈRDUA DE CLIENTS, INTERRUPCIONS DE LA FEINA, FALLADA O MALFUNCIONAMENT DE L'ORDINADOR, O QUALSEVOL ALTRA PÈRDUA O DANY RELACIONAT AMB L'ÚS DEL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT, FINS I TOT SI S'HA INFORMAT AQUESTA PART DE LA POSSIBILITAT D'AQUESTS DANYS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+
+   <authorgroup>
+      <author role="maintainer" lang="en"><surname>Equip de documentació de MATE</surname> <affiliation> <orgname>Escriptori MATE</orgname> </affiliation></author>
+   <author><firstname>Sun</firstname> <surname>Projecte de documentació de GNOME</surname> <affiliation> <orgname>Sun Microsystems</orgname> <address> <email>gdocteam@sun.com</email> </address> </affiliation></author> 
+
+   <author><firstname>Judith</firstname> <surname>Samson</surname> <affiliation> <orgname>Projecte de documentació de GNOME</orgname> <address> <email>judith@samsonsource.com</email> </address> </affiliation></author> 
+   
+    <author><firstname>Paul</firstname> <surname>Cutler</surname> <affiliation> <orgname>Equip de documentació de GNOME</orgname> <address> <email>pcutler@gnome.org</email> </address> </affiliation></author> 
+
+   <author role="maintainer"><firstname>Vincent</firstname> <surname>Noel</surname> <affiliation> <address><email>vincent.noel@gmail.com</email></address> </affiliation></author>
+      
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+   <othercredit role="translator">
+		<firstname>Latin</firstname> 
+		<surname>Translator 1</surname> 
+		<affiliation> 
+	  	<orgname>Latin Translation Team</orgname> 
+	  	<address> <email>translator@gnome.org</email> </address> 
+		</affiliation>
+		<contrib>Latin translation</contrib>
+   </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+           <revision lang="en"><revnumber>Versió 1.10 del manual del visualitzador de registres del sistema</revnumber> <date>Juliol de 2015</date> <revdescription> 
+	  		<para role="author" lang="en">Wolfgang Ulbrich</para>
+	  		<para role="publisher" lang="en">Projecte de documentació de MATE</para>
+		</revdescription></revision>
+            <revision><revnumber>Versió 2.5 del manual del visualitzador de registres del sistema</revnumber> <date>Octubre de 2009</date> <revdescription> 
+	  		<para role="author">Paul Cutler <email>pcutler@gnome.org</email></para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+		</revdescription></revision>
+      <revision><revnumber>Versió 2.4 del manual del visualitzador de registres del sistema</revnumber> <date>Octubre de 2005</date> <revdescription> 
+	  		<para role="author">Vincent Noel <email>vincent.noel@gmail.com</email></para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+		</revdescription></revision>
+      <revision><revnumber>Versió 2.3 del manual del visualitzador de registres del sistema</revnumber> <date>Octubre de 2002</date> <revdescription> 
+	  		<para role="author">Equip de documentació de GNOME de Sun <email>gdocteam@sun.com</email></para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+		</revdescription></revision>
+      <revision><revnumber>Versió 2.2 del manual del visualitzador de registres del sistema</revnumber> <date>Agost de 2002</date> <revdescription> 
+	  		<para role="author">Equip de documentació de GNOME de Sun <email>gdocteam@sun.com</email></para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+		</revdescription></revision>
+      <revision><revnumber>Versió 2.1 del manual del visualitzador de registres del sistema</revnumber> <date>Juliol de 2002</date> <revdescription> 
+	  		<para role="author">Equip de documentació de GNOME de Sun <email>gdocteam@sun.com</email></para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+		</revdescription></revision>
+      <revision><revnumber>Versió 2.0 del manual del visualitzador de registres del sistema</revnumber> <date>Maig de 2002</date> <revdescription> 
+	  		<para role="author">Equip de documentació de GNOME de Sun <email>gdocteam@sun.com</email></para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+		</revdescription></revision> 
+      <revision><revnumber>Manual del visualitzador de registres</revnumber> <date>2000</date> <revdescription> 
+	  		<para role="author">Judith Samson <email>judith@samsonsource.com</email></para>
+	  		<para role="publisher">Projecte de documentació de GNOME</para>
+			</revdescription></revision> 
+    </revhistory> 
+
+    <releaseinfo>Aquest manual descriu la versió 1.10 del visualitzador de registres del sistema.</releaseinfo> 
+    <legalnotice> 
+      <title>Retroacció</title> 
+      <para>Per informar d'un error o fer un suggeriment sobre l'aplicació del visualitzador de registres del sistema o d'aquest manual, seguiu les instruccions de la <ulink url="help:mate-user-guide/feedback" type="help">pàgina de retroacció de MATE</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Robert Antoni Buj Gelonch</firstname>
+      </personname>
+      <email>rbuj@fedoraproject.org</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2018</year>
+      
+        <year>2019</year>
+      
+      <holder>Robert Antoni Buj Gelonch</holder>
+    </copyright>
+  </articleinfo> 
+
+  <indexterm><primary>Visualitzador de registres del sistema</primary></indexterm> 
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+
+  <sect1 id="syslog-introduction"> 
+    <title>Introducció</title> 
+
+      <para>El <application>visualitzador de registres del sistema</application> és un visualitzador gràfic, basat en menús, que podeu utilitzar per visualitzar i monitorar els registres del vostre sistema. El <application>visualitzador de registres del sistema</application> ve amb algunes funcions que us poden ajudar per gestionar els vostres registres, incloent-hi un monitor de registres i la visualització d'estadístiques dels registres.</para>
+
+      <para>El <application>visualitzador de registres del sistema</application> és útil si sou nou en l'administració del sistema, ja que proporciona una visualització, més fàcil de veure i d'utilitzar, dels vostres registres, en comparació a la visualització de text del fitxer del registre. També és útil per als administradors més experimentats, ja que conté un monitor que us permet controlar de forma contínua els registres crucials.</para>
+
+      <warning><para>El <application>visualitzador de registres del sistema</application> és útil només per aquells que tenen accés als fitxers de registres del sistema, que generalment requereixen accés de root.</para></warning>
+
+  </sect1>
+
+  <sect1 id="syslog-getting-started">
+    <title>Primers passos</title> 
+
+    <para>Podeu iniciar el <application>visualitzador de registres del sistema</application> de les maneres següents:</para> 
+    <variablelist>
+    	<varlistentry>
+    		<term>Menú <guimenu>Aplicacions</guimenu></term>
+    		<listitem>
+    		<para>Seleccioneu <menuchoice><guisubmenu>Eines del sistema</guisubmenu><guimenuitem>Visualitzador de fitxers de registres</guimenuitem></menuchoice>.</para>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>Línia d'ordres</term>
+    		<listitem>
+    		<para>Teclegeu <command>mate-system-log</command> i després premeu <keycap>Retorn</keycap>.</para>
+    		<para> 		 
+    		</para> 
+    		</listitem>
+    	</varlistentry>
+    </variablelist>
+
+    <para>Quan inicieu el <application>visualitzador de registres del sistema</application>, es mostra la finestra següent.</para>
+
+    <!-- ==== Figure ==== -->
+      <figure id="syslog-fig"> 
+	<title>Finestra del visualitzador de registres del sistema</title> 
+	<screenshot> 
+	  <mediaobject><imageobject> <imagedata fileref="figures/syslog_window.png" format="PNG"/> </imageobject> <textobject> <phrase>Mostra la finestra principal del visualitzador de registres del sistema. Conté la barra de menús, l'àrea de visualització, les barres de desplaçament i la barra d'estat. </phrase> </textobject></mediaobject> 
+	</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+    <para>La primera vegada que inicieu el <application>visualitzador de registres del sistema</application>, l'aplicació mostra diversos fitxers de registres (com ara el <filename>/var/log/messages</filename>). Els registres oberts es llisten a la part esquerra de la finestra de l'aplicació. El registre seleccionat en aquesta llista es mostra a l'àrea principal de la finestra de l'aplicació.</para>
+
+      <para>Per defecte, el <application>visualitzador de registres del sistema</application> monitora cadascun dels registres oberts, i qualsevol canvi apareix automàticament a la finestra principal. Per a més informació consulteu <xref linkend="syslog-monitor"/>.</para>
+
+  </sect1>
+
+<!-- ================ Usage ================================ -->
+
+  <sect1 id="syslog-usage"> 
+    <title>Utilització</title>
+
+    <sect2 id="syslog-open">
+    	<title>Com visualitzar un registre</title>
+    	<para>Per visualitzar un registre, seleccioneu <menuchoice><guimenu>Fitxer</guimenu><guimenuitem>Obre</guimenuitem></menuchoice>. Al diàleg <guilabel>Obre un fitxer de registre</guilabel>, seleccioneu el registre que voleu obrir i després feu clic a <guibutton>Obre</guibutton>. Utilitzeu les barres de desplaçament per desplaçar-vos pels registres.</para>
+
+        <para>Podeu obrir tants registres com vulgueu. El <application>Visualitzador de registres del sistema</application> mostra un registre alhora a la finestra del <guilabel>Visualitzador de registres del sistema</guilabel>. Els registres oberts es llisten a la part esquerra de la finestra de l'aplicació. El registre seleccionat en aquesta llista es mostra a l'àrea principal de la finestra de l'aplicació. Per mostrar un altre registre ja obert al <application>Visualitzador de registres del sistema</application>, seleccioneu-lo a la llista de registres.</para>
+
+        <para>Tingueu en compte que el <application>visualitzador de registres del sistema</application> també us permet obrir registres comprimits (el nom de fitxer acaba en «.gz»).</para>
+    </sect2>
+
+    <sect2 id="syslog-selection">
+    <title>Com copiar línies del registre al porta-retalls</title>
+    <para>Per copiar una o més línies del registre al porta-retalls, només heu de seleccionar les línies de l'àrea principal i seleccionar l'opció del menú <menuchoice><guimenu>Edita</guimenu><guimenuitem>Copia</guimenuitem></menuchoice>. Si voleu copiar el registre sencer al porta-retalls, seleccioneu-ho tot mitjançant l'opció del menú <menuchoice><guimenu>Edita</guimenu><guimenuitem>Selecciona-ho tot</guimenuitem></menuchoice>, després seleccioneu <menuchoice><guimenu>Edita</guimenu><guimenuitem>Copia</guimenuitem></menuchoice>.</para>
+    </sect2>
+
+    <sect2 id="syslog-hide-sidebar">
+    <title>Com ocultar la barra lateral</title>
+    <para>Per ocultar la barra lateral esquerra, que conté la llista de registres i el calendari, tan sols seleccioneu l'opció del menú <menuchoice><guimenu>Vista</guimenu><guimenuitem>Plafó lateral</guimenuitem></menuchoice>.</para>
+    </sect2>
+    
+    <sect2 id="syslog-monitor">
+    	<title>Com monitorar registres</title>
+    	<para>Podeu utilitzar el <application>visualitzador de registres del sistema</application> per monitorar registres. Per defecte, tots els registres oberts al <application>visualitzador de registres del sistema</application> es monitoren per si hi ha canvis. Si s'afegeixen línies noves a un registre monitorat pel <application>visualitzador de registres del sistema</application>, el nom del registre apareixerà en negreta a la llista de registres. Si el registre es mostra actualment a l'àrea principal, les línies noves apareixeran automàticament al final del registre i, després de cinc segons, el nom del registre tornarà al seu estat normal a la llista.</para>
+
+    </sect2>
+    
+    <sect2 id="syslog-stats">
+    	<title>Com visualitzar la informació del registre</title>
+    	<para>La informació del registre generalment es mostra a la barra d'estat, aquesta inclou:</para> 
+    	<itemizedlist>
+    		<listitem><para>El nombre de línies al registre.</para>
+    		</listitem>
+    		<listitem><para>La mida del registre en bytes.</para>
+    		</listitem>
+    		<listitem><para>La data en què es va modificar el registre per última vegada.</para>
+    		</listitem>
+    	</itemizedlist> 
+        <para>La barra d'estat es pot mostrar o ocultar mitjançant <menuchoice><guimenu>Vista</guimenu><guimenuitem>Barra d'estat</guimenuitem></menuchoice>.</para>
+    </sect2>
+    
+    <sect2 id="syslog-close">
+    	<title>Com tancar un registre</title>
+    	<para>Per tancar un registre, seleccioneu <menuchoice><guimenu>Fitxer</guimenu><guimenuitem>Tanca</guimenuitem></menuchoice>.</para>
+    </sect2>
+    
+    <sect2 id="syslog-exit">
+    	<title>Com sortir del visualitzador de registres del sistema</title>
+    	<para>Per sortir del <application>visualitzador de fitxers de registres</application>, seleccioneu <menuchoice><guimenu>Fitxer</guimenu><guimenuitem>Surt</guimenuitem></menuchoice>.</para>
+    </sect2>
+ 
+  </sect1>
+
+</article>

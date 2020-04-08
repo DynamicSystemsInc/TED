@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "1.10">
+<!ENTITY manrevision "1.10">
+<!ENTITY date "July 2015">
+<!ENTITY app "Disk Usage Analyzer">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+  
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="es">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual del Analizador del uso del disco</title>
+
+    <abstract role="description">
+      <para>El Analizador del uso del disco es un visor gráfico dirigido por menús que puede utilizarse para ver y monitorizar el uso del disco y la esturctura de la carpeta</para>
+    </abstract>
+
+    <copyright lang="en"> 
+      <year>2019</year> 
+      <holder>MATE Documentation Project</holder>
+    </copyright>
+    <copyright><year>2006</year> <holder>Fabio Marzocca</holder></copyright> 
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+    <publisher> 
+      <publishername>Proyecto de documentación de MATE</publishername>
+    </publisher> 
+    <publisher> 
+      <publishername>Proyecto de documentación de GNOME</publishername>
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Se concede permiso para copiar, distribuir o modificar este documento según las condiciones de la GNU Free Documentation License (GFDL), Versión 1.1 o cualquier versión posterior publicada por la Free Software Foundation sin Secciones invariantes, Textos de portada y Textos de contraportada. Encontrará una copia de la GFDL en este <ulink type="help" url="help:fdl">enlace</ulink> o en el archivo COPYING-DOCS distribuido con este manual.</para>
+         <para>Este manual es parte de la colección de manuales MATE distribuidos bajo el GFDL. Si quiere distribuir este manual separadamente de la colección, puede hacerlo añadiendo una copia de la licencia al manual, como está descrito en la sección 6 de la licencia.</para>
+
+	<para>Muchos de los nombres usados por empresas para distinguir sus productos y servicios se mencionan como marcas comerciales. Donde aparezcan dichos nombres en cualquier documentación MATE, y para que los miembros del proyecto de documentación reconozcan dichas marcas comerciales, dichos nombres se imprimen en mayúsculas o iniciales mayúsculas.</para>
+
+	<para>EL DOCUMENTO Y LAS VERSIONES MODIFICADAS DEL DOCUMENTO SE PROPORCIONAN BAJO LOS TÉRMINOS DE LA LICENCIA GRATUITA DE DOCUMENTACIÓN DE GNU CON EL ACUERDO ADICIONAL DE:<orderedlist>
+		<listitem>
+		  <para>EL DOCUMENTO SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, NI EXPLÍCITA NI IMPLÍCITA INCLUYENDO, SIN LIMITACIÓN, GARANTÍA DE QUE EL DOCUMENTO O VERSIÓN MODIFICADA DE ÉSTE CAREZCA DE DEFECTOS COMERCIALES, SEA ADECUADO A UN FIN CONCRETO O INCUMPLA ALGUNA NORMATIVA. TODO EL RIESGO RELATIVO A LA CALIDAD, PRECISIÓN Y UTILIDAD DEL DOCUMENTO O SU VERSIÓN MODIFICADA RECAE EN USTED. SI CUALQUIER DOCUMENTO O VERSIÓN MODIFICADA DE AQUÉL RESULTARA DEFECTUOSO EN CUALQUIER ASPECTO, USTED (Y NO EL REDACTOR INICIAL, AUTOR O CONTRIBUYENTE) ASUMIRÁ LOS COSTES DE TODA REPARACIÓN, MANTENIMIENTO O CORRECCIÓN NECESARIOS. ESTA RENUNCIA DE GARANTÍA ES UNA PARTE ESENCIAL DE ESTA LICENCIA. NO SE AUTORIZA EL USO DE NINGÚN DOCUMENTO NI VERSIÓN MODIFICADA DE ÉSTE POR EL PRESENTE, SALVO DENTRO DEL CUMPLIMIENTO DE LA RENUNCIA;Y</para>
+		</listitem>
+		<listitem>
+		  <para>BAJO NINGUNA CIRCUNSTANCIA NI BAJO NINGUNA TEORÍA LEGAL, SEA POR ERROR (INCLUYENDO NEGLIGENCIA), CONTRATO O DE ALGÚN OTRO MODO, EL AUTOR, EL ESCRITOR INICIAL, CUALQUIER CONTRIBUIDOR, O CUALQUIER DISTRIBUIDOR DEL DOCUMENTO O VERSIÓN MODIFICADA DEL DOCUMENTO, O CUALQUIER PROVEEDOR DE CUALQUIERA DE ESAS PARTES, SERÁ RESPONSABLE ANTE NINGUNA PERSONA POR NINGÚN DAÑO DIRECTO, INDIRECTO, ESPECIAL, INCIDENTAL O DERIVADO DE NINGÚN TIPO, INCLUYENDO, SIN LIMITACIÓN DAÑOS POR PÉRDIDA DE MERCANCÍAS, PARO TÉCNICO, FALLO INFORMÁTICO O MAL FUNCIONAMIENTO O CUALQUIER OTRO POSIBLE DAÑO O PÉRDIDAS DERIVADAS O RELACIONADAS CON EL USO DEL DOCUMENTO O SUS VERSIONES MODIFICADAS, AUNQUE DICHA PARTE HAYA SIDO INFORMADA DE LA POSIBILIDAD DE QUE SE PRODUJESEN DICHOS DAÑOS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+
+   <authorgroup>
+      <author role="maintainer" lang="en"><surname>MATE-Dokumentationsteam</surname> <affiliation> <orgname>Mate desktop</orgname> </affiliation></author>
+   <author><firstname>Fabio</firstname> <surname>Marzocca</surname> <affiliation> <orgname>GNOME Documentation Project</orgname> <address> <email>thesaltydog@gmail.com</email> </address> </affiliation></author> 
+
+   <author role="maintainer"><firstname>Fabio</firstname> <surname>Marzocca</surname> <affiliation> <address><email>thesaltydog@gmail.com</email></address> </affiliation></author>
+      
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+   <othercredit role="translator">
+		<firstname>Latin</firstname> 
+		<surname>Translator 1</surname> 
+		<affiliation> 
+	  	<orgname>Latin Translation Team</orgname> 
+	  	<address> <email>translator@gnome.org</email> </address> 
+		</affiliation>
+		<contrib>Latin translation</contrib>
+   </othercredit>
+-->
+    </authorgroup>
+
+	<releaseinfo revision="1.10" role="review">
+	</releaseinfo>
+
+    <revhistory>
+      <revision><revnumber>Manual del Analizador del uso del disco 1.10</revnumber> <date>Julio 2015</date> <revdescription> 
+	  		<para role="author" lang="en">Wolfgang Ulbrich</para>
+	  		<para role="publisher">Proyecto de documentación de MATE</para>
+		</revdescription></revision>
+      <revision><revnumber>Manual del Analizador del uso del disco 1.0</revnumber> <date>Abril 2006</date> <revdescription> 
+	  		<para role="author">Emmanuele Bassi <email>ebassi@gmail.com</email></para>
+	  		<para role="publisher">Proyecto de documentación de GNOME</para>
+		</revdescription></revision>
+    </revhistory> 
+
+    <releaseinfo>Este manual describe la versión 1.10 del analizador del uso del disco</releaseinfo> 
+    
+    <legalnotice> 
+      <title>Comentarios</title> 
+      <para>Para informar de un error o hacer una sugerencia acerca de la aplicación del Analizador del uso del disco o de este manual, siga las instrucciones en <ulink url="help:mate-user-guide/feedback" type="help">la página de feedback de MATE</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Adolfo Jayme Barrientos</firstname>
+      </personname>
+      <email>fitojb@ubuntu.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2018</year>
+      
+      <holder>Adolfo Jayme Barrientos</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Jorge González</firstname>
+      </personname>
+      <email>jorgegonz@svn.gnome.org</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2007-2010</year>
+      
+      <holder>Jorge González</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Francisco Javier F. Serrador</firstname>
+      </personname>
+      <email>serrador@cvs.gnome.org</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2003-2006</year>
+      
+      <holder>Francisco Javier F. Serrador</holder>
+    </copyright>
+  
+    <othercredit class="translator">
+      <personname>
+        <firstname>Pablo Gonzalo del Campo</firstname>
+      </personname>
+      <email>pablodc@bigfoot.com</email>
+    </othercredit>
+    <copyright>
+      
+        <year>2002-2003</year>
+      
+      <holder>Pablo Gonzalo del Campo</holder>
+    </copyright>
+  </articleinfo> 
+
+  <indexterm><primary>Analizador de uso de disco</primary></indexterm> 
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+
+  <sect1 id="baobab-introduction"> 
+    <title>Introducción</title> 
+
+      <para lang="en"><application>Disk Usage Analyzer</application> is a graphical, menu-driven
+      application to analyze disk usage in any Mate environment. <application>Disk Usage Analyzer</application> can easily scan
+       either the whole filesystem tree, or a specific user-requested directory 
+       branch (local or remote). </para>
+       <para>También detecta automáticamente y en tiempo real cualquier cambio que se haga en el directorio de su carpeta personal incluyendo cualquier dispositivo montado o desmontado. <application>El Analizador del uso del disco</application> también ofrece una ventana con un diagrama gráfico para cada carpeta seleccionada.</para>
+
+  </sect1>
+
+<!-- ================ Getting Started ================================ -->
+	<sect1 id="baobab-getting-started">
+	<title>Cómo empezar</title>
+
+    <para>El Analizador del uso del disco puede iniciarse de tres maneras:</para>
+	 <itemizedlist>
+    <listitem><para>desde el menú Mate <menuchoice><guimenu>Aplicaciones</guimenu><guimenuitem>Accesorios</guimenuitem></menuchoice>;</para>
+    		</listitem>
+    <listitem><para>desde la ventana de la terminal;</para>
+    		</listitem>
+    <listitem><para>desde Caja "Abrir con...";</para>
+    		</listitem>
+    </itemizedlist> 
+
+
+<para>Si desea iniciar <application>el Analizador del uso del disco</application> desde la ventana de la terminal, teclee:</para> 
+  
+<para lang="en"><command>mate-disk-usage-analyzer &lt;full_path_to_a_directory&gt;</command>, then press <keycap>Return</keycap>.</para>  
+<para/> 
+	<para>Si lo inicia desde el menú Mate, el <application>Analizador del uso del disco</application> se inicia y permanece en espera, hasta que el usuario realiza una acción.</para> 
+    <para>Cuando inicia el <application>Analizador del uso del disco</application> desde el menú Mate, aparece la siguiente ventana.</para>
+
+    <!-- ==== Figure ==== -->
+      <figure id="baobab-fig"> 
+	<title>Ventana del Analizador del uso del disco</title> 
+	<screenshot> 
+	  <mediaobject><imageobject> <imagedata fileref="figures/baobab_window.png" format="PNG"/> </imageobject> <textobject> <phrase>Muestra la ventana principal del Analizador del uso del disco. Contiene una barra de estado, un área de visualización, barras de desplazamiento y una barra de estado. </phrase> </textobject></mediaobject> 
+	</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+
+<para>Entonces el usuario puede:</para>
+	<itemizedlist>
+    <listitem><para>iniciar un escaneo completo del sistema de archivos;</para>
+    		</listitem>
+    <listitem><para>seleccionar una sección de un directorio local específico para escanear</para>
+    		</listitem>
+    <listitem><para>seleccionar un servidor remoto y una carpeta para escanear</para>
+    		</listitem>
+    <listitem><para>establecer sus preferencias</para>
+    		</listitem>
+	</itemizedlist>
+
+
+</sect1>
+
+<!-- ================ Usage ================================ -->
+
+  <sect1 id="baobab-usage"> 
+    <title>Uso</title>
+
+    <sect2 id="baobab-fullscan">
+      <title>Escaneo completo del sistema de archivos</title>
+        <para>Para iniciar un escaneo completo del sistema de archivos seleccione <menuchoice><guimenu>Analizador</guimenu><guimenuitem>Escanear sistema de archivos</guimenuitem></menuchoice> en el menú, o pulse el botón <guibutton>Escanear sistema de archivos</guibutton> en la barra de herramientas.</para>
+
+	<para>Cuando el proceso de escaneo finalice, obtendrá el diagrama completo de su sistema de archivos, como el que aparece en la siguiente imagen.</para>    
+
+    <!-- ==== Figure ==== -->
+      <figure id="baobab-fullscan-fig"> 
+	<title>Escaneo completo del sistema de archivos en el Analizador del uso del disco</title> 
+	<screenshot> 
+	  <mediaobject><imageobject> <imagedata fileref="figures/baobab_fullscan.png" format="PNG"/> </imageobject> <textobject> <phrase>Muestra la ventana principal de escaneo completo del sistema de archivos en el Analizador del uso del disco. Contiene una barra de menú, un área de visualización, barras de desplazamiento y una barra de estado. </phrase> </textobject></mediaobject> 
+	</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+    
+    	<note><para>Cuando realice un escaneo completo del sistema, la ventana del <application>Analizador del uso del disco</application> comenzará a mostrar el gráfico en cuanto la cadena empiece a escanear el sistema de archivos. Si hubiera una partición montada en el sistema de archivos, también se escanearía. </para></note>
+    
+    <para>El <application>Analizador del uso del disco</application> mostrará los tamaños de los directorios del diagrama en función del espacio asignado. Esto quiere decir que los tamaños mostrados hacen referencia al uso real del disco y no al tamaño aparente del directorio. Si desea ver el tamaño aparente del archivo, desactive  <menuchoice><guimenu>Ver</guimenu><guimenuitem>Espacio asignado</guimenuitem></menuchoice> .</para>
+    
+    <warning><para lang="en"><application>Disk Usage Analyzer</application> will not count the /proc dir, nor
+    any file size that is not related to a "plain" file, so symlinks, character blocks,
+    device blocks will not be part of the directory size.</para></warning>
+   
+    <para lang="en">Hard-links are managed in a different way: this first hardlink is 
+    counted as a normal file, while the subsequent links to the same inode device 
+    are not counted in the total, but highlighted in the right-hand column of the 
+    window.</para>
+        </sect2>
+	
+	<sect2 id="baobab-folderscan">
+      <title lang="en">Single folder scan</title>
+
+    <para lang="en">To start a single folder scan select 
+    <menuchoice><guimenu>Analyzer</guimenu><guimenuitem>Scan Folder...</guimenuitem></menuchoice> 
+    from the menu, or press on the <guibutton>Scan Folder</guibutton> toolbar button.</para>
+
+	</sect2>
+
+	<sect2 id="baobab-remotescan">
+      <title>Escaneo remoto</title>
+      
+      <para lang="en">If you need to scan a remote server-folder, just click on the toolbar 
+      icon <guibutton>Scan Remote Folder</guibutton> or select <menuchoice><guimenu>Analyzer</guimenu><guimenuitem>Scan Remote Folder</guimenuitem></menuchoice>
+      from the menu and you will get the following dialog box. <application>Disk Usage Analyzer</application> 
+      can connect to a server through ssh, ftp, smb, http and https.</para>
+ 
+     <!-- ==== Figure ==== -->
+      <figure id="baobab-remote-fig"> 
+        <title lang="en">Disk Usage Analyzer Remote folder scan</title> 
+		<screenshot> 
+	 	 <mediaobject lang="en"> 
+	  	  <imageobject>
+	   	 <imagedata fileref="figures/baobab_remote.png" format="PNG"/> 
+	   	 </imageobject>
+	   	 <textobject> 
+	    	  <phrase>Shows Disk Usage Analyzer remote folder dialog window. </phrase> 
+	   	 </textobject> 
+	 	 </mediaobject> 
+		</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+   
+	</sect2> 
+
+  </sect1>
+
+
+<!-- ============= Preferences =============================== -->
+  <sect1 id="baobab-preferences">
+    <title>Preferencias</title>
+    
+    <para lang="en">To change the <application>Disk Usage Analyzer</application> application
+    preferences, choose <menuchoice><guimenu>Edit</guimenu><guimenuitem>Preferences</guimenuitem></menuchoice>.</para>
+ 
+   <!-- ==== Figure ==== -->
+      <figure id="baobab-preferences-fig"> 
+      	<title lang="en">Disk Usage Analyzer Preferences Window</title> 
+	<screenshot> 
+	  <mediaobject lang="en"> 
+	    <imageobject>
+	    <imagedata fileref="figures/baobab_prefs.png" format="PNG"/> 
+	    </imageobject>
+	    <textobject> 
+	      <phrase>Preferences window </phrase> 
+	    </textobject> 
+	  </mediaobject> 
+	</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+  
+  <sect2 id="baobab-scan-preferences">
+      <title lang="en">Select devices to be scanned</title>
+  <para lang="en">In the first part of the Preferences window, all detected mounted devices 
+  are listed. Click on the checkbox to include/exclude the partition into the 
+  filesystem scanning operations.  </para>
+  <note><para lang="en">The device mounted on "/" cannot be excluded from the scan.</para></note>
+  </sect2>
+ 
+   <sect2 id="baobab-monitor-preferences">
+      <title lang="en">Enable monitoring of home</title>
+      <para lang="en">If this option is checked, <application>Disk Usage Analyzer</application> will 
+      constantly monitor any external changes to home directory and warn 
+      the user if a file is added/removed.</para>  
+   </sect2>  
+	</sect1>
+<!-- ================ Treemaps ================================ -->
+
+  <sect1 id="baobab-treemaps"> 
+  <title lang="en">Treemaps</title>
+
+    <para lang="en"><guilabel>Treemap</guilabel> concepts have been developed by Ben Shneiderman in the '90s.
+    Read his <ulink type="http" url="http://www.cs.umd.edu/hcil/treemap-history/index.shtml">vision on treemaps</ulink>.</para>
+    
+       <!-- ==== Figure ==== -->
+      <figure id="baobab-treemap-fig"> 
+        <title lang="en">Disk Usage Analyzer Treemap Window</title>
+	<screenshot> 
+	  <mediaobject lang="en"> 
+	    <imageobject>
+	    <imagedata fileref="figures/baobab_treemaps.png" format="PNG"/> 
+	    </imageobject>
+	    <textobject> 
+	      <phrase>Treemap's theory. Shows 2 treemap diagrams </phrase> 
+	    </textobject> 
+	  </mediaobject> 
+	</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+  
+    
+    <para lang="en">Figure shows an example of treemap's theory. Each node 
+    (as shown in the tree diagram) has a name (a letter) and an associated size 
+    (a number). The size of leaves may represent for instance the size of individual 
+    files, the size of non-leaf nodes is the sum of the sizes of its children.</para> 
+    
+    <para lang="en">The treemap is constructed via recursive subdivision of the initial rectangle. 
+    The size of each sub-rectangle corresponds to the size of the node. 
+    The direction of subdivision alternates per level: first horizontally, 
+    next vertically, etcetera. As a result, the initial rectangle is partitioned 
+    into smaller rectangles, such that the size of each rectangle reflects the size 
+    of the leaf. The structure of the tree is also reflected in the treemap, 
+    as a result of its construction. Color and annotation can
+	be used to give extra information about the leaves.</para>
+
+	<note><para lang="en">Treemaps are very effective when size is the most important feature to be 
+	displayed.</para></note>
+  </sect1>
+  <!-- ================ Ringschart ================================ -->
+
+  <sect1 id="baobab-ringschart"> 
+  <title lang="en">Ringschart</title>
+
+    <para lang="en"><guilabel>Ringschart</guilabel> is a graphical
+      representation of the disk usage by a concrete folder. When
+      launching the application, it is notified the usage of
+      the file system as it can be seen in the next figure:</para>
+
+    <!-- ==== Figure ==== -->
+    <figure id="baobab-filesystem_scan"> 
+      <title lang="en">Disk Usage Analyzer showing a ringschart with the file system usage</title>
+      <screenshot> 
+	<mediaobject lang="en"> 
+	  <imageobject>
+	    <imagedata fileref="figures/baobab_ringschart1.png" format="PNG"/> 
+	  </imageobject>
+	  <textobject> 
+	    <phrase>After launching the application, it is showed the
+	    file system usage. Graphical representation on the right. </phrase> 
+	  </textobject> 
+	</mediaobject> 
+      </screenshot> 
+    </figure>
+    <!-- ==== End of Figure ==== -->
+
+    <para lang="en">When you start scanning a folder, the tree of subfolders is
+      created and listed on the left side. Each row contains
+      information for the name, how much space it is taking up
+      (percentage and size in KB, MB or GB) and the number of items
+      (adding files and directories). When this process ends up,
+      the <guilabel>Ringschart</guilabel> is drawn on the right
+      side. If you stop it before it has been completed, only a
+      partial representation is done based on the directories whose
+      usage was computed.</para>
+
+
+    <!-- ==== Figure ==== -->
+    <figure id="baobab-folder_scan"> 
+      <title lang="en">Disk Usage Analyzer showing a ringschart with the usage of a folder</title>
+      <screenshot> 
+	<mediaobject lang="en"> 
+	  <imageobject>
+	    <imagedata fileref="figures/baobab_ringschart2.png" format="PNG"/> 
+	  </imageobject>
+	  <textobject> 
+	    <phrase>After scanning a folder. </phrase> 
+	  </textobject> 
+	</mediaobject> 
+      </screenshot> 
+    </figure>
+    <!-- ==== End of Figure ==== -->
+    
+    <para lang="en">The <guilabel>Ringschart</guilabel> is composed of a set of 
+      nested rings around a central circle. This circle symbolizes the
+      root folder of the partial tree (that is, the folder that the 
+      user has selected for scanning). Each ring represents a level in
+      the partial tree, so i.e. the subfolders of the root folder will 
+      be represented in the first ring, and deeper levels in the tree 
+      correspond to outer rings in the chart. Each subfolder is 
+      represented by a sector of the ring, its angle being proportional 
+      to the size of the folder's contents, and painted with a different
+      color to ease visualization. Up to five levels can be drawn; in 
+      case that a folder in that last fifth level contains even more 
+      subfolders, this situation will be pointed by the presence of a 
+      black curve close to the edge of that folder's ring sector. When a
+      folder with no further subfolders is selected to be the root of 
+      the partial tree, only the inner circle will be drawn. When the 
+      mouse pointer hovers one of the folders in the graphic, it will be
+      highlighted and a tooltip will appear with information about its
+      name and size. If there are any subfolders, small gray tooltips
+      will appear, indicating their names. It's possible that not all of
+      the subfolders' names are displayed, to avoid overlappings.</para>
+
+    <para lang="en">You can go up and down the rows in the list (optionally 
+      expanding those with subfolders), the graphic representation will 
+      change using the selected folder as the root of the partial tree 
+      to be represented. The folders can also be navigated from the 
+      <guilabel>ringschart</guilabel> itself. If you click with the left
+      button of your mouse inside a folder, you'll move deeper by 
+      setting the root of the graphic to that folder. If you press the 
+      middle button (no matter the place as long as you click inside the 
+      <guilabel>ringschart</guilabel> frame) you'll get the opposite 
+      behavior, going back one step in the hierarchy.</para>
+
+    <para lang="en">The percentage of its parent's radius that is used by a given
+      folder is directly proportional to the relation between its own
+      size and its parent's. It's easy to understand that the size of 
+      a folder is equal or smaller than its parent's. Although only 
+      directories are shown in this graphical representation, files are 
+      taken into account to calculate the amount of space occupied by 
+      folders.</para>
+  </sect1>
+</article>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "1.10">
+<!ENTITY manrevision "1.10">
+<!ENTITY date "July 2015">
+<!ENTITY app "System Log Viewer">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the MATE Documentation Project
+  http://wiki.mate-desktop.org/dev-doc:doc-team-guide
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+  
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="da">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual til systemlogfremviseren</title>
+
+    <abstract role="description">
+      <para>Systemlogfremviseren er en grafisk brugerflade til at se og overvåge systemlogfiler.</para>
+    </abstract>
+
+    <copyright lang="en"><year>2019</year> <holder>MATE-dokumentationsprojektet</holder></copyright>
+    <copyright><year>2003</year> <holder>Sun Microsystems</holder></copyright> 
+    <copyright><year>2000</year> <holder>Judith Samson</holder></copyright> 
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+    <publisher> 
+      <publishername>MATE-dokumentationsprojekt</publishername>
+    </publisher> 
+    <publisher> 
+      <publishername>GNOME-dokumentationsprojekt</publishername>
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Der gives tilladelse til at kopiere, distribuere og/eller ændre dette dokument under betingelserne i GNU Free Documentation License (GFDL), version 1.1 eller enhver nyere version, udgivet af Free Software Foundation uden invariante afsnit, uden forsidetekster, og uden bagsidetekster. Du kan finde en kopi af GFDL'en her: <ulink type="help" url="help:fdl">link</ulink>, eller i filen COPYING-DOCS der distribueres med denne manual.</para>
+         <para>Denne manual er en del af MATE-manualsamlingen distribueret under GFDL. Hvis du vil distribuere denne manual separat fra denne samling, kan du gøre det ved at tilføje en kopi af licensen til manualen, som beskrevet i sektion 6 af licensen.</para>
+
+	<para>Mange af navnene brugt af firmaer til at skelne deres produkter og tjenester er registrerede varemærker. Der hvor disse navne optræder i MATE-dokumentationen, og medlemmerne af MATE-dokumentationsprojektet er blevet gjort opmærksomme på disse varemærker, er navnene skrevet med store bogstaver eller store forbogstaver.</para>
+
+	<para>DETTE DOKUMENT OG MODIFICEREDE VERSIONER GØRES TILGÆNGELIGT UNDER BETINGELSERNE I GNU FREE DOCUMENTATION LICENSE UNDER DEN FORUDSÆTNING AT: <orderedlist>
+		<listitem>
+		  <para>DETTE DOKUMENT GØRES TILGÆNGELIGT SÅDAN SOM DET ER, UDEN NOGEN FORM FOR GARANTI, HVERKEN UDTALT ELLER ANTYDET, DERIBLANDT, UDEN BEGRÆNSNINGER, GARANTIER OM AT DOKUMENTET ELLER ÆNDREDE VERSIONER AF DOKUMENTET ER FRIT FOR DEFEKTER, PASSENDE TIL ET BESTEMT FORMÅL ELLER IKKE-KRÆNKENDE. DU HÆFTER SELV FOR HELE RISIKOEN VEDRØRENDE KVALITET, KORREKTHED OG YDELSE FOR DOKUMENTET ELLER ÆNDREDE VERSIONER AF DOKUMENTET. SKULLE ET DOKUMENT, ELLER EN ÆNDRET VERSION AF ET DOKUMENT VISE SIG AT VÆRE DEFEKT PÅ EN HVILKEN SOM HELST MÅDE, HÆFTER DU FOR BETALING FOR EVENTUEL NØDVENDIG SERVICE, REPARATION ELLER KORREKTION (OG IKKE HVERKEN DEN OPRINDELIGE FORFATTER, SKRIBENT ELLER NOGEN ANDEN BIDRAGYDER). DENNE ERKLÆRING OM GARANTIFORBEHOLD ER EN ESSENTIEL DEL AF DENNE LICENS. INGEN BRUG AF NOGET DOKUMENT ELLER ÆNDRET VERSION AF DOKUMENTET ER AUTORISERET HERUNDER BORTSET FRA DENNE FORBEHOLDSERKLÆRING; OG</para>
+		</listitem>
+		<listitem>
+		  <para>UNDER INGEN OMSTÆNDIGHEDER OG UNDER INGEN JURIDISK TEORI, UANSET OM DET ER EN BEVIDST SKADENDE HANDLING (INKLUSIVE UFORSVARLIGHED) ELLER PÅ HVILKEN SOM HELST ANDEN MÅDE, KAN FORFATTEREN, SKRIBENT, BIDRAGYDERE, DISTRIBUTØRER ELLER FORSYNER AF DETTE DOKUMENT ELLER MODIFICEREDE VERSIONER GØRES ANSVARLIG OVERFOR NOGEN PERSON FOR NOGEN DIREKTE, INDIREKTE, SPECIEL, TILFÆLDIG ELLER FØLGENDE SKADE PÅFØRT NOGEN INKLUSIVE, UDEN BEGRÆNSNING, SKADE SOM FØLGE AF TAB AF RYGTE, ARBEJDSSTOP, COMPUTER-FEJL ELLER -SVIGT, ELLER ENHVER ANDEN FORM FOR SKADE ELLER TAB SOM ER OPSTÅET I FORBINDELSE MED BRUG AF DETTE DOKUMENT ELLER MODIFICEREDE VERSIONER HERAF, SELV HVIS EN SÅDAN PART HAR VÆRET INFORMERET OM MULIGHEDEN FOR SÅDANNE SKADER.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+
+   <authorgroup>
+      <author role="maintainer" lang="en"><surname>MATE-dokumentationsholdet</surname> <affiliation> <orgname>Mate-skrivebordet</orgname> </affiliation></author>
+   <author><firstname>Sun</firstname> <surname>GNOME-dokumentationsholdet</surname> <affiliation> <orgname>Sun Microsystems</orgname> <address> <email>gdocteam@sun.com</email> </address> </affiliation></author> 
+
+   <author><firstname>Judith</firstname> <surname>Samson</surname> <affiliation> <orgname>GNOME-dokumentationsprojektet</orgname> <address> <email>judith@samsonsource.com</email> </address> </affiliation></author> 
+   
+    <author><firstname>Paul</firstname> <surname>Cutler</surname> <affiliation> <orgname>GNOME-dokumentationsholdet</orgname> <address> <email>pcutler@gnome.org</email> </address> </affiliation></author> 
+
+   <author role="maintainer"><firstname>Vincent</firstname> <surname>Noel</surname> <affiliation> <address><email>vincent.noel@gmail.com</email></address> </affiliation></author>
+      
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+   <othercredit role="translator">
+		<firstname>Latin</firstname> 
+		<surname>Translator 1</surname> 
+		<affiliation> 
+	  	<orgname>Latin Translation Team</orgname> 
+	  	<address> <email>translator@gnome.org</email> </address> 
+		</affiliation>
+		<contrib>Latin translation</contrib>
+   </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+           <revision lang="en"><revnumber>Manual for systemlogfremviseren v. 1.10</revnumber> <date>Juli 2015</date> <revdescription> 
+	  		<para role="author" lang="en">Wolfgang Ulbrich</para>
+	  		<para role="publisher" lang="en">MATE-dokumentationsprojekt</para>
+		</revdescription></revision>
+            <revision><revnumber>Manual for systemlogfremviseren v. 2.5</revnumber> <date>Oktober 2009</date> <revdescription> 
+	  		<para role="author">Paul Cutler <email>pcutler@gnome.org</email></para>
+	  		<para role="publisher">GNOME-dokumentationsprojekt</para>
+		</revdescription></revision>
+      <revision><revnumber>Manual for systemlogfremviseren v. 2.4</revnumber> <date>Oktober 2005</date> <revdescription> 
+	  		<para role="author">Vincent Noel <email>vincent.noel@gmail.com</email></para>
+	  		<para role="publisher">GNOME-dokumentationsprojekt</para>
+		</revdescription></revision>
+      <revision><revnumber>Manual for systemlogfremviseren v. 2.3</revnumber> <date>Oktober 2002</date> <revdescription> 
+	  		<para role="author">Sun GNOME-dokumentationsholdet <email>gdocteam@sun.com</email></para>
+	  		<para role="publisher">GNOME-dokumentationsprojekt</para>
+		</revdescription></revision>
+      <revision><revnumber>Manual for systemlogfremviseren v. 2.2</revnumber> <date>August 2002</date> <revdescription> 
+	  		<para role="author">Sun GNOME-dokumentationsholdet <email>gdocteam@sun.com</email></para>
+	  		<para role="publisher">GNOME-dokumentationsprojekt</para>
+		</revdescription></revision>
+      <revision><revnumber>Manual for systemlogfremviseren v. 2.1</revnumber> <date>Juli 2002</date> <revdescription> 
+	  		<para role="author">Sun GNOME-dokumentationsholdet <email>gdocteam@sun.com</email></para>
+	  		<para role="publisher">GNOME-dokumentationsprojekt</para>
+		</revdescription></revision>
+      <revision><revnumber>Manual for systemlogfremviseren v. 2.0</revnumber> <date>Maj 2002</date> <revdescription> 
+	  		<para role="author">Sun GNOME-dokumentationsholdet <email>gdocteam@sun.com</email></para>
+	  		<para role="publisher">GNOME-dokumentationsprojekt</para>
+		</revdescription></revision> 
+      <revision><revnumber>Logview-manual</revnumber> <date>2000</date> <revdescription> 
+	  		<para role="author">Judith Samson <email>judith@samsonsource.com</email></para>
+	  		<para role="publisher">GNOME-dokumentationsprojekt</para>
+			</revdescription></revision> 
+    </revhistory> 
+
+    <releaseinfo>Denne manual beskriver version 1.10 for systemlogfremviseren.</releaseinfo> 
+    <legalnotice> 
+      <title>Tilbagemelding</title> 
+      <para>For at rapportere en fejl eller komme med et forslag jævnfør systemlogfremviseren eller denne manual, så følg retningslinjerne i <ulink url="help:mate-user-guide/feedback" type="help">MATE's side for tilbagemeldinger</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  </articleinfo> 
+
+  <indexterm><primary>Systemlogfremviser</primary></indexterm> 
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+
+  <sect1 id="syslog-introduction"> 
+    <title>Indledning</title> 
+
+      <para><application>Systemlogfremviseren</application> er en grafisk, menudreven fremviser som du kan bruge til at vise og overvåge dine systemlogge. <application>Systemlogfremviseren</application> har nogle få funktioner, som kan hjælpe dig med at håndtere dine logge, inklusive en logovervågning og en logstatistik.</para>
+
+      <para><application>Systemlogfremviseren</application> er nyttig, hvis du er en ny systemadministrator, da programmet tilbyder en nemmere, mere brugervenlig visning af dine logge end en tekstvisning af logfilen. Programmet er også nyttigt for mere erfarne administratorer, da det indeholder en overvågning, så du løbende kan overvåge vigtige logge.</para>
+
+      <warning><para><application>Systemlogfremviseren</application> er kun nyttig for dem som har adgang til systemlogfilerne, hvilket normalt kræver administratoradgang.</para></warning>
+
+  </sect1>
+
+  <sect1 id="syslog-getting-started">
+    <title>Kom godt i gang</title> 
+
+    <para>Du kan starte <application>Systemlogfremviseren</application> på de følgende måder:</para> 
+    <variablelist>
+    	<varlistentry>
+    		<term>Menuen <guimenu>Programmer</guimenu></term>
+    		<listitem>
+    		<para>Vælg <menuchoice><guisubmenu>Systemværktøjer</guisubmenu><guimenuitem>Logfilfremviser</guimenuitem></menuchoice>.</para>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>Kommandolinje</term>
+    		<listitem>
+    		<para>Tast <command>mate-system-log</command>, tryk så <keycap>Retur</keycap>.</para>
+    		<para> 		 
+    		</para> 
+    		</listitem>
+    	</varlistentry>
+    </variablelist>
+
+    <para>Når du starter <application>Systemlogfremviseren</application>, vises det følgende vindue.</para>
+
+    <!-- ==== Figure ==== -->
+      <figure id="syslog-fig"> 
+	<title>Vindue for systemlogfremviseren</title> 
+	<screenshot> 
+	  <mediaobject><imageobject> <imagedata fileref="figures/syslog_window.png" format="PNG"/> </imageobject> <textobject> <phrase>Viser systemlogfremviserens hovedvindue. Indeholder menulinje, skærmområde, rullebjælke og statuslinje. </phrase> </textobject></mediaobject> 
+	</screenshot> 
+      </figure>
+    <!-- ==== End of Figure ==== -->
+    <para>Den første gang du starter <application>Systemlogfremviseren</application>, viser programmet flere logfiler som standard (såsom <filename>/var/log/messages</filename>). Åbnede logge vises i den venstre side af programvinduet. Loggen valgt i denne liste vises i hovedområdet af programvinduet.</para>
+
+      <para>Som standard overvåger <application>Systemlogfremviseren</application> alle åbnede logge, og enhver ændring fremgår automatisk i hovedvinduet. Se <xref linkend="syslog-monitor"/> for yderligere information.</para>
+
+  </sect1>
+
+<!-- ================ Usage ================================ -->
+
+  <sect1 id="syslog-usage"> 
+    <title>Brug</title>
+
+    <sect2 id="syslog-open">
+    	<title>For at se en log</title>
+    	<para>For at se sen log, vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Åbn</guimenuitem></menuchoice>. I dialogen <guilabel>Åbn log</guilabel>, vælg loggen du ønsker at åbne og klik på <guibutton>Åbn</guibutton>. Brug rullebjælken til at rulle igennem loggen.</para>
+
+        <para>Du kan åbne så mange logge du ønsker. <application>Systemlogfremviseren</application> viser en log ad gangen i <guilabel>Systemlogfremviser</guilabel>-vinduet. Åbnede logge vises på den venstre side af programvinduet. Loggen valgt i denne liste vises i hovedområdet for programvinduet. For at vise en anden log allerede åbnet i <application>Systemlogfremviseren</application>, vælg den i loglisten.</para>
+
+        <para>Bemærk at <application>Systemlogfremviseren</application> også lader dig åbne pakkede logge (filnavnet skal ende på ».gz«).</para>
+    </sect2>
+
+    <sect2 id="syslog-selection">
+    <title>For at kopiere loglinjer til udklipsholderen</title>
+    <para>For at kopiere en eller flere loglinjer til udklipsholderen, vælg linjerne i hovedområdet og vælg menuelementet <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Kopier</guimenuitem></menuchoice>. Hvis du ønsker at kopiere hele loggen til udklipsholderen, så vælg den hele via menuelementet <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Vælg alt</guimenuitem></menuchoice>, vælg så <menuchoice><guimenu>Rediger</guimenu><guimenuitem>Kopier</guimenuitem></menuchoice>.</para>
+    </sect2>
+
+    <sect2 id="syslog-hide-sidebar">
+    <title>For at skjule sidepanelet</title>
+    <para>For at skjule sidepanelet, som indeholder loglisten og kalenderen vælges menuelementet <menuchoice><guimenu>Vis</guimenu><guimenuitem>Sidepanel</guimenuitem></menuchoice>.</para>
+    </sect2>
+    
+    <sect2 id="syslog-monitor">
+    	<title>For at overvåge logge</title>
+    	<para>Du kan bruge <application>Systemlogfremviseren</application> til at overvåge logge. Som standard overvåges alle åbnede logge i <application>Systemlogfremviseren</application> for ændringer. Hvis nye linjer tilføjes til en log overvåget af <application>Systemlogfremvisern</application>, vil lognavnet fremgå i fed i loglisten. Hvis loggen er vist i hovedområdet vil de nye linjer automatisk fremgå i slutningen af loggen, efter fem sekunder, vil lognavnet returnere tilbage til normal skrift i listen.</para>
+
+    </sect2>
+    
+    <sect2 id="syslog-stats">
+    	<title>For at se loginformation</title>
+    	<para>Loginformation vises generelt i statuslinjen, inklusive:</para> 
+    	<itemizedlist>
+    		<listitem><para>Antallet af linjer i loggen.</para>
+    		</listitem>
+    		<listitem><para>Størrelsen på loggen i byte.</para>
+    		</listitem>
+    		<listitem><para>Datoen hvor loggen sidst blev ændret.</para>
+    		</listitem>
+    	</itemizedlist> 
+        <para>Statuslinjen kan vises eller skjules via elementet <menuchoice><guimenu>Vis</guimenu><guimenuitem>Statuslinje</guimenuitem></menuchoice>.</para>
+    </sect2>
+    
+    <sect2 id="syslog-close">
+    	<title>For at lukke en log</title>
+    	<para>For at lukke en log, vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Luk</guimenuitem></menuchoice>.</para>
+    </sect2>
+    
+    <sect2 id="syslog-exit">
+    	<title>For at afslutte systemlogfremviseren</title>
+    	<para>For at afslutte <application>Systemlogfremviseren</application>, vælg <menuchoice><guimenu>Fil</guimenu><guimenuitem>Afslut</guimenuitem></menuchoice>.</para>
+    </sect2>
+ 
+  </sect1>
+
+</article>
