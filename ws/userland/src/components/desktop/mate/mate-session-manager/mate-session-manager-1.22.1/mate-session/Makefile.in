@@ -133,6 +133,7 @@ am_mate_session_OBJECTS = mate_session-gsm-app.$(OBJEXT) \
 	mate_session-gsm-inhibitor.$(OBJEXT) \
 	mate_session-gsm-manager.$(OBJEXT) \
 	mate_session-gsm-session-save.$(OBJEXT) \
+	mate_session-gsm-trusted.$(OBJEXT) \
 	mate_session-gsm-xsmp-server.$(OBJEXT)
 mate_session_OBJECTS = $(am_mate_session_OBJECTS)
 mate_session_DEPENDENCIES = libgsmutil.la $(am__DEPENDENCIES_1) \
@@ -452,6 +453,8 @@ mate_session_SOURCES = \
 	gsm-manager.h				\
 	gsm-session-save.c			\
 	gsm-session-save.h			\
+	gsm-trusted.c				\
+	gsm-trusted.h				\
 	gsm-xsmp-server.c			\
 	gsm-xsmp-server.h
 
@@ -655,6 +658,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_session-gsm-presence.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_session-gsm-session-save.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_session-gsm-store.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_session-gsm-trusted.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_session-gsm-xsmp-client.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_session-gsm-xsmp-server.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mate_session-main.Po@am__quote@
@@ -965,6 +969,20 @@ mate_session-gsm-session-save.obj: gsm-session-save.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='gsm-session-save.c' object='mate_session-gsm-session-save.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_session_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mate_session-gsm-session-save.obj `if test -f 'gsm-session-save.c'; then $(CYGPATH_W) 'gsm-session-save.c'; else $(CYGPATH_W) '$(srcdir)/gsm-session-save.c'; fi`
+
+mate_session-gsm-trusted.o: gsm-trusted.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_session_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mate_session-gsm-trusted.o -MD -MP -MF $(DEPDIR)/mate_session-gsm-trusted.Tpo -c -o mate_session-gsm-trusted.o `test -f 'gsm-trusted.c' || echo '$(srcdir)/'`gsm-trusted.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/mate_session-gsm-trusted.Tpo $(DEPDIR)/mate_session-gsm-trusted.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='gsm-trusted.c' object='mate_session-gsm-trusted.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_session_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mate_session-gsm-trusted.o `test -f 'gsm-trusted.c' || echo '$(srcdir)/'`gsm-trusted.c
+
+mate_session-gsm-trusted.obj: gsm-trusted.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_session_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mate_session-gsm-trusted.obj -MD -MP -MF $(DEPDIR)/mate_session-gsm-trusted.Tpo -c -o mate_session-gsm-trusted.obj `if test -f 'gsm-trusted.c'; then $(CYGPATH_W) 'gsm-trusted.c'; else $(CYGPATH_W) '$(srcdir)/gsm-trusted.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/mate_session-gsm-trusted.Tpo $(DEPDIR)/mate_session-gsm-trusted.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='gsm-trusted.c' object='mate_session-gsm-trusted.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_session_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mate_session-gsm-trusted.obj `if test -f 'gsm-trusted.c'; then $(CYGPATH_W) 'gsm-trusted.c'; else $(CYGPATH_W) '$(srcdir)/gsm-trusted.c'; fi`
 
 mate_session-gsm-xsmp-server.o: gsm-xsmp-server.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mate_session_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mate_session-gsm-xsmp-server.o -MD -MP -MF $(DEPDIR)/mate_session-gsm-xsmp-server.Tpo -c -o mate_session-gsm-xsmp-server.o `test -f 'gsm-xsmp-server.c' || echo '$(srcdir)/'`gsm-xsmp-server.c

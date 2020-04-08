@@ -52,6 +52,8 @@ mate_session_SOURCES =				\
 	gsm-manager.h				\
 	gsm-session-save.c			\
 	gsm-session-save.h			\
+	gsm-trusted.c				\
+	gsm-trusted.h				\
 	gsm-xsmp-server.c			\
 	gsm-xsmp-server.h
 

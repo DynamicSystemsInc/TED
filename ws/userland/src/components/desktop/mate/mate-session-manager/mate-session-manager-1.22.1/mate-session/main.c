@@ -82,6 +82,7 @@
 static gboolean failsafe = FALSE;
 static gboolean show_version = FALSE;
 static gboolean debug = FALSE;
+static gboolean trusted_session = FALSE;
 
 static gboolean
 initialize_gsettings (void)
@@ -574,6 +575,7 @@ int main(int argc, char** argv)
 	struct sigaction sa;
 	GError* error;
 	const char* display_str;
+	GdkDisplay *gdisp;
 	GsmManager* manager;
 	GsmStore* client_store;
 	GsmXsmpServer* xsmp_server;
@@ -586,6 +588,8 @@ int main(int argc, char** argv)
 		{"autostart", 'a', 0, G_OPTION_ARG_STRING_ARRAY, &override_autostart_dirs, N_("Override standard autostart directories"), NULL},
 		{"debug", 0, 0, G_OPTION_ARG_NONE, &debug, N_("Enable debugging code"), NULL},
 		{"failsafe", 'f', 0, G_OPTION_ARG_NONE, &failsafe, N_("Do not load user-specified applications"), NULL},
+       /* SUN_BRANDING */
+                { "trusted-session", 0, 0, G_OPTION_ARG_NONE, &trusted_session, N_("Used for Trusted Multi-Label Session"), NULL },
 		{"version", 0, 0, G_OPTION_ARG_NONE, &show_version, N_("Version of this application"), NULL},
 		{NULL, 0, 0, 0, NULL, NULL, NULL }
 	};
@@ -595,6 +599,8 @@ int main(int argc, char** argv)
 	{
 		gsm_util_init_error(TRUE, "%s", error->message);
 	}
+
+	drop_privs();
 
 	bindtextdomain(GETTEXT_PACKAGE, LOCALE_DIR);
 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
@@ -607,6 +613,9 @@ int main(int argc, char** argv)
 
 	error = NULL;
 	gtk_init_with_args(&argc, &argv, (char*) _(" - the MATE session manager"), entries, GETTEXT_PACKAGE, &error);
+
+	/* GLENN */
+	//trusted_session = FALSE;
 
 	if (error != NULL)
 	{
@@ -644,8 +653,17 @@ int main(int argc, char** argv)
 	/* Set DISPLAY explicitly for all our children, in case --display
 	 * was specified on the command line.
 	 */
-	display_str = gdk_display_get_name (gdk_display_get_default());
+	gdisp = gdk_display_get_default();
+	display_str = gdk_display_get_name (gdisp);
 	gsm_util_setenv("DISPLAY", display_str);
+
+    	if (trusted_session) {
+		/*
+        	if (!trusted_session_init (gdk_x11_get_default_xdisplay ()));
+            		exit (1);
+		*/
+        	trusted_session_init (gdk_x11_get_default_xdisplay ());
+	}
 
 	/* Some third-party programs rely on MATE_DESKTOP_SESSION_ID to
 	 * detect if MATE is running. We keep this for compatibility reasons.
@@ -703,7 +721,12 @@ int main(int argc, char** argv)
 	}
 
 	gsm_xsmp_server_start(xsmp_server);
-	gsm_manager_start(manager);
+	if (trusted_session) {
+            gsm_trusted_session_start ();
+            gsm_manager_set_phase (manager, GSM_MANAGER_PHASE_RUNNING);
+        } else {
+            gsm_manager_start (manager);
+        }
 
 	gtk_main();
 
