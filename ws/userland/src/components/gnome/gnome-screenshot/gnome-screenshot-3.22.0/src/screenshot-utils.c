@@ -26,6 +26,9 @@
 #include <glib/gstdio.h>
 #include <canberra-gtk.h>
 #include <stdlib.h>
+#include <gdk/gdkx.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
+#include <X11/Xatom.h>
 
 #ifdef HAVE_X11_EXTENSIONS_SHAPE_H
 #include <X11/extensions/shape.h>
@@ -35,6 +38,45 @@
 #include "screenshot-application.h"
 #include "screenshot-config.h"
 #include "screenshot-utils.h"
+
+static Window
+get_active_window()
+{
+
+  GdkWindow *ret = NULL;
+  Atom type_return;
+  Atom active_window;
+  gint format_return;
+  gulong nitems_return;
+  gulong bytes_after_return;
+  guchar *data = NULL;
+  GdkWindow *root_window = gdk_get_default_root_window ();
+  Window root = GDK_WINDOW_XID (root_window);
+  Window xwindow = root;
+  Display *display = GDK_DISPLAY_XDISPLAY (gdk_display_get_default ());
+
+
+
+  display = GDK_DISPLAY_XDISPLAY (gdk_display_get_default ());
+  active_window = XInternAtom(display, "_NET_ACTIVE_WINDOW", TRUE);
+  if (XGetWindowProperty (display, root, active_window,
+                          0, 1, False, XA_WINDOW, &type_return,
+                          &format_return, &nitems_return,
+                          &bytes_after_return, &data)
+      == Success)
+    {    
+      if ((type_return == XA_WINDOW) && (format_return == 32) && (data))
+        {    
+          xwindow = *(Window *) data;
+	  if (data)
+	    XFree (data);
+	} 
+    }    
+
+  return xwindow; 
+}
+
+
 
 static GdkWindow *
 screenshot_find_active_window (void)
@@ -330,7 +372,7 @@ screenshot_fallback_fire_flash (GdkWindow *window,
 GdkWindow *
 do_find_current_window (void)
 {
-  GdkWindow *current_window;
+  GdkWindow *current_window = NULL;
   GdkDeviceManager *manager;
   GdkDevice *device;
 
@@ -387,9 +429,26 @@ screenshot_fallback_get_pixbuf (GdkRectangle *rectangle)
   Window wm;
   GtkBorder frame_offset = { 0, 0, 0, 0 };
   GdkWindow *window;
+  Window xwindow;
+  XWindowAttributes wa;
+  int status;
 
+  if (screenshot_config->take_window_shot) {
+	  gdk_pixbuf_xlib_init(GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()), 0);
+	  xwindow = get_active_window();
+	  if (xwindow == None) {
+  		  window = screenshot_fallback_find_current_window ();
+		  xwindow = GDK_WINDOW_XID (window);
+	  }
+	  status = XGetWindowAttributes (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()), xwindow, &wa);
+	  if (status == 1) {
+		  screenshot = gdk_pixbuf_xlib_get_from_drawable (NULL, xwindow, 0, NULL, 0, 0, 0, 0, wa.width, wa.height);
+	  } else {
+		  g_warning ("Couldn't get window attributes");
+		  return None;
+	  }
+  } else {
   window = screenshot_fallback_find_current_window ();
-
   screenshot_fallback_get_window_rect_coords (window, 
                                               screenshot_config->include_border,
                                               &real_coords,
@@ -426,10 +485,10 @@ screenshot_fallback_get_pixbuf (GdkRectangle *rectangle)
   screenshot = gdk_pixbuf_get_from_window (root,
                                            screenshot_coords.x, screenshot_coords.y,
                                            screenshot_coords.width, screenshot_coords.height);
-
   if (!screenshot_config->take_window_shot &&
       !screenshot_config->take_area_shot)
     mask_monitors (screenshot, root);
+  }
 
 #ifdef HAVE_X11_EXTENSIONS_SHAPE_H
   if (screenshot_config->include_border && (wm != None))
@@ -582,7 +641,9 @@ screenshot_fallback_get_pixbuf (GdkRectangle *rectangle)
         }
     }
 
+  /*
   screenshot_fallback_fire_flash (window, rectangle);
+  */
 
   return screenshot;
 }
@@ -602,7 +663,7 @@ screenshot_get_pixbuf (GdkRectangle *rectangle)
 
   tmpname = g_strdup_printf ("scr-%d.png", g_random_int ());
   filename = g_build_filename (path, tmpname, NULL);
-
+#if 0
   if (screenshot_config->take_window_shot)
     {
       method_name = "ScreenshotWindow";
@@ -659,6 +720,8 @@ screenshot_get_pixbuf (GdkRectangle *rectangle)
 
       screenshot = screenshot_fallback_get_pixbuf (rectangle);
     }
+#endif
+      screenshot = screenshot_fallback_get_pixbuf (rectangle);
 
   g_free (path);
   g_free (tmpname);
