@@ -34,6 +34,12 @@
 #include "workspace.h"
 #include "xutils.h"
 #include "private.h"
+#ifdef HAVE_XTSOL 
+#include "wnck-tsol.h"
+#endif /* HAVE_XTSOL */
+#ifdef HAVE_XTSOL_LATER
+#include "trusted-tooltips.h"
+#endif /* HAVE_XTSOL_LATER */
 
 /**
  * SECTION:tasklist
@@ -197,6 +203,10 @@ struct _WnckTasklistPrivate
 
   GHashTable *class_group_hash;
   GHashTable *win_hash;
+  
+#ifdef HAVE_XTSOL_LATER
+  TrustedTooltips *tooltips;
+#endif /*HAVE_XTSOL*/   
 
   gint max_button_width;
   gint max_button_height;
@@ -1209,9 +1219,15 @@ wnck_tasklist_size_request  (GtkWidget      *widget,
    * into account the hidden widgets.
    */
   tasklist->priv->max_button_width = wnck_tasklist_get_button_size (widget);
+  /* GLENN*/
+  //max_height -= 4;
+
   tasklist->priv->max_button_height = max_height;
 
   gtk_widget_get_allocation (GTK_WIDGET (tasklist), &tasklist_allocation);
+
+  /* GLENN */
+ //tasklist_allocation.height -= 4;
 
   fake_allocation.width = tasklist_allocation.width;
   fake_allocation.height = tasklist_allocation.height;
@@ -2067,6 +2083,10 @@ wnck_tasklist_new (void)
   WnckTasklist *tasklist;
 
   tasklist = g_object_new (WNCK_TYPE_TASKLIST, NULL);
+#ifdef HAVE_XTSOL_LATER
+  if (_wnck_use_trusted_extensions () == TRUE)
+    tasklist->priv->tooltips = trusted_tooltips_new ();
+#endif /*HAVE_XTSOL*/
 
   return GTK_WIDGET (tasklist);
 }
@@ -2935,6 +2955,10 @@ wnck_task_popup_menu (WnckTask *task,
 	{
 	  image = gtk_image_new_from_pixbuf (pixbuf);
 	  gtk_widget_show (image);
+#ifdef HAVE_XTSOL
+      if (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions())
+	image = window_menu_create_label_indicator (win_task->window, image);
+#endif /*HAVE_XTSOL*/	  
 	  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item),
 					 image);
 	  g_object_unref (pixbuf);
@@ -3317,6 +3341,15 @@ wnck_task_update_visible_state (WnckTask *task)
   text = wnck_task_get_text (task, TRUE, TRUE);
   if (text != NULL)
     {
+#ifdef HAVE_XTSOL_LATER
+    if (_wnck_use_trusted_extensions () == TRUE)
+        trusted_tooltips_set_tip (task->tasklist->priv->tooltips,
+                                task->button,
+                                 text,
+                                 task->window ? wnck_window_get_label_human_readable (task->window) : "",
+                                 task->window ? wnck_window_get_label_color (task->window) : NULL,
+                                 NULL);
+#endif /* HAVE_XTSOL */
       gtk_label_set_text (GTK_LABEL (task->label), text);
       if (wnck_task_get_needs_attention (task))
         {
@@ -3800,7 +3833,24 @@ wnck_task_create_widgets (WnckTask *task, GtkReliefStyle relief)
   g_free (text);
 
   text = wnck_task_get_text (task, FALSE, FALSE);
+#ifdef HAVE_XTSOL_LATER
+  if (_wnck_use_trusted_extensions () == TRUE)
+    {
+      if (task->window)
+        {
+         trusted_tooltips_set_tip (task->tasklist->priv->tooltips,
+                                   task->button,
+                                   text,
+                                   wnck_window_get_label_human_readable (task->window),
+                                   wnck_window_get_label_color (task->window),
+                                   NULL);
+        }
+    else
+      trusted_tooltips_set_tip (task->tasklist->priv->tooltips, task->button, text, "Hum No Label", NULL, NULL);
+  }
+#else
   gtk_widget_set_tooltip_text (task->button, text);
+#endif /*HAVE_XTSOL*/
   g_free (text);
 
   /* Set up signals */
@@ -3897,6 +3947,45 @@ wnck_task_create_widgets (WnckTask *task, GtkReliefStyle relief)
 #define ARROW_SIZE 12
 #define INDICATOR_SIZE 7
 
+#ifdef HAVE_XTSOL
+static void
+draw_trusted_label (GtkWidget* widget, cairo_t *cr, WnckTask *task)
+{
+  GtkStyle *style;
+  int x_offset;
+  ConstraintImage *cimage;
+  GdkRectangle area;
+  GdkRectangle task_label_area;
+  GdkRectangle task_button_area;
+  GdkRectangle task_image_area;
+
+  style = gtk_widget_get_style(task->button);
+  /* get the width of the icon and the padding */
+  gtk_widget_get_allocation(task->image, &task_image_area);
+  x_offset = task_image_area.width + (style->xthickness *2);
+
+  gtk_widget_get_allocation(widget, &area);
+  area.x = x_offset;
+  gtk_widget_get_allocation(task->label, &task_label_area);
+  gtk_widget_get_allocation(task->button, &task_button_area);
+  area.height = task_button_area.height - task_label_area.height;
+  area.height = 4;
+  area.width = task_label_area.width;
+
+  cimage = get_highlight_stripe ((char*)wnck_window_get_label (task->window),
+        wnck_window_get_label_color (task->window));
+
+  if (cimage)
+    libgnome_tsol_constraint_image_render (cr, cimage, gtk_widget_get_window(widget),
+                                          &area,
+                                          FALSE,
+                                          area.x,
+                                          area.y,
+                                          area.width,
+                                          area.height);
+}
+#endif /* HAVE_XTSOL */
+
 static gboolean
 wnck_task_draw (GtkWidget *widget,
                 cairo_t   *cr,
@@ -3915,6 +4004,9 @@ wnck_task_draw (GtkWidget *widget,
   GdkRGBA color;
 
   task = WNCK_TASK (data);
+#ifdef HAVE_XTSOL 
+  draw_trusted_label (widget, cr, (WnckTask*) data);
+#endif
 
   switch (task->type)
     {

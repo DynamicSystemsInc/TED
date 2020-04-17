@@ -26,6 +26,7 @@
 #include <glib/gi18n-lib.h>
 #include <string.h>
 #include <time.h>
+#include <gdk/gdkx.h>
 
 #include "window.h"
 #include "class-group.h"
@@ -43,6 +44,13 @@
  * The #WnckWindow objects are always owned by libwnck and must not be
  * referenced or unreferenced.
  */
+
+#ifdef HAVE_XTSOL
+#include <strings.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <wnck-tsol.h>
+#endif
 
 #define FALLBACK_NAME _("Untitled window")
 #define ALL_WORKSPACES (0xFFFFFFFF)
@@ -81,6 +89,11 @@ struct _WnckWindowPrivate
   char *icon_name;
   char *session_id;
   char *session_id_utf8;
+#ifdef HAVE_XTSOL
+  char *label;
+  GdkRGBA *label_color;
+  char *label_color_str;
+#endif
   char *role;
   int pid;
   int workspace;
@@ -99,6 +112,9 @@ struct _WnckWindowPrivate
   int y;
   int width;
   int height;
+#ifdef HAVE_XTSOL
+  int is_trusted;
+#endif
 
   int left_frame;
   int right_frame;
@@ -164,6 +180,9 @@ struct _WnckWindowPrivate
   guint need_emit_class_changed : 1;
   guint need_emit_role_changed : 1;
   guint need_emit_type_changed : 1;
+#ifdef HAVE_XTSOL
+  guint need_update_label : 1;
+#endif
 };
 
 G_DEFINE_TYPE (WnckWindow, wnck_window, G_TYPE_OBJECT);
@@ -221,6 +240,10 @@ static WnckWindow* find_last_transient_for (GList *windows,
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
+#ifdef TSOL
+static void update_window_role (WnckWindow *window);
+#endif
+
 void
 _wnck_window_shutdown_all (void)
 {
@@ -240,6 +263,9 @@ wnck_window_init (WnckWindow *window)
   window->priv->icon_geometry.width = -1; /* invalid cached value */
   window->priv->workspace = -1;
   window->priv->sort_order = G_MAXINT;
+#ifdef HAVE_XTSOL
+  window->priv->is_trusted = -1;
+#endif
 
   /* FIXME: should we have an invalid window type for this? */
   window->priv->wintype = WNCK_WINDOW_NORMAL;
@@ -438,6 +464,12 @@ wnck_window_finalize (GObject *object)
   _wnck_icon_cache_free (window->priv->icon_cache);
   window->priv->icon_cache = NULL;
 
+#ifdef HAVE_XTSOL
+  g_free (window->priv->label);
+  g_free (window->priv->label_color);
+  g_free (window->priv->role);
+#endif
+
   g_free (window->priv->startup_id);
   window->priv->startup_id = NULL;
   g_free (window->priv->res_class);
@@ -563,10 +595,39 @@ _wnck_window_create (Window      xwindow,
   window->priv->need_emit_class_changed = FALSE;
   window->priv->need_emit_role_changed = FALSE;
   window->priv->need_emit_type_changed = FALSE;
+#ifdef HAVE_XTSOL
+  window->priv->need_update_label = TRUE;
+#endif
   force_update_now (window);
 
   return window;
 }
+
+#ifdef HAVE_XTSOL
+/**
+ * wnck_window_is_trusted:
+ * @window: a #WnckWindow
+ *
+ * Trusted here means that the application running in the window is
+ * in the trusted path.
+ *
+ * Return value: %TRUE if the window is trusted.
+ **/
+gboolean
+wnck_window_is_trusted                (WnckWindow *window)
+{
+  g_return_val_if_fail (WNCK_IS_WINDOW (window), FALSE);
+  if (!_wnck_check_xtsol_extension()) {
+      g_warning ("wnck_window_is_trusted() was called but the X server does not support the SUN_TSOL extension");
+      return 0;
+  }
+  if (!_wnck_use_trusted_extensions()) {
+      g_warning ("wnck_window_is_trusted(): Can not initialise the trusted extensions libraries. Check your installation");
+      return 0;
+  }
+  return window->priv->is_trusted;
+}
+#endif
 
 void
 _wnck_window_destroy (WnckWindow *window)
@@ -722,6 +783,84 @@ _wnck_window_get_name_for_display (WnckWindow *window,
     return g_strdup (name);
 }
 
+#ifdef HAVE_XTSOL
+/**
+ * wnck_window_get_label:
+ * @window: a #WnckWindow
+ *
+ * Gets the sensitivity label of the window in it's long string
+ * representation.
+ *
+ * Return value: sensitivity label of the window.
+ * If the window has no sensitivity label set, %NULL is returned.
+ **/
+const char*
+wnck_window_get_label (WnckWindow *window)
+{
+  g_return_val_if_fail (WNCK_IS_WINDOW (window), NULL);
+  if (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions())
+      return window->priv->label;
+  return NULL;
+}
+/**
+ * wnck_window_get_label_human_readable:
+ * @window: a #WnckWindow
+ *
+ * Gets the sensitivity label of the window and returns it in a
+ * form suitable for presentation in a user visible interface.
+ *
+ * Return value: sensitivity label of the window appropriate for
+ * human presentation.
+ * If the window has no sensitivity label set, %NULL is returned.
+ **/
+char*
+wnck_window_get_label_human_readable (WnckWindow *window)
+{
+  char *human_readable_label;
+  g_return_val_if_fail (WNCK_IS_WINDOW (window), NULL);
+  if (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions())
+    {
+      int error;
+      m_label_t *mlabel = NULL;
+
+      if (wnck_window_is_trusted (window))
+       /* SUN_BRANDING TJDS */
+       return g_strdup (_("Trusted Path"));
+
+      if (window->priv->label != NULL &&
+         (error = libtsol_str_to_label (window->priv->label,
+                                &mlabel, MAC_LABEL,
+                                L_NO_CORRECTION, &error)) == 0)
+       {
+         error = libtsol_label_to_str (mlabel,
+                               &human_readable_label,
+                               M_LABEL, DEF_NAMES);
+         return human_readable_label;
+       }
+    }
+  return NULL;
+}
+
+GdkRGBA *
+wnck_window_get_label_color (WnckWindow *window)
+{
+  g_return_val_if_fail (WNCK_IS_WINDOW (window), NULL);
+  if (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions())
+      return window->priv->label_color;
+  else
+      return NULL;
+}
+
+const char *
+wnck_window_get_label_color_str (WnckWindow *window)
+{
+  g_return_val_if_fail (WNCK_IS_WINDOW (window), NULL);
+  if (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions())
+      return window->priv->label_color_str;
+  else
+      return NULL;
+}
+#endif
 
 /**
  * wnck_window_get_application:
@@ -1842,8 +1981,43 @@ void
 wnck_window_move_to_workspace (WnckWindow    *window,
                                WnckWorkspace *space)
 {
+#ifdef HAVE_XTSOL
+  static char *workstationowner = NULL;
+#endif
+
   g_return_if_fail (WNCK_IS_WINDOW (window));
   g_return_if_fail (WNCK_IS_WORKSPACE (space));
+
+#ifdef HAVE_XTSOL
+  if ((_wnck_check_xtsol_extension) && (_wnck_use_trusted_extensions ())) {
+    char *windowrole = NULL;
+    char *workspacerole = wnck_workspace_get_role (space);
+	windowrole = wnck_window_get_role (window);
+    /*
+     * Only windows that are in the Trusted Path
+     * are allowed to be move onto a role workspace
+     * This could be implemented in _wnck_window_change_workspace() but
+     * it's less complicated to do so here.
+     */
+    if (workstationowner == NULL) {
+      uid_t wsuid;
+      struct passwd *pwd;
+      if ((libxtsol_XTSOLgetWorkstationOwner (gdk_x11_get_default_xdisplay (), &wsuid)) < 0) {
+        g_warning ("XTSOLgetWorkstationOwner() failed. Using getuid() instead");
+        pwd = getpwuid (getuid ());
+      } else
+        pwd = getpwuid (wsuid);
+	  workstationowner = g_strdup (pwd->pw_name);
+    }
+
+    /* Don't allow non-trusted path windows into role workspaces unless the window role
+     * matches the workspace role
+     */
+    if ((workspacerole != NULL) && (strcmp (workstationowner, workspacerole)) &&
+      (!wnck_window_is_trusted (window)) && (strcmp (workspacerole, windowrole)))
+      return;
+  }
+#endif
 
   _wnck_change_workspace (WNCK_SCREEN_XSCREEN (window->priv->screen),
 			  window->priv->xwindow,
@@ -2459,9 +2633,38 @@ gboolean
 wnck_window_is_on_workspace (WnckWindow    *window,
                              WnckWorkspace *workspace)
 {
+#ifdef HAVE_XTSOL
+  static char *workstationowner = NULL;
+#endif
+
   g_return_val_if_fail (WNCK_IS_WINDOW (window), FALSE);
   g_return_val_if_fail (WNCK_IS_WORKSPACE (workspace), FALSE);
 
+#ifdef HAVE_XTSOL
+  /*
+   * Non trusted path windows will not be visible on role workspaces
+   * unless the window role matches the workspace role.
+   */
+  if (_wnck_use_trusted_extensions () && _wnck_check_xtsol_extension ()) {
+	char *windowrole = g_strdup (wnck_window_get_role (window));
+    char *workspacerole = wnck_workspace_get_role (workspace);
+
+    if (workstationowner == NULL) {
+      uid_t wsuid;
+      struct passwd *pwd;
+      if ((libxtsol_XTSOLgetWorkstationOwner (gdk_x11_get_default_xdisplay (), &wsuid)) < 0) {
+        g_warning ("XTSOLgetWorkstationOwner() failed. Using getuid() instead");
+        pwd = getpwuid (getuid ());
+      } else
+        pwd = getpwuid (wsuid);
+	  workstationowner = g_strdup (pwd->pw_name);
+    }
+    if ((workspacerole != NULL) && (strcmp (workstationowner, workspacerole)) &&
+      (!wnck_window_is_trusted (window)) && (strcmp (workspacerole, windowrole))) {
+      return FALSE;
+    }
+  }
+#endif
   return wnck_window_is_pinned (window) ||
     wnck_window_get_workspace (window) == workspace;
 }
@@ -2488,8 +2691,12 @@ wnck_window_is_in_viewport (WnckWindow    *window,
   g_return_val_if_fail (WNCK_IS_WINDOW (window), FALSE);
   g_return_val_if_fail (WNCK_IS_WORKSPACE (workspace), FALSE);
 
+  /* Being pinned is no guarantee in a trusted desktop */
+  /* TESTME */
+#ifndef HAVE_XTSOL
   if (wnck_window_is_pinned (window) )
     return TRUE;
+#endif
 
   if (wnck_window_get_workspace (window) != workspace)
     return FALSE;
@@ -2866,6 +3073,91 @@ update_icon_name (WnckWindow *window)
   g_free (window->priv->icon_name);
   window->priv->icon_name = new_name;
 }
+
+#ifdef HAVE_XTSOL
+
+static void 
+update_label_color (WnckWindow *window, m_label_t* label)
+{
+  #define DEFAULT_COLOR	"white"
+  int error;
+
+  if (window->priv->label_color)
+    g_free (window->priv->label_color);
+
+  if (window->priv->label_color_str)
+    g_free (window->priv->label_color_str);
+
+  window->priv->label_color = g_new0 (GdkRGBA, 1);
+  
+  error = libtsol_label_to_str (label, &window->priv->label_color_str, M_COLOR, DEF_NAMES);
+  if (window->priv->label_color_str == NULL)
+    window->priv->label_color_str = g_strdup(DEFAULT_COLOR);
+
+  gdk_rgba_parse (window->priv->label_color, (const char*)window->priv->label_color_str);
+}
+
+static void
+update_window_role (WnckWindow *window)
+{
+  int error;
+  gulong xid;
+  uid_t uid = -1;
+  struct passwd *pwd;
+
+  if (window->priv->role)
+    g_free (window->priv->role);
+  xid = wnck_window_get_xid (window);
+  error = libxtsol_XTSOLgetResUID (gdk_x11_get_default_xdisplay (),
+    xid, IsWindow, &uid);
+  if ((error < 0) || (uid < 0)) {
+    pwd = getpwuid (getuid);
+    g_warning ("XTSOLgetResUID() failed. Assuming window %ld belongs to %s\n", xid, pwd->pw_name);
+  } else
+    pwd = getpwuid (uid);
+  window->priv->role = g_strdup (pwd->pw_name);
+}
+
+/*
+ * Since window sensitivity labels are static, this is a one time
+ * only function for each window.
+ */
+void
+wnck_window_update_label (WnckWindow *window)
+{
+  g_return_if_fail (window->priv->label == NULL);
+
+  if (!window->priv->need_update_label)
+    return;
+  window->priv->need_update_label = FALSE;
+
+  if (!_wnck_use_trusted_extensions())
+    return;
+
+  /* Check for a trusted windowing environment first */
+  if (_wnck_check_xtsol_extension () && _wnck_use_trusted_extensions()) {
+      if (window->priv->label == NULL) {
+          m_label_t label;
+          int error;
+          if (libxtsol_XTSOLgetResLabel(gdk_x11_get_default_xdisplay(),
+                window->priv->xwindow, IsWindow, &label)) {
+             error = libtsol_label_to_str (&label, &window->priv->label, M_INTERNAL,
+                                   LONG_NAMES);
+	      /* add label color */
+	     update_label_color (window, &label);
+	     update_window_role (window);
+	     
+          } else {
+             window->priv->label = NULL;
+          }
+      }
+  } else {
+      g_warning("Window labelling needs the SUN_TSOL X server extension");
+      return;
+  }
+ 
+}
+#endif
 
 static void
 update_workspace (WnckWindow *window)
@@ -3281,6 +3573,16 @@ force_update_now (WnckWindow *window)
   if (window->priv->need_emit_name_changed)
     emit_name_changed (window);
 
+#ifdef HAVE_XTSOL
+  if (_wnck_check_xtsol_extension () && _wnck_use_trusted_extensions()) {
+      if (window->priv->is_trusted < 0)
+          window->priv->is_trusted =
+              libxtsol_XTSOLIsWindowTrusted(gdk_x11_get_default_xdisplay(),
+              window->priv->xwindow);
+      if (window->priv->label == NULL)
+          wnck_window_update_label (window);
+  }
+#endif
   old_state = COMPRESS_STATE (window);
   old_actions = window->priv->actions;
 

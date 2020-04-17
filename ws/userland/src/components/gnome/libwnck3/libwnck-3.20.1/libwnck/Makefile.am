@@ -22,6 +22,7 @@ AM_CPPFLAGS =					\
 	$(LIBWNCK_CFLAGS)			\
 	-I$(top_srcdir)				\
 	-I$(top_builddir)			\
+	-I/usr/include/libgnometsol		\
 	-DWNCK_I_KNOW_THIS_IS_UNSTABLE		\
 	-DWNCK_LOCALEDIR=\"$(wncklocaledir)\"	\
 	$(DISABLE_DEPRECATED_CFLAGS)
@@ -39,6 +40,7 @@ wnck_headers =			\
 	util.h			\
 	window.h 		\
 	window-action-menu.h	\
+	wnck-tsol.h		\
 	workspace.h
 
 wnck_built_installed_headers = wnck-enum-types.h
@@ -60,6 +62,7 @@ wnck_sources =			\
 	util.c			\
 	window.c		\
 	window-action-menu.c	\
+	wnck-tsol.c		\
 	workspace.c
 
 wnck_accessibility_files =			\
@@ -91,11 +94,13 @@ libwnck_3_la_CPPFLAGS =			\
 	$(XLIB_CFLAGS)			\
 	-DG_LOG_DOMAIN=\"Wnck\"		\
 	-DWNCK_COMPILATION		\
-	-DSN_API_NOT_YET_FROZEN=1
+	-DSN_API_NOT_YET_FROZEN=1	\
+	-DHAVE_XTSOL
 
 libwnck_3_la_LIBADD =	\
 	$(LIBWNCK_LIBS)	\
 	$(XLIB_LIBS)	\
+	-lgnometsol	\
 	$(LIBM)
 
 libwnck_3_la_LDFLAGS =								\

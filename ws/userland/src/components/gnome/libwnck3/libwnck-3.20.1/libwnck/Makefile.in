@@ -162,7 +162,7 @@ am__objects_4 = libwnck_3_la-application.lo \
 	libwnck_3_la-screen.lo libwnck_3_la-selector.lo \
 	libwnck_3_la-tasklist.lo libwnck_3_la-util.lo \
 	libwnck_3_la-window.lo libwnck_3_la-window-action-menu.lo \
-	libwnck_3_la-workspace.lo
+	libwnck_3_la-wnck-tsol.lo libwnck_3_la-workspace.lo
 am__objects_5 = libwnck_3_la-pager-accessible.lo \
 	libwnck_3_la-pager-accessible-factory.lo \
 	libwnck_3_la-workspace-accessible.lo \
@@ -478,6 +478,7 @@ AM_CPPFLAGS = \
 	$(LIBWNCK_CFLAGS)			\
 	-I$(top_srcdir)				\
 	-I$(top_builddir)			\
+	-I/usr/include/libgnometsol		\
 	-DWNCK_I_KNOW_THIS_IS_UNSTABLE		\
 	-DWNCK_LOCALEDIR=\"$(wncklocaledir)\"	\
 	$(DISABLE_DEPRECATED_CFLAGS)
@@ -494,6 +495,7 @@ wnck_headers = \
 	util.h			\
 	window.h 		\
 	window-action-menu.h	\
+	wnck-tsol.h		\
 	workspace.h
 
 wnck_built_installed_headers = wnck-enum-types.h
@@ -515,6 +517,7 @@ wnck_sources = \
 	util.c			\
 	window.c		\
 	window-action-menu.c	\
+	wnck-tsol.c		\
 	workspace.c
 
 wnck_accessibility_files = \
@@ -543,11 +546,13 @@ libwnck_3_la_CPPFLAGS = \
 	$(XLIB_CFLAGS)			\
 	-DG_LOG_DOMAIN=\"Wnck\"		\
 	-DWNCK_COMPILATION		\
-	-DSN_API_NOT_YET_FROZEN=1
+	-DSN_API_NOT_YET_FROZEN=1	\
+	-DHAVE_XTSOL
 
 libwnck_3_la_LIBADD = \
 	$(LIBWNCK_LIBS)	\
 	$(XLIB_LIBS)	\
+	-lgnometsol	\
 	$(LIBM)
 
 libwnck_3_la_LDFLAGS = \
@@ -776,6 +781,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-window-action-menu.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-window.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-wnck-enum-types.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-wnck-tsol.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-workspace-accessible-factory.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-workspace-accessible.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-workspace.Plo@am__quote@
@@ -879,6 +885,13 @@ libwnck_3_la-window-action-menu.lo: window-action-menu.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='window-action-menu.c' object='libwnck_3_la-window-action-menu.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwnck_3_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libwnck_3_la-window-action-menu.lo `test -f 'window-action-menu.c' || echo '$(srcdir)/'`window-action-menu.c
+
+libwnck_3_la-wnck-tsol.lo: wnck-tsol.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwnck_3_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libwnck_3_la-wnck-tsol.lo -MD -MP -MF $(DEPDIR)/libwnck_3_la-wnck-tsol.Tpo -c -o libwnck_3_la-wnck-tsol.lo `test -f 'wnck-tsol.c' || echo '$(srcdir)/'`wnck-tsol.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libwnck_3_la-wnck-tsol.Tpo $(DEPDIR)/libwnck_3_la-wnck-tsol.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='wnck-tsol.c' object='libwnck_3_la-wnck-tsol.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwnck_3_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libwnck_3_la-wnck-tsol.lo `test -f 'wnck-tsol.c' || echo '$(srcdir)/'`wnck-tsol.c
 
 libwnck_3_la-workspace.lo: workspace.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwnck_3_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libwnck_3_la-workspace.lo -MD -MP -MF $(DEPDIR)/libwnck_3_la-workspace.Tpo -c -o libwnck_3_la-workspace.lo `test -f 'workspace.c' || echo '$(srcdir)/'`workspace.c

@@ -3,7 +3,7 @@
 
 #include <libwnck/libwnck.h>
 
-/* enumerations from "pager.h" */
+/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/pager.h" */
 static const GEnumValue _wnck_pager_display_mode_values[] = {
   { WNCK_PAGER_DISPLAY_NAME, "WNCK_PAGER_DISPLAY_NAME", "name" },
   { WNCK_PAGER_DISPLAY_CONTENT, "WNCK_PAGER_DISPLAY_CONTENT", "content" },
@@ -22,7 +22,7 @@ wnck_pager_display_mode_get_type (void)
 }
 
 
-/* enumerations from "screen.h" */
+/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/screen.h" */
 static const GEnumValue __wncklayoutorientation___wnck_layout_orientation_values[] = {
   { WNCK_LAYOUT_ORIENTATION_HORIZONTAL, "WNCK_LAYOUT_ORIENTATION_HORIZONTAL", "horizontal" },
   { WNCK_LAYOUT_ORIENTATION_VERTICAL, "WNCK_LAYOUT_ORIENTATION_VERTICAL", "vertical" },
@@ -60,7 +60,7 @@ _wncklayoutcorner___wnck_layout_corner_get_type (void)
 }
 
 
-/* enumerations from "tasklist.h" */
+/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/tasklist.h" */
 static const GEnumValue _wnck_tasklist_grouping_type_values[] = {
   { WNCK_TASKLIST_NEVER_GROUP, "WNCK_TASKLIST_NEVER_GROUP", "never-group" },
   { WNCK_TASKLIST_AUTO_GROUP, "WNCK_TASKLIST_AUTO_GROUP", "auto-group" },
@@ -80,7 +80,7 @@ wnck_tasklist_grouping_type_get_type (void)
 }
 
 
-/* enumerations from "util.h" */
+/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/util.h" */
 static const GEnumValue _wnck_client_type_values[] = {
   { WNCK_CLIENT_TYPE_APPLICATION, "WNCK_CLIENT_TYPE_APPLICATION", "application" },
   { WNCK_CLIENT_TYPE_PAGER, "WNCK_CLIENT_TYPE_PAGER", "pager" },
@@ -99,7 +99,7 @@ wnck_client_type_get_type (void)
 }
 
 
-/* enumerations from "window.h" */
+/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/window.h" */
 static const GFlagsValue _wnck_window_state_values[] = {
   { WNCK_WINDOW_STATE_MINIMIZED, "WNCK_WINDOW_STATE_MINIMIZED", "minimized" },
   { WNCK_WINDOW_STATE_MAXIMIZED_HORIZONTALLY, "WNCK_WINDOW_STATE_MAXIMIZED_HORIZONTALLY", "maximized-horizontally" },
@@ -231,7 +231,7 @@ wnck_window_move_resize_mask_get_type (void)
 }
 
 
-/* enumerations from "workspace.h" */
+/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/workspace.h" */
 static const GEnumValue _wnck_motion_direction_values[] = {
   { WNCK_MOTION_UP, "WNCK_MOTION_UP", "up" },
   { WNCK_MOTION_DOWN, "WNCK_MOTION_DOWN", "down" },

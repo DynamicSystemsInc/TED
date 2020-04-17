@@ -33,10 +33,16 @@
 #include "class-group.h"
 #include "xutils.h"
 #include "private.h"
+#include "wnck-tsol.h"
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 #include <string.h>
 #include <stdlib.h>
+
+#ifdef HAVE_XTSOL
+#include <tsol/label.h>
+#include <sys/tsol/label_macro.h> 
+#endif
 
 /**
  * SECTION:screen
@@ -124,6 +130,10 @@ struct _WnckScreenPrivate
   guint need_update_active_window : 1;
   guint need_update_workspace_layout : 1;
   guint need_update_workspace_names : 1;
+#ifdef HAVE_XTSOL
+  guint need_update_workspace_labels : 1;
+  guint need_update_workspace_roles : 1;
+#endif
   guint need_update_bg_pixmap : 1;
   guint need_update_showing_desktop : 1;
   guint need_update_wm : 1;
@@ -148,6 +158,8 @@ enum {
   SHOWING_DESKTOP_CHANGED,
   VIEWPORTS_CHANGED,
   WM_CHANGED,
+  ROLES_CHANGED,
+  LABELS_CHANGED,
   LAST_SIGNAL
 };
 
@@ -162,6 +174,10 @@ static void update_active_workspace   (WnckScreen      *screen);
 static void update_active_window      (WnckScreen      *screen);
 static void update_workspace_layout   (WnckScreen      *screen);
 static void update_workspace_names    (WnckScreen      *screen);
+#ifdef HAVE_XTSOL
+static void update_workspace_labels   (WnckScreen      *screen);
+static void update_workspace_roles    (WnckScreen      *screen);
+#endif
 static void update_showing_desktop    (WnckScreen      *screen);
 
 static void queue_update            (WnckScreen      *screen);
@@ -192,6 +208,9 @@ static void emit_background_changed       (WnckScreen      *screen);
 static void emit_showing_desktop_changed  (WnckScreen      *screen);
 static void emit_viewports_changed        (WnckScreen      *screen);
 static void emit_wm_changed               (WnckScreen *screen);
+
+void wnck_screen_emit_roles_changed       (WnckScreen *screen);
+void wnck_screen_emit_labels_changed      (WnckScreen *screen);
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
@@ -449,6 +468,22 @@ wnck_screen_class_init (WnckScreenClass *klass)
                   G_STRUCT_OFFSET (WnckScreenClass, window_manager_changed),
                   NULL, NULL, NULL,
                   G_TYPE_NONE, 0);
+
+    signals[ROLES_CHANGED] =
+    g_signal_new ("roles_changed",
+                  G_OBJECT_CLASS_TYPE (object_class),
+                  G_SIGNAL_RUN_LAST,
+                  G_STRUCT_OFFSET (WnckScreenClass, roles_changed),
+                  NULL, NULL, NULL,
+                  G_TYPE_NONE, 0);
+
+    signals[LABELS_CHANGED] =
+    g_signal_new ("labels_changed",
+                  G_OBJECT_CLASS_TYPE (object_class),
+                  G_SIGNAL_RUN_LAST,
+                  G_STRUCT_OFFSET (WnckScreenClass, labels_changed),
+                  NULL, NULL, NULL,
+                  G_TYPE_NONE, 0);
 }
 
 static void
@@ -559,6 +594,10 @@ wnck_screen_construct (Display    *display,
   screen->priv->need_update_active_window = TRUE;
   screen->priv->need_update_workspace_layout = TRUE;
   screen->priv->need_update_workspace_names = TRUE;
+#ifdef HAVE_XTSOL
+  screen->priv->need_update_workspace_labels = TRUE;
+  screen->priv->need_update_workspace_roles = TRUE;
+#endif
   screen->priv->need_update_bg_pixmap = TRUE;
   screen->priv->need_update_showing_desktop = TRUE;
   screen->priv->need_update_wm = TRUE;
@@ -1003,6 +1042,20 @@ _wnck_screen_process_property_notify (WnckScreen *screen,
       screen->priv->need_update_workspace_names = TRUE;
       queue_update (screen);
     }
+#ifdef HAVE_XTSOL
+  else if (xevent->xproperty.atom ==
+           _wnck_atom_get ("_NET_DESKTOP_LABELS"))
+    {
+      screen->priv->need_update_workspace_labels = TRUE;
+      queue_update (screen);
+    }
+  else if (xevent->xproperty.atom ==
+           _wnck_atom_get ("_NET_DESKTOP_ROLES"))
+    {
+      screen->priv->need_update_workspace_roles = TRUE;
+      queue_update (screen);
+    }
+#endif
   else if (xevent->xproperty.atom ==
            _wnck_atom_get ("_XROOTPMAP_ID"))
     {
@@ -2108,6 +2161,87 @@ update_workspace_names (WnckScreen *screen)
   g_list_free (copy);
 }
 
+#ifdef  HAVE_XTSOL
+static void
+update_workspace_labels (WnckScreen *screen)
+{
+  char **labels;
+  int i;
+  GList *tmp;
+  GList *copy;
+
+  if (!screen->priv->need_update_workspace_labels)
+    return;
+
+  screen->priv->need_update_workspace_labels = FALSE;
+
+  labels = _wnck_get_utf8_list (screen->priv->xscreen,
+                                screen->priv->xroot,
+                                _wnck_atom_get ("_NET_DESKTOP_LABELS"));
+
+  copy = g_list_copy (screen->priv->workspaces);
+
+  i = 0;
+  tmp = copy;
+  while (tmp != NULL)
+    {
+      if (labels && labels[i])
+        {
+          _wnck_workspace_update_label (tmp->data, labels[i]);
+          ++i;
+        }
+      else
+        _wnck_workspace_update_label (tmp->data, NULL);
+
+      tmp = tmp->next;
+    }
+
+  g_strfreev (labels);
+
+  g_list_free (copy);
+}
+
+static void
+update_workspace_roles (WnckScreen *screen)
+{
+  char **roles;
+  int i;
+  GList *tmp;
+  GList *copy;
+
+  if (!screen->priv->need_update_workspace_roles)
+    return;
+
+  screen->priv->need_update_workspace_roles = FALSE;
+
+  roles = _wnck_get_utf8_list (screen->priv->xscreen,
+                               screen->priv->xroot,
+                                _wnck_atom_get ("_NET_DESKTOP_ROLES"));
+
+  copy = g_list_copy (screen->priv->workspaces);
+
+  i = 0;
+  tmp = copy;
+  while (tmp != NULL)
+    {
+      if (roles && roles[i])
+        {
+          _wnck_workspace_update_role (tmp->data, roles[i]);
+          ++i;
+        }
+      else
+        _wnck_workspace_update_role (tmp->data, NULL);
+
+      tmp = tmp->next;
+    }
+
+  g_strfreev (roles);
+
+  g_list_free (copy);
+}
+#endif /* HAVE_XTSOL */
+
+
 static void
 update_bg_pixmap (WnckScreen *screen)
 {
@@ -2197,6 +2331,10 @@ do_update_now (WnckScreen *screen)
     {
       screen->priv->need_update_viewport_settings = TRUE;
       screen->priv->need_update_workspace_names = TRUE;
+#ifdef HAVE_XTSOL
+      screen->priv->need_update_workspace_labels = TRUE;
+      screen->priv->need_update_workspace_roles = TRUE;
+#endif
     }
 
   /* First get our big-picture state in order */
@@ -2209,6 +2347,15 @@ do_update_now (WnckScreen *screen)
   update_active_window (screen);
   update_workspace_layout (screen);
   update_workspace_names (screen);
+#ifdef HAVE_XTSOL
+  /* IMPORTANT
+   * Workspace roles MUST be set before labels 
+   * as the valid label range for role workspaces
+   * is different from the user's min and max label
+   */
+  update_workspace_roles (screen);
+  update_workspace_labels (screen);
+#endif
   update_showing_desktop (screen);
   update_wm (screen);
 
@@ -2374,6 +2521,22 @@ emit_wm_changed (WnckScreen *screen)
 {
   g_signal_emit (G_OBJECT (screen),
                  signals[WM_CHANGED],
+                 0);
+}
+
+void
+wnck_screen_emit_roles_changed (WnckScreen *screen)
+{
+  g_signal_emit (G_OBJECT (screen),
+                 signals[ROLES_CHANGED],
+                 0);
+}
+
+void
+wnck_screen_emit_labels_changed (WnckScreen *screen)
+{
+  g_signal_emit (G_OBJECT (screen),
+                 signals[LABELS_CHANGED],
                  0);
 }
 
@@ -2731,3 +2894,87 @@ _wnck_screen_shutdown_all (void)
   g_free (screens);
   screens = NULL;
 }
+
+#ifdef HAVE_XTSOL
+void
+_wnck_screen_change_workspace_label (WnckScreen *screen,
+                                    int         number,
+                                    const char *label)
+{
+  int n_spaces;
+  char **labels;
+  int i;
+  int error=-2;
+  m_label_t *mlabel = NULL;
+
+  static char		*lower_sl_str = NULL;
+  static char		*upper_clear_str = NULL;
+  static blrange_t	*workspace_range = NULL;
+
+  WnckWorkspace		*tmp_space = NULL;
+  
+  /* First check that we are running in a trusted windowing environment */
+  if (! _wnck_check_xtsol_extension ()) {
+      g_warning("Workspace labelling can not work with out the SUN_TSOL X extension");
+      return;
+  }
+
+  if (!_wnck_use_trusted_extensions())
+      return;
+
+  /* 
+   * Label must be validated.
+   * Convert the label string to a binary MAC_LABEL type.
+   * Then check that it is in the workspace's range which 
+   * depends on what role (if any) the workspace has.
+   */
+  
+  if (libtsol_str_to_label (label, &mlabel, MAC_LABEL, L_NO_CORRECTION, &error) < 0) {
+      g_warning("Could not validate sensitivity label \"%s\"", label);
+      return;
+  }
+
+  tmp_space = wnck_screen_get_workspace (screen, number);
+  /* need to refresh the role cache if an app is calling change label 
+   * after setting directly the _NET_DESKTOP_ROLES as this wouldn't have been 
+   * updated in libwnck yet */
+  screen->priv->need_update_workspace_roles = TRUE;
+  update_workspace_roles (screen); 
+   workspace_range = _wnck_workspace_get_range (tmp_space);
+
+  if (!libtsol_blinrange (mlabel, workspace_range)) {
+      g_warning("Could not change the sensitivity label of workspace %d because \"%s\" "
+                "appears to be outside of the workspace's label range", number, label);
+      libtsol_m_label_free (mlabel);
+      return;
+  }
+
+  n_spaces = wnck_screen_get_workspace_count (screen);
+
+  labels = g_new0 (char*, n_spaces + 1);
+
+  i = 0;
+  while (i < n_spaces) {
+      if (i == number)
+          labels[i] = (char*) label;
+      else {
+          WnckWorkspace *workspace;
+          workspace = wnck_screen_get_workspace (screen, i);
+          if (workspace) {
+              labels[i] = (char*) wnck_workspace_get_label (workspace);
+              if (labels[i] == NULL)
+                  labels[i] = (char*) ""; /* Maybe a g_warning too ? */
+          } else
+              labels[i] = (char*) ""; /* maybe this should be a g_warning too */
+      }
+      i++;
+  }
+
+  _wnck_set_utf8_list (screen->priv->xscreen,
+                       screen->priv->xroot,
+                       _wnck_atom_get ("_NET_DESKTOP_LABELS"),
+                       labels);
+  libtsol_m_label_free (mlabel);
+  g_free (labels);
+}
+#endif /* HAVE_XTSOL */

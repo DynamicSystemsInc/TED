@@ -27,6 +27,7 @@
 #include <math.h>
 #include <glib/gi18n-lib.h>
 
+#include <config.h>
 #include "pager.h"
 #include "workspace.h"
 #include "window.h"
@@ -57,6 +58,14 @@
  * layout.
  */
 
+#ifdef HAVE_XTSOL_LATER
+#include "trusted-tooltips.h"
+#endif
+
+#ifdef HAVE_XTSOL
+#include "wnck-tsol.h"
+#endif
+
 #define N_SCREEN_CONNECTIONS 11
 
 struct _WnckPagerPrivate
@@ -80,6 +89,9 @@ struct _WnckPagerPrivate
   WnckWindow *drag_window;
 
   GdkPixbuf *bg_cache;
+#ifdef HAVE_XTSOL_LATER
+  TrustedTooltips *tooltips;
+#endif /* HAVE_XTSOL */  
 
   int layout_manager_token;
 
@@ -1406,7 +1418,55 @@ wnck_pager_draw_workspace (WnckPager    *pager,
       cairo_rectangle (cr, rect->x + 0.5, rect->y + 0.5,
                            MAX (0, rect->width - 1), MAX (0, rect->height - 1));
       cairo_stroke (cr);
+      cairo_destroy (cr);
     }
+#ifdef HAVE_XTSOL
+    {
+      #define DEFAULT_COLOR	"white"
+      const char *label = NULL;
+      char *colorname;
+      int error;
+      GdkRGBA label_color;
+      m_label_t *mlabel = NULL;
+
+      if (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions())
+	{
+          label = wnck_workspace_get_label (wnck_screen_get_workspace(pager->priv->screen, workspace));
+	  if (label != NULL && (libtsol_str_to_label (label, &mlabel, MAC_LABEL, L_NO_CORRECTION, &error) == 0)) 
+	  {
+		  cairo_t *cr; 
+		  cr = gdk_cairo_create (gtk_widget_get_window(widget));
+
+		  libtsol_label_to_str (mlabel, &colorname, M_COLOR, DEF_NAMES);
+
+		  if (colorname == NULL)
+			  colorname = g_strdup(DEFAULT_COLOR);
+
+		  gdk_rgba_parse (&label_color, (const char*)colorname );
+
+		  g_free (colorname);
+
+		  cairo_set_source_rgba (cr,
+				  label_color.red,
+				  label_color.green,
+				  label_color.blue,
+				  0.5);
+		  cairo_set_line_width (cr, 1.0);
+		  cairo_rectangle (cr,
+				  rect->x + 0.5, rect->y + 0.5,
+				  rect->width - 1, rect->height - 1);
+		  cairo_fill (cr);
+		  cairo_destroy (cr);
+	  }
+	  else
+	    {
+	      g_warning("Could not validate sensitivity label \"%s\"", label ? label : "no label defined");
+	    }
+	}
+	  
+    }
+#endif /*HAVE_XTSOL*/
+
 }
 
 static gboolean
@@ -1590,8 +1650,16 @@ wnck_pager_check_prelight (WnckPager *pager,
 
   if (id != pager->priv->prelight)
     {
-      wnck_pager_queue_draw_workspace (pager, pager->priv->prelight);
-      wnck_pager_queue_draw_workspace (pager, id);
+      /*
+       * The following two function calls conflict with the
+       * draw_dark_rectange() function, which shares the
+       * cairo context. This presents a race condition that
+       * results in an reference count assertion failure in
+       * libcairo when the context is freed
+       *
+       * wnck_pager_queue_draw_workspace (pager, pager->priv->prelight);
+       * wnck_pager_queue_draw_workspace (pager, id);
+       */
       pager->priv->prelight = id;
       pager->priv->prelight_dnd = prelight_dnd;
     }
@@ -2185,6 +2253,14 @@ wnck_pager_new (void)
   WnckPager *pager;
 
   pager = g_object_new (WNCK_TYPE_PAGER, NULL);
+#ifdef HAVE_XTSOL_TODO 
+  if (_wnck_use_trusted_extensions () == TRUE) {
+    pager->priv->tooltips = trusted_tooltips_new ();
+    trusted_tooltips_set_pager (pager->priv->tooltips, pager);
+    gtk_object_ref (GTK_OBJECT (pager->priv->tooltips));
+    gtk_object_sink (GTK_OBJECT (pager->priv->tooltips));
+  }
+#endif /* HAVE_XTSOL */  
 
   return GTK_WIDGET (pager);
 }

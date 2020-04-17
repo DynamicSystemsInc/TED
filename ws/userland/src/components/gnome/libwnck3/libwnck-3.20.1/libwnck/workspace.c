@@ -24,6 +24,16 @@
 #include <config.h>
 
 #include <glib/gi18n-lib.h>
+#ifdef HAVE_XTSOL
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <user_attr.h>
+#include <X11/Xlib.h>
+#include <X11/extensions/Xtsol.h>
+#include <libgnometsol/userattr.h>
+#include <wnck-tsol.h>
+#endif
 #include "workspace.h"
 #include "xutils.h"
 #include "private.h"
@@ -67,6 +77,13 @@ struct _WnckWorkspacePrivate
   WnckScreen *screen;
   int number;
   char *name;
+#ifdef HAVE_XTSOL  /* TSOL */
+  char *label; /* Workspace sensitivity label */
+  char *role;  /* Workspace role : login name. Set only once */
+  /* The workspace range can differ for Workstation Owner and role workspaces */
+  const blrange_t *ws_range;
+#endif
+
   int width, height;            /* Workspace size */
   int viewport_x, viewport_y;   /* Viewport origin */
   gboolean is_virtual;
@@ -77,6 +94,10 @@ G_DEFINE_TYPE (WnckWorkspace, wnck_workspace, G_TYPE_OBJECT);
 
 enum {
   NAME_CHANGED,
+#ifdef HAVE_XTSOL
+  LABEL_CHANGED,
+  ROLE_CHANGED,
+#endif
   LAST_SIGNAL
 };
 
@@ -89,12 +110,28 @@ static void emit_name_changed (WnckWorkspace *space);
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
+#ifdef HAVE_XTSOL
+static void emit_label_changed (WnckWorkspace *space);
+static void emit_role_changed (WnckWorkspace *space);
+static blrange_t * get_display_range (void);
+#endif
+
 static void
 wnck_workspace_init (WnckWorkspace *workspace)
 {
   workspace->priv = WNCK_WORKSPACE_GET_PRIVATE (workspace);
 
+  workspace->priv->screen = NULL;
   workspace->priv->number = -1;
+  workspace->priv->name = NULL;
+  workspace->priv->width = 0;
+  workspace->priv->height = 0;
+  workspace->priv->viewport_x = 0;
+  workspace->priv->viewport_y = 0;
+  workspace->priv->is_virtual = FALSE;
+#ifdef HAVE_XTSOL
+  workspace->priv->ws_range = NULL;
+#endif
 }
 
 static void
@@ -117,8 +154,27 @@ wnck_workspace_class_init (WnckWorkspaceClass *klass)
                   G_OBJECT_CLASS_TYPE (object_class),
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (WnckWorkspaceClass, name_changed),
-                  NULL, NULL, NULL,
+                  NULL, NULL,
+                  g_cclosure_marshal_VOID__VOID,
                   G_TYPE_NONE, 0);
+#ifdef HAVE_XTSOL
+  signals[LABEL_CHANGED] =
+    g_signal_new ("label_changed",
+                  G_OBJECT_CLASS_TYPE (object_class),
+                  G_SIGNAL_RUN_LAST,
+                  G_STRUCT_OFFSET (WnckWorkspaceClass, label_changed),
+                  NULL, NULL,
+                  g_cclosure_marshal_VOID__VOID,
+                  G_TYPE_NONE, 0);
+  signals[ROLE_CHANGED] =
+    g_signal_new ("role_changed",
+                  G_OBJECT_CLASS_TYPE (object_class),
+                  G_SIGNAL_RUN_LAST,
+                  G_STRUCT_OFFSET (WnckWorkspaceClass, role_changed),
+                  NULL, NULL,
+                  g_cclosure_marshal_VOID__VOID,
+                  G_TYPE_NONE, 0);
+#endif
 }
 
 static void
@@ -131,16 +187,21 @@ wnck_workspace_finalize (GObject *object)
   g_free (workspace->priv->name);
   workspace->priv->name = NULL;
 
+#ifdef HAVE_XTSOL
+  g_free (workspace->priv->role);
+  g_free (workspace->priv->label);
+#endif
+  
   G_OBJECT_CLASS (wnck_workspace_parent_class)->finalize (object);
 }
 
 /**
  * wnck_workspace_get_number:
  * @space: a #WnckWorkspace.
- *
+ * 
  * Gets the index of @space on the #WnckScreen to which it belongs. The
  * first workspace has an index of 0.
- *
+ * 
  * Return value: the index of @space on its #WnckScreen, or -1 on errors.
  **/
 int
@@ -168,6 +229,138 @@ wnck_workspace_get_name (WnckWorkspace *space)
 
   return space->priv->name;
 }
+
+#ifdef HAVE_XTSOL
+/**
+ * wnck_workspace_get_label_range:
+ * @space: a #WnckWorkspace
+ * @min_label: a string pointer to pointer to the minimum valid label value for @space
+ * @max_label: a string pointer to pointer to the maximum valid label value for @space
+ *
+ * Gets the sensitivity label range for the specified workspace when
+ * running in a label aware desktop session. @min_label represents the minimum
+ * sensitivity label that the #WnckWorkspace, @space, may be assigned.
+ * @max_label represents the maximum sensitivity label thatthe #WnckWorkspace,
+ * @space may be assigned. Both min_label and max_label are allocated memory
+ * on behalf of the caller. It is the caller's responsibility to free the memory
+ * pointed to by @min_label and @max_label.
+ *
+ * Return value: 0 on success, non zero on failure.
+ **/
+int
+wnck_workspace_get_label_range (WnckWorkspace *space, char **min_label, char **max_label)
+{
+  int error = 0;
+  blrange_t *brange;
+  g_return_val_if_fail (WNCK_IS_WORKSPACE (space), -1);
+
+  if (! _wnck_check_xtsol_extension ())
+      return -1;
+
+  if (!_wnck_use_trusted_extensions())
+      return -1;
+
+  brange = _wnck_workspace_get_range (space);
+  if (!brange)
+      return -1;
+
+  if (libtsol_label_to_str (brange->lower_bound, min_label, M_INTERNAL,
+                        LONG_NAMES) != 0) {
+      g_warning ("wnck_workspace_get_label_range: Workspace has an invalid minimum label bound");
+      return -1;
+  }
+
+  if (libtsol_label_to_str (brange->upper_bound, max_label, M_INTERNAL,
+                        LONG_NAMES) != 0) {
+      g_warning ("wnck_workspace_get_label_range: Workspace has an invalid maximum label bound");
+      return -1;
+  }
+  return 0;
+}
+
+/**
+ * wnck_workspace_get_label:
+ * @space: a #WnckWorkspace
+ *
+ * Gets the sensitivity label as an hex number for the specified 
+ * workspace when running in a label aware desktop session.
+ *
+ * Return value: workspace sensitivity label, %NULL on failure.
+ **/
+const char*
+wnck_workspace_get_label (WnckWorkspace *space)
+{
+  g_return_val_if_fail (WNCK_IS_WORKSPACE (space), NULL);
+  /* A bit anal perhaps but I'd rather make sure nothing useful is returned */
+  if (! (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions()) )
+    return NULL;
+  return space->priv->label;
+}
+
+/**
+ * wnck_workspace_get_human_readable_label:
+ * @space: a #WnckWorkspace
+ *
+ * Gets the sensitivity label as a string for the specified workspace when
+ * running in a label aware desktop session.
+ * 
+ *
+ * Return value: workspace sensitivity label, %NULL on failure.
+ **/
+char*
+wnck_workspace_get_human_readable_label (WnckWorkspace *space)
+{
+  const char *hex_label;
+  char *human_readable_label;
+  int error;
+  m_label_t *mlabel = NULL;
+  
+  g_return_val_if_fail (WNCK_IS_WORKSPACE (space), NULL);
+  if (! (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions()) )
+    return NULL;
+
+  hex_label = space->priv->label;
+
+  if (hex_label && (error = libtsol_str_to_label (hex_label, &mlabel, MAC_LABEL, 
+			    L_NO_CORRECTION, &error) == 0))
+    {
+      error = libtsol_label_to_str (mlabel, 
+			    &human_readable_label, 
+			    M_LABEL, DEF_NAMES);
+      m_label_free(mlabel);
+      if (strcmp (human_readable_label, "ADMIN_HIGH") == 0 ||
+	  strcmp (human_readable_label, "ADMIN_LOW") == 0) {
+	/* SUN_BRANDING TJDS */
+        free(human_readable_label);
+	return g_strdup ("Trusted Path");
+      } else {
+        return human_readable_label;
+      }
+    }
+  return NULL;
+}
+
+
+/**
+ * wnck_workspace_get_role:
+ * @space: a #WnckWorkspace
+ *
+ * Gets the role (login name) for the specified workspace when
+ * running in a trusted desktop session.
+ *
+ * Return value: workspace user role, %NULL on failure.
+ **/
+const char*
+wnck_workspace_get_role (WnckWorkspace *space)
+{
+  g_return_val_if_fail (WNCK_IS_WORKSPACE (space), NULL);
+  /* Make sure to return NULL for non-tsol */
+  if (! (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions()) )
+    return NULL;
+  return space->priv->role;
+}
+#endif /* HAVE_XTSOL */
+
 
 /**
  * wnck_workspace_change_name:
@@ -207,6 +400,29 @@ wnck_workspace_get_screen (WnckWorkspace *space)
   return space->priv->screen;
 }
 
+#ifdef HAVE_XTSOL
+/**
+ * wnck_workspace_change_label:
+ * @space: a #WnckWorkspace
+ * @label: new workspace sensitivity label
+ *
+ * Try changing the sensitivity label of the workspace.
+ *
+ **/
+
+void
+wnck_workspace_change_label (WnckWorkspace *space,
+                             const char    *label)
+{
+  g_return_if_fail (WNCK_IS_WORKSPACE (space));
+  g_return_if_fail (label != NULL);
+
+  _wnck_screen_change_workspace_label (space->priv->screen,
+                                       space->priv->number,
+                                       label);
+}
+#endif
+
 /**
  * wnck_workspace_activate:
  * @space: a #WnckWorkspace.
@@ -244,7 +460,8 @@ _wnck_workspace_create (int number, WnckScreen *screen)
   space->priv->screen = screen;
 
   _wnck_workspace_update_name (space, NULL);
-
+/* FIXME - do label and role need to be updated here? */  
+  
   /* Just set reasonable defaults */
   space->priv->width = wnck_screen_get_width (screen);
   space->priv->height = wnck_screen_get_height (screen);
@@ -279,6 +496,251 @@ _wnck_workspace_update_name (WnckWorkspace *space,
   g_free (old);
 }
 
+#ifdef HAVE_XTSOL
+
+static char*
+get_workstationowner (void)
+{
+  static char *workstationowner = NULL;
+  uid_t wsuid;
+  struct passwd *pwd;
+
+  if (workstationowner == NULL) {
+    if ((libxtsol_XTSOLgetWorkstationOwner (gdk_x11_get_default_xdisplay (),
+					    &wsuid)) < 0) {
+      g_warning ("XTSOLgetWorkstationOwner() failed. Using getuid() instead");
+      pwd = getpwuid (getuid ());
+    } else {
+      pwd = getpwuid (wsuid);
+    }
+    
+    workstationowner = g_strdup (pwd->pw_name);
+  }
+ 
+  return workstationowner;
+}
+
+void
+_wnck_workspace_update_label (WnckWorkspace *space,
+                              const char    *label)
+{
+  char *old;
+
+  g_return_if_fail (WNCK_IS_WORKSPACE (space));
+  /* Don't do anything unless this is a trusted system */
+  if (!(_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions()))
+      return;
+
+  /* Should a warning be called here? */
+  if (label == NULL)
+	g_warning("Workspace %d label is null\n",
+                   wnck_workspace_get_number (space));
+
+  old = space->priv->label;
+  space->priv->label = g_strdup (label);
+
+  /*
+   *Initialise the label range for this workspace
+   */
+
+  if (!space->priv->ws_range) {
+      if ((!space->priv->role) || (strlen (space->priv->role) == 0) ||
+	   (strcmp (space->priv->role, get_workstationowner ()) == 0)) {
+          blrange_t		*range;
+          int error;
+          char *min_label = NULL;
+          char *max_label = NULL;
+          range = g_malloc (sizeof (blrange_t));
+          range->lower_bound = range->upper_bound = NULL;
+     
+          min_label = g_strdup (_wnck_get_min_label ());
+          max_label = g_strdup (_wnck_get_max_label ());
+
+          if (libtsol_str_to_label (min_label, &(range->lower_bound),
+                                    MAC_LABEL, L_NO_CORRECTION, &error) < 0) {
+              g_warning ("Couldn't determine minimum workspace label");
+              g_free (min_label);
+              g_free (max_label);
+              return;
+          }
+          if (libtsol_str_to_label (max_label, &(range->upper_bound),
+                                    USER_CLEAR, L_NO_CORRECTION, &error) < 0) {
+              g_warning ("Couldn't determine workspace clearance");
+              g_free (min_label);
+              g_free (max_label);
+              return;
+          }
+          space->priv->ws_range = range;
+          g_free (min_label);
+          g_free (max_label);
+
+      } else {
+          int           error;
+          blrange_t     *role_range;
+          blrange_t		*disp_range;
+          userattr_t	*u_ent; 
+          /* 
+           * This is a role workspace so we need to construct the correct label range
+           * instead of relying on USER_MIN_SL and USER_MAX_SL
+           */
+          if ((role_range = libtsol_getuserrange (space->priv->role)) == NULL) {
+              g_warning ("Couldn't get label range for %s\n", space->priv->role);
+              return;
+          }
+
+    	  /* Get display device's range */
+    	  if ((disp_range = get_display_range ()) == NULL) {
+    		  g_warning ("Couldn't get the display's device range");
+    		  return;
+    	  }
+
+          /*
+           * Determine the low & high bound of the label range
+           * where the role user can operate. This is the
+           * intersection of display label range & role label
+           * range.
+           */
+          libtsol_blmaximum (role_range->lower_bound, disp_range->lower_bound);
+          libtsol_blminimum (role_range->upper_bound, disp_range->upper_bound);
+          space->priv->ws_range = role_range;
+          libtsol_blabel_free (disp_range->lower_bound);
+          libtsol_blabel_free (disp_range->upper_bound);
+          free (disp_range);
+      }
+  }
+  /* Should we put a g_warning here? */
+  /* if (space->priv->label == NULL) */
+
+  if ((!old && label) ||
+      (old && label && strcmp (old, label) != 0))
+    emit_label_changed (space);
+
+  g_free (old);
+}
+
+void
+_wnck_workspace_update_role (WnckWorkspace *space,
+                             const char    *role)
+{
+	char *workstationowner = NULL;
+	char *old;
+
+	g_return_if_fail (WNCK_IS_WORKSPACE (space));
+	/* Check for a multi label trusted environment first */
+	if (!(_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions()))
+		return;
+	workstationowner = get_workstationowner ();
+
+	if (role == NULL)
+		return;
+	old = space->priv->role;
+
+	/* Check the the workspace role really is changing */
+	if ((!old && role) ||
+		(old && role && strcmp (old, role) != 0)) {
+		g_free (space->priv->role);
+		if (strlen (role) ==0)
+			{ space->priv->role = g_strdup (workstationowner); return;}
+		else
+			space->priv->role = g_strdup (role);
+
+		/*
+		 * A role change requires that the label range of the 
+		 * workspace be reset. The label also needs to be 
+		 * silently set to the lowest in the range.
+		 */
+
+		if (space->priv->ws_range) {
+			libtsol_blabel_free (space->priv->ws_range->lower_bound);
+			libtsol_blabel_free (space->priv->ws_range->upper_bound);
+			/* FIXME - man pages tell me to use free but generates a compiler warning */
+			free ((void *)space->priv->ws_range);
+		}
+
+		if (strcmp (space->priv->role, workstationowner) == 0) {
+			/* Workstation owner, so it's not a real role */
+			blrange_t		*range;
+			int error;
+			char *min_label = NULL;
+			char *max_label = NULL;
+			range = g_malloc (sizeof (blrange_t));
+			range->lower_bound = range->upper_bound = NULL;
+ 
+			min_label = g_strdup (_wnck_get_min_label ());
+			max_label = g_strdup (_wnck_get_max_label ());
+
+			/* Workspace label must be reset by default to the min_label value */
+			if (space->priv->label)
+				g_free (space->priv->label);
+				space->priv->label = g_strdup (min_label);  
+
+			if (libtsol_str_to_label (min_label, &(range->lower_bound),
+					MAC_LABEL, L_NO_CORRECTION, &error) < 0) {
+				g_warning ("Couldn't determine minimum workspace label");
+				g_free (min_label);
+				g_free (max_label);
+				return;
+			}
+
+			if (libtsol_str_to_label (max_label, &(range->upper_bound),
+				USER_CLEAR, L_NO_CORRECTION, &error) < 0) {
+				g_warning ("Couldn't determine workspace clearance");
+				g_free (min_label);
+				g_free (max_label);
+				return;
+    	  	}
+
+			space->priv->ws_range = range;
+			g_free (min_label);
+			g_free (max_label);
+
+		} else {
+			int           error;
+			blrange_t     *role_range;
+			blrange_t		*disp_range;
+			userattr_t	*u_ent;
+
+			/* 
+			 * This is a role workspace so we need to construct the correct label range
+			 * instead of relying on USER_MIN_SL and USER_MAX_SL
+			 */
+			if ((role_range = libtsol_getuserrange (space->priv->role)) == NULL) {
+				g_warning ("Couldn't get label range for %s\n", space->priv->role);
+				return;
+			}
+
+			/* Get display device's range */
+			if ((disp_range = get_display_range ()) == NULL) {
+				g_warning ("Couldn't get the display's device range");
+				return;
+			}
+
+			/*
+			 * Determine the low & high bound of the label range
+			 * where the role user can operate. This is the
+			 * intersection of display label range & role label
+			 * range.
+			 */
+			libtsol_blmaximum (role_range->lower_bound, disp_range->lower_bound);
+			libtsol_blminimum (role_range->upper_bound, disp_range->upper_bound);
+			space->priv->ws_range = role_range;
+
+			/* Workspace label must be reset by default to the lower_bound value */
+			if (libtsol_label_to_str (role_range->lower_bound, &space->priv->label, M_INTERNAL,
+					LONG_NAMES) != 0) {
+				/* Weird - default to admin_low */
+        		space->priv->label = g_strup ("ADMIN_LOW");
+			}
+
+			libtsol_blabel_free (disp_range->lower_bound);
+			libtsol_blabel_free (disp_range->upper_bound);
+			free (disp_range);
+		}
+    	emit_role_changed (space);
+	}
+}
+#endif /* HAVE_XTSOL */
+
 static void
 emit_name_changed (WnckWorkspace *space)
 {
@@ -286,6 +748,26 @@ emit_name_changed (WnckWorkspace *space)
                  signals[NAME_CHANGED],
                  0);
 }
+
+#ifdef HAVE_XTSOL
+static void
+emit_label_changed (WnckWorkspace *space)
+{
+  g_signal_emit (G_OBJECT (space),
+                 signals[LABEL_CHANGED],
+                 0);
+  wnck_screen_emit_labels_changed (space->priv->screen);
+}
+
+static void
+emit_role_changed (WnckWorkspace *space)
+{
+  g_signal_emit (G_OBJECT (space),
+                 signals[ROLE_CHANGED],
+                 0);
+  wnck_screen_emit_roles_changed (space->priv->screen);
+}
+#endif /* HAVE_XTSOL */
 
 gboolean
 _wnck_workspace_set_geometry (WnckWorkspace *space,
@@ -602,3 +1084,33 @@ wnck_workspace_get_neighbor (WnckWorkspace       *space,
 
   return wnck_screen_get_workspace (space->priv->screen, index);
 }
+
+#ifdef HAVE_XTSOL
+/*
+ * These private (hint hint) functions assume that they have been called
+ * from within a trusted desktop session. The caller must ensure that
+ * this is the case otherwise it will trigger a load of the potentially
+ * non existant tsol and xtsol libs. That would be bad!
+ */
+static blrange_t *
+get_display_range (void)
+{
+  blrange_t       *range = NULL;
+
+  range = libbsm_getdevicerange ("framebuffer");
+  if (range == NULL) {
+    range = g_malloc (sizeof (blrange_t));
+    range->lower_bound = libtsol_blabel_alloc ();
+    range->upper_bound = libtsol_blabel_alloc ();
+    libtsol_bsllow  (range->lower_bound);
+    libtsol_bslhigh (range->upper_bound);
+  }
+  return (range);
+}
+
+blrange_t *
+_wnck_workspace_get_range (WnckWorkspace *space)
+{
+  return space->priv->ws_range;
+}
+#endif

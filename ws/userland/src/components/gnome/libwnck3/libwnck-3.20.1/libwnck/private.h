@@ -33,6 +33,9 @@
 #ifdef HAVE_STARTUP_NOTIFICATION
 #include <libsn/sn.h>
 #endif
+#ifdef HAVE_XTSOL
+#include <tsol/label.h>
+#endif
 
 G_BEGIN_DECLS
 
@@ -106,11 +109,24 @@ void             _wnck_class_group_shutdown_all  (void);
 
 void _wnck_workspace_update_name (WnckWorkspace *workspace,
                                   const char    *name);
+#ifdef HAVE_XTSOL
+void _wnck_workspace_update_label (WnckWorkspace *workspace,
+                                   const char    *label);
+void _wnck_workspace_update_role (WnckWorkspace *workspace,
+                                  const char    *role);
+blrange_t * _wnck_workspace_get_range (WnckWorkspace *space);
+#endif
 void _wnck_screen_change_workspace_name (WnckScreen *screen,
                                          int         number,
                                          const char *name);
-
 void _wnck_screen_shutdown_all          (void);
+#ifdef HAVE_XTSOL
+void _wnck_screen_change_workspace_label (WnckScreen *screen,
+                                          int         number,
+                                          const char *label);
+gboolean _wnck_check_xtsol_extension    ();
+gboolean _wnck_use_trusted_extensions	();
+#endif
 
 gboolean _wnck_workspace_set_geometry (WnckWorkspace *space, int w, int h);
 gboolean _wnck_workspace_set_viewport (WnckWorkspace *space, int x, int y);

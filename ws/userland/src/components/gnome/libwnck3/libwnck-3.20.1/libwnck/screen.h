@@ -111,6 +111,12 @@ struct _WnckScreenClass
   /* Window manager changed */
   void (* window_manager_changed)   (WnckScreen      *screen);
 
+   /* Roles changed */
+  void (* roles_changed)            (WnckScreen      *screen);
+
+  /* Labels changed */
+  void (* labels_changed)           (WnckScreen      *screen);
+
   /* Padding for future expansion */
   void (* pad2) (void);
   void (* pad3) (void);
@@ -232,6 +238,8 @@ int            wnck_screen_try_set_workspace_layout (WnckScreen *screen,
                                                      int         columns);
 void           wnck_screen_release_workspace_layout (WnckScreen *screen,
                                                      int         current_token);
+void           wnck_screen_emit_labels_changed      (WnckScreen *screen);
+void           wnck_screen_emit_roles_changed      (WnckScreen *screen);
 #ifndef WNCK_DISABLE_DEPRECATED
 G_DEPRECATED
 void           wnck_screen_calc_workspace_layout    (WnckScreen          *screen,

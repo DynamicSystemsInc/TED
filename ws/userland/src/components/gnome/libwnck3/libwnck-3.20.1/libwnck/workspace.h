@@ -59,6 +59,11 @@ struct _WnckWorkspaceClass
   GObjectClass parent_class;
 
   void (* name_changed) (WnckWorkspace *space);
+
+#ifdef HAVE_XTSOL
+  void (* label_changed) (WnckWorkspace *space);
+  void (* role_changed)  (WnckWorkspace *space);
+#endif
   
   /* Padding for future expansion */
   void (* pad1) (void);
@@ -94,9 +99,22 @@ GType wnck_workspace_get_type (void) G_GNUC_CONST;
 
 int         wnck_workspace_get_number     (WnckWorkspace *space);
 const char* wnck_workspace_get_name       (WnckWorkspace *space);
+#ifdef HAVE_XTSOL
+int        wnck_workspace_get_label_range(WnckWorkspace *space,
+                                          char **min_label,
+                                          char **max_label);
+const char*        wnck_workspace_get_label      (WnckWorkspace *space);
+char*      wnck_workspace_get_human_readable_label (WnckWorkspace *space);
+const char*        wnck_workspace_get_role       (WnckWorkspace *space);
+#endif
+
 void        wnck_workspace_change_name    (WnckWorkspace *space,
                                            const char    *name);
 WnckScreen* wnck_workspace_get_screen     (WnckWorkspace *space);
+#ifdef HAVE_XTSOL
+void        wnck_workspace_change_label   (WnckWorkspace *space,
+                                           const char    *label);
+#endif
 void        wnck_workspace_activate       (WnckWorkspace *space,
                                            guint32        timestamp);
 int         wnck_workspace_get_width      (WnckWorkspace *space);

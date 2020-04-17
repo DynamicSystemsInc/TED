@@ -24,6 +24,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <cairo-xlib.h>
+#include <gdk/gdkx.h>
 #if HAVE_CAIRO_XLIB_XRENDER
 #include <cairo-xlib-xrender.h>
 #endif
@@ -252,6 +253,21 @@ _wnck_get_atom (Screen *screen,
 
   return TRUE;
 }
+
+#ifdef HAVE_XTSOL
+gboolean
+_wnck_check_xtsol_extension ()
+{
+  static int foundxtsol = -1;
+  int major_code, first_event, first_error;
+
+  if (foundxtsol < 0) { 
+      foundxtsol = XQueryExtension (gdk_x11_get_default_xdisplay(),
+          "SUN_TSOL", &major_code, &first_event, &first_error);
+  }
+  return foundxtsol;
+}
+#endif
 
 static char*
 text_property_to_utf8 (Display             *display,

@@ -33,6 +33,7 @@
 #include <glib-object.h>
 #include <libwnck/screen.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <gdk/gdk.h>
 
 G_BEGIN_DECLS
 
@@ -296,6 +297,13 @@ gboolean    wnck_window_has_name      (WnckWindow *window);
 const char* wnck_window_get_name      (WnckWindow *window);
 gboolean    wnck_window_has_icon_name (WnckWindow *window);
 const char* wnck_window_get_icon_name (WnckWindow *window);
+#ifdef HAVE_XTSOL
+const char* wnck_window_get_label	   (WnckWindow *window);
+char* wnck_window_get_label_human_readable (WnckWindow *window);
+GdkRGBA* wnck_window_get_label_color	   (WnckWindow *window);
+const char* wnck_window_get_label_color_str	   (WnckWindow *window);
+void wnck_window_update_label	       (WnckWindow *window);
+#endif
 
 WnckApplication* wnck_window_get_application  (WnckWindow *window);
 WnckWindow*      wnck_window_get_transient    (WnckWindow *window);
@@ -332,6 +340,9 @@ gboolean wnck_window_is_fullscreen             (WnckWindow *window);
 gboolean wnck_window_is_sticky                 (WnckWindow *window);
 gboolean wnck_window_needs_attention           (WnckWindow *window);
 gboolean wnck_window_or_transient_needs_attention (WnckWindow *window);
+#ifdef HAVE_XTSOL
+gboolean wnck_window_is_trusted                (WnckWindow *window);
+#endif
 
 void wnck_window_set_skip_pager    (WnckWindow *window,
                                     gboolean skip);
