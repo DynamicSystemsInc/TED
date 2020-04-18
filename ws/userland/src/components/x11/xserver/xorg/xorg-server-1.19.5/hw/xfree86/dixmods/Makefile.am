@@ -46,3 +46,12 @@ libshadow_la_SOURCES = shmodule.c
 
 libdixmods_la_SOURCES = $(top_srcdir)/mi/miinitext.c
 libdixmods_la_CFLAGS = $(AM_CFLAGS)
+
+if BUILD_TSOL_MODULE
+# Sun Trusted Extensions extension module additions
+extsmodule_LTLIBRARIES += libxtsol.la
+libxtsol_la_LDFLAGS = -avoid-version
+libxtsol_la_LIBADD = $(top_builddir)/tsol/libxtsol.la $(PIXMAN_LIBS)
+libxtsol_la_SOURCES = tsolmodule.c
+endif
+

@@ -116,6 +116,7 @@ static ModuleDefault ModuleDefaults[] = {
     {.name = "fb",.toLoad = TRUE,.load_opt = NULL},
     {.name = "shadow",.toLoad = TRUE,.load_opt = NULL},
 #endif
+    {.name = "xtsol",.toLoad = TRUE,.load_opt = NULL},
     {.name = NULL,.toLoad = FALSE,.load_opt = NULL}
 };
 
@@ -252,7 +253,7 @@ xf86ModulelistFromConfig(void ***optlist)
 
     const char *ignore[] = { "GLcore", "speedo", "bitmap", "drm",
         "freetype", "type1",
-        "bitstream", "ia", "xtsol",
+        "bitstream", "ia",
         NULL
     };
     void **optarray;

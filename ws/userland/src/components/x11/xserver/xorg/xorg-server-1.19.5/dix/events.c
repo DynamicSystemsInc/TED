@@ -2874,6 +2874,9 @@ PointInBorderSize(WindowPtr pWin, int x, int y)
  *
  * @returns the window at the given coordinates.
  */
+#ifdef TSOL
+_X_EXPORT
+#endif
 WindowPtr
 XYToWindow(SpritePtr pSprite, int x, int y)
 {

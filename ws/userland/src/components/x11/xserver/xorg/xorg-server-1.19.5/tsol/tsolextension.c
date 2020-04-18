@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2004, 2013, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2004, 2015, Oracle and/or its affiliates. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -155,11 +155,11 @@ static CALLBACK(TsolSelectionCallback);
 
 extern int tsol_check_policy(TsolInfoPtr tsolinfo, TsolResPtr tsolres,
 	xpolicy_t flags, int reqcode);
-extern void TsolCheckDrawableAccess(CallbackListPtr *pcbl, pointer nulldata,
-	pointer calldata);
-extern void TsolCheckXIDAccess(CallbackListPtr *pcbl, pointer nulldata,
-	pointer calldata);
-extern Bool client_has_privilege(TsolInfoPtr tsolinfo, priv_set_t *priv);
+extern void TsolCheckDrawableAccess(CallbackListPtr *pcbl, void *nulldata,
+	void *calldata);
+extern void TsolCheckXIDAccess(CallbackListPtr *pcbl, void *nulldata,
+	void *calldata);
+extern Bool client_has_privilege(TsolInfoPtr tsolinfo, priv_set_t *priv, int reqcode);
 
 extern priv_set_t *pset_win_mac_write;
 extern priv_set_t *pset_win_dac_write;
@@ -287,8 +287,6 @@ TsolExtensionInit(void)
 	XaceRegisterCallback(XACE_SERVER_ACCESS, TsolCheckServerAccess, NULL);
 	XaceRegisterCallback(XACE_CLIENT_ACCESS, TsolCheckClientAccess, NULL);
 	XaceRegisterCallback(XACE_KEY_AVAIL, TsolProcessKeyboard, NULL);
-	XaceRegisterCallback(XACE_AUDIT_BEGIN, TsolAuditStart, NULL);
-	XaceRegisterCallback(XACE_AUDIT_END, TsolAuditEnd, NULL);
 
 	/* Save original Proc vectors */
 	for (i = 0; i < PROCVECTORSIZE; i++) {
@@ -399,8 +397,8 @@ CALLBACK(TsolClientStateCallback)
 			priv_freeset(tsolinfo->privs);
 		}
 		/* Audit disconnect */
-		if (system_audit_on && (au_preselect(AUE_ClientDisconnect, &(tsolinfo->amask),
-                              AU_PRS_BOTH, AU_PRS_USECACHE) == 1)) {
+		if (au_preselect(AUE_ClientDisconnect, &(tsolinfo->amask),
+				 AU_PRS_BOTH, AU_PRS_USECACHE) == 1) {
 			auditwrite(AW_PRESELECT, &(tsolinfo->amask),AW_END);
 			auditwrite(AW_EVENTNUM, AUE_ClientDisconnect,
                                AW_XCLIENT, client->index,
@@ -439,8 +437,6 @@ TsolReset(ExtensionEntry *extension)
     XaceDeleteCallback(XACE_SERVER_ACCESS, TsolCheckServerAccess, NULL);
     XaceDeleteCallback(XACE_CLIENT_ACCESS, TsolCheckClientAccess, NULL);
     XaceDeleteCallback(XACE_KEY_AVAIL, TsolProcessKeyboard, NULL);
-    XaceDeleteCallback(XACE_AUDIT_BEGIN, TsolAuditStart, NULL);
-    XaceDeleteCallback(XACE_AUDIT_END, TsolAuditEnd, NULL);
 }
 
 /*
@@ -704,7 +700,7 @@ ProcSetPolyInstInfo(ClientPtr client)
     REQUEST_AT_LEAST_SIZE(xSetPolyInstInfoReq);
 
      /* Requires win_mac_write privilege */
-    if (!client_has_privilege(tsolinfo, pset_win_mac_write)) {
+    if (!client_has_privilege(tsolinfo, pset_win_mac_write, MAJOROP)) {
         return (BadAccess);
     }
 
@@ -764,7 +760,7 @@ ProcSetPropLabel(ClientPtr client)
     }
 
      /* Requires win_mac_write privilege */
-    if (!client_has_privilege(tsolinfo, pset_win_mac_write)) {
+    if (!client_has_privilege(tsolinfo, pset_win_mac_write, MAJOROP)) {
         return (BadAccess);
     }
 
@@ -826,7 +822,7 @@ ProcSetPropUID(ClientPtr client)
     }
 
      /* Requires win_mac_write privilege */
-    if (!client_has_privilege(tsolinfo, pset_win_mac_write)) {
+    if (!client_has_privilege(tsolinfo, pset_win_mac_write, MAJOROP)) {
         return (BadAccess);
     }
 
@@ -854,7 +850,7 @@ ProcSetResLabel(ClientPtr client)
     REQUEST_AT_LEAST_SIZE(xSetResLabelReq);
 
      /* Requires win_mac_write privilege */
-    if (!client_has_privilege(tsolinfo, pset_win_mac_write)) {
+    if (!client_has_privilege(tsolinfo, pset_win_mac_write, MAJOROP)) {
         return (BadAccess);
     }
 
@@ -1003,7 +999,7 @@ ProcSetResUID(ClientPtr client)
     }
 
      /* Requires win_dac_write privilege */
-    if (!client_has_privilege(tsolinfo, pset_win_dac_write)) {
+    if (!client_has_privilege(tsolinfo, pset_win_dac_write, MAJOROP)) {
         return (BadAccess);
     }
 
@@ -1380,7 +1376,7 @@ ProcMakeTPWindow(ClientPtr client)
         PanoramiXRes     *panres = NULL;
         int         j;
 
-	rc = dixLookupResourceByType((pointer *) &panres, stuff->id,
+	rc = dixLookupResourceByType((void *) &panres, stuff->id,
 				     XRT_WINDOW, client, DixWriteAccess);
 	if (rc != Success)
 	    return rc;
@@ -1498,8 +1494,15 @@ ProcMakeUntrustedWindow(ClientPtr client)
     }
 
     tsolinfo = GetClientTsolInfo(client);
+    /*
+     * Why should this policy be enforced ?
+     *
+     * Seens to ignore the window parameter in stuff->id
+     * rc = dixLookupWindow(&pWin, stuff->id, client, DixWriteAccess);
+     *
     if (!HasTrustedPath(tsolinfo))
 	return (BadAccess);
+	*/
 
     tsolinfo->forced_trust = 0;
     tsolinfo->trusted_path = FALSE;
@@ -1539,7 +1542,7 @@ BreakAllGrabs(ClientPtr client)
  */
 extern au_id_t ucred_getauid(const ucred_t *uc);
 extern au_asid_t ucred_getasid(const ucred_t *uc);
-extern const au_mask_t *ucred_getamask(const ucred_t *uc);
+extern const au_mask32_t *ucred_getamask(const ucred_t *uc);
 extern tsol_host_type_t tsol_getrhtype(char *);
 
 static void
@@ -1548,10 +1551,8 @@ TsolSetClientInfo(ClientPtr client)
 	bslabel_t *sl;
 	bslabel_t admin_low;
 	priv_set_t *privs;
-	const au_mask_t *amask;
+	const au_mask32_t *amask;
 	socklen_t namelen;
-	struct auditinfo auinfo;
-	struct auditinfo *pauinfo;
 	OsCommPtr oc = (OsCommPtr)client->osPrivate;
 	int fd = oc->fd;
 	ucred_t *uc = NULL;
@@ -1622,6 +1623,8 @@ TsolSetClientInfo(ClientPtr client)
 		tsolinfo->trusted_path = TRUE;
 	}else {
 		tsolinfo->trusted_path = FALSE;
+        	tsolinfo->flags |= TSOL_AUDITEVENT;
+        	tsolinfo->flags |= TSOL_DOXAUDIT;
 	}
 
 	if (tsolinfo->trusted_path || !tsolMultiLevel)
@@ -1661,11 +1664,6 @@ TsolSetClientInfo(ClientPtr client)
 	}
 
 	/* setup audit context */
-	if (getaudit(&auinfo) == 0) {
-	    pauinfo = &auinfo;
-	} else {
-	    pauinfo = NULL;
-	}
 
 	/* Audit id */
 	tsolinfo->auid = ucred_getauid(uc);
@@ -1678,14 +1676,14 @@ TsolSetClientInfo(ClientPtr client)
 
 	/* Audit mask */
 	if ((amask = ucred_getamask(uc)) != NULL) {
-	    tsolinfo->amask = *amask;
+	    tsolinfo->amask.am_failure = AU_CLASS_64(amask->am_failure_lo,
+	        amask->am_failure_hi);
+	    tsolinfo->amask.am_success = AU_CLASS_64(amask->am_success_lo,
+	        amask->am_success_hi);
 	} else {
-	    if (pauinfo != NULL) {
-	        tsolinfo->amask = pauinfo->ai_mask;
-	    } else {
-	        tsolinfo->amask.am_failure = 0; /* clear the masks */
-	        tsolinfo->amask.am_success = 0;
-	    }
+	    /* clear the masks */
+	    tsolinfo->amask.am_failure = AU_MASK_NONE;
+	    tsolinfo->amask.am_success = AU_MASK_NONE;
 	}
 
 	tsolinfo->asaverd = 0;
@@ -1754,7 +1752,7 @@ bad1:
 }
 
 static Bool
-TsolCheckNetName (unsigned char *addr, short len, pointer closure)
+TsolCheckNetName (unsigned char *addr, short len, void *closure)
 {
     return (len == (short) strlen ((char *) closure) &&
             strncmp ((char *) addr, (char *) closure, len) == 0);
@@ -1779,24 +1777,6 @@ TsolCheckAuthorization(unsigned int name_length, char *name,
 	XID	auth_token = (XID)(-1);
 	TsolInfoPtr tsolinfo = GetClientTsolInfo(client);
 
-	if (tsolinfo->uid == (uid_t) -1) {
-		/* Retrieve uid from SecureRPC */
-		if (strncmp(name, SECURE_RPC_AUTH, (size_t)name_length) == 0) {
-			fullname = tsol_authdes_decode(data, data_length);
-			if (fullname == NULL) {
-				ErrorF("Unable to authenticate Secure RPC client");
-			} else {
-				if (netname2user(fullname,
-					&client_uid, &client_gid,
-					&client_gidlen, &client_gidlist)) {
-					tsolinfo->uid = client_uid;
-				} else {
-					ErrorF("netname2user failed");
-				}
-			}
-		}
-	}
-
 	if (tsolinfo->uid == (uid_t)-1) {
 		tsolinfo->uid = UID_NOBODY; /* uid not available */
 	}
@@ -1816,35 +1796,13 @@ TsolCheckAuthorization(unsigned int name_length, char *name,
 		 * Workstation Owner set, client must be within label
 		 * range or have trusted path
 		 */
-		if (tsolinfo->uid == OwnerUID) {
-			if ((tsolinfo->sl != NULL &&
-			     (bldominates(tsolinfo->sl, &SessionLO) &&
-			      bldominates(&SessionHI, tsolinfo->sl))) ||
-			    (HasTrustedPath(tsolinfo))) {
-			    auth_token = (XID)(tsolinfo->uid);
-			}
+		if ((tsolinfo->sl != NULL &&
+		     (bldominates(tsolinfo->sl, &SessionLO) &&
+		      bldominates(&SessionHI, tsolinfo->sl))) ||
+		    (HasTrustedPath(tsolinfo))) {
+			auth_token = (XID)(tsolinfo->uid);
 		} else {
-			/* Allow root from global zone */
-			if (tsolinfo->uid == 0 && HasTrustedPath(tsolinfo)) {
-				auth_token = (XID)(tsolinfo->uid);
-			} else {
-				/*
-				 * Access check based on uid. Check if
-				 * roles or other uids have  been added by
-				 * xhost +role@
-				 */
-				getdomainname(domainname, sizeof(domainname));
-				if (!user2netname(netname, tsolinfo->uid, domainname)) {
-					return ((XID)-1);
-				}
-				if (ForEachHostInFamily (FamilyNetname, TsolCheckNetName,
-						(pointer) netname)) {
-					return ((XID)(tsolinfo->uid));
-				} else {
-					return (CheckAuthorization(name_length, name, data_length,
-						data, client, reason));
-				}
-			}
+			auth_token = ((XID)-1);
 		}
 	}
 
@@ -1857,9 +1815,8 @@ TsolCheckAuthorization(unsigned int name_length, char *name,
 		audit_val = 0;
 	}
 
-	if (system_audit_on &&
-		(au_preselect(AUE_ClientConnect, &(tsolinfo->amask),
-                      AU_PRS_BOTH, AU_PRS_USECACHE) == 1)) {
+	if (au_preselect(AUE_ClientConnect, &(tsolinfo->amask),
+			 AU_PRS_BOTH, AU_PRS_USECACHE) == 1) {
 		int status;
 		ushort_t connect_port = 0;
 		struct in_addr *connect_addr = NULL;
@@ -2174,6 +2131,13 @@ TsolCheckPropertyAccess)
 	        flags = (TSOL_MAC|TSOL_DAC|TSOL_WRITEOP);
 
 	    retcode = tsol_check_policy(tsolinfo, tsolprop, flags, MAJOROP_CODE);
+	    /*
+	     * cleanup properties created by gdm (uid = 50) 
+	     */
+	    if (retcode == Success && (access_mode & DixWriteAccess) &&
+		WindowIsRoot(pWin) && tsolprop->uid == 50)
+		    tsolprop->uid = tsolinfo->uid;
+
 	    if (retcode != Success && (access_mode & DixGetAttrAccess)) {
 		/* If current property is not accessible, move on to
 		 *  next one for ListProperty

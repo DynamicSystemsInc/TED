@@ -160,7 +160,7 @@ static inline Bool client_is_ready(ClientPtr client)
 Bool
 clients_are_ready(void);
 
-extern struct xorg_list output_pending_clients;
+extern _X_EXPORT struct xorg_list output_pending_clients;
 
 static inline void
 output_pending_mark(ClientPtr client)
@@ -227,7 +227,7 @@ extern _X_EXPORT int (*ProcVector[256]) (ClientPtr /*client */ );
 
 extern _X_EXPORT int (*SwappedProcVector[256]) (ClientPtr /*client */ );
 
-extern ReplySwapPtr ReplySwapVector[256];
+extern _X_EXPORT ReplySwapPtr ReplySwapVector[256];
 
 extern _X_EXPORT int
 ProcBadRequest(ClientPtr /*client */ );

@@ -337,7 +337,6 @@ extern  int PolyProperty(Atom atom, WindowPtr pWin);
 extern  int PolySelection(Atom atom);
 extern  TsolPolyInstInfoRec tsolpolyinstinfo;
 extern  uid_t OwnerUID;                 /* Workstation owner uid */
-extern Bool system_audit_on;
 
 /*********************************
  *

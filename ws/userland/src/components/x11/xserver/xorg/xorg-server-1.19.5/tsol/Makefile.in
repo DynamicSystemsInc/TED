@@ -14,6 +14,34 @@
 
 @SET_MAKE@
 
+#########################################################################
+#
+# Copyright (c) 2005, 2011, Oracle and/or its affiliates. All rights reserved.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),
+# to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice (including the next
+# paragraph) shall be included in all copies or substantial portions of the
+# Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+# 
+#########################################################################
+# 
+#
+
+
 VPATH = @srcdir@
 am__is_gnu_make = { \
   if test -z '$(MAKELEVEL)'; then \
@@ -88,13 +116,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@DRI2_TRUE@am__append_1 = $(top_builddir)/glx/libglxdri.la
-@DRI2_TRUE@@NO_UNDEFINED_TRUE@am__append_2 = $(LIBDRM_LIBS) $(PIXMAN_LIBS)
-@NO_UNDEFINED_TRUE@am__append_3 = libfb.la
-
-# Sun Trusted Extensions extension module additions
-@BUILD_TSOL_MODULE_TRUE@am__append_4 = libxtsol.la
-subdir = hw/xfree86/dixmods
+subdir = tsol
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ac_define_dir.m4 \
 	$(top_srcdir)/m4/ax_pthread.m4 $(top_srcdir)/m4/libtool.m4 \
@@ -115,88 +137,15 @@ CONFIG_HEADER = $(top_builddir)/include/do-not-use-config.h \
 	$(top_builddir)/include/version-config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
-am__vpath_adj = case $$p in \
-    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
-    *) f=$$p;; \
-  esac;
-am__strip_dir = f=`echo $$p | sed -e 's|^.*/||'`;
-am__install_max = 40
-am__nobase_strip_setup = \
-  srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*|]/\\\\&/g'`
-am__nobase_strip = \
-  for p in $$list; do echo "$$p"; done | sed -e "s|$$srcdirstrip/||"
-am__nobase_list = $(am__nobase_strip_setup); \
-  for p in $$list; do echo "$$p $$p"; done | \
-  sed "s| $$srcdirstrip/| |;"' / .*\//!s/ .*/ ./; s,\( .*\)/[^/]*$$,\1,' | \
-  $(AWK) 'BEGIN { files["."] = "" } { files[$$2] = files[$$2] " " $$1; \
-    if (++n[$$2] == $(am__install_max)) \
-      { print $$2, files[$$2]; n[$$2] = 0; files[$$2] = "" } } \
-    END { for (dir in files) print dir, files[dir] }'
-am__base_list = \
-  sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
-  sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__uninstall_files_from_dir = { \
-  test -z "$$files" \
-    || { test ! -d "$$dir" && test ! -f "$$dir" && test ! -r "$$dir"; } \
-    || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
-         $(am__cd) "$$dir" && rm -f $$files; }; \
-  }
-am__installdirs = "$(DESTDIR)$(extsmoduledir)" \
-	"$(DESTDIR)$(moduledir)"
-LTLIBRARIES = $(extsmodule_LTLIBRARIES) $(module_LTLIBRARIES) \
-	$(noinst_LTLIBRARIES)
-libdixmods_la_LIBADD =
-am_libdixmods_la_OBJECTS = libdixmods_la-miinitext.lo
-libdixmods_la_OBJECTS = $(am_libdixmods_la_OBJECTS)
+LTLIBRARIES = $(noinst_LTLIBRARIES)
+libxtsol_la_DEPENDENCIES =
+am_libxtsol_la_OBJECTS = tsolpolicy.lo tsolutils.lo tsolextension.lo \
+	tsolprotocol.lo auditwrite.lo
+libxtsol_la_OBJECTS = $(am_libxtsol_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-libdixmods_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libdixmods_la_CFLAGS) \
-	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-libfb_la_DEPENDENCIES = $(top_builddir)/fb/libfb.la
-am_libfb_la_OBJECTS = libfb_la-fbmodule.lo
-libfb_la_OBJECTS = $(am_libfb_la_OBJECTS)
-libfb_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libfb_la_CFLAGS) \
-	$(CFLAGS) $(libfb_la_LDFLAGS) $(LDFLAGS) -o $@
-am__DEPENDENCIES_1 =
-@DRI2_TRUE@@NO_UNDEFINED_TRUE@am__DEPENDENCIES_2 =  \
-@DRI2_TRUE@@NO_UNDEFINED_TRUE@	$(am__DEPENDENCIES_1) \
-@DRI2_TRUE@@NO_UNDEFINED_TRUE@	$(am__DEPENDENCIES_1)
-libglx_la_DEPENDENCIES = $(top_builddir)/glx/libglx.la \
-	$(am__DEPENDENCIES_1) $(am__append_1) $(am__DEPENDENCIES_2)
-am_libglx_la_OBJECTS = glxmodule.lo
-libglx_la_OBJECTS = $(am_libglx_la_OBJECTS)
-libglx_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
-	$(libglx_la_LDFLAGS) $(LDFLAGS) -o $@
-@GLX_TRUE@am_libglx_la_rpath = -rpath $(extsmoduledir)
-libshadow_la_DEPENDENCIES = $(top_builddir)/miext/shadow/libshadow.la \
-	$(am__append_3)
-am_libshadow_la_OBJECTS = shmodule.lo
-libshadow_la_OBJECTS = $(am_libshadow_la_OBJECTS)
-libshadow_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
-	$(libshadow_la_LDFLAGS) $(LDFLAGS) -o $@
-libwfb_la_DEPENDENCIES = $(top_builddir)/fb/libwfb.la
-am_libwfb_la_OBJECTS = libwfb_la-fbmodule.lo
-libwfb_la_OBJECTS = $(am_libwfb_la_OBJECTS)
-libwfb_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libwfb_la_CFLAGS) \
-	$(CFLAGS) $(libwfb_la_LDFLAGS) $(LDFLAGS) -o $@
-@BUILD_TSOL_MODULE_TRUE@libxtsol_la_DEPENDENCIES =  \
-@BUILD_TSOL_MODULE_TRUE@	$(top_builddir)/tsol/libxtsol.la \
-@BUILD_TSOL_MODULE_TRUE@	$(am__DEPENDENCIES_1)
-am__libxtsol_la_SOURCES_DIST = tsolmodule.c
-@BUILD_TSOL_MODULE_TRUE@am_libxtsol_la_OBJECTS = tsolmodule.lo
-libxtsol_la_OBJECTS = $(am_libxtsol_la_OBJECTS)
-libxtsol_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
-	$(libxtsol_la_LDFLAGS) $(LDFLAGS) -o $@
-@BUILD_TSOL_MODULE_TRUE@am_libxtsol_la_rpath = -rpath $(extsmoduledir)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -231,17 +180,42 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libdixmods_la_SOURCES) $(libfb_la_SOURCES) \
-	$(libglx_la_SOURCES) $(libshadow_la_SOURCES) \
-	$(libwfb_la_SOURCES) $(libxtsol_la_SOURCES)
-DIST_SOURCES = $(libdixmods_la_SOURCES) $(libfb_la_SOURCES) \
-	$(libglx_la_SOURCES) $(libshadow_la_SOURCES) \
-	$(libwfb_la_SOURCES) $(am__libxtsol_la_SOURCES_DIST)
+SOURCES = $(libxtsol_la_SOURCES)
+DIST_SOURCES = $(libxtsol_la_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
+am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
+am__vpath_adj = case $$p in \
+    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
+    *) f=$$p;; \
+  esac;
+am__strip_dir = f=`echo $$p | sed -e 's|^.*/||'`;
+am__install_max = 40
+am__nobase_strip_setup = \
+  srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*|]/\\\\&/g'`
+am__nobase_strip = \
+  for p in $$list; do echo "$$p"; done | sed -e "s|$$srcdirstrip/||"
+am__nobase_list = $(am__nobase_strip_setup); \
+  for p in $$list; do echo "$$p $$p"; done | \
+  sed "s| $$srcdirstrip/| |;"' / .*\//!s/ .*/ ./; s,\( .*\)/[^/]*$$,\1,' | \
+  $(AWK) 'BEGIN { files["."] = "" } { files[$$2] = files[$$2] " " $$1; \
+    if (++n[$$2] == $(am__install_max)) \
+      { print $$2, files[$$2]; n[$$2] = 0; files[$$2] = "" } } \
+    END { for (dir in files) print dir, files[dir] }'
+am__base_list = \
+  sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
+  sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
+am__uninstall_files_from_dir = { \
+  test -z "$$files" \
+    || { test ! -d "$$dir" && test ! -f "$$dir" && test ! -r "$$dir"; } \
+    || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
+         $(am__cd) "$$dir" && rm -f $$files; }; \
+  }
+am__installdirs = "$(DESTDIR)$(SERVERCONFIGdir)"
+DATA = $(SERVERCONFIG_DATA)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 # Read a list of newline-separated strings from the standard input,
 # and print each of them once, without duplicates.  Input order is
@@ -617,41 +591,16 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-noinst_LTLIBRARIES = libdixmods.la
-@GLX_TRUE@GLXMODS = libglx.la
-module_LTLIBRARIES = libfb.la \
-                     libwfb.la \
-                     libshadow.la
+noinst_LTLIBRARIES = libxtsol.la
+libxtsol_la_SOURCES = tsolpolicy.c tsolutils.c tsolextension.c tsolprotocol.c \
+			auditwrite.c
 
-extsmoduledir = $(moduledir)/extensions
-extsmodule_LTLIBRARIES = $(GLXMODS) $(am__append_4)
-AM_CFLAGS = @XORG_CFLAGS@ @DIX_CFLAGS@
-AM_CPPFLAGS = @XORG_INCS@ \
-           -I$(top_srcdir)/hw/xfree86/loader \
-           -I$(top_srcdir)/miext/shadow \
-           -I$(top_srcdir)/glx
-
-libfb_la_LDFLAGS = -module -avoid-version $(LD_NO_UNDEFINED_FLAG)
-libfb_la_LIBADD = $(top_builddir)/fb/libfb.la
-libfb_la_SOURCES = fbmodule.c
-libfb_la_CFLAGS = $(AM_CFLAGS)
-libwfb_la_LDFLAGS = -module -avoid-version $(LD_NO_UNDEFINED_FLAG)
-libwfb_la_LIBADD = $(top_builddir)/fb/libwfb.la
-libwfb_la_SOURCES = fbmodule.c
-libwfb_la_CFLAGS = $(AM_CFLAGS) -DFB_ACCESS_WRAPPER
-libglx_la_LDFLAGS = -module -avoid-version $(LD_NO_UNDEFINED_FLAG)
-libglx_la_LIBADD = $(top_builddir)/glx/libglx.la $(GLX_SYS_LIBS) \
-	$(am__append_1) $(am__append_2)
-libglx_la_SOURCES = glxmodule.c
-libshadow_la_LDFLAGS = -module -avoid-version $(LD_NO_UNDEFINED_FLAG)
-libshadow_la_LIBADD = $(top_builddir)/miext/shadow/libshadow.la \
-	$(am__append_3)
-libshadow_la_SOURCES = shmodule.c
-libdixmods_la_SOURCES = $(top_srcdir)/mi/miinitext.c
-libdixmods_la_CFLAGS = $(AM_CFLAGS)
-@BUILD_TSOL_MODULE_TRUE@libxtsol_la_LDFLAGS = -avoid-version
-@BUILD_TSOL_MODULE_TRUE@libxtsol_la_LIBADD = $(top_builddir)/tsol/libxtsol.la $(PIXMAN_LIBS)
-@BUILD_TSOL_MODULE_TRUE@libxtsol_la_SOURCES = tsolmodule.c
+INCLUDES = -I.. -I$(top_srcdir)/include -I$(top_srcdir)/os
+SERVERCONFIGdir = @SERVER_MISC_CONFIG_PATH@
+SERVERCONFIG_DATA = TrustedExtensionsPolicy
+TSOLPOLICYFILEDEF = -DTSOLPOLICYFILE=\"$(SERVERCONFIGdir)/TrustedExtensionsPolicy\"
+AM_CFLAGS = $(DIX_CFLAGS) $(TSOLPOLICYFILEDEF)
+libxtsol_la_LIBADD = -ltsol -ltsnet -lbsm
 all: all-am
 
 .SUFFIXES:
@@ -665,9 +614,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign hw/xfree86/dixmods/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign tsol/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign hw/xfree86/dixmods/Makefile
+	  $(AUTOMAKE) --foreign tsol/Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
 	  *config.status*) \
@@ -686,76 +635,6 @@ $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
 
-install-extsmoduleLTLIBRARIES: $(extsmodule_LTLIBRARIES)
-	@$(NORMAL_INSTALL)
-	@list='$(extsmodule_LTLIBRARIES)'; test -n "$(extsmoduledir)" || list=; \
-	list2=; for p in $$list; do \
-	  if test -f $$p; then \
-	    list2="$$list2 $$p"; \
-	  else :; fi; \
-	done; \
-	test -z "$$list2" || { \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(extsmoduledir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(extsmoduledir)" || exit 1; \
-	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 '$(DESTDIR)$(extsmoduledir)'"; \
-	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 "$(DESTDIR)$(extsmoduledir)"; \
-	}
-
-uninstall-extsmoduleLTLIBRARIES:
-	@$(NORMAL_UNINSTALL)
-	@list='$(extsmodule_LTLIBRARIES)'; test -n "$(extsmoduledir)" || list=; \
-	for p in $$list; do \
-	  $(am__strip_dir) \
-	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(extsmoduledir)/$$f'"; \
-	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(extsmoduledir)/$$f"; \
-	done
-
-clean-extsmoduleLTLIBRARIES:
-	-test -z "$(extsmodule_LTLIBRARIES)" || rm -f $(extsmodule_LTLIBRARIES)
-	@list='$(extsmodule_LTLIBRARIES)'; \
-	locs=`for p in $$list; do echo $$p; done | \
-	      sed 's|^[^/]*$$|.|; s|/[^/]*$$||; s|$$|/so_locations|' | \
-	      sort -u`; \
-	test -z "$$locs" || { \
-	  echo rm -f $${locs}; \
-	  rm -f $${locs}; \
-	}
-
-install-moduleLTLIBRARIES: $(module_LTLIBRARIES)
-	@$(NORMAL_INSTALL)
-	@list='$(module_LTLIBRARIES)'; test -n "$(moduledir)" || list=; \
-	list2=; for p in $$list; do \
-	  if test -f $$p; then \
-	    list2="$$list2 $$p"; \
-	  else :; fi; \
-	done; \
-	test -z "$$list2" || { \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(moduledir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(moduledir)" || exit 1; \
-	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 '$(DESTDIR)$(moduledir)'"; \
-	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 "$(DESTDIR)$(moduledir)"; \
-	}
-
-uninstall-moduleLTLIBRARIES:
-	@$(NORMAL_UNINSTALL)
-	@list='$(module_LTLIBRARIES)'; test -n "$(moduledir)" || list=; \
-	for p in $$list; do \
-	  $(am__strip_dir) \
-	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(moduledir)/$$f'"; \
-	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(moduledir)/$$f"; \
-	done
-
-clean-moduleLTLIBRARIES:
-	-test -z "$(module_LTLIBRARIES)" || rm -f $(module_LTLIBRARIES)
-	@list='$(module_LTLIBRARIES)'; \
-	locs=`for p in $$list; do echo $$p; done | \
-	      sed 's|^[^/]*$$|.|; s|/[^/]*$$||; s|$$|/so_locations|' | \
-	      sort -u`; \
-	test -z "$$locs" || { \
-	  echo rm -f $${locs}; \
-	  rm -f $${locs}; \
-	}
-
 clean-noinstLTLIBRARIES:
 	-test -z "$(noinst_LTLIBRARIES)" || rm -f $(noinst_LTLIBRARIES)
 	@list='$(noinst_LTLIBRARIES)'; \
@@ -767,23 +646,8 @@ clean-noinstLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-libdixmods.la: $(libdixmods_la_OBJECTS) $(libdixmods_la_DEPENDENCIES) $(EXTRA_libdixmods_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(libdixmods_la_LINK)  $(libdixmods_la_OBJECTS) $(libdixmods_la_LIBADD) $(LIBS)
-
-libfb.la: $(libfb_la_OBJECTS) $(libfb_la_DEPENDENCIES) $(EXTRA_libfb_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(libfb_la_LINK) -rpath $(moduledir) $(libfb_la_OBJECTS) $(libfb_la_LIBADD) $(LIBS)
-
-libglx.la: $(libglx_la_OBJECTS) $(libglx_la_DEPENDENCIES) $(EXTRA_libglx_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(libglx_la_LINK) $(am_libglx_la_rpath) $(libglx_la_OBJECTS) $(libglx_la_LIBADD) $(LIBS)
-
-libshadow.la: $(libshadow_la_OBJECTS) $(libshadow_la_DEPENDENCIES) $(EXTRA_libshadow_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(libshadow_la_LINK) -rpath $(moduledir) $(libshadow_la_OBJECTS) $(libshadow_la_LIBADD) $(LIBS)
-
-libwfb.la: $(libwfb_la_OBJECTS) $(libwfb_la_DEPENDENCIES) $(EXTRA_libwfb_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(libwfb_la_LINK) -rpath $(moduledir) $(libwfb_la_OBJECTS) $(libwfb_la_LIBADD) $(LIBS)
-
 libxtsol.la: $(libxtsol_la_OBJECTS) $(libxtsol_la_DEPENDENCIES) $(EXTRA_libxtsol_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(libxtsol_la_LINK) $(am_libxtsol_la_rpath) $(libxtsol_la_OBJECTS) $(libxtsol_la_LIBADD) $(LIBS)
+	$(AM_V_CCLD)$(LINK)  $(libxtsol_la_OBJECTS) $(libxtsol_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -791,12 +655,11 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/glxmodule.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdixmods_la-miinitext.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libfb_la-fbmodule.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwfb_la-fbmodule.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/shmodule.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tsolmodule.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/auditwrite.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tsolextension.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tsolpolicy.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tsolprotocol.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tsolutils.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -819,32 +682,32 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
 
-libdixmods_la-miinitext.lo: $(top_srcdir)/mi/miinitext.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdixmods_la_CFLAGS) $(CFLAGS) -MT libdixmods_la-miinitext.lo -MD -MP -MF $(DEPDIR)/libdixmods_la-miinitext.Tpo -c -o libdixmods_la-miinitext.lo `test -f '$(top_srcdir)/mi/miinitext.c' || echo '$(srcdir)/'`$(top_srcdir)/mi/miinitext.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libdixmods_la-miinitext.Tpo $(DEPDIR)/libdixmods_la-miinitext.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(top_srcdir)/mi/miinitext.c' object='libdixmods_la-miinitext.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdixmods_la_CFLAGS) $(CFLAGS) -c -o libdixmods_la-miinitext.lo `test -f '$(top_srcdir)/mi/miinitext.c' || echo '$(srcdir)/'`$(top_srcdir)/mi/miinitext.c
-
-libfb_la-fbmodule.lo: fbmodule.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libfb_la_CFLAGS) $(CFLAGS) -MT libfb_la-fbmodule.lo -MD -MP -MF $(DEPDIR)/libfb_la-fbmodule.Tpo -c -o libfb_la-fbmodule.lo `test -f 'fbmodule.c' || echo '$(srcdir)/'`fbmodule.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libfb_la-fbmodule.Tpo $(DEPDIR)/libfb_la-fbmodule.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='fbmodule.c' object='libfb_la-fbmodule.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libfb_la_CFLAGS) $(CFLAGS) -c -o libfb_la-fbmodule.lo `test -f 'fbmodule.c' || echo '$(srcdir)/'`fbmodule.c
-
-libwfb_la-fbmodule.lo: fbmodule.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwfb_la_CFLAGS) $(CFLAGS) -MT libwfb_la-fbmodule.lo -MD -MP -MF $(DEPDIR)/libwfb_la-fbmodule.Tpo -c -o libwfb_la-fbmodule.lo `test -f 'fbmodule.c' || echo '$(srcdir)/'`fbmodule.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libwfb_la-fbmodule.Tpo $(DEPDIR)/libwfb_la-fbmodule.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='fbmodule.c' object='libwfb_la-fbmodule.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwfb_la_CFLAGS) $(CFLAGS) -c -o libwfb_la-fbmodule.lo `test -f 'fbmodule.c' || echo '$(srcdir)/'`fbmodule.c
-
 mostlyclean-libtool:
 	-rm -f *.lo
 
 clean-libtool:
 	-rm -rf .libs _libs
+install-SERVERCONFIGDATA: $(SERVERCONFIG_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(SERVERCONFIG_DATA)'; test -n "$(SERVERCONFIGdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(SERVERCONFIGdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(SERVERCONFIGdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(SERVERCONFIGdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(SERVERCONFIGdir)" || exit $$?; \
+	done
+
+uninstall-SERVERCONFIGDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(SERVERCONFIG_DATA)'; test -n "$(SERVERCONFIGdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(SERVERCONFIGdir)'; $(am__uninstall_files_from_dir)
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique
@@ -930,9 +793,9 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(LTLIBRARIES)
+all-am: Makefile $(LTLIBRARIES) $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(extsmoduledir)" "$(DESTDIR)$(moduledir)"; do \
+	for dir in "$(DESTDIR)$(SERVERCONFIGdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -967,8 +830,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-extsmoduleLTLIBRARIES clean-generic clean-libtool \
-	clean-moduleLTLIBRARIES clean-noinstLTLIBRARIES mostlyclean-am
+clean-am: clean-generic clean-libtool clean-noinstLTLIBRARIES \
+	mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -988,8 +851,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-extsmoduleLTLIBRARIES \
-	install-moduleLTLIBRARIES
+install-data-am: install-SERVERCONFIGDATA
 
 install-dvi: install-dvi-am
 
@@ -1035,27 +897,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-extsmoduleLTLIBRARIES \
-	uninstall-moduleLTLIBRARIES
+uninstall-am: uninstall-SERVERCONFIGDATA
 
 .MAKE: install-am install-strip
 
-.PHONY: CTAGS GTAGS TAGS all all-am check check-am clean \
-	clean-extsmoduleLTLIBRARIES clean-generic clean-libtool \
-	clean-moduleLTLIBRARIES clean-noinstLTLIBRARIES cscopelist-am \
-	ctags ctags-am distclean distclean-compile distclean-generic \
+.PHONY: CTAGS GTAGS TAGS all all-am check check-am clean clean-generic \
+	clean-libtool clean-noinstLTLIBRARIES cscopelist-am ctags \
+	ctags-am distclean distclean-compile distclean-generic \
 	distclean-libtool distclean-tags distdir dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-extsmoduleLTLIBRARIES install-html \
+	html-am info info-am install install-SERVERCONFIGDATA \
+	install-am install-data install-data-am install-dvi \
+	install-dvi-am install-exec install-exec-am install-html \
 	install-html-am install-info install-info-am install-man \
-	install-moduleLTLIBRARIES install-pdf install-pdf-am \
-	install-ps install-ps-am install-strip installcheck \
-	installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	tags tags-am uninstall uninstall-am \
-	uninstall-extsmoduleLTLIBRARIES uninstall-moduleLTLIBRARIES
+	install-pdf install-pdf-am install-ps install-ps-am \
+	install-strip installcheck installcheck-am installdirs \
+	maintainer-clean maintainer-clean-generic mostlyclean \
+	mostlyclean-compile mostlyclean-generic mostlyclean-libtool \
+	pdf pdf-am ps ps-am tags tags-am uninstall \
+	uninstall-SERVERCONFIGDATA uninstall-am
 
 .PRECIOUS: Makefile
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2004, 2011, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2004, 2015, Oracle and/or its affiliates. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -175,7 +175,9 @@ extern priv_set_t *pset_win_config;
 extern TsolResPtr TsolDrawablePrivateate(DrawablePtr pDraw, ClientPtr client);
 extern int tsol_check_policy(TsolInfoPtr tsolinfo, TsolResPtr tsolres,
 			     xpolicy_t flags, int reqcode);
-extern Bool client_has_privilege(TsolInfoPtr tsolinfo, priv_set_t *priv);
+extern Bool client_has_privilege(TsolInfoPtr tsolinfo, priv_set_t *priv, int reqcode);
+extern void audit_use_of_x_privilege(uid_t uid, uid_t euid, gid_t gid, gid_t egid,
+	au_id_t auid, m_label_t *label, pid_t pid, int xevent_num, priv_set_t *priv);
 
 
 #define INITIAL_TSOL_NODELENGTH 1500
@@ -456,7 +458,7 @@ ResetStripeWindow(ClientPtr client)
 	int         j;
 
 	if (tpwin) {
-	    rc = dixLookupResourceByType((pointer *) &panres,
+	    rc = dixLookupResourceByType((void *) &panres,
 					 tpwin->drawable.id, XRT_WINDOW,
 					 client, DixReadAccess);
 	    if (rc != Success)
@@ -688,7 +690,7 @@ ProcTsolGrabServer(ClientPtr client)
     REQUEST_SIZE_MATCH(xReq);
 
     if (priv_win_config ||
-		client_has_privilege(tsolinfo, pset_win_config)) {
+		client_has_privilege(tsolinfo, pset_win_config, MAJOROP)) {
     	return (*TsolSavedProcVector[X_GrabServer])(client);
     } else {
 	/* turn off auditing because operation ignored */
@@ -708,7 +710,7 @@ ProcTsolUngrabServer(ClientPtr client)
     REQUEST_SIZE_MATCH(xReq);
 
     if (priv_win_config ||
-		client_has_privilege(tsolinfo, pset_win_config)) {
+		client_has_privilege(tsolinfo, pset_win_config, MAJOROP)) {
         return (*TsolSavedProcVector[X_UngrabServer])(client);
     } else {
 	/* turn off auditing because operation ignored */
@@ -822,8 +824,7 @@ TsolAuditStart)
     Bool audit_event = FALSE;
     TsolInfoPtr tsolinfo = (TsolInfoPtr)NULL;
     tsolinfo = GetClientTsolInfo(client);
-    if (system_audit_on &&
-	(tsolinfo->amask.am_success || tsolinfo->amask.am_failure)) {
+    if (tsolinfo->amask.am_success || tsolinfo->amask.am_failure) {
 
 	do_x_audit = TRUE;
         auditwrite(AW_PRESELECT, &(tsolinfo->amask), AW_END);
@@ -878,7 +879,7 @@ TsolAuditEnd)
     ClientPtr client = rec->client;
     int result = rec->requestResult;
 
-    char audit_ret = (char)NULL;
+    char audit_ret = 0;
     TsolInfoPtr tsolinfo = GetClientTsolInfo(client);
 
     if (tsolinfo->flags & TSOL_DOXAUDIT)
@@ -1030,7 +1031,7 @@ TsolDoGetImage(
     if (tsol_check_policy(tsolinfo, tsolres, flags, MAJOROP_CODE) == Success)
     {
 	return DoGetImage(client, format, drawable, x, y,
-		width, height, planemask, im_return);
+		width, height, planemask);
     }
 
     if (pDraw->type == DRAWABLE_WINDOW)
@@ -1221,7 +1222,7 @@ TsolDoGetImage(
 				         nlines,
 				         format,
 				         planemask,
-				         (pointer) pBuf);
+				         (void *) pBuf);
 #ifdef TSOL
         if (not_root_window)
         {
@@ -1279,7 +1280,7 @@ TsolDoGetImage(
 				                 nlines,
 				                 format,
 				                 plane,
-				                 (pointer)pBuf);
+				                 (void *)pBuf);
 #ifdef TSOL
                 if (not_root_window)
                 {
@@ -1501,4 +1502,38 @@ ProcTsolCopyPlane(ClientPtr client)
     status = (*TsolSavedProcVector[X_CopyPlane])(client);
 
     return (status);
+}
+
+void
+tsol_audit_priv(TsolInfoPtr tsolinfo, int protocol, priv_set_t *priv) {
+    int xevent_num = 0;
+    uid_t uid, euid;
+    gid_t gid, egid;
+    pid_t pid;
+    au_id_t auid;
+    m_label_t *label;
+    int count;
+
+
+	if (protocol > X_NoOperation) {
+             xevent_num = audit_eventsid[MAX_AUDIT_EVENTS - 1][1];
+	} else {
+            for (count = 0; count < MAX_AUDIT_EVENTS; count++) {
+                 if (protocol == audit_eventsid[count][0]) {
+                 	xevent_num = audit_eventsid[count][1];
+                        break;
+                  }
+	    }
+	}
+	if (xevent_num == 0)
+		return;
+	uid = tsolinfo->uid;
+	euid = tsolinfo->euid;
+	gid = tsolinfo->gid;
+	egid = tsolinfo->egid;
+	pid = tsolinfo->pid;
+	auid = tsolinfo->auid;
+	label = tsolinfo->sl;
+
+	audit_use_of_x_privilege(uid, euid, gid, egid, auid, label, pid, xevent_num, priv);
 }

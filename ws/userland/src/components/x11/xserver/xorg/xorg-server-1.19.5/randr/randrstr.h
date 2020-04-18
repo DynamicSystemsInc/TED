@@ -64,7 +64,7 @@ typedef XID RROutput;
 typedef XID RRCrtc;
 typedef XID RRProvider;
 
-extern int RREventBase, RRErrorBase;
+extern _X_EXPORT int RREventBase, RRErrorBase;
 
 extern int (*ProcRandrVector[RRNumberRequests]) (ClientPtr);
 extern int (*SProcRandrVector[RRNumberRequests]) (ClientPtr);
@@ -415,7 +415,7 @@ typedef struct _RRClient {
 /*  RRTimesRec	times[0]; */
 } RRClientRec, *RRClientPtr;
 
-extern RESTYPE RRClientType, RREventType;     /* resource types for event masks */
+extern _X_EXPORT RESTYPE RRClientType, RREventType;     /* resource types for event masks */
 extern DevPrivateKeyRec RRClientPrivateKeyRec;
 
 #define RRClientPrivateKey (&RRClientPrivateKeyRec)

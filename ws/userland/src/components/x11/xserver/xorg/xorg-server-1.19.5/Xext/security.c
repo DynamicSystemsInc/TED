@@ -1088,3 +1088,28 @@ SecurityExtensionInit(void)
     /* Label objects that were created before we could register ourself */
     SecurityLabelInitial();
 }
+
+/* API needed for Xtsol module to get/set client trustLevel */
+_X_EXPORT unsigned int
+getClientTrustLevel(ClientPtr client)
+{
+    SecurityStateRec *state;
+
+    state = dixLookupPrivate(&client->devPrivates, stateKey);
+
+    return state->trustLevel;
+}
+
+_X_EXPORT unsigned int
+setClientTrustLevel(ClientPtr client, unsigned int newLevel)
+{
+    SecurityStateRec *state;
+    unsigned int oldLevel;
+
+    state = dixLookupPrivate(&client->devPrivates, stateKey);
+    oldLevel = state->trustLevel;
+    state->trustLevel = newLevel;
+
+    return oldLevel;
+}
+

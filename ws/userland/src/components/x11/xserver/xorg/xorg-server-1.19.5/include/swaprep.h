@@ -26,7 +26,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #ifndef SWAPREP_H
 #define SWAPREP_H 1
 
-extern void Swap32Write(ClientPtr /* pClient */ ,
+extern _X_EXPORT void Swap32Write(ClientPtr /* pClient */ ,
                         int /* size */ ,
                         CARD32 * /* pbuf */ );
 

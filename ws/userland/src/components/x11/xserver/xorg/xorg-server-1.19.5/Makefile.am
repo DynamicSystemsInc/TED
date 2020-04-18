@@ -35,6 +35,10 @@ if GLAMOR
 GLAMOR_DIR=glamor
 endif
 
+if BUILD_TSOL_MODULE
+TSOL_DIR=tsol
+endif
+
 SUBDIRS = \
 	doc \
 	man \
@@ -59,6 +63,7 @@ SUBDIRS = \
 	$(PRESENT_DIR) \
 	$(DRI3_DIR) \
 	IA \
+	$(TSOL_DIR) \
 	exa \
 	$(GLAMOR_DIR) \
 	config \

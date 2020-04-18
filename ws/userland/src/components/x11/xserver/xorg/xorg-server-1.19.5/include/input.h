@@ -406,7 +406,7 @@ extern void NoteLedState(DeviceIntPtr /*keybd */ ,
                          int /*led */ ,
                          Bool /*on */ );
 
-extern void MaybeStopHint(DeviceIntPtr /*device */ ,
+extern _X_EXPORT void MaybeStopHint(DeviceIntPtr /*device */ ,
                           ClientPtr /*client */ );
 
 extern void ProcessPointerEvent(InternalEvent * /* ev */ ,

@@ -231,5 +231,11 @@ extern _X_EXPORT void SetRootClip(ScreenPtr pScreen, int enable);
 extern _X_EXPORT void PrintWindowTree(void);
 extern _X_EXPORT void PrintPassiveGrabs(void);
 
+#ifdef TSOL
+#include "validate.h" /* needed for VTKind enum definition */
+extern _X_EXPORT void ReflectStackChange(WindowPtr pWin, WindowPtr pSib,
+                                         VTKind  kind);
+#endif
+
 extern _X_EXPORT VisualPtr WindowGetVisual(WindowPtr /*pWin*/);
 #endif                          /* WINDOW_H */

@@ -79,4 +79,8 @@ typedef struct {
 /* Give this value or higher to the -audit option to get security messages */
 #define SECURITY_AUDIT_LEVEL 4
 
+/* API needed for Xtsol module to get/set client trustLevel */
+extern _X_EXPORT unsigned int getClientTrustLevel(ClientPtr client);
+extern _X_EXPORT unsigned int setClientTrustLevel(ClientPtr client, unsigned int newLevel);
+
 #endif                          /* _SECURITY_SRV_H */

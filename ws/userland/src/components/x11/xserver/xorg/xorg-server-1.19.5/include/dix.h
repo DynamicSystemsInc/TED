@@ -177,6 +177,14 @@ extern _X_EXPORT void MarkClientException(ClientPtr /*client */ );
 
 extern _X_HIDDEN Bool CreateConnectionBlock(void);
 
+#ifdef TSOL
+extern _X_EXPORT int DoGetImage(ClientPtr client, int format, Drawable drawable,
+                      int x, int y, int width, int height,
+                      Mask planemask);
+
+extern _X_EXPORT int GetGeometry(ClientPtr client, xGetGeometryReply *rep);
+#endif
+
 /* dixutils.c */
 
 extern _X_EXPORT int CompareISOLatin1Lowered(const unsigned char * /*a */ ,

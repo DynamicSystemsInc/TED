@@ -89,6 +89,7 @@ SOFTWARE.
 #undef DAMAGE
 #undef COMPOSITE
 #undef MITSHM
+#undef TSOL
 #endif
 
 #ifdef HAVE_XNEST_CONFIG_H
@@ -121,6 +122,21 @@ typedef struct {
     const char *name;
     Bool *disablePtr;
 } ExtensionToggle;
+
+#define SolarisIAExtension
+
+#ifdef SolarisIAExtension
+#include <X11/extensions/interactive.h>
+#include "../IA/interactive_srv.h"
+Bool noIAExtension;
+extern void IAExtensionInit(void);
+#endif
+
+#ifdef TSOL
+#include "../tsol/tsolextension.h"
+Bool noXTSolExtension;
+extern void TsolExtensionInit(void);
+#endif
 
 static ExtensionToggle ExtensionToggleList[] = {
     /* sort order is extension name string as shown in xdpyinfo */
@@ -155,6 +171,9 @@ static ExtensionToggle ExtensionToggleList[] = {
 #endif
 #ifdef SolarisIAExtension
     { IANAME /* "SolarisIA" */, &noIAExtension },
+#endif
+#ifdef TSOL
+    { TSOLNAME /* "SUN_TSOL" */, &noXTSolExtension },
 #endif
 #ifdef RES
     {"X-Resource", &noResExtension},

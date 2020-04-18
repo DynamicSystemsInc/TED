@@ -73,8 +73,8 @@ Equipment Corporation.
 
 ******************************************************************/
 
-/* XSERVER_DTRACE additions:
- * Copyright (c) 2005-2006, Oracle and/or its affiliates. All rights reserved.
+/*
+ * Copyright (c) 2005, 2006, Oracle and/or its affiliates. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -158,6 +158,10 @@ HWEventQueuePtr checkForInput[2];
 int connBlockScreenStart;
 
 static void KillAllClients(void);
+
+#ifdef TSOL
+SecurityHookPtr pSecHook = NULL;
+#endif /* TSOL */
 
 static int nextFreeClientID;    /* always MIN free client ID */
 
@@ -937,7 +941,12 @@ ProcCirculateWindow(ClientPtr client)
     return Success;
 }
 
-static int
+#ifdef TSOL
+_X_EXPORT
+#else
+static
+#endif
+int
 GetGeometry(ClientPtr client, xGetGeometryReply * rep)
 {
     DrawablePtr pDraw;
@@ -2067,7 +2076,12 @@ ProcPutImage(ClientPtr client)
     return Success;
 }
 
-static int
+#ifdef TSOL
+_X_EXPORT
+#else
+static
+#endif
+int
 DoGetImage(ClientPtr client, int format, Drawable drawable,
            int x, int y, int width, int height,
            Mask planemask)
