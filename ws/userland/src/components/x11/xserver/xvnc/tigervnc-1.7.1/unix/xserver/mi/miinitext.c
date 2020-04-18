@@ -331,6 +331,9 @@ static const ExtensionModule staticExtensions[] = {
 #ifdef SolarisIAExtension
     {IAExtensionInit, IANAME, &noIAExtension},
 #endif
+#ifdef TSOL
+    {TsolExtensionInit, TSOLNAME, &noXTSolExtension},
+#endif
 #ifdef XV
     {XvExtensionInit, XvName, &noXvExtension},
     {XvMCExtensionInit, XvMCName, &noXvExtension},

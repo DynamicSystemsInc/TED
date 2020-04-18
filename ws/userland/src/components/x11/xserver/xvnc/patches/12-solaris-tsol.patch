@@ -1,0 +1,12 @@
+--- a/unix/xserver/mi/miinitext.c	2019-12-10 10:11:14.065507953 +0000
++++ b/unix/xserver/mi/miinitext.c	2019-12-10 10:14:13.657498252 +0000
+@@ -331,6 +331,9 @@
+ #ifdef SolarisIAExtension
+     {IAExtensionInit, IANAME, &noIAExtension},
+ #endif
++#ifdef TSOL
++    {TsolExtensionInit, TSOLNAME, &noXTSolExtension},
++#endif
+ #ifdef XV
+     {XvExtensionInit, XvName, &noXvExtension},
+     {XvMCExtensionInit, XvMCName, &noXvExtension},

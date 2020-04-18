@@ -45,6 +45,12 @@ Xvnc_CPPFLAGS = $(XVNC_CPPFLAGS) -DTIGERVNC -DNO_MODULE_EXTS \
 
 Xvnc_LDADD = $(XVNC_LIBS) libvnccommon.la $(COMMON_LIBS) \
 	-ljpeg -lz ../../IA/libIA.la \
+	../../tsol/libxtsol.la \
+	../../tsol/.libs/auditwrite.o \
+	../../tsol/.libs/tsolutils.o \
+	../../tsol/.libs/tsolprotocol.o \
+	../../tsol/.libs/tsolextension.o \
+	../../tsol/.libs/tsolpolicy.o \
 	$(XSERVER_LIBS) $(XSERVER_SYS_LIBS) $(XVNC_SYS_LIBS)
 
 Xvnc_LDFLAGS = $(LD_EXPORT_SYMBOLS_FLAG)
