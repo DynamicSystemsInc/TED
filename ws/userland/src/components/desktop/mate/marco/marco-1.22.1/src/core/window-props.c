@@ -51,7 +51,12 @@
 #include <sys/types.h>
 #include <pwd.h>
 
-#ifdef HAVE_GTOPx
+#ifdef HAVE_XTSOL
+#undef HAVE_GTOP
+#include "trusted.h"
+#endif /* HAVE_XTSOL */
+
+#ifdef HAVE_GTOP
 #include <glibtop/procuid.h>
 #include <errno.h>
 #include <pwd.h>
@@ -394,7 +399,7 @@ reload_net_wm_user_time_window (MetaWindow    *window,
 static gboolean
 owner_of_process (pid_t process, uid_t *result)
 {
-#ifdef HAVE_GTOPx
+#ifdef HAVE_GTOP
   glibtop_proc_uid process_details;
 
   glibtop_get_proc_uid (&process_details, process);
@@ -411,11 +416,6 @@ owner_of_process (pid_t process, uid_t *result)
 #else
   /* I don't know, maybe we could do something hairy like see whether
    * /proc/$PID exists and who owns it, in case they have procfs.
-   */
-  /* TODO
-   * open /proc/$PID/psinfo 
-   * read as typedef struct psinfo
-   * pr_uid pr pr_euid is of type uid_t
    */
   return FALSE;
 #endif /* HAVE_GTOP */
@@ -472,8 +472,18 @@ set_title_text (MetaWindow  *window,
       char *found_name = NULL;
 
       uid_t window_owner = 0;
+#ifdef HAVE_XTSOL
+      gboolean window_owner_known = FALSE;
+
+      if (tsol_is_available()) {
+	    window_owner_known = libxtsol_XTSOLgetResUID(
+		window->display->xdisplay, window->xwindow, IsWindow, &window_owner);
+       }
+#else
       gboolean window_owner_known =
               owner_of_process (window->net_wm_pid, &window_owner);
+#endif /* HAVE_XTSOL */
+
 
       /* Assume a window with unknown ownership is ours (call it usufruct!) */
       gboolean window_owner_is_us =

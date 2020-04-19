@@ -1025,7 +1025,7 @@ MetaDrawOpList*	      tsol_theme_trusted_title_ops_get (MetaFrameFocus focus,
 							MetaTheme *theme);
 void    meta_ui_set_frame_label  (MetaUI           *ui,
                                   Window            xwindow,
-                                  MetaTrustedLabel *label);
+                                  MetaWindow       *window);
 
 #endif
 

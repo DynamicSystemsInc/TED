@@ -913,8 +913,11 @@ int meta_ui_get_drag_threshold(MetaUI* ui)
 void
 meta_ui_set_frame_label (MetaUI     *ui,
                          Window      xwindow,
-                         MetaTrustedLabel *label)
+                         MetaWindow *window)
 {
+  MetaTrustedLabel *label;
+
+  label = tsol_meta_window_label_get (window);
   meta_frames_set_label (ui->frames, xwindow, label);
 }
 #endif

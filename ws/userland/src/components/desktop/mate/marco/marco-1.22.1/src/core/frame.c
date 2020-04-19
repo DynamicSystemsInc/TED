@@ -164,7 +164,7 @@ meta_window_ensure_frame (MetaWindow *window)
 	  /* associate trusted label with the window only if a frame exist */
 	  meta_ui_set_frame_label (window->screen->ui,
 				   window->frame->xwindow,
-				   tsol_meta_window_label_get (window));
+				   window);
 
 	  /* make sure the frame window as the same privileges
 	   * "real" window */
