@@ -1,0 +1,24 @@
+#!/bin/ksh 
+#####################################################################
+###  File:              Xsession.jds
+###
+###  Default Location:  /usr/dt/config/Xsession.tjds
+###
+###  Purpose:           GNOME session start script
+###
+###  Invoked by:        Solaris Desktop Login Manager (dtlogin)
+###
+#####################################################################
+
+DTDSPMSG=/usr/dt/bin/dtdspmsg
+
+export SESSIONTYPE="altDt"
+export SDT_ALT_SESSION="/usr/dt/config/Xsession2.tjds"
+export SDT_ALT_HELLO="/bin/true"
+export SDT_NO_TOOLTALK="1"
+export SDT_NO_DTDBCACHE="1"
+export START_SPECKEYSD="no"
+
+command=/usr/dt/bin/Xsession
+
+exec $command

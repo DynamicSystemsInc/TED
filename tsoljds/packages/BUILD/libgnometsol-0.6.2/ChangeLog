@@ -1,0 +1,261 @@
+2008-05-15  Stephen Browne <stephen.browne@sun.com>
+
+	* src/label_builder.c: move the entry signal unblock so it only 
+	happens after the timeout function has finished updating the entry.
+
+2008-05-14  Stephen Browne <stephen.browne@sun.com>
+
+	* src/label_buidler.c: one too many frees. Fixes 6682734
+
+2008-03-25  Takao Fujiwara  <takao.fujiwara@sun.com>
+
+	* configure.in: update version number to 0.6.1
+
+2008-03-14  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: update version number to 0.6
+
+2008-03-07  Stephen Browne <stephen.browne@sun.com>
+
+	* src/sel_config.c: src/sel_config.h: add processing of auto cancel
+	settings from the configuration file. Additional part of the fix for
+	6670956
+
+2008-03-03  Stephen Browne <stephen.browne@sun.com>
+
+	* COPYING: added
+	* README, src/constraint-scaling.c, src/constraint-scaling.h,
+	  src/label_builder.c, src/label_builder.h, src/message_dialog.c,
+	  src/message_dialog.h, src/pam_conv.c, src/pam_conv.h,
+	  src/pam_dialog.c, src/pam_dialog.h, src/sel_config.c,
+	  src/sel_config.h, src/test.c, src/tsol-pics.h, src/userattr.c,
+	  src/userattr.h: updated License
+
+2008-02-22  Stephen Browne <stephen.browne@sun.com>
+
+	src/label_builder.c: add auto selection of label in UI if the user types
+	match in the text entry. Fixes 6583233 as a side effect.
+
+2008-02-22  Stephen Browne <stephen.browne@sun.com>
+
+	* src/label_builder.c: add a revert button and guard text entry against
+	labels outside users label range.
+
+2008-02-08  Stephen Browne <stephen.browne@sun.com>
+
+	* src/label_builder.c: dont use a library static variable for ready
+	use an instance scoped one instead. Fixes: 6664488
+	* src/test.c: remove "clr" since the lib has moved to the new TX API
+
+2008-02-08  Stephen Browne <stephen.browne@sun.com>
+
+	* src/label_builder.c: partial rewrite to support multicompartment
+	labels. Fixes 6583856.
+
+2007-11-13  Stephen Browne <stephen.browne@sun.com>
+
+	* src/constraint-scaling.c: remove bogus cimage from coloured label 
+	render for zone function as it was never initalised and can cause a 
+	crash. This should have gone back with previous commit.  Fixes 6622098
+
+2007-10-17  Stephen Browne <stephen.browne@sun.com>
+
+	* src/constraint-scaling.c: remove bogus cimage from coloured label 
+	render function as it was never initalised and can cause a crash.
+	Fixes 6607654
+
+2007-08-22  Stephen Browne <stephen.browne@sun.com>
+
+        * src/constraint-scaling.c: remove gradient in label rendering 6588919
+
+2007-02-06 Takao Fujiwara <takao.fujiwara@sun.com>
+
+	* src/label_builder.c: supported i18n label_builder. Fixes 6487689
+	* src/pam_conv.c: supported none UTF-8 strings from pam. Fixes 6504459
+
+2006-08-11 Yuriy Kuznetsov <Yuriy.Kuznetsov@Sun.COM>
+
+         * po/cs.po po/de.po po/es.po po/fr.po po/hu.po po/it.po 
+          po/ja.po po/ko.po po/pl.po po/pt_BR.po po/ru.po
+          po/sv.po po/zh_CN.po po/zh_HK.po po/zh_TW.po
+          fix for CR#6401835
+
+2006-06-19 Stephen Browne <stephen.browne@sun.com>
+
+	* src/label_builder.[ch]: added show help function
+
+2006-05-18 Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: match up gettext package version with module version
+	for a more sane pot file
+
+2006-04-28 Niall Power <niall.power@sun.com>
+
+	* src/pam_conv.[ch]: Drop the feature of passing saved passwords
+	  and returning authenticated passwords. Remembering authenticated
+	  passwords has security risks (even though TCDE does it)
+
+2006-04-13 Niall Power <niall.power@sun.com>
+
+	* src/constraint-scaling.c src/label_builder.c src/pam_conv.c
+	  src/pam_dialog.c src/sel_config.c src/test.c src/userattr.c:
+	  passed C files trough indent. Indent parameters used:
+	  -bad -bap -br -bs -cdb -ce -d0 -eei -pcs
+
+2006-04-06 Niall Power <niall.power@sun.com>
+
+	* src/Makefile.am: add message_dialog.[ch]
+	* src/pam_dialog.[ch] src/pam_conv.[ch]: make password dialog
+	  system modality optional via a g_object property (settable in
+	  constructor only). Message dialogs need to be optionally
+	  system modal also.
+	* added src/message_dialog.[ch]: Introducing GnomeTsolMessageDialog,
+	  the hideous child of GtkMessageDialog that has no additional 
+	  functionality except to support system modality.
+
+2006-03-20 Niall Power <niall.power@sun.com>
+
+	* src/pam_conv.c: pop dialogs up on the correct screen.
+
+2006-03-10 Niall Power <niall.power@sun.com>
+
+	* src/pam_dialog.c: check for unsuccessful pointer and keyboard
+	  grabs. If unsuccessful sleep momentarily and regrab until both
+	  keyboard and pointer grabs are obtained. Fixes pain in the ass
+	  bug that prevented keyboard and mouse input when the dialog was
+	  made system modal.
+
+2006-02-21 Niall Power <niall.power@sun.com>
+
+	* src/pam_conv.c: switched to using GTK_MESSAGE_ERROR 
+	  style message dialogs for PAM_ERROR_MSG style messages
+	  now that info messages are no longer reported as errors
+	  by pam_store.so
+
+2006-02-03 Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsol-pics.h: changed stripe back to low res.  It looks 
+	better in a dialog
+	* src/constraint-scaling.c: added drop shadow to text in 
+	coloured label
+
+2006-02-03 Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsol-pics.h: made stripe image dump higher res and added shield
+	and role hat image dumps.  Sounds more complication and like I did 
+	something more than copy this file from the stripe doesn't it
+
+2006-02-03 Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsol-pics.h: stripe rendering image dump
+	* src/Makefile.am: add tsol-pics.h to sources
+	* src/constraint-scaling.[ch]: added new API to render a coloured label
+
+2006-01-31 Niall Power <niall.power@sun.com>
+
+	* src/pam_conv.h: add 2 new variables 2 the pam conversation
+	  app data structure to allow something more informative than
+	  just the pam suppled prompt in the dialog.
+	* src/pam_conv.c: check for client supplied information messages
+	  when handling PAM_PROMPT_ECHO_[ON|OFF] and display in dialog.
+
+2006-01-31 Niall Power <niall.power@sun.com>
+
+	* AUTHORS: add myself - oh the glory!
+	* libgnometsol.pc.in: add -lpam to the linker flags.
+	* src/pam_conv.c: use stock gtk message dialogs for
+	  PAM_TEXT_INFO and PAM_ERROR_MSG type messages. I've
+	  left the old implementation commented out for the time
+	  being in case I decide to revert. Otherwise I'll remove
+	  it.
+
+2006-01-31 Stephen Browne <stephen.browne@sun.com>
+
+	* src/sel_config.c: changed the location of the settings file
+
+2006-01-30 Erwann Chenede - <erwann.chenede@sun.com>
+
+	* src/Makefile.am : added constraint-scaling.[hc]
+	* src/constraint-scaling.[hc] : constraint image rendering 
+	  routines used for stripe display.
+
+2006-01-26 Stephen Browne <stephen.browne@sun.com>
+	
+	* configure.in: uprevd package
+
+2006-01-26 Niall Power <niall.power@sun.com>
+
+	* configure.in: Drop dependency on libXtsol and just check for
+	  the presence of the PAM libs. Pretty sure they'll always be
+	  there :-/
+
+2006-01-25 Niall Power <niall.power@sun.com>
+
+	* src/pam_conv.[ch]: implements general purpose pam conversation
+	  function for use by trusted stripe and change password agent.
+	* src/pam_dialog.c: disable system modal behaviour of dialog for
+	  now as it is causing weird pointer grab related problems when
+	  invoked from the trusted stripe.
+	* src/Makefile.am: add pam_conv.c and pam_conv.h
+
+2006-01-20 Niall Power <niall.power@sun.com>
+
+	* src/pam_dialog.[ch]: implement GnomeTsolPasswordDialog g_object.
+	  Still need to provide a pam conversation function to go with it
+	  once I've ironed out some of the UI quirks.
+	* src/Makefile.am: add pam_dialog.c and pam_dialog.h
+	* configure.in: add libgnomeui-2.0 to pkg-config checks
+
+2005-11-07 Stephen Browne <stephen.browne@sun.com>
+
+	* src/label_builder.c:  fix autoselect bug when selecting TRUSTED PATH
+	for LBUILD_MODE_CLR
+
+2005-11-02 Stephen Browne <stephen.browne@sun.com>
+
+	* Makefile.am: added test program as a noinst
+	* configure.in: remove libgnomeui from libs.  dont need it
+	* src/test.c: small test driver for gnome_label_builder
+	* src/label_builder.h: API change, should be more friendly
+	* src//label_builder.c: new API, new entry completion for typing
+	labels, fixed autoselect of mandatory compartments, memory fix ups 
+
+2005-10-19 Stephen Browne <stephen.browne@sun.com>
+	
+	* src/label_builder.c: add close and delete signal handlers to emit
+	the cancel response signal
+
+2005-10-14 Niall Power <niall.power@sun.com>
+
+	* src/label_builder.c: bandaid fix applied to class_list_sel_func()
+	  to work around mysterious memory corruption bug that causes the
+	  workspace switcher applet to segv.
+
+2005-09-30 Stephen Browne <stephen.browne@sun.com>
+
+	* autogen.sh: new autogen to fix aclocal issues with gnome-common
+	* mkinstalldirs: updated (still need to get rid of this when building
+	  with a newer version of glib)
+
+2005-09-02 Stephen Browne <stephen.browne@sun.com>
+
+	* src/label_builder.c: get rid of nasty frames
+
+2005-09-01 Stephen Browne <stephen.browne@sun.com>
+
+	* Makefile.am: dist bz2 instead of gz
+
+2005-09-01 Stephen Browne <stephen.browne@sun.com>
+
+	* mkinstalldirs: added this since we still only have glib 2.4.1
+	on solaris.  We can delete this when we have a new version of glib
+	in the future
+
+2005-08-29 Stephen Browne <stephen.browne@sun.com>
+
+	* src/label_builder.c, src/label_builder.h: added a colour box to
+	the dialog and fixed up some of the selection issues.
+
+2005-08-24 Stephen Browne <stephen.browne@sun.com>
+
+	Initial import of libgnometsol

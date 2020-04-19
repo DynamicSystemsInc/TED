@@ -1,0 +1,183 @@
+<refentry id="org.gnome.SessionManager">
+  <refmeta>
+    <refentrytitle role="top_of_page">org.gnome.SessionManager</refentrytitle>
+  </refmeta>
+  <refnamediv>
+    <refname>org.gnome.SessionManager</refname>
+    <refpurpose>SessionManager interface</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv role="synopsis">
+    <title role="synopsis.title">Methods</title>
+    <synopsis><link linkend="org.gnome.SessionManager.Setenv">Setenv</link>(in's'variable,
+in's'value)
+<link linkend="org.gnome.SessionManager.InitializationError">InitializationError</link>(in's'message,
+in'b'fatal)
+<link linkend="org.gnome.SessionManager.RegisterClient">RegisterClient</link>(in's'app_id,
+in's'client_startup_id,
+out'o'client_id)
+<link linkend="org.gnome.SessionManager.UnregisterClient">UnregisterClient</link>(in'o'client_id)
+<link linkend="org.gnome.SessionManager.Inhibit">Inhibit</link>(in's'app_id,
+in'u'toplevel_xid,
+in's'reason,
+in'u'flags,
+out'u'inhibit_cookie)
+<link linkend="org.gnome.SessionManager.Uninhibit">Uninhibit</link>(in'u'inhibit_cookie)
+<link linkend="org.gnome.SessionManager.IsInhibited">IsInhibited</link>(in'u'flags,
+out'b'is_inhibited)
+<link linkend="org.gnome.SessionManager.GetClients">GetClients</link>(out'ao'clients)
+<link linkend="org.gnome.SessionManager.GetInhibitors">GetInhibitors</link>(out'ao'inhibitors)
+<link linkend="org.gnome.SessionManager.IsAutostartConditionHandled">IsAutostartConditionHandled</link>(in's'condition,
+out'b'handled)
+<link linkend="org.gnome.SessionManager.Shutdown">Shutdown</link>()
+<link linkend="org.gnome.SessionManager.SaveSession">SaveSession</link>()
+<link linkend="org.gnome.SessionManager.CanShutdown">CanShutdown</link>(out'b'is_available)
+<link linkend="org.gnome.SessionManager.Logout">Logout</link>(in'u'mode)
+</synopsis>
+  </refsynopsisdiv>
+  <refsect1 role="signal_proto">
+    <title role="signal_proto.title">Signals</title>
+    <synopsis><link linkend="org.gnome.SessionManager::ClientAdded">ClientAdded</link>('o'id)
+<link linkend="org.gnome.SessionManager::ClientRemoved">ClientRemoved</link>('o'id)
+<link linkend="org.gnome.SessionManager::InhibitorAdded">InhibitorAdded</link>('o'id)
+<link linkend="org.gnome.SessionManager::InhibitorRemoved">InhibitorRemoved</link>('o'id)
+<link linkend="org.gnome.SessionManager::SessionRunning">SessionRunning</link>()
+<link linkend="org.gnome.SessionManager::SessionOver">SessionOver</link>()
+</synopsis>
+  </refsect1>
+  <refsect1 role="impl_interfaces">
+    <title role="impl_interfaces.title">Implemented Interfaces</title>
+    <para>
+    Objects implementing org.gnome.SessionManager also implements
+    org.freedesktop.DBus.Introspectable,
+    org.freedesktop.DBus.Properties
+    </para>
+  </refsect1>
+  <refsect1 role="desc">
+    <title role="desc.title">Description</title>
+    <para/>
+  </refsect1>
+  <refsect1 role="details">
+    <title role="details.title">Details</title>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Setenv"/>Setenv ()</title><indexterm><primary>Setenv</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>Setenv (in's'variable,
+in's'value)</programlisting>
+          <para>Adds the variable name to the application launch environment with the specified value.  May only be used during the Session Manager initialization phase.</para>
+        <variablelist role="params"><varlistentry><term><parameter>variable</parameter>:</term><listitem><simpara>The variable name</simpara></listitem></varlistentry><varlistentry><term><parameter>value</parameter>:</term><listitem><simpara>The value</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.InitializationError"/>InitializationError ()</title><indexterm><primary>InitializationError</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>InitializationError (in's'message,
+in'b'fatal)</programlisting>
+          <para>May be used by applications launched during the Session Manager initialization phase to indicate there was a problem.</para>
+        <variablelist role="params"><varlistentry><term><parameter>message</parameter>:</term><listitem><simpara>The error message</simpara></listitem></varlistentry><varlistentry><term><parameter>fatal</parameter>:</term><listitem><simpara>Whether the error should be treated as fatal</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.RegisterClient"/>RegisterClient ()</title><indexterm><primary>RegisterClient</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>RegisterClient (in's'app_id,
+in's'client_startup_id,
+out'o'client_id)</programlisting>
+          <para>Register the caller as a Session Management client.</para>
+        <variablelist role="params"><varlistentry><term><parameter>app_id</parameter>:</term><listitem><simpara>The application identifier</simpara></listitem></varlistentry><varlistentry><term><parameter>client_startup_id</parameter>:</term><listitem><simpara>Client startup identifier</simpara></listitem></varlistentry><varlistentry><term><parameter>client_id</parameter>:</term><listitem><simpara>The object path of the newly registered client</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.UnregisterClient"/>UnregisterClient ()</title><indexterm><primary>UnregisterClient</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>UnregisterClient (in'o'client_id)</programlisting>
+          <para>Unregister the specified client from Session Management.</para>
+        <variablelist role="params"><varlistentry><term><parameter>client_id</parameter>:</term><listitem><simpara>The object path of the client</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Inhibit"/>Inhibit ()</title><indexterm><primary>Inhibit</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>Inhibit (in's'app_id,
+in'u'toplevel_xid,
+in's'reason,
+in'u'flags,
+out'u'inhibit_cookie)</programlisting>
+          <para>Applications should invoke this method when they begin an operation that
+            should not be interrupted, such as creating a CD or DVD.  The types of actions
+            that may be blocked are specified by the flags parameter.  When the application
+            completes the operation it should call <link linkend="org.gnome.SessionManager.Uninhibit"><function>Uninhibit()</function></link>
+            or disconnect from the session bus.
+          </para>
+          <para>
+            Applications should not expect that they will always be able to block the
+            action.  In most cases, users will be given the option to force the action
+            to take place.
+          </para>
+          <para>
+            Reasons should be short and to the point.
+          </para>
+          <para>
+            The flags parameter must include at least one of the following:
+            <itemizedlist><listitem><simpara><emphasis role="bold">1: </emphasis>Inhibit logging out</simpara></listitem><listitem><simpara><emphasis role="bold">2: </emphasis>Inhibit user switching</simpara></listitem><listitem><simpara><emphasis role="bold">4: </emphasis>Inhibit suspending the session or computer</simpara></listitem><listitem><simpara><emphasis role="bold">8: </emphasis>Inhibit the session being marked as idle</simpara></listitem></itemizedlist>
+            Values for flags may be bitwise or'ed together.
+          </para>
+          <para>
+            The returned cookie is used to uniquely identify this request.  It should be used
+            as an argument to <link linkend="org.gnome.SessionManager.Uninhibit"><function>Uninhibit()</function></link> in
+            order to remove the request.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>app_id</parameter>:</term><listitem><simpara>The application identifier</simpara></listitem></varlistentry><varlistentry><term><parameter>toplevel_xid</parameter>:</term><listitem><simpara>The toplevel X window identifier</simpara></listitem></varlistentry><varlistentry><term><parameter>reason</parameter>:</term><listitem><simpara>The reason for the inhibit</simpara></listitem></varlistentry><varlistentry><term><parameter>flags</parameter>:</term><listitem><simpara>Flags that spefify what should be inhibited</simpara></listitem></varlistentry><varlistentry><term><parameter>inhibit_cookie</parameter>:</term><listitem><simpara>The cookie</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Uninhibit"/>Uninhibit ()</title><indexterm><primary>Uninhibit</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>Uninhibit (in'u'inhibit_cookie)</programlisting>
+          <para>Cancel a previous call to <link linkend="org.gnome.SessionManager.Inhibit"><function>Inhibit()</function></link> identified by the cookie.</para>
+        <variablelist role="params"><varlistentry><term><parameter>inhibit_cookie</parameter>:</term><listitem><simpara>The cookie</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.IsInhibited"/>IsInhibited ()</title><indexterm><primary>IsInhibited</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>IsInhibited (in'u'flags,
+out'b'is_inhibited)</programlisting>
+          <para>Determine if operation(s) specified by the flags
+            are currently inhibited.  Flags are same as those accepted
+            by the
+            <link linkend="org.gnome.SessionManager.Inhibit"><function>Inhibit()</function></link>
+            method.</para>
+        <variablelist role="params"><varlistentry><term><parameter>flags</parameter>:</term><listitem><simpara>Flags that spefify what should be inhibited</simpara></listitem></varlistentry><varlistentry><term><parameter>is_inhibited</parameter>:</term><listitem><simpara>Returns TRUE if any of the operations in the bitfield flags are inhibited</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.GetClients"/>GetClients ()</title><indexterm><primary>GetClients</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>GetClients (out'ao'clients)</programlisting>
+          <para>This gets a list of all the <link linkend="org.gnome.SessionManager.Client">Clients</link>
+          that are currently known to the session manager.</para>
+          <para>Each Client ID is an D-Bus object path for the object that implements the
+          <link linkend="org.gnome.SessionManager.Client">Client</link> interface.</para>
+        <variablelist role="params"><varlistentry><term><parameter>clients</parameter>:</term><listitem><simpara>an array of client IDs</simpara></listitem></varlistentry></variablelist><para>
+See also:
+<link linkend="org.gnome.SessionManager.Client">org.gnome.SessionManager.Client</link></para></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.GetInhibitors"/>GetInhibitors ()</title><indexterm><primary>GetInhibitors</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>GetInhibitors (out'ao'inhibitors)</programlisting>
+          <para>This gets a list of all the <link linkend="org.gnome.SessionManager.Inhibitor">Inhibitors</link>
+          that are currently known to the session manager.</para>
+          <para>Each Inhibitor ID is an D-Bus object path for the object that implements the
+          <link linkend="org.gnome.SessionManager.Inhibitor">Inhibitor</link> interface.</para>
+        <variablelist role="params"><varlistentry><term><parameter>inhibitors</parameter>:</term><listitem><simpara>an array of inhibitor IDs</simpara></listitem></varlistentry></variablelist><para>
+See also:
+<link linkend="org.gnome.SessionManager.Inhibitor">org.gnome.SessionManager.Inhibitor</link></para></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.IsAutostartConditionHandled"/>IsAutostartConditionHandled ()</title><indexterm><primary>IsAutostartConditionHandled</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>IsAutostartConditionHandled (in's'condition,
+out'b'handled)</programlisting>
+          <para>Allows the caller to determine whether the session manager is
+          handling changes to the specified autostart condition.</para>
+        <variablelist role="params"><varlistentry><term><parameter>condition</parameter>:</term><listitem><simpara>The autostart condition string</simpara></listitem></varlistentry><varlistentry><term><parameter>handled</parameter>:</term><listitem><simpara>True if condition is handled, false otherwise</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Shutdown"/>Shutdown ()</title><indexterm><primary>Shutdown</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>Shutdown ()</programlisting>
+          <para>Request a shutdown dialog</para>
+        </refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.SaveSession"/>SaveSession ()</title><indexterm><primary>SaveSession</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>SaveSession ()</programlisting>
+	  <para>Request to save session</para>
+	</refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.CanShutdown"/>CanShutdown ()</title><indexterm><primary>CanShutdown</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>CanShutdown (out'b'is_available)</programlisting>
+          <para>Allows the caller to determine whether or not it's okay to show
+          a shutdown option in the UI</para>
+        <variablelist role="params"><varlistentry><term><parameter>is_available</parameter>:</term><listitem><simpara>True if shutdown is available to the user, false otherwise</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Logout"/>Logout ()</title><indexterm><primary>Logout</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>Logout (in'u'mode)</programlisting>
+          <para>Request a logout dialog</para>
+          <para>
+            Allowed values for the mode parameter are:
+            <itemizedlist><listitem><simpara><emphasis role="bold">0: </emphasis>Normal.</simpara></listitem><listitem><simpara><emphasis role="bold">1: </emphasis>No confirmation inferface should be shown.</simpara></listitem><listitem><simpara><emphasis role="bold">2: </emphasis>Forcefully logout.  No confirmation will be shown and any inhibitors will be ignored.</simpara></listitem></itemizedlist>
+            Values for flags may be bitwise or'ed together.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>mode</parameter>:</term><listitem><simpara>The type of logout that is being requested</simpara></listitem></varlistentry></variablelist></refsect2>
+  </refsect1>
+  <refsect1 role="signals">
+    <title role="signals.title">Signal Details</title>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager::ClientAdded"/>The ClientAdded signal</title><indexterm><primary>ClientAdded</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>ClientAdded ('o'id)</programlisting>
+          <para>Emitted when a client has been added to the session manager.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>id</parameter>:</term><listitem><simpara>The object path for the added client</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager::ClientRemoved"/>The ClientRemoved signal</title><indexterm><primary>ClientRemoved</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>ClientRemoved ('o'id)</programlisting>
+          <para>Emitted when a client has been removed from the session manager.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>id</parameter>:</term><listitem><simpara>The object path for the removed client</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager::InhibitorAdded"/>The InhibitorAdded signal</title><indexterm><primary>InhibitorAdded</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>InhibitorAdded ('o'id)</programlisting>
+          <para>Emitted when an inhibitor has been added to the session manager.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>id</parameter>:</term><listitem><simpara>The object path for the added inhibitor</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager::InhibitorRemoved"/>The InhibitorRemoved signal</title><indexterm><primary>InhibitorRemoved</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>InhibitorRemoved ('o'id)</programlisting>
+          <para>Emitted when an inhibitor has been removed from the session manager.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>id</parameter>:</term><listitem><simpara>The object path for the removed inhibitor</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager::SessionRunning"/>The SessionRunning signal</title><indexterm><primary>SessionRunning</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>SessionRunning ()</programlisting>
+          <para>Indicates the session has entered the Running phase.</para>
+        </refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager::SessionOver"/>The SessionOver signal</title><indexterm><primary>SessionOver</primary><secondary>org.gnome.SessionManager</secondary></indexterm><programlisting>SessionOver ()</programlisting>
+          <para>Indicates the session is about to end.</para>
+        </refsect2>
+  </refsect1>
+</refentry>

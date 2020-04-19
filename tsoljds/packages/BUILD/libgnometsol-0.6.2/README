@@ -1,0 +1,23 @@
+This package consists of a library with four main uses:
+
+1) The Trusted GNOME label builder GUI
+The gnome_label_builder object is a GTK_DIALOG that implements a label
+contruction/selection UI for use when logging in and changing the label of
+workspaces etc.  The range of labels a user can select from is bounded by
+the label range of the workstation that are using AND the label range assigned
+to the user in their user_attr entry.
+
+2) Selection manager configuration utilities
+The utility functions here are used to load the selection manager configuration
+and compare labels of source and destination of selection transactions to 
+indicate what type of transaction is occuring. For example upgrading/downgrading
+the sensitivity label of data.  These functions are used by the selection
+manager UI application that intercepts cut and paste / drag and drop operations
+and the file manager when files have been dragged and dropped from one label to
+another.
+
+3) /etc/user_attr convenience functions
+There is a single entry point here to get a value from /etc/user_attr or 
+kva_match() for any valid user_attr key.
+
+4) PAM conversation functions for role authentication and password changing.

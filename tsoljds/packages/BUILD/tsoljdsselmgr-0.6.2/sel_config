@@ -1,0 +1,52 @@
+#pragma ident	"@(#)sel_config	5.8	99/09/29 SMI; TSOL 2.x"
+#
+# Copyright (c) 1998,1999, 2001 by Sun Microsystems, Inc.
+#  All rights reserved.
+#
+# Auto settings default file
+# 
+# This file controls the action of the selection
+# manager and the file manager drag and drop confirmers.
+# There is an entry for the possible types of upgrade/downgrade
+# transfers based upon the source label and destination label.
+# (Note that the equalsl entry is used by file manager but is
+# ignored by selection manager, which always auto-confirms 
+# equal SL transfers.)
+#
+# The file has two sections, the auto confirm section and
+# and the auto reply section.
+#
+#
+# Auto Confirm/Cancel Section
+#
+#   Specifies for each transfer type whether the action should
+#   be automatically or manually confirmed.
+#
+# Auto confirm?     y -> confirm transfer without displaying confirmer
+#                        (note: user must still have proper authorizations)
+#                   n -> display confirmer before processing transfer
+#
+# Auto cancel?     y -> cancel transfer without displaying confirmer
+#                        (note: user must still have proper authorizations)
+#                   n -> display confirmer before processing transfer
+#
+# Auto confirmation will take precedence over auto canceling
+#
+#                     Auto		Auto
+#  Transfer Type     Confirm?	       Cancel?
+
+downgradesl:		n,		 n
+upgradesl: 		n,		 n
+equalsl:		y,		 n
+disjointsl:		n,		 n
+
+#
+# Auto Reply Section
+#
+autoreply: y
+replytype: TARGETS
+replytype: Pixel Sets
+replytype: LENGTH
+replytype: Type Of Monitor
+replytype: TIMESTAMP
+replytype: GTK_TEXT_BUFFER_CONTENTS

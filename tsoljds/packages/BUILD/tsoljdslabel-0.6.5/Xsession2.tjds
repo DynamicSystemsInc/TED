@@ -1,0 +1,33 @@
+#!/bin/ksh 
+#####################################################################
+###  File:              Xsession2.tjds
+###
+###  Default Location:  /usr/dt/config/Xsession2.tjds
+###
+###  Purpose:           GNOME Desktop start script
+###
+###  Invoked by:        /usr/dt/bin/Xsession
+###
+#####################################################################
+
+# First a little namespace cleanup of vars associated with this
+# (and /usr/dt/bin/Xsession.ow) scripts.
+
+unset SDT_ALT_SESSION
+unset SDT_ALT_HELLO
+unset SDT_NO_DSDM
+
+XINITRC="/usr/dt/config/Xinitrc.tjds"
+
+if [ -x /usr/dt/bin/xmbind ]; then
+    /usr/dt/bin/xmbind
+fi
+
+echo 'Trusted GNOME Desktop Environment'
+
+if [ -f $XINITRC ]; then
+    echo "using xinitrc file: $XINITRC"
+    /bin/ksh $XINITRC
+else
+    echo "xinitrc file: $XINITRC not found"
+fi
