@@ -54,8 +54,7 @@
 #include <libgnometsol/message_dialog.h>
 
 #define  WNCK_I_KNOW_THIS_IS_UNSTABLE
-#include <libwnck/workspace.h>
-#include <libwnck/screen.h>
+#include <libwnck/libwnck.h>
 
 #include "privs.h"
 #include "tsol-user.h"
@@ -69,8 +68,8 @@ zoneid_t zoneid;
 m_label_t *sl = NULL;
 gboolean nscd_per_label = FALSE ;
 
-gboolean validate_label (char *label);
-int init_template (void);
+static int init_template (void);
+static gint validate_label (char *label);
 
 #define CLOSE_FILES() \
 {int ifx; for (ifx=1; ifx < _NFILE; ifx++) (void) close (ifx);}
@@ -81,8 +80,7 @@ xagent_death_handler (int sig, siginfo_t * sinf, void *ucon)
 	int status;
 
 	waitpid (sinf->si_pid, &status, WNOHANG);
-
-	if (WEXITSTATUS (status) != 0) exit (0);
+	exit (0);
 }
 
 static gboolean
@@ -300,22 +298,22 @@ init_template (void)
 static int
 add_role_to_acl (GdkDisplay * display, gchar * rolename)
 {
-        char            domainname[128];
-        char            username[128];
-        char           *netname;
-        int             ret = 0;
-        XHostAddress    ha;
+	int             ret = 0;
+	struct passwd  *pwd;
+	XHostAddress    ha;
+	XServerInterpretedAddress siaddr;
 
-        getdomainname (domainname, sizeof (domainname));
-        if (!user2netname (username, pwd.pw_uid, domainname))
-                return -1;
+	if ((pwd = getpwnam (rolename)) == NULL)
+		return -1;
 
-        netname = username;
-        ha.family = FamilyNetname;
-        ha.length = strlen (netname);
-        ha.address = netname;
-        ret = XAddHost (GDK_DISPLAY_XDISPLAY (display), &ha);
-        return ret;
+	siaddr.type = "localuser";
+	siaddr.typelength = strlen("localuser");
+	siaddr.value = rolename;
+	siaddr.valuelength = strlen(rolename);
+	ha.family = FamilyServerInterpreted;
+	ha.address = (char *) &siaddr;
+	ret = XAddHost (GDK_DISPLAY_XDISPLAY (display), &ha);
+	return ret;
 }
 
 static gboolean
@@ -553,7 +551,7 @@ spawn_xagent (int argc, char **argv)
 		g_setenv ("MAIL", tmp, TRUE);
 		g_free (tmp);
 
-		putenv ("GTK2_RC_FILES=/usr/share/gnome/gtkrc.tjds");
+		putenv ("GTK3_RC_FILES=/usr/share/mate/gtkrc.tjds");
 
 		if (role || zoneid != 0) {
 			g_unsetenv ("SESSION_MANAGER");
@@ -619,22 +617,24 @@ wait_for_zone (m_label_t *sl, char *zonename)
 	char *standard_out = NULL;
 	int exit_status = -1;
 	int tries = 0;
+
 	char *argv[] = {"/usr/bin/zenity", "--title", "Booting Zone", 
-			"--progress", "--pulsate", "--text", 
-			"replaceme", "--timeout", "10", NULL};
+			"--progress", "--pulsate", "--no-cancel",
+			"--text", "arg7",
+			"--timeout", "55", NULL};
 
 	label_to_str (sl, &label, M_LABEL, DEF_NAMES);
 
-	argv[6] = g_strdup_printf("Initializing %s Labeled Workspace...",label);
+	argv[7] = g_strdup_printf("Initializing %s Labeled Workspace...",label);
 	g_free (label);
 
 	g_spawn_async (NULL, argv, NULL, 0, NULL, NULL, &pid, NULL);
 
-	g_free (argv[6]);
+	g_free (argv[7]);
 
-	command = g_strdup_printf ("/usr/bin/pfexec zlogin %s /usr/bin/svcs -H -o STA milestone/multi-user", zonename);
+	command = g_strdup_printf ("zlogin %s /usr/bin/svcs -H -o STA milestone/multi-user", zonename);
 
-	while (tries < 10) {
+	while (tries < 50) {
 		g_spawn_command_line_sync (command, &standard_out, NULL,
 					   &exit_status, &error);
 		if (standard_out && strncmp (standard_out, "ON", 2) == 0) {
@@ -680,7 +680,7 @@ get_zonename_from_label (m_label_t *sl)
 	return zonename;
 }
 
-static gboolean
+static gint
 validate_label (char *label)
 {
 	zoneid_t zid;
@@ -706,8 +706,9 @@ validate_label (char *label)
 				return (1);
 			}
 			g_free (zonename);
+			return (0);
 		}
-		return (0);
+		return (-1);
 	} else {
 		return (1);
 	}
@@ -765,6 +766,7 @@ main (int argc, char **argv)
 	guint result;
 	struct sigaction sa;
 	char pw_buffer[PW_BUF_LEN];
+	gint status;
 
 	if (argc == 1) exit (1);
 
@@ -783,25 +785,37 @@ main (int argc, char **argv)
 		exit (0);
 	}
 
-	if (!validate_label (argv[1])) {
+	status = validate_label (argv[1]);
+	if (status < 1) {
 		GtkWidget *dialog;	
+		char *error_msg;
 		char *label_str = get_label_string (sl, VIEW_INTERNAL);
-		char *errormsg = g_strdup_printf ("The label %s \n"
+		char *zonename = get_zonename_from_label (sl);
+		char *errormsg1 = g_strdup_printf ("The label %s \n"
 						"has no matching labeled zone.",
 						label_str);
+		char *errormsg2 = g_strdup_printf ("The zone, %s, is offline "
+				"and %s \nlacks the authorization, "
+				"solaris.zone.manage, to boot it",
+				zonename, pwd.pw_name);
 
-		g_free (label_str);
 
 		gtk_init (&argc, &argv);
 
 		dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL,							 GTK_MESSAGE_WARNING, 
 					 	 GTK_BUTTONS_OK, 
-						 errormsg, NULL);
+						 (status == -1 ) ?
+						 	errormsg1:
+							errormsg2,
+							NULL);
 		gtk_widget_show_all (dialog);
 		gtk_dialog_run (GTK_DIALOG (dialog));
-		g_free (errormsg);
+		g_free (errormsg1);
+		g_free (errormsg2);
 		gtk_widget_destroy (dialog);
 		
+		g_free (label_str);
+		g_free (zonename);
 		exit (-1);
 	}
 

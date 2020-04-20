@@ -1,0 +1,108 @@
+<refentry id="org.gnome.SessionManager.ClientPrivate">
+  <refmeta>
+    <refentrytitle role="top_of_page">org.gnome.SessionManager.ClientPrivate</refentrytitle>
+  </refmeta>
+  <refnamediv>
+    <refname>org.gnome.SessionManager.ClientPrivate</refname>
+    <refpurpose>ClientPrivate interface</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv role="synopsis">
+    <title role="synopsis.title">Methods</title>
+    <synopsis><link linkend="org.gnome.SessionManager.ClientPrivate.EndSessionResponse">EndSessionResponse</link>(in'b'is_ok,
+in's'reason)
+</synopsis>
+  </refsynopsisdiv>
+  <refsect1 role="signal_proto">
+    <title role="signal_proto.title">Signals</title>
+    <synopsis><link linkend="org.gnome.SessionManager.ClientPrivate::Stop">Stop</link>()
+<link linkend="org.gnome.SessionManager.ClientPrivate::QueryEndSession">QueryEndSession</link>('u'flags)
+<link linkend="org.gnome.SessionManager.ClientPrivate::EndSession">EndSession</link>('u'flags)
+<link linkend="org.gnome.SessionManager.ClientPrivate::CancelEndSession">CancelEndSession</link>()
+</synopsis>
+  </refsect1>
+  <refsect1 role="impl_interfaces">
+    <title role="impl_interfaces.title">Implemented Interfaces</title>
+    <para>
+    Objects implementing org.gnome.SessionManager.ClientPrivate also implements
+    org.freedesktop.DBus.Introspectable,
+    org.freedesktop.DBus.Properties
+    </para>
+  </refsect1>
+  <refsect1 role="desc">
+    <title role="desc.title">Description</title>
+    <para/>
+  </refsect1>
+  <refsect1 role="details">
+    <title role="details.title">Details</title>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.ClientPrivate.EndSessionResponse"/>EndSessionResponse ()</title><indexterm><primary>EndSessionResponse</primary><secondary>org.gnome.SessionManager.ClientPrivate</secondary></indexterm><programlisting>EndSessionResponse (in'b'is_ok,
+in's'reason)</programlisting>
+          <para>This method should be used by the client in response to
+            the <link linkend="org.gnome.SessionManager.ClientPrivate::QueryEndSession"><literal>QueryEndSession</literal></link>
+            and <link linkend="org.gnome.SessionManager.ClientPrivate::EndSession"><literal>EndSession</literal></link> signals.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>is_ok</parameter>:</term><listitem><simpara>Whether or not it is OK to preceed</simpara></listitem></varlistentry><varlistentry><term><parameter>reason</parameter>:</term><listitem><simpara>The reason string</simpara></listitem></varlistentry></variablelist></refsect2>
+  </refsect1>
+  <refsect1 role="signals">
+    <title role="signals.title">Signal Details</title>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.ClientPrivate::Stop"/>The Stop signal</title><indexterm><primary>Stop</primary><secondary>org.gnome.SessionManager.ClientPrivate</secondary></indexterm><programlisting>Stop ()</programlisting>
+          <para>
+            The client should stop and remove itself from the session in
+            response to this signal.
+          </para>
+        </refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.ClientPrivate::QueryEndSession"/>The QueryEndSession signal</title><indexterm><primary>QueryEndSession</primary><secondary>org.gnome.SessionManager.ClientPrivate</secondary></indexterm><programlisting>QueryEndSession ('u'flags)</programlisting>
+          <para>This signal is used to inform the client that the
+            session is about to end.  The client must respond by
+            calling
+            <link linkend="org.gnome.SessionManager.ClientPrivate.EndSessionResponse"><function>EndSessionResponse</function></link>
+            within one second of the signal emission.
+          </para>
+          <para>
+            The flags may include:
+            <itemizedlist><listitem><simpara><emphasis role="bold">1: </emphasis>Logout is forced.
+                  <link linkend="org.gnome.SessionManager.ClientPrivate.EndSessionResponse"><function>EndSessionResponse</function></link>
+                reason and any inhibit from client will be
+                ignored.</simpara></listitem></itemizedlist>
+          </para>
+          <para>
+            If the client responds with an EndSessionResponse is-ok
+            argument equal to FALSE and a reason then this reason may
+            be displayed to the user.
+          </para>
+          <para>
+            The client must not attempt to perform any actions or
+            interact with the user in response to this signal.  Any
+            actions required for a clean shutdown should take place in
+            response to the
+            <link linkend="org.gnome.SessionManager.ClientPrivate::EndSession"><literal>EndSession</literal></link> signal.
+          </para>
+          <para>
+            The client should limit operations until either a
+            <link linkend="org.gnome.SessionManager.ClientPrivate::EndSession"><literal>EndSession</literal></link>
+            <link linkend="org.gnome.SessionManager.ClientPrivate::CancelEndSession"><literal>CancelEndSession</literal></link>
+            signal is received.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>flags</parameter>:</term><listitem><simpara>Flags</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.ClientPrivate::EndSession"/>The EndSession signal</title><indexterm><primary>EndSession</primary><secondary>org.gnome.SessionManager.ClientPrivate</secondary></indexterm><programlisting>EndSession ('u'flags)</programlisting>
+          <para>This signal is used to inform the client that the
+            session is about to end.  The client must respond by
+            calling
+            <link linkend="org.gnome.SessionManager.ClientPrivate.EndSessionResponse"><function>EndSessionResponse</function></link>
+            within ten seconds of the signal emission.
+          </para>
+          <para>
+            The client must not attempt to interact with the user in
+            response to this signal.  The application will be given a
+            maxium of ten seconds to perform any actions required for
+            a clean shutdown.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>flags</parameter>:</term><listitem><simpara>Flags</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.ClientPrivate::CancelEndSession"/>The CancelEndSession signal</title><indexterm><primary>CancelEndSession</primary><secondary>org.gnome.SessionManager.ClientPrivate</secondary></indexterm><programlisting>CancelEndSession ()</programlisting>
+          <para>
+            This signal indicates to the client that a previous emission of
+            <link linkend="org.gnome.SessionManager.ClientPrivate::QueryEndSession"><literal>QueryEndSession</literal></link>
+            has been cancelled.  The client should resume normal operations.
+          </para>
+        </refsect2>
+  </refsect1>
+</refentry>

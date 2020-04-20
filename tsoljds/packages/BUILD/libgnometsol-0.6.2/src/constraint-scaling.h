@@ -33,7 +33,7 @@ struct _ConstraintImage
   gint       border_top;
   guint      hints[3][3];
   gboolean   recolorable;
-  GdkColor   colorize_color;
+  GdkRGBA   colorize_color;
   gboolean   use_as_bkg_mask;
 };
 
@@ -66,15 +66,15 @@ typedef enum
 } ConstraintComponent;
 
 void
-gnome_tsol_render_coloured_label (GtkWidget *label);
+gnome_tsol_render_coloured_label (cairo_t *cr, GtkWidget *label);
 
 void
 gnome_tsol_render_coloured_label_for_zone (GtkWidget *label, const char *zonename);
 
 void
-gnome_tsol_constraint_image_render (ConstraintImage *cimage,
+gnome_tsol_constraint_image_render (cairo_t *cr,
+				    ConstraintImage *cimage,
 				    GdkWindow    *window,
-				    GdkBitmap    *mask,
 				    GdkRectangle *clip_rect,
 				    gboolean      center,
 				    gint          x,
@@ -95,7 +95,7 @@ gnome_tsol_constraint_image_set_stretch (ConstraintImage *pb,
 
 void
 gnome_tsol_constraint_image_colorize (ConstraintImage *image,
-				      GdkColor  *color,
+				      GdkRGBA  *color,
 				      int	alpha,
 				      gboolean   use_alpha);
 

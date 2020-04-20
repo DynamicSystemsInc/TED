@@ -19,24 +19,23 @@
 #include <config.h>
 #endif
 #include <stdlib.h>
-#include <glib/gi18n.h>
-#include <libgnomeui/libgnomeui.h>
-#include <libwnck/screen.h>
 #include "ui-view.h"
 #include "menus.h"
 #include "ui-controller.h"
 #include "xagent-management.h"
 #include "privs.h"
+#include <glib/gi18n.h>
 
 #define SELECTION_NAME "_TSOLJDS_TSTRIPE"
 
 static          gboolean
 get_lock (void)
 {
+	Display *display = gdk_x11_get_default_xdisplay();
 	static GtkWidget *selection_window;
 	Atom            selection_atom = gdk_x11_get_xatom_by_name (SELECTION_NAME);
 
-	if (XGetSelectionOwner (GDK_DISPLAY (), selection_atom) != None)
+	if (XGetSelectionOwner(display, selection_atom) != None)
 		return FALSE;
 
 	selection_window = gtk_invisible_new ();
@@ -53,7 +52,7 @@ get_lock (void)
 }
 
 void 
-setup_xagent (GnomeClient * client)
+setup_xagent ()
 {
 	Window          rootw = None;
 	Display        *x_dpy;
@@ -95,23 +94,23 @@ setup_xagent (GnomeClient * client)
 int
 main (int argc, char *argv[])
 {
-	GnomeClient    *client;
 	Display        *x_dpy;
         GdkDisplay     *dpy;
+	/*
+	int delay = 1;
 
+	while(delay) {
+		sleep (1);
+	}
+	*/
 
+	XInitThreads();
+	gdk_disable_multidevice();
 #ifdef ENABLE_NLS
 	bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 #endif
-
-	putenv ("GDK_NATIVE_WINDOWS=true");
-
-	gnome_program_init (PACKAGE, VERSION, LIBGNOMEUI_MODULE,
-			    argc, argv,
-			    GNOME_PARAM_APP_DATADIR, PACKAGE_DATA_DIR,
-			    NULL);
 
 	/* initialise gtk or die if we cant connect to the xserver */
 	gtk_init (&argc, &argv);
@@ -124,12 +123,6 @@ main (int argc, char *argv[])
 		fprintf (stderr, "Insufficient priviliges to run. All priviliges are required to run\n");
 		exit (3);
 	}
-	/* session management */
-	client = gnome_master_client ();
-	gnome_client_set_restart_command (client, 1, argv);
-	gnome_client_set_priority (client, 10);
-	if (!getenv ("TSTRIPE_DEBUG"))
-		gnome_client_set_restart_style (client, GNOME_RESTART_IMMEDIATELY);
 
 	/* wait until the WM tells us the workspace props are setup */
         dpy = gdk_display_get_default ();
@@ -143,7 +136,7 @@ main (int argc, char *argv[])
 
 	/* Set up local zone xagent management */
 	if (!getenv ("TSTRIPE_GFX_ONLY"))
-		setup_xagent (client);
+		setup_xagent ();
 
 	gtk_main ();
 

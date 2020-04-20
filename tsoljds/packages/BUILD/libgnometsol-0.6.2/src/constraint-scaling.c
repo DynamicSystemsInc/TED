@@ -18,6 +18,8 @@
 #include <string.h>
 #include <tsol/label.h>
 #include <sys/tsol/label_macro.h>
+#include <gtk/gtk.h>
+#include <gdk/gdkx.h>
 
 #include "constraint-scaling.h"
 #include "tsol-pics.h"
@@ -277,7 +279,6 @@ static void
 internal_constraint_render (GdkPixbuf * src,
 			    guint hints,
 			    GdkPixbuf * scaled,
-			    GdkBitmap * mask,
 			    GdkRectangle * clip_rect,
 			    gint src_x,
 			    gint src_y,
@@ -367,19 +368,12 @@ internal_constraint_render (GdkPixbuf * src,
 				  x_scale, y_scale,
 				  GDK_INTERP_BILINEAR);
 
-		gdk_pixbuf_unref (partial_src);
+		g_object_unref (partial_src);
 
 		x_offset = 0;
 		y_offset = 0;
 	}
 
-	if (mask) {
-		gdk_pixbuf_render_threshold_alpha (tmp_pixbuf, mask,
-						   x_offset, y_offset,
-						   rect.x, rect.y,
-						   rect.width, rect.height,
-						   128);
-	}
 	if (rect.x >= 0 && rect.x + rect.width <= gdk_pixbuf_get_width (scaled) &&
 			rect.y >= 0 && rect.y + rect.height <= gdk_pixbuf_get_height (scaled)) {
 		gdk_pixbuf_copy_area (tmp_pixbuf,
@@ -389,14 +383,13 @@ internal_constraint_render (GdkPixbuf * src,
 				      rect.x,
 				      rect.y);
 	}
-	gdk_pixbuf_unref (tmp_pixbuf);
+	g_object_unref (tmp_pixbuf);
 }
 
 /**
  * gnome_tsol_constraint_image_render:
  * @cimage: A #ConstraintImage to render on @window
  * @window: A #GdkWindow on which the cimage is to be rendered
- * @mask: A #GdkBitmap
  * @clip_rect: A #GdkRectangle which defines the clipping area on
  *	       which the @cimage will be rendered
  * @center: A #gboolean which defines wether or not the @cimage will
@@ -413,9 +406,9 @@ internal_constraint_render (GdkPixbuf * src,
  */
 
 void
-gnome_tsol_constraint_image_render (ConstraintImage * cimage,
+gnome_tsol_constraint_image_render (cairo_t *cr,
+				    ConstraintImage * cimage,
 				    GdkWindow * window,
-				    GdkBitmap * mask,
 				    GdkRectangle * clip_rect,
 				    gboolean center,
 				    gint x,
@@ -427,7 +420,10 @@ gnome_tsol_constraint_image_render (ConstraintImage * cimage,
 	gint            src_x[4], src_y[4], dest_x[4], dest_y[4];
 	gint            pixbuf_width = gdk_pixbuf_get_width (pixbuf);
 	gint            pixbuf_height = gdk_pixbuf_get_height (pixbuf);
-	GdkGC          *scaled_tmp_gc = NULL;
+
+	GtkStyleContext *context;
+	GtkStateFlags	state;
+	GdkRGBA		rgba;
 
 	/*
 	 * @component_mask: A #ConstraintComponent which defines which part
@@ -440,30 +436,25 @@ gnome_tsol_constraint_image_render (ConstraintImage * cimage,
 		return;
 
 	if (clip_rect) {
-		scaled_tmp_gc = gdk_gc_new (window);
-		gdk_gc_set_clip_rectangle (scaled_tmp_gc, clip_rect);
+		/* clip */
+		gdk_cairo_rectangle(cr, clip_rect);
+		cairo_clip(cr);
 	}
 	if (cimage->stretch) {
 		if (cimage->scaled &&
 			 (gdk_pixbuf_get_width (cimage->scaled) == width) &&
 		       (gdk_pixbuf_get_height (cimage->scaled) == height)) {
-			gdk_draw_pixbuf (window, scaled_tmp_gc, cimage->scaled,
-					 0, 0,
-					 x, y,
-					 width, height,
-					 GDK_RGB_DITHER_NORMAL,
-					 0, 0);
+			gdk_cairo_set_source_pixbuf(cr, cimage->scaled, x, y);
+			cairo_paint(cr);
 		} else {
 			if (cimage->scaled)
-				gdk_pixbuf_unref (cimage->scaled);
+				g_object_unref (cimage->scaled);
 
 			cimage->scaled = gdk_pixbuf_new (gdk_pixbuf_get_colorspace (cimage->pixbuf),
 				  gdk_pixbuf_get_has_alpha (cimage->pixbuf),
 			    gdk_pixbuf_get_bits_per_sample (cimage->pixbuf),
 							 width,
 							 height);
-
-			gdk_pixbuf_fill (cimage->scaled, 0x00000000);
 
 			src_x[0] = 0;
 			src_x[1] = cimage->border_left;
@@ -491,7 +482,7 @@ gnome_tsol_constraint_image_render (ConstraintImage * cimage,
 
 #define RENDER_COMPONENT(X1,X2,Y1,Y2)				  \
   internal_constraint_render (pixbuf, cimage->hints[Y1][X1],	  \
-			      cimage->scaled, mask, clip_rect,	  \
+			      cimage->scaled, clip_rect,	  \
 			      src_x[X1], src_y[Y1],		  \
 			      src_x[X2] - src_x[X1], src_y[Y2] - src_y[Y1], \
 			      dest_x[X1], dest_y[Y1],	     	  \
@@ -524,13 +515,8 @@ gnome_tsol_constraint_image_render (ConstraintImage * cimage,
 			if (component_mask & COMPONENT_SOUTH_EAST)
 				RENDER_COMPONENT (2, 3, 2, 3);
 
-
-			gdk_draw_pixbuf (window, scaled_tmp_gc, cimage->scaled,
-					 0, 0,
-					 x, y,
-					 width, height,
-					 GDK_RGB_DITHER_NORMAL,
-					 0, 0);
+			gdk_cairo_set_source_pixbuf(cr, cimage->scaled, x, y);
+			cairo_paint(cr);
 		}
 
 
@@ -539,48 +525,19 @@ gnome_tsol_constraint_image_render (ConstraintImage * cimage,
 			x += (width - pixbuf_width) / 2;
 			y += (height - pixbuf_height) / 2;
 
-			gdk_draw_pixbuf (window, scaled_tmp_gc, pixbuf,
-					 0, 0,
-					 x, y,
-					 pixbuf_width, pixbuf_height,
-					 GDK_RGB_DITHER_NORMAL,
-					 0, 0);
+			gdk_cairo_set_source_pixbuf(cr, pixbuf, x, y);
+			cairo_paint(cr);
 		} else {
-			GdkPixmap      *tmp_pixmap;
-			GdkGC          *tmp_gc;
-			GdkGCValues     gc_values;
-
-			tmp_pixmap = gdk_pixmap_new (window,
-						     pixbuf_width,
-						     pixbuf_height,
-						     -1);
-			tmp_gc = gdk_gc_new (tmp_pixmap);
-			gdk_pixbuf_render_to_drawable (pixbuf, tmp_pixmap, tmp_gc,
-						       0, 0,
-						       0, 0,
-						pixbuf_width, pixbuf_height,
-						       GDK_RGB_DITHER_NORMAL,
-						       0, 0);
-			gdk_gc_unref (tmp_gc);
-
-			gc_values.fill = GDK_TILED;
-			gc_values.tile = tmp_pixmap;
-			tmp_gc = gdk_gc_new_with_values (window,
-				     &gc_values, GDK_GC_FILL | GDK_GC_TILE);
+			gdk_cairo_set_source_pixbuf(cr, pixbuf, 0, 0);
+			cairo_pattern_set_extend(cairo_get_source(cr),CAIRO_EXTEND_REPEAT);
 			if (clip_rect)
-				gdk_draw_rectangle (window, tmp_gc, TRUE,
-						    clip_rect->x, clip_rect->y, clip_rect->width, clip_rect->height);
+				cairo_rectangle(cr, clip_rect->x, clip_rect->y,
+					clip_rect->width, clip_rect->height);
 			else
-				gdk_draw_rectangle (window, tmp_gc, TRUE, x, y, width, height);
-
-			gdk_gc_unref (tmp_gc);
-			gdk_pixmap_unref (tmp_pixmap);
+				cairo_rectangle(cr, x, y, width, height);
+			cairo_fill(cr);
 		}
 	}
-
-
-	if (scaled_tmp_gc)
-		gdk_gc_unref (scaled_tmp_gc);
 }
 
 
@@ -868,7 +825,7 @@ rgb_to_hls (gint * red,
 #define INTENSITY(r, g, b) ((r) * 0.30 + (g) * 0.59 + (b) * 0.11)
 static GdkPixbuf *
 colorize_pixbuf (GdkPixbuf * orig,
-		 GdkColor * new_color)
+		 GdkRGBA * new_color)
 {
 	GdkPixbuf      *pixbuf;
 	double          intensity;
@@ -881,6 +838,13 @@ colorize_pixbuf (GdkPixbuf * orig,
 	gboolean        has_alpha;
 	const guchar   *src_pixels;
 	guchar         *dest_pixels;
+
+	/*
+	 * Convert GdkRGBA to GdkColor
+	 */
+	new_color->red *= 255;
+	new_color->green *= 255;
+	new_color->blue *= 255;
 
 	pixbuf = gdk_pixbuf_new (gdk_pixbuf_get_colorspace (orig), gdk_pixbuf_get_has_alpha (orig),
 				 gdk_pixbuf_get_bits_per_sample (orig),
@@ -911,22 +875,22 @@ colorize_pixbuf (GdkPixbuf * orig,
 				 * Go from black at intensity = 0.0 to
 				 * new_color at intensity = 0.5
 				 */
-				dr = (new_color->red * intensity * 2.0) / 65535.0;
-				dg = (new_color->green * intensity * 2.0) / 65535.0;
-				db = (new_color->blue * intensity * 2.0) / 65535.0;
+				dr = (new_color->red * intensity * 2.0);
+				dg = (new_color->green * intensity * 2.0);
+				db = (new_color->blue * intensity * 2.0);
 			} else {
 				/*
 				 * Go from new_color at intensity = 0.5 to
 				 * white at intensity = 1.0
 				 */
-				dr = (new_color->red + (65535 - new_color->red) * (intensity - 0.5) * 2.0) / 65535.0;
-				dg = (new_color->green + (65535 - new_color->green) * (intensity - 0.5) * 2.0) / 65535.0;
-				db = (new_color->blue + (65535 - new_color->blue) * (intensity - 0.5) * 2.0) / 65535.0;
+				dr = (new_color->red + (255 - new_color->red) * (intensity - 0.5) * 2.0);
+				dg = (new_color->green + (255 - new_color->green) * (intensity - 0.5) * 2.0);
+				db = (new_color->blue + (255 - new_color->blue) * (intensity - 0.5) * 2.0);
 			}
 
-			dest[0] = CLAMP_UCHAR (255 * dr);
-			dest[1] = CLAMP_UCHAR (255 * dg);
-			dest[2] = CLAMP_UCHAR (255 * db);
+			dest[0] = CLAMP_UCHAR (dr);
+			dest[1] = CLAMP_UCHAR (dg);
+			dest[2] = CLAMP_UCHAR (db);
 
 			if (has_alpha) {
 				dest[3] = src[3];
@@ -945,7 +909,7 @@ colorize_pixbuf (GdkPixbuf * orig,
 /**
  * gnome_tsol_constraint_image_colorize:
  * @image : a #ConstraintImage to be colorized
- * @color: the #GdkColor to be applied to the @image
+ * @color: the #GdkRGBA to be applied to the @image
  * @alpha: the transparency (from 0 (fully transparent to 255 fully opaque)
  * @use_alpha: a #gboolean indicating wether to use transparency
  *
@@ -955,7 +919,7 @@ colorize_pixbuf (GdkPixbuf * orig,
 
 void
 gnome_tsol_constraint_image_colorize (ConstraintImage * image,
-				      GdkColor * color,
+				      GdkRGBA * color,
 				      int alpha,
 				      gboolean use_alpha)
 {
@@ -964,7 +928,7 @@ gnome_tsol_constraint_image_colorize (ConstraintImage * image,
 
 	new_pb = colorize_pixbuf (image->pixbuf, color);
 
-	gdk_pixbuf_unref (image->pixbuf);
+	g_object_unref (image->pixbuf);
 
 	image->pixbuf = new_pb;
 
@@ -1016,7 +980,7 @@ label_string_compare (HighlightStripe * tmp, char *searched_label)
 
 ConstraintImage *
 gnome_tsol_get_highlight_stripe (const char *name,
-				 GdkColor * label_color)
+				 GdkRGBA * label_color)
 {
 	static GSList  *hl_stripe_list = NULL;
 	GSList         *stored_hl_stripe = NULL;
@@ -1051,55 +1015,60 @@ gnome_tsol_get_highlight_stripe (const char *name,
 }
 
 gboolean
-gnome_tsol_label_bg_should_be_black (GdkColor * color)
+gnome_tsol_label_bg_should_be_black (GdkRGBA * color)
 {
-	int             ntsc;
+	double  ntsc;
 
 	ntsc = ((color->red) * .4450 +
 		(color->blue) * .030 +
 		(color->green) * .525);
 
-	if ((65535 - ntsc) < .61 * 65535)
+	if ((1.0 - ntsc) < .61)
 		return TRUE;
 	return FALSE;
 }
 
 void
-gnome_tsol_render_coloured_label (GtkWidget * label)
+gnome_tsol_render_coloured_label (cairo_t *cr, GtkWidget * label)
 {
-	GdkGC          *gc;
+	//GdkGC          *gc;
 	int             text_height, pango_height, pango_width;
 	GdkRectangle    area;
 	PangoLayout    *pango_layout;
-	GdkColor        color;
+	//GdkRGBA        color;
 	const char     *text;
 	char           *color_str;
 	int             error;
 	m_label_t      *mlabel = NULL;
 
-	area.x = label->allocation.x;
-	area.y = label->allocation.y;
-	area.width = label->allocation.width;
-	area.height = label->allocation.height;
+	GtkStateFlags	state;
+	GdkRGBA		bg_rgba;
+	GdkRGBA		fg_rgba;
 
+	gtk_widget_get_allocation(label, &area);
 	text = gtk_label_get_text (GTK_LABEL (label));
 
 	str_to_label (text, &mlabel, MAC_LABEL, L_NO_CORRECTION, &error);
 	label_to_str (mlabel, &color_str, M_COLOR, DEF_NAMES);
 	if (color_str == NULL)
 		color_str = g_strdup ("white");
-	gdk_color_parse (color_str, &color);
+	gdk_rgba_parse(&bg_rgba, color_str);
 	g_free (color_str);
 	blabel_free (mlabel);
+
+	cairo_set_source_rgb(cr, bg_rgba.red, bg_rgba.green, bg_rgba.blue);
+	cairo_rectangle(cr, area.x, area.y, area.width, area.height);
+	cairo_fill(cr);
 
 	pango_layout = gtk_widget_create_pango_layout (label, text);
 	pango_layout_get_size (pango_layout, &pango_width, &pango_height);
 	text_height = PANGO_PIXELS (pango_height);
 
-	text_height = label->allocation.height - text_height;
+	text_height = area.height - text_height;
 	if (text_height < 0)
 		text_height = 0;
 
+/*
 	if (gnome_tsol_label_bg_should_be_black (&color)) {
 		gc = label->style->black_gc;
 	} else {
@@ -1112,6 +1081,19 @@ gnome_tsol_render_coloured_label (GtkWidget * label)
 			 area.x,
 			 area.y + (text_height / 2),
 			 pango_layout);
+
+ */
+	/* set the correct source color */
+	if (gnome_tsol_label_bg_should_be_black (&bg_rgba)) {
+		gdk_rgba_parse(&fg_rgba, "black");
+	} else {
+		gdk_rgba_parse(&fg_rgba, "white");
+	}
+
+	/* draw the label */
+	cairo_move_to(cr, area.x, area.y + (text_height / 2));
+	cairo_set_source_rgb(cr, fg_rgba.red, fg_rgba.green, fg_rgba.blue);
+	pango_cairo_show_layout(cr, pango_layout);
 
 	g_object_unref (pango_layout);
 
@@ -1120,50 +1102,55 @@ gnome_tsol_render_coloured_label (GtkWidget * label)
 void
 gnome_tsol_render_coloured_label_for_zone (GtkWidget * label, const char *zonename)
 {
-	GdkGC          *gc;
+	//GdkGC          *gc;
 	int             text_height, pango_height, pango_width;
 	GdkRectangle    area;
 	PangoLayout    *pango_layout;
-	GdkColor        color;
 	const char     *text;
 	char           *color_str = NULL;
 	int             error;
 	m_label_t      *mlabel = NULL;
 
-	area.x = label->allocation.x;
-	area.y = label->allocation.y;
-	area.width = label->allocation.width;
-	area.height = label->allocation.height;
+	GtkStyleContext	*context;
+	GtkStateFlags	state;
+	GdkRGBA		rgba;
+	cairo_t		*cr;
 
+	gtk_widget_get_allocation(label, &area);
 	text = gtk_label_get_text (GTK_LABEL (label));
 
 	mlabel = getzonelabelbyname (zonename);
 	label_to_str (mlabel, &color_str, M_COLOR, DEF_NAMES);
 	if (color_str == NULL)
 		color_str = g_strdup ("white");
-	gdk_color_parse (color_str, &color);
+	gdk_rgba_parse(&rgba, color_str);
 	g_free (color_str);
 
 	pango_layout = gtk_widget_create_pango_layout (label, text);
 	pango_layout_get_size (pango_layout, &pango_width, &pango_height);
 	text_height = PANGO_PIXELS (pango_height);
 
-	text_height = label->allocation.height - text_height;
+	text_height = area.height - text_height;
 	if (text_height < 0)
 		text_height = 0;
 
-	if (gnome_tsol_label_bg_should_be_black (&color)) {
-		gc = label->style->black_gc;
+	cr = gdk_cairo_create(gtk_widget_get_window(label));
+
+	/* set the correct source color */
+	context= gtk_widget_get_style_context(label);
+	state = gtk_widget_get_state_flags(label);
+	gtk_style_context_get_color(context, state, &rgba);
+	if (gnome_tsol_label_bg_should_be_black (&rgba)) {
+		gdk_rgba_parse(&rgba, "black");
 	} else {
-		gc = label->style->white_gc;
+		gdk_rgba_parse(&rgba, "white");
 	}
+	cairo_set_source_rgb(cr, rgba.red, rgba.green, rgba.blue);
 
-	gtk_widget_modify_bg (label->parent, GTK_STATE_NORMAL, &color);
-
-	gdk_draw_layout (label->window, gc,
-			 area.x,
-			 area.y + (text_height / 2),
-			 pango_layout);
+	/* draw the label */
+	cairo_move_to(cr, area.x, area.y + (text_height / 2));
+	pango_cairo_show_layout(cr, pango_layout);
+	cairo_destroy(cr);
 
 	g_object_unref (pango_layout);
 

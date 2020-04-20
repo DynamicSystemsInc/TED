@@ -25,10 +25,8 @@
 #include <string.h>
 #include <stdio.h>
 #include <libgnometsol/constraint-scaling.h>
-#include <libgnomeui/libgnomeui.h>
-#include <libwnck/workspace.h>
 #define  WNCK_I_KNOW_THIS_IS_UNSTABLE
-#include <libwnck/window.h>
+#include <libwnck/libwnck.h>
 #include "ui-view.h"
 #include "pics.h"
 #include "ui-controller.h"
@@ -53,11 +51,16 @@ static GSList  *stripes;
 static Window   current_xwin;
 static gboolean query_windows_visible = FALSE;
 
+static GdkFilterReturn filter_func (GdkXEvent * gdkxevent,
+	     GdkEvent * event,
+	     gpointer data);
+
+static void update_all_stripes ();
 
 gboolean 
-label_layout_should_be_black (GdkColor * color)
+label_layout_should_be_black (GdkRGBA * color)
 {
-	int             ntsc;
+	double             ntsc;
 
 	if (!color)
 		return FALSE;
@@ -66,7 +69,7 @@ label_layout_should_be_black (GdkColor * color)
 		(color->blue) * .030 +
 		(color->green) * .525);
 
-	if ((65535 - ntsc) < .61 * 65535)
+	if ((1.0 - ntsc) < .61)
 		return TRUE;
 	return FALSE;
 }
@@ -87,7 +90,7 @@ label_string_compare (CacheStripe * tmp, char *searched_label)
 ConstraintImage *
 window_label_stripe_get (GtkWidget * widget,
 			 char *name,
-			 GdkColor * label_color)
+			 GdkRGBA * label_color)
 {
 	static GSList  *hl_stripe_list = NULL;
 	GSList         *stored_hl_stripe = NULL;
@@ -123,7 +126,7 @@ window_label_stripe_get (GtkWidget * widget,
 ConstraintImage *
 workspace_label_stripe_get (GtkWidget * widget,
 			    char *name,
-			    GdkColor * label_color)
+			    GdkRGBA * label_color)
 {
 	static GSList  *stripe_list = NULL;
 	GSList         *stored_hl_stripe = NULL;
@@ -159,7 +162,7 @@ window_label_get_name (Display * xdisplay, Window xwindow)
 	bslabel_t       label;
 
 	if (XTSOLIsWindowTrusted (xdisplay, xwindow)) {
-		return g_strdup (_("Trusted Path"));
+		return g_strdup ("Trusted Path");
 	} else if (XTSOLgetResLabel (xdisplay, xwindow, IsWindow, &label)) {
 		char           *string = NULL;
 
@@ -167,15 +170,15 @@ window_label_get_name (Display * xdisplay, Window xwindow)
 			ALL_ENTRIES);
 		return string;
 	} else
-		return g_strdup (_("Couldn't get the window label\n"));
+		return g_strdup ("Couldn't get the window label\n");
 }
-GdkColor       *
+GdkRGBA       *
 window_label_get_color (Display * xdisplay, Window xwindow)
 {
 #define DEFAULT_COLOR	"white"
 	char           *colorname;
 	m_label_t       label;
-	GdkColor       *color = g_new0 (GdkColor, 1);
+	GdkRGBA       *color = g_new0 (GdkRGBA, 1);
 
 	if (XTSOLgetResLabel (xdisplay, xwindow, IsWindow, &label)) {
 		label_to_str (&label, &colorname, M_COLOR, DEF_NAMES);
@@ -185,21 +188,21 @@ window_label_get_color (Display * xdisplay, Window xwindow)
 	} else
 		colorname = g_strdup (DEFAULT_COLOR);
 
-	gdk_color_parse ((const char *) colorname, color);
+	gdk_rgba_parse (color, (const char *) colorname);
 	g_free (colorname);
 	return color;
 }
 
-static GdkColor *private_label_color = NULL;
+static GdkRGBA *private_label_color = NULL;
 
-GdkColor       *
+GdkRGBA       *
 current_window_label_get_color ()
 {
 	return private_label_color;
 }
 
 void
-current_window_label_set_color (GdkColor * new_color)
+current_window_label_set_color (GdkRGBA * new_color)
 {
 	if (private_label_color)
 		g_free (private_label_color);
@@ -234,9 +237,9 @@ current_workspace_label_get_name (GtkWidget * widget)
 	return wnck_workspace_get_human_readable_label (ws);
 }
 
-static GdkColor *private_ws_label_color = NULL;
+static GdkRGBA *private_ws_label_color = NULL;
 
-GdkColor       *
+GdkRGBA       *
 current_workspace_label_get_color (GtkWidget * widget)
 {
 	int             error;
@@ -254,6 +257,7 @@ current_workspace_label_get_color (GtkWidget * widget)
 		char           *colorname = NULL;
 
 		label_to_str (mlabel, &colorname, M_COLOR, DEF_NAMES);
+		m_label_free(mlabel);
 
 #define DEFAULT_COLOR "white"
 
@@ -263,9 +267,10 @@ current_workspace_label_get_color (GtkWidget * widget)
 		if (private_ws_label_color)
 			g_free (private_ws_label_color);
 
-		private_ws_label_color = g_new (GdkColor, 1);
+		private_ws_label_color = g_new (GdkRGBA, 1);
 
-		gdk_color_parse ((const char *) colorname, private_ws_label_color);
+		gdk_rgba_parse (private_ws_label_color,
+				(const char *) colorname);
 
 		g_free (colorname);
 
@@ -326,10 +331,6 @@ update_query_window_popup (TrustedStripe * stripe)
 
 	gtk_window_resize (GTK_WINDOW (stripe->query_window_label), PANGO_PIXELS (pango_width) + POPUP_PADDING, h);
 
-	/*
-	 * gtk_widget_set_size_request (stripe->query_window_label,
-	 * PANGO_PIXELS (pango_width) + POPUP_PADDING, -1);
-	 */
 	gtk_widget_queue_draw (stripe->query_window_label_da);
 
 	g_object_unref (pango_layout);
@@ -351,28 +352,28 @@ query_window_popup_show (TrustedStripe * stripe)
 static void 
 query_window_popup_hide (TrustedStripe * stripe)
 {
-	gtk_widget_hide_all (stripe->query_window_label);
+	gtk_widget_hide(stripe->query_window_label);
 }
 
 void 
 query_window_popups_show (gboolean show)
 {
+	GdkDevice	*pointer;
 	GdkWindow      *root = gdk_screen_get_root_window (gdk_display_get_default_screen (gdk_display_get_default ()));
-
+	pointer = gtk_get_current_event_device();
 	if (show) {
-		gdk_window_set_events (root, GDK_POINTER_MOTION_MASK | GDK_BUTTON_PRESS_MASK);
-		gdk_pointer_grab (root, FALSE,
-			    GDK_BUTTON_PRESS_MASK | GDK_POINTER_MOTION_MASK,
-				  NULL,
-			      gdk_cursor_new (GDK_CROSS), GDK_CURRENT_TIME);
+		gdk_window_set_events (root,
+			GDK_POINTER_MOTION_MASK | GDK_BUTTON_PRESS_MASK);
+		gdk_device_grab(pointer, root, GDK_OWNERSHIP_WINDOW, FALSE,
+			GDK_BUTTON_PRESS_MASK | GDK_POINTER_MOTION_MASK,
+			gdk_cursor_new (GDK_CROSS), GDK_CURRENT_TIME);
 		update_trusted_stripes ();
 		g_slist_foreach (stripes, (GFunc) query_window_popup_show, NULL);
 	} else {
 		gdk_window_set_events (root, GDK_PROPERTY_CHANGE_MASK);
-		gdk_pointer_ungrab (GDK_CURRENT_TIME);
+		gdk_pointer_ungrab(GDK_CURRENT_TIME);
 		g_slist_foreach (stripes, (GFunc) query_window_popup_hide, NULL);
 	}
-
 	query_windows_visible = !query_windows_visible;
 }
 
@@ -382,9 +383,13 @@ trusted_stripe_help_show (GtkWidget *widget)
 	GError *err = NULL;
 
 	GdkScreen *screen = gtk_widget_get_screen (widget);
+	char *command = "atril --preview /usr/share/mate/help/TrustedStripeHelp.pdf";
 
+/*
 	gnome_help_display_desktop_on_screen (NULL, "trusted", "index.xml",
 				    "intro_trusted_stripe", screen, &err);
+*/
+	g_spawn_command_line_async (command, &err);
 	if (err) {
 		GtkWidget *err_dialog = gtk_message_dialog_new (GTK_WINDOW (widget),
 						GTK_DIALOG_DESTROY_WITH_PARENT,
@@ -442,7 +447,7 @@ update_trusted_stripe (TrustedStripe * stripe)
 		gtk_widget_queue_draw (stripe->role_da);
 	gtk_widget_queue_draw (stripe->trusted_path_da);
 
-	if (strcmp (current_window_label_get_name (), _("Trusted Path")) == 0)
+	if (strcmp (current_window_label_get_name (), "Trusted Path") == 0)
 		stripe->show_shield = TRUE;
 	else
 		stripe->show_shield = FALSE;
@@ -473,13 +478,15 @@ resize_all_stripes ()
 static void 
 hide_stripe (TrustedStripe *stripe, gboolean hide)
 {
+	GdkWindow *window = gtk_widget_get_window(stripe->toplevel);
+
 	if (GPOINTER_TO_INT(hide))
-	    gdk_window_hide (stripe->toplevel->window);
+	    gdk_window_hide (window);
 	else
 	  {
-	    gdk_window_show (stripe->toplevel->window);
-	    XTSOLMakeTPWindow (GDK_WINDOW_XDISPLAY (stripe->toplevel->window), 
-			       GDK_WINDOW_XWINDOW (stripe->toplevel->window));
+	    gdk_window_show (window);
+	    XTSOLMakeTPWindow (GDK_WINDOW_XDISPLAY (window), 
+			       GDK_WINDOW_XID (window));
 	  }
 }
 
@@ -520,6 +527,7 @@ xscreensaver_running(void)
   static Atom XA_LOCK, XA_BLANK;
   static gboolean inited = False;
   Atom rtype;
+  Display *xdisplay;
   int format;
   unsigned long nitems, bytesafter;
   guchar *data = 0;
@@ -528,12 +536,13 @@ xscreensaver_running(void)
   
   if (! inited) 
     {
-      XA_LOCK = XInternAtom(GDK_DISPLAY(),"LOCK", False);
-      XA_BLANK = XInternAtom(GDK_DISPLAY(),"BLANK", False);
+      XA_LOCK = XInternAtom(gdk_x11_get_default_xdisplay(),"LOCK", False);
+      XA_BLANK = XInternAtom(gdk_x11_get_default_xdisplay(),"BLANK", False);
       inited = True;
     }
   
-  if (XGetWindowProperty(GDK_DISPLAY(), RootWindow(GDK_DISPLAY(),0),
+   xdisplay  = GDK_DISPLAY_XDISPLAY (gdk_display_get_default ());
+   if (XGetWindowProperty(xdisplay, DefaultRootWindow(xdisplay),
                          XA_SCREENSAVER_STATUS, 0, 999, False, 
                          XA_INTEGER, &rtype, &format, &nitems, &bytesafter,
                          &data) == Success) {
@@ -566,16 +575,16 @@ update_trusted_stripes ()
 	 * preventing update to the display while it's mapped.
 	 */
 	if (global_role_dialog_is_mapped) {
-		GdkColor *override_color = g_new0 (GdkColor, 1);
+		GdkRGBA *override_color = g_new0 (GdkRGBA, 1);
 		char *colorname = NULL;
 
 		m_label_t	admin_low;
 		bsllow (&admin_low);
 		label_to_str (&admin_low, &colorname, M_COLOR, DEF_NAMES);
-		gdk_color_parse ((const char *) colorname, override_color);
+		gdk_rgba_parse (override_color, (const char *) colorname); 
 		g_free (colorname);
 
-		current_window_label_set_name (g_strdup (_("Trusted Path")));
+		current_window_label_set_name (g_strdup ("Trusted Path"));
 		current_window_label_set_color (override_color);
 		update_all_stripes ();
 		return;
@@ -586,7 +595,8 @@ update_trusted_stripes ()
 	XQueryPointer (xdisplay, DefaultRootWindow (xdisplay),
                  &root, &child, &rootx, &rooty, &winx, &winy, &xmask);
 
-	new_xwin = XmuClientWindow (xdisplay, child);
+	if (child != 0)
+		new_xwin = XmuClientWindow (xdisplay, child);
 
 	if (new_xwin != None) {
 		if (new_xwin != current_xwin) {
@@ -599,15 +609,15 @@ update_trusted_stripes ()
 			}
 		}
 	} else {
-		GdkColor       *error_color = g_new0 (GdkColor, 1);
+		GdkRGBA *error_color = g_new0 (GdkRGBA, 1);
 
 		current_window_label_set_name (g_strdup ("Initializing Workspace"));
-		gdk_color_parse ("white", error_color);
+		gdk_rgba_parse (error_color, "white" );
 		current_window_label_set_color (error_color);
 	}
 }
 
-static          GdkFilterReturn
+static GdkFilterReturn
 filter_func (GdkXEvent * gdkxevent,
 	     GdkEvent * event,
 	     gpointer data)

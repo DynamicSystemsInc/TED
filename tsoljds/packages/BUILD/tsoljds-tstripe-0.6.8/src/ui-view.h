@@ -18,7 +18,8 @@
 #ifndef __UIVIEW_H__
 #define __UIVIEW_H__
 #include <gtk/gtk.h>
-#include <libwnck/screen.h>
+#define WNCK_I_KNOW_THIS_IS_UNSTABLE
+#include <libwnck/libwnck.h>
 
 typedef struct _TrustedStripe TrustedStripe;
 

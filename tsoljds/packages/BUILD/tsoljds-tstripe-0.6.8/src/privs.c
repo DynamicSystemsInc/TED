@@ -36,12 +36,12 @@ drop_inherited_privs (void)
         if ((uattr = getuseruid (getuid())) &&
             (value = kva_match (uattr->attr, USERATTR_DFLTPRIV_KW))) {
                 pset = priv_str_to_set (value, ",", NULL);
-		free_userattr (uattr);
         } else {
                 pset = priv_str_to_set ("basic", ",", NULL);
         }
 
         setppriv (PRIV_SET, PRIV_INHERITABLE, pset);
+	free_userattr (uattr);
         priv_freeset (pset);
 }
 

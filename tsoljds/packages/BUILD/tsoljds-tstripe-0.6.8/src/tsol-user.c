@@ -112,6 +112,7 @@ _tstripe_users_init ()
 	users = g_slist_append (users, (gpointer) wsuser);
 	roles = g_strdup (gnome_tsol_get_usrattr_val (u_ent, USERATTR_ROLES_KW));
 	usercount++;
+	free_userattr(u_ent);
 
 	if (roles != NULL) {
 		GtkWidget      *dialog = NULL;
@@ -185,6 +186,7 @@ _tstripe_users_init ()
 				user->authenticated = FALSE;
 				users = g_slist_append (users, (gpointer) user);
 				usercount++;
+				free_userattr(u);
 			}
 		}
 		g_free (roles);

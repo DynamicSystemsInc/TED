@@ -149,7 +149,7 @@ create_attributes_table (uid_t uid, bslabel_t sl, bclear_t clr)
 		exit (1);
 	}
 	widget = gtk_entry_new ();
-	gtk_entry_set_editable (GTK_ENTRY (widget), FALSE);
+	gtk_editable_set_editable (GTK_ENTRY (widget), FALSE);
 	gtk_entry_set_text (GTK_ENTRY (widget), str);
 	str = NULL;
 	gtk_table_attach_defaults (GTK_TABLE (table), widget, 1, 2, 2, 3);
@@ -160,7 +160,7 @@ create_attributes_table (uid_t uid, bslabel_t sl, bclear_t clr)
 		str = g_strdup (_ ("none"));
 	}
 	widget = gtk_entry_new ();
-	gtk_entry_set_editable (GTK_ENTRY (widget), FALSE);
+	gtk_editable_set_editable (GTK_ENTRY (widget), FALSE);
 	gtk_entry_set_text (GTK_ENTRY (widget), str);
 	g_free (str);
 	str = NULL;
@@ -235,7 +235,7 @@ tsol_motd_dialog_new (uid_t uid, bslabel_t lower_sl, bclear_t upper_clear,
 				 GTK_WIN_POS_CENTER_ALWAYS);
 
 	table = gtk_table_new (3, 2, FALSE);
-	gtk_box_pack_start (GTK_BOX (GTK_DIALOG (motd_dialog)->vbox), table,
+	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area(motd_dialog)), table,
 			    FALSE, FALSE, 10);
 	widget = gtk_image_new_from_stock (GTK_STOCK_DIALOG_INFO,
 					   GTK_ICON_SIZE_DIALOG);

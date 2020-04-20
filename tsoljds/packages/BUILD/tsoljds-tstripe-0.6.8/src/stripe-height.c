@@ -20,33 +20,14 @@
 #include <gdk/gdkx.h>
 #include <X11/Xlib.h>
 #include <X11/extensions/Xtsol.h>
-#include <gnome.h>
-#include <gconf/gconf-client.h>
 
 int
 main (int argc, char **argv)
 {
-	GnomeClient *client;
 	GtkRequisition req;
         int height, i, fd;
         GtkWidget *dummy; 
 	Display *xdisp;
-
-	gnome_program_init (PACKAGE, VERSION, LIBGNOMEUI_MODULE,
-                            argc, argv,
-                            GNOME_PARAM_APP_DATADIR, PACKAGE_DATA_DIR,
-                            NULL);
-
-	if (!gconf_client_get_bool (gconf_client_get_default (), 
-	       "/desktop/gnome/trusted_extensions/stripe_at_bottom", NULL)) {
-			exit (0);
-	}
-
-	 /* session management */
-        client = gnome_master_client ();
-	gnome_client_set_restart_command (client, 1, argv);
-	gnome_client_set_priority (client, 0);
-	gnome_client_set_restart_style (client, GNOME_RESTART_IMMEDIATELY);
 
 	gtk_init (&argc, &argv);
 
@@ -54,6 +35,7 @@ main (int argc, char **argv)
 	xdisp = GDK_DISPLAY_XDISPLAY (gdk_display_get_default ());
 
         gtk_widget_size_request (dummy, &req);
+	req.height = 16;
         height = req.height + 14;
 
 	i = 0;

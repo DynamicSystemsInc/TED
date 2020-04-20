@@ -71,12 +71,6 @@ my_expose_event (GtkWidget * widget,
 			   widget->allocation.width,
 			   widget->allocation.height);
 
-	/*
-	 * gdk_draw_rectangle (widget->window, dgc, TRUE, 0,0,
-	 * widget->allocation.width - 10, widget->allocation.height - 10);
-	 */
-
-	/* GTK_WIDGET_GET_CLASS (widget)->expose_event (widget, event);  */
 }
 
 int 

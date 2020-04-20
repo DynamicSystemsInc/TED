@@ -27,10 +27,10 @@ extern "C" {
 G_BEGIN_DECLS
 
 #define GNOME_TYPE_TSOL_MESSAGE_DIALOG            (gnome_tsol_message_dialog_get_type ())
-#define GNOME_TSOL_MESSAGE_DIALOG(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_TSOL_MESSAGE_DIALOG, GnomeTsolMessageDialog))
-#define GNOME_TSOL_MESSAGE_DIALOG_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_TSOL_MESSAGE_DIALOG, GnomeTsolMessageDialogClass))
-#define GNOME_IS_TSOL_MESSAGE_DIALOG(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_TSOL_MESSAGE_DIALOG))
-#define GNOME_IS_TSOL_MESSAGE_DIALOG_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_TSOL_MESSAGE_DIALOG))
+#define GNOME_TSOL_MESSAGE_DIALOG(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_TSOL_MESSAGE_DIALOG, GnomeTsolMessageDialog))
+#define GNOME_TSOL_MESSAGE_DIALOG_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_TSOL_MESSAGE_DIALOG, GnomeTsolMessageDialogClass))
+#define GNOME_IS_TSOL_MESSAGE_DIALOG(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_TSOL_MESSAGE_DIALOG))
+#define GNOME_IS_TSOL_MESSAGE_DIALOG_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_TSOL_MESSAGE_DIALOG))
 
 typedef struct _GnomeTsolMessageDialog        GnomeTsolMessageDialog;
 typedef struct _GnomeTsolMessageDialogClass   GnomeTsolMessageDialogClass;

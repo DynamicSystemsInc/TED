@@ -150,13 +150,17 @@ handle_pipe_input (GIOChannel *source,
         message_type = parse_message_string (str, &screen_num, &message);
 	switch (message_type) 
 	  {
+	    GAppInfo *appinfo;
 	    case PIPE_MESSAGE_URI:
 	      gtk_show_uri (gdk_display_get_screen (gdk_dpy, screen_num), 
 			message + 5, GDK_CURRENT_TIME, &error);
 	      break;
 	    case PIPE_MESSAGE_COMMAND:
-	      gdk_spawn_command_line_on_screen (gdk_display_get_screen (gdk_dpy,
-                                          screen_num), message, &error);
+	      appinfo = g_app_info_create_from_commandline(message,
+		      g_find_program_in_path(message), 0, &error);
+	      g_app_info_launch_uris(appinfo, NULL, NULL, &error);
+	      g_free(appinfo);
+	      //g_spawn_command_line_async (message, &error);
 	      break;
 	    case PIPE_MESSAGE_PARSE_ERROR:
 	    default:
@@ -306,8 +310,8 @@ xagent_start_default_clients (void) {
 	
 	char **app_path = NULL;
 
-	char *default_apps[] = {"/usr/bin/nautilus --no-default-window", 
-				"/usr/bin/gnome-volume-control-applet", NULL };
+	char *default_apps[] = {"/usr/bin/caja --no-default-window", 
+				NULL };
 
 	for (app_path = default_apps; *app_path != NULL; app_path++) {
 		g_spawn_command_line_async (*app_path, NULL);
@@ -386,8 +390,7 @@ main (int argc, char **argv)
 	xagent_start_default_clients ();
 
 	/* we may have to spawn an exec immediately */
-	gdk_spawn_command_line_on_screen (gdk_display_get_screen (gdisp, 0),
-					  g_getenv("LABEL_EXEC_COMMAND"), &error);
+	g_spawn_command_line_async (g_getenv("LABEL_EXEC_COMMAND"), &error);
 
 	channel = g_io_channel_unix_new (pipe_fd);
 	result = g_io_add_watch_full (channel, G_PRIORITY_HIGH,

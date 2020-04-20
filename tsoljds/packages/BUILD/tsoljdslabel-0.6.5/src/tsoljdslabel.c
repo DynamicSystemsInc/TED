@@ -15,6 +15,7 @@
 #include <ftw.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <errno.h>
 
 #include <zone.h>
 #include <priv.h>
@@ -36,7 +37,6 @@
 #include <X11/Xlib.h>
 #include <X11/extensions/Xtsol.h>
 
-#include <libgnomeui/libgnomeui.h>
 
 #include "tsolmotd.h"
 #include "exec.h"
@@ -75,7 +75,7 @@ start_screensaver (void)
 	GError *err = NULL;
 	gchar *args[3];
 
-	args[0] = "/usr/openwin/bin/xscreensaver";
+	args[0] = "/usr/bin/xscreensaver";
 	args[1] = "-nosplash";
 	args[2] = NULL;
 	g_spawn_async (g_get_home_dir (), args, NULL, G_SPAWN_STDOUT_TO_DEV_NULL, NULL, NULL, 
@@ -230,7 +230,7 @@ session_setup (void)
 static gboolean
 is_trusted_session (char **session)
 {
-	if (strncmp ("/usr/bin/gnome-session", session[0], 22) == 0 &&
+	if (strncmp ("/usr/bin/mate-session", session[0], 22) == 0 &&
 	    strncmp ("--trusted-session", session[1], 17) == 0) {
 		return TRUE;	
 	} else {
@@ -356,6 +356,10 @@ start_session (int mode, char *label)
 			perror ("Can't get process privileges\n");
 			exit (1);
 		}
+		/*
+		pset = priv_str_to_set("basic,win_config,win_dac_write", ",", NULL);
+		*/
+
 		if (setppriv (PRIV_SET, PRIV_INHERITABLE, pset) == -1) {
 			perror ("Can't set process privileges\n");
 			exit (1);
@@ -432,6 +436,7 @@ motd_response_cb (GtkDialog * dialog, gint id, gpointer data)
 	MotdData *motd_data = (MotdData *) g_object_get_data (G_OBJECT (dialog),
 							       "motd_data");
 
+	gtk_widget_hide(GTK_WIDGET(dialog));
 	if (motd_data->checkbutton) {
 		if (gtk_toggle_button_get_active (
 		      GTK_TOGGLE_BUTTON (motd_data->checkbutton))) {
@@ -475,17 +480,15 @@ main (int argc, char *argv[])
 	userattr_t     *u_ent;
 	MotdData       *motd_data;
 	gboolean       sl_only = FALSE;
+	priv_set_t	*pset;
 
 	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 
-	putenv ("GTK2_RC_FILES=/usr/share/themes/nimbus/gtk-2.0/gtkrc");
 	putenv ("GNOME_DISABLE_CRASH_DIALOG=1");
-	putenv ("GDK_NATIVE_WINDOWS=True");
 
-	gnome_program_init (PACKAGE, VERSION, LIBGNOMEUI_MODULE, argc, argv, 
-			    NULL);
+	gtk_init(&argc, &argv);
 
 	session_uid = getuid ();
 	u_ent = getuseruid (session_uid);

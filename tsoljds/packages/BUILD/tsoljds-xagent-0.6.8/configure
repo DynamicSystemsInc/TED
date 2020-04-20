@@ -559,7 +559,7 @@ ac_hostname=`(hostname || uname -n) 2>/dev/null | sed 1q`
 #
 # Initializations.
 #
-ac_default_prefix=/usr/local
+ac_default_prefix=/usr
 ac_clean_files=
 ac_config_libobj_dir=.
 LIBOBJS=
@@ -11267,7 +11267,7 @@ BEGIN {RS=" "; FS="/|\n";} {
   esac
   sys_lib_search_path_spec=`$ECHO "$lt_search_path_spec" | $lt_NL2SP`
 else
-  sys_lib_search_path_spec="/lib /usr/lib /usr/local/lib"
+  sys_lib_search_path_spec="/lib /usr/lib"
 fi
 library_names_spec=
 libname_spec='lib$name'
@@ -11371,8 +11371,8 @@ bsdi[45]*)
   soname_spec='${libname}${release}${shared_ext}$major'
   finish_cmds='PATH="\$PATH:/sbin" ldconfig $libdir'
   shlibpath_var=LD_LIBRARY_PATH
-  sys_lib_search_path_spec="/shlib /usr/lib /usr/X11/lib /usr/contrib/lib /lib /usr/local/lib"
-  sys_lib_dlsearch_path_spec="/shlib /usr/lib /usr/local/lib"
+  sys_lib_search_path_spec="/shlib /usr/lib /usr/X11/lib /usr/contrib/lib /lib"
+  sys_lib_dlsearch_path_spec="/shlib /usr/lib"
   # the default ld.so.conf also contains /usr/contrib/lib and
   # /usr/X11R6/lib (/usr/X11 is a link to /usr/X11R6), but let us allow
   # libtool to hard-code these into programs
@@ -11499,8 +11499,8 @@ darwin* | rhapsody*)
   shlibpath_var=DYLD_LIBRARY_PATH
   shrext_cmds='`test .$module = .yes && echo .so || echo .dylib`'
 
-  sys_lib_search_path_spec="$sys_lib_search_path_spec /usr/local/lib"
-  sys_lib_dlsearch_path_spec='/usr/local/lib /lib /usr/lib'
+  sys_lib_search_path_spec="$sys_lib_search_path_spec"
+  sys_lib_dlsearch_path_spec='/lib /usr/lib'
   ;;
 
 dgux*)
@@ -11596,9 +11596,9 @@ hpux9* | hpux10* | hpux11*)
     library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}$major $libname${shared_ext}'
     soname_spec='${libname}${release}${shared_ext}$major'
     if test "X$HPUX_IA64_MODE" = X32; then
-      sys_lib_search_path_spec="/usr/lib/hpux32 /usr/local/lib/hpux32 /usr/local/lib"
+      sys_lib_search_path_spec="/usr/lib/hpux32"
     else
-      sys_lib_search_path_spec="/usr/lib/hpux64 /usr/local/lib/hpux64"
+      sys_lib_search_path_spec="/usr/lib/hpux64"
     fi
     sys_lib_dlsearch_path_spec=$sys_lib_search_path_spec
     ;;
@@ -11672,7 +11672,7 @@ irix5* | irix6* | nonstopux*)
   esac
   shlibpath_var=LD_LIBRARY${shlibsuff}_PATH
   shlibpath_overrides_runpath=no
-  sys_lib_search_path_spec="/usr/lib${libsuff} /lib${libsuff} /usr/local/lib${libsuff}"
+  sys_lib_search_path_spec="/usr/lib${libsuff} /lib${libsuff}"
   sys_lib_dlsearch_path_spec="/usr/lib${libsuff} /lib${libsuff}"
   hardcode_into_libs=yes
   ;;
@@ -11826,7 +11826,7 @@ osf3* | osf4* | osf5*)
   soname_spec='${libname}${release}${shared_ext}$major'
   library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}$major $libname${shared_ext}'
   shlibpath_var=LD_LIBRARY_PATH
-  sys_lib_search_path_spec="/usr/shlib /usr/ccs/lib /usr/lib/cmplrs/cc /usr/lib /usr/local/lib /var/shlib"
+  sys_lib_search_path_spec="/usr/shlib /usr/ccs/lib /usr/lib/cmplrs/cc /usr/lib /var/shlib"
   sys_lib_dlsearch_path_spec="$sys_lib_search_path_spec"
   ;;
 
@@ -11901,7 +11901,7 @@ sysv5* | sco3.2v5* | sco5v6* | unixware* | OpenUNIX* | sysv4*uw2*)
   shlibpath_overrides_runpath=yes
   hardcode_into_libs=yes
   if test "$with_gnu_ld" = yes; then
-    sys_lib_search_path_spec='/usr/local/lib /usr/gnu/lib /usr/ccs/lib /usr/lib /lib'
+    sys_lib_search_path_spec='/usr/gnu/lib /usr/ccs/lib /usr/lib /lib'
   else
     sys_lib_search_path_spec='/usr/ccs/lib /usr/lib'
     case $host_os in
@@ -13028,12 +13028,12 @@ if test -n "$GNOME_SESSION_CFLAGS"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0 >= \$GLIB_REQUIRED
         gio-2.0 >= \$GLIB_REQUIRED
-        gtk+-2.0 >= \$GTK_REQUIRED
+        gtk+-3.0 >= \$GTK_REQUIRED
         dbus-glib-1 >= \$DBUS_GLIB_REQUIRED
 \""; } >&5
   ($PKG_CONFIG --exists --print-errors "glib-2.0 >= $GLIB_REQUIRED
         gio-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
 ") 2>&5
   ac_status=$?
@@ -13041,7 +13041,7 @@ if test -n "$GNOME_SESSION_CFLAGS"; then
   test $ac_status = 0; }; then
   pkg_cv_GNOME_SESSION_CFLAGS=`$PKG_CONFIG --cflags "glib-2.0 >= $GLIB_REQUIRED
         gio-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
 " 2>/dev/null`
 else
@@ -13056,12 +13056,12 @@ if test -n "$GNOME_SESSION_LIBS"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0 >= \$GLIB_REQUIRED
         gio-2.0 >= \$GLIB_REQUIRED
-        gtk+-2.0 >= \$GTK_REQUIRED
+        gtk+-3.0 >= \$GTK_REQUIRED
         dbus-glib-1 >= \$DBUS_GLIB_REQUIRED
 \""; } >&5
   ($PKG_CONFIG --exists --print-errors "glib-2.0 >= $GLIB_REQUIRED
         gio-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
 ") 2>&5
   ac_status=$?
@@ -13069,7 +13069,7 @@ if test -n "$GNOME_SESSION_LIBS"; then
   test $ac_status = 0; }; then
   pkg_cv_GNOME_SESSION_LIBS=`$PKG_CONFIG --libs "glib-2.0 >= $GLIB_REQUIRED
         gio-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
 " 2>/dev/null`
 else
@@ -13091,13 +13091,13 @@ fi
         if test $_pkg_short_errors_supported = yes; then
 	        GNOME_SESSION_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "glib-2.0 >= $GLIB_REQUIRED
         gio-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
 " 2>&1`
         else
 	        GNOME_SESSION_PKG_ERRORS=`$PKG_CONFIG --print-errors "glib-2.0 >= $GLIB_REQUIRED
         gio-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
 " 2>&1`
         fi
@@ -13106,7 +13106,7 @@ fi
 
 	as_fn_error $? "Package requirements (glib-2.0 >= $GLIB_REQUIRED
         gio-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
 ) were not met:
 
@@ -13150,16 +13150,16 @@ if test -n "$SESSION_PROPERTIES_CFLAGS"; then
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0 >= \$GLIB_REQUIRED
-        gtk+-2.0 >= \$GTK_REQUIRED
+        gtk+-3.0 >= \$GTK_REQUIRED
 \""; } >&5
   ($PKG_CONFIG --exists --print-errors "glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
 ") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_SESSION_PROPERTIES_CFLAGS=`$PKG_CONFIG --cflags "glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
 " 2>/dev/null`
 else
   pkg_failed=yes
@@ -13172,16 +13172,16 @@ if test -n "$SESSION_PROPERTIES_LIBS"; then
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0 >= \$GLIB_REQUIRED
-        gtk+-2.0 >= \$GTK_REQUIRED
+        gtk+-3.0 >= \$GTK_REQUIRED
 \""; } >&5
   ($PKG_CONFIG --exists --print-errors "glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
 ") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_SESSION_PROPERTIES_LIBS=`$PKG_CONFIG --libs "glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
 " 2>/dev/null`
 else
   pkg_failed=yes
@@ -13201,18 +13201,18 @@ else
 fi
         if test $_pkg_short_errors_supported = yes; then
 	        SESSION_PROPERTIES_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
 " 2>&1`
         else
 	        SESSION_PROPERTIES_PKG_ERRORS=`$PKG_CONFIG --print-errors "glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
 " 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$SESSION_PROPERTIES_PKG_ERRORS" >&5
 
 	as_fn_error $? "Package requirements (glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
 ) were not met:
 
 $SESSION_PROPERTIES_PKG_ERRORS
@@ -13255,12 +13255,12 @@ if test -n "$SPLASH_CFLAGS"; then
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0 >= \$GLIB_REQUIRED
-        gtk+-2.0 >= \$GTK_REQUIRED
+        gtk+-3.0 >= \$GTK_REQUIRED
         dbus-glib-1 >= \$DBUS_GLIB_REQUIRED
         libstartup-notification-1.0
         gconf-2.0\""; } >&5
   ($PKG_CONFIG --exists --print-errors "glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
         libstartup-notification-1.0
         gconf-2.0") 2>&5
@@ -13268,7 +13268,7 @@ if test -n "$SPLASH_CFLAGS"; then
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_SPLASH_CFLAGS=`$PKG_CONFIG --cflags "glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
         libstartup-notification-1.0
         gconf-2.0" 2>/dev/null`
@@ -13283,12 +13283,12 @@ if test -n "$SPLASH_LIBS"; then
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0 >= \$GLIB_REQUIRED
-        gtk+-2.0 >= \$GTK_REQUIRED
+        gtk+-3.0 >= \$GTK_REQUIRED
         dbus-glib-1 >= \$DBUS_GLIB_REQUIRED
         libstartup-notification-1.0
         gconf-2.0\""; } >&5
   ($PKG_CONFIG --exists --print-errors "glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
         libstartup-notification-1.0
         gconf-2.0") 2>&5
@@ -13296,7 +13296,7 @@ if test -n "$SPLASH_LIBS"; then
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_SPLASH_LIBS=`$PKG_CONFIG --libs "glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
         libstartup-notification-1.0
         gconf-2.0" 2>/dev/null`
@@ -13318,13 +13318,13 @@ else
 fi
         if test $_pkg_short_errors_supported = yes; then
 	        SPLASH_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
         libstartup-notification-1.0
         gconf-2.0" 2>&1`
         else
 	        SPLASH_PKG_ERRORS=`$PKG_CONFIG --print-errors "glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
         libstartup-notification-1.0
         gconf-2.0" 2>&1`
@@ -13333,7 +13333,7 @@ fi
 	echo "$SPLASH_PKG_ERRORS" >&5
 
 	as_fn_error $? "Package requirements (glib-2.0 >= $GLIB_REQUIRED
-        gtk+-2.0 >= $GTK_REQUIRED
+        gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED
         libstartup-notification-1.0
         gconf-2.0) were not met:
@@ -13377,14 +13377,14 @@ if test -n "$COMPAT_CFLAGS"; then
     pkg_cv_COMPAT_CFLAGS="$COMPAT_CFLAGS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-2.0 >= \$GTK_REQUIRED
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-3.0 >= \$GTK_REQUIRED
         dbus-glib-1 >= \$DBUS_GLIB_REQUIRED\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gtk+-2.0 >= $GTK_REQUIRED
+  ($PKG_CONFIG --exists --print-errors "gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_COMPAT_CFLAGS=`$PKG_CONFIG --cflags "gtk+-2.0 >= $GTK_REQUIRED
+  pkg_cv_COMPAT_CFLAGS=`$PKG_CONFIG --cflags "gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED" 2>/dev/null`
 else
   pkg_failed=yes
@@ -13396,14 +13396,14 @@ if test -n "$COMPAT_LIBS"; then
     pkg_cv_COMPAT_LIBS="$COMPAT_LIBS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-2.0 >= \$GTK_REQUIRED
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-3.0 >= \$GTK_REQUIRED
         dbus-glib-1 >= \$DBUS_GLIB_REQUIRED\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gtk+-2.0 >= $GTK_REQUIRED
+  ($PKG_CONFIG --exists --print-errors "gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_COMPAT_LIBS=`$PKG_CONFIG --libs "gtk+-2.0 >= $GTK_REQUIRED
+  pkg_cv_COMPAT_LIBS=`$PKG_CONFIG --libs "gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED" 2>/dev/null`
 else
   pkg_failed=yes
@@ -13422,16 +13422,16 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-	        COMPAT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "gtk+-2.0 >= $GTK_REQUIRED
+	        COMPAT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED" 2>&1`
         else
-	        COMPAT_PKG_ERRORS=`$PKG_CONFIG --print-errors "gtk+-2.0 >= $GTK_REQUIRED
+	        COMPAT_PKG_ERRORS=`$PKG_CONFIG --print-errors "gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$COMPAT_PKG_ERRORS" >&5
 
-	as_fn_error $? "Package requirements (gtk+-2.0 >= $GTK_REQUIRED
+	as_fn_error $? "Package requirements (gtk+-3.0 >= $GTK_REQUIRED
         dbus-glib-1 >= $DBUS_GLIB_REQUIRED) were not met:
 
 $COMPAT_PKG_ERRORS
@@ -13905,12 +13905,12 @@ if test -n "$EGG_SMCLIENT_CFLAGS"; then
     pkg_cv_EGG_SMCLIENT_CFLAGS="$EGG_SMCLIENT_CFLAGS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-2.0\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gtk+-2.0") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-3.0\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "gtk+-3.0") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_EGG_SMCLIENT_CFLAGS=`$PKG_CONFIG --cflags "gtk+-2.0" 2>/dev/null`
+  pkg_cv_EGG_SMCLIENT_CFLAGS=`$PKG_CONFIG --cflags "gtk+-3.0" 2>/dev/null`
 else
   pkg_failed=yes
 fi
@@ -13921,12 +13921,12 @@ if test -n "$EGG_SMCLIENT_LIBS"; then
     pkg_cv_EGG_SMCLIENT_LIBS="$EGG_SMCLIENT_LIBS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-2.0\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gtk+-2.0") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-3.0\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "gtk+-3.0") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_EGG_SMCLIENT_LIBS=`$PKG_CONFIG --libs "gtk+-2.0" 2>/dev/null`
+  pkg_cv_EGG_SMCLIENT_LIBS=`$PKG_CONFIG --libs "gtk+-3.0" 2>/dev/null`
 else
   pkg_failed=yes
 fi
@@ -13944,14 +13944,14 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-	        EGG_SMCLIENT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "gtk+-2.0" 2>&1`
+	        EGG_SMCLIENT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "gtk+-3.0" 2>&1`
         else
-	        EGG_SMCLIENT_PKG_ERRORS=`$PKG_CONFIG --print-errors "gtk+-2.0" 2>&1`
+	        EGG_SMCLIENT_PKG_ERRORS=`$PKG_CONFIG --print-errors "gtk+-3.0" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$EGG_SMCLIENT_PKG_ERRORS" >&5
 
-	as_fn_error $? "Package requirements (gtk+-2.0) were not met:
+	as_fn_error $? "Package requirements (gtk+-3.0) were not met:
 
 $EGG_SMCLIENT_PKG_ERRORS
 
@@ -14265,27 +14265,13 @@ ac_x_header_dirs='
 /usr/include/X11R5
 /usr/include/X11R4
 
-/usr/local/X11/include
-/usr/local/X11R7/include
-/usr/local/X11R6/include
-/usr/local/X11R5/include
-/usr/local/X11R4/include
-
-/usr/local/include/X11
-/usr/local/include/X11R7
-/usr/local/include/X11R6
-/usr/local/include/X11R5
-/usr/local/include/X11R4
-
 /usr/X386/include
 /usr/x386/include
 /usr/XFree86/include/X11
 
 /usr/include
-/usr/local/include
 /usr/unsupported/include
 /usr/athena/include
-/usr/local/x11r5/include
 /usr/lpp/Xamples/include
 
 /usr/openwin/include

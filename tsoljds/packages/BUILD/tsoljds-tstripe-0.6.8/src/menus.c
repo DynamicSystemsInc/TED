@@ -26,10 +26,8 @@
 #include <secdb.h>
 #include <pwd.h>
 #include <sys/tsol/label_macro.h>
-#define WNCK_I_KNOW_THIS_IS_UNSTABLE
-#include <libwnck/window.h>
-#include <libwnck/workspace.h>
-#include <libgnomeui/libgnomeui.h>
+#define  WNCK_I_KNOW_THIS_IS_UNSTABLE
+#include <libwnck/libwnck.h>
 #include <libgnometsol/label_builder.h>
 #include <libgnometsol/userattr.h>
 #include <libgnometsol/pam_conv.h>
@@ -138,7 +136,7 @@ _tstripe_create_role_menu (GdkScreen * screen)
 
 		rolemenuitems[i] = gtk_radio_menu_item_new_with_label (radiogroup, tmpuser->p->pw_name);
 		radiogroup = gtk_radio_menu_item_get_group (GTK_RADIO_MENU_ITEM (rolemenuitems[i]));
-		gtk_widget_show (GTK_WIDGET (rolemenuitems[i]));
+		//gtk_widget_show (GTK_WIDGET (rolemenuitems[i]));
 		gtk_menu_shell_append (GTK_MENU_SHELL (role_menu), rolemenuitems[i]);
 
 		rolemenucbdata[i].roleindex = i;
@@ -193,7 +191,7 @@ _tstripe_create_trusted_path_menu (GdkScreen * screen)
 	trusted_path_menu = gtk_menu_new ();
 	gtk_menu_set_screen (GTK_MENU (trusted_path_menu), screen);
 
-	image = gtk_image_new_from_stock (GNOME_STOCK_AUTHENTICATION, GTK_ICON_SIZE_MENU);
+	image = gtk_image_new_from_stock (GTK_STOCK_DIALOG_AUTHENTICATION, GTK_ICON_SIZE_MENU);
 	menu_item = gtk_image_menu_item_new_with_label (_ ("Change Login Password..."));
 	gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item), image);
 	gtk_menu_shell_append (GTK_MENU_SHELL (trusted_path_menu), menu_item);
@@ -201,7 +199,7 @@ _tstripe_create_trusted_path_menu (GdkScreen * screen)
 			  G_CALLBACK (passwd_menu_item_response),
 			  (gpointer) NULL);
 
-	image = gtk_image_new_from_stock (GNOME_STOCK_AUTHENTICATION, GTK_ICON_SIZE_MENU);
+	image = gtk_image_new_from_stock (GTK_STOCK_DIALOG_AUTHENTICATION, GTK_ICON_SIZE_MENU);
 	menu_item = gtk_image_menu_item_new_with_label (_ ("Change Workspace Password..."));
         gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item), image);
         gtk_menu_shell_append (GTK_MENU_SHELL (trusted_path_menu), menu_item);
@@ -446,7 +444,7 @@ _tstripe_set_workspace_role (GdkScreen * screen, char *role, int workspaceindex)
 	workspacecount = wnck_screen_get_workspace_count (wnckscreen);
 	wnckworkspace = wnck_screen_get_workspace (wnckscreen, workspaceindex);
 
-	root = GDK_WINDOW_XWINDOW (gdk_screen_get_root_window (screen));
+	root = GDK_WINDOW_XID (gdk_screen_get_root_window (screen));
 	if ((result = set_workspace_atom_value (root, "_NET_DESKTOP_ROLES",
 						role, workspaceindex,
 						workspacecount)) != 0) {
@@ -475,17 +473,19 @@ _tstripe_menu_position_func (GtkMenu * menu,
 	GdkScreen      *screen = NULL;
 	gint            menu_xpos;
 	gint            menu_ypos;
+	GdkRectangle	area;
 
 	screen = gtk_widget_get_screen (widget);
 	gtk_widget_size_request (GTK_WIDGET (menu), &requisition);
-	gdk_window_get_origin (widget->window, &menu_xpos, &menu_ypos);
-
-	menu_ypos += widget->allocation.y;
+	gdk_window_get_origin (gtk_widget_get_window(widget),
+			&menu_xpos, &menu_ypos);
+	gtk_widget_get_allocation(widget, &area);
+	menu_ypos += area.y;
 
 	if (menu_ypos > gdk_screen_get_height (screen) / 2)
 		menu_ypos -= requisition.height;
 	else
-		menu_ypos += widget->allocation.height;
+		menu_ypos += area.height;
 
 	*x = menu_xpos;
 	*y = menu_ypos;
@@ -611,7 +611,7 @@ device_menu_item_response (GtkWidget * widget, gpointer * user_data)
 	GError *err = NULL;
 	
 	escalate_inherited_privs ();
-	gdk_spawn_command_line_on_screen (screen,  "/usr/bin/tsoljdsdevmgr", &err);
+	g_spawn_command_line_async("/usr/bin/tsoljdsdevmgr", &err);
 	drop_inherited_privs ();
 }
 
@@ -1044,24 +1044,20 @@ get_windows_for_workspace (WnckScreen * screen, WnckWorkspace * workspace)
 static int
 add_role_to_acl (GdkDisplay * display, gchar * rolename)
 {
-	char            domainname[128];
-	char            username[128];
-	char           *netname;
 	int             ret = 0;
 	struct passwd  *pwd;
 	XHostAddress    ha;
+	XServerInterpretedAddress siaddr;
 
 	if ((pwd = getpwnam (rolename)) == NULL)
 		return -1;
 
-	getdomainname (domainname, sizeof (domainname));
-	if (!user2netname (username, pwd->pw_uid, domainname))
-		return -1;
-
-	netname = username;
-	ha.family = FamilyNetname;
-	ha.length = strlen (netname);
-	ha.address = netname;
+	siaddr.type = "localuser";
+	siaddr.typelength = strlen("localuser");
+	siaddr.value = rolename;
+	siaddr.valuelength = strlen(rolename);
+	ha.family = FamilyServerInterpreted;
+	ha.address = (char *) &siaddr;
 	ret = XAddHost (GDK_DISPLAY_XDISPLAY (display), &ha);
 	return ret;
 }
@@ -1160,7 +1156,8 @@ create_window_list_dialog (GList * windowlist)
 	gtk_misc_set_alignment (GTK_MISC (icon), 0.5, 0.0);
 	gtk_box_pack_start (GTK_BOX (hbox), icon, FALSE, FALSE, 0);
 
-	gtk_box_set_spacing (GTK_BOX (GTK_DIALOG (dialog)->vbox), 12);
+	gtk_box_set_spacing (GTK_BOX(
+		gtk_dialog_get_content_area(GTK_DIALOG(dialog))), 12);
 	gtk_container_set_border_width (GTK_CONTAINER (hbox), 6);
 	gtk_box_set_spacing (GTK_BOX (hbox), 12);
 
@@ -1181,13 +1178,14 @@ create_window_list_dialog (GList * windowlist)
 			    TRUE, TRUE, 5);
 	gtk_box_pack_start (GTK_BOX (hbox), vbox, TRUE, TRUE, 5);
 
-	gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox),
+	gtk_box_pack_start (GTK_BOX (
+		gtk_dialog_get_content_area(GTK_DIALOG(dialog))),
 			    hbox,
 			    TRUE,	/* expand */
 			    TRUE,	/* fill */
 			    0);	/* padding */
 
-	gtk_widget_show_all (GTK_DIALOG (dialog)->vbox);
+	gtk_widget_show_all(gtk_dialog_get_content_area(GTK_DIALOG(dialog)));
 
 	return dialog;
 }

@@ -35,6 +35,7 @@
 #include <sys/param.h>
 #include <user_attr.h>
 
+#include <bsm/audit.h>
 #include <bsm/adt.h>
 #include <bsm/libbsm.h>
 #include <bsm/audit_uevents.h>
@@ -48,10 +49,6 @@
 #include <secdb.h>
 #include <pwd.h>
 
-#include <libgnome/gnome-help.h>
-#include <libgnomeui/libgnomeui.h>
-
-#include <libgnomevfs/gnome-vfs.h>
 #include <gconf/gconf-client.h>
 
 #include <sel_config.h>
@@ -197,8 +194,8 @@ copy_move_files (SelInfo * sel_info)
 	char            src_path[MAX_PATH_LEN];
 	char            dest_path[MAX_PATH_LEN];
 	char           *filename, *src, *dest;
-	GnomeVFSResult  result;
-	GnomeVFSXferOptions xfer_options;
+	//GnomeVFSResult  result;
+	//GnomeVFSXferOptions xfer_options;
 	gboolean cut = FALSE;
 	GList *src_list = NULL, *dest_list= NULL;
 	char *notifyuris;
@@ -220,7 +217,7 @@ copy_move_files (SelInfo * sel_info)
 					      src_path,
 					      MAX_PATH_LEN,
 					      &sel_info->holder_label));
-		src_list = g_list_prepend (src_list, gnome_vfs_uri_new (src));
+		src_list = g_list_prepend (src_list, src);
 		dest = g_strdup_printf ("file://%s/%s",
 		    getpathbylabel ((const char *) (sel_info->dest_dir + 7),
 				    dest_path,
@@ -228,7 +225,7 @@ copy_move_files (SelInfo * sel_info)
 				    &sel_info->requestor_label),
 					filename);
 		g_free (filename);
-		dest_list = g_list_prepend (dest_list, gnome_vfs_uri_new(dest));
+		dest_list = g_list_prepend (dest_list, dest);
 		if (i = 2) { /* only need to do this once */
 			notifyuris = g_strdup_printf ("%s\n%s", src, dest);
 		}
@@ -238,21 +235,27 @@ copy_move_files (SelInfo * sel_info)
 
 	g_strfreev (lines);
 
+	/*
+	 * Replace the following with reflink(3C).
+	 */
+	/*
 	xfer_options = GNOME_VFS_XFER_RECURSIVE |
 		GNOME_VFS_XFER_USE_UNIQUE_NAMES;
 
 	if (cut) {
 		xfer_options |= GNOME_VFS_XFER_REMOVESOURCE;
 	}
-
+*/
 	/* FIXME need to make this an asynchronous operation so that the
 	   user knows something is actually happening, especialy for large
 	   file transfers */ 
 
+		/*
 	result = gnome_vfs_xfer_uri_list (src_list, dest_list, xfer_options, 
 				          GNOME_VFS_XFER_ERROR_MODE_ABORT,
 				          GNOME_VFS_XFER_OVERWRITE_MODE_ABORT,
 				          NULL, NULL);
+					  */
 	/* FIXME: need to add result testing and display the appropriate 
 	   dialog */
 
@@ -261,13 +264,195 @@ copy_move_files (SelInfo * sel_info)
 	g_free (notifyuris);
 }
 
+static token_t *
+get_token(int s)
+{
+        token_t *token; /* Resultant token */
+
+        if ((token = (token_t *)malloc(sizeof (token_t))) == NULL)
+                return (NULL);
+        if ((token->tt_data = malloc(s)) == NULL) {
+                free(token);
+                return (NULL);
+        }
+        token->tt_size = s;
+        token->tt_next = NULL;
+        return (token);
+}
+
+token_t *
+au_to_subject_ex(au_id_t auid, uid_t euid, gid_t egid, uid_t ruid, gid_t rgid,
+    pid_t pid, au_asid_t sid, au_tid_addr_t *tid)
+{
+        token_t *token;                 /* local token */
+        adr_t adr;                      /* adr memory stream header */
+#ifdef _LP64
+        char data_header;               /* header for this token */
+
+        if (tid->at_type == AU_IPv6) {
+                data_header = AUT_SUBJECT64_EX;
+                token = get_token(sizeof (char) + sizeof (int64_t) +
+                    12 * sizeof (int32_t));
+        } else {
+                data_header = AUT_SUBJECT64;
+                token = get_token(sizeof (char) + sizeof (int64_t) +
+                    8 * sizeof (int32_t));
+        }
+#else
+        char data_header;               /* header for this token */
+
+        if (tid->at_type == AU_IPv6) {
+                data_header = AUT_SUBJECT32_EX;
+                token = get_token(sizeof (char) + 13 * sizeof (int32_t));
+        } else {
+                data_header = AUT_SUBJECT32;
+                token = get_token(sizeof (char) + 9 * sizeof (int32_t));
+        }
+#endif
+
+        if (token == NULL)
+                return (NULL);
+        adr_start(&adr, token->tt_data);
+        adr_char(&adr, &data_header, 1);
+        adr_int32(&adr, (int32_t *)&auid, 1);
+        adr_int32(&adr, (int32_t *)&euid, 1);
+        adr_int32(&adr, (int32_t *)&egid, 1);
+        adr_int32(&adr, (int32_t *)&ruid, 1);
+        adr_int32(&adr, (int32_t *)&rgid, 1);
+        adr_int32(&adr, (int32_t *)&pid, 1);
+        adr_int32(&adr, (int32_t *)&sid, 1);
+#ifdef _LP64
+        adr_int64(&adr, (int64_t *)&tid->at_port, 1);
+#else
+        adr_int32(&adr, (int32_t *)&tid->at_port, 1);
+#endif
+        if (tid->at_type == AU_IPv6) {
+                adr_int32(&adr, (int32_t *)&tid->at_type, 1);
+                adr_char(&adr, (char *)tid->at_addr, 16);
+        } else {
+                adr_char(&adr, (char *)tid->at_addr, 4);
+        }
+
+        return (token);
+}
+
+
+/*
+ * au_to_uauth
+ * return s:
+ *      pointer to a uauth token.
+ */
+token_t *
+au_to_uauth(char *text)
+{
+        token_t *token;                 /* local token */
+        adr_t adr;                      /* adr memory stream header */
+        char data_header = AUT_UAUTH;   /* header for this token */
+        short bytes;                    /* length of string */
+
+        bytes = strlen(text) + 1;
+
+        token = get_token((int)(sizeof (char) + sizeof (short) + bytes));
+        if (token == NULL)
+                return (NULL);
+        adr_start(&adr, token->tt_data);
+        adr_char(&adr, &data_header, 1);
+        adr_short(&adr, &bytes, 1);
+        adr_char(&adr, text, bytes);
+
+        return (token);
+}
+
+/*
+ * au_to_label
+ * return s:
+ *      pointer to a label token.
+ */
+token_t *
+au_to_label(m_label_t *label)
+{
+        token_t *token;                 /* local token */
+        adr_t adr;                      /* adr memory stream header */
+        char data_header = AUT_LABEL;   /* header for this token */
+        size32_t llen = blabel_size();
+
+        token = get_token(sizeof (char) + llen);
+        if (token == NULL) {
+                return (NULL);
+        } else if (label == NULL) {
+                free(token);
+                return (NULL);
+        }
+        adr_start(&adr, token->tt_data);
+        adr_char(&adr, &data_header, 1);
+        adr_char(&adr, (char *)label, llen);
+
+        return (token);
+}
+
+/*
+ * au_to_return
+ * return s:
+ *      pointer to a return  value token.
+ */
+token_t *
+au_to_return64(char number, uint64_t value)
+{
+        token_t *token;                         /* local token */
+        adr_t adr;                              /* adr memory stream header */
+        char data_header = AUT_RETURN64;        /* header for this token */
+
+        token = get_token(2 * sizeof (char) + sizeof (int64_t));
+        if (token == NULL)
+                return (NULL);
+        adr_start(&adr, token->tt_data);
+        adr_char(&adr, &data_header, 1);
+        adr_char(&adr, &number, 1);
+        adr_int64(&adr, (int64_t *)&value, 1);
+
+        return (token);
+}
+
+/*
+ * a w _ f r e e ( )
+ *
+ * Only free good addrs.
+ */
+static void
+aw_free(caddr_t p)
+{
+        if (p != (caddr_t)0)
+                free((void *)p);
+}
+
+/*
+ * a w _ f r e e _ t o k ( )
+ *
+ * Free tokens.
+ */
+static void
+aw_free_tok(token_t *tokp)
+{
+        aw_free((caddr_t)tokp->tt_data);
+        aw_free((caddr_t)tokp);
+}
+
 static void
 audit_transfer (SelInfo * sel_info, gboolean auto_confirm)
 {
+
 	int rd;
 	char *holder_label, *requestor_label, *str;
 	adt_event_data_t *event;
 	struct passwd *pwd = getpwuid (sel_info->requestor_uid);
+	au_asid_t               asid;
+        au_id_t                 auid;
+        au_tid_addr_t           tid;
+	token_t			*range_auth = NULL;
+	token_t			*uauth;
+        token_t			*text_token1, *text_token2;
+        token_t			*label_token1, *label_token2;
+        token_t			*subject_token, *return_token;
 
 	if (!audit_handle) {
 		if (adt_start_session (&audit_handle, NULL, 
@@ -276,18 +461,16 @@ audit_transfer (SelInfo * sel_info, gboolean auto_confirm)
 			return;
 		}
 	}
-
 	adt_set_user (audit_handle, pwd->pw_uid, pwd->pw_gid, pwd->pw_uid,
 		      pwd->pw_gid, NULL, ADT_UPDATE);
+
+        adt_get_asid(audit_handle, &asid);
+        adt_get_termid(audit_handle, &tid);
+        adt_get_auid(audit_handle, &auid);
 		
 	if (sel_info->outside_accred_range) {
-		event = adt_alloc_event (audit_handle, ADT_uauth);
-		event->adt_uauth.auth_used = SYS_ACCRED_SET_AUTH;
-		event->adt_uauth.objectname = "tsoljdsselmgr";
-		adt_put_event (event, 0, 0);
-		adt_free_event (event);
+		range_auth = au_to_uauth(SYS_ACCRED_SET_AUTH);
 	}
-
 	switch (sel_info->transfer_type) {
 	case DGSL_DGIL:
 	case DGSL_EQIL:
@@ -298,17 +481,9 @@ audit_transfer (SelInfo * sel_info, gboolean auto_confirm)
 	case DJSL_UGIL:
 	case DJSL_DJIL:
 		if (sel_info->file_transfer) {
-			event = adt_alloc_event (audit_handle, ADT_uauth);
-			event->adt_uauth.auth_used = FILE_DOWNGRADE_SL_AUTH;
-			event->adt_uauth.objectname = "tsoljdsselmgr";
-			adt_put_event (event, 0, 0);
-			adt_free_event (event);
+			uauth = au_to_uauth(FILE_DOWNGRADE_SL_AUTH);
 		} else {
-			event = adt_alloc_event (audit_handle, ADT_uauth);
-			event->adt_uauth.auth_used = WIN_DOWNGRADE_SL_AUTH;
-			event->adt_uauth.objectname = "tsoljdsselmgr";
-			adt_put_event (event, 0, 0);
-			adt_free_event (event);
+			uauth = au_to_uauth(WIN_DOWNGRADE_SL_AUTH);
 		}
 		break;
 	case UGSL_DGIL:
@@ -316,17 +491,9 @@ audit_transfer (SelInfo * sel_info, gboolean auto_confirm)
 	case UGSL_UGIL:
 	case UGSL_DJIL:
 		if (sel_info->file_transfer) {
-			event = adt_alloc_event (audit_handle, ADT_uauth);
-			event->adt_uauth.auth_used = FILE_UPGRADE_SL_AUTH;
-			event->adt_uauth.objectname = "tsoljdsselmgr";
-			adt_put_event (event, 0, 0);
-			adt_free_event (event);
+			uauth = au_to_uauth(FILE_DOWNGRADE_SL_AUTH);
 		} else {
-			event = adt_alloc_event (audit_handle, ADT_uauth);
-			event->adt_uauth.auth_used = WIN_UPGRADE_SL_AUTH;
-			event->adt_uauth.objectname = "tsoljdsselmgr";
-			adt_put_event (event, 0, 0);
-			adt_free_event (event);
+			uauth = au_to_uauth(WIN_UPGRADE_SL_AUTH);
 		}
 		break;
 	}
@@ -335,6 +502,7 @@ audit_transfer (SelInfo * sel_info, gboolean auto_confirm)
 		return;
 	}
 	if (sel_info->file_transfer) {
+
 		char **lines = g_strsplit (sel_info->prop, "\n", 0);
         	if (strcmp (lines[0], "cut") == 0) {
 			event = adt_alloc_event (audit_handle, AUE_file_move);
@@ -345,49 +513,96 @@ audit_transfer (SelInfo * sel_info, gboolean auto_confirm)
 			adt_put_event (event, 0, 0);
 			adt_free_event (event);
 		}
+		rd = au_open ();
+		subject_token = au_to_subject_ex(
+					auid,
+					sel_info->requestor_uid,
+					sel_info->requestor_gid,
+					sel_info->requestor_uid,
+					sel_info->requestor_gid,
+					sel_info->requestor_pid,
+					asid,
+					&tid);
+		au_write (rd, subject_token);
+		if (range_auth != NULL)
+			au_write(rd, range_auth);
+		au_write(rd, uauth);
+
+		return_token = au_to_return64(ADT_SUCCESS, (uint64_t)0);
+		au_write(rd, return_token);
+		au_close (rd, AU_TO_WRITE, AUE_sel_mgr_xfer, 2);
+
+		if (range_auth != NULL)
+			aw_free_tok(range_auth);
+		aw_free_tok(uauth);
+		aw_free_tok(subject_token);
+		aw_free_tok(return_token);
 	} else {
+		char *viewed = NULL;
+
 		event = adt_alloc_event (audit_handle, AUE_sel_mgr_xfer);
 		adt_put_event (event, 0, 0);
 		adt_free_event (event);
 
-
-		label_to_str (&sel_info->holder_label, &holder_label, 
-			      M_LABEL, DEF_NAMES);
-		label_to_str (&sel_info->requestor_label, &requestor_label, 
-			      M_LABEL, DEF_NAMES);
-		str = g_strdup_printf ("From xwindow %d, uid %d, label %s "
-					"To xwindow %d, uid %d, label %s", 
-					sel_info->holder_window, 
-					sel_info->holder_uid, 
-					holder_label, 
-					sel_info->orig_event.requestor, 
-					sel_info->requestor_uid, 
-					requestor_label);
-		
 		rd = au_open ();
-		au_write (rd, au_to_text (str));
-		g_free (str);
+		subject_token = au_to_subject_ex(
+					auid,
+					sel_info->requestor_uid,
+					sel_info->requestor_gid,
+					sel_info->requestor_uid,
+					sel_info->requestor_gid,
+					sel_info->requestor_pid,
+					asid,
+					&tid);
+		au_write (rd, subject_token);
+		if (range_auth != NULL)
+			au_write(rd, range_auth);
+		au_write(rd, uauth);
 
+		if (auto_confirm) {
+			viewed = "Autoconfirm";
+		} else if (sel_info->data_viewed) {
+			viewed = "Viewed";
+		} else {
+			viewed = "Not Viewed";
+		}
+		
 		str = g_strdup_printf ("Selection %s, Atom %s, "
-				       "Property %s",
+				       "%s, Property %s",
 					XGetAtomName (sel_info->dpy, 
 						sel_info->orig_event.selection),
 					XGetAtomName (sel_info->dpy,
 						sel_info->actual_type), 
+					viewed,
 					sel_info->prop);
-
-		au_write (rd, au_to_text (str));
+		text_token1 = au_to_text (str);
+		au_write (rd, text_token1);
 		g_free (str);
-		
-		if (auto_confirm) {
-			au_write (rd, au_to_text ("Autoconfirm"));
-		} else if (sel_info->data_viewed) {
-			au_write (rd, au_to_text ("Viewed"));
-		} else {
-			au_write (rd, au_to_text ("Not Viewed"));
-		}
+		label_token1 = au_to_label (&sel_info->requestor_label);
+		au_write (rd, label_token1);
+	
+		str = g_strdup_printf ("From uid %d ",
+					sel_info->holder_uid );
+		text_token2 = au_to_text (str);
+		au_write (rd, text_token2);
+		g_free (str);
 
+		label_token2 = au_to_label (&sel_info->holder_label);
+		au_write (rd, label_token2);
+
+		return_token = au_to_return64(ADT_SUCCESS, (uint64_t)0);
+		au_write(rd, return_token);
 		au_close (rd, AU_TO_WRITE, AUE_sel_mgr_xfer, 2);
+
+		if (range_auth != NULL)
+			aw_free_tok(range_auth);
+		aw_free_tok(uauth);
+		aw_free_tok(text_token1);
+		aw_free_tok(text_token2);
+		aw_free_tok(label_token1);
+		aw_free_tok(label_token2);
+		aw_free_tok(subject_token);
+		aw_free_tok(return_token);
 	}
 }
 
@@ -635,8 +850,10 @@ dialog_response_cb (GtkDialog * dialog, gint id)
 		accept_transfer (selmgr_dialog);
 		break;
 	case GTK_RESPONSE_HELP:
+		/*
 		gnome_help_display_desktop (NULL, "trusted",
 					   "index.xml", "selection_manager" ,&err);
+					   */
 		if (err) {
 			GtkWidget *err_dialog = gtk_message_dialog_new (GTK_WINDOW (dialog),
 						GTK_DIALOG_DESTROY_WITH_PARENT,
@@ -820,7 +1037,7 @@ selection_request (Display * dpy, XSelectionRequestEvent * event)
 							      0, 0, 1, 1, 1,
 							BlackPixel (dpy, 0),
 						       WhitePixel (dpy, 0));
-		XTSOLMakeUntrustedWindow (dpy, sel_info->window);
+		XTSOLMakeUntrustedWindow (dpy, transfer_windows[i].window);
 	}
 	sel_info->window = transfer_windows[i].window;
 	transfer_windows[i].in_use = TRUE;
@@ -938,7 +1155,7 @@ unescaped_path_from_uri (SelInfo * sel_info)
 	while (lines[i]) i++;
 
 	if (i >= 3 && !strncmp(lines[2], "file:/", 6)) {
-		char *locale_path = gnome_vfs_get_local_path_from_uri (lines[2]);
+		char *locale_path = (lines[2]);
 		char *path = g_locale_to_utf8 (locale_path, -1, NULL, NULL, NULL);
 		data = g_strdup_printf ("%s\n%s\n%s", lines[0], lines[1], path);
 		g_free (path);
@@ -1449,11 +1666,13 @@ sel_mgr_init (void)
 		exit (1);
 	}
 	/* Get auditing policies */
+	/*
 	auditon (A_GETPOLICY, (caddr_t) & policy, 0);
 	if (policy & AUDIT_WINDATA_DOWN)
 		audit_downgraded_data = TRUE;
 	if (policy & AUDIT_WINDATA_UP)
 		audit_upgraded_data = TRUE;
+		*/
 }
 
 static void
@@ -1476,7 +1695,6 @@ timediff_notify (GConfClient *client,
 int
 main (int argc, char **argv)
 {
-	GnomeClient    *client;
 	GConfClient    *conf;
 	GError         *err;
 
@@ -1484,14 +1702,8 @@ main (int argc, char **argv)
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 
-	gnome_program_init (PACKAGE, VERSION, LIBGNOMEUI_MODULE, argc, argv,
-			    NULL);
-
-	/* session management */
-	client = gnome_master_client ();
-	gnome_client_set_restart_command (client, 1, argv);
-	gnome_client_set_priority (client, 10);
-	gnome_client_set_restart_style (client, GNOME_RESTART_IMMEDIATELY);
+	gdk_disable_multidevice();
+	gtk_init(&argc, &argv);
 
 	if (!has_required_privileges ()) {
 		exit (1);
@@ -1502,6 +1714,7 @@ main (int argc, char **argv)
 
 	conf = gconf_client_get_default ();
 	err = NULL;
+/*
 	gconf_client_notify_add (conf,
 	                         GCONF_KEY_TIMEDIFF,
 	                         timediff_notify,
@@ -1513,7 +1726,7 @@ main (int argc, char **argv)
 		            err->message);
 		g_error_free (err);
 	}
-
+*/
 	sel_mgr_init ();
 
 	gtk_main ();

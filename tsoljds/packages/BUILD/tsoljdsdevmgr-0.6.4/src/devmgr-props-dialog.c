@@ -21,7 +21,7 @@
 #include <glib/gi18n.h>
 #include <gdk/gdk.h>
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
-#include <libwnck/window.h>
+#include <libwnck/libwnck.h>
 
 #include <libgnometsol/label_builder.h>
 
@@ -73,15 +73,15 @@ struct _DevMgrPropsDialogDetails {
 	GtkWidget 	*name;
 	GtkWidget	*dtype;
 	GtkEntry	*min;
-	GtkImage	*min_img;
+	GtkWidget	*min_img;
 	GtkEntry	*max;
-	GtkImage	*max_img;
+	GtkWidget	*max_img;
 	GtkEntry	*clean;
 	GtkTextBuffer	*map;
 	GtkWidget	*from;
 	GtkWidget	*tpath;
 	GtkWidget	*nontpath;
-	GtkOptionMenu	*by;
+	GtkPopoverMenu	*by;
 	GtkWidget	*by_mitems[4];
 	GtkExpander	*expander;
 	GtkWidget	*exp_hbox;
@@ -99,8 +99,15 @@ struct _DevMgrPropsDialogDetails {
 
 static void devmgr_props_dialog_class_init    (DevMgrPropsDialogClass *klass);
 static void devmgr_props_dialog_instance_init (DevMgrPropsDialog *object); 
-
 static GtkDialogClass *parent_class = NULL;
+static void min_cb(GtkWidget *w, gpointer data);
+static void max_cb(GtkWidget *w, gpointer data);
+GtkTreeView *req_view, *not_req_view;
+static void remove_required_from_not_required(GtkListStore *, char *);
+void fill_not_required_list(GtkListStore *);
+char *tpath_auths = NULL;
+char *ntpath_auths = NULL;
+static void update_authorizations(DevMgrPropsDialogDetails *, char *);
 
 
 GtkWidget *auth_add, *auth_remove;
@@ -163,7 +170,7 @@ gint props_delete_event(GtkWidget *widget, GdkEvent *event, gpointer data)
 }
 
 static gboolean
-reset_expose (GtkWidget *widget, GdkEventExpose *event, gpointer data)
+reset_expose (GtkWidget *widget, cairo_t *cr, gpointer data)
 {
 	gboolean ret = FALSE;
 
@@ -172,27 +179,38 @@ reset_expose (GtkWidget *widget, GdkEventExpose *event, gpointer data)
 	return ( ret );
 }
 
-void update_image_widget(GtkDialog *dialog, GtkImage *img, char *devlabel)
+void show_color(GtkWidget *widget, cairo_t *cr, gpointer data)
 {
-	GdkGC *gc;
-	GdkGCValues gc_values;
-	int gc_mask = 0;
-	GdkColor color;
-	GdkColormap *colormap;
-	GdkPixmap *pix;
-	GdkScreen *screen;
-	
-	screen = gtk_window_get_screen(GTK_WINDOW(dialog));
-	gc = gdk_gc_new(gdk_screen_get_root_window(screen));
-	
-	g_object_get(img, "pixmap", &pix, NULL);
+	GdkRGBA color;
+	char *devlabel;
 
-	colormap = gtk_widget_get_colormap(GTK_WIDGET(img));
-	if (gdk_color_parse("black", &color))
-	  if (gdk_colormap_alloc_color(colormap, &color, TRUE, TRUE))
-	    gdk_gc_set_foreground(gc, &color);
-	gdk_draw_rectangle(GDK_DRAWABLE(pix), gc, TRUE, 0, 0, 16, 16);
-	
+	g_object_get(data, "text", &devlabel, NULL);
+	if (devlabel != NULL)
+	{
+	  m_label_t *mlabel = NULL;
+	  char *color_str = NULL;
+	  int e;
+	  
+	  if (str_to_label(devlabel, &mlabel, MAC_LABEL, L_NO_CORRECTION, &e) == 0)
+	  {
+	    label_to_str(mlabel, &color_str, M_COLOR, LONG_NAMES);
+	    if (gdk_rgba_parse(&color, color_str?color_str:"white")) {
+		cairo_set_source_rgb(cr, color.red, color.green, color.blue);
+		cairo_paint(cr);
+	    }
+		g_free(color_str);
+	  }
+	}
+}
+
+void update_image_widget(GtkDialog *dialog, GtkWidget *img, char *devlabel)
+{
+	cairo_t *cr;
+	GdkRGBA color;
+	GdkWindow *window;
+
+	return;
+
 	if (devlabel != NULL)
 	{
 	  m_label_t *mlabel = NULL;
@@ -211,20 +229,23 @@ void update_image_widget(GtkDialog *dialog, GtkImage *img, char *devlabel)
 	    mlabel = getzonelabelbyname(lookup_label);
 	  if (mlabel != NULL)
 	  {
-	    label_to_str(mlabel, &color_str, M_COLOR, DEF_NAMES);
 	    label_to_str(mlabel, &color_str, M_COLOR, LONG_NAMES);
+	    if (gdk_rgba_parse(&color, color_str?color_str:"white")) {
+		window = gtk_widget_get_window(img);
+		if (window != NULL) {
+			cr = gdk_cairo_create(window);
+			cairo_set_source_rgb(cr, color.red, color.green, color.blue);
+			cairo_paint(cr);
+			cairo_destroy(cr);
+		}
+		gtk_widget_queue_draw_area(img, 0, 0, 16,16);
 	  }
-	  if (gdk_color_parse(color_str?color_str:"white", &color))
-	    if (gdk_colormap_alloc_color(colormap, &color, TRUE, TRUE))
-	      gdk_gc_set_foreground(gc, &color);
-	  gdk_draw_rectangle(GDK_DRAWABLE(pix), gc, TRUE, 1, 1, 14, 14);
+		g_free(color_str);
 	}
-	g_object_set(img, "pixmap", pix, NULL);
+	}
 }
 
 GtkEntry *centry;
-GtkImage *cimage;
-char *maxhex = NULL, *minhex = NULL, **hexlabel;
 
 void
 lbuilder_response_cb (GtkDialog *dialog, gint id, gpointer data)
@@ -237,8 +258,6 @@ lbuilder_response_cb (GtkDialog *dialog, gint id, gpointer data)
   m_label_t *workspace_sl;
   zoneid_t zid;
   char zonename[ZONENAME_MAX];
-  char *string;
-  m_label_t *ll = NULL;
   char *tlabel;
   int e;
   /* 
@@ -255,55 +274,17 @@ lbuilder_response_cb (GtkDialog *dialog, gint id, gpointer data)
   switch (id) {
     case GTK_RESPONSE_OK:
          g_object_get (G_OBJECT (lbuilder), "sl", &sl, NULL);
-         if (label_to_str (sl, &label, M_INTERNAL, LONG_NAMES) < 0)
+         if (label_to_str (sl, &label, M_LABEL, LONG_NAMES) < 0)
          {
            gtk_widget_destroy (GTK_WIDGET (lbuilder));
            ugly_showing_lbuilder_global_which_sucks_fix_me = FALSE;
            return ;
          }
-         *hexlabel = g_strdup(label);
-#ifdef CONSOLE
-	fprintf(console, "%s:%d:string = %s\n", __FILE__, __LINE__, string?string:"NULL");
-#endif /* CONSOLE */
-         if (hexlabel && *hexlabel) 
-         {
-             str_to_label(*hexlabel, &ll, MAC_LABEL, L_NO_CORRECTION, &e); 
-             label_to_str(ll, &string, M_LABEL, LONG_NAMES);
-         } else
-             string = strdup("ADMIN_LOW");
-         if (string && strcmp(string, "ADMIN_LOW") == 0)
-         {
-#ifdef CONSOLE
-	fprintf(console, "%s:%d:string == ADMIN_LOW\n", __FILE__, __LINE__);
-#endif /* CONSOLE */
-           free(string);
-           string = malloc(sizeof(char *) * strlen("admin_low")+1);
-           if (centry == DEVMGR_PROPS_DIALOG (pdialog)->details->min)
-             strcpy(string, "admin_low"); 
-           else
-             strcpy(string, "admin_high");
-         }
-         /* FIXME - remember to free up stuff */
-	 if (label != NULL) {
-	   /* Update the Min-label and image */
-	   str_to_label(label, &workspace_sl, MAC_LABEL, L_NO_CORRECTION, &error);
-           if ((zid = getzoneidbylabel(workspace_sl)) > 0) {
-
-             if (getzonenamebyid(zid, zonename, sizeof (zonename)) == -1) {
-               strcpy(zonename, label);
-             }
-           } else {
-               strcpy(zonename, label);
-           }
-
-	   strcpy(zonename, label);
-	   g_object_set(centry, "text", string, NULL);
-	   update_image_widget(pdialog, cimage, zonename);
- 	  }
-          gtk_widget_destroy (GTK_WIDGET (lbuilder));
- 	  ugly_showing_lbuilder_global_which_sucks_fix_me = FALSE;
- 	  free(string);
-          break;
+	 g_object_set(centry, "text", label, NULL);
+	 g_free(label);
+         gtk_widget_destroy (GTK_WIDGET (lbuilder));
+ 	 ugly_showing_lbuilder_global_which_sucks_fix_me = FALSE;
+         break;
     case GTK_RESPONSE_HELP:
          /* show help and return control */
  	 break;
@@ -393,8 +374,6 @@ min_cb(GtkWidget *w, gpointer data)
 
   				   
 	centry = DEVMGR_PROPS_DIALOG (dialog)->details->min;
-	cimage = DEVMGR_PROPS_DIALOG (dialog)->details->min_img;
-	hexlabel = &minhex;
 	g_signal_connect (G_OBJECT (lbuilder), "response",
   	    G_CALLBACK (lbuilder_response_cb), (gpointer) dialog);
   	    
@@ -482,8 +461,6 @@ max_cb(GtkWidget *w, gpointer data)
   				   LBUILD_MODE_SL);
 		   
 	centry = DEVMGR_PROPS_DIALOG (dialog)->details->max;
-	cimage = DEVMGR_PROPS_DIALOG (dialog)->details->max_img;
-	hexlabel = &maxhex;
 	g_signal_connect (G_OBJECT (lbuilder), "response",
   	    G_CALLBACK (lbuilder_response_cb), (gpointer) dialog);
   	    
@@ -507,56 +484,36 @@ max_cb(GtkWidget *w, gpointer data)
 char *clean_program_str;
 GtkEntry *clean_entry;
 
-static void
-file_ok_sel(GtkWidget *w, GtkFileSelection *fs)
-{
-	if (clean_program_str != NULL)
-		g_free(clean_program_str);
-		
-	clean_program_str = g_strdup(gtk_file_selection_get_filename(GTK_FILE_SELECTION(fs)));
-	
-	if (clean_program_str != NULL)
-		gtk_entry_set_text(clean_entry, clean_program_str);
-}
-
-void filew_quit(GtkWidget *widget, gpointer data)
-{
-	gtk_dialog_response(GTK_DIALOG(widget), GTK_RESPONSE_CANCEL);
-}
-
 /* popup file selection widget for open button... */
 void find_clean_program(GtkWidget *widget, gpointer data)
 {
-	GtkWidget *filew = gtk_file_selection_new("Clean Program");
-	g_signal_connect(G_OBJECT(filew), "destroy",
-		G_CALLBACK(filew_quit), NULL);
+	int result;
+	GtkWidget *filew = gtk_file_chooser_dialog_new (
+			"Clean Program",
+			widget,
+			GTK_FILE_CHOOSER_ACTION_OPEN,
+			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+			GTK_STOCK_APPLY, GTK_RESPONSE_ACCEPT,
+			NULL);
 
-	g_signal_connect(G_OBJECT(GTK_FILE_SELECTION(filew)->ok_button),
-		"clicked", G_CALLBACK(file_ok_sel), (gpointer)filew);
-	g_signal_connect(G_OBJECT(GTK_FILE_SELECTION(filew)->cancel_button),
-		"clicked", G_CALLBACK(gtk_widget_destroy), G_OBJECT(filew));
-	
-	gtk_widget_show(GTK_WIDGET(filew));
-	switch (gtk_dialog_run(GTK_DIALOG(filew)))
-	{
-	    case GTK_RESPONSE_HELP:
-	        /* Popup help application */
-		break;
- 	    case GTK_RESPONSE_CANCEL:
-                break;
-            case GTK_RESPONSE_OK:
-                if (clean_program_str != NULL)
-                {
+	gtk_widget_set_size_request(GTK_WIDGET(filew), 450, 700);
+	result = gtk_dialog_run(GTK_DIALOG(filew));
+	switch (result) {
+		case GTK_RESPONSE_ACCEPT:
+		   clean_program_str =
+		      gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(filew));
+                   if (clean_program_str != NULL)
+                   {
                 	gtk_entry_set_text(clean_entry, clean_program_str);
                 	g_free(clean_program_str);
                 	clean_program_str = NULL;
-                }
-                break;
-            default:
-                break;
+                   }
+		   gtk_widget_destroy(GTK_WIDGET(filew));
+		   break;
+		default:
+		   gtk_widget_destroy(GTK_WIDGET(filew));
+		   break;
 	}
-	gtk_widget_hide_all(GTK_WIDGET(filew));
-	gtk_widget_destroy(GTK_WIDGET(filew));
 }
 
 enum
@@ -565,10 +522,6 @@ enum
 	ROLE_DESC_COL,
 	NUM_ROLE_COLS
 };	
-
-GtkTreeView *req_view, *not_req_view;
-static void remove_required_from_not_required(GtkListStore *, char *);
-void fill_not_required_list(GtkListStore *);
 
 void auth_add_callback(GtkWidget *widget, gpointer data)
 {
@@ -950,10 +903,6 @@ create_not_required_authorization_list()
 	return ( ret );
 }
 
-char *tpath_auths = NULL;
-char *ntpath_auths = NULL;
-static void update_authorizations(DevMgrPropsDialogDetails *, char *);
-
 void 
 tpath_callback(GtkWidget *w, gpointer data)
 {
@@ -961,7 +910,7 @@ tpath_callback(GtkWidget *w, gpointer data)
 	char *tmp;
 	gboolean act;
 	
-	switch (gtk_option_menu_get_history(GTK_OPTION_MENU(details->by)))
+	switch (gtk_combo_box_get_active((GtkComboBox *)details->by))
 	{
 	    case AUTHORIZED_USERS:
 	    	g_object_get(details->auth, "text", &tmp, NULL);
@@ -986,12 +935,12 @@ tpath_callback(GtkWidget *w, gpointer data)
 	  {
 	    gtk_widget_set_sensitive(details->by_mitems[SAME_AS_TP], TRUE);	
 	    if (ntpath_auths && strcmp(ntpath_auths, "*") == 0)
-	      gtk_option_menu_set_history(details->by, NO_USERS);
+	      gtk_combo_box_set_active(details->by, NO_USERS);
 	    else if (ntpath_auths && strcmp(ntpath_auths, "@") == 0)
-	      gtk_option_menu_set_history(details->by, ALL_USERS);
+	      gtk_combo_box_set_active(details->by, ALL_USERS);
 	    else if (ntpath_auths && strcmp(ntpath_auths, "all") == 0)
 	    {
-	      gtk_option_menu_set_history(details->by, SAME_AS_TP);
+	      gtk_combo_box_set_active(details->by, SAME_AS_TP);
 	      gtk_list_store_clear(details->required);
 	      gtk_list_store_clear(details->not_required);
 	      fill_not_required_list(details->not_required);
@@ -1009,7 +958,7 @@ tpath_callback(GtkWidget *w, gpointer data)
 	gtk_widget_set_sensitive(GTK_WIDGET(details->auth_remove), FALSE);
 	      gtk_list_store_clear(details->required);
 	      fill_not_required_list(details->not_required);
-	      gtk_option_menu_set_history(details->by, SAME_AS_TP);
+	      gtk_combo_box_set_active(details->by, SAME_AS_TP);
 	    }
 	  } else {
 	  	if (ntpath_auths)
@@ -1024,9 +973,9 @@ tpath_callback(GtkWidget *w, gpointer data)
 	  if (act)
 	  {
 	    if (tpath_auths && strcmp(tpath_auths, "*") == 0)
-	      gtk_option_menu_set_history(details->by, NO_USERS);
+	      gtk_combo_box_set_active(details->by, NO_USERS);
 	    else if (tpath_auths && strcmp(tpath_auths, "@") == 0)
-	      gtk_option_menu_set_history(details->by, ALL_USERS);
+	      gtk_combo_box_set_active(details->by, ALL_USERS);
 	    else if (tpath_auths) {
 	      g_object_set(details->auth, "text", tpath_auths, NULL);
 	gtk_widget_set_sensitive(GTK_WIDGET(details->auth_add), FALSE);
@@ -1035,7 +984,7 @@ tpath_callback(GtkWidget *w, gpointer data)
 	      update_required_list(details->required, tpath_auths);
 	      fill_not_required_list(details->not_required);
 	      remove_required_from_not_required(details->not_required, tpath_auths);	      
-	      gtk_option_menu_set_history(details->by, AUTHORIZED_USERS);
+	      gtk_combo_box_set_active(details->by, AUTHORIZED_USERS);
 	    }
 	    gtk_widget_set_sensitive(details->by_mitems[SAME_AS_TP], FALSE);
 	  } else {
@@ -1052,7 +1001,7 @@ option_changed(GtkWidget *w, gpointer data)
 	DevMgrPropsDialogDetails *details = data;
 	int oindex;
 
-	oindex = gtk_option_menu_get_history(GTK_OPTION_MENU(w));
+	oindex = gtk_combo_box_get_active((GtkComboBox *)w);
 	switch (oindex) {
 		case AUTHORIZED_USERS:
 		  gtk_widget_set_sensitive(GTK_WIDGET(details->expander), TRUE);
@@ -1125,9 +1074,9 @@ create_authorization_table(GtkListStore **dreq, GtkListStore **dnotreq, GtkWidge
 	scroller = g_object_new(GTK_TYPE_SCROLLED_WINDOW, NULL);
 	gtk_container_add(GTK_CONTAINER(scroller), GTK_WIDGET(not_req));
 	gtk_widget_size_request (GTK_WIDGET(not_req), &req);
-	gtk_widget_set_size_request(GTK_WIDGET(scroller), req.width + 20, 200);
+	gtk_widget_set_size_request(GTK_WIDGET(scroller), req.width + 195, 200);
 	gtk_table_attach(auth_table, GTK_WIDGET(scroller), 0, 1, 0, 1,
-			GTK_FILL, GTK_SHRINK, 0, 0);
+			GTK_EXPAND | GTK_FILL, GTK_SHRINK, 0, 0);
 	*desc = desc_label = g_object_new(GTK_TYPE_LABEL, 
 			"use-markup",	TRUE,
 			"wrap",		TRUE,
@@ -1165,7 +1114,7 @@ create_authorization_table(GtkListStore **dreq, GtkListStore **dnotreq, GtkWidge
 	gtk_container_add(GTK_CONTAINER(scroller), GTK_WIDGET(required));
 	gtk_widget_set_size_request(GTK_WIDGET(scroller), req.width + 20, 200);
 	gtk_table_attach(auth_table, GTK_WIDGET(scroller), 2, 3, 0, 1,
-			GTK_FILL, GTK_SHRINK, 0, 0);
+			GTK_EXPAND | GTK_FILL, GTK_SHRINK, 0, 0);
 	gtk_tree_selection_set_select_function(selection, (GtkTreeSelectionFunc)props_remove_selection_callback, GTK_WIDGET(desc_label), NULL);
 	g_signal_connect(auth_add, "clicked", G_CALLBACK(auth_add_callback), details);	
 	g_signal_connect(auth_remove, "clicked", G_CALLBACK(auth_remove_callback), details);
@@ -1237,10 +1186,11 @@ devmgr_props_dialog_instance_init (DevMgrPropsDialog *devmgr_props_dialog)
 	GtkWidget *tpath, *nontpath;
 	GtkButton *button;
 	GtkMenu *menu;
-	GtkOptionMenu *omenu;
+	GtkPopoverMenu *omenu;
+	GtkComboBox *combobox;
 	GdkScreen *screen;
 	int depth;
-	GdkPixmap *pix;
+	GdkPixbuf *pix;
 	GtkImage *img;
 	GdkPixbuf *tmp;
 	int scaled_w, image_height;
@@ -1256,7 +1206,7 @@ devmgr_props_dialog_instance_init (DevMgrPropsDialog *devmgr_props_dialog)
 		sprintf(message, _("Add Device"));
 	gtk_window_set_title (GTK_WINDOW (dialog), message);
 	
-	dvbox = GTK_VBOX(dialog->vbox);
+	dvbox = GTK_VBOX(gtk_dialog_get_content_area(dialog));
 	
 	gtk_dialog_add_buttons (dialog, 
 			GTK_STOCK_HELP, 	GTK_RESPONSE_HELP,
@@ -1276,7 +1226,7 @@ devmgr_props_dialog_instance_init (DevMgrPropsDialog *devmgr_props_dialog)
 	gtk_box_pack_start(GTK_BOX(bbox), image, FALSE, FALSE, 3);
 	gtk_box_pack_start(GTK_BOX(bbox), label, FALSE, FALSE, 3);
 	gtk_container_add(GTK_CONTAINER(reset_button), bbox);
-	g_signal_connect(G_OBJECT(reset_button), "expose_event", G_CALLBACK(reset_expose), NULL);
+	g_signal_connect(G_OBJECT(reset_button), "draw", G_CALLBACK(reset_expose), NULL);
 	gtk_widget_show(reset_button);
 	gtk_dialog_add_action_widget(dialog, reset_button, DEVMGR_PROPS_RESET);
 	gtk_dialog_add_buttons(dialog,
@@ -1357,13 +1307,14 @@ devmgr_props_dialog_instance_init (DevMgrPropsDialog *devmgr_props_dialog)
 		GTK_FILL, GTK_FILL | GTK_SHRINK, 0, 0);
 	g_object_set(details->min, "text", "admin_low", NULL);
 
-	screen = gtk_window_get_screen(GTK_WINDOW(dialog));
-	depth = gdk_drawable_get_depth(gdk_screen_get_root_window(screen));
-	pix = gdk_pixmap_new(gdk_screen_get_root_window(screen), 16, 16, depth);
-	details->min_img = img = (GtkImage *)gtk_image_new_from_pixmap(pix, NULL);
-	gtk_table_attach(props_details_table, GTK_WIDGET(img), 2, 3, 3, 4,
-		GTK_FILL, GTK_FILL | GTK_SHRINK, 0, 0);
-	update_image_widget(GTK_DIALOG(dialog), details->min_img, "admin_low");
+	details->min_img = gtk_drawing_area_new ();
+	gtk_widget_set_size_request(details->min_img, 16, 16);
+	gtk_table_attach(props_details_table, GTK_WIDGET(details->min_img), 2, 3, 3, 4,
+		GTK_SHRINK, GTK_SHRINK, 0, 0);
+
+	g_signal_connect(G_OBJECT(details->min_img), "draw",
+			G_CALLBACK(show_color),
+			details->min);
 
 	button = g_object_new(GTK_TYPE_BUTTON,
 			"label",		_("Ma_x Label..."),
@@ -1380,11 +1331,15 @@ devmgr_props_dialog_instance_init (DevMgrPropsDialog *devmgr_props_dialog)
 		GTK_FILL, GTK_FILL | GTK_SHRINK, 0, 0);
 	g_object_set(details->max, "text", "admin_high", NULL);
 		
-	pix = gdk_pixmap_new(gdk_screen_get_root_window(screen), 16, 16, depth);
-	details->max_img = img = (GtkImage *)gtk_image_new_from_pixmap(pix, NULL);
-	gtk_table_attach(props_details_table, GTK_WIDGET(img), 2, 3, 4, 5,
-		GTK_FILL, GTK_FILL | GTK_SHRINK, 0, 0);
-	update_image_widget(GTK_DIALOG(dialog), details->max_img, "admin_high");
+	details->max_img = gtk_drawing_area_new ();
+	gtk_widget_set_size_request(details->max_img, 16, 16);
+	gtk_table_attach(props_details_table, GTK_WIDGET(details->max_img), 2, 3, 4, 5,
+		GTK_SHRINK, GTK_SHRINK, 0, 0);
+
+	g_signal_connect(G_OBJECT(details->max_img), "draw",
+			G_CALLBACK(show_color),
+			details->max);
+
 
 	label = g_object_new(GTK_TYPE_LABEL,
 			"label",	_("Clean Program:"),
@@ -1417,7 +1372,7 @@ devmgr_props_dialog_instance_init (DevMgrPropsDialog *devmgr_props_dialog)
 			"vscrollbar_policy",	GTK_POLICY_NEVER,
 			"shadow_type",		GTK_SHADOW_IN,
 			NULL);
-	gtk_widget_set_usize(GTK_WIDGET(scroller), 100, 100);
+	gtk_widget_set_size_request(GTK_WIDGET(scroller), 100, 100);
 	device_tags = gtk_text_tag_table_new();
 	details->map = device_buffer = gtk_text_buffer_new(device_tags);
 	device_text = GTK_TEXT_VIEW(gtk_text_view_new_with_buffer(device_buffer));
@@ -1476,34 +1431,19 @@ devmgr_props_dialog_instance_init (DevMgrPropsDialog *devmgr_props_dialog)
 	gtk_table_attach(alloc_table, GTK_WIDGET(label), 0, 1, 1, 2,
 		GTK_FILL, GTK_FILL, MINOR_LEFT_JUSTIFY, YSPACING);
 
-#ifdef USE_COMBOBOX
-	details->by = combobox = (GtkComboBox *)gtk_combo_box_new_text ();
-	gtk_combo_box_append_text (combobox, _("Authorized Users"));
-	gtk_combo_box_append_text (combobox, _("No Users"));
-	gtk_combo_box_append_text (combobox, _("All Users"));
-	gtk_combo_box_append_text (combobox, _("Same As Trusted Path"));
+	details->by = combobox = (GtkComboBox*)gtk_combo_box_text_new ();
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(combobox), _("Authorized Users"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(combobox), _("No Users"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(combobox), _("All Users"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(combobox), _("Same As Trusted Path"));
 	gtk_combo_box_set_active(combobox, 0);
 	gtk_table_attach(alloc_table, GTK_WIDGET(combobox), 1, 2, 1, 2,
 		GTK_FILL, GTK_FILL | GTK_EXPAND, 0, 0);
 	g_object_set(label, "mnemonic-widget", combobox, NULL);
-#else
-	menu = g_object_new(GTK_TYPE_MENU, NULL);
-	details->by_mitems[0] = gtk_menu_item_new_with_label(_("Authorized Users"));
-	details->by_mitems[1] = gtk_menu_item_new_with_label(_("No Users"));
-	details->by_mitems[2] = gtk_menu_item_new_with_label(_("All Users"));
-	details->by_mitems[3] = gtk_menu_item_new_with_label(_("Same As Trusted Path"));
-	for (i = 0; i < 4; i++)
-	    gtk_menu_shell_append(GTK_MENU_SHELL(menu), details->by_mitems[i]);
-	details->by = omenu = g_object_new(GTK_TYPE_OPTION_MENU, "menu", menu, NULL);
-        gtk_option_menu_set_history(details->by, 1);
-	gtk_widget_set_sensitive(details->by_mitems[SAME_AS_TP], FALSE);
-	g_signal_connect(G_OBJECT(omenu), "changed", G_CALLBACK(option_changed), details);
-	gtk_table_attach(alloc_table, GTK_WIDGET(omenu), 1, 2, 1, 2,
-		GTK_FILL, GTK_FILL | GTK_EXPAND, 0, 0);
-#endif
 
+	g_signal_connect (combobox, "changed", G_CALLBACK (option_changed), details);
 	details->expander = expander = g_object_new(GTK_TYPE_EXPANDER,
-			"label",		_("Authori_zations:"),
+			"label",		_("Authorizations:"),
 			"use-underline",	TRUE,
 			"expanded",		TRUE,
 			NULL);
@@ -1559,10 +1499,10 @@ devmgr_props_dialog_instance_init (DevMgrPropsDialog *devmgr_props_dialog)
 	gtk_box_pack_start (GTK_BOX(dvbox), GTK_WIDGET(hbox), TRUE, TRUE, 0);
 #endif /* ENABLE_DEALLOCATION */
 
-        gtk_widget_set_sensitive(GTK_WIDGET(details->expander), FALSE);
-        gtk_widget_set_sensitive(GTK_WIDGET(details->auth), FALSE);
-        gtk_widget_set_sensitive(GTK_WIDGET(details->exp_hbox), FALSE);
-        gtk_widget_set_sensitive(GTK_WIDGET(details->desc), FALSE);
+        gtk_widget_set_sensitive(GTK_WIDGET(details->expander), TRUE);
+        gtk_widget_set_sensitive(GTK_WIDGET(details->auth), TRUE);
+        gtk_widget_set_sensitive(GTK_WIDGET(details->exp_hbox), TRUE);
+        gtk_widget_set_sensitive(GTK_WIDGET(details->desc), TRUE);
 }
 
 static void
@@ -1579,7 +1519,7 @@ dev_mgr_get_authorizations(DevMgrPropsDialogDetails *details)
 	char *tmp;
 	int oindex;
 	
-	oindex = gtk_option_menu_get_history(details->by);
+	oindex = gtk_combo_box_get_active((GtkComboBox *)details->by);
 	switch (oindex) {
 		case AUTHORIZED_USERS:
 			g_object_get(details->auth, "text", &tmp, NULL);
@@ -1609,13 +1549,11 @@ dev_mgr_props_add_reset(GtkWidget *dialog)
 	g_object_set(details->name, "text", "", NULL);
 	g_object_set(details->dtype, "text", "", NULL);
 	g_object_set(details->min, "text", "admin_low", NULL);
-	update_image_widget(GTK_DIALOG(dialog), details->min_img, "admin_low");
 	g_object_set(details->max, "text", "admin_high", NULL);
-	update_image_widget(GTK_DIALOG(dialog), details->max_img, "admin_high");
 	g_object_set(details->clean, "text", "/bin/true", NULL);
 	gtk_text_buffer_set_text(details->map, "", 0);
 	g_object_set(details->tpath, "active", TRUE, NULL);
-	gtk_option_menu_set_history(details->by, 1);
+	gtk_combo_box_set_active(details->by, 1);
 	g_object_set(details->auth, "text", "", NULL);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(details->auth_add), FALSE);
@@ -1628,10 +1566,10 @@ dev_mgr_props_add_reset(GtkWidget *dialog)
 	g_object_set(details->boot, "active", FALSE, NULL);
 	g_object_set(details->logout, "active", FALSE, NULL);
 #endif /* ENABLE_DEALLOCATION */
-        gtk_widget_set_sensitive(GTK_WIDGET(details->expander), FALSE);
-        gtk_widget_set_sensitive(GTK_WIDGET(details->auth), FALSE);
-        gtk_widget_set_sensitive(GTK_WIDGET(details->exp_hbox), FALSE);
-        gtk_widget_set_sensitive(GTK_WIDGET(details->desc), FALSE);
+        gtk_widget_set_sensitive(GTK_WIDGET(details->expander), TRUE);
+        gtk_widget_set_sensitive(GTK_WIDGET(details->auth), TRUE);
+        gtk_widget_set_sensitive(GTK_WIDGET(details->exp_hbox), TRUE);
+        gtk_widget_set_sensitive(GTK_WIDGET(details->desc), TRUE);
 }
 
 void 
@@ -1643,16 +1581,28 @@ dev_mgr_props_get_values(GtkWidget *dialog, char **ndevname, char **ndevtype, ch
 	char *new;
 	int index;
 	char tmp[5120];
+	m_label_t *sl = NULL;
+	char *minhex = NULL;
+	char *maxhex = NULL;
+	int error;
 	
-	/* Work on getting the HEX name for the min/max text entries */
-	if (minhex == NULL)
-		g_object_get(details->min, "text", ndevmin, NULL);
-	else
-		*ndevmin = strdup(minhex);
-	if (maxhex == NULL)
-		g_object_get(details->max, "text", ndevmax, NULL);
-	else
-		*ndevmax = strdup(maxhex);
+	/*Use the hex label fomrat for the min/max text entries */
+	g_object_get(details->min, "text", ndevmin, NULL);
+	if ((str_to_label (ndevmin, &sl, MAC_LABEL, L_DEFAULT, &error) < 0) &&
+          (label_to_str (sl, &minhex, M_INTERNAL, LONG_NAMES) < 0)) {
+		g_free(ndevmin);
+		ndevmin = minhex;
+		g_free(sl);
+		sl = NULL;
+	}
+
+	g_object_get(details->max, "text", ndevmax, NULL);
+	if ((str_to_label (ndevmax, &sl, MAC_LABEL, L_DEFAULT, &error) < 0) &&
+          (label_to_str (sl, &maxhex, M_INTERNAL, LONG_NAMES) < 0)) {
+		g_free(ndevmax);
+		ndevmin = maxhex;
+		g_free(sl);
+	}
 	gtk_text_buffer_get_bounds(details->map, &start, &end);
 	new = gtk_text_buffer_get_text(details->map, &start, &end, FALSE);
 	*ndevfile = g_strdup(new);
@@ -1700,23 +1650,23 @@ static void update_authorizations(DevMgrPropsDialogDetails *details, char *devau
 	
 	/* no users */
 	if (strcmp(tpauth, "*") == 0) {
-		gtk_option_menu_set_history(details->by, 1);
+		gtk_combo_box_set_active(details->by, 1);
 		gtk_widget_set_sensitive(GTK_WIDGET(details->expander), FALSE);
 		gtk_widget_set_sensitive(GTK_WIDGET(details->auth), FALSE);
 		gtk_widget_set_sensitive(GTK_WIDGET(details->exp_hbox), FALSE);
 		gtk_widget_set_sensitive(GTK_WIDGET(details->desc), FALSE);
 	/* all users */
 	} else if (strcmp(tpauth, "@") == 0) {
-		gtk_option_menu_set_history(details->by, 2);
+		gtk_combo_box_set_active(details->by, 2);
 		gtk_widget_set_sensitive(GTK_WIDGET(details->expander), FALSE);
 		gtk_widget_set_sensitive(GTK_WIDGET(details->auth), FALSE);
 		gtk_widget_set_sensitive(GTK_WIDGET(details->exp_hbox), FALSE);
 		gtk_widget_set_sensitive(GTK_WIDGET(details->desc), FALSE);
 	/* all authorizations */
 	} else if (strcmp(tpauth, "all") == 0) {
-		gtk_option_menu_set_history(details->by, 3);
+		gtk_combo_box_set_active(details->by, 3);
 	} else {
-		gtk_option_menu_set_history(details->by, 0);
+		gtk_combo_box_set_active(details->by, 0);
 		g_object_set(details->auth, "text", tpauth, NULL);
 		gtk_widget_set_sensitive(GTK_WIDGET(details->auth_add), FALSE);
 		gtk_widget_set_sensitive(GTK_WIDGET(details->auth_remove), FALSE);
@@ -1744,11 +1694,30 @@ static void update_authorizations(DevMgrPropsDialogDetails *details, char *devau
 void
 dev_mgr_props_reset(GtkWidget *dialog, char *devfile, char *devmin, char *devmax, char *devauth, char *devdeall, char *devowner, char *devlabel, char *devclean)
 {
+  	m_label_t *sl = NULL;
+	char *minstring = NULL;
+	char *maxstring = NULL;
+  	int error;
+
 	DevMgrPropsDialogDetails *details = DEVMGR_PROPS_DIALOG (dialog)->details;
+
+	if ((str_to_label (devmin, &sl, MAC_LABEL, L_DEFAULT, &error) < 0) &&
+          (label_to_str (sl, &minstring, M_LABEL, LONG_NAMES) < 0)) {
+		g_free(devmin);
+		devmin = minstring;
+		g_free(sl);
+		sl = NULL;
+	}
 	g_object_set(details->min, "text", devmin, NULL);
-	update_image_widget(GTK_DIALOG(dialog), details->min_img, devmin);
+
+	if ((str_to_label (devmax, &sl, MAC_LABEL, L_DEFAULT, &error) < 0) &&
+          (label_to_str (sl, &maxstring, M_LABEL, LONG_NAMES) < 0)) {
+		g_free(devmax);
+		devmax = maxstring;
+		g_free(sl);
+	}
 	g_object_set(details->max, "text", devmax, NULL);
-	update_image_widget(GTK_DIALOG(dialog), details->max_img, devmax);
+	
 	g_object_set(details->clean, "text", devclean, NULL);
 	gtk_text_buffer_set_text(details->map, devfile, -1);
 	g_object_set(details->tpath, "active", TRUE, NULL);
@@ -1759,14 +1728,7 @@ dev_mgr_props_reset(GtkWidget *dialog, char *devfile, char *devmin, char *devmax
 	if (ntpath_auths)
 	  g_free(ntpath_auths);
 	ntpath_auths = NULL;
-#ifdef DOH
-#ifdef USE_COMBOBOX
 	gtk_combo_box_set_active(details->by, 0);
-#else
-	/* not quite sure how to reset an option menu */
-	g_object_get(details->by, "menu", &menu, NULL);
-	gtk_menu_set_active(GTK_MENU(menu), 0);
-#endif
 	g_object_set(details->auth, "text", devauth, NULL);
 	gtk_widget_set_sensitive(GTK_WIDGET(details->auth_add), FALSE);
 	gtk_widget_set_sensitive(GTK_WIDGET(details->auth_remove), FALSE);
@@ -1777,7 +1739,6 @@ dev_mgr_props_reset(GtkWidget *dialog, char *devfile, char *devmin, char *devmax
 	fill_not_required_list(details->not_required);
 	remove_required_from_not_required(details->not_required, devauth);
 	g_object_set(details->desc, "label", _("<i><b>Description:</b></i>"), NULL);
-#endif /* DOH */
 #ifdef ENABLE_DEALLOCATION
 	g_object_set(details->boot, "active", FALSE, NULL);
 	g_object_set(details->logout, "active", FALSE, NULL);
@@ -1821,9 +1782,7 @@ dev_mgr_props_dialog_new (char *devname, char *devtype, char *devfile, char *dev
 	g_object_set(details->name, "label", devname, NULL);
 	g_object_set(details->dtype, "label", devtype, NULL);
 	g_object_set(details->min, "text", devmin, NULL);
-	update_image_widget(GTK_DIALOG(dialog), details->min_img, devmin);
 	g_object_set(details->max, "text", devmax, NULL);
-	update_image_widget(GTK_DIALOG(dialog), details->max_img, devmax);	
 	g_object_set(details->clean, "text", devclean, NULL);
 	
 	/* Deal with Text Buffer */

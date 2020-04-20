@@ -105,9 +105,9 @@ selmgr_dialog_finalize (GObject * object)
 }
 
 static          gboolean
-label_expose (GtkWidget * widget, GdkEventExpose * event, gpointer data)
+label_expose (GtkWidget * widget, cairo_t *cr, gpointer data)
 {
-	gnome_tsol_render_coloured_label (widget);
+	gnome_tsol_render_coloured_label (cr, widget);
 	return TRUE;
 }
 
@@ -190,7 +190,7 @@ selmgr_dialog_instance_init (SelMgrDialog * selmgr_dialog)
 		       "the information in the selection be reclassified.");
 	gtk_label_set_line_wrap (GTK_LABEL (details->message), TRUE);
 	gtk_box_pack_start (GTK_BOX (hbox), details->message, TRUE, TRUE, 0);
-	gtk_box_pack_start (GTK_BOX (dialog->vbox), hbox, FALSE, FALSE, 10);
+	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area(dialog)), hbox, FALSE, FALSE, 10);
 
 	hbox = gtk_hbox_new (FALSE, 0);
 	vbox1 = gtk_vbox_new (FALSE, 2);
@@ -211,7 +211,7 @@ selmgr_dialog_instance_init (SelMgrDialog * selmgr_dialog)
 	gtk_box_pack_start (GTK_BOX (vbox2), label, TRUE, TRUE, 0);
 
 	details->source_label = gtk_label_new ("ORIG LABEL");
-	g_signal_connect (G_OBJECT (details->source_label), "expose_event",
+	g_signal_connect (G_OBJECT (details->source_label), "draw",
 			  G_CALLBACK (label_expose), NULL);
 	gtk_misc_set_alignment (GTK_MISC (details->source_label), 0.0, 0.5);
 	ebox = gtk_event_box_new ();
@@ -220,7 +220,7 @@ selmgr_dialog_instance_init (SelMgrDialog * selmgr_dialog)
 			    TRUE, 0);
 
 	details->dest_label = gtk_label_new ("NEW LABEL");
-	g_signal_connect (G_OBJECT (details->dest_label), "expose_event",
+	g_signal_connect (G_OBJECT (details->dest_label), "draw",
 			  G_CALLBACK (label_expose), NULL);
 	gtk_misc_set_alignment (GTK_MISC (details->dest_label), 0.0, 0.5);
 	ebox = gtk_event_box_new ();
@@ -257,7 +257,7 @@ selmgr_dialog_instance_init (SelMgrDialog * selmgr_dialog)
 	gtk_box_pack_start (GTK_BOX (hbox), image, FALSE, FALSE, 10);
 	gtk_box_pack_start (GTK_BOX (hbox), vbox2, FALSE, FALSE, 10);
 
-	gtk_box_pack_start (GTK_BOX (dialog->vbox), hbox, FALSE, FALSE, 10);
+	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area(dialog)), hbox, FALSE, FALSE, 10);
 
 	if (!selection_should_be_hidden ()) {
 		hbox = gtk_hbox_new (FALSE, 0);
@@ -270,7 +270,7 @@ selmgr_dialog_instance_init (SelMgrDialog * selmgr_dialog)
 
 		gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 10);
 
-		gtk_box_pack_start (GTK_BOX (dialog->vbox), hbox, FALSE, FALSE,
+		gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area(dialog)), hbox, FALSE, FALSE,
 				    10);
 
 		details->buffer = gtk_text_buffer_new (NULL);
@@ -289,7 +289,7 @@ selmgr_dialog_instance_init (SelMgrDialog * selmgr_dialog)
 					     GTK_SHADOW_ETCHED_IN);
 		gtk_container_add (GTK_CONTAINER (scroller), text_view);
 
-		gtk_box_pack_start (GTK_BOX (dialog->vbox), scroller, TRUE,
+		gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area(dialog)), scroller, TRUE,
 				    TRUE, 0);
 	}
 
@@ -307,7 +307,7 @@ selmgr_dialog_instance_init (SelMgrDialog * selmgr_dialog)
 
 	gtk_box_pack_start (GTK_BOX (hbox), details->progress, TRUE, TRUE, 10);
 
-	gtk_box_pack_start (GTK_BOX (dialog->vbox), hbox, FALSE, FALSE, 10);
+	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area(dialog)), hbox, FALSE, FALSE, 10);
 
 	gtk_window_set_position (GTK_WINDOW (dialog),
 				 GTK_WIN_POS_CENTER);
@@ -315,6 +315,7 @@ selmgr_dialog_instance_init (SelMgrDialog * selmgr_dialog)
 
 	details->timercount = 118;
 	details->timerid = g_timeout_add (1000, timeout_func, dialog);
+	gtk_window_resize(GTK_WINDOW(dialog), 400, 475);
 }
 
 static void

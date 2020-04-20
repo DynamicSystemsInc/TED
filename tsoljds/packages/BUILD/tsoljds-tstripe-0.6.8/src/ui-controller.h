@@ -22,36 +22,36 @@
 #include <X11/Xatom.h>
 #include <gdk/gdkx.h>
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
-#include <libwnck/screen.h>
+#include <libwnck/libwnck.h>
 #include "constraint-scaling.h"
 
 gboolean	global_role_dialog_is_mapped; /* Set to TRUE when role dialog is mapped. */
 
-gboolean	 label_layout_should_be_black (GdkColor *color);
+gboolean	 label_layout_should_be_black (GdkRGBA *color);
 
 ConstraintImage* window_label_stripe_get (GtkWidget* widget,
 					  char*	  name,
-					  GdkColor*  label_color);
+					  GdkRGBA*  label_color);
 
 ConstraintImage* workspace_label_stripe_get (GtkWidget *widget,
 					     char *name,
-					     GdkColor *label_color);
+					     GdkRGBA *label_color);
 
 
 char*		window_label_get_name (Display* xdisplay, 
 				       Window   xwindow);
-GdkColor*	window_label_get_color(Display* xdisplay,
+GdkRGBA*	window_label_get_color(Display* xdisplay,
 				       Window	xwindow);
 
-GdkColor*	current_window_label_get_color ();
-void		current_window_label_set_color (GdkColor *new_color);
+GdkRGBA*	current_window_label_get_color ();
+void		current_window_label_set_color (GdkRGBA *new_color);
 char*		current_window_label_get_name ();
 void		current_window_label_set_name (char *new_name);
 GdkPixbuf *	current_window_icon_get ();
 
 
 char *          current_workspace_label_get_name (GtkWidget *widget);
-GdkColor*	current_workspace_label_get_color (GtkWidget *widget);
+GdkRGBA*	current_workspace_label_get_color (GtkWidget *widget);
 
 const char *	current_role_name (GtkWidget *widget);
 

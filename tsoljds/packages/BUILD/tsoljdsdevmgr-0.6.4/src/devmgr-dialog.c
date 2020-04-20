@@ -31,10 +31,8 @@
 #include <auth_attr.h>
 #include <secdb.h>
 
-#include <libwnck/screen.h>
-#include <libwnck/workspace.h>
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
-#include <libwnck/window.h>
+#include <libwnck/libwnck.h>
 #include <gdk/gdkx.h>
 
 #include <gtk/gtk.h>
@@ -1195,7 +1193,8 @@ void admin_remove_callback(GtkWidget *widget, gpointer data)
 			NULL);
 	gtk_box_pack_start(GTK_BOX(hbox), GTK_WIDGET(text),
 			FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(dialog->vbox), GTK_WIDGET(hbox), 
+	gtk_box_pack_start(GTK_BOX(gtk_dialog_get_content_area(dialog)),
+			GTK_WIDGET(hbox), 
 			FALSE, FALSE, 0);
 	
 	gtk_widget_show_all(GTK_WIDGET(dialog));
@@ -1232,7 +1231,7 @@ void admin_remove_callback(GtkWidget *widget, gpointer data)
             default:
                 break;
 	}
-	gtk_widget_hide_all(GTK_WIDGET(dialog));
+	gtk_widget_hide(GTK_WIDGET(dialog));
 	gtk_widget_destroy(GTK_WIDGET(dialog));
     }
 }
@@ -2278,7 +2277,7 @@ devmgr_dialog_instance_init (DevMgrDialog *devmgr_dialog)
 	
 	gtk_window_stick ( GTK_WINDOW (dialog) );
 	
-	vbox = GTK_VBOX(dialog->vbox);
+	vbox = GTK_VBOX(gtk_dialog_get_content_area(dialog));
 	
 	dtable = g_object_new(GTK_TYPE_TABLE,
 			"n-rows",	7,

@@ -54,7 +54,6 @@
 #include <secdb.h>
 #include <pwd.h>
 
-#include <libgnomeui/libgnomeui.h>
 
 #include "devmgr-dialog.h"
 #include "devmgr-help.h"
@@ -94,7 +93,6 @@ FILE *console;
 int
 main (int argc, char **argv)
 {
-	GnomeClient *client;
 	GtkDialog *dialog;
 	gint resp;
 	
@@ -102,8 +100,8 @@ main (int argc, char **argv)
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 
-	gnome_program_init (PACKAGE, VERSION, LIBGNOMEUI_MODULE, argc, argv,
-			    NULL);
+	//gnome_program_init (PACKAGE, VERSION, LIBGNOMEUI_MODULE, argc, argv, NULL);
+	gtk_init(&argc, &argv);
 
 #ifdef CONSOLE
 	if ((console = fopen("/dev/console", "r+")) == NULL)
@@ -134,7 +132,7 @@ main (int argc, char **argv)
 		}
 	} while (resp != GTK_RESPONSE_CANCEL && resp != GTK_RESPONSE_OK);
 	
-        gtk_widget_hide_all(GTK_WIDGET(dialog));
+        gtk_widget_hide(GTK_WIDGET(dialog));
 
 #ifdef CONSOLE
 	if (console != NULL)

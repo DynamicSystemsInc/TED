@@ -20,7 +20,6 @@
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n-lib.h>
-#include <libgnomeui/libgnomeui.h>
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -63,7 +62,7 @@ gnome_tsol_message_dialog_class_init_trampoline (gpointer klass, gpointer data)
 	gnome_tsol_message_dialog_class_init ((GnomeTsolMessageDialogClass *) klass);
 }
 
-GtkType
+GType
 gnome_tsol_message_dialog_get_type (void)
 {
 	static GType    type = 0;
@@ -226,18 +225,21 @@ gnome_tsol_message_dialog_new (GtkWindow * parent,
 
 	dialog = GTK_DIALOG (widget);
 
-	if (flags & GTK_DIALOG_NO_SEPARATOR) {
-		g_warning ("The GTK_DIALOG_NO_SEPARATOR flag cannot be used for GnomeTsolMessageDialog");
-		flags &= ~GTK_DIALOG_NO_SEPARATOR;
-	}
 	if (message_format) {
+		GtkWidget *content_area;
+		GtkWidget *label;
+
 		va_start (args, message_format);
 		msg = g_strdup_vprintf (message_format, args);
 		va_end (args);
 
+		/*Create a label and attach it to the content area of the dialog*/
+		content_area = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
+  		label = gtk_label_new (msg);
+		gtk_container_add (GTK_CONTAINER (content_area), label);
 
-		gtk_label_set_text (GTK_LABEL (GTK_MESSAGE_DIALOG (widget)->label),
-				    msg);
+
+		//gtk_label_set_text (GTK_LABEL (GTK_MESSAGE_DIALOG (widget)->label), msg);
 
 		g_free (msg);
 	}
@@ -250,9 +252,6 @@ gnome_tsol_message_dialog_new (GtkWindow * parent,
 
 	if (flags & GTK_DIALOG_DESTROY_WITH_PARENT)
 		gtk_window_set_destroy_with_parent (GTK_WINDOW (dialog), TRUE);
-
-	if (flags & GTK_DIALOG_NO_SEPARATOR)
-		gtk_dialog_set_has_separator (dialog, FALSE);
 
 	return widget;
 }
@@ -321,9 +320,10 @@ message_dialog_show_callback (GtkWidget * widget, gpointer callback_data)
 
 	/* Oooh */
 	while (1) {
-		if (gdk_pointer_grab (message_dialog->details->invisible->window, FALSE, 0,
+		GdkWindow *window = gtk_widget_get_window(message_dialog->details->invisible);
+		if (gdk_pointer_grab (window, FALSE, 0,
 				 NULL, NULL, GDK_CURRENT_TIME) == Success) {
-			if (gdk_keyboard_grab (message_dialog->details->invisible->window,
+			if (gdk_keyboard_grab (window,
 					FALSE, GDK_CURRENT_TIME) == Success)
 				break;
 			gdk_pointer_ungrab (GDK_CURRENT_TIME);
@@ -335,9 +335,11 @@ message_dialog_show_callback (GtkWidget * widget, gpointer callback_data)
 
 	gtk_widget_show_all (GTK_WIDGET (message_dialog));
 	while (1) {
-		if (gdk_pointer_grab (GTK_WIDGET (message_dialog)->window, TRUE, 0,
+		GdkWindow *window = gtk_widget_get_window(GTK_WIDGET(message_dialog));
+
+		if (gdk_pointer_grab (window, TRUE, 0,
 				 NULL, NULL, GDK_CURRENT_TIME) == Success) {
-			if (gdk_keyboard_grab (GTK_WIDGET (message_dialog)->window,
+			if (gdk_keyboard_grab (window,
 					FALSE, GDK_CURRENT_TIME) == Success)
 				break;
 			gdk_pointer_ungrab (GDK_CURRENT_TIME);
@@ -346,7 +348,7 @@ message_dialog_show_callback (GtkWidget * widget, gpointer callback_data)
 	}
 
 	XSetInputFocus (xdpy,
-		   GDK_WINDOW_XWINDOW (GTK_WIDGET (message_dialog)->window),
-			RevertToParent,
-			CurrentTime);
+		GDK_WINDOW_XID(gtk_widget_get_window(GTK_WIDGET(message_dialog))),
+		RevertToParent,
+		CurrentTime);
 }

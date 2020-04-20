@@ -6,7 +6,7 @@ INCLUDES = -I. -I$(srcdir) -I/usr/openwin/include/X11/extenstions 	\
 	$(TSOLJDSLABEL_CFLAGS)				
 
 bin_PROGRAMS = tsoljdslabel tsoljdslabel-ui
-bin_SCRIPTS = txfailsafe
+bin_SCRIPTS = 
 
 tsoljdslabel_SOURCES = suidwrapper.c					\
 		       exec.c						\
@@ -18,7 +18,7 @@ tsoljdslabel_ui_SOURCES = tsolmotd.c					\
 		       exec.c						\
 		       exec.h
 
-tsoljdslabel_ui_LDFLAGS = $(LD_FLAGS) -L/usr/openwin/lib -R/usr/openwin/lib
+tsoljdslabel_ui_LDFLAGS = $(LD_FLAGS) -L/usr/openwin/lib/amd64 -R/usr/openwin/lib/amd64
 			
 tsoljdslabel_ui_LDADD = $(TSOLJDSLABEL_LIBS) -lsecdb -lcontract -ltsol -lbsm -lXtsol
 

@@ -16,9 +16,9 @@
 
 
 
-pkgdatadir = $(datadir)/gnome-session
-pkglibdir = $(libdir)/gnome-session
-pkgincludedir = $(includedir)/gnome-session
+pkgdatadir = $(datadir)/src
+pkglibdir = $(libdir)/src
+pkgincludedir = $(includedir)/src
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -98,25 +98,27 @@ SOURCES = $(libgsmutil_la_SOURCES) $(test_client_dbus_SOURCES) \
 	$(test_inhibit_SOURCES) $(tsoljds_xagent_SOURCES)
 DIST_SOURCES = $(libgsmutil_la_SOURCES) $(test_client_dbus_SOURCES) \
 	$(test_inhibit_SOURCES) $(tsoljds_xagent_SOURCES)
+configDATA_INSTALL = $(INSTALL_DATA)
+DATA = $(config_DATA)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /export/home/gfaden/packages/BUILD/SUNWtgnome-xagent-0.6.8/gnome-session-2.30.2/missing --run aclocal-1.10
+ACLOCAL = ${SHELL} /tsoljds/packages/BUILD/tsoljds-xagent-0.6.8/missing --run aclocal-1.10
 ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
 ALL_LINGUAS = 
-AMTAR = ${SHELL} /export/home/gfaden/packages/BUILD/SUNWtgnome-xagent-0.6.8/gnome-session-2.30.2/missing --run tar
+AMTAR = ${SHELL} /tsoljds/packages/BUILD/tsoljds-xagent-0.6.8/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /export/home/gfaden/packages/BUILD/SUNWtgnome-xagent-0.6.8/gnome-session-2.30.2/missing --run autoconf
-AUTOHEADER = ${SHELL} /export/home/gfaden/packages/BUILD/SUNWtgnome-xagent-0.6.8/gnome-session-2.30.2/missing --run autoheader
-AUTOMAKE = ${SHELL} /export/home/gfaden/packages/BUILD/SUNWtgnome-xagent-0.6.8/gnome-session-2.30.2/missing --run automake-1.10
+AUTOCONF = ${SHELL} /tsoljds/packages/BUILD/tsoljds-xagent-0.6.8/missing --run autoconf
+AUTOHEADER = ${SHELL} /tsoljds/packages/BUILD/tsoljds-xagent-0.6.8/missing --run autoheader
+AUTOMAKE = ${SHELL} /tsoljds/packages/BUILD/tsoljds-xagent-0.6.8/missing --run automake-1.10
 AWK = /usr/bin/gawk
 CATALOGS = 
 CATOBJEXT = .gmo
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -m64
-COMPAT_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_PTHREADS -I/usr/include/gtk-2.0 -I/usr/lib/amd64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include  
-COMPAT_LIBS = -L/usr/lib/amd64 -lgtk-x11-2.0 -lsecdb -ltsol -lgdk-x11-2.0 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lfreetype -lfontconfig -lgmodule-2.0 -ldbus-glib-1 -ldbus-1 -lgobject-2.0 -lgthread-2.0 -lpthread -lglib-2.0  
+COMPAT_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_PTHREADS -I/usr/include/gtk-3.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/lib/amd64/gtk-3.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include  
+COMPAT_LIBS = -L/usr/lib/amd64 -lgtk-3 -lsecdb -ltsol -lgdk-3 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lfreetype -lfontconfig -lgmodule-2.0 -ldbus-glib-1 -ldbus-1 -lgobject-2.0 -lgthread-2.0 -lpthread -lglib-2.0  
 CPP = gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
@@ -134,8 +136,8 @@ DUMPBIN =
 ECHO_C = \c
 ECHO_N = 
 ECHO_T = 
-EGG_SMCLIENT_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_PTHREADS -I/usr/include/gtk-2.0 -I/usr/lib/amd64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12  
-EGG_SMCLIENT_LIBS = -L/usr/lib/amd64 -lgtk-x11-2.0 -lsecdb -ltsol -lgdk-x11-2.0 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lpthread -lglib-2.0  
+EGG_SMCLIENT_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_PTHREADS -I/usr/include/gtk-3.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/lib/amd64/gtk-3.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12  
+EGG_SMCLIENT_LIBS = -L/usr/lib/amd64 -lgtk-3 -lsecdb -ltsol -lgdk-3 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lpthread -lglib-2.0  
 EGREP = /usr/gnu/bin/grep -E
 EXECINFO_LIBS = 
 EXEEXT = 
@@ -150,8 +152,8 @@ GETTEXT_PACKAGE = gnome-session-2.0
 GLIB_GENMARSHAL = /usr/bin/glib-genmarshal
 GMOFILES = 
 GMSGFMT = /usr/bin/gmsgfmt
-GNOME_SESSION_CFLAGS = -D_REENTRANT -D_PTHREADS -D_POSIX_PTHREAD_SEMANTICS -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/gtk-2.0 -I/usr/lib/amd64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include  
-GNOME_SESSION_LIBS = -L/usr/lib/amd64 -lgtk-x11-2.0 -lsecdb -ltsol -lgdk-x11-2.0 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lfreetype -lfontconfig -lgmodule-2.0 -ldbus-glib-1 -ldbus-1 -lgobject-2.0 -lgthread-2.0 -lpthread -lglib-2.0  
+GNOME_SESSION_CFLAGS = -D_REENTRANT -D_PTHREADS -D_POSIX_PTHREAD_SEMANTICS -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/lib/amd64/gtk-3.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include  
+GNOME_SESSION_LIBS = -L/usr/lib/amd64 -lgtk-3 -lsecdb -ltsol -lgdk-3 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lfreetype -lfontconfig -lgmodule-2.0 -ldbus-glib-1 -ldbus-1 -lgobject-2.0 -lgthread-2.0 -lpthread -lglib-2.0  
 GREP = /usr/gnu/bin/grep
 HAVE_XRENDER = 
 HAVE_XTEST = 
@@ -177,7 +179,7 @@ LIPO =
 LN_S = ln -s
 LTLIBOBJS = 
 MAINT = #
-MAKEINFO = ${SHELL} /export/home/gfaden/packages/BUILD/SUNWtgnome-xagent-0.6.8/gnome-session-2.30.2/missing --run makeinfo
+MAKEINFO = ${SHELL} /tsoljds/packages/BUILD/tsoljds-xagent-0.6.8/missing --run makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/gnu/bin/mkdir -p
 MKINSTALLDIRS = ./mkinstalldirs
@@ -207,14 +209,14 @@ PO_IN_DATADIR_TRUE =
 RANLIB = ranlib
 REBUILD = 
 SED = /usr/gnu/bin/sed
-SESSION_PROPERTIES_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_PTHREADS -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/gtk-2.0 -I/usr/lib/amd64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12  
-SESSION_PROPERTIES_LIBS = -L/usr/lib/amd64 -lgtk-x11-2.0 -lsecdb -ltsol -lgdk-x11-2.0 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lpthread -lglib-2.0  
+SESSION_PROPERTIES_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_PTHREADS -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/lib/amd64/gtk-3.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12  
+SESSION_PROPERTIES_LIBS = -L/usr/lib/amd64 -lgtk-3 -lsecdb -ltsol -lgdk-3 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lpthread -lglib-2.0  
 SET_MAKE = 
 SHELL = /bin/sh
 SM_CFLAGS =  
 SM_LIBS = -lSM  
-SPLASH_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_PTHREADS -DORBIT2=1 -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/gtk-2.0 -I/usr/lib/amd64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include -I/usr/include/startup-notification-1.0 -I/usr/include/gconf/2 -I/usr/include/orbit-2.0  
-SPLASH_LIBS = -L/usr/lib/amd64 -lgtk-x11-2.0 -lsecdb -ltsol -lgdk-x11-2.0 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lfreetype -lfontconfig -lgmodule-2.0 -ldbus-glib-1 -ldbus-1 -lgobject-2.0 -lgthread-2.0 -lpthread -lstartup-notification-1 -lgconf-2 -lglib-2.0  
+SPLASH_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_PTHREADS -DORBIT2=1 -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/lib/amd64/gtk-3.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include -I/usr/include/startup-notification-1.0 -I/usr/include/gconf/2 -I/usr/include/orbit-2.0  
+SPLASH_LIBS = -L/usr/lib/amd64 -lgtk-3 -lsecdb -ltsol -lgdk-3 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lfreetype -lfontconfig -lgmodule-2.0 -ldbus-glib-1 -ldbus-1 -lgobject-2.0 -lgthread-2.0 -lpthread -lstartup-notification-1 -lgconf-2 -lglib-2.0  
 STRIP = strip
 USE_NLS = yes
 VERSION = 2.30.2
@@ -233,10 +235,10 @@ X_CFLAGS =
 X_EXTRA_LIBS = -lsocket  -lnsl
 X_LIBS =  -lSM -lICE  -lX11 -lsocket  -lnsl -lXau
 X_PRE_LIBS =  -lSM -lICE
-abs_builddir = /export/home/gfaden/packages/BUILD/SUNWtgnome-xagent-0.6.8/gnome-session-2.30.2/gnome-session
-abs_srcdir = /export/home/gfaden/packages/BUILD/SUNWtgnome-xagent-0.6.8/gnome-session-2.30.2/gnome-session
-abs_top_builddir = /export/home/gfaden/packages/BUILD/SUNWtgnome-xagent-0.6.8/gnome-session-2.30.2
-abs_top_srcdir = /export/home/gfaden/packages/BUILD/SUNWtgnome-xagent-0.6.8/gnome-session-2.30.2
+abs_builddir = /tsoljds/packages/BUILD/tsoljds-xagent-0.6.8/gnome-session
+abs_srcdir = /tsoljds/packages/BUILD/tsoljds-xagent-0.6.8/gnome-session
+abs_top_builddir = /tsoljds/packages/BUILD/tsoljds-xagent-0.6.8
+abs_top_srcdir = /tsoljds/packages/BUILD/tsoljds-xagent-0.6.8
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -265,8 +267,8 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = $(SHELL) /export/home/gfaden/packages/BUILD/SUNWtgnome-xagent-0.6.8/gnome-session-2.30.2/install-sh
-libdir = ${exec_prefix}/lib
+install_sh = $(SHELL) /tsoljds/packages/BUILD/tsoljds-xagent-0.6.8/install-sh
+libdir = ${exec_prefix}/lib/amd64
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
 localstatedir = ${prefix}/var
@@ -274,7 +276,7 @@ mandir = ${datarootdir}/man
 mkdir_p = /usr/gnu/bin/mkdir -p
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr/local
+prefix = /usr
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
@@ -304,6 +306,9 @@ INCLUDES = \
 	-DGCONF_SANITY_CHECK=\""$(GCONF_SANITY_CHECK)"\" \
 	-DGCONFTOOL_CMD=\"$(GCONFTOOL)\"	\
 	-DI_KNOW_THE_DEVICEKIT_POWER_API_IS_SUBJECT_TO_CHANGE
+
+configdir = $(datadir)/gtk-3.0
+config_DATA = settings.ini auto_homedir audit_class audit_event
 
 test_inhibit_SOURCES = \
 	test-inhibit.c	\
@@ -410,6 +415,7 @@ EXTRA_DIST = \
 	org.gnome.SessionManager.ClientPrivate.xml	\
 	org.gnome.SessionManager.Inhibitor.xml		\
 	org.gnome.SessionManager.Presence.xml		\
+	$(config_DATA)					\
 	$(NULL)
 
 MAINTAINERCLEANFILES = \
@@ -564,6 +570,23 @@ mostlyclean-libtool:
 
 clean-libtool:
 	-rm -rf .libs _libs
+install-configDATA: $(config_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(configdir)" || $(MKDIR_P) "$(DESTDIR)$(configdir)"
+	@list='$(config_DATA)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f=$(am__strip_dir) \
+	  echo " $(configDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(configdir)/$$f'"; \
+	  $(configDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(configdir)/$$f"; \
+	done
+
+uninstall-configDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(config_DATA)'; for p in $$list; do \
+	  f=$(am__strip_dir) \
+	  echo " rm -f '$(DESTDIR)$(configdir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(configdir)/$$f"; \
+	done
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -696,7 +719,7 @@ info: info-am
 
 info-am:
 
-install-data-am:
+install-data-am: install-configDATA
 
 install-dvi: install-dvi-am
 
@@ -732,7 +755,7 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS
+uninstall-am: uninstall-binPROGRAMS uninstall-configDATA
 
 .MAKE: install-am install-strip
 
@@ -741,7 +764,7 @@ uninstall-am: uninstall-binPROGRAMS
 	clean-noinstPROGRAMS ctags distclean distclean-compile \
 	distclean-generic distclean-libtool distclean-tags distdir dvi \
 	dvi-am html html-am info info-am install install-am \
-	install-binPROGRAMS install-data install-data-am install-dvi \
+	install-binPROGRAMS install-configDATA install-data install-data-am install-dvi \
 	install-dvi-am install-exec install-exec-am install-html \
 	install-html-am install-info install-info-am install-man \
 	install-pdf install-pdf-am install-ps install-ps-am \
@@ -749,8 +772,7 @@ uninstall-am: uninstall-binPROGRAMS
 	maintainer-clean maintainer-clean-generic mostlyclean \
 	mostlyclean-compile mostlyclean-generic mostlyclean-libtool \
 	pdf pdf-am ps ps-am tags uninstall uninstall-am \
-	uninstall-binPROGRAMS
-
+	uninstall-binPROGRAMS uninstall-configDATA
 
 gsm-marshal.c: gsm-marshal.list
 	$(AM_V_GEN)echo "#include \"gsm-marshal.h\"" > $@ && \

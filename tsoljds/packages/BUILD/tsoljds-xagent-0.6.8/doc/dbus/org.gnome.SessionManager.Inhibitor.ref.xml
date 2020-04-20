@@ -1,0 +1,48 @@
+<refentry id="org.gnome.SessionManager.Inhibitor">
+  <refmeta>
+    <refentrytitle role="top_of_page">org.gnome.SessionManager.Inhibitor</refentrytitle>
+  </refmeta>
+  <refnamediv>
+    <refname>org.gnome.SessionManager.Inhibitor</refname>
+    <refpurpose>Inhibitor interface</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv role="synopsis">
+    <title role="synopsis.title">Methods</title>
+    <synopsis><link linkend="org.gnome.SessionManager.Inhibitor.GetAppId">GetAppId</link>(out's'app_id)
+<link linkend="org.gnome.SessionManager.Inhibitor.GetClientId">GetClientId</link>(out'o'client_id)
+<link linkend="org.gnome.SessionManager.Inhibitor.GetReason">GetReason</link>(out's'reason)
+<link linkend="org.gnome.SessionManager.Inhibitor.GetFlags">GetFlags</link>(out'u'flags)
+<link linkend="org.gnome.SessionManager.Inhibitor.GetToplevelXid">GetToplevelXid</link>(out'u'xid)
+</synopsis>
+  </refsynopsisdiv>
+  <refsect1 role="impl_interfaces">
+    <title role="impl_interfaces.title">Implemented Interfaces</title>
+    <para>
+    Objects implementing org.gnome.SessionManager.Inhibitor also implements
+    org.freedesktop.DBus.Introspectable,
+    org.freedesktop.DBus.Properties
+    </para>
+  </refsect1>
+  <refsect1 role="desc">
+    <title role="desc.title">Description</title>
+    <para/>
+  </refsect1>
+  <refsect1 role="details">
+    <title role="details.title">Details</title>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Inhibitor.GetAppId"/>GetAppId ()</title><indexterm><primary>GetAppId</primary><secondary>org.gnome.SessionManager.Inhibitor</secondary></indexterm><programlisting>GetAppId (out's'app_id)</programlisting>
+          <para>Return the application ID associated with this inhibit.</para>
+        <variablelist role="params"><varlistentry><term><parameter>app_id</parameter>:</term><listitem><simpara>The identifier for the associated application</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Inhibitor.GetClientId"/>GetClientId ()</title><indexterm><primary>GetClientId</primary><secondary>org.gnome.SessionManager.Inhibitor</secondary></indexterm><programlisting>GetClientId (out'o'client_id)</programlisting>
+          <para>Return the client object path associated with this inhibit.</para>
+        <variablelist role="params"><varlistentry><term><parameter>client_id</parameter>:</term><listitem><simpara>The object path of the associated client</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Inhibitor.GetReason"/>GetReason ()</title><indexterm><primary>GetReason</primary><secondary>org.gnome.SessionManager.Inhibitor</secondary></indexterm><programlisting>GetReason (out's'reason)</programlisting>
+          <para>Return the reason for the inhibit</para>
+        <variablelist role="params"><varlistentry><term><parameter>reason</parameter>:</term><listitem><simpara>The reason for the inhibit</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Inhibitor.GetFlags"/>GetFlags ()</title><indexterm><primary>GetFlags</primary><secondary>org.gnome.SessionManager.Inhibitor</secondary></indexterm><programlisting>GetFlags (out'u'flags)</programlisting>
+          <para>Return the flags that determine the scope of the inhibit</para>
+        <variablelist role="params"><varlistentry><term><parameter>flags</parameter>:</term><listitem><simpara>The flags that determine the scope of the inhibit</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Inhibitor.GetToplevelXid"/>GetToplevelXid ()</title><indexterm><primary>GetToplevelXid</primary><secondary>org.gnome.SessionManager.Inhibitor</secondary></indexterm><programlisting>GetToplevelXid (out'u'xid)</programlisting>
+          <para>Return the X11 toplevel window identifier associated with this inhibit.  Zero if not set.</para>
+        <variablelist role="params"><varlistentry><term><parameter>xid</parameter>:</term><listitem><simpara>X11 toplevel window identifier associated with this inhibit.  Zero if not set.</simpara></listitem></varlistentry></variablelist></refsect2>
+  </refsect1>
+</refentry>

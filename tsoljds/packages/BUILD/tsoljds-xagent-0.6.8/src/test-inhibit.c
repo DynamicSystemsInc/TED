@@ -80,14 +80,9 @@ do_inhibit_for_window (GdkWindow *window)
         guint       flags;
 
         startup_id = g_getenv ("DESKTOP_AUTOSTART_ID");
-#if 1
-        app_id = "nautilus-cd-burner";
-        reason = "A CD burn is in progress.";
-#else
-        app_id = "nautilus";
+        app_id = "caja";
         reason = "A file transfer is in progress.";
-#endif
-        toplevel_xid = GDK_DRAWABLE_XID (window);
+        toplevel_xid = GDK_WINDOW_XID (window);
         flags = GSM_INHIBITOR_FLAG_LOGOUT
                 | GSM_INHIBITOR_FLAG_SWITCH_USER
                 | GSM_INHIBITOR_FLAG_SUSPEND;

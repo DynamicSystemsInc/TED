@@ -26,9 +26,13 @@ void
 devmgr_show_help (GtkWidget *w) 
 {
 	GError *err = NULL;
+	char *command = "atril --preview /usr/share/mate/help/DevMgrHelp.pdf";
 
+/*
 	gnome_help_display_desktop (NULL, "trusted", "index.xml", 
-				    "device_manager" ,&err);
+				    "device_manager", err);
+*/
+	g_spawn_command_line_async (command, &err);
 	if (err) {
 		GtkWidget *err_dialog = gtk_message_dialog_new ((GtkWindow *)w,
 						GTK_DIALOG_DESTROY_WITH_PARENT,

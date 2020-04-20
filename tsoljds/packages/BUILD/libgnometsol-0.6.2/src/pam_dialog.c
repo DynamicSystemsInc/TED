@@ -292,7 +292,7 @@ gnome_tsol_password_dialog_instance_init (GnomeTsolPasswordDialog * password_dia
 				NULL);
 
 	/* Setup the dialog */
-	gtk_dialog_set_has_separator (GTK_DIALOG (password_dialog), FALSE);
+	//gtk_dialog_set_has_separator (GTK_DIALOG (password_dialog), FALSE);
 
 	gtk_window_set_position (GTK_WINDOW (password_dialog), GTK_WIN_POS_CENTER);
 
@@ -341,7 +341,7 @@ gnome_tsol_password_dialog_instance_init (GnomeTsolPasswordDialog * password_dia
 	gtk_misc_set_alignment (GTK_MISC (dialog_icon), 0.5, 0.0);
 	gtk_box_pack_start (GTK_BOX (hbox), dialog_icon, FALSE, FALSE, 0);
 
-	gtk_box_set_spacing (GTK_BOX (GTK_DIALOG (password_dialog)->vbox), 12);
+	gtk_box_set_spacing (gtk_dialog_get_content_area(GTK_DIALOG(password_dialog)), 12);
 	gtk_container_set_border_width (GTK_CONTAINER (hbox), 6);
 	gtk_box_set_spacing (GTK_BOX (hbox), 12);
 
@@ -367,13 +367,13 @@ gnome_tsol_password_dialog_instance_init (GnomeTsolPasswordDialog * password_dia
 
 	gtk_box_pack_start (GTK_BOX (hbox), vbox, TRUE, TRUE, 5);
 
-	gtk_box_pack_start (GTK_BOX (GTK_DIALOG (password_dialog)->vbox),
+	gtk_box_pack_start (GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(password_dialog))),
 			    hbox,
 			    TRUE,	/* expand */
 			    TRUE,	/* fill */
 			    0);	/* padding */
 
-	gtk_widget_show_all (GTK_DIALOG (password_dialog)->vbox);
+	gtk_widget_show_all (gtk_dialog_get_content_area(GTK_DIALOG(password_dialog)));
 }
 
 /* GObjectClass methods */
@@ -462,9 +462,10 @@ password_dialog_show_callback (GtkWidget * widget, gpointer callback_data)
 
 	/* Oooh */
 	while (1) {
-		if (gdk_pointer_grab (password_dialog->details->invisible->window, FALSE, 0,
+		GdkWindow *window = gtk_widget_get_window(GTK_WIDGET(password_dialog->details->invisible));
+		if (gdk_pointer_grab (window, FALSE, 0,
 				 NULL, NULL, GDK_CURRENT_TIME) == Success) {
-			if (gdk_keyboard_grab (password_dialog->details->invisible->window,
+			if (gdk_keyboard_grab (window,
 					FALSE, GDK_CURRENT_TIME) == Success)
 				break;
 			gdk_pointer_ungrab (GDK_CURRENT_TIME);
@@ -476,9 +477,9 @@ password_dialog_show_callback (GtkWidget * widget, gpointer callback_data)
 
 	gtk_widget_show_all (GTK_WIDGET (password_dialog));
 	while (1) {
-		if (gdk_pointer_grab (GTK_WIDGET (password_dialog)->window, TRUE, 0,
+		if (gdk_pointer_grab (gtk_widget_get_window(GTK_WIDGET(password_dialog)), TRUE, 0,
 				 NULL, NULL, GDK_CURRENT_TIME) == Success) {
-			if (gdk_keyboard_grab (GTK_WIDGET (password_dialog)->window,
+			if (gdk_keyboard_grab (gtk_widget_get_window(GTK_WIDGET(password_dialog)),
 					FALSE, GDK_CURRENT_TIME) == Success)
 				break;
 			gdk_pointer_ungrab (GDK_CURRENT_TIME);
@@ -487,9 +488,9 @@ password_dialog_show_callback (GtkWidget * widget, gpointer callback_data)
 	}
 
 	XSetInputFocus (xdpy,
-		  GDK_WINDOW_XWINDOW (GTK_WIDGET (password_dialog)->window),
-			RevertToParent,
-			CurrentTime);
+		GDK_WINDOW_XID(gtk_widget_get_window(GTK_WIDGET(password_dialog))),
+		RevertToParent,
+		CurrentTime);
 
 	gtk_widget_grab_focus (password_dialog->details->text_entry);
 

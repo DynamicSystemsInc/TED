@@ -54,8 +54,6 @@
 #include <sys/contract/process.h>
 #include <sys/ctfs.h>
 #include <zone.h>
-#include <libwnck/workspace.h>
-#include <libgnomeui/libgnomeui.h>
 #include <libgnometsol/userattr.h>
 #include <libgnometsol/pam_conv.h>
 
@@ -212,7 +210,7 @@ exec_cmd (char *cmd)
         gdk_dpy = gdk_display_get_default ();
 	screen_num = get_screen_number (cmd);
 	real_cmd = get_real_command(cmd);
-        gdk_spawn_command_line_on_screen (gdk_display_get_screen (gdk_dpy, screen_num), real_cmd, &error);
+        g_spawn_command_line_async (real_cmd, &error);
 }
 
 
@@ -254,8 +252,8 @@ run_in_own_zone (XAgent * agent, char *cmd)
 }
 
 GSList *trusted_execs = NULL;
-#define USR_TPEXEC_FILE "/usr/share/gnome/TrustedPathExecutables"
-#define ETC_TPEXEC_FILE "/etc/share/gnome/TrustedPathExecutables"
+#define USR_TPEXEC_FILE "/usr/share/mate/TrustedPathExecutables"
+#define ETC_TPEXEC_FILE "/etc/share/mate/TrustedPathExecutables"
 #define LINESIZE 1024
 
 static void 
@@ -401,7 +399,7 @@ get_exec_command_prop (Display * x_dpy, Window proxy_window)
 	int             i, n_strings;
 	gchar          *p;
 
-	utf8_string = XInternAtom (gdk_display, "UTF8_STRING", FALSE);
+	utf8_string = XInternAtom (x_dpy, "UTF8_STRING", FALSE);
 
 	labelCommandAtom = XInternAtom (x_dpy, _XA_LABEL_EXEC_COMMAND, False);
 
@@ -620,7 +618,6 @@ spawn_xagent (XAgent * agent, char *fullcmd)
 		escalate_inherited_privs (); 
 		execl ("/usr/bin/tsoljds-xagent-proxy", "tsoljds-xagent-proxy", zoneintstr, p->pw_name, 0);
 		drop_inherited_privs ();
-		free (zoneintstr);
 
 		/*
 		 * Error - command could not be exec'ed.
@@ -630,6 +627,7 @@ spawn_xagent (XAgent * agent, char *fullcmd)
 		agent->fd = ToAgentFD[1];
 		agent->pid = pid;
 		(void) close (ToAgentFD[0]);
+		free (zoneintstr);
 	} else if (pid == -1) {	/* error occurred in fork () */
 		fprintf (stderr, "fork() failed \n");
 	}
@@ -649,6 +647,7 @@ set_root_window_background_colour_for_label (Display *dpy, int screen_num,
 
 	XSetWindowBackground (dpy, root_win, color.pixel); 
 	XClearWindow (dpy, root_win);
+	free(colorname);
 }
 
 static void
@@ -776,7 +775,7 @@ update_desktop_window (WnckWorkspace *active_ws)
 
 	value = g_strdup_printf ("%d_%d", uid, zid);
 
-	root_win = GDK_WINDOW_XWINDOW (gdk_screen_get_root_window (gdk_screen));
+	root_win = GDK_WINDOW_XID (gdk_screen_get_root_window (gdk_screen));
 
 	set_root_window_background_colour_for_label (x_dpy, screennumber, 
 						     root_win, sl);

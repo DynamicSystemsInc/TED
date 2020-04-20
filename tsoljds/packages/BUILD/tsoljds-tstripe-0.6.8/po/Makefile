@@ -28,7 +28,7 @@ top_srcdir = ..
 top_builddir = ..
 
 
-prefix = /usr/local
+prefix = /usr
 exec_prefix = ${prefix}
 datadir = ${datarootdir}
 datarootdir = ${prefix}/share
@@ -36,7 +36,7 @@ libdir = ${exec_prefix}/lib
 DATADIRNAME = share
 itlocaledir = $(prefix)/$(DATADIRNAME)/locale
 subdir = po
-install_sh = $(SHELL) /export/home/gfaden/packages/BUILD/tsoljds-tstripe-0.6.8/install-sh
+install_sh = $(SHELL) /tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/install-sh
 # Automake >= 1.8 provides /usr/gnu/bin/mkdir -p.
 # Until it can be supposed, use the safe fallback:
 mkdir_p = $(install_sh) -d

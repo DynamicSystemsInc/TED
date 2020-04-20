@@ -316,76 +316,50 @@ scale_pixbuf (GdkPixbuf *pixbuf,
 
 #ifdef HAVE_XRENDER
 
-/* adapted from metacity */
-static GdkColormap*
-get_cmap (GdkPixmap *pixmap)
-{
-        GdkColormap *cmap;
-
-        cmap = gdk_drawable_get_colormap (pixmap);
-        if (cmap) {
-                g_object_ref (G_OBJECT (cmap));
-        }
-
-        if (cmap == NULL) {
-                if (gdk_drawable_get_depth (pixmap) == 1) {
-                        g_debug ("Using NULL colormap for snapshotting bitmap\n");
-                        cmap = NULL;
-                } else {
-                        g_debug ("Using system cmap to snapshot pixmap\n");
-                        cmap = gdk_screen_get_system_colormap (gdk_drawable_get_screen (pixmap));
-
-                        g_object_ref (G_OBJECT (cmap));
-                }
-        }
-
-        /* Be sure we aren't going to blow up due to visual mismatch */
-        if (cmap &&
-            (gdk_colormap_get_visual (cmap)->depth !=
-             gdk_drawable_get_depth (pixmap))) {
-                cmap = NULL;
-                g_debug ("Switching back to NULL cmap because of depth mismatch\n");
-        }
-
-        return cmap;
-}
-
 static GdkPixbuf *
 pixbuf_get_from_pixmap (Pixmap xpixmap)
 {
-        GdkDrawable *drawable;
-        GdkPixbuf   *retval;
-        GdkColormap *cmap;
-        int          width;
-        int          height;
+  cairo_surface_t *surface;
+  Display *display;
+  Window root_return;
+  int x_ret, y_ret;
+  unsigned int w_ret, h_ret, bw_ret, depth_ret;
+  XWindowAttributes attrs;
+  GdkPixbuf *retval;
 
-        retval = NULL;
-        cmap = NULL;
+  display = GDK_DISPLAY_XDISPLAY (gdk_display_get_default ());
 
-        g_debug ("GsmInhibitDialog: getting foreign pixmap for %u", (guint)xpixmap);
-        drawable = gdk_pixmap_foreign_new (xpixmap);
-        if (GDK_IS_PIXMAP (drawable)) {
-                cmap = get_cmap (drawable);
-                gdk_drawable_get_size (drawable,
-                                       &width,
-                                       &height);
-                g_debug ("GsmInhibitDialog: getting pixbuf w=%d h=%d", width, height);
+  if (!XGetGeometry (display, xpixmap, &root_return,
+              &x_ret, &y_ret, &w_ret, &h_ret, &bw_ret, &depth_ret))
+    return NULL;
 
-                retval = gdk_pixbuf_get_from_drawable (NULL,
-                                                       drawable,
-                                                       cmap,
-                                                       0, 0,
-                                                       0, 0,
-                                                       width, height);
-        }
-        if (cmap) {
-                g_object_unref (G_OBJECT (cmap));
-        }
-        if (drawable) {
-                g_object_unref (G_OBJECT (drawable));
-        }
+  if (depth_ret == 1)
+    {
+      surface = cairo_xlib_surface_create_for_bitmap (display,
+		      xpixmap,
+		      GDK_SCREEN_XSCREEN (gdk_screen_get_default ()),
+		      w_ret,
+		      h_ret);
+    }
+  else
+    {
+      if (!XGetWindowAttributes (display, root_return, &attrs))
+        return NULL;
 
-        return retval;
+      surface = cairo_xlib_surface_create (display,
+                                           xpixmap,
+                                           attrs.visual,
+                                           w_ret, h_ret);
+    }
+
+  retval = gdk_pixbuf_get_from_surface (surface,
+			0,
+			0,
+			cairo_xlib_surface_get_width (surface),
+		        cairo_xlib_surface_get_height (surface));
+  cairo_surface_destroy (surface);
+
+  return retval;
 }
 
 static Pixmap
@@ -403,9 +377,9 @@ get_pixmap_for_window (Window window)
         int                      width;
         int                      height;
 
-        XGetWindowAttributes (GDK_DISPLAY (), window, &attr);
+        XGetWindowAttributes (gdk_x11_get_default_xdisplay(), window, &attr);
 
-        format = XRenderFindVisualFormat (GDK_DISPLAY (), attr.visual);
+        format = XRenderFindVisualFormat (gdk_x11_get_default_xdisplay (), attr.visual);
         has_alpha = (format->type == PictTypeDirect && format->direct.alphaMask);
         x = attr.x;
         y = attr.y;
@@ -414,15 +388,15 @@ get_pixmap_for_window (Window window)
 
         pa.subwindow_mode = IncludeInferiors; /* Don't clip child widgets */
 
-        src_picture = XRenderCreatePicture (GDK_DISPLAY (), window, format, CPSubwindowMode, &pa);
+        src_picture = XRenderCreatePicture (gdk_x11_get_default_xdisplay (), window, format, CPSubwindowMode, &pa);
 
-        pixmap = XCreatePixmap (GDK_DISPLAY (),
+        pixmap = XCreatePixmap (gdk_x11_get_default_xdisplay (),
                                 window,
                                 width, height,
                                 attr.depth);
 
-        dst_picture = XRenderCreatePicture (GDK_DISPLAY (), pixmap, format, 0, 0);
-        XRenderComposite (GDK_DISPLAY (),
+        dst_picture = XRenderCreatePicture (gdk_x11_get_default_xdisplay (), pixmap, format, 0, 0);
+        XRenderComposite (gdk_x11_get_default_xdisplay (),
                           has_alpha ? PictOpOver : PictOpSrc,
                           src_picture,
                           None,
@@ -460,7 +434,7 @@ get_pixbuf_for_window (guint xid,
 
         if (xpixmap != None) {
                 gdk_error_trap_push ();
-                XFreePixmap (GDK_DISPLAY (), xpixmap);
+                XFreePixmap (gdk_x11_get_default_xdisplay(), xpixmap);
                 gdk_display_sync (gdk_display_get_default ());
                 gdk_error_trap_pop ();
         }
@@ -989,7 +963,7 @@ gsm_inhibit_dialog_constructor (GType                  type,
 
 #ifdef HAVE_XRENDER
         gdk_error_trap_push ();
-        if (XRenderQueryExtension (GDK_DISPLAY (), &dialog->priv->xrender_event_base, &dialog->priv->xrender_error_base)) {
+        if (XRenderQueryExtension (gdk_x11_get_default_xdisplay(), &dialog->priv->xrender_event_base, &dialog->priv->xrender_error_base)) {
                 g_debug ("GsmInhibitDialog: Initialized XRender extension");
                 dialog->priv->have_xrender = TRUE;
         } else {
@@ -1116,7 +1090,6 @@ gsm_inhibit_dialog_init (GsmInhibitDialog *dialog)
         gtk_container_add (GTK_CONTAINER (content_area), widget);
 
         gtk_container_set_border_width (GTK_CONTAINER (dialog), 6);
-        gtk_dialog_set_has_separator (GTK_DIALOG (dialog), FALSE);
         gtk_window_set_icon_name (GTK_WINDOW (dialog), "system-log-out");
         gtk_window_set_title (GTK_WINDOW (dialog), "");
         g_object_set (dialog,

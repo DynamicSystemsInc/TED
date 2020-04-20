@@ -28,16 +28,15 @@ top_srcdir = ..
 top_builddir = ..
 
 
-prefix = /usr/local
+prefix = /usr
 exec_prefix = ${prefix}
 datadir = ${datarootdir}
 datarootdir = ${prefix}/share
 libdir = ${exec_prefix}/lib
-DATADIRNAME = share
-itlocaledir = $(prefix)/$(DATADIRNAME)/locale
+localedir = ${datarootdir}/locale
 subdir = po
-install_sh = $(SHELL) /export/home/gfaden/packages/BUILD/tsoljdslabel-0.6.5/install-sh
-# Automake >= 1.8 provides /usr/gnu/bin/mkdir -p.
+install_sh = ${SHELL} /trusted-desktop/tsoljds/packages/BUILD/tsoljdslabel-0.6.5/install-sh
+# Automake >= 1.8 provides $(MKDIR_P).
 # Until it can be supposed, use the safe fallback:
 mkdir_p = $(install_sh) -d
 
@@ -49,14 +48,14 @@ MSGFMT = /usr/gnu/bin/msgfmt
 XGETTEXT = /usr/gnu/bin/xgettext
 INTLTOOL_UPDATE = /usr/bin/intltool-update
 INTLTOOL_EXTRACT = /usr/bin/intltool-extract
-MSGMERGE = INTLTOOL_EXTRACT=$(INTLTOOL_EXTRACT) srcdir=$(srcdir) $(INTLTOOL_UPDATE) --gettext-package $(GETTEXT_PACKAGE) --dist
-GENPOT   = INTLTOOL_EXTRACT=$(INTLTOOL_EXTRACT) srcdir=$(srcdir) $(INTLTOOL_UPDATE) --gettext-package $(GETTEXT_PACKAGE) --pot
+MSGMERGE = INTLTOOL_EXTRACT="$(INTLTOOL_EXTRACT)" XGETTEXT="$(XGETTEXT)" srcdir=$(srcdir) $(INTLTOOL_UPDATE) --gettext-package $(GETTEXT_PACKAGE) --dist
+GENPOT   = INTLTOOL_EXTRACT="$(INTLTOOL_EXTRACT)" XGETTEXT="$(XGETTEXT)" srcdir=$(srcdir) $(INTLTOOL_UPDATE) --gettext-package $(GETTEXT_PACKAGE) --pot
 
 ALL_LINGUAS = 
 
 PO_LINGUAS=$(shell if test -r $(srcdir)/LINGUAS; then grep -v "^\#" $(srcdir)/LINGUAS; else echo "$(ALL_LINGUAS)"; fi)
 
-USER_LINGUAS=$(shell if test -n "$(LINGUAS)"; then LLINGUAS="$(LINGUAS)"; ALINGUAS="$(ALL_LINGUAS)"; for lang in $$LLINGUAS; do if test -n "`grep '^$$lang$$' $(srcdir)/LINGUAS 2>/dev/null`" -o -n "`echo $$ALINGUAS|tr ' ' '\n'|grep '^$$lang$$'`"; then printf "$$lang "; fi; done; fi)
+USER_LINGUAS=$(shell if test -n "$(LINGUAS)"; then LLINGUAS="$(LINGUAS)"; ALINGUAS="$(ALL_LINGUAS)"; for lang in $$LLINGUAS; do if test -n "`grep \^$$lang$$ $(srcdir)/LINGUAS 2>/dev/null`" -o -n "`echo $$ALINGUAS|tr ' ' '\n'|grep \^$$lang$$`"; then printf "$$lang "; fi; done; fi)
 
 USE_LINGUAS=$(shell if test -n "$(USER_LINGUAS)" -o -n "$(LINGUAS)"; then LLINGUAS="$(USER_LINGUAS)"; else if test -n "$(PO_LINGUAS)"; then LLINGUAS="$(PO_LINGUAS)"; else LLINGUAS="$(ALL_LINGUAS)"; fi; fi; for lang in $$LLINGUAS; do printf "$$lang "; done)
 
@@ -76,15 +75,20 @@ CATALOGS=$(shell LINGUAS="$(USE_LINGUAS)"; for lang in $$LINGUAS; do printf "$$l
 .SUFFIXES:
 .SUFFIXES: .po .pox .gmo .mo .msg .cat
 
+AM_DEFAULT_VERBOSITY = 1
+INTLTOOL_V_MSGFMT = $(INTLTOOL__v_MSGFMT_$(V))
+INTLTOOL__v_MSGFMT_= $(INTLTOOL__v_MSGFMT_$(AM_DEFAULT_VERBOSITY))
+INTLTOOL__v_MSGFMT_0 = @echo "  MSGFMT" $@;
+
 .po.pox:
 	$(MAKE) $(GETTEXT_PACKAGE).pot
-	$(MSGMERGE) $< $(GETTEXT_PACKAGE).pot -o $*.pox
+	$(MSGMERGE) $* $(GETTEXT_PACKAGE).pot -o $*.pox
 
 .po.mo:
-	$(MSGFMT) -o $@ $<
+	$(INTLTOOL_V_MSGFMT)$(MSGFMT) -o $@ $<
 
 .po.gmo:
-	file=`echo $* | sed 's,.*/,,'`.gmo \
+	$(INTLTOOL_V_MSGFMT)file=`echo $* | sed 's,.*/,,'`.gmo \
 	  && rm -f $$file && $(GMSGFMT) -o $$file $<
 
 .po.cat:
@@ -134,7 +138,7 @@ install-data-yes: all
 	done
 	linguas="$(USE_LINGUAS)"; \
 	for lang in $$linguas; do \
-	  dir=$(DESTDIR)$(itlocaledir)/$$lang/LC_MESSAGES; \
+	  dir=$(DESTDIR)$(localedir)/$$lang/LC_MESSAGES; \
 	  $(mkdir_p) $$dir; \
 	  if test -r $$lang.gmo; then \
 	    $(INSTALL_DATA) $$lang.gmo $$dir/$(GETTEXT_PACKAGE).mo; \
@@ -160,7 +164,7 @@ install-data-yes: all
 	done
 
 # Empty stubs to satisfy archaic automake needs
-dvi info tags TAGS ID:
+dvi info ctags tags CTAGS TAGS ID:
 
 # Define this as empty until I found a useful application.
 install-exec installcheck:
@@ -168,8 +172,8 @@ install-exec installcheck:
 uninstall:
 	linguas="$(USE_LINGUAS)"; \
 	for lang in $$linguas; do \
-	  rm -f $(DESTDIR)$(itlocaledir)/$$lang/LC_MESSAGES/$(GETTEXT_PACKAGE).mo; \
-	  rm -f $(DESTDIR)$(itlocaledir)/$$lang/LC_MESSAGES/$(GETTEXT_PACKAGE).mo.m; \
+	  rm -f $(DESTDIR)$(localedir)/$$lang/LC_MESSAGES/$(GETTEXT_PACKAGE).mo; \
+	  rm -f $(DESTDIR)$(localedir)/$$lang/LC_MESSAGES/$(GETTEXT_PACKAGE).mo.m; \
 	done
 
 check: all $(GETTEXT_PACKAGE).pot

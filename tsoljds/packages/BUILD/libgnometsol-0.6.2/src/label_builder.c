@@ -20,7 +20,6 @@
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 #include <glib/gi18n-lib.h>
-#include <libgnome/gnome-help.h>
 
 #include <strings.h>
 
@@ -28,6 +27,7 @@
 #include <sys/tsol/label_macro.h>
 
 #include "label_builder.h"
+
 
 enum {
 	COL_TOGGLE = 0,
@@ -70,6 +70,24 @@ gnome_label_builder_class_init_trampoline (gpointer klass, gpointer data)
 {
 	parent_class = (GtkDialogClass *) g_type_class_ref (GTK_TYPE_DIALOG);
 	gnome_label_builder_class_init ((GnomeLabelBuilderClass *) klass);
+}
+
+static void
+show_color(GtkWidget *widget, cairo_t *cr, gpointer data)
+{
+	GdkRGBA color;
+	char *label_str, *colorname = NULL;
+	GnomeLabelBuilderDetails *details;
+
+	details = (GnomeLabelBuilderDetails *) data;
+	label_to_str (details->sl, &colorname, M_COLOR, LONG_NAMES);
+	if (!colorname)
+		colorname = g_strdup ("white");
+
+	gdk_rgba_parse (&color, colorname);
+	cairo_set_source_rgb(cr, color.red, color.green, color.blue);
+	cairo_paint(cr);
+	g_free (colorname);
 }
 
 gboolean
@@ -122,8 +140,11 @@ set_cursor_pos (gpointer data)
 static void
 update_entry_and_colorbox (GnomeLabelBuilderDetails *details)
 {
-	GdkColor color;
+	GdkRGBA color;
+	cairo_t	*cr;
+	GdkWindow *window;
 	char *label_str, *colorname = NULL;
+
 	gboolean tp = label_is_trusted_path (details->sl, details->mode);
 
 	g_signal_handler_block (details->entry, details->hid);
@@ -138,19 +159,21 @@ update_entry_and_colorbox (GnomeLabelBuilderDetails *details)
 	}
 
 	g_timeout_add (10, set_cursor_pos, details);
-	
 	g_free (label_str);
 
-	label_to_str (details->sl, &colorname, M_COLOR, LONG_NAMES);
+	window = gtk_widget_get_window(details->da);
+	if (window != NULL) {
+		label_to_str (details->sl, &colorname, M_COLOR, LONG_NAMES);
+		if (!colorname)
+			colorname = g_strdup ("white");
 
-        if (!colorname)
-                colorname = g_strdup ("white");
-
-        gdk_color_parse (colorname, &color);
-
-        gtk_widget_modify_bg (details->da, GTK_STATE_NORMAL, &color);
-
-	g_free (colorname);
+		gdk_rgba_parse (&color, colorname);
+		cr = gdk_cairo_create(window);
+		cairo_set_source_rgb(cr, color.red, color.green, color.blue);
+		cairo_paint(cr);
+		cairo_destroy(cr);
+		g_free (colorname);
+	}
 }
 
 static void
@@ -470,9 +493,14 @@ gboolean
 gnome_label_builder_show_help (GtkWidget *w)
 {
 	GError *err = NULL;
+	char *command = "atril --preview /usr/share/mate/help/LabelBuilderHelp.pdf";
 
+	/*
 	gnome_help_display_desktop (NULL, "trusted", "index.xml",
 				    "label_builder" ,&err);
+	*/
+
+	g_spawn_command_line_async (command, &err);
 	if (err) {
 		GtkWidget *err_dialog = gtk_message_dialog_new (GTK_WINDOW (w),
 						GTK_DIALOG_DESTROY_WITH_PARENT,
@@ -585,7 +613,7 @@ get_icon_pixbuf_from_theme (char *icon_name)
 							     icon_name, 48, 0);
 	GdkPixbuf *pixbuf = gtk_icon_info_load_icon (icon_info, NULL);
 
-	gtk_icon_info_free (icon_info);
+	g_object_unref(icon_info);
 	return pixbuf;
 }
 
@@ -705,7 +733,7 @@ gnome_label_builder_instance_init (GnomeLabelBuilder *lbuilder)
 	GtkTreeSelection *selection;
 	GtkWidget *scroller;
 	GtkWidget *frame;
-	GdkColor  color;
+	GdkRGBA  color;
 	GtkWidget *vbox, *list_vbox, *hbox, *label;
 	GtkWidget *reset_button;
 
@@ -890,10 +918,6 @@ gnome_label_builder_instance_init (GnomeLabelBuilder *lbuilder)
 
 	details->da = gtk_drawing_area_new ();
 	gtk_widget_set_size_request (details->da, 48, 16);
-	color.red = 0;
-	color.blue = 65535;
-	color.green = 0;
-	gtk_widget_modify_bg (details->da, GTK_STATE_NORMAL, &color);
 	gtk_container_add (GTK_CONTAINER (frame), details->da);
 
 	gtk_box_pack_start (GTK_BOX (hbox), frame, FALSE, FALSE, 0);
@@ -902,9 +926,9 @@ gnome_label_builder_instance_init (GnomeLabelBuilder *lbuilder)
 
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), 10);
 
-	gtk_box_pack_start (GTK_BOX (dialog->vbox), vbox, TRUE, TRUE, 0);
+	gtk_box_pack_start (GTK_BOX(gtk_dialog_get_content_area(dialog)), vbox, TRUE, TRUE, 0);
 
-	gtk_window_set_default_size (GTK_WINDOW (dialog), 480, 480);
+	gtk_window_set_default_size (GTK_WINDOW (dialog), 640, 480);
 
 	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
 	gtk_window_set_transient_for (GTK_WINDOW (dialog), NULL);
@@ -916,7 +940,8 @@ gnome_label_builder_instance_init (GnomeLabelBuilder *lbuilder)
 			  G_CALLBACK (emit_cancel_cb), NULL);
 	g_signal_connect (G_OBJECT (dialog), "delete_event",
 			  G_CALLBACK (emit_cancel_cb), NULL);
-
+	g_signal_connect (G_OBJECT (details->da), "draw",
+			  G_CALLBACK (show_color), details);
 }
 
 GtkWidget *

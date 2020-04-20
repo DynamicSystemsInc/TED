@@ -555,7 +555,7 @@ ac_hostname=`(hostname || uname -n) 2>/dev/null | sed 1q`
 #
 # Initializations.
 #
-ac_default_prefix=/usr/local
+ac_default_prefix=/usr
 ac_clean_files=
 ac_config_libobj_dir=.
 LIBOBJS=
@@ -12423,9 +12423,9 @@ if test -z "$XGETTEXT" -o -z "$MSGMERGE" -o -z "$MSGFMT"; then
 fi
 xgversion="`$XGETTEXT --version|grep '(GNU ' 2> /dev/null`"
 mmversion="`$MSGMERGE --version|grep '(GNU ' 2> /dev/null`"
-if test -z "$xgversion" -o -z "$mmversion"; then
-    as_fn_error $? "GNU gettext tools not found; required for intltool" "$LINENO" 5
-fi
+#if test -z "$xgversion" -o -z "$mmversion"; then
+#    as_fn_error $? "GNU gettext tools not found; required for intltool" "$LINENO" 5
+#fi
 
 # Extract the first word of "perl", so it can be a program name with args.
 set dummy perl; ac_word=$2
@@ -12769,12 +12769,12 @@ if test -n "$TSOLJDSSELMGR_CFLAGS"; then
     pkg_cv_TSOLJDSSELMGR_CFLAGS="$TSOLJDSSELMGR_CFLAGS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0 gtk+-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgnometsol\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "glib-2.0 gtk+-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgnometsol") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0 gconf-2.0 gtk+-3.0 libgnometsol\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "glib-2.0 gconf-2.0 gtk+-3.0 libgnometsol") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_TSOLJDSSELMGR_CFLAGS=`$PKG_CONFIG --cflags "glib-2.0 gtk+-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgnometsol" 2>/dev/null`
+  pkg_cv_TSOLJDSSELMGR_CFLAGS=`$PKG_CONFIG --cflags "glib-2.0 gconf-2.0 gtk+-3.0 libgnometsol" 2>/dev/null`
 else
   pkg_failed=yes
 fi
@@ -12785,12 +12785,12 @@ if test -n "$TSOLJDSSELMGR_LIBS"; then
     pkg_cv_TSOLJDSSELMGR_LIBS="$TSOLJDSSELMGR_LIBS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0 gtk+-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgnometsol\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "glib-2.0 gtk+-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgnometsol") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0 gconf-2.0 gtk+-3.0 libgnometsol\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "glib-2.0 gconf-2.0 gtk+-3.0 libgnometsol") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_TSOLJDSSELMGR_LIBS=`$PKG_CONFIG --libs "glib-2.0 gtk+-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgnometsol" 2>/dev/null`
+  pkg_cv_TSOLJDSSELMGR_LIBS=`$PKG_CONFIG --libs "glib-2.0 gconf-2.0 gtk+-3.0 libgnometsol" 2>/dev/null`
 else
   pkg_failed=yes
 fi
@@ -12808,14 +12808,14 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-	        TSOLJDSSELMGR_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "glib-2.0 gtk+-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgnometsol" 2>&1`
+	        TSOLJDSSELMGR_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "glib-2.0 gconf-2.0 gtk+-3.0 libgnometsol" 2>&1`
         else
-	        TSOLJDSSELMGR_PKG_ERRORS=`$PKG_CONFIG --print-errors "glib-2.0 gtk+-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgnometsol" 2>&1`
+	        TSOLJDSSELMGR_PKG_ERRORS=`$PKG_CONFIG --print-errors "glib-2.0 gconf-2.0 gtk+-3.0 libgnometsol" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$TSOLJDSSELMGR_PKG_ERRORS" >&5
 
-	as_fn_error $? "Package requirements (glib-2.0 gtk+-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgnometsol) were not met:
+	as_fn_error $? "Package requirements (glib-2.0 gconf-2.0 gtk+-3.0 libgnometsol) were not met:
 
 $TSOLJDSSELMGR_PKG_ERRORS
 

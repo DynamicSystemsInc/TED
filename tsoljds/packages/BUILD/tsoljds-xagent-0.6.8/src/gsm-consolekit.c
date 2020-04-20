@@ -83,6 +83,9 @@ static void     gsm_consolekit_on_name_owner_changed (DBusGProxy        *bus_pro
                                                       const char        *new_owner,
                                                       GsmConsolekit   *manager);
 
+void gsm_consolekit_restart_with_parameters (GsmConsolekit *manager,
+		const gchar *parameters);
+
 G_DEFINE_TYPE (GsmConsolekit, gsm_consolekit, G_TYPE_OBJECT);
 
 static void

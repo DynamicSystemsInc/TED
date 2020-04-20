@@ -209,7 +209,7 @@ is_sunray_client (void)
 {
         Atom          sunray_client_id;
 
-        sunray_client_id = XInternAtom (GDK_DISPLAY (),
+        sunray_client_id = XInternAtom (gdk_x11_get_default_xdisplay(),
                                         "_SUN_SUNRAY_SESSION", True);
  
         if (sunray_client_id == None) {

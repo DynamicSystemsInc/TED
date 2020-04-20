@@ -1,5 +1,4 @@
-/*Solaris Trusted Extensions GNOME desktop application.
-
+/*
   Copyright (C) 2007 Sun Microsystems, Inc. All Rights Reserved.
 
   The contents of this file are subject to the terms of the
@@ -26,9 +25,6 @@
 #include <stdio.h>
 #include <libgnometsol/constraint-scaling.h>
 
-#include <gnome.h>
-#include <gconf/gconf-client.h>
-
 #include "ui-view.h"
 #include "menus.h"
 #include "pics.h"
@@ -37,96 +33,58 @@
 #include "xutils.h"
 #include <X11/extensions/Xtsol.h>
 
-static void 
-draw_state (GtkWidget * widget, GdkRectangle * area)
-{
-	if (GTK_WIDGET_STATE (widget) == GTK_STATE_ACTIVE) {
-		gdk_draw_rectangle (widget->window, widget->style->dark_gc[GTK_STATE_ACTIVE],
-				    TRUE,
-				    area->x,
-				    area->y,
-				    area->width,
-				    area->height);
-	}
-	if (GTK_WIDGET_STATE (widget) == GTK_STATE_PRELIGHT) {
-		gdk_draw_rectangle (widget->window, widget->style->dark_gc[GTK_STATE_PRELIGHT],
-				    TRUE,
-				    area->x,
-				    area->y,
-				    area->width,
-				    area->height);
-	}
-	if (GTK_WIDGET_STATE (widget) == GTK_STATE_SELECTED) {
-		gdk_draw_rectangle (widget->window, widget->style->dark_gc[GTK_STATE_SELECTED],
-				    TRUE,
-				    area->x,
-				    area->y,
-				    area->width,
-				    area->height);
-	}
-}
+static GtkWidget *current_focus = NULL;
 
 gboolean 
 ws_label_stripe_expose_event (GtkWidget * widget,
-			      GdkEventExpose * event,
+			      cairo_t * cr,
 			      gpointer data)
 {
-	GdkGC          *gc;
 	int             text_height, pango_height, pango_width, image_y;
 	GdkRectangle    area;
 	ConstraintImage *cimage = NULL;
 	PangoLayout    *pango_layout;
-	GdkColor       *label_color = NULL;
+	GdkRGBA		*label_color;
+	GdkRGBA		text_color;
 	TrustedStripe  *stripe = (TrustedStripe *) data;
+	char		*label_name;
 
-	area.x = 0;
-	area.y = 0;
-	area.width = widget->allocation.width;
-	area.height = widget->allocation.height;
-
-	draw_state (widget, &area);
+	gtk_widget_get_allocation(widget, &area);
 
 	/* constraint image beautifier (more padding) */
+	area.x = 0;
 	area.y = 1;
-	area.height = widget->allocation.height - 2;
 
+	label_name = current_workspace_label_get_name (widget);
 	label_color = current_workspace_label_get_color (widget);
 	if (label_color) {
 		cimage = workspace_label_stripe_get (widget,
-				  current_workspace_label_get_name (widget),
-						     label_color);
-		pango_layout = gtk_widget_create_pango_layout (widget,
-				 current_workspace_label_get_name (widget));
+				  label_name, label_color);
 	}
 	/* draw highlight */
 
 	if (cimage) {
-		gnome_tsol_constraint_image_render (cimage, widget->window,
-						    NULL, &area,
-						    FALSE,
-						    area.x,
-						    area.y,
-						    area.width,
-						    area.height);
-		area.x += cimage->border_left;
-	} else
+		gnome_tsol_constraint_image_render (cr, cimage,
+		    gtk_widget_get_window(widget),
+		    &area,
+		    FALSE,
+		    area.x,
+		    area.y,
+		    area.width,
+		    area.height);
+	} else {
 		return FALSE;
+	}
 
 	/* draw icon */
-	image_y = ((widget->allocation.height / 2) - (gdk_pixbuf_get_height (stripe->workspace_icon) / 2)) - 1;
+	image_y = (((area.height + 2) / 2) - (gdk_pixbuf_get_height (stripe->workspace_icon) / 2)) - 1;
 
-	gdk_draw_pixbuf (widget->window,
-			 NULL,
-			 stripe->workspace_icon,
-			 0, 0,
-			 area.x, image_y,
-			 gdk_pixbuf_get_width (stripe->workspace_icon),
-			 gdk_pixbuf_get_height (stripe->workspace_icon),
-			 GDK_RGB_DITHER_NONE,
-			 0, 0);
+	gdk_cairo_set_source_pixbuf(cr, stripe->workspace_icon, 4, image_y);
+	cairo_paint(cr);
 
 	/* draw text */
 
+	pango_layout = gtk_widget_create_pango_layout (widget, label_name);
 	pango_layout_get_size (pango_layout, &pango_width, &pango_height);
 
 	area.x += gdk_pixbuf_get_width (stripe->workspace_icon) + 4;
@@ -135,94 +93,96 @@ ws_label_stripe_expose_event (GtkWidget * widget,
 	text_height = area.height - text_height;
 	if (text_height < 0)
 		text_height = 0;
-
-	if (label_layout_should_be_black (label_color)) {
-		gc = widget->style->black_gc;
-	} else {
-		gc = widget->style->white_gc;
-	}
-
-	gdk_draw_layout (widget->window, gc,
-			 area.x,
-			 area.y + (text_height / 2),
-			 pango_layout);
+        if (label_layout_should_be_black (label_color)) {
+                gdk_rgba_parse(&text_color, "black");
+        } else {
+                gdk_rgba_parse(&text_color, "white");
+        }
+        cairo_set_source_rgb(cr, text_color.red, text_color.green, text_color.blue);
+        /* draw the label */
+        cairo_move_to(cr, area.x + 8, area.y + 2 + (text_height / 2));
+        pango_cairo_show_layout(cr, pango_layout);
 
 	g_object_unref (pango_layout);
+	g_free(label_name);
 }
 
 gboolean 
 window_label_stripe_expose_event (GtkWidget * widget,
-				  GdkEventExpose * event,
+				  cairo_t *cr,
 				  gpointer data)
 {
-	GdkGC          *gc;
 	int             text_height, pango_height, pango_width, icon_y;
 	GdkRectangle    area;
 	ConstraintImage *cimage = NULL;
 	PangoLayout    *pango_layout;
-	GdkColor       *label_color = NULL;
+	GdkRGBA		*label_color;
+	GdkRGBA		text_color;
 	GdkPixbuf      *icon;
 	gboolean        popup = GPOINTER_TO_INT (data);
+	char		*label_name;
 
-	area.x = 0;
-	area.y = 0;
-	area.width = widget->allocation.width;
-	area.height = widget->allocation.height;
+	gtk_widget_get_allocation(widget, &area);
 
 	/* constraint image beautifier (more padding) */
+	area.x = 0;
 	if (!popup) {
 		area.y = 1;
-		area.height = widget->allocation.height - 2;
+		area.height -2;
 	} else {
 		area.y = 1;
-		/* area.height = widget->allocation.height - 2; */
+		area.height -= 2;
 	}
 
 	label_color = current_window_label_get_color ();
-	cimage = window_label_stripe_get (widget, current_window_label_get_name (),
-					  label_color);
-	pango_layout = gtk_widget_create_pango_layout (widget,
-					  current_window_label_get_name ());
+	label_name = current_window_label_get_name();
+	cimage = window_label_stripe_get (widget, label_name, label_color);
 
 	/* draw highlight */
 
 	if (cimage) {
-		gnome_tsol_constraint_image_render (cimage, widget->window,
-						    NULL, &area,
-						    FALSE,
-						    area.x,
-						    area.y,
-						    area.width,
-						    area.height);
-		area.x += cimage->border_left;
+		gnome_tsol_constraint_image_render (cr, cimage,
+		    gtk_widget_get_window(widget),
+		    &area,
+		    FALSE,
+		    area.x,
+		    area.y,
+		    area.width,
+		    area.height);
+		area.x -= cimage->border_left;
 	} else
 		return FALSE;
 
 	/* draw icon if any */
+	// if current window is trusted stripe, skip icon..
+	//if XmuClientWindow(xdisplay, child...
 	if (global_role_dialog_is_mapped)
 		icon = NULL;
 	else
 		icon = current_window_icon_get ();
 
+	if (widget == current_focus)
+		icon = NULL;
+
 	if (icon) {
-		icon_y = ((widget->allocation.height / 2) - (gdk_pixbuf_get_height (icon) / 2));
+		int icon_height = gdk_pixbuf_get_height(icon);
+		icon_y = (((area.height + 2) / 2) - icon_height / 2);
 
 		if (popup)
 			icon_y++;
 
-		gdk_draw_pixbuf (widget->window,
-				 NULL,
-				 icon,
-				 0, 0,
-				 area.x, icon_y,
-				 gdk_pixbuf_get_width (icon),
-				 gdk_pixbuf_get_height (icon),
-				 GDK_RGB_DITHER_NONE,
-				 0, 0);
-		area.x += gdk_pixbuf_get_width (icon) + 4;
+		if (icon_height > 0) {
+			gdk_cairo_set_source_pixbuf(cr, icon, 4, icon_y);
+			cairo_paint(cr);
+			area.x += gdk_pixbuf_get_width (icon) + 6;
+		}
 	}
-	/* draw text */
 
+	/* draw text */
+        /* draw the label */
+
+	pango_layout = gtk_widget_create_pango_layout (widget,
+					  label_name);
 	pango_layout_get_size (pango_layout, &pango_width, &pango_height);
 	text_height = PANGO_PIXELS (pango_height);
 
@@ -230,106 +190,82 @@ window_label_stripe_expose_event (GtkWidget * widget,
 	if (text_height < 0)
 		text_height = 0;
 
-	if (label_layout_should_be_black (label_color)) {
-		gc = widget->style->black_gc;
-	} else {
-		gc = widget->style->white_gc;
-	}
-
-	gdk_draw_layout (widget->window, gc,
-			 area.x,
-			 area.y + (text_height / 2),
-			 pango_layout);
-
+        /* draw the label */
+        /* set the correct source color */
+        if (label_layout_should_be_black (label_color)) {
+                gdk_rgba_parse(&text_color, "black");
+        } else {
+                gdk_rgba_parse(&text_color, "white");
+        }
+        cairo_set_source_rgb(cr, text_color.red, text_color.green, text_color.blue);
+        cairo_move_to(cr, area.x + 10, area.y + 2 + (text_height / 2));
+        pango_cairo_show_layout(cr, pango_layout);
 	g_object_unref (pango_layout);
 }
 
 gboolean 
 role_label_stripe_expose_event (GtkWidget * widget,
-				GdkEventExpose * event,
+				cairo_t *cr,
 				gpointer data)
 {
-	int             image_y, text_height, pango_height, pango_width;
+	int             image_x, image_y;
+	int		text_height, text_width;
+	int		pango_height, pango_width;
 	GdkRectangle    area;
 	PangoLayout    *pango_layout;
 	TrustedStripe  *stripe = (TrustedStripe *) data;
+	GdkRGBA		label_color;
 
-	area.x = 0;
-	area.y = 0;
-	area.width = widget->allocation.width;
-	area.height = widget->allocation.height;
+	gtk_widget_get_allocation(widget, &area);
+	image_x = (area.width / 2) - (gdk_pixbuf_get_width (stripe->role_hat) / 2);
+	image_y = (area.height / 2) - (gdk_pixbuf_get_height (stripe->role_hat) / 2);
 
-	draw_state (widget, &area);
-
-	image_y = (widget->allocation.height / 2) - (gdk_pixbuf_get_height (stripe->role_hat) / 2);
-
-	gdk_draw_pixbuf (widget->window,
-			 NULL,
-			 stripe->role_hat,
-			 0, 0,
-			 area.x, image_y,
-			 gdk_pixbuf_get_width (stripe->role_hat),
-			 gdk_pixbuf_get_height (stripe->role_hat),
-			 GDK_RGB_DITHER_NONE,
-			 0, 0);
-
+	gdk_cairo_set_source_pixbuf(cr, stripe->role_hat, 4, image_y);
+	cairo_paint(cr);
 
 	pango_layout = gtk_widget_create_pango_layout (widget, current_role_name (widget));
 	pango_layout_get_size (pango_layout, &pango_width, &pango_height);
 	text_height = PANGO_PIXELS (pango_height);
+	text_width = PANGO_PIXELS (pango_width);
 
 	text_height = area.height - text_height;
 	if (text_height < 0)
 		text_height = 0;
 
-	gdk_draw_layout (widget->window, widget->style->black_gc,
-		       area.x + 2 + gdk_pixbuf_get_width (stripe->role_hat),
-			 area.y + (text_height / 2),
-			 pango_layout);
+	gtk_widget_set_size_request (stripe->role_da,
+		text_width + 35, area.height);
+	
+	gdk_rgba_parse(&label_color, "black");
+        cairo_set_source_rgb(cr, label_color.red, label_color.green, label_color.blue);
 
+        cairo_set_source_rgb(cr, label_color.red, label_color.green, label_color.blue);
+        cairo_move_to(cr, 25, area.y + 2 + (text_height / 2));
+        pango_cairo_show_layout(cr, pango_layout);
 	g_object_unref (pango_layout);
+	return FALSE;
 }
 
 gboolean 
 trusted_path_stripe_expose_event (GtkWidget * widget,
-				  GdkEventExpose * event,
+				  cairo_t *cr,
 				  gpointer data)
 {
 	int             text_height, pango_height, pango_width;
 	GdkRectangle    area;
 	PangoLayout    *pango_layout;
 	TrustedStripe  *stripe = (TrustedStripe *) data;
+	GdkRGBA		color;
 
-	area.x = 0;
-	area.y = 0;
-	area.width = widget->allocation.width;
-	area.height = widget->allocation.height;
-
-	draw_state (widget, &area);
+	gtk_widget_get_allocation(widget, &area);
 
 	if (global_role_dialog_is_mapped || stripe->show_shield) {
-		gdk_draw_pixbuf (widget->window,
-				 NULL,
-				 stripe->shield,
-				 0, 0,
-				 area.x, area.y,
-				 gdk_pixbuf_get_width (stripe->shield),
-				 gdk_pixbuf_get_height (stripe->shield),
-				 GDK_RGB_DITHER_NONE,
-				 0, 0);
+		gdk_cairo_set_source_pixbuf(cr, stripe->shield, area.x, area.y);
 	} else {
-		gdk_draw_pixbuf (widget->window,
-				 NULL,
-				 stripe->no_shield,
-				 0, 0,
-				 area.x, area.y,
-				 gdk_pixbuf_get_width (stripe->no_shield),
-				 gdk_pixbuf_get_height (stripe->no_shield),
-				 GDK_RGB_DITHER_NONE,
-				 0, 0);
+		gdk_cairo_set_source_pixbuf(cr, stripe->no_shield, area.x, area.y);
 	}
+	cairo_paint(cr);
 
-	pango_layout = gtk_widget_create_pango_layout (widget, _("Trusted Path"));
+	pango_layout = gtk_widget_create_pango_layout (widget, "Trusted Path");
 	pango_layout_get_size (pango_layout, &pango_width, &pango_height);
 	text_height = PANGO_PIXELS (pango_height);
 
@@ -337,30 +273,41 @@ trusted_path_stripe_expose_event (GtkWidget * widget,
 	if (text_height < 0)
 		text_height = 0;
 
-	gdk_draw_layout (widget->window, widget->style->black_gc,
-			 area.x + gdk_pixbuf_get_width (stripe->shield),
-			 area.y + (text_height / 2),
-			 pango_layout);
+	gdk_rgba_parse(&color, "black");
+        cairo_set_source_rgb(cr, color.red, color.green, color.blue);
 
+        cairo_move_to(cr, area.x + 38, area.y + 2 + (text_height / 2));
+        pango_cairo_show_layout(cr, pango_layout);
 	g_object_unref (pango_layout);
 }
 
 gboolean 
 frame_expose_event (GtkWidget * widget,
-		    GdkEventExpose * event,
+		    cairo_t *cr,
 		    gpointer data)
 {
-	gdk_draw_line (widget->window, widget->style->dark_gc[GTK_STATE_NORMAL],
-		       0,
-		       widget->allocation.height - 2,
-		       widget->allocation.width,
-		       widget->allocation.height - 2);
+	GdkRectangle    area;
+	GtkStyleContext *style_gtk;
+	GdkRGBA		color;
+	GtkStateFlags	state;
 
-	gdk_draw_line (widget->window, widget->style->black_gc,
-		       0,
-		       widget->allocation.height - 1,
-		       widget->allocation.width,
-		       widget->allocation.height - 1);
+	style_gtk = gtk_widget_get_style_context(widget);
+	state = GTK_STATE_NORMAL;
+	gtk_style_context_get_color(style_gtk, state, &color);
+
+	cairo_set_source_rgb(cr, color.red, color.green, color.blue);
+	cairo_set_line_width(cr, 0.5);
+	
+	gtk_widget_get_allocation(widget, &area);
+	cairo_move_to(cr, 0, area.height - 2);
+	cairo_line_to(cr, area.width, area.height - 2);
+	cairo_stroke(cr);
+
+	gdk_rgba_parse(&color, "black");
+	cairo_move_to(cr, 0, area.height - 1);
+	cairo_line_to(cr, area.width, area.height - 1);
+	cairo_stroke(cr);
+
 	/* return FALSE; */
 }
 
@@ -370,7 +317,8 @@ enter_notify (GtkWidget * widget,
 	      GdkEventCrossing * event,
 	      gpointer data)
 {
-	gtk_widget_set_state (widget, GTK_STATE_PRELIGHT);
+	current_focus = widget;
+	gtk_widget_set_state_flags (widget, GTK_STATE_FLAG_PRELIGHT, TRUE);
 	return FALSE;
 }
 static gboolean 
@@ -378,7 +326,8 @@ leave_notify (GtkWidget * widget,
 	      GdkEventCrossing * event,
 	      gpointer data)
 {
-	gtk_widget_set_state (widget, GTK_STATE_NORMAL);
+	current_focus = NULL;
+	gtk_widget_set_state_flags (widget, GTK_STATE_FLAG_NORMAL, TRUE);
 	return FALSE;
 }
 static gboolean 
@@ -386,7 +335,7 @@ button_press (GtkWidget * widget,
 	      GdkEvent * event,
 	      gpointer data)
 {
-	gtk_widget_set_state (widget, GTK_STATE_ACTIVE);
+	gtk_widget_set_state_flags (widget, GTK_STATE_FLAG_ACTIVE, TRUE);
 	return FALSE;
 }
 
@@ -404,7 +353,7 @@ setup_custom_button_events (GtkWidget * widget, gpointer callback, gpointer data
 	g_signal_connect (G_OBJECT (widget), "button_press_event",
 			  G_CALLBACK (button_press),
 			  NULL);
-	g_signal_connect (G_OBJECT (widget), "expose_event",
+	g_signal_connect (G_OBJECT (widget), "draw",
 			  G_CALLBACK (callback),
 			  data);
 }
@@ -415,7 +364,6 @@ create_window_stripe_button (int height, TrustedStripe * tstripe)
 	GtkWidget      *da = gtk_drawing_area_new ();
 
 	gtk_widget_set_size_request (da, -1, height - 4);
-
 	setup_custom_button_events (da, (gpointer) window_label_stripe_expose_event, NULL);
 
 	tstripe->window_da = da;
@@ -429,7 +377,7 @@ create_workspace_stripe_button (int height, TrustedStripe * tstripe)
 	GtkWidget      *da = gtk_drawing_area_new ();
 	GdkPixbuf      *ws_pb = gdk_pixbuf_new_from_inline (-1, workspace_icon, FALSE, NULL);
 
-	image_height = height + 2;
+	image_height = height + 6;
 
 	scaled_w = (gdk_pixbuf_get_width (ws_pb) * image_height) / gdk_pixbuf_get_height (ws_pb);
 
@@ -444,7 +392,7 @@ create_workspace_stripe_button (int height, TrustedStripe * tstripe)
 		      (double) image_height / gdk_pixbuf_get_height (ws_pb),
 			  GDK_INTERP_HYPER);
 
-	gtk_widget_set_size_request (da, 100, height - 4);
+	gtk_widget_set_size_request (da, 116, height - 4);
 
 	setup_custom_button_events (da, (gpointer) ws_label_stripe_expose_event, tstripe);
 
@@ -462,7 +410,7 @@ create_role_stripe_button (int height, TrustedStripe * tstripe)
 	GtkWidget      *da = gtk_drawing_area_new ();
 	GdkPixbuf      *rolehat_pb = gdk_pixbuf_new_from_inline (-1, rolehat, FALSE, NULL);
 
-	image_height = height + 2;
+	image_height = height + 10;
 
 	scaled_w = (gdk_pixbuf_get_width (rolehat_pb) * image_height) / gdk_pixbuf_get_height (rolehat_pb);
 
@@ -477,7 +425,7 @@ create_role_stripe_button (int height, TrustedStripe * tstripe)
 		 (double) image_height / gdk_pixbuf_get_height (rolehat_pb),
 			  GDK_INTERP_HYPER);
 
-	gtk_widget_set_size_request (da, 100, image_height - 4);
+	gtk_widget_set_size_request (da, 130, height - 4);
 
 	setup_custom_button_events (da, (gpointer) role_label_stripe_expose_event, tstripe);
 
@@ -498,7 +446,7 @@ create_trusted_path_stripe_button (int height, TrustedStripe * tstripe)
 	GtkWidget      *da = gtk_drawing_area_new ();
 
 	image_height = height - 2;
-	pango_layout = gtk_widget_create_pango_layout (da, _("Trusted Path"));
+	pango_layout = gtk_widget_create_pango_layout (da, "Trusted Path");
 	pango_layout_get_size (pango_layout, &pango_width, &pango_height);
 
 	scaled_w = (gdk_pixbuf_get_width (shield_pb) * image_height) / gdk_pixbuf_get_height (shield_pb);
@@ -526,8 +474,7 @@ create_trusted_path_stripe_button (int height, TrustedStripe * tstripe)
 			  GDK_INTERP_HYPER);
 
 	gtk_widget_set_size_request (da,
-				     PANGO_PIXELS (pango_width) + gdk_pixbuf_get_width (shield_scaled) + 2,
-				     -1);
+			     PANGO_PIXELS (pango_width) + gdk_pixbuf_get_width (shield_scaled) + 8, -1);
 
 	setup_custom_button_events (da, (gpointer) trusted_path_stripe_expose_event, (gpointer) tstripe);
 
@@ -570,9 +517,9 @@ create_query_window_label_popup (int height, TrustedStripe * tstripe)
 
 	gtk_window_resize (GTK_WINDOW (tstripe->query_window_label), 200, height);
 
-	g_signal_connect (G_OBJECT (tstripe->query_window_label_da), "expose_event",
+	g_signal_connect (G_OBJECT (tstripe->query_window_label_da), "draw",
 			  G_CALLBACK (window_label_stripe_expose_event),
-			  GINT_TO_POINTER(TRUE));
+			  tstripe->query_window_label_da);
 }
 
 #define STRIPE_AT_BOTTOM_KEY "/desktop/gnome/trusted_extensions/stripe_at_bottom"
@@ -583,28 +530,25 @@ create_trusted_stripe (GdkScreen * screen)
 	GtkWidget      *stripe, *window_stripe, *ws_stripe, *tp;
 	GtkWidget      *vbox, *dumb_label, *hbox;
 	GtkWidget      *placeholder;
-
+	GdkRectangle    area;
 	int             image_height;
-	GtkRequisition  req;
+	GtkRequisition  minimum_size;
+	GtkRequisition  natural_size;
 	TrustedStripe  *tstripe;
 	static int	stripeattop = -1;
 
-	if (stripeattop == -1) {
-		stripeattop = !gconf_client_get_bool(gconf_client_get_default(),
-					              STRIPE_AT_BOTTOM_KEY,
-						      NULL);
-	}
-
 	tstripe = g_new (TrustedStripe, 1);
-
 	dumb_label = gtk_label_new ("Blah");
-	gtk_widget_size_request (dumb_label, &req);
+	gtk_widget_get_preferred_size (dumb_label, &minimum_size, &natural_size);
 
-	if (stripeattop) {
-		image_height = req.height + 14;
+	XTSOLgetSSHeight (GDK_DISPLAY_XDISPLAY (gdk_display_get_default()), gdk_screen_get_number (screen), &image_height);
+	if (image_height == 0) {
+		stripeattop = 1;
 	} else {
-		XTSOLgetSSHeight (GDK_DISPLAY_XDISPLAY (gdk_display_get_default()), gdk_screen_get_number (screen), &image_height);
+		stripeattop = 0;
 	}
+	image_height = 28;
+	natural_size.height = 9;
 
 	stripe = gtk_window_new (GTK_WINDOW_POPUP);
 	tstripe->toplevel = stripe;
@@ -620,15 +564,21 @@ create_trusted_stripe (GdkScreen * screen)
 	gtk_window_set_screen (GTK_WINDOW (placeholder), screen);
 
 	gtk_window_resize (GTK_WINDOW (stripe), gdk_screen_get_width (screen), image_height);
-	gtk_window_resize (GTK_WINDOW (placeholder), gdk_screen_get_width (screen), image_height);
+//	gtk_window_resize (GTK_WINDOW (placeholder), gdk_screen_get_width (screen), image_height);
 
 	if (stripeattop) {
 		gtk_window_move (GTK_WINDOW (stripe), 0, 0);
-		gtk_window_move (GTK_WINDOW (placeholder), 0, 0);
+		//gtk_window_move (GTK_WINDOW (placeholder), 0, 0);
 	} else {
 		gtk_window_move (GTK_WINDOW (stripe), 0, 
-				 gdk_screen_get_height (screen));
+				 gdk_screen_get_height (screen) - image_height);
 	}
+	area.x = 0;
+	area.y = gdk_screen_get_height(screen) - image_height;
+	area.height = image_height;
+	area.width = gdk_screen_get_width(screen);
+
+	gtk_widget_show(stripe);
 
 	vbox = gtk_vbox_new (FALSE, 0);
 	gtk_container_add (GTK_CONTAINER (stripe), vbox);
@@ -649,28 +599,30 @@ create_trusted_stripe (GdkScreen * screen)
 
 	/* Role custom button */
 	if (_tstripe_user_count_get () > 1) {
-		tstripe->role_da = create_role_stripe_button (req.height, tstripe);
+		tstripe->role_da = create_role_stripe_button (natural_size.height, tstripe);
 
 		gtk_box_pack_start (GTK_BOX (hbox), tstripe->role_da, FALSE, FALSE, 0);
 	}
 	/* workspace custom button */
 
-	ws_stripe = create_workspace_stripe_button (req.height, tstripe);
+	ws_stripe = create_workspace_stripe_button (natural_size.height, tstripe);
 
 	gtk_box_pack_start (GTK_BOX (hbox), ws_stripe, FALSE, FALSE, 0);
 
 	/* window custom button */
 
-	window_stripe = create_window_stripe_button (req.height, tstripe);
+	window_stripe = create_window_stripe_button (natural_size.height, tstripe);
 
 	gtk_box_pack_start (GTK_BOX (hbox), window_stripe, TRUE, TRUE, 0);
 
 	/* show the placeholder for the metacity-panel strut problem */
 	if (stripeattop) {
-		gtk_widget_show_all (placeholder);
-		gtk_window_set_keep_below (GTK_WINDOW (placeholder), TRUE);
-		_tstripe_window_strut_set (placeholder->window, image_height, 0,
-					   gdk_screen_get_width (screen));
+		//gtk_widget_show_all (placeholder);
+		gtk_window_set_keep_below ((GtkWindow *)placeholder,
+			TRUE);
+		_tstripe_window_strut_set (gtk_widget_get_window(placeholder),
+		     image_height, 0,
+		     gdk_screen_get_width (screen));
 	}
 
 	/* now show the real stripe */
@@ -679,13 +631,15 @@ create_trusted_stripe (GdkScreen * screen)
 
 	/* make sure the windows are in the right order */
 
-	gtk_window_set_keep_above (GTK_WINDOW (stripe), TRUE);
-	gdk_window_set_override_redirect (stripe->window, TRUE);
-	if (stripeattop) gdk_window_lower (GDK_WINDOW (placeholder->window));
-	gdk_window_raise (GDK_WINDOW (stripe->window));
+	gtk_window_set_keep_above ((GtkWindow *)stripe, TRUE);
+	gdk_window_set_override_redirect (gtk_widget_get_window(stripe), TRUE);
+	if (stripeattop)
+		gdk_window_lower (gtk_widget_get_window(placeholder));
+	gdk_window_raise (gtk_widget_get_window(stripe));
 	gdk_display_flush (gtk_widget_get_display (stripe));
 
-	XTSOLMakeTPWindow (GDK_WINDOW_XDISPLAY (stripe->window), GDK_WINDOW_XWINDOW (stripe->window));
+	XTSOLMakeTPWindow (GDK_WINDOW_XDISPLAY (gtk_widget_get_window(stripe)),
+		GDK_WINDOW_XID (gtk_widget_get_window(stripe)));
 
 	create_query_window_label_popup (image_height, tstripe);
 

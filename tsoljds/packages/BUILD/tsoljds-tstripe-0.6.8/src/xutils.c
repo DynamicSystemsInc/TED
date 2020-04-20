@@ -52,7 +52,7 @@ _tstripe_window_strut_set (GdkWindow * gdk_window,
 	g_return_if_fail (GDK_IS_WINDOW (gdk_window));
 
 	display = GDK_WINDOW_XDISPLAY (gdk_window);
-	window = GDK_WINDOW_XWINDOW (gdk_window);
+	window = GDK_WINDOW_XID (gdk_window);
 
 	if (net_wm_strut == None)
 		net_wm_strut = XInternAtom (display, "_NET_WM_STRUT", False);
@@ -99,7 +99,7 @@ _tstripe_get_window (Window xwindow,
 
 	gdk_error_trap_push ();
 	type = None;
-	result = XGetWindowProperty (gdk_display,
+	result = XGetWindowProperty (gdk_x11_get_default_xdisplay(),
 				     xwindow,
 				     atom,
 				     0, G_MAXLONG,
@@ -136,13 +136,13 @@ _tstripe_get_cardinal (Window xwindow,
 
 	gdk_error_trap_push ();
 	type = None;
-	result = XGetWindowProperty (gdk_display,
+	result = XGetWindowProperty (gdk_x11_get_default_xdisplay(),
 				     xwindow,
 				     atom,
 				     0, G_MAXLONG,
 				False, XA_CARDINAL, &type, &format, &nitems,
 				     &bytes_after, (guchar **) & num);
-	XSync (gdk_display, False);
+	XSync (gdk_x11_get_default_xdisplay(), False);
 	err = gdk_error_trap_pop ();
 	if (err != Success ||
 			result != Success)
@@ -167,14 +167,14 @@ _tstripe_set_cardinal (Window xwindow,
 	data[0] = *val;
 
 	gdk_error_trap_push ();
-	XChangeProperty (gdk_display,
+	XChangeProperty (gdk_x11_get_default_xdisplay(),
 			 xwindow,
 			 atom,
 			 XA_CARDINAL,
 			 32, PropModeReplace,
 			 (guchar *) data, 1);
 
-	XSync (gdk_display, False);
+	XSync (gdk_x11_get_default_xdisplay(), False);
 	gdk_error_trap_pop ();
 }
 
@@ -194,13 +194,13 @@ _tstripe_get_atom (Window xwindow,
 
 	gdk_error_trap_push ();
 	type = None;
-	result = XGetWindowProperty (gdk_display,
+	result = XGetWindowProperty (gdk_x11_get_default_xdisplay(),
 				     xwindow,
 				     atom,
 				     0, G_MAXLONG,
 				     False, XA_ATOM, &type, &format, &nitems,
 				     &bytes_after, (guchar **) & a);
-	XSync (gdk_display, False);
+	XSync (gdk_x11_get_default_xdisplay(), False);
 	err = gdk_error_trap_pop ();
 	if (err != Success ||
 			result != Success)
@@ -236,14 +236,14 @@ _tstripe_get_utf8_list (Window xwindow,
 	gdk_error_trap_push ();
 	type = None;
 	val = NULL;
-	result = XGetWindowProperty (gdk_display,
+	result = XGetWindowProperty (gdk_x11_get_default_xdisplay(),
 				     xwindow,
 				     atom,
 				     0, G_MAXLONG,
 				     False, utf8_string,
 				     &type, &format, &nitems,
 				     &bytes_after, (guchar **) & val);
-	XSync (gdk_display, False);
+	XSync (gdk_x11_get_default_xdisplay(), False);
 	err = gdk_error_trap_pop ();
 
 	if (err != Success ||
@@ -323,14 +323,14 @@ _tstripe_set_utf8_list (Window xwindow,
 	}
 
 	gdk_error_trap_push ();
-	XChangeProperty (gdk_display,
+	XChangeProperty (gdk_x11_get_default_xdisplay(),
 			 xwindow,
 			 atom,
 			 utf8_string, 8, PropModeReplace,
 			 (const guchar *) flattened->str,
 			 flattened->len);
 
-	XSync (gdk_display, False);
+	XSync (gdk_x11_get_default_xdisplay(), False);
 	gdk_error_trap_pop ();
 
 	g_string_free (flattened, TRUE);
@@ -341,5 +341,5 @@ _tstripe_atom_get (const char *atom_name)
 {
 	g_return_val_if_fail (atom_name != NULL, None);
 
-	return XInternAtom (gdk_display, atom_name, FALSE);
+	return XInternAtom (gdk_x11_get_default_xdisplay(), atom_name, FALSE);
 }
