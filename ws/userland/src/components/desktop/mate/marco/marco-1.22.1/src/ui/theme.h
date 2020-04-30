@@ -29,8 +29,10 @@
 #include "common.h"
 #include <gtk/gtk.h>
 #include <config.h>
+#ifdef MARCO_DATADIR
 #include "../core/display-private.h"
 #include "../core/screen-private.h"
+#endif /* MARCO_DATADIR */
 
 typedef struct _MetaFrameStyle MetaFrameStyle;
 typedef struct _MetaFrameStyleSet MetaFrameStyleSet;
@@ -1025,7 +1027,7 @@ MetaDrawOpList*	      tsol_theme_trusted_title_ops_get (MetaFrameFocus focus,
 							MetaTheme *theme);
 void    meta_ui_set_frame_label  (MetaUI           *ui,
                                   Window            xwindow,
-                                  MetaWindow       *window);
+                                  MetaTrustedLabel *label);
 
 #endif
 
