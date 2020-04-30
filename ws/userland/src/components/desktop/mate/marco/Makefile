@@ -14,6 +14,7 @@
 # Copyright 2019 Michal Nowak
 #
 
+BUILD_BITS =		64
 include ../../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		marco
@@ -32,9 +33,7 @@ COMPONENT_LICENSE_FILE=	$(COMPONENT_NAME).license
 COMPONENT_CLASSIFICATION= System/Libraries
 COMPONENT_FMRI=		desktop/mate/$(COMPONENT_NAME)
 
-include $(WS_MAKE_RULES)/prep.mk
-include $(WS_MAKE_RULES)/configure.mk
-include $(WS_MAKE_RULES)/ips.mk
+include $(WS_MAKE_RULES)/gnome-component.mk
 
 #PATH=$(PATH.gnu)
 
@@ -46,7 +45,6 @@ COMPONENT_PREP_ACTION = cd $(@D)  && NOCONFIGURE=1 ./autogen.sh;\
 CFLAGS+=-D__EXTENSIONS__
 CFLAGS+=-std=gnu99
 
-CONFIGURE_BINDIR.64 = $(CONFIGURE_BINDIR.32)
 
 CONFIGURE_OPTIONS+= --sysconfdir=/etc
 CONFIGURE_OPTIONS+= --disable-static
