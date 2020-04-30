@@ -126,6 +126,7 @@ libmarco_private_la_SOURCES = \
 	ui/preview-widget.h \
 	ui/theme-parser.c \
 	ui/theme-parser.h \
+	ui/stubs.c \
 	ui/theme.c \
 	ui/theme.h
 
