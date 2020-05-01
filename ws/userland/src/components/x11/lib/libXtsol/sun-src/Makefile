@@ -22,6 +22,7 @@
 
 HEADERSPublic = Xtsol.h Xtsolproto.h
 HEADERSPublic_dir = $(PREFIX)/include/X11/extensions
+CC = /opt/developerstudio12.4/bin/cc
 
 SRCS = Xtsol.c
 OBJS = $(SRCS:.c=.o)
