@@ -19,6 +19,7 @@
 #ifndef _PROCMAN_PROCMAN_H_
 #define _PROCMAN_PROCMAN_H_
 
+#define	GLIBTOP_NCPU	1024
 
 #include <glibmm/refptr.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
