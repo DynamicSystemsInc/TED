@@ -112,6 +112,18 @@ static void
 activate_uri (GtkWidget  *menuitem,
 	      const char *uri)
 {
+	char *cmd;
+	GdkScreen *screen;
+
+	if (gnome_desktop_tsol_is_multi_label_session ()) {
+		screen = gtk_window_get_screen (GTK_WINDOW (menuitem));
+		cmd = g_strdup_printf ("%d:[URI]%s",
+		    gdk_screen_get_number (screen),
+		    uri);
+		gnome_desktop_tsol_proxy_app_launch (cmd);
+		g_free (cmd);
+		return;
+	}
 	activate_uri_on_screen (uri, menuitem_to_screen (menuitem));
 }
 
