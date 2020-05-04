@@ -1652,7 +1652,26 @@ index 79314b2..6da1858 100644
  #include <libmate-desktop/mate-gsettings.h>
  
  #include <libpanel-util/panel-error.h>
-@@ -128,6 +130,19 @@ static void
+@@ -110,6 +112,18 @@ static void
+ activate_uri (GtkWidget  *menuitem,
+ 	      const char *uri)
+ {
++	char *cmd;
++	GdkScreen *screen;
++
++	if (gnome_desktop_tsol_is_multi_label_session ()) {
++		screen = gtk_window_get_screen (GTK_WINDOW (menuitem));
++		cmd = g_strdup_printf ("%d:[URI]%s",
++		    gdk_screen_get_number (screen),
++		    uri);
++		gnome_desktop_tsol_proxy_app_launch (cmd);
++		g_free (cmd);
++		return;
++	}
+ 	activate_uri_on_screen (uri, menuitem_to_screen (menuitem));
+ }
+ 
+@@ -128,6 +142,19 @@ static void
  activate_home_uri (GtkWidget *menuitem,
  		   gpointer   data)
  {
@@ -1672,7 +1691,7 @@ index 79314b2..6da1858 100644
  	activate_path (menuitem, g_get_home_dir ());
  }
  
-@@ -135,6 +150,19 @@ static void
+@@ -135,6 +162,19 @@ static void
  activate_desktop_uri (GtkWidget *menuitem,
  		      gpointer   data)
  {
@@ -1692,7 +1711,7 @@ index 79314b2..6da1858 100644
  	activate_path (menuitem,
  		       g_get_user_special_dir (G_USER_DIRECTORY_DESKTOP));
  }
-@@ -196,6 +224,13 @@ panel_menu_items_append_from_desktop (GtkWidget *menu,
+@@ -196,6 +236,13 @@ panel_menu_items_append_from_desktop (GtkWidget *menu,
  		return;
  	}
  
@@ -1706,7 +1725,7 @@ index 79314b2..6da1858 100644
  	/* For Application desktop files, respect TryExec */
  	type = panel_key_file_get_string (key_file, "Type");
  	if (!type) {
-@@ -1068,8 +1103,10 @@ panel_place_menu_item_create_menu (PanelPlaceMenuItem *place_item)
+@@ -1068,8 +1115,10 @@ panel_place_menu_item_create_menu (PanelPlaceMenuItem *place_item)
  		g_free (uri);
  	}
  
@@ -1719,7 +1738,7 @@ index 79314b2..6da1858 100644
  
  	if (place_item->priv->caja_desktop_settings != NULL)
  		gsettings_name = g_settings_get_string (place_item->priv->caja_desktop_settings,
-@@ -1089,8 +1126,10 @@ panel_place_menu_item_create_menu (PanelPlaceMenuItem *place_item)
+@@ -1089,8 +1138,10 @@ panel_place_menu_item_create_menu (PanelPlaceMenuItem *place_item)
  	if (gsettings_name)
  		g_free (gsettings_name);
  
@@ -1732,7 +1751,7 @@ index 79314b2..6da1858 100644
  
  	panel_menu_items_append_place_item (
  			PANEL_ICON_NETWORK, NULL,
-@@ -1659,5 +1698,62 @@ void
+@@ -1659,5 +1710,62 @@ void
  panel_menu_item_activate_desktop_file (GtkWidget  *menuitem,
  				       const char *path)
  {
