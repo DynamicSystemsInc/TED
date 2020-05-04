@@ -38,7 +38,6 @@ include $(WS_MAKE_RULES)/gnome-component.mk
 #PATH=$(PATH.gnu)
 
 COMPONENT_PREP_ACTION = cd $(@D)  && NOCONFIGURE=1 ./autogen.sh;\
-	$(GSED) -i '/_XOPEN_SOURCE/d' $(@D)/src/tools/marco-mag.c; \
 	$(GSED) -i '/_POSIX_C_SOURCE/d' $(@D)/src/core/util.c; \
 	$(GSED) -i '/_XOPEN_SOURCE/d' $(@D)/src/ui/preview-widget.c
 

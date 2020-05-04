@@ -1,0 +1,3986 @@
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 6a5f8ed3b..4e7ca522e 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -11,6 +11,7 @@ AM_CPPFLAGS = \
+ 	-DMARCO_DATADIR=\"$(datadir)\" \
+ 	-DG_LOG_DOMAIN=\"marco\" \
+ 	-DSN_API_NOT_YET_FROZEN=1 \
++	-DHAVE_XTSOL \
+ 	@MARCO_CFLAGS@
+ 
+ marco_SOURCES = \
+@@ -105,6 +106,9 @@ marco_SOURCES = \
+ 	ui/theme.c \
+ 	ui/theme.h \
+ 	ui/ui.c \
++	core/trusted.c \
++	core/trusted.h \
++	core/trusted-pics.h \
+ 	include/all-keybindings.h
+ 
+ # by setting libmarco_private_la_CFLAGS, the files shared with
+@@ -122,6 +126,7 @@ libmarco_private_la_SOURCES = \
+ 	ui/preview-widget.h \
+ 	ui/theme-parser.c \
+ 	ui/theme-parser.h \
++	ui/stubs.c \
+ 	ui/theme.c \
+ 	ui/theme.h
+ 
+@@ -147,7 +152,48 @@ bin_PROGRAMS=marco marco-theme-viewer
+ EFENCE=
+ marco_LDADD=@MARCO_LIBS@ $(EFENCE)
+ 
+-marco_theme_viewer_LDADD= @MARCO_LIBS@ libmarco-private.la
++marco_theme_viewer_LDADD= @MARCO_LIBS@ libmarco-private.la \
++	core/async-getprop.o \
++	core/bell.o \
++	core/boxes.o \
++	compositor/compositor.o \
++	compositor/compositor-xrender.o \
++	core/constraints.o \
++	core/core.o \
++	core/delete.o \
++	core/display.o \
++	ui/draw-workspace.o \
++	core/edge-resistance.o \
++	core/effects.o \
++	core/errors.o \
++	core/eventqueue.o \
++	core/frame.o \
++	ui/gradient.o \
++	core/group-props.o \
++	core/group.o \
++	core/iconcache.o \
++	core/keybindings.o \
++	core/place.o \
++	core/prefs.o \
++	core/screen.o \
++	core/session.o \
++	core/stack.o \
++	core/util.o \
++	core/window-props.o \
++	core/window.o \
++	core/workspace.o \
++	core/xprops.o \
++	ui/fixedtip.o \
++	ui/frames.o \
++	ui/menu.o \
++	ui/metaaccellabel.o \
++	ui/resizepopup.o \
++	ui/tabpopup.o \
++	ui/tile-preview.o \
++	ui/theme-parser.o \
++	ui/theme.o \
++	ui/ui.o \
++	core/trusted.o
+ 
+ testboxes_SOURCES=include/util.h core/util.c include/boxes.h core/boxes.c core/testboxes.c
+ testgradient_SOURCES=ui/gradient.h ui/gradient.c ui/testgradient.c
+diff --git a/src/core/atomnames.h b/src/core/atomnames.h
+index 8e1490607..d901bd14d 100644
+--- a/src/core/atomnames.h
++++ b/src/core/atomnames.h
+@@ -159,6 +159,11 @@ item(_NET_WM_ACTION_BELOW)
+ item(_NET_WM_STATE_STICKY)
+ item(_NET_WM_FULLSCREEN_MONITORS)
+ item(_NET_WM_STATE_FOCUSED)
++#ifdef HAVE_XTSOL
++item(_NET_DESKTOP_ROLES)
++item(_NET_DESKTOP_LABELS)
++item(_NET_TRUSTED_ACTIVE_WINDOW)
++#endif
+ 
+ #if 0
+ /* We apparently never use: */
+diff --git a/src/core/display-private.h b/src/core/display-private.h
+index fe8b948eb..56d7b3e82 100644
+--- a/src/core/display-private.h
++++ b/src/core/display-private.h
+@@ -25,9 +25,11 @@
+ #ifndef META_DISPLAY_PRIVATE_H
+ #define META_DISPLAY_PRIVATE_H
+ 
++#if 0
+ #ifndef PACKAGE
+ 	#error "config.h not included"
+ #endif
++#endif
+ 
+ #include <glib.h>
+ #include <X11/Xlib.h>
+@@ -132,6 +134,9 @@ struct _MetaDisplay {
+ 	guint error_trap_synced_at_last_pop: 1;
+ 	MetaEventQueue* events;
+ 	GSList* screens;
++#ifdef HAVE_XTSOL
++	GSList *labels;
++#endif
+ 	MetaScreen* active_screen;
+ 	GHashTable* window_ids;
+ 	int error_traps;
+diff --git a/src/core/display.c b/src/core/display.c
+index cbe0eb7e8..657539a98 100644
+--- a/src/core/display.c
++++ b/src/core/display.c
+@@ -87,6 +87,9 @@
+ #include <gdk/gdkx.h>
+ 
+ #include <string.h>
++#ifdef HAVE_XTSOL
++#include "trusted.h"
++#endif
+ 
+ #define GRAB_OP_IS_WINDOW_SWITCH(g)                     \
+         (g == META_GRAB_OP_KEYBOARD_TABBING_NORMAL  ||  \
+@@ -426,7 +429,11 @@ meta_display_open (void)
+ 
+   the_display->screens = NULL;
+   the_display->active_screen = NULL;
+-
++  
++#ifdef HAVE_XTSOL
++  the_display->labels = NULL;
++#endif
++  
+ #ifdef HAVE_STARTUP_NOTIFICATION
+   the_display->sn_display = sn_display_new (the_display->xdisplay,
+                                         sn_error_trap_push,
+@@ -1997,7 +2004,10 @@ static gboolean event_callback(XEvent* event, gpointer data)
+         meta_window_handle_mouse_grab_op_event (window, event);
+       break;
+     case EnterNotify:
+-      if (display->grab_window == window &&
++#ifdef HAVE_XTSOL
++        tsol_trusted_stripe_atom_update (display, window);
++#endif      
++	if (display->grab_window == window &&
+           grab_op_is_mouse (display->grab_op))
+         {
+           meta_window_handle_mouse_grab_op_event (window, event);
+@@ -2089,6 +2099,9 @@ static gboolean event_callback(XEvent* event, gpointer data)
+         }
+       break;
+     case LeaveNotify:
++#ifdef HAVE_XTSOL
++      tsol_trusted_stripe_atom_update (display, window);
++#endif
+       if (display->grab_window == window &&
+           grab_op_is_mouse (display->grab_op))
+         meta_window_handle_mouse_grab_op_event (window, event);
+@@ -2379,6 +2392,14 @@ static gboolean event_callback(XEvent* event, gpointer data)
+             else if (event->xproperty.atom ==
+                      display->atom__NET_DESKTOP_NAMES)
+               meta_screen_update_workspace_names (screen);
++ #ifdef HAVE_XTSOL	    
++             else if (event->xproperty.atom ==
++                      display->atom__NET_DESKTOP_LABELS)
++               tsol_workspace_labels_gconf_update (screen);
++             else if (event->xproperty.atom ==
++                      display->atom__NET_DESKTOP_ROLES)
++               tsol_workspace_roles_gconf_update (screen);
++ #endif /*HAVE_XTSOL */	  	    
+ #if 0
+             else if (event->xproperty.atom ==
+                      display->atom__NET_RESTACK_WINDOW)
+diff --git a/src/core/frame.c b/src/core/frame.c
+index 2e0a04521..526f27531 100644
+--- a/src/core/frame.c
++++ b/src/core/frame.c
+@@ -28,6 +28,9 @@
+ #include "bell.h"
+ #include "errors.h"
+ #include "keybindings.h"
++#ifdef HAVE_XTSOL
++#include "trusted.h"
++#endif
+ 
+ #ifdef HAVE_RENDER
+ #include <X11/extensions/Xrender.h>
+@@ -156,6 +159,20 @@ meta_window_ensure_frame (MetaWindow *window)
+                              window->frame->xwindow,
+                              window->title);
+ 
++ #ifdef HAVE_XTSOL
++  if (tsol_is_available ()) {
++	  /* associate trusted label with the window only if a frame exist */
++	  meta_ui_set_frame_label (window->screen->ui,
++				   window->frame->xwindow,
++				   window);				   
++
++	  /* make sure the frame window as the same privileges
++	   * "real" window */
++	  tsol_set_frame_label (window->display->xdisplay, window->xwindow, window->frame->xwindow);
++  }
++#endif
++
++
+   /* Move keybindings to frame instead of window */
+   meta_window_grab_keys (window);
+ 
+diff --git a/src/core/keybindings.c b/src/core/keybindings.c
+index 6211a941a..a834c3ceb 100644
+--- a/src/core/keybindings.c
++++ b/src/core/keybindings.c
+@@ -27,6 +27,7 @@
+ #define _XOPEN_SOURCE /* for putenv() */
+ 
+ #include <config.h>
++#include <gdk/gdkx.h>
+ #include "keybindings.h"
+ #include "workspace.h"
+ #include "errors.h"
+@@ -49,6 +50,10 @@
+ #include <X11/XKBlib.h>
+ #endif
+ 
++#ifdef HAVE_XTSOL
++#include "trusted.h"
++#endif
++
+ static gboolean all_bindings_disabled = FALSE;
+ 
+ typedef void (* MetaKeyHandlerFunc) (MetaDisplay    *display,
+@@ -2429,6 +2434,42 @@ meta_spawn_command_line_async_on_screen (const gchar *command_line,
+                            NULL, &argv,
+                            error))
+     return FALSE;
++  #ifdef HAVE_XTSOL
++  if (tsol_is_available ())
++    {
++      GdkDisplay *dpy;
++      Display *xdpy;
++      Window root;
++      Atom atom, utf8_string;
++      gchar* tsol_command =  g_strdup_printf ("%d:%s",
++                                              screen->number,
++                                              command_line);
++
++      dpy = gdk_display_get_default ();
++      xdpy = GDK_DISPLAY_XDISPLAY (dpy);
++
++      utf8_string = XInternAtom (xdpy, "UTF8_STRING", FALSE);
++
++      root = DefaultRootWindow (xdpy);
++
++      atom = XInternAtom (xdpy, "_LABEL_EXEC_COMMAND", FALSE);
++
++      gdk_error_trap_push ();
++
++      XChangeProperty (xdpy, root, atom, utf8_string, 8, PropModeReplace,
++                       (const unsigned char *)tsol_command, strlen (tsol_command));
++
++      XSync (xdpy, False);
++
++      gdk_error_trap_pop ();
++
++      g_free (tsol_command);
++
++      retval = TRUE;
++    }
++  else
++#endif /* HAVE_XTSOL */
++    {
+ 
+   retval = g_spawn_async (NULL,
+                           argv,
+@@ -2439,7 +2480,7 @@ meta_spawn_command_line_async_on_screen (const gchar *command_line,
+                           NULL,
+                           error);
+   g_strfreev (argv);
+-
++    }
+   return retval;
+ }
+ 
+diff --git a/src/core/main.c b/src/core/main.c
+index 31958d226..7bfb68596 100644
+--- a/src/core/main.c
++++ b/src/core/main.c
+@@ -49,6 +49,9 @@
+ #include "util.h"
+ #include "display-private.h"
+ #include "errors.h"
++#ifdef HAVE_XTSOL
++#include "trusted.h"
++#endif
+ #include "ui.h"
+ #include "session.h"
+ #include "prefs.h"
+diff --git a/src/core/prefs.c b/src/core/prefs.c
+index 81ce07b91..f27425a82 100644
+--- a/src/core/prefs.c
++++ b/src/core/prefs.c
+@@ -25,6 +25,11 @@
+ 
+ #include <config.h>
+ #include "prefs.h"
++#ifdef HAVE_XTSOL
++#include "trusted.h"
++#define HAVE_GCONF
++#include <gconf/gconf-client.h>
++#endif /* HAVE_XTSOL */
+ #include "ui.h"
+ #include "util.h"
+ #include <gdk/gdk.h>
+@@ -74,6 +79,12 @@
+ #define KEY_MATE_MOUSE_CURSOR_THEME "cursor-theme"
+ #define KEY_MATE_MOUSE_CURSOR_SIZE "cursor-size"
+ 
++#ifdef HAVE_XTSOL
++#define KEY_WORKSPACE_LABEL_PREFIX "/apps/metacity/workspace_labels/ws_"
++#define KEY_WORKSPACE_ROLE_PREFIX "/apps/metacity/workspace_roles/ws_"
++static GConfClient *default_client = NULL;
++#endif /* HAVE_XTSOL */
++
+ #define SETTINGS(s) g_hash_table_lookup (settings_schemas, (s))
+ 
+ static GSettings *settings_general;
+@@ -135,6 +146,14 @@ static char *commands[MAX_COMMANDS] = { NULL, };
+ static char *terminal_command = NULL;
+ 
+ static char *workspace_names[MAX_REASONABLE_WORKSPACES] = { NULL, };
++#ifdef HAVE_XTSOL
++/* these are only used for session managements
++ * workspace_labels are NOT used in metacity as the window label 
++ * is queried directly from the window
++ * ditto for the workspace_roles*/
++static char *workspace_labels[MAX_REASONABLE_WORKSPACES] = { NULL, };
++static char *workspace_roles[MAX_REASONABLE_WORKSPACES] = { NULL, };
++#endif /* HAVE_XTSOL */
+ 
+ static gboolean handle_preference_update_enum (const gchar *key, GSettings *settings);
+ 
+@@ -149,14 +168,25 @@ static void change_notify (GSettings *settings,
+                            gchar *key,
+                            gpointer user_data);
+ 
++#ifdef HAVE_XTSOL
++static void init_labels_roles_workspaces (void);
++static gboolean
++update_workspace_property (char **property,
++ 			   char *error_property_name,
++ 			   const char  *name,
++ 			   const char  *value);
++static char* gconf_key_for_workspace_label (int i);
++static char* gconf_key_for_workspace_role (int i);
++#ifdef HAVE_GCONF
++static void     cleanup_error             (GError **error);
++#endif
++
++#endif /*HAVE_XTSOL*/
++
+ static char* settings_key_for_workspace_name (int i);
+ 
+ static void queue_changed (MetaPreference  pref);
+ 
+-#if 0
+-static void     cleanup_error             (GError **error);
+-#endif
+-
+ static void maybe_give_disable_workarounds_warning (void);
+ 
+ static void titlebar_handler (MetaPreference, const gchar*, gboolean*);
+@@ -768,6 +798,40 @@ handle_preference_update_int (const gchar *key, GSettings *settings)
+ 
+   if (*cursor->target != value)
+     {
++#ifdef HAVE_XTSOL
++      if (cursor->pref == META_PREF_NUM_WORKSPACES && tsol_use_trusted_extensions ())
++	{
++	  if (*cursor->target > value) /* remove a workspace blank label and role */
++	    {
++	      GError *err = NULL;
++	      char *key = gconf_key_for_workspace_label (value);
++	      gconf_client_unset (default_client,
++				  key, &err);
++	      update_workspace_property (workspace_labels,"Workspace Label",
++					 key, NULL);
++
++	      g_free (key);
++	      err = NULL;
++	      key = gconf_key_for_workspace_role (value);
++	      gconf_client_unset (default_client,
++				  key, &err);
++	      update_workspace_property (workspace_roles ,"Workspace roles",
++					 key, NULL);
++	      g_free (key);
++	    }
++	  else if (value > *cursor->target)	   /* add a workspace add default label, blank role */
++	    {
++	      GError *err = NULL;
++	      char *key = gconf_key_for_workspace_role (value-1);
++	      gconf_client_unset (default_client,
++				  key, &err);
++	      update_workspace_property (workspace_roles ,"Workspace roles",
++					 key, NULL);
++	      g_free (key);
++	      meta_prefs_change_workspace_label (value, tsol_label_get_min ());
++	    }
++	}
++#endif /* HAVE_XTSOL */  
+       *cursor->target = value;
+       queue_changed (cursor->pref);
+     }
+@@ -902,7 +966,7 @@ meta_prefs_init (void)
+ {
+   if (settings_general != NULL)
+     return;
+-
++  
+   /* returns references which we hold forever */
+   settings_general = g_settings_new (KEY_GENERAL_SCHEMA);
+   settings_command = g_settings_new (KEY_COMMAND_SCHEMA);
+@@ -946,6 +1010,12 @@ meta_prefs_init (void)
+   init_window_bindings ();
+   init_commands ();
+   init_workspace_names ();
++  
++#ifdef HAVE_XTSOL
++  /* tsol labels and roles */
++  init_labels_roles_workspaces ();
++#endif /* HAVE_XTSOL */  
++  
+ }
+ 
+ /****************************************************************************/
+@@ -1016,16 +1086,115 @@ change_notify (GSettings *settings,
+ 
+       g_free(str);
+     }
++ #ifdef HAVE_XTSOL
++   else if (g_str_has_prefix (key, KEY_WORKSPACE_LABEL_PREFIX))
++    {
++      const char *str;
++ 
++      if (!tsol_use_trusted_extensions ())
++        goto out;
++ 
++      /*
++	 GLENN
++      if (user_data && user_data->type != GCONF_VALUE_STRING)
++        {
++          meta_warning (_("GConf key \"%s\" is set to an invalid type\n"),
++                        key);
++          goto out;
++        }
++      */
++ 
++      str = user_data ? gconf_value_get_string (user_data) : NULL;
++ 
++      /* Check if the label is in range if not set it to USER_MIN_SL or role MIN label 
++       * NOTE : if USER_MIN_SL is not properly set you can have an infinite loop here */
++ 
++      if (str && !tsol_label_is_in_user_range (str))
++        {
++ 	 char *p; /* code from update_workspace_property */
++ 	 int i;
++ 	 
++ 	 p = strrchr (key, '_');
++ 	 if (p != NULL)
++ 	   {
++ 	     ++p;
++ 	     if (g_ascii_isdigit (*p))
++ 	       {
++ 		 i = atoi (p);
++ 		 i -= 1; /* count from 0 not 1 */
++ 		 
++ 		 if (i >= MAX_REASONABLE_WORKSPACES)
++ 		   {
++ 		     meta_topic (META_DEBUG_PREFS,
++ 				 "%s key %d is too highly numbered, ignoring\n", 
++ 				 "trusted workspace label", i);
++ 		   }
++ 		 else
++ 		   {
++ 		     char *name, *role_key;
++ 		     GError *err = NULL;
++ 		     role_key = gconf_key_for_workspace_role (i);
++ 		     name = gconf_client_get_string (default_client, role_key, &err);
++ 		     cleanup_error (&err);
++ 		     g_free (role_key);
++ 
++ 		     if (name)
++ 		       {
++ 			 char *min_role_label = NULL;
++ 			 if (!tsol_label_is_in_role_range (str, name, min_role_label))
++ 			   {
++ 			     if (min_role_label)
++ 			       meta_prefs_change_workspace_label (i, min_role_label);
++ 			     else
++ 			       meta_prefs_change_workspace_label (i, tsol_label_get_min ());
++ 			   }
++ 			 g_free (name);
++ 		       }
++ 		     else
++ 		       meta_prefs_change_workspace_label (i, tsol_label_get_min ());
++ 
++ 		   }
++ 	       }
++ 	   }
++        }
++ 
++      if (update_workspace_property (workspace_labels,"Workspace Label", key, str))
++        queue_changed (META_PREF_WORKSPACE_LABELS);
++    }
++   else if (g_str_has_prefix (key, KEY_WORKSPACE_ROLE_PREFIX))
++    {
++      const char *str;
++      
++      if (!tsol_use_trusted_extensions ())
++        goto out;
++ 
++      /*
++       * GLENN
++      if (value && value->type != GCONF_VALUE_STRING)
++        {
++          meta_warning (_("GConf key \"%s\" is set to an invalid type\n"),
++                        key);
++          goto out;
++        }
++      */
++ 
++      str = user_data ? gconf_value_get_string (user_data) : NULL;
++ 
++      if (update_workspace_property (workspace_roles ,"Workspace roles", key, str))
++        queue_changed (META_PREF_WORKSPACE_ROLES);
++    }
++ #endif /*HAVE_XTSOL*/
+   else
+     {
+       /* Is this possible with GSettings? I dont think so! */
+       meta_topic (META_DEBUG_PREFS, "Key %s doesn't mean anything to Marco\n",
+                   key);
+     }
++out:
+   g_free (schema_name);
+ }
+ 
+-#if 0
++#ifdef HAVE_GCONF
+ static void
+ cleanup_error (GError **error)
+ {
+@@ -1652,6 +1821,16 @@ meta_preference_to_string (MetaPreference pref)
+ 
+     case META_PREF_SHOW_DESKTOP_SKIP_LIST:
+       return "SHOW_DESKTOP_SKIP_LIST";
++
++#ifdef HAVE_XTSOL
++    case META_PREF_WORKSPACE_LABELS:
++      return "WORKSPACE_LABELS";
++
++    case META_PREF_WORKSPACE_ROLES:
++      return "WORKSPACE_ROLES";
++
++#endif /*HAVE_XTSOL*/     
++    
+     }
+ 
+   return "(unknown)";
+@@ -1730,9 +1909,53 @@ init_commands (void)
+       update_command (*list, str_val);
+       list++;
+     }
++}
+ 
+-  g_free (str_val);
++#ifdef HAVE_XTSOL
++ static void init_labels_roles_workspaces (void)
++ {
++#ifdef HAVE_GCONF
++   int i;
++   GError *err;
++
++   default_client = gconf_client_get_default();
++   if (!tsol_use_trusted_extensions ())
++     return;
++
++   i = 0;
++   while (i < MAX_REASONABLE_WORKSPACES)
++     {
++       char *str_val;
++       char *label_key, *role_key;
++
++       label_key = gconf_key_for_workspace_label (i);
++
++       err = NULL;
++       str_val = gconf_client_get_string (default_client, label_key, &err);
++       cleanup_error (&err);
++
++       update_workspace_property (workspace_labels,"Workspace Label",
++                                  label_key, str_val);
++
++       g_free (str_val);
++       g_free (label_key);
++
++       role_key = gconf_key_for_workspace_role (i);
++
++       err = NULL;
++       str_val = gconf_client_get_string (default_client, role_key, &err);
++       cleanup_error (&err);
++       update_workspace_property (workspace_roles ,"Workspace roles",
++				 role_key, str_val);
++
++      g_free (str_val);    
++      g_free (role_key);
++
++      ++i;
++    }
++#endif /* HAVE_GCONF */
+ }
++#endif /* HAVE_XTSOL */
+ 
+ static void
+ init_workspace_names (void)
+@@ -2024,13 +2247,79 @@ meta_prefs_get_settings_key_for_terminal_command (void)
+   return KEY_MATE_TERMINAL_COMMAND;
+ }
+ 
++#ifdef HAVE_GCONF
++#ifdef HAVE_XTSOL
++static gboolean
++update_workspace_property (char **property,
++			   char *error_property_name,
++			   const char  *name,
++			   const char  *value)
++{
++  char *p;
++  int i;
++
++  if (!tsol_use_trusted_extensions ())
++    return FALSE;
++  
++  p = strrchr (name, '_');
++  if (p == NULL)
++    {
++      meta_topic (META_DEBUG_PREFS,
++                  "%s name %s has no underscore?\n", error_property_name, name);
++      return FALSE;
++    }
++  
++  ++p;
++
++  if (!g_ascii_isdigit (*p))
++    {
++      meta_topic (META_DEBUG_PREFS,
++                  "%s name %s doesn't end in number?\n", 
++		  error_property_name, name);
++      return FALSE;
++    }
++  
++  i = atoi (p);
++  i -= 1; /* count from 0 not 1 */
++  
++  if (i >= MAX_REASONABLE_WORKSPACES)
++    {
++      meta_topic (META_DEBUG_PREFS,
++                  "%s name %d is too highly numbered, ignoring\n", 
++		  error_property_name, i);
++      return FALSE;
++    }
++
++  if (property[i] && value && strcmp (property[i], value) == 0)
++    {
++      meta_topic (META_DEBUG_PREFS,
++                  "%s name %d is unchanged\n", error_property_name, i);
++      return FALSE;
++    }  
++
++  if (value != NULL && *value != '\0')
++    {
++      g_free (property[i]);
++      property[i] = g_strdup (value);
++    }
++  else
++    {
++      g_free (property[i]);
++      property[i] = NULL;
++    }
++  
++  return TRUE;
++}
++#endif /* HAVE_XTSOL */
++#endif /* HAVE_GCONF */
++
+ static gboolean
+ update_workspace_name (const char  *name,
+                        const char  *value)
+ {
+   char *p;
+   int i;
+-
++  
+   p = strrchr (name, '-');
+   if (p == NULL)
+     {
+@@ -2038,7 +2327,8 @@ update_workspace_name (const char  *name,
+                   "Workspace name %s has no dash?\n", name);
+       return FALSE;
+     }
+-
++  
++  ++p;
+   ++p;
+ 
+   if (!g_ascii_isdigit (*p))
+@@ -2100,14 +2390,156 @@ update_workspace_name (const char  *name,
+ 
+   return TRUE;
+ }
++#ifdef HAVE_XTSOL
++const char* meta_prefs_get_workspace_label    (int         i)
++{
++  g_return_val_if_fail (i >= 0 && i < MAX_REASONABLE_WORKSPACES, NULL);
++
++  if (!tsol_use_trusted_extensions ())
++    return NULL;
++
++  return workspace_labels [i];
++}
++void        
++meta_prefs_change_workspace_label (int         i,
++				   const char *name)
++{
++#ifdef HAVE_GCONF
++  char *key;
++  GError *err;
++  
++  g_return_if_fail (i >= 0 && i < MAX_REASONABLE_WORKSPACES);
++
++  if (!tsol_use_trusted_extensions ())
++    return;
++
++  meta_topic (META_DEBUG_PREFS,
++              "Changing name of workspace_labels %d to %s\n",
++              i, name ? name : "none");
++
++  /* This is a bad hack. We have to treat empty string as
++   * "unset" because the root window property can't contain
++   * null. So it gets empty string instead and we don't want
++   * that to result in setting the empty string as a value that
++   * overrides "unset".
++   */
++  if (name && *name == '\0')
++    name = NULL;
++  
++  if ((name == NULL && workspace_labels [i] == NULL) ||
++      (name && workspace_labels[i] && strcmp (name, workspace_labels[i]) == 0))
++    {
++      meta_topic (META_DEBUG_PREFS,
++                  "Workspace label %d already has name %s\n",
++                  i, name ? name : "none");
++      return;
++    }
++  
++  key = gconf_key_for_workspace_label (i);
++
++  err = NULL;
++  if (name != NULL)
++    gconf_client_set_string (default_client,
++                             key, name,
++                             &err);
++  else
++    gconf_client_unset (default_client,
++                        key, &err);
++
++  
++  if (err)
++    {
++      meta_warning (_("Error setting name for workspace label %d to \"%s\": %s\n"),
++                    i, name ? name : "none",
++                    err->message);
++      g_error_free (err);
++    }
++
++  update_workspace_property (workspace_labels,"Workspace Label",
++			     key, name);
++  
++  g_free (key);
++#endif /* HAVE_GCONF */
++}
++
++
++const char* meta_prefs_get_workspace_role    (int         i)
++{
++  g_return_val_if_fail (i >= 0 && i < MAX_REASONABLE_WORKSPACES, NULL);
++
++  if (!tsol_use_trusted_extensions ())
++    return NULL;
++
++  return workspace_roles [i];
++}
++
++void        meta_prefs_change_workspace_role (int         i,
++                                              const char *name)
++{
++#ifdef HAVE_GCONF
++  char *key;
++  GError *err;
++  
++  g_return_if_fail (i >= 0 && i < MAX_REASONABLE_WORKSPACES);
++ 
++  if (!tsol_use_trusted_extensions ())
++    return;
++
++  meta_topic (META_DEBUG_PREFS,
++              "Changing name of workspace_roles %d to %s\n",
++              i, name ? name : "none");
++
++  /* This is a bad hack. We have to treat empty string as
++   * "unset" because the root window property can't contain
++   * null. So it gets empty string instead and we don't want
++   * that to result in setting the empty string as a value that
++   * overrides "unset".
++   */
++  if (name && *name == '\0')
++    name = NULL;
++  
++  if ((name == NULL && workspace_roles [i] == NULL) ||
++      (name && workspace_roles [i] && strcmp (name, workspace_roles [i]) == 0))
++    {
++      meta_topic (META_DEBUG_PREFS,
++                  "Workspace role %d already has name %s\n",
++                  i, name ? name : "none");
++      return;
++    }
++  
++  key = gconf_key_for_workspace_role (i);
++
++  err = NULL;
++  if (name != NULL)
++    gconf_client_set_string (default_client,
++                             key, name,
++                             &err);
++  else
++    gconf_client_unset (default_client,
++                        key, &err);
++
++  
++  if (err)
++    {
++      meta_warning (_("Error setting name for workspace role %d to \"%s\": %s\n"),
++                    i, name ? name : "none",
++                    err->message);
++      g_error_free (err);
++    }
++  
++  g_free (key);
++#endif /* HAVE_GCONF */
++}
++#endif /* HAVE_XTSOL */
+ 
+ const char*
+ meta_prefs_get_workspace_name (int i)
+ {
+   g_return_val_if_fail (i >= 0 && i < MAX_REASONABLE_WORKSPACES, NULL);
+ 
++/*
+   g_assert (workspace_names[i] != NULL);
+-
++*/
+   meta_topic (META_DEBUG_PREFS,
+               "Getting workspace name for %d: \"%s\"\n",
+               i, workspace_names[i]);
+@@ -2163,6 +2595,27 @@ settings_key_for_workspace_name (int i)
+   return key;
+ }
+ 
++#ifdef HAVE_XTSOL
++static char*
++gconf_key_for_workspace_label (int i)
++{
++  char *key;
++  
++  key = g_strdup_printf (KEY_WORKSPACE_LABEL_PREFIX"%d", i + 1);
++  
++  return key;
++}
++static char*
++gconf_key_for_workspace_role (int i)
++{
++  char *key;
++  
++  key = g_strdup_printf (KEY_WORKSPACE_ROLE_PREFIX"%d", i + 1);
++  
++  return key;
++}
++#endif /* HAVE_XTSOL */
++
+ void
+ meta_prefs_get_button_layout (MetaButtonLayout *button_layout_p)
+ {
+diff --git a/src/core/screen-private.h b/src/core/screen-private.h
+index c1552ab05..ac30af4fa 100644
+--- a/src/core/screen-private.h
++++ b/src/core/screen-private.h
+@@ -111,11 +111,13 @@ struct _MetaScreen
+   /* Cache the current Xinerama */
+   int last_xinerama_index;
+ 
++#if 0
+ #ifdef HAVE_STARTUP_NOTIFICATION
+   SnMonitorContext *sn_context;
+   GSList *startup_sequences;
+   guint startup_sequence_timeout;
+ #endif
++#endif
+ 
+ #ifdef HAVE_COMPOSITE_EXTENSIONS
+   Atom wm_cm_atom;
+diff --git a/src/core/screen.c b/src/core/screen.c
+index e0e4e5060..bae2cb960 100644
+--- a/src/core/screen.c
++++ b/src/core/screen.c
+@@ -64,6 +64,7 @@ static void prefs_changed_callback (MetaPreference pref,
+ static void set_desktop_geometry_hint (MetaScreen *screen);
+ static void set_desktop_viewport_hint (MetaScreen *screen);
+ 
++#undef HAVE_STARTUP_NOTIFICATION
+ #ifdef HAVE_STARTUP_NOTIFICATION
+ static void meta_screen_sn_event   (SnMonitorEvent *event,
+                                     void           *user_data);
+@@ -578,6 +579,17 @@ meta_screen_new (MetaDisplay *display,
+ 
+   set_workspace_names (screen);
+ 
++#ifdef HAVE_XTSOL
++  if (tsol_is_available ())
++    {
++      tsol_workspace_labels_atom_set (screen);
++      tsol_workspace_roles_atom_set (screen);
++      /* create a synch atom to indicate we are done setting up the
++         ws lables/roles */
++      XInternAtom (screen->display->xdisplay, "TX_WS_SETUP_DONE", FALSE);
++    }
++#endif /*HAVE_XTSOL */
++
+   screen->all_keys_grabbed = FALSE;
+   screen->keys_grabbed = FALSE;
+   meta_screen_grab_keys (screen);
+@@ -879,6 +891,16 @@ prefs_changed_callback (MetaPreference pref,
+     {
+       set_workspace_names (screen);
+     }
++#ifdef HAVE_XTSOL
++  else if (pref == META_PREF_WORKSPACE_LABELS)
++    {
++      tsol_workspace_labels_atom_set (screen);
++    }
++  else if (pref == META_PREF_WORKSPACE_ROLES)
++    {
++      tsol_workspace_roles_atom_set (screen);
++    }
++#endif /*HAVE_XTSOL */
+ }
+ 
+ 
+@@ -1174,6 +1196,13 @@ update_num_workspaces (MetaScreen *screen,
+     }
+ 
+   set_number_of_spaces_hint (screen, new_num);
++#ifdef HAVE_XTSOL
++  if (tsol_is_available ())
++    {
++      tsol_workspace_labels_atom_set (screen);
++      tsol_workspace_roles_atom_set (screen);
++    }
++#endif /* HAVE_XTSOL */
+ 
+   meta_screen_queue_workarea_recalc (screen);
+ }
+diff --git a/src/core/trusted-pics.h b/src/core/trusted-pics.h
+new file mode 100644
+index 000000000..c37b42c57
+--- /dev/null
++++ b/src/core/trusted-pics.h
+@@ -0,0 +1,571 @@
++/* Metacity trusted image */
++
++/* 
++ * Copyright (C) 2005 Erwann Chenede
++ */
++
++#ifndef TRUSTED_PICS_H
++#define TRUSTED_PICS_H
++#ifdef HAVE_XTSOL
++#include <gtk/gtk.h>
++/* GdkPixbuf RGBA C-Source image dump */
++ 
++#ifdef __SUNPRO_C
++#pragma align 4 (label_arrows)
++#endif
++#ifdef __GNUC__
++static const guint8 label_arrows[] __attribute__ ((__aligned__ (4))) =
++#else
++static const guint8 label_arrows[] =
++#endif
++{ ""
++  /* Pixbuf magic (0x47646b50) */
++  "GdkP"
++  /* length: header (24) + pixel_data (400) */
++  "\0\0\1\250"
++  /* pixdata_type (0x1010002) */
++  "\1\1\0\2"
++  /* rowstride (80) */
++  "\0\0\0P"
++  /* width (20) */
++  "\0\0\0\24"
++  /* height (5) */
++  "\0\0\0\5"
++  /* pixel_data: */
++  "\2\2\2t\362\362\362^\0\0\0\0\0\0\0\0\0\0\0\0\2\2\2t\362\362\362^\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\2\2\2t\362\362\362^\0\0\0\0\0\0\0\0\0\0\0\0\2\2"
++  "\2t\362\362\362^\0\0\0\0\0\0\0\0\0\0\0\0\362\362\362\0\2\2\2t\362\362"
++  "\362^\0\0\0\0\2\2\2\0\362\362\362\0\2\2\2t\362\362\362^\0\0\0\0\2\2\2"
++  "\0\362\362\362\0\2\2\2t\362\362\362^\0\0\0\0\2\2\2\0\362\362\362\0\2"
++  "\2\2t\362\362\362^\0\0\0\0\2\2\2\0\0\0\0\0\0\0\0\0\2\2\2t\362\362\362"
++  "^\362\362\362\0\0\0\0\0\0\0\0\0\2\2\2t\362\362\362^\362\362\362\0\0\0"
++  "\0\0\0\0\0\0\2\2\2t\362\362\362^\362\362\362\0\0\0\0\0\0\0\0\0\2\2\2"
++  "t\362\362\362^\362\362\362\0\0\0\0\0\2\2\2t\362\362\362^\362\362\362"
++  "\0\0\0\0\0\0\0\0\0\2\2\2t\362\362\362^\362\362\362\0\0\0\0\0\0\0\0\0"
++  "\2\2\2t\362\362\362^\362\362\362\0\0\0\0\0\0\0\0\0\2\2\2t\362\362\362"
++  "^\362\362\362\0\0\0\0\0\2\2\2t\362\362\362^\362\362\362\0\0\0\0\0\0\0"
++  "\0\0\2\2\2t\362\362\362^\362\362\362\0\0\0\0\0\0\0\0\0\2\2\2t\362\362"
++  "\362^\362\362\362\0\0\0\0\0\0\0\0\0\2\2\2t\362\362\362^\362\362\362\0"
++  "\0\0\0\0\0\0\0\0"};
++
++/*GdkPixbuf RGBA C-Source image dump */
++ 
++#ifdef __SUNPRO_C
++#pragma align 4 (title_gradient)
++#endif
++#ifdef __GNUC__
++static const guint8 title_gradient[] __attribute__ ((__aligned__ (4))) =
++#else
++static const guint8 title_gradient[] =
++#endif
++{ ""
++  /* Pixbuf magic (0x47646b50) */
++  "GdkP"
++  /* length: header (24) + pixel_data (360) */
++  "\0\0\1\200"
++  /* pixdata_type (0x1010002) */
++  "\1\1\0\2"
++  /* rowstride (40) */
++  "\0\0\0("
++  /* width (10) */
++  "\0\0\0\12"
++  /* height (9) */
++  "\0\0\0\11"
++  /* pixel_data: */
++  "\337\337\337\11\337\337\337\11\337\337\337\11\337\337\337\11\337\337"
++  "\337\11\337\337\337\11\337\337\337\11\337\337\337\11\337\337\337\11\337"
++  "\337\337\11\364\364\364\32\364\364\364\32\364\364\364\32\364\364\364"
++  "\32\364\364\364\32\364\364\364\32\364\364\364\32\364\364\364\32\364\364"
++  "\364\32\364\364\364\32\360\360\3600\360\360\3600\360\360\3600\360\360"
++  "\3600\360\360\3600\360\360\3600\360\360\3600\360\360\3600\360\360\360"
++  "0\360\360\3600\357\357\357E\357\357\357E\357\357\357E\357\357\357E\357"
++  "\357\357E\357\357\357E\357\357\357E\357\357\357E\357\357\357E\357\357"
++  "\357E\356\356\356X\356\356\356X\356\356\356X\356\356\356X\356\356\356"
++  "X\356\356\356X\356\356\356X\356\356\356X\356\356\356X\356\356\356X\356"
++  "\356\356k\356\356\356k\356\356\356k\356\356\356k\356\356\356k\356\356"
++  "\356k\356\356\356k\356\356\356k\356\356\356k\356\356\356k\357\357\357"
++  "}\357\357\357}\357\357\357}\357\357\357}\357\357\357}\357\357\357}\357"
++  "\357\357}\357\357\357}\357\357\357}\357\357\357}\360\360\360\212\360"
++  "\360\360\212\360\360\360\212\360\360\360\212\360\360\360\212\360\360"
++  "\360\212\360\360\360\212\360\360\360\212\360\360\360\212\360\360\360"
++  "\212\266\266\266J\266\266\266J\266\266\266J\266\266\266J\266\266\266"
++  "J\266\266\266J\266\266\266J\266\266\266J\266\266\266J\266\266\266J"};
++
++/* GdkPixbuf RGBA C-Source image dump */
++ 
++#ifdef __SUNPRO_C
++#pragma align 4 (shield)
++#endif
++#ifdef __GNUC__
++static const guint8 shield[] __attribute__ ((__aligned__ (4))) =
++#else
++static const guint8 shield[] =
++#endif
++{ ""
++  /* Pixbuf magic (0x47646b50) */
++  "GdkP"
++  /* length: header (24) + pixel_data (4096) */
++  "\0\0\20\30"
++  /* pixdata_type (0x1010002) */
++  "\1\1\0\2"
++  /* rowstride (128) */
++  "\0\0\0\200"
++  /* width (32) */
++  "\0\0\0\40"
++  /* height (32) */
++  "\0\0\0\40"
++  /* pixel_data: */
++  "\0\0\0\0\0\0\0\0\377\375\326\7\377\377\377\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\377\354\220"
++  "\17\377\341d\276\375\321D\217\377\362\270\3\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\377\340\204\3"
++  "\377\341\201\6\0\0\0\0\0\0\0\0\0\0\0\0\377\377\377\0\377\351z\271\377"
++  "\353}\232\377\361\233!\377\377\377\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\377\373\327\3\377\351{P\377\341d\333\377\336Z\377\377"
++  "\334T\377\377\327F\275\377\333[4\377\377\377\1\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\377\377\376\1\376\311.1\371\271\13\273\343"
++  "\252.\264\377\377\376\0\0\0\0\0\0\0\0\0\377\370\305\13\377\352y\365\377"
++  "\353{\377\377\354\200\373\377\356\210\310\377\360\214\217\377\360\217"
++  "k\377\361\221X\377\360\217S\377\355\211j\377\354\201\230\377\352w\337"
++  "\377\345m\377\377\344f\377\377\340_\377\377\335W\377\377\334Q\377\377"
++  "\332I\375\377\327H\317\377\327I\215\377\326Fd\377\321\77R\377\317;Z\377"
++  "\314.p\377\310\"\230\376\301\27\325\375\273\6\376\373\267\0\377\337\241"
++  "\32\363\374\354\315\14\0\0\0\0\0\0\0\0\377\360\2238\377\353~\377\377"
++  "\356\203\377\377\357\210\377\377\360\213\377\377\360\215\377\377\360"
++  "\215\377\377\360\214\377\377\360\211\377\377\356\205\377\377\354\177"
++  "\377\377\352y\377\377\351s\377\377\345l\377\377\343d\377\377\337]\377"
++  "\377\335V\377\377\333N\377\377\330G\377\377\324\77\377\377\3227\377\377"
++  "\315/\377\377\311'\377\377\307\37\377\377\305\27\377\377\277\17\377\375"
++  "\273\10\377\375\271\1\377\342\240\4\377\346\276\2055\0\0\0\0\0\0\0\0"
++  "\377\357\215c\377\356\204\377\377\360\213\377\377\361\220\377\377\363"
++  "\224\377\377\363\227\377\377\364\227\377\377\363\225\377\377\362\221"
++  "\377\377\360\214\377\377\357\206\377\377\354\177\377\377\352x\377\377"
++  "\350q\377\377\344i\377\377\342b\377\377\336Z\377\377\334R\377\377\332"
++  "J\377\377\325B\377\377\323:\377\377\3171\377\377\312)\377\377\310!\377"
++  "\377\306\31\377\377\301\21\377\375\274\12\377\375\271\2\377\357\255\0"
++  "\377\311\227Sb\0\0\0\0\0\0\0\0\377\360\214\204\377\360\211\377\377\361"
++  "\221\377\377\364\227\377\377\365\235\377\377\366\241\377\377\366\241"
++  "\377\377\365\236\377\377\364\231\377\377\362\223\377\377\360\214\377"
++  "\377\356\204\377\377\353|\377\376\334U\377\376\3161\377\377\347t\377"
++  "\377\342g\377\377\335T\377\377\333L\377\377\326D\377\377\323<\377\377"
++  "\3213\377\377\312+\377\377\310#\377\377\306\33\377\377\302\22\377\376"
++  "\274\13\377\376\272\3\377\370\264\0\377\301\213:\201\0\0\0\0\0\0\0\0"
++  "\377\360\215\234\377\360\215\377\377\363\226\377\377\365\237\377\377"
++  "\363\232\377\377\346v\377\377\347y\377\377\343m\377\376\337d\377\376"
++  "\342h\377\376\334W\377\376\322>\377\376\3175\377\376\331L\377\377\345"
++  "k\377\377\347r\377\377\353\205\377\377\355\212\377\377\352~\377\377\337"
++  "\\\377\377\327G\377\377\3239\377\377\314.\377\377\312'\377\377\310\40"
++  "\377\377\303\23\377\376\275\14\377\376\272\4\377\371\266\0\377\304\213"
++  "/\227\0\0\0\0\0\0\0\0\376\356\211\254\377\360\216\377\377\365\236\377"
++  "\377\370\255\377\377\360\222\377\377\354\206\377\377\363\235\377\377"
++  "\362\231\377\377\357\217\377\377\353\200\377\377\354\201\377\377\357"
++  "\210\377\377\354\200\377\377\352x\377\377\347o\377\377\344g\377\377\340"
++  "_\377\377\335V\377\377\334P\377\377\331L\377\377\325B\377\377\324;\377"
++  "\377\315/\377\377\321=\377\377\332S\377\377\303\23\377\376\275\14\377"
++  "\376\272\4\377\372\266\0\377\305\213+\253\0\0\0\0\0\0\0\0\375\353\204"
++  "\254\377\360\216\377\377\366\244\377\377\370\263\377\377\355\213\377"
++  "\377\360\224\377\377\370\252\377\377\367\246\377\377\365\237\377\377"
++  "\364\227\377\377\361\217\377\377\357\207\377\377\354\177\377\377\352"
++  "w\377\377\346o\377\377\344f\377\377\337^\377\377\335V\377\377\333M\377"
++  "\377\327E\377\377\323=\377\377\3225\377\377\313,\377\377\311$\377\377"
++  "\343n\377\377\303\23\377\376\275\14\377\376\272\4\377\371\266\0\377\275"
++  "\203'\254\0\0\0\0\0\0\0\0\375\352\201\254\377\360\212\377\377\366\242"
++  "\377\377\371\263\377\377\350\200\377\377\362\230\377\377\366\241\377"
++  "\377\365\236\377\377\364\231\377\377\362\223\377\377\360\214\377\377"
++  "\356\204\377\377\353|\377\377\352t\377\377\345m\377\377\343d\377\377"
++  "\336\\\377\377\335T\377\377\333L\377\377\326D\377\377\323<\377\377\321"
++  "3\377\377\312+\377\377\310#\377\377\342m\377\377\302\22\377\376\274\13"
++  "\377\376\272\3\377\370\265\0\377\274\202)\254\0\0\0\0\0\0\0\0\377\353"
++  "\205\245\377\356\204\377\377\364\233\377\377\371\261\377\377\343r\377"
++  "\377\365\241\377\377\364\227\377\377\363\225\377\377\362\221\377\377"
++  "\360\214\377\377\357\206\377\377\354\177\377\377\352x\377\377\350q\377"
++  "\377\344i\377\377\342a\377\377\336Y\377\377\334R\377\377\332J\377\377"
++  "\325B\377\377\323:\377\377\3202\377\377\312)\377\377\310!\377\377\344"
++  "r\377\377\301\22\377\375\274\12\377\375\271\2\377\367\264\0\377\263|"
++  "*\234\0\0\0\0\0\0\0\0\376\353\201\216\377\353~\377\377\362\223\377\377"
++  "\371\260\377\377\351\203\377\377\360\217\377\377\360\216\377\377\360"
++  "\214\377\377\360\211\377\377\356\204\377\377\354\177\377\377\352y\377"
++  "\377\351s\377\377\345l\377\377\343e\377\377\337]\377\377\335V\377\377"
++  "\333N\377\377\330G\377\377\324\77\377\377\3227\377\377\315/\377\377\311"
++  "'\377\377\307\37\377\377\347{\377\376\277\17\377\375\273\10\377\375\271"
++  "\1\377\363\260\0\377\251t2\210\0\0\0\0\0\0\0\0\376\351}p\377\352v\377"
++  "\377\357\214\377\377\370\257\377\377\360\227\377\377\353\202\377\377"
++  "\356\205\377\377\355\202\377\377\354\200\377\377\353|\377\377\352w\377"
++  "\377\351r\377\377\345l\377\377\344f\377\377\340`\377\377\336Y\377\377"
++  "\334Q\377\377\332J\377\377\325C\377\377\323;\377\377\3213\377\377\313"
++  ",\377\377\310$\377\377\307\35\377\377\345v\377\376\275\15\377\375\272"
++  "\6\377\373\267\0\377\343\243\1\377\255z@i\0\0\0\0\0\0\0\0\376\350\177"
++  "F\377\346n\377\377\354\202\377\377\370\253\377\377\366\252\377\377\336"
++  "\\\377\377\353}\377\377\352y\377\377\352v\377\377\351s\377\377\347o\377"
++  "\377\345k\377\377\343e\377\377\340`\377\377\336Y\377\377\334S\377\377"
++  "\333L\377\377\327E\377\377\324>\377\377\3227\377\377\315/\377\377\311"
++  "(\377\377\310\40\377\377\315.\377\377\327S\377\375\274\12\377\376\272"
++  "\2\377\370\265\0\377\313\215\2\377\316\235b\77\0\0\0\0\0\0\0\0\377\361"
++  "\244\26\376\343f\374\377\350s\377\377\365\240\377\377\371\257\377\377"
++  "\331P\377\377\352x\377\377\346o\377\377\346m\377\377\345j\377\377\344"
++  "g\377\377\342c\377\377\337^\377\377\336X\377\377\334S\377\377\333M\377"
++  "\377\327F\377\377\324\77\377\377\3239\377\377\3202\377\377\312+\377\377"
++  "\310#\377\377\306\34\377\377\333U\377\376\310+\377\375\273\7\377\374"
++  "\270\0\377\365\262\0\377\275\201\16\370\364\333\264\22\0\0\0\0\0\0\0"
++  "\0\377\377\377\1\376\340e\320\377\342d\377\377\357\213\377\377\366\244"
++  "\377\377\336^\377\377\343f\377\377\343e\377\377\342c\377\377\341a\377"
++  "\377\337^\377\377\336Z\377\377\335V\377\377\334Q\377\377\333L\377\377"
++  "\327F\377\377\324@\377\377\3239\377\377\3203\377\377\313,\377\377\311"
++  "%\377\377\307\36\377\377\305\27\377\377\340h\377\375\274\12\377\376\272"
++  "\2\377\371\265\0\377\361\260\0\377\256x\40\311\377\377\376\1\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\376\336a\205\377\335W\377\377\347s\377\377\362\223\377"
++  "\377\354\202\377\377\322:\377\377\336\\\377\377\336Z\377\377\335X\377"
++  "\377\335U\377\377\334Q\377\377\333M\377\377\331I\377\377\326D\377\377"
++  "\324\77\377\377\3239\377\377\3203\377\377\313-\377\377\311&\377\377\307"
++  "\40\377\377\306\31\377\377\310\"\377\376\332Z\377\375\272\5\377\373\267"
++  "\0\377\364\262\0\377\341\242\1\377\233i2~\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\377\344u/\376\332N\376\377\337\\\377\377\353|\377\377\355\203\377"
++  "\376\3204\377\377\333P\377\377\334P\377\377\333N\377\377\333K\377\377"
++  "\331H\377\377\326D\377\377\324@\377\377\323<\377\377\3227\377\377\317"
++  "1\377\377\313,\377\377\311&\377\377\307\40\377\377\306\31\377\377\303"
++  "\23\377\377\336d\377\375\305\"\377\375\271\1\377\366\264\0\377\357\257"
++  "\0\377\270}\6\375\325\253w+\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\377\377\377"
++  "\1\376\330N\307\377\331J\377\377\342c\377\377\347q\377\377\333R\377\376"
++  "\316-\377\377\330F\377\377\326D\377\377\325B\377\377\324\77\377\377\323"
++  "<\377\377\3228\377\377\3214\377\377\315/\377\377\312*\377\377\311%\377"
++  "\377\307\37\377\377\306\31\377\377\303\23\377\376\306&\377\376\336g\377"
++  "\375\271\1\377\370\265\0\377\361\260\0\377\351\251\0\377\241l\40\300"
++  "\377\377\377\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\376\331WW\377"
++  "\323=\377\377\331K\377\377\337]\377\377\335X\377\376\307\37\377\377\321"
++  "6\377\377\323;\377\377\3239\377\377\3226\377\377\3203\377\377\316/\377"
++  "\377\312+\377\377\311'\377\377\310\"\377\377\307\35\377\377\305\30\377"
++  "\377\302\22\377\376\275\16\377\377\344v\377\376\277\22\377\371\265\0"
++  "\377\362\261\0\377\353\253\0\377\301\203\2\377\256\177LP\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\377\365\311\4\376\322=\321\377\322"
++  "8\377\377\327F\377\377\331J\377\377\3218\377\376\304\27\377\377\3171"
++  "\377\377\315/\377\377\313-\377\377\312*\377\377\311&\377\377\310#\377"
++  "\377\307\36\377\377\306\32\377\377\304\25\377\377\300\20\377\376\275"
++  "\14\377\376\324M\377\375\320A\377\370\265\0\377\362\261\0\377\354\254"
++  "\0\377\344\242\0\377\236i\34\312\374\363\335\3\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\377\325UJ\377\312+\376\377\3161\377"
++  "\377\3229\377\377\3204\377\376\306\40\377\376\304\31\377\377\311%\377"
++  "\377\310#\377\377\310\40\377\377\307\35\377\377\306\32\377\377\304\26"
++  "\377\377\301\22\377\376\276\16\377\375\273\12\377\376\311.\377\375\337"
++  "k\377\367\264\0\377\361\260\0\377\353\253\0\377\345\243\0\377\264x\5"
++  "\374\260\203P\77\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\377\375\362\1\376\315<\263\377\310\"\377\377\311'\377\377"
++  "\311'\377\377\310\"\377\376\302\22\377\376\304\26\377\377\306\32\377"
++  "\377\305\27\377\377\304\24\377\377\301\21\377\376\276\16\377\375\274"
++  "\13\377\375\273\6\377\376\302\32\377\375\344x\377\365\265\6\377\360\257"
++  "\0\377\352\252\0\377\344\242\0\377\322\222\0\377\230f)\236\377\377\372"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\376\334\206\40\374\305%\355\377\305\30\377\377\306\32\377\377"
++  "\305\30\377\377\303\24\377\376\302\22\377\376\302\21\377\376\276\17\377"
++  "\376\274\14\377\375\273\11\377\375\272\6\377\375\271\2\377\374\304\40"
++  "\377\374\344z\377\363\267\16\377\355\255\0\377\350\247\0\377\343\241"
++  "\0\377\334\233\0\377\233d\24\334\340\275\215\21\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\365"
++  "\307[Q\371\272\24\374\376\275\16\377\376\275\16\377\376\274\14\377\375"
++  "\274\12\377\375\276\13\377\376\304\30\377\375\273\5\377\375\270\1\377"
++  "\372\266\0\377\372\306-\377\373\341v\377\357\262\11\377\352\251\0\377"
++  "\345\243\0\377\340\236\0\377\333\233\0\377\244l\12\364\267\213X5\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\377\377\376\0\353\270Lz\370\265\10\377\375\272"
++  "\3\377\375\271\2\377\375\271\1\377\374\270\0\377\372\271\4\377\375\307"
++  "#\377\367\274\25\377\371\325V\377\366\327a\377\353\254\5\377\346\244"
++  "\0\377\342\237\0\377\335\234\0\377\330\231\0\377\254r\6\373\244vDT\377"
++  "\377\377\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\377\375\357\2\345\260"
++  "D\215\361\257\4\377\366\263\0\377\364\262\0\377\362\261\0\377\360\257"
++  "\0\377\357\257\2\377\366\3072\377\357\2774\377\345\243\0\377\341\237"
++  "\0\377\335\234\0\377\331\231\0\377\325\226\0\377\254s\6\374\237q>b\377"
++  "\377\377\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\376\370"
++  "\345\2\335\250C\206\345\245\6\376\352\252\0\377\351\250\0\377\347\245"
++  "\0\377\345\245\0\377\345\245\0\377\336\235\0\377\334\233\0\377\330\231"
++  "\0\377\325\226\0\377\321\223\0\377\246m\7\367\236p=[\377\377\376\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\377"
++  "\377\370\1\325\242Lg\331\230\13\370\337\236\0\377\335\234\0\377\336\235"
++  "\0\377\342\240\0\377\325\226\0\377\323\225\0\377\320\223\0\377\314\217"
++  "\0\377\234e\15\352\251|KH\377\377\377\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\377\377\377\0"
++  "\325\246`B\315\220\30\345\324\225\0\377\324\226\0\377\332\232\0\377\317"
++  "\222\0\377\316\221\0\377\277\203\1\377\225a\30\312\276\222_$\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\350\303\215\30\307\216-\256"
++  "\315\216\4\376\327\230\0\377\316\221\0\377\251p\7\372\227e,\211\355\321"
++  "\246\10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\377\375\360\1\313\230QX\272\200\32\345\231e\32\312\261\204Q7\377\377"
++  "\376\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
++  "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"};
++GdkPixbuf *shield_pixbuf;
++/* GdkPixbuf RGBA C-Source image dump */
++ 
++#ifdef __SUNPRO_C
++#pragma align 4 (title_center_dimple_unfocused)
++#endif
++#ifdef __GNUC__
++static const guint8 title_center_dimple_unfocused[] __attribute__ ((__aligned__ (4))) =
++#else
++static const guint8 title_center_dimple_unfocused[] =
++#endif
++{ ""
++  /* Pixbuf magic (0x47646b50) */
++  "GdkP"
++  /* length: header (24) + pixel_data (76) */
++  "\0\0\0d"
++  /* pixdata_type (0x1010002) */
++  "\1\1\0\2"
++  /* rowstride (4) */
++  "\0\0\0\4"
++  /* width (1) */
++  "\0\0\0\1"
++  /* height (19) */
++  "\0\0\0\23"
++  /* pixel_data: */
++  "\231\231\231\377\230\230\230\377\227\227\227\377\225\225\225\377\222"
++  "\222\222\377\216\216\216\377\212\212\212\377\205\205\205\377\200\200"
++  "\200\377zzz\377sss\377nnn\377hhh\377bbb\377]]]\377YYY\377UUU\377RRR\377"
++  "QQQ\377"};
++ 
++/* GdkPixbuf RGBA C-Source image dump */
++ 
++#ifdef __SUNPRO_C
++#pragma align 4 (title_left_dimple_unfocused)
++#endif
++#ifdef __GNUC__
++static const guint8 title_left_dimple_unfocused[] __attribute__ ((__aligned__ (4))) =
++#else
++static const guint8 title_left_dimple_unfocused[] =
++#endif
++{ ""
++  /* Pixbuf magic (0x47646b50) */
++  "GdkP"
++  /* length: header (24) + pixel_data (1444) */
++  "\0\0\5\274"
++  /* pixdata_type (0x1010002) */
++  "\1\1\0\2"
++  /* rowstride (76) */
++  "\0\0\0L"
++  /* width (19) */
++  "\0\0\0\23"
++  /* height (19) */
++  "\0\0\0\23"
++  /* pixel_data: */
++  "\377\377\377\0\377\377\377\0\377\377\377\0\377\377\377\0\377\377\377"
++  "\0\205\205\205T\210\210\210\256\212\212\212\355\215\215\215\377\217\217"
++  "\217\377\222\222\222\377\223\223\223\377\225\225\225\377\226\226\226"
++  "\377\230\230\230\377\230\230\230\377\231\231\231\377\231\231\231\377"
++  "\231\231\231\377\377\377\377\0\377\377\377\0\377\377\377\0}}}-\200\200"
++  "\200\317\203\203\203\377\206\206\206\377\211\211\211\377\213\213\213"
++  "\377\216\216\216\377\220\220\220\377\223\223\223\377\224\224\224\377"
++  "\226\226\226\377\226\226\226\377\227\227\227\377\230\230\230\377\230"
++  "\230\230\377\230\230\230\377\377\377\377\0\377\377\377\0xxxKzzz\366}"
++  "}}\377\200\200\200\377\203\203\203\377\207\207\207\377\212\212\212\377"
++  "\214\214\214\377\216\216\216\377\221\221\221\377\223\223\223\377\224"
++  "\224\224\377\225\225\225\377\226\226\226\377\226\226\226\377\226\226"
++  "\226\377\226\226\226\377\377\377\377\0rrr-ttt\363www\377zzz\377}}}\377"
++  "\200\200\200\377\203\203\203\377\207\207\207\377\212\212\212\377\214"
++  "\214\214\377\216\216\216\377\220\220\220\377\222\222\222\377\223\223"
++  "\223\377\223\223\223\377\224\224\224\377\224\224\224\377\224\224\224"
++  "\377lll\3nnn\317ppp\377sss\377vvv\377zzz\377}}}\377\200\200\200\377\203"
++  "\203\203\377\206\206\206\377\211\211\211\377\213\213\213\377\215\215"
++  "\215\377\217\217\217\377\220\220\220\377\220\220\220\377\221\221\221"
++  "\377\221\221\221\377\222\222\222\377iiiNjjj\377lll\377ooo\377rrr\377"
++  "uuu\377yyy\377}}}\377\177\177\177\377\202\202\202\377\205\205\205\377"
++  "\210\210\210\377\212\212\212\377\213\213\213\377\214\214\214\377\215"
++  "\215\215\377\215\215\215\377\216\216\216\377\216\216\216\377eee\245e"
++  "ee\377ggg\377jjj\377mmm\377ppp\377ttt\377xxx\377{{{\377~~~\377\201\201"
++  "\201\377\203\203\203\377\205\205\205\377\207\207\207\377\210\210\210"
++  "\377\211\211\211\377\211\211\211\377\212\212\212\377\212\212\212\377"
++  "aaa\333aaa\377ccc\377eee\377hhh\377kkk\377ooo\377rrr\377vvv\377yyy\377"
++  "|||\377\177\177\177\377\200\200\200\377\202\202\202\377\203\203\203\377"
++  "\204\204\204\377\204\204\204\377\205\205\205\377\205\205\205\377]]]\366"
++  "]]]\377^^^\377aaa\377ccc\377fff\377iii\377mmm\377ppp\377ttt\377www\377"
++  "yyy\377|||\377}}}\377~~~\377\177\177\177\377\177\177\177\377\177\177"
++  "\177\377\177\177\177\377ZZZ\377YYY\377ZZZ\377\\\\\\\377^^^\377aaa\377"
++  "ddd\377ggg\377kkk\377nnn\377ppp\377sss\377uuu\377www\377xxx\377yyy\377"
++  "yyy\377zzz\377zzz\377WWW\371VVV\377VVV\377XXX\377ZZZ\377\\\\\\\377__"
++  "_\377bbb\377eee\377hhh\377kkk\377mmm\377ooo\377qqq\377rrr\377sss\377"
++  "sss\377sss\377sss\377TTT\333SSS\377SSS\377TTT\377VVV\377WWW\377ZZZ\377"
++  "]]]\377___\377bbb\377eee\377ggg\377iii\377kkk\377lll\377lll\377mmm\377"
++  "mmm\377mmm\377SSS\226QQQ\377QQQ\377QQQ\377RRR\377TTT\377VVV\377XXX\377"
++  "ZZZ\377]]]\377___\377aaa\377ccc\377eee\377fff\377ggg\377ggg\377ggg\377"
++  "ggg\377RRRBPPP\377OOO\377OOO\377OOO\377PPP\377RRR\377TTT\377VVV\377X"
++  "XX\377ZZZ\377\\\\\\\377^^^\377```\377```\377aaa\377aaa\377bbb\377bbb"
++  "\377\377\377\377\0OOO\300NNN\377MMM\377MMM\377NNN\377OOO\377PPP\377R"
++  "RR\377TTT\377VVV\377XXX\377YYY\377ZZZ\377[[[\377\\\\\\\377]]]\377]]]"
++  "\377]]]\377\377\377\377\0PPP$NNN\355MMM\377LLL\377MMM\377MMM\377NNN\377"
++  "OOO\377QQQ\377RRR\377TTT\377UUU\377VVV\377WWW\377XXX\377XXX\377XXX\377"
++  "YYY\377\377\377\377\0\377\377\377\0OOO<MMM\355LLL\377LLL\377LLL\377M"
++  "MM\377MMM\377OOO\377PPP\377QQQ\377RRR\377SSS\377SSS\377TTT\377TTT\377"
++  "TTT\377UUU\377\377\377\377\0\377\377\377\0\377\377\377\0OOO$MMM\300M"
++  "MM\377LLL\377LLL\377MMM\377MMM\377NNN\377OOO\377PPP\377PPP\377QQQ\377"
++  "RRR\377RRR\377RRR\377RRR\377\377\377\377\0\377\377\377\0\377\377\377"
++  "\0\377\377\377\0\377\377\377\0NNNEMMM\231MMM\314MMM\374MMM\377NNN\377"
++  "NNN\377OOO\377PPP\377PPP\377PPP\377QQQ\377QQQ\377QQQ\377"};
++ 
++/* GdkPixbuf RGBA C-Source image dump */
++ 
++#ifdef __SUNPRO_C
++#pragma align 4 (title_right_dimple_unfocused)
++#endif
++#ifdef __GNUC__
++static const guint8 title_right_dimple_unfocused[] __attribute__ ((__aligned__ (4))) =
++#else
++static const guint8 title_right_dimple_unfocused[] =
++#endif
++{ ""
++  /* Pixbuf magic (0x47646b50) */
++  "GdkP"
++  /* length: header (24) + pixel_data (1444) */
++  "\0\0\5\274"
++  /* pixdata_type (0x1010002) */
++  "\1\1\0\2"
++  /* rowstride (76) */
++  "\0\0\0L"
++  /* width (19) */
++  "\0\0\0\23"
++  /* height (19) */
++  "\0\0\0\23"
++  /* pixel_data: */
++  "\232\232\232\377\232\232\232\377\232\232\232\377\232\232\232\377\233"
++  "\233\233\377\233\233\233\377\234\234\234\377\235\235\235\377\236\236"
++  "\236\377\236\236\236\377\237\237\237\377\240\240\240\355\240\240\240"
++  "\256\240\240\240T\377\377\377\0\377\377\377\0\377\377\377\0\377\377\377"
++  "\0\377\377\377\0\231\231\231\377\231\231\231\377\231\231\231\377\232"
++  "\232\232\377\232\232\232\377\233\233\233\377\234\234\234\377\235\235"
++  "\235\377\236\236\236\377\236\236\236\377\240\240\240\377\240\240\240"
++  "\377\241\241\241\377\241\241\241\377\240\240\240\317\240\240\240-\377"
++  "\377\377\0\377\377\377\0\377\377\377\0\227\227\227\377\227\227\227\377"
++  "\230\230\230\377\230\230\230\377\230\230\230\377\231\231\231\377\232"
++  "\232\232\377\233\233\233\377\235\235\235\377\236\236\236\377\237\237"
++  "\237\377\240\240\240\377\240\240\240\377\241\241\241\377\241\241\241"
++  "\377\240\240\240\366\237\237\237K\377\377\377\0\377\377\377\0\225\225"
++  "\225\377\225\225\225\377\225\225\225\377\226\226\226\377\226\226\226"
++  "\377\227\227\227\377\230\230\230\377\232\232\232\377\233\233\233\377"
++  "\234\234\234\377\235\235\235\377\236\236\236\377\240\240\240\377\240"
++  "\240\240\377\240\240\240\377\240\240\240\377\237\237\237\363\236\236"
++  "\236-\377\377\377\0\222\222\222\377\222\222\222\377\222\222\222\377\223"
++  "\223\223\377\223\223\223\377\224\224\224\377\225\225\225\377\226\226"
++  "\226\377\230\230\230\377\232\232\232\377\233\233\233\377\235\235\235"
++  "\377\236\236\236\377\236\236\236\377\237\237\237\377\237\237\237\377"
++  "\236\236\236\377\235\235\235\317\234\234\234\3\216\216\216\377\216\216"
++  "\216\377\216\216\216\377\217\217\217\377\220\220\220\377\220\220\220"
++  "\377\222\222\222\377\223\223\223\377\225\225\225\377\226\226\226\377"
++  "\230\230\230\377\232\232\232\377\233\233\233\377\234\234\234\377\235"
++  "\235\235\377\235\235\235\377\235\235\235\377\234\234\234\377\233\233"
++  "\233N\212\212\212\377\212\212\212\377\212\212\212\377\213\213\213\377"
++  "\213\213\213\377\214\214\214\377\215\215\215\377\216\216\216\377\220"
++  "\220\220\377\222\222\222\377\224\224\224\377\225\225\225\377\227\227"
++  "\227\377\231\231\231\377\232\232\232\377\232\232\232\377\233\233\233"
++  "\377\232\232\232\377\231\231\231\245\205\205\205\377\205\205\205\377"
++  "\205\205\205\377\206\206\206\377\206\206\206\377\207\207\207\377\210"
++  "\210\210\377\212\212\212\377\213\213\213\377\215\215\215\377\217\217"
++  "\217\377\221\221\221\377\223\223\223\377\225\225\225\377\226\226\226"
++  "\377\227\227\227\377\230\230\230\377\230\230\230\377\227\227\227\336"
++  "\200\200\200\377\200\200\200\377\200\200\200\377\200\200\200\377\201"
++  "\201\201\377\202\202\202\377\203\203\203\377\204\204\204\377\206\206"
++  "\206\377\210\210\210\377\212\212\212\377\214\214\214\377\216\216\216"
++  "\377\220\220\220\377\222\222\222\377\223\223\223\377\224\224\224\377"
++  "\224\224\224\377\224\224\224\371zzz\377zzz\377zzz\377{{{\377{{{\377|"
++  "||\377}}}\377\177\177\177\377\200\200\200\377\202\202\202\377\204\204"
++  "\204\377\206\206\206\377\210\210\210\377\213\213\213\377\215\215\215"
++  "\377\216\216\216\377\220\220\220\377\220\220\220\377\221\221\221\377"
++  "ttt\377ttt\377ttt\377ttt\377uuu\377vvv\377www\377yyy\377zzz\377|||\377"
++  "~~~\377\200\200\200\377\203\203\203\377\205\205\205\377\210\210\210\377"
++  "\212\212\212\377\213\213\213\377\214\214\214\377\215\215\215\371nnn\377"
++  "nnn\377nnn\377nnn\377ooo\377ooo\377ppp\377rrr\377ttt\377vvv\377yyy\377"
++  "{{{\377}}}\377\200\200\200\377\202\202\202\377\205\205\205\377\207\207"
++  "\207\377\210\210\210\377\211\211\211\333hhh\377hhh\377hhh\377hhh\377"
++  "iii\377iii\377kkk\377lll\377nnn\377ppp\377sss\377uuu\377xxx\377{{{\377"
++  "}}}\377\200\200\200\377\202\202\202\377\204\204\204\377\205\205\205\226"
++  "bbb\377bbb\377bbb\377ccc\377ccc\377ddd\377eee\377ggg\377hhh\377kkk\377"
++  "mmm\377ppp\377sss\377vvv\377yyy\377|||\377~~~\377\200\200\200\377\202"
++  "\202\202B]]]\377]]]\377]]]\377^^^\377^^^\377___\377```\377bbb\377ccc"
++  "\377eee\377hhh\377kkk\377nnn\377qqq\377ttt\377www\377zzz\377}}}\300\377"
++  "\377\377\0YYY\377YYY\377YYY\377YYY\377ZZZ\377[[[\377\\\\\\\377]]]\377"
++  "___\377aaa\377ddd\377ggg\377iii\377mmm\377ppp\377sss\377vvv\355yyy$\377"
++  "\377\377\0UUU\377UUU\377UUU\377VVV\377VVV\377WWW\377XXX\377ZZZ\377[["
++  "[\377^^^\377```\377ccc\377fff\377iii\377lll\377ppp\355sss<\377\377\377"
++  "\0\377\377\377\0SSS\377SSS\377SSS\377SSS\377TTT\377TTT\377VVV\377WWW"
++  "\377YYY\377[[[\377^^^\377aaa\377ddd\377ggg\377jjj\300nnn$\377\377\377"
++  "\0\377\377\377\0\377\377\377\0QQQ\377QQQ\377RRR\377RRR\377SSS\377SSS"
++  "\377TTT\377VVV\377XXX\377ZZZ\377\\\\\\\377___\314bbb\231eeeE\377\377"
++  "\377\0\377\377\377\0\377\377\377\0\377\377\377\0\377\377\377\0"};
++
++
++#ifdef __SUNPRO_C
++#pragma align 4 (workspace_highlight)
++#endif
++#ifdef __GNUC__
++static const guint8 workspace_highlight[] __attribute__ ((__aligned__ (4))) =
++#else
++static const guint8 workspace_highlight[] =
++#endif
++{ ""
++  /* Pixbuf magic (0x47646b50) */
++  "GdkP"
++  /* length: header (24) + pixel_data (421) */
++  "\0\0\1\275"
++  /* pixdata_type (0x2010002) */
++  "\2\1\0\2"
++  /* rowstride (132) */
++  "\0\0\0\204"
++  /* width (33) */
++  "\0\0\0!"
++  /* height (18) */
++  "\0\0\0\22"
++  /* pixel_data: */
++  "\246\0\0\0\0\3^^^F^^^\215^^^\307\221^^^\377\3^^^\307^^^\215^^^F\210\0"
++  "\0\0\0\3^^^\40^^^\214^^^\363\225^^^\377\3^^^\363^^^\214^^^\40\205\0\0"
++  "\0\0\2^^^\40^^^\243\231^^^\377\2^^^\243^^^\40\204\0\0\0\0\1^^^\214\233"
++  "^^^\377\1^^^\214\203\0\0\0\0\2^^^F^^^\363\233^^^\377\2^^^\363^^^F\202"
++  "\0\0\0\0\1^^^\215\235^^^\377\1^^^\215\202\0\0\0\0\1^^^\307\235^^^\377"
++  "\1^^^\307\202\0\0\0\0\1^^^\360\235^^^\377\1^^^\360\202\0\0\0\0\1^^^\360"
++  "\235^^^\377\1^^^\360\202\0\0\0\0\1^^^\307\235^^^\377\1^^^\307\202\0\0"
++  "\0\0\1^^^\215\235^^^\377\1^^^\215\202\0\0\0\0\2^^^F^^^\363\233^^^\377"   "\2^^^\363^^^F\203\0\0\0\0\1^^^\214\233^^^\377\1^^^\214\204\0\0\0\0\2"
++  "^^^\40^^^\243\231^^^\377\2^^^\243^^^\40\205\0\0\0\0\3^^^\40^^^\214^^"
++  "^\363\225^^^\377\3^^^\363^^^\214^^^\40\210\0\0\0\0\3^^^F^^^\215^^^\307"
++  "\221^^^\377\3^^^\307^^^\215^^^F\246\0\0\0\0"};
++
++
++#endif /* HAVE_XTSOL */
++#ifdef __SUNPRO_C
++#pragma align 4 (my_pixbuf)
++#endif
++#ifdef __GNUC__
++static const guint8 tabpopup_highlight[] __attribute__ ((__aligned__ (4))) =
++#else
++static const guint8 tabpopup_highlight[] =
++#endif
++{ ""
++  /* Pixbuf magic (0x47646b50) */
++  "GdkP"
++  /* length: header (24) + pixel_data (421) */
++  "\0\0\1\275"
++  /* pixdata_type (0x2010002) */
++  "\2\1\0\2"
++  /* rowstride (132) */
++  "\0\0\0\204"
++  /* width (33) */
++  "\0\0\0!"
++  /* height (18) */
++  "\0\0\0\22"
++  /* pixel_data: */
++  "\246\0\0\0\0\3^^^F^^^\215^^^\307\221^^^\377\3^^^\307^^^\215^^^F\210\0"
++  "\0\0\0\3^^^\40^^^\214^^^\363\225^^^\377\3^^^\363^^^\214^^^\40\205\0\0"
++  "\0\0\2^^^\40^^^\243\231^^^\377\2^^^\243^^^\40\204\0\0\0\0\1^^^\214\233"
++  "^^^\377\1^^^\214\203\0\0\0\0\2^^^F^^^\363\233^^^\377\2^^^\363^^^F\202"
++  "\0\0\0\0\1^^^\215\235^^^\377\1^^^\215\202\0\0\0\0\1^^^\307\235^^^\377"
++  "\1^^^\307\202\0\0\0\0\1^^^\360\235^^^\377\1^^^\360\202\0\0\0\0\1^^^\360"
++  "\235^^^\377\1^^^\360\202\0\0\0\0\1^^^\307\235^^^\377\1^^^\307\202\0\0"
++  "\0\0\1^^^\215\235^^^\377\1^^^\215\202\0\0\0\0\2^^^F^^^\363\233^^^\377"
++  "\2^^^\363^^^F\203\0\0\0\0\1^^^\214\233^^^\377\1^^^\214\204\0\0\0\0\2"
++  "^^^\40^^^\243\231^^^\377\2^^^\243^^^\40\205\0\0\0\0\3^^^\40^^^\214^^"
++  "^\363\225^^^\377\3^^^\363^^^\214^^^\40\210\0\0\0\0\3^^^F^^^\215^^^\307"
++  "\221^^^\377\3^^^\307^^^\215^^^F\246\0\0\0\0"};
++
++
++
++#endif /*TRUSTED_PICS_H */
+diff --git a/src/core/trusted.c b/src/core/trusted.c
+new file mode 100644
+index 000000000..cebdb6909
+--- /dev/null
++++ b/src/core/trusted.c
+@@ -0,0 +1,859 @@
++/* Metacity trusted */
++
++/* 
++ * Copyright (C) 2005 Erwann Chenede
++ */
++
++#include <config.h>
++#ifdef HAVE_XTSOL
++#include <string.h>
++#include <X11/Xatom.h>
++#include <stdlib.h>
++#include <dlfcn.h>
++#include <link.h>
++#include <strings.h>
++#include <sys/types.h>
++#include <gtk/gtk.h>
++#include <gdk/gdkx.h>
++#include <unistd.h>
++#include <pwd.h>
++#include "trusted.h"
++#include "window.h"
++#include "display-private.h"
++#include "screen.h"
++#include "workspace.h"
++#include "xprops.h"
++#include "trusted-pics.h"
++#include "errors.h"
++#include "prefs.h"
++
++  static gboolean _trusted_extensions_initialised = FALSE;
++  static gpointer tsol_handle = NULL;
++  static gpointer xtsol_handle = NULL;
++  static gpointer gnometsol_handle = NULL;
++  static gpointer bsm_handle = NULL;
++
++static
++void * dlopen_tsol (void)
++{
++   void  *handle = NULL;
++
++   if ((handle = dlopen ("/usr/lib/amd64/libtsol.so.2", RTLD_LAZY)) != NULL)
++       return handle;
++   
++   return handle;
++}
++
++static
++void * dlopen_gnometsol (void)
++{
++   void  *handle = NULL;
++
++   if ((handle = dlopen ("/usr/lib/amd64/libgnometsol.so", RTLD_LAZY)) != NULL)
++       return handle;
++   
++   return handle;
++}
++
++
++static
++void * dlopen_xtsol (void)
++{
++   void  *handle = NULL;
++
++   if ((handle = dlopen ("/usr/lib/amd64/libXtsol.so.1", RTLD_LAZY)) != NULL)
++       return handle;
++
++   return handle;
++}
++
++static
++void * dlopen_bsm (void)
++{
++        return dlopen ("/usr/lib/amd64/libbsm.so", RTLD_LAZY);
++}
++
++
++static gboolean 
++tsol_is_multi_label_session (void)
++{
++  static int trusted = -1;
++  if (trusted < 0) {
++    if (getenv ("TRUSTED_SESSION")) {
++      trusted = 1;
++    } else {
++      trusted = 0;
++    }      
++  }
++  return trusted ? TRUE : FALSE;
++}
++
++gboolean
++tsol_use_trusted_extensions (void)
++{
++	/*
++  static gboolean _trusted_extensions_initialised = FALSE;
++  static gpointer tsol_handle = NULL;
++  static gpointer xtsol_handle = NULL;
++  static gpointer gnometsol_handle = NULL;
++  static gpointer bsm_handle = NULL;
++*/
++    if (!_trusted_extensions_initialised) {
++        char *label = NULL;
++        _trusted_extensions_initialised = TRUE;
++
++        if (!tsol_is_multi_label_session ())
++            return FALSE;
++
++        tsol_handle = dlopen_tsol ();
++        if (tsol_handle != NULL)
++	  xtsol_handle = dlopen_xtsol ();
++
++	bsm_handle = dlopen_bsm ();
++
++        if (tsol_handle && xtsol_handle && bsm_handle) {
++           /* libbsm function (only interested in the one) */
++           libbsm_getdevicerange = (bsm_getdevicerange) dlsym (bsm_handle, "getdevicerange");
++           /* Replacement libtsol functions */
++           libtsol_label_to_str = (tsol_label_to_str) dlsym (tsol_handle, "label_to_str"); 
++           libtsol_str_to_label = (tsol_str_to_label) dlsym (tsol_handle, "str_to_label");
++           libtsol_m_label_free = (tsol_m_label_free) dlsym (tsol_handle, "m_label_free");
++
++
++           /* Other misc. libtsol functions */
++           libtsol_blminimum = (tsol_blminimum) dlsym (tsol_handle, "blminimum");
++           libtsol_blmaximum = (tsol_blmaximum) dlsym (tsol_handle, "blmaximum");
++           libtsol_blinrange = (tsol_blinrange) dlsym (tsol_handle, "blinrange");
++           libtsol_getuserrange = (tsol_getuserrange) dlsym (tsol_handle, "getuserrange"); 
++           /* libtsol_blabel_alloc = (tsol_blabel_alloc) dlsym (tsol_handle, "blabel_alloc"); */
++           libtsol_blabel_free  = (tsol_blabel_free)  dlsym (tsol_handle, "blabel_free");
++           /* libtsol_bsllow  = (tsol_bsllow)  dlsym (tsol_handle, "bsllow"); */
++           /* libtsol_bslhigh = (tsol_bslhigh) dlsym (tsol_handle, "bslhigh"); */
++
++           /* libXtsol functions */
++           libxtsol_XTSOLgetClientLabel = (xtsol_XTSOLgetClientLabel) dlsym (xtsol_handle,
++									     "XTSOLgetClientLabel");
++           libxtsol_XTSOLIsWindowTrusted = (xtsol_XTSOLIsWindowTrusted) dlsym (xtsol_handle,
++									       "XTSOLIsWindowTrusted");
++	   libxtsol_XTSOLsetResLabel = (xtsol_XTSOLsetResLabel) dlsym (xtsol_handle,
++									     "XTSOLsetResLabel");
++	   libxtsol_XTSOLsetResUID = (xtsol_XTSOLsetResUID) dlsym (xtsol_handle,
++									     "XTSOLsetResUID");
++	   libxtsol_XTSOLgetResLabel = (xtsol_XTSOLgetResLabel) dlsym (xtsol_handle,
++									     "XTSOLgetResLabel");
++	   libxtsol_XTSOLgetResUID = (xtsol_XTSOLgetResUID) dlsym (xtsol_handle,
++									     "XTSOLgetResUID");
++
++           if (libbsm_getdevicerange == NULL ||
++	       /*libtsol_stobsl == NULL ||
++               libtsol_bsltos == NULL || */
++               libtsol_label_to_str == NULL || 
++               libtsol_str_to_label == NULL ||
++               libtsol_m_label_free == NULL ||
++               libtsol_blminimum == NULL ||
++               libtsol_blmaximum == NULL ||
++               libtsol_blinrange == NULL ||
++               libtsol_getuserrange == NULL ||
++               libtsol_blabel_free  == NULL ||
++               /* libtsol_getdevicerange == NULL || 
++               libtsol_blabel_alloc == NULL ||
++               libtsol_bsllow  == NULL ||
++               libtsol_bslhigh == NULL || */
++               libxtsol_XTSOLgetClientLabel == NULL ||
++               libxtsol_XTSOLIsWindowTrusted == NULL ||
++	       libxtsol_XTSOLsetResLabel == NULL ||
++	       libxtsol_XTSOLsetResUID == NULL ||
++	       libxtsol_XTSOLgetResLabel == NULL ||
++	       libxtsol_XTSOLgetResUID == NULL)
++	     {
++               dlclose (tsol_handle);
++               dlclose (xtsol_handle);
++               tsol_handle = NULL;
++               xtsol_handle = NULL;
++            }
++        }
++	gnometsol_handle = dlopen_gnometsol ();
++	if (gnometsol_handle != NULL)
++	  {
++	    libgnome_tsol_constraint_image_render = (gnome_tsol_constraint_image_render) dlsym (gnometsol_handle, "gnome_tsol_constraint_image_render");
++	    libgnome_tsol_constraint_image_set_border = (gnome_tsol_constraint_image_set_border) dlsym (gnometsol_handle, "gnome_tsol_constraint_image_set_border");
++	    libgnome_tsol_constraint_image_set_stretch = (gnome_tsol_constraint_image_set_stretch) dlsym (gnometsol_handle, "gnome_tsol_constraint_image_set_stretch");
++	    libgnome_tsol_constraint_image_colorize = (gnome_tsol_constraint_image_colorize) dlsym (gnometsol_handle, "gnome_tsol_constraint_image_colorize");
++
++	    if (libgnome_tsol_constraint_image_render == NULL ||
++		libgnome_tsol_constraint_image_set_border == NULL ||
++		libgnome_tsol_constraint_image_set_stretch == NULL ||
++		libgnome_tsol_constraint_image_colorize == NULL)
++		gnometsol_handle = NULL;
++
++	  }
++    }
++    return ((xtsol_handle != NULL) && (gnometsol_handle != NULL));
++}
++
++static gboolean
++tsol_use_xtsol_extension ()
++{
++  static int foundxtsol = -1;
++  int major_code, first_event, first_error;
++
++  if (foundxtsol < 0) { 
++      foundxtsol = XQueryExtension (gdk_x11_get_default_xdisplay(), "SUN_TSOL", &major_code,
++                                    &first_event, &first_error);
++  }
++  return foundxtsol;
++}
++
++gboolean tsol_is_available ()
++{
++  if (tsol_use_xtsol_extension () && tsol_use_trusted_extensions ())
++      return TRUE;
++  return FALSE;
++}
++
++static Window
++get_window_at_pointer (Display *xdisplay)
++{
++  Window root;
++  Window child;
++  int rootx = -1, rooty = -1;
++  int winx, winy;
++  unsigned int xmask;
++                                                                                
++  XQueryPointer (xdisplay, DefaultRootWindow (xdisplay),
++                 &root, &child, &rootx, &rooty, &winx, &winy, &xmask);
++  
++  return child;
++}
++
++gboolean tsol_meta_screen_use_roles (MetaScreen *screen)
++{
++  char **role_list = NULL;
++  int nb_roles;
++  if (meta_prop_get_utf8_list (screen->display, 
++			       screen->xroot, 
++			       screen->display->atom__NET_DESKTOP_ROLES,
++			       &role_list, &nb_roles))
++    {
++      int i;
++      for (i=0;i<nb_roles;i++)
++	{
++	  if (role_list[i] != NULL && strcmp (role_list[i], "") != 0)
++	    {
++	      g_strfreev (role_list);
++	      return TRUE;
++	    }
++	}
++      g_strfreev (role_list);
++    }
++  return FALSE;
++}
++
++gboolean tsol_meta_workspace_has_role (MetaWorkspace *ws)
++{
++  char **role_list = NULL;
++  int nb_roles;
++
++  if (!tsol_is_available ())
++    return FALSE;
++  
++  if (meta_prop_get_utf8_list (ws->screen->display, 
++			       ws->screen->xroot, 
++			       ws->screen->display->atom__NET_DESKTOP_ROLES,
++			       &role_list, &nb_roles))
++    {
++      int ws_id = meta_workspace_index (ws);
++      if (ws_id > nb_roles) /* something is wrong here we don't have the same number of roles/ws */
++	{
++	  g_strfreev (role_list);
++	  return FALSE;
++	}
++      if (role_list[ws_id] != NULL && strcmp (role_list[ws_id], "") != 0)
++	{	  
++	  struct passwd *pwd;
++	  pwd = getpwuid (getuid ());
++	  if (strcmp (role_list[ws_id], pwd->pw_name) == 0) /* role is normal user */
++	    {
++	      g_strfreev (role_list);
++	      return FALSE;
++	    }
++	  g_strfreev (role_list);
++	  return TRUE;
++	}	
++      g_strfreev (role_list);
++    }
++    return FALSE;
++}
++
++char * tsol_meta_workspace_get_role (MetaWorkspace *ws)
++{
++  char **role_list = NULL;
++  int nb_roles;
++
++  if (!tsol_is_available ())
++    return NULL;
++  
++  if (meta_prop_get_utf8_list (ws->screen->display, 
++			       ws->screen->xroot, 
++			       ws->screen->display->atom__NET_DESKTOP_ROLES,
++			       &role_list, &nb_roles))
++    {
++      int ws_id = meta_workspace_index (ws);
++      if (ws_id > nb_roles) /* something is wrong here we don't have the same number of roles/ws */
++	{
++	  g_strfreev (role_list);
++	  return NULL;
++	}
++      if (role_list[ws_id] != NULL && strcmp (role_list[ws_id], "") != 0)
++	{	  
++	  char *return_role_name = NULL;
++	  struct passwd *pwd;
++	  pwd = getpwuid (getuid ());
++	  if (strcmp (role_list[ws_id], pwd->pw_name) == 0) /* role is normal user */
++	    {
++	      g_strfreev (role_list);
++	      return NULL;
++	    }
++	  return_role_name = g_strdup (role_list[ws_id]);
++	  g_strfreev (role_list);
++	  return return_role_name;
++	}	
++      g_strfreev (role_list);
++    }
++    return NULL;
++}
++
++gboolean tsol_xwindow_can_move_to_workspace (Display *xdisplay,
++					Window xwin,
++					int ws_index)
++{
++  MetaDisplay *display = meta_display_for_x_display (xdisplay);
++  MetaWindow *window = meta_display_lookup_x_window (display, xwin);
++  g_assert (window != NULL);
++  MetaWorkspace *workspace = meta_screen_get_workspace_by_index (window->screen, ws_index);
++  if (tsol_meta_window_can_move_to_workspace (window, workspace))
++    return TRUE;
++  return FALSE;
++}
++
++GList *tsol_add_all_sticky_non_tp_windows (MetaDisplay *display, GList *win_list)
++{
++  GList *return_list;
++  GSList *all_windows;
++  GSList *tmp;
++
++  return_list = win_list;
++
++  all_windows = meta_display_list_windows (display);
++
++  tmp = all_windows;
++  while (tmp != NULL)
++    {
++      MetaWindow *window = tmp->data;
++      
++      if (window->on_all_workspaces && 
++	  window->decorated && 
++	  /* SUN_BRANDING TJDS */
++	  strcmp (tsol_meta_window_label_get_name(window), _("Trusted Path")) != 0)
++	{
++	  return_list = g_list_prepend (return_list, window);
++        }
++      tmp = tmp->next;
++    }
++  return return_list;
++}
++
++gboolean tsol_meta_window_can_move_to_workspace (MetaWindow *win,
++					    MetaWorkspace *ws)
++{
++  if (tsol_meta_workspace_has_role (ws))
++    {
++      const char *name = tsol_meta_window_label_get_name (win);
++      /* SUN_BRANDING TJDS */
++      if (strcmp (name, _("Trusted Path")) != 0)
++	{
++	  g_warning ("window %s cannot be moved to workspace %s\n",
++		     win->title, meta_workspace_get_name (ws));
++	  return FALSE;
++	}
++    }
++  return TRUE;
++}
++
++void tsol_trusted_stripe_atom_update (MetaDisplay* display, MetaWindow *window)
++{
++  unsigned long data[2];
++
++  if (!tsol_is_available())
++    return;
++
++  if (window == NULL)
++    data[0] = get_window_at_pointer (display->xdisplay);
++  else
++    data[0] = window->xwindow;
++
++  data[1] = None;
++
++  meta_error_trap_push (display);
++  
++  XChangeProperty (display->xdisplay, DefaultRootWindow (display->xdisplay),
++                       display->atom__NET_TRUSTED_ACTIVE_WINDOW,
++                       XA_WINDOW,
++                       32, PropModeReplace, (guchar*) data, 2);
++  meta_error_trap_pop (display, FALSE);
++}
++
++
++/* Preference related code
++ * init labels and roles from metacity to root window */
++
++
++const char * 
++tsol_label_get_min ()
++{
++    static char *min_label = NULL;
++
++    /*
++    if (!min_label) 
++    */
++        min_label = (char *) getenv ("USER_MIN_SL");
++    
++    return min_label;
++}
++
++const char*
++tsol_label_get_max ()
++{
++    static char *max_label = NULL;
++
++    /*
++    if (!max_label)
++    */
++        max_label = (char *) getenv ("USER_MAX_SL");
++    
++    return max_label;
++}
++
++void tsol_set_frame_label (Display* xdpy, Window xwin, Window xwin_frame)
++{
++  bslabel_t label;
++  uid_t uid;
++  
++  if (!tsol_is_available ())
++    return;
++
++  if (libxtsol_XTSOLgetResLabel (xdpy, xwin, IsWindow, &label))
++      libxtsol_XTSOLsetResLabel (xdpy, xwin_frame, IsWindow, &label);
++
++  if (libxtsol_XTSOLgetResUID (xdpy, xwin, IsWindow, &uid))
++      libxtsol_XTSOLsetResUID (xdpy, xwin_frame, IsWindow, &uid);
++}
++
++gboolean 
++tsol_label_is_in_user_range (const char * label)
++{
++  static blrange_t *range = NULL;
++  m_label_t *mlabel = NULL;
++  int error;
++
++  if (!tsol_is_available ())
++      return FALSE;
++
++  if (!range)
++    { /* Get user label Range */
++      char *min_label = NULL;
++      char *max_label = NULL;
++      
++      range = g_malloc (sizeof (blrange_t));
++      range->lower_bound = range->upper_bound = NULL;
++      
++      min_label = g_strdup (tsol_label_get_min ());
++      max_label = g_strdup (tsol_label_get_max ());
++      
++      if (libtsol_str_to_label (min_label, &(range->lower_bound),
++				MAC_LABEL, L_NO_CORRECTION, &error) < 0) 
++	{
++	  g_warning ("Couldn't determine minimum workspace label");
++	  g_free (min_label);
++	  g_free (max_label);
++	  return FALSE;
++	}
++      if (libtsol_str_to_label (max_label, &(range->upper_bound),
++				USER_CLEAR, L_NO_CORRECTION, &error) < 0) 
++	{
++	  g_warning ("Couldn't determine workspace clearance");
++	  g_free (min_label);
++	  g_free (max_label);
++	  return FALSE;
++	}
++      g_free (min_label);
++      g_free (max_label);
++    }
++
++  if (libtsol_str_to_label (label, &mlabel, MAC_LABEL, L_NO_CORRECTION, &error) < 0) 
++    {
++      g_warning("Could not validate sensitivity label \"%s\"", label);
++      return FALSE;
++    }
++    
++  if (!libtsol_blinrange (mlabel, range)) 
++    {
++      libtsol_m_label_free (mlabel);
++      return FALSE;
++    }
++  libtsol_m_label_free (mlabel);
++  return TRUE;
++}
++
++/*
++ * These private (hint hint) functions assume that they have been called
++ * from within a trusted desktop session. The caller must ensure that
++ * this is the case otherwise it will trigger a load of the potentially
++ * non existant tsol and xtsol libs. That would be bad!
++ */
++static blrange_t *
++get_display_range (void)
++{
++  blrange_t       *range = NULL;
++
++  range = libbsm_getdevicerange ("framebuffer");
++  if (range == NULL) {
++    range = g_malloc (sizeof (blrange_t));
++    range->lower_bound = libtsol_blabel_alloc ();
++    range->upper_bound = libtsol_blabel_alloc ();
++    libtsol_bsllow  (range->lower_bound);
++    libtsol_bslhigh (range->upper_bound);
++  }
++  return (range);
++}
++
++
++/* tsol_label_is_in_role_range
++ *
++ * return FALSE if the label is not in the username role range 
++ * not if the role exist and has a range it is returned via role_range
++ * Note if note NULL role_range needs to be freed
++ */
++
++gboolean
++tsol_label_is_in_role_range (const char * label, const char * username, char *min_role_label)
++{
++  /* partial copy of _wnck_workspace_update_role in libwnck */
++  int           error;
++  blrange_t     *role_range;
++  blrange_t	*disp_range;
++  m_label_t *mlabel = NULL;
++  min_role_label = NULL;
++
++  /* validate the label passed */
++
++  if (libtsol_str_to_label (label, &mlabel, MAC_LABEL, L_NO_CORRECTION, &error) < 0) 
++    {
++      g_warning("Could not validate sensitivity label \"%s\"", label);
++      g_free (role_range);
++      return FALSE;
++    }
++
++  /* 
++   * This is a role workspace so we need to construct the correct label range
++   * instead of relying on USER_MIN_SL and USER_MAX_SL
++   */
++  if ((role_range = libtsol_getuserrange (username)) == NULL) 
++    {
++      g_warning ("Couldn't get label range for %s\n", username);
++      return FALSE;
++    }
++
++  /* Get display device's range */
++  if ((disp_range = get_display_range ()) == NULL) 
++    {
++      g_warning ("Couldn't get the display's device range");
++      return FALSE;
++    }
++
++  /*
++   * Determine the low & high bound of the label range
++   * where the role user can operate. This is the
++   * intersection of display label range & role label
++   * range.
++   */
++  libtsol_blmaximum (role_range->lower_bound, disp_range->lower_bound);
++  libtsol_blminimum (role_range->upper_bound, disp_range->upper_bound);
++
++  libtsol_blabel_free (disp_range->lower_bound);
++  libtsol_blabel_free (disp_range->upper_bound);
++  g_free (disp_range);
++
++
++  /* check if in range */
++
++  if (!libtsol_blinrange (mlabel, role_range)) 
++    {
++      libtsol_m_label_free (mlabel);
++      libtsol_label_to_str (role_range->lower_bound, &min_role_label, M_INTERNAL, DEF_NAMES, &error);
++      libtsol_blabel_free (role_range->lower_bound);
++      libtsol_blabel_free (role_range->upper_bound);
++      g_free (role_range);
++      return FALSE;
++    }
++
++  libtsol_blabel_free (role_range->lower_bound);
++  libtsol_blabel_free (role_range->upper_bound);
++  g_free (role_range);
++
++  libtsol_m_label_free (mlabel);
++
++  return TRUE;
++}
++
++/* boolean is used to select between label or roles */
++static void 
++set_workspace_tsol_properties (MetaScreen *screen, gboolean label)
++{
++  GString *flattened;
++  int i;
++  int n_spaces;
++
++  /* flatten to nul-separated list */
++  n_spaces = meta_screen_get_n_workspaces (screen);
++  flattened = g_string_new ("");
++  i = 0;
++  while (i < n_spaces)
++    {
++      const char *name;
++	      
++
++      if (label)
++	{
++	  name = meta_prefs_get_workspace_label (i);
++	  
++
++	  if (!tsol_meta_workspace_has_role (meta_screen_get_workspace_by_index (screen, i)))
++	    {
++	      /* default to min label range if the workspace label isn't defined */
++	      /* printf ("set min label on a workspace (%d) that as a role !\n", i); */
++	      if (name == NULL) 
++		name = tsol_label_get_min ();
++	      if (!tsol_label_is_in_user_range (name))
++		{
++		  name = tsol_label_get_min ();
++		}
++	    }
++	}
++      else
++	name = meta_prefs_get_workspace_role (i);
++	
++
++      if (name)
++        g_string_append_len (flattened, name,
++                             strlen (name) + 1);
++      else
++        g_string_append_len (flattened, "", 1);
++      
++      ++i;
++     
++    }
++ 
++
++  
++  
++  meta_error_trap_push (screen->display);
++  XChangeProperty (screen->display->xdisplay,
++                   screen->xroot,
++                   label ? screen->display->atom__NET_DESKTOP_LABELS : screen->display->atom__NET_DESKTOP_ROLES,
++		   screen->display->atom_UTF8_STRING,
++                   8, PropModeReplace,
++		   (const unsigned char *)flattened->str, flattened->len);
++  meta_error_trap_pop (screen->display, FALSE);
++  
++  g_string_free (flattened, TRUE);
++}
++
++void 
++tsol_workspace_labels_atom_set (MetaScreen *screen)
++{
++  /* This updates label names on root window when the pref changes,
++   * note we only get prefs change notify if things have
++   * really changed.
++   */
++  if (tsol_is_available ())
++    set_workspace_tsol_properties (screen, TRUE);
++}
++  
++void tsol_workspace_roles_atom_set (MetaScreen *screen)
++{
++  /* This updates roles names on root window when the pref changes,
++   * note we only get prefs change notify if things have
++   * really changed.
++   */
++  if (tsol_is_available ())
++    set_workspace_tsol_properties (screen, FALSE);
++}
++
++
++void
++tsol_workspace_labels_gconf_update (MetaScreen *screen)
++{
++  char **names;
++  int n_names;
++  int i;
++
++  if (!tsol_is_available ())
++    return;
++
++  /* this updates names in prefs when the root window property changes,
++   * iff the new property contents don't match what's already in prefs
++   */
++
++  
++  
++  names = NULL;
++  n_names = 0;
++  if (!meta_prop_get_utf8_list (screen->display,
++                                screen->xroot,
++                                screen->display->atom__NET_DESKTOP_LABELS,
++                                &names, &n_names))
++    {
++      meta_verbose ("Failed to get workspace label from root window %d\n",
++                    screen->number);
++      return;
++    }
++
++  i = 0;
++  while (i < n_names)
++    {
++     /* Check if the label is in range if not set it to USER_MIN_SL 
++      * NOTE : if USER_MIN_SL is not properly set you can have an infinite loop here */
++      if (names[i] && !tsol_label_is_in_user_range (names[i]))
++	{
++	  if (!tsol_meta_workspace_has_role (meta_screen_get_workspace_by_index (screen, i)))
++	    {
++	      g_free (names[i]);
++	      names[i] = g_strdup (tsol_label_get_min ());
++	    }
++	  else
++	    {
++	      char *min_role_label = NULL;
++	      char *role = tsol_meta_workspace_get_role (meta_screen_get_workspace_by_index (screen, i));
++	      if (!tsol_label_is_in_role_range (names[i], role, min_role_label))
++		{
++		  if (min_role_label)
++		      names[i] = min_role_label;
++		  else
++		      names[i] = g_strdup (tsol_label_get_min ());
++		}
++	    }
++	}
++	  
++      meta_topic (META_DEBUG_PREFS,
++                  "Setting workspace label %d name to \"%s\" due to _NET_DESKTOP_LABELS change ROLE workspace :%s \n",
++                  i, names[i] ? names[i] : "null",
++		  tsol_meta_workspace_has_role (meta_screen_get_workspace_by_index (screen, i)) ? "TRUE" : "FALSE");
++      
++           
++           
++	
++      meta_prefs_change_workspace_label (i, names[i]);
++      
++      ++i;
++    }
++  
++  g_strfreev (names);
++}
++
++void
++tsol_workspace_roles_gconf_update (MetaScreen *screen)
++{
++  char **names;
++  int n_names;
++  int i;
++  
++  if (!tsol_is_available ())
++    return;
++ 
++
++  /* this updates names in prefs when the root window property changes,
++   * iff the new property contents don't match what's already in prefs
++   */
++  
++  names = NULL;
++  n_names = 0;
++  if (!meta_prop_get_utf8_list (screen->display,
++                                screen->xroot,
++                                screen->display->atom__NET_DESKTOP_ROLES,
++                                &names, &n_names))
++    {
++      meta_verbose ("Failed to get workspace roles from root window %d\n",
++                    screen->number);
++      return;
++    }
++
++  i = 0;
++  while (i < n_names)
++    {
++      meta_topic (META_DEBUG_PREFS,
++                  "Setting workspace roles %d name to \"%s\" due to _NET_DESKTOP_ROLES change\n",
++                  i, names[i] ? names[i] : "null");
++      meta_prefs_change_workspace_role (i, names[i]);
++      
++      ++i;
++    }
++  
++  g_strfreev (names);
++}
++
++/* GFX part */
++
++
++typedef struct _HighlightStripe HighlightStripe;
++
++struct _HighlightStripe
++{
++  ConstraintImage *image;
++  char		  *name;
++};
++
++static gint
++label_string_compare (HighlightStripe *tmp, char *searched_label)
++{
++  return strcmp (searched_label, tmp->name);  
++}
++
++ConstraintImage * 
++tsol_get_highlight_stripe (char     *name,
++			    GdkColor *label_color)
++{
++  static GSList *hl_stripe_list = NULL;
++  GSList *stored_hl_stripe = NULL;
++  HighlightStripe *hl_stripe;
++
++  if ((name == NULL) || (label_color == NULL))
++    return NULL;
++    
++
++  stored_hl_stripe = g_slist_find_custom (hl_stripe_list, 
++					  name, 
++					  (GCompareFunc)label_string_compare);
++  if (stored_hl_stripe)
++    return ((HighlightStripe* )stored_hl_stripe->data)->image;
++ 
++  hl_stripe = g_new0 (HighlightStripe, 1);
++
++  hl_stripe->name = g_strdup (name);
++
++  hl_stripe->image = g_new0 (ConstraintImage, 1);
++
++  hl_stripe->image->pixbuf = gdk_pixbuf_new_from_inline (-1, 
++							  tabpopup_highlight, 
++							  TRUE, NULL);
++  
++  libgnome_tsol_constraint_image_set_border (hl_stripe->image, 8, 8, 3, 3);
++  libgnome_tsol_constraint_image_set_stretch (hl_stripe->image, TRUE);
++  libgnome_tsol_constraint_image_colorize (hl_stripe->image, label_color, 255, TRUE);
++  
++  hl_stripe_list = g_slist_append (hl_stripe_list, hl_stripe);
++  return hl_stripe->image; 
++}
++
++
++#endif
+diff --git a/src/core/trusted.h b/src/core/trusted.h
+new file mode 100644
+index 000000000..4b3d577dd
+--- /dev/null
++++ b/src/core/trusted.h
+@@ -0,0 +1,184 @@
++/* Marco trusted */
++
++/* 
++ * Copyright (C) 2005 Erwann Chenede
++ */
++
++#ifndef TRUSTED_H
++#define TRUSTED_H
++
++#ifdef HAVE_XTSOL
++#include "display.h"
++#include "display-private.h"
++#include <gdk/gdk.h>
++#include <gtk/gtk.h>
++#include "trusted-pics.h"
++#include <X11/extensions/Xtsol.h>
++#include <sys/tsol/label_macro.h>
++/* #include "constraint-scaling.h" */
++
++typedef struct _ConstraintImage ConstraintImage;
++struct _ConstraintImage
++{
++  gchar     *filename;
++  GdkPixbuf *pixbuf;
++  GdkPixbuf *scaled;
++  gboolean   stretch;
++  gint       border_left;
++  gint       border_right;
++  gint       border_bottom;
++  gint       border_top;
++  guint      hints[3][3];
++  gboolean   recolorable;
++  GdkColor   colorize_color;
++  gboolean   use_as_bkg_mask;
++};
++
++/* dlopened libtsol functions */
++
++typedef int     (*tsol_label_to_str) (const m_label_t *label, char **string,
++				      const m_label_str_t conversion_type, uint_t flags,
++				      int *error);
++typedef int	(*tsol_str_to_label) (const char *string, m_label_t **label,
++				      const m_label_type_t label_type, uint_t flags,
++				      int *error);
++typedef void	(*tsol_m_label_free) (m_label_t *label);
++
++typedef blrange_t*  (*tsol_getuserrange) (const char *username);
++typedef int	    (*tsol_blinrange)	 (const m_label_t *label,
++					  const blrange_t *range);
++typedef void	    (*tsol_blminimum)	 (m_label_t *minimum_label,
++					  const m_label_t *bounding_label);
++typedef void	    (*tsol_blmaximum)	 (m_label_t *maximum_label,
++					  const m_label_t *bounding_label);
++typedef m_label_t*  (*tsol_blabel_alloc) (void);
++typedef void	    (*tsol_blabel_free)  (m_label_t *label_p);
++typedef void	    (*tsol_bsllow)	 (m_label_t *label);
++typedef void	    (*tsol_bslhigh)	 (m_label_t *label);
++
++
++typedef void  (*gnome_tsol_constraint_image_render) (cairo_t *cr,
++						     ConstraintImage *cimage,
++						     GdkWindow    *window,
++						     GdkRectangle *clip_rect,
++						     gboolean      center,		   
++						     gint          x,
++						     gint          y,
++						     gint          width,
++						     gint          height);
++
++typedef void (*gnome_tsol_constraint_image_set_border) (ConstraintImage *pb,
++							gint         left,
++							gint         right,
++							gint         top,
++							gint         bottom);
++
++typedef void (*gnome_tsol_constraint_image_set_stretch) (ConstraintImage *pb,
++							 gboolean     stretch);
++
++typedef void (*gnome_tsol_constraint_image_colorize) (ConstraintImage *image,
++						      GdkColor  *color,
++						      int	alpha,
++						      gboolean   use_alpha);
++
++/* dlopened libXtsol functions */
++typedef Status	(*xtsol_XTSOLgetClientLabel) (Display *dpy, 
++					      XID xid,
++					      bslabel_t *sl);
++typedef Bool    (*xtsol_XTSOLIsWindowTrusted) (Display *dpy, 
++					       Window win);
++
++typedef Status (*xtsol_XTSOLsetResLabel) (Display *dpy,
++					  XID object,
++					  ResourceType resourceFlag,
++					  bslabel_t *sl);
++typedef Status (*xtsol_XTSOLsetResUID) (Display *dpy,
++					XID object,
++					ResourceType resourceFlag,
++					uid_t *uidp);
++
++typedef Status (*xtsol_XTSOLgetResLabel) (Display *dpy,
++					   XID object,
++					   ResourceType resourceFlag,
++					   bslabel_t *sl);
++
++typedef Status (*xtsol_XTSOLgetResUID) (Display *dpy,
++					XID object,
++					ResourceType resourceFlag,
++					uid_t *uidp);
++
++/* libbsm provides getdevicerange(3TSOL) - don't believe the man page */
++typedef blrange_t*      (*bsm_getdevicerange) (const char *device);
++
++
++tsol_label_to_str	libtsol_label_to_str;
++tsol_str_to_label	libtsol_str_to_label;
++tsol_m_label_free	libtsol_m_label_free;
++tsol_blminimum		libtsol_blminimum;
++tsol_blmaximum		libtsol_blmaximum;
++tsol_blinrange		libtsol_blinrange;
++tsol_getuserrange	libtsol_getuserrange;
++tsol_blabel_alloc	libtsol_blabel_alloc;
++tsol_blabel_free	libtsol_blabel_free;
++tsol_bsllow		libtsol_bsllow;
++tsol_bslhigh		libtsol_bslhigh;
++/* libbsm functions */
++bsm_getdevicerange      libbsm_getdevicerange;
++
++gnome_tsol_constraint_image_render libgnome_tsol_constraint_image_render;
++gnome_tsol_constraint_image_set_border libgnome_tsol_constraint_image_set_border;
++gnome_tsol_constraint_image_set_stretch libgnome_tsol_constraint_image_set_stretch;
++gnome_tsol_constraint_image_colorize libgnome_tsol_constraint_image_colorize;
++
++xtsol_XTSOLgetClientLabel	libxtsol_XTSOLgetClientLabel;
++xtsol_XTSOLIsWindowTrusted	libxtsol_XTSOLIsWindowTrusted;
++
++xtsol_XTSOLsetResLabel		libxtsol_XTSOLsetResLabel;
++xtsol_XTSOLgetResLabel		libxtsol_XTSOLgetResLabel;
++xtsol_XTSOLsetResUID		libxtsol_XTSOLsetResUID;
++xtsol_XTSOLgetResUID		libxtsol_XTSOLgetResUID;
++
++gboolean tsol_is_available (void);
++gboolean tsol_use_trusted_extensions (void);
++
++/* Marco functions */
++
++void		      tsol_trusted_stripe_atom_update (MetaDisplay *display, 
++						       MetaWindow  *window);
++gboolean tsol_meta_workspace_has_role (MetaWorkspace *ws);
++char * tsol_meta_workspace_get_role (MetaWorkspace *ws);
++
++
++gboolean tsol_meta_window_can_move_to_workspace (MetaWindow    *win,
++						 MetaWorkspace *ws);
++
++gboolean tsol_xwindow_can_move_to_workspace (Display *display,
++					     Window   xwin,
++					     int      ws_index);
++
++gboolean tsol_meta_screen_use_roles (MetaScreen *screen);
++GList*	 tsol_add_all_sticky_non_tp_windows (MetaDisplay *display,
++					     GList	 *win_list);
++
++void tsol_workspace_labels_atom_set (MetaScreen *screen);
++void tsol_workspace_roles_atom_set (MetaScreen *screen);
++
++	
++void tsol_workspace_labels_gconf_update (MetaScreen *screen);
++void tsol_workspace_roles_gconf_update (MetaScreen *screen);
++
++gboolean	tsol_label_is_in_user_range (const char * label);
++const char     *tsol_label_get_min ();
++const char     *tsol_label_get_max ();
++const char     *tsol_meta_window_label_get_name(MetaWindow *window);
++
++gboolean tsol_label_is_in_role_range (const char * label, 
++				      const char * username, 
++				      char *min_role_label);
++
++ConstraintImage * tsol_get_highlight_stripe (char     *name,
++					     GdkColor *label_color);
++
++void tsol_set_frame_label (Display* xdpy, Window xwin, Window xwin_frame);
++#endif /*HAVE_XTSOL*/
++#endif /*TRUSTED_H*/
+diff --git a/src/core/window-props.c b/src/core/window-props.c
+index c32002903..54d6bf9a4 100644
+--- a/src/core/window-props.c
++++ b/src/core/window-props.c
+@@ -51,6 +51,11 @@
+ #include <sys/types.h>
+ #include <pwd.h>
+ 
++#ifdef HAVE_XTSOL
++#undef HAVE_GTOP
++#include "trusted.h"
++#endif /* HAVE_XTSOL */
++
+ #ifdef HAVE_GTOP
+ #include <glibtop/procuid.h>
+ #include <errno.h>
+@@ -467,8 +472,18 @@ set_title_text (MetaWindow  *window,
+       char *found_name = NULL;
+ 
+       uid_t window_owner = 0;
++#ifdef HAVE_XTSOL
++      gboolean window_owner_known = FALSE;
++
++      if (tsol_is_available()) {
++	    window_owner_known = libxtsol_XTSOLgetResUID(
++		window->display->xdisplay, window->xwindow, IsWindow, &window_owner);
++       }
++#else
+       gboolean window_owner_known =
+               owner_of_process (window->net_wm_pid, &window_owner);
++#endif /* HAVE_XTSOL */
++
+ 
+       /* Assume a window with unknown ownership is ours (call it usufruct!) */
+       gboolean window_owner_is_us =
+diff --git a/src/core/window.c b/src/core/window.c
+index 073a92410..d0f567eaa 100644
+--- a/src/core/window.c
++++ b/src/core/window.c
+@@ -1355,14 +1355,6 @@ set_net_wm_state (MetaWindow *window)
+     }
+ }
+ 
+-gboolean
+-meta_window_located_on_workspace (MetaWindow    *window,
+-                                  MetaWorkspace *workspace)
+-{
+-  return (window->on_all_workspaces && window->screen == workspace->screen) ||
+-    (window->workspace == workspace);
+-}
+-
+ static gboolean
+ is_minimized_foreach (MetaWindow *window,
+                       void       *data)
+@@ -3511,9 +3503,10 @@ meta_window_move_resize_internal (MetaWindow          *window,
+               is_user_action ? " (user move/resize)" : "",
+               old_rect.x, old_rect.y, old_rect.width, old_rect.height);
+ 
+-  if (window->frame)
++  if (window->frame) {
+     meta_frame_calc_geometry (window->frame,
+                               &fgeom);
++  }
+ 
+   new_rect.x = root_x_nw;
+   new_rect.y = root_y_nw;
+@@ -4464,6 +4457,13 @@ void
+ meta_window_change_workspace (MetaWindow    *window,
+                               MetaWorkspace *workspace)
+ {
++#ifdef HAVE_XTSOL
++  if (tsol_is_available()) {
++	  if (!tsol_meta_window_can_move_to_workspace(window, workspace))
++	    return;
++  }
++#endif
++
+   meta_window_change_workspace_without_transients (window, workspace);
+ 
+   meta_window_foreach_transient (window, change_workspace_foreach,
+@@ -6850,6 +6850,17 @@ meta_window_show_menu (MetaWindow *window,
+ 
+   if (!window->on_all_workspaces)
+     {
++#ifdef HAVE_XTSOL
++  if (tsol_is_available()) {
++       if (layout.current_col > 0 && tsol_meta_window_can_move_to_workspace (window, meta_workspace_get_neighbor (window->screen->active_workspace, META_MOTION_LEFT)))
++         ops |= META_MENU_OP_MOVE_LEFT;
++       if (layout.current_col < layout.cols - 1 && tsol_meta_window_can_move_to_workspace (window, meta_workspace_get_neighbor (window->screen->active_workspace, META_MOTION_RIGHT)))
++         ops |= META_MENU_OP_MOVE_RIGHT;
++       if (layout.current_row > 0 && tsol_meta_window_can_move_to_workspace (window, meta_workspace_get_neighbor (window->screen->active_workspace, META_MOTION_UP)))
++         ops |= META_MENU_OP_MOVE_UP;
++       if (layout.current_row < layout.rows - 1 && tsol_meta_window_can_move_to_workspace (window, meta_workspace_get_neighbor (window->screen->active_workspace, META_MOTION_DOWN)))
++         ops |= META_MENU_OP_MOVE_DOWN;
++  } else {
+       ltr = meta_ui_get_direction() == META_UI_DIRECTION_LTR;
+ 
+       if (layout.current_col > 0)
+@@ -6862,6 +6873,21 @@ meta_window_show_menu (MetaWindow *window,
+       if ((layout.current_row < layout.rows - 1) &&
+           ((layout.current_row + 1) * layout.cols + layout.current_col < n_workspaces))
+         ops |= META_MENU_OP_MOVE_DOWN;
++  }
++#else
++      ltr = meta_ui_get_direction() == META_UI_DIRECTION_LTR;
++
++      if (layout.current_col > 0)
++        ops |= ltr ? META_MENU_OP_MOVE_LEFT : META_MENU_OP_MOVE_RIGHT;
++      if ((layout.current_col < layout.cols - 1) &&
++          (layout.current_row * layout.cols + (layout.current_col + 1) < n_workspaces))
++        ops |= ltr ? META_MENU_OP_MOVE_RIGHT : META_MENU_OP_MOVE_LEFT;
++      if (layout.current_row > 0)
++        ops |= META_MENU_OP_MOVE_UP;
++      if ((layout.current_row < layout.rows - 1) &&
++          ((layout.current_row + 1) * layout.cols + layout.current_col < n_workspaces))
++        ops |= META_MENU_OP_MOVE_DOWN;
++#endif
+     }
+ 
+   meta_screen_free_workspace_layout (&layout);
+@@ -8755,3 +8781,23 @@ meta_window_is_client_decorated (MetaWindow *window)
+    */
+   return window->has_custom_frame_extents;
+ }
++
++gboolean
++meta_window_located_on_workspace (MetaWindow    *window,
++                                  MetaWorkspace *workspace)
++{
++#ifdef HAVE_TSOL
++  if (tsol_meta_workspace_has_role (workspace))
++    {
++      /* SUN_BRANDING TJDS */
++      if (window->on_all_workspaces && window->decorated && 
++	      strcmp (tsol_meta_window_label_get_name (window), _("Trusted Path")) != 0)
++        {
++          /* printf ("meta_window_visible_on_workspace in ws role win (%s) is not TP\n", window->title); */
++          return FALSE;
++        }
++    }
++#endif
++  return (window->on_all_workspaces && window->screen == workspace->screen) ||
++    (window->workspace == workspace);
++}
+diff --git a/src/core/workspace.c b/src/core/workspace.c
+index dffb1ebff..e6dc0a927 100644
+--- a/src/core/workspace.c
++++ b/src/core/workspace.c
+@@ -120,6 +120,10 @@ meta_workspace_free (MetaWorkspace *workspace)
+    */
+ 
+   tmp = workspace->windows;
++#ifdef HAVE_XTSOL
++  if (tsol_is_available ())
++    tmp = tsol_add_all_sticky_non_tp_windows (workspace->screen->display, tmp);
++#endif /*HAVE_XTSOL*/
+   while (tmp != NULL)
+     {
+       GList *next;
+diff --git a/src/core/workspace.h b/src/core/workspace.h
+index 7d02861e9..0669cf5a3 100644
+--- a/src/core/workspace.h
++++ b/src/core/workspace.h
+@@ -105,6 +105,8 @@ MetaWorkspace* meta_workspace_get_neighbor (MetaWorkspace      *workspace,
+ 
+ const char* meta_workspace_get_name (MetaWorkspace *workspace);
+ 
++gboolean meta_window_located_on_workspace (MetaWindow *window,
++                                  MetaWorkspace *workspace);
+ #endif
+ 
+ 
+diff --git a/src/include/prefs.h b/src/include/prefs.h
+index 34ab802ea..96b5e5a24 100644
+--- a/src/include/prefs.h
++++ b/src/include/prefs.h
+@@ -31,6 +31,10 @@
+ 
+ typedef enum
+ {
++#ifdef HAVE_XTSOL
++  META_PREF_WORKSPACE_LABELS,
++  META_PREF_WORKSPACE_ROLES,
++#endif /*HAVE_XTSOL*/
+   META_PREF_MOUSE_BUTTON_MODS,
+   META_PREF_FOCUS_MODE,
+   META_PREF_FOCUS_NEW_WINDOWS,
+@@ -136,6 +140,15 @@ gboolean    meta_prefs_get_force_fullscreen  (void);
+ gboolean    meta_prefs_show_tab_border (void);
+ gboolean    meta_prefs_is_in_skip_list (char *class);
+ 
++#ifdef HAVE_XTSOL
++const char* meta_prefs_get_workspace_label    (int         i);
++void        meta_prefs_change_workspace_label (int         i,
++                                              const char *name);
++const char* meta_prefs_get_workspace_role    (int         i);
++void        meta_prefs_change_workspace_role (int         i,
++                                              const char *name);
++#endif /* HAVE_XTSOL */
++
+ /**
+  * Sets whether the compositor is turned on.
+  *
+diff --git a/src/include/ui.h b/src/include/ui.h
+index 58225dcb6..eb2648c1f 100644
+--- a/src/include/ui.h
++++ b/src/include/ui.h
+@@ -178,6 +178,7 @@ MetaUIDirection meta_ui_get_direction (void);
+ 
+ GdkPixbuf *meta_ui_get_pixbuf_from_surface (cairo_surface_t *surface);
+ 
++
+ #include "tabpopup.h"
+ #include "tile-preview.h"
+ 
+diff --git a/src/tools/marco-window-demo.c b/src/tools/marco-window-demo.c
+index 8b3d8e436..23036477f 100644
+--- a/src/tools/marco-window-demo.c
++++ b/src/tools/marco-window-demo.c
+@@ -911,27 +911,27 @@ static const gchar *xml =
+ static GActionEntry demo_entries[] =
+ {
+   /* menubar */
+-  { "dialog1",           dialog_cb,            NULL, NULL, NULL, {} },
+-  { "dialog2",           modal_dialog_cb,      NULL, NULL, NULL, {} },
+-  { "dialog3",           no_parent_dialog_cb,  NULL, NULL, NULL, {} },
+-  { "utility",           utility_cb,           NULL, NULL, NULL, {} },
+-  { "splashscreen",      splashscreen_cb,      NULL, NULL, NULL, {} },
+-  { "top-dock",          dock_cb,              NULL, NULL, NULL, {} },
+-  { "bottom-dock",       dock_cb,              NULL, NULL, NULL, {} },
+-  { "left-dock",         dock_cb,              NULL, NULL, NULL, {} },
+-  { "right-dock",        dock_cb,              NULL, NULL, NULL, {} },
+-  { "all-docks",         dock_cb,              NULL, NULL, NULL, {} },
+-  { "desktop",           desktop_cb,           NULL, NULL, NULL, {} },
+-  { "menu",              menu_cb,              NULL, NULL, NULL, {} },
+-  { "toolbar",           toolbar_cb,           NULL, NULL, NULL, {} },
+-  { "override-redirect", override_redirect_cb, NULL, NULL, NULL, {} },
+-  { "border-only",       border_only_cb,       NULL, NULL, NULL, {} },
++  { "dialog1",           dialog_cb,            NULL, NULL, NULL, {NULL} },
++  { "dialog2",           modal_dialog_cb,      NULL, NULL, NULL, {NULL} },
++  { "dialog3",           no_parent_dialog_cb,  NULL, NULL, NULL, {NULL} },
++  { "utility",           utility_cb,           NULL, NULL, NULL, {NULL} },
++  { "splashscreen",      splashscreen_cb,      NULL, NULL, NULL, {NULL} },
++  { "top-dock",          dock_cb,              NULL, NULL, NULL, {NULL} },
++  { "bottom-dock",       dock_cb,              NULL, NULL, NULL, {NULL} },
++  { "left-dock",         dock_cb,              NULL, NULL, NULL, {NULL} },
++  { "right-dock",        dock_cb,              NULL, NULL, NULL, {NULL} },
++  { "all-docks",         dock_cb,              NULL, NULL, NULL, {NULL} },
++  { "desktop",           desktop_cb,           NULL, NULL, NULL, {NULL} },
++  { "menu",              menu_cb,              NULL, NULL, NULL, {NULL} },
++  { "toolbar",           toolbar_cb,           NULL, NULL, NULL, {NULL} },
++  { "override-redirect", override_redirect_cb, NULL, NULL, NULL, {NULL} },
++  { "border-only",       border_only_cb,       NULL, NULL, NULL, {NULL} },
+   /* toolbar */
+-  { "new",               do_appwindow,         NULL, NULL, NULL, {} },
+-  { "lock",              sleep_cb,             NULL, NULL, NULL, {} },
+-  { "decorations",       toggle_decorated_cb,  NULL, NULL, NULL, {} },
+-  { "quit",              clicked_toolbar_cb,   NULL, NULL, NULL, {} },
+-  { "ratio",             toggle_aspect_ratio,  NULL, NULL, NULL, {} },
++  { "new",               do_appwindow,         NULL, NULL, NULL, {NULL} },
++  { "lock",              sleep_cb,             NULL, NULL, NULL, {NULL} },
++  { "decorations",       toggle_decorated_cb,  NULL, NULL, NULL, {NULL} },
++  { "quit",              clicked_toolbar_cb,   NULL, NULL, NULL, {NULL} },
++  { "ratio",             toggle_aspect_ratio,  NULL, NULL, NULL, {NULL} },
+ };
+ 
+ static GtkWidget *
+diff --git a/src/ui/frames.c b/src/ui/frames.c
+index 816ebd8cd..b17552077 100644
+--- a/src/ui/frames.c
++++ b/src/ui/frames.c
+@@ -33,6 +33,9 @@
+ #include "fixedtip.h"
+ #include "theme.h"
+ #include "prefs.h"
++#ifdef HAVE_XTSOL
++#include "../core/trusted.h"
++#endif
+ #include "ui.h"
+ 
+ #ifdef HAVE_SHAPE
+@@ -2494,7 +2497,12 @@ meta_frames_paint_to_drawable (MetaFrames   *frames,
+                                     frame->text_height,
+                                     &button_layout,
+                                     button_states,
+-                                    mini_icon, icon);
++                                    mini_icon, icon
++#ifdef HAVE_XTSOL                            
++      				    ,GTK_WIDGET (frames),
++			            frame->label
++#endif
++				    );
+ }
+ 
+ static void
+@@ -2869,4 +2877,22 @@ invalidate_whole_window (MetaFrames *frames,
+ {
+   gdk_window_invalidate_rect (frame->window, NULL, FALSE);
+   invalidate_cache (frames, frame);
++#ifdef HAVE_XTSOL
+ }
++
++void
++meta_frames_set_label (MetaFrames *frames,
++		       Window      xwindow,
++		       MetaTrustedLabel *label)
++{
++  MetaUIFrame *frame;
++
++  frame = meta_frames_lookup_window (frames, xwindow);
++  if (tsol_is_available()) {
++	  frame->label = label;
++  } else {
++	frame->label = NULL;
++  }
++}
++#endif
++
+diff --git a/src/ui/frames.h b/src/ui/frames.h
+index 8124a927f..190b59a59 100644
+--- a/src/ui/frames.h
++++ b/src/ui/frames.h
+@@ -28,6 +28,9 @@
+ #include <gdk/gdkx.h>
+ #include "common.h"
+ #include "theme.h"
++#ifdef HAVE_XTSOL
++#include "../core/trusted.h"
++#endif
+ 
+ typedef enum
+ {
+@@ -78,6 +81,9 @@ struct _MetaUIFrame
+   GdkWindow *window;
+   GtkStyleContext *style;
+   MetaFrameStyle *cache_style;
++#ifdef HAVE_XTSOL  
++  MetaTrustedLabel *label;
++#endif  
+   PangoLayout *layout;
+   int text_height;
+   char *title; /* NULL once we have a layout */
+@@ -160,4 +166,9 @@ Window meta_frames_get_moving_frame (MetaFrames *frames);
+ void meta_frames_push_delay_exposes (MetaFrames *frames);
+ void meta_frames_pop_delay_exposes  (MetaFrames *frames);
+ 
++#ifdef HAVE_XTSOL
++void meta_frames_set_label (MetaFrames	     *frames, 
++			    Window	      xwindow,
++			    MetaTrustedLabel *label);
++#endif
+ #endif
+diff --git a/src/ui/preview-widget.c b/src/ui/preview-widget.c
+index 03bb8a708..d2339070c 100644
+--- a/src/ui/preview-widget.c
++++ b/src/ui/preview-widget.c
+@@ -25,7 +25,13 @@
+ 
+ #include <math.h>
+ #include <gtk/gtk.h>
++#include <gdk/gdkx.h>
+ #include "preview-widget.h"
++#ifdef HAVE_XTSOL
++#include "../core/trusted.h"
++#include "../core/window-private.h"
++#include "../core/workspace.h"
++#endif
+ 
+ static void     meta_preview_class_init    (MetaPreviewClass *klass);
+ static void     meta_preview_init          (MetaPreview      *preview);
+@@ -232,6 +238,20 @@ meta_preview_draw (GtkWidget *widget,
+ 
+   if (preview->theme)
+     {
++#ifdef HAVE_XTSOL
++      MetaTrustedLabel        *label = NULL;;
++if (tsol_is_available()) {
++            /* create new MetaTrustedLabel */
++      label = g_new0 (MetaTrustedLabel, 1);
++
++      label->name = "ADMIN_LOW";
++      label->color = meta_color_spec_new (META_COLOR_SPEC_BASIC);
++      label->color->data.basic.color.red = 0.0;
++      label->color->data.basic.color.green = 0.0;
++      label->color->data.basic.color.blue = 0.0;
++}
++#endif
++
+       border_width = gtk_container_get_border_width (GTK_CONTAINER (widget));
+ 
+       meta_theme_draw_frame (preview->theme,
+@@ -245,7 +265,10 @@ meta_preview_draw (GtkWidget *widget,
+                              &preview->button_layout,
+                              button_states,
+                              meta_preview_get_mini_icon (),
+-                             meta_preview_get_icon ());
++                             meta_preview_get_icon (),
++#ifdef HAVE_XTSOL
++			     label);
++#endif
+     }
+ 
+   cairo_restore (cr);
+diff --git a/src/ui/stubs.c b/src/ui/stubs.c
+new file mode 100644
+index 000000000..92b7de834
+--- /dev/null
++++ b/src/ui/stubs.c
+@@ -0,0 +1,39 @@
++/* Marco stubs for libmarco-private */
++
++/*
++ * Copyright (C) 2020 Dynamic Systems, Inc
++ *
++ * This program is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU General Public License as
++ * published by the Free Software Foundation; either version 2 of the
++ * License, or (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful, but
++ * WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
++ * 02110-1301, USA.
++ */
++
++#include <gtk/gtk.h>
++/*
++ * The following three dummy functions are needed
++ * to resolve undefined functions in libmarco-private
++ * that were introduced in marco's ui/theme.c
++ */
++int meta_workspace_index(void *workspace)
++{
++	return (0);
++}
++gboolean tsol_is_available()
++{
++	return FALSE;
++}
++char *meta_prefs_get_workspace_label(int i)
++{
++	return ("");
++}
+diff --git a/src/ui/theme-viewer.c b/src/ui/theme-viewer.c
+index 65df34fa8..3c8190f37 100644
+--- a/src/ui/theme-viewer.c
++++ b/src/ui/theme-viewer.c
+@@ -30,11 +30,19 @@
+ #include <time.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include <gdk/gdk.h>
++#include <gdk/gdkx.h>
++#ifdef HAVE_XTSOL
++#include "../core/trusted.h"
++#include "../core/window-private.h"
++#include "../core/workspace.h"
++#endif
+ 
+ #include <libintl.h>
+ #define _(x) dgettext (GETTEXT_PACKAGE, x)
+ #define N_(x) x
+ 
++
+ /* We need to compute all different button arrangements
+  * in terms of button location. We don't care about
+  * different arrangements in terms of button function.
+@@ -51,6 +59,17 @@
+ #define BUTTON_LAYOUT_COMBINATIONS ((MAX_BUTTONS_PER_CORNER+1)*(MAX_BUTTONS_PER_CORNER+1))
+ #endif
+ 
++#ifdef HAVE_XTSOL
++void
++meta_quit ()
++{
++}
++void
++meta_restart (void)
++{
++}
++#endif
++
+ enum
+ {
+   FONT_SIZE_SMALL,
+@@ -1059,6 +1078,20 @@ run_theme_benchmark (void)
+   i = 0;
+   while (i < ITERATIONS)
+     {
++#ifdef HAVE_XTSOL
++      MetaTrustedLabel	      *label = NULL;;
++if (tsol_is_available()) {
++      /* create new MetaTrustedLabel */
++      label = g_new0 (MetaTrustedLabel, 1);
++
++      label->name = "ADMIN_LOW";
++      label->color = meta_color_spec_new (META_COLOR_SPEC_BASIC);
++      label->color->data.basic.color.red = 0.0;
++      label->color->data.basic.color.green = 0.0;
++      label->color->data.basic.color.blue = 0.0;
++}
++#endif
++
+       /* Creating the pixmap in the loop is right, since
+        * GDK does the same with its double buffering.
+        */
+@@ -1079,8 +1112,11 @@ run_theme_benchmark (void)
+                              &button_layout,
+                              button_states,
+                              meta_preview_get_mini_icon (),
+-                             meta_preview_get_icon ());
+-
++                             meta_preview_get_icon ()
++#ifdef HAVE_XTSOL		       
++		             ,label
++#endif		       
++      );
+       cairo_destroy (cr);
+       cairo_surface_destroy (pixmap);
+ 
+diff --git a/src/ui/theme.c b/src/ui/theme.c
+index b97b01189..df53a4d8b 100644
+--- a/src/ui/theme.c
++++ b/src/ui/theme.c
+@@ -62,6 +62,14 @@
+ #include <stdlib.h>
+ #define __USE_XOPEN
+ #include <math.h>
++#ifdef HAVE_XTSOL
++#include "prefs.h"
++#include "../core/trusted.h"
++#include "../core/window-private.h"
++#include "../core/workspace.h"
++
++static GtkWidget *trusted_widget;
++#endif
+ 
+ #define GDK_COLOR_RGBA(color)                                           \
+                          ((guint32) (0xff                         |     \
+@@ -426,6 +434,10 @@ meta_frame_layout_get_borders (const MetaFrameLayout *layout,
+   if (top_height)
+     {
+       *top_height = MAX (buttons_height, title_height);
++#ifdef HAVE_XTSOL      
++      if (tsol_is_available ()) /*Trusted Frame Layout Modification TFLM*/
++        *top_height += *top_height - layout->title_border.bottom;
++#endif /* HAVE_XTSOL */
+     }
+ 
+   if (left_width)
+@@ -494,7 +506,6 @@ rect_for_function (MetaFrameGeometry *fgeom,
+                    MetaButtonFunction function,
+                    MetaTheme         *theme)
+ {
+-
+   /* Firstly, check version-specific things. */
+ 
+   if (META_THEME_ALLOWS(theme, META_THEME_SHADE_STICK_ABOVE_BUTTONS))
+@@ -550,7 +561,7 @@ rect_for_function (MetaFrameGeometry *fgeom,
+         return NULL;
+     case META_BUTTON_FUNCTION_MINIMIZE:
+       if (flags & META_FRAME_ALLOWS_MINIMIZE)
+-        return &fgeom->min_rect;
++	return &fgeom->min_rect;
+       else
+         return NULL;
+     case META_BUTTON_FUNCTION_MAXIMIZE:
+@@ -661,7 +672,10 @@ meta_frame_layout_calc_geometry (const MetaFrameLayout  *layout,
+ 
+   fgeom->width = width;
+   fgeom->height = height;
+-
++#ifdef HAVE_XTSOL_debug 
++  if (tsol_is_available ())
++    fgeom->height = height + fgeom->top_height; /*Trusted Frame Layout Modification TFLM*/
++#endif  
+   fgeom->top_titlebar_edge = layout->title_border.top;
+   fgeom->bottom_titlebar_edge = layout->title_border.bottom;
+   fgeom->left_titlebar_edge = layout->left_titlebar_edge;
+@@ -865,9 +879,18 @@ meta_frame_layout_calc_geometry (const MetaFrameLayout  *layout,
+   fgeom->n_right_buttons = n_right;
+ 
+   /* center buttons vertically */
++#ifdef HAVE_XTSOL
++if (tsol_is_available()) {
++  button_y = layout->title_border.top;
++} else {
+   button_y = (fgeom->top_height -
+               (button_height + layout->button_border.top + layout->button_border.bottom)) / 2 + layout->button_border.top;
+ 
++}
++#else
++  button_y = (fgeom->top_height -
++              (button_height + layout->button_border.top + layout->button_border.bottom)) / 2 + layout->button_border.top;
++#endif
+   /* right edge of farthest-right button */
+   x = width - layout->right_titlebar_edge;
+ 
+@@ -1109,7 +1132,6 @@ meta_color_spec_new (MetaColorSpecType type)
+     case META_COLOR_SPEC_BASIC:
+       size += sizeof (dummy.data.basic);
+       break;
+-
+     case META_COLOR_SPEC_GTK:
+       size += sizeof (dummy.data.gtk);
+       break;
+@@ -1144,7 +1166,6 @@ meta_color_spec_free (MetaColorSpec *spec)
+     case META_COLOR_SPEC_BASIC:
+       DEBUG_FILL_STRUCT (&spec->data.basic);
+       break;
+-
+     case META_COLOR_SPEC_GTK:
+       DEBUG_FILL_STRUCT (&spec->data.gtk);
+       break;
+@@ -1623,7 +1644,6 @@ meta_color_spec_render (MetaColorSpec *spec,
+     case META_COLOR_SPEC_BASIC:
+       *color = spec->data.basic.color;
+       break;
+-
+     case META_COLOR_SPEC_GTK:
+       meta_set_color_from_style (color,
+                                  style,
+@@ -2460,10 +2480,6 @@ pos_eval_get_variable (PosToken                  *t,
+         *result = env->title_width;
+       else if (strcmp (t->d.v.name, "title_height") == 0)
+         *result = env->title_height;
+-      else if (strcmp (t->d.v.name, "frame_x_center") == 0)
+-        *result = env->frame_x_center;
+-      else if (strcmp (t->d.v.name, "frame_y_center") == 0)
+-        *result = env->frame_y_center;
+       else
+         {
+           g_set_error (err, META_THEME_ERROR,
+@@ -3618,6 +3634,25 @@ fill_env (MetaPositionExprEnv *env,
+ 
+   env->title_width = info->title_layout_width;
+   env->title_height = info->title_layout_height;
++#ifdef HAVE_XTSOL
++if (tsol_is_available()) {
++  if (info->label && info->label->layout)
++    {
++      PangoRectangle extents;
++      
++      pango_layout_get_pixel_extents (info->label->layout,
++				      NULL, &extents);
++  
++      env->trusted_label_width =  extents.width;
++      env->trusted_label_height = extents.height;
++    }
++  else
++    {
++      env->trusted_label_width = 0;
++      env->trusted_label_height = 0;
++    }
++}
++#endif  
+   env->theme = meta_current_theme;
+ }
+ 
+@@ -3967,7 +4002,11 @@ meta_draw_op_draw_with_env (const MetaDrawOp    *op,
+           {
+             rx = parse_x_position_unchecked (op->data.icon.x, env);
+             ry = parse_y_position_unchecked (op->data.icon.y, env);
+-
++#ifdef HAVE_XTSOL
++if (tsol_is_available()) {
++	    ry = 26;
++}
++#endif
+             gdk_cairo_set_source_pixbuf (cr, pixbuf, rx, ry);
+             cairo_paint (cr);
+ 
+@@ -3987,6 +4026,14 @@ meta_draw_op_draw_with_env (const MetaDrawOp    *op,
+ 
+           rx = parse_x_position_unchecked (op->data.title.x, env);
+           ry = parse_y_position_unchecked (op->data.title.y, env);
++#ifdef HAVE_XTSOL
++if (tsol_is_available()) {
++	  ry = 26;
++
++	  env->rect.y = 21;
++	  env->rect.height = 22;
++}
++#endif
+ 
+           if (op->data.title.ellipsize_width)
+             {
+@@ -4054,8 +4101,107 @@ meta_draw_op_draw_with_env (const MetaDrawOp    *op,
+            * if the width is already -1 */
+           pango_layout_set_width (info->title_layout, -1);
+         }
+-      break;
++#ifdef HAVE_XTSOL
++if (tsol_is_available()) {
++      if (info->label->layout)
++        {
++          static MetaColorSpec *black = NULL;
++          static MetaColorSpec *white = NULL;
++          static GdkPixbuf   *shield_scaled = NULL;
++          int rx, ry;
++          int text_w, text_h;
++          MetaColorSpec *color;
++	  char *label_name;
++	  GdkRectangle area;
++	  GdkRGBA label_color;
++	  ConstraintImage *cimage = NULL;
++          gboolean black_text = tsol_should_label_layout_be_black (info->label->color);
++          GError **error = NULL;
++          int scaled_w, image_height;
++	  GdkPixbuf *shield_pixbuf;
++     
++          if (black == NULL)
++            {
++              black = meta_color_spec_new (META_COLOR_SPEC_BASIC);
++              white = meta_color_spec_new (META_COLOR_SPEC_BASIC);
++
++              gdk_rgba_parse (&black->data.basic.color, "black");
++              gdk_rgba_parse (&white->data.basic.color, "white");
++            }
++          pango_layout_get_pixel_size (info->label->layout,&text_w, &text_h);
++
++	  rect.height /= 2;
++          rx = ((rect.width - text_w) / 2 ) + rect.x;
++          ry = ((rect.height - text_h) / 2 ) + rect.y - 1;
++
++	  label_name = info->label->name;
++	  label_color.red = info->label->color->data.basic.color.red;
++	  label_color.green = info->label->color->data.basic.color.green;
++	  label_color.blue = info->label->color->data.basic.color.blue;
++	  label_color.alpha = info->label->color->data.basic.color.alpha;
++	  cimage = g_new0(ConstraintImage, 1);
++	  cimage->pixbuf = gdk_pixbuf_new_from_inline (-1, workspace_highlight,
++			  TRUE, NULL);
++	  area.x = rect.x;
++	  area.y = rect.y - 1;
++	  area.width = rect.width;
++	  area.height = rect.height;
++	  libgnome_tsol_constraint_image_set_border(cimage, 8, 8, 3, 3);
++	  libgnome_tsol_constraint_image_set_stretch (cimage, TRUE);
++	  libgnome_tsol_constraint_image_colorize (cimage, &label_color, 255, TRUE);
++	  
++	  libgnome_tsol_constraint_image_render (cr, cimage,
++			  gtk_widget_get_window(trusted_widget),
++			  &area,
++			  FALSE,
++			  area.x,
++			  area.y,
++			  area.width,
++			  area.height);
++	 
++
++	  if (shield_scaled == NULL) {
++	    shield_pixbuf = gdk_pixbuf_new_from_inline (-1, shield, FALSE, error);
++
++            image_height = rect.height - 6;
++
++            scaled_w = (gdk_pixbuf_get_width (shield_pixbuf) * image_height) /
++		    gdk_pixbuf_get_height (shield_pixbuf);
++
++            shield_scaled = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
++                                    TRUE,
++                                    8, scaled_w,
++                                    image_height);
++
++            gdk_pixbuf_scale (shield_pixbuf, shield_scaled, 0, 0,
++                          scaled_w, image_height, 0, 0,
++                      (double) image_height / gdk_pixbuf_get_height (shield_pixbuf),
++                      (double) image_height / gdk_pixbuf_get_height (shield_pixbuf),
++                          GDK_INTERP_HYPER);
++	    /* free shield_pixbuf */
++	  }
+ 
++	  if (strcmp (label_name, "Trusted Path") == 0) {
++	    gdk_cairo_set_source_pixbuf(cr, shield_scaled, rx - 24, ry + 1);
++	    cairo_paint(cr);
++	  }
++	  
++          if (black_text)
++            {
++              color = black;
++            }
++          else
++            {
++              color = white;
++            }
++
++	  gdk_cairo_set_source_rgba(cr, &color->data.basic.color);
++	  cairo_move_to(cr, rx, ry);
++	  pango_cairo_show_layout(cr, info->label->layout);
++        }
++}
++#endif
++      break;
+     case META_DRAW_OP_LIST:
+       {
+         MetaRectangle d_rect;
+@@ -4663,6 +4809,10 @@ meta_frame_style_draw_with_style (MetaFrameStyle          *style,
+                                   int                      client_width,
+                                   int                      client_height,
+                                   PangoLayout             *title_layout,
++#ifdef HAVE_XTSOL			    
++				  GtkWidget		   *widget,
++				  MetaTrustedLabel	   *label,
++#endif			    
+                                   int                      text_height,
+                                   MetaButtonState          button_states[META_BUTTON_TYPE_LAST],
+                                   GdkPixbuf               *mini_icon,
+@@ -4681,6 +4831,11 @@ meta_frame_style_draw_with_style (MetaFrameStyle          *style,
+ 
+   titlebar_rect.x = 0;
+   titlebar_rect.y = 0;
++
++  /*
++  titlebar_rect.y = 23;
++   GLENN */
++
+   titlebar_rect.width = fgeom->width;
+   titlebar_rect.height = fgeom->top_height;
+ 
+@@ -4729,7 +4884,19 @@ meta_frame_style_draw_with_style (MetaFrameStyle          *style,
+   draw_info.title_layout_width = title_layout ? extents.width : 0;
+   draw_info.title_layout_height = title_layout ? extents.height : 0;
+   draw_info.fgeom = fgeom;
+-
++#ifdef HAVE_XTSOL  
++  if (tsol_is_available ())
++    {
++      draw_info.label = label;
++      if (!label->layout)
++	label->layout = gtk_widget_create_pango_layout (widget, label->name);
++      g_object_set_data (G_OBJECT (widget), "trusted_label", label);
++      trusted_widget = widget;
++    }
++  else
++    draw_info.label = NULL;
++#endif  
++  
+   /* The enum is in the order the pieces should be rendered. */
+   i = 0;
+   while (i < META_FRAME_PIECE_LAST)
+@@ -4747,6 +4914,8 @@ meta_frame_style_draw_with_style (MetaFrameStyle          *style,
+ 
+         case META_FRAME_PIECE_TITLEBAR:
+           rect = titlebar_rect;
++	  rect.height /= 2;
++	  rect.y += 22;
+           break;
+ 
+         case META_FRAME_PIECE_LEFT_TITLEBAR_EDGE:
+@@ -4900,6 +5069,9 @@ meta_frame_style_draw (MetaFrameStyle          *style,
+                        int                      client_width,
+                        int                      client_height,
+                        PangoLayout             *title_layout,
++#ifdef HAVE_XTSOL		       
++		       MetaTrustedLabel	       *label,
++#endif		       
+                        int                      text_height,
+                        MetaButtonState          button_states[META_BUTTON_TYPE_LAST],
+                        GdkPixbuf               *mini_icon,
+@@ -4909,7 +5081,12 @@ meta_frame_style_draw (MetaFrameStyle          *style,
+                                     gtk_widget_get_style_context (widget),
+                                     cr,
+                                     fgeom, client_width, client_height,
+-                                    title_layout, text_height,
++                                    title_layout,
++#ifdef HAVE_XTSOL
++				    widget,
++				    label,
++#endif				    
++				    text_height,
+                                     button_states, mini_icon, icon);
+ }
+ 
+@@ -5136,6 +5313,190 @@ meta_theme_get_current (void)
+   return meta_current_theme;
+ }
+ 
++
++#ifdef HAVE_XTSOL
++static gint
++trusted_label_string_compare (MetaTrustedLabel *tmp, char *searched_label)
++{
++  return strcmp (searched_label, tmp->name);  
++}
++
++static char *
++get_window_label (Display *xdisplay, Window xwindow)
++{
++   m_label_t label;
++   int error;
++  
++  if (!tsol_is_available ())
++      return NULL;
++
++  if (libxtsol_XTSOLIsWindowTrusted (xdisplay, xwindow))
++    {
++      /* SUN_BRANDING TJDS */
++      return g_strdup (_("Trusted Path"));
++    }
++  else if (libxtsol_XTSOLgetResLabel (xdisplay, xwindow, IsWindow, &label))
++    {
++      char *string = NULL;
++      libtsol_label_to_str (&label, &string, M_LABEL, DEF_NAMES, &error);
++      return string;
++    }
++  else
++    return g_strdup ("didn't get the label\n");
++}
++
++static char *
++getlabelcolor(Display *xdisplay, Window xwindow)
++{
++#define DEFAULT_COLOR	"white"
++  char *colorname;
++  m_label_t label;
++  int error;
++  
++  if (!tsol_is_available ())
++    return NULL;
++  
++  if (libxtsol_XTSOLgetResLabel (xdisplay, xwindow, IsWindow, &label))
++    {
++      libtsol_label_to_str (&label, &colorname, M_COLOR, DEF_NAMES, &error);
++      if (colorname == NULL)
++	return g_strdup(DEFAULT_COLOR);
++      else
++	return g_strdup(colorname);
++    }
++  return NULL;
++}
++
++MetaTrustedLabel* tsol_xwindow_label_get (MetaDisplay *display, Window xwindow)
++{
++  MetaTrustedLabel *label = NULL;
++  GSList *stored_label = NULL;
++  char *label_name;
++  
++  if (!tsol_is_available ())
++    return NULL;
++
++  label_name = get_window_label (display->xdisplay, xwindow);
++  
++  /* Look if the label already exist */
++   stored_label = g_slist_find_custom (display->labels, label_name, (GCompareFunc)trusted_label_string_compare);
++
++  if (stored_label)
++    return (MetaTrustedLabel*) stored_label->data;
++
++  /* create new MetaTrustedLabel */
++  label = g_new0 (MetaTrustedLabel, 1);
++
++  label->name = label_name;
++  /* Layout is initialized in meta_frame_style_draw */ 
++
++  label->color = meta_color_spec_new (META_COLOR_SPEC_BASIC);
++
++  if (!gdk_rgba_parse (&label->color->data.basic.color,
++    (const char*)getlabelcolor (display->xdisplay, xwindow)))
++    {
++      label->color->data.basic.color.red = 1.0;
++      label->color->data.basic.color.green = 1.0;
++      label->color->data.basic.color.blue = 1.0;
++      g_warning ("gdk_color_parse couldn't parse the label color\n");
++    }
++
++  display->labels = g_slist_append (display->labels, label);
++  
++  return label;
++}
++  
++const char * 
++tsol_meta_window_label_get_name (MetaWindow  *window)
++{
++  MetaTrustedLabel *label; 
++
++  if (!tsol_is_available ())
++    return NULL;
++
++  label = tsol_xwindow_label_get (window->display, window->xwindow);
++  return label->name;
++}
++
++MetaTrustedLabel* 
++tsol_meta_window_label_get (MetaWindow  *window)
++{
++  if (!tsol_is_available ())
++    return NULL;
++
++  return tsol_xwindow_label_get (window->display, window->xwindow);
++}
++
++gboolean tsol_should_label_layout_be_black (MetaColorSpec *bkg)
++{
++  double ntsc;
++  ntsc = ((bkg->data.basic.color.red) * .4450 +
++	   (bkg->data.basic.color.blue) * .030 +
++	   (bkg->data.basic.color.green) * .525);
++
++  /* printf ("ntsc %d ->",ntsc); */
++  
++  if ((1.0 - ntsc) < .61)
++    return TRUE;
++  return FALSE;
++}
++
++MetaTrustedLabel *
++tsol_workspace_get_label (MetaWorkspace *ws)
++{
++  int error;
++  MetaTrustedLabel *label = NULL;
++  m_label_t *mlabel = NULL;
++  GSList *stored_label = NULL;
++  const char *label_name = meta_prefs_get_workspace_label (meta_workspace_index (ws));
++  
++  /* Look if the label already exist */
++  
++  stored_label = g_slist_find_custom (ws->screen->display->labels, 
++				      label_name, 
++				      (GCompareFunc)trusted_label_string_compare);
++  
++  if (stored_label)
++    return (MetaTrustedLabel*) stored_label->data;
++
++  /* create a new one otherwise */
++
++  if (libtsol_str_to_label (label_name, &mlabel,
++			    MAC_LABEL, L_NO_CORRECTION, &error) == 0) 
++    {
++      char *colorname = NULL;
++      
++      libtsol_label_to_str (mlabel, &colorname, M_COLOR, DEF_NAMES, &error);
++      
++      #define DEFAULT_COLOR "white"	 
++      
++      if (colorname == NULL)
++	colorname = g_strdup(DEFAULT_COLOR);
++   
++      label = g_new0 (MetaTrustedLabel, 1);
++
++      label->name = (char*)label_name;
++      /* Layout is initialized in meta_frame_style_draw */ 
++      
++      label->color = meta_color_spec_new (META_COLOR_SPEC_BASIC);
++      
++      if (!gdk_rgba_parse (&label->color->data.basic.color, (const char*)colorname))
++	{
++	  label->color->data.basic.color.red = 0.5;
++	  label->color->data.basic.color.green = 0.5;
++	  label->color->data.basic.color.blue = 0.5;
++	  g_warning ("gdk_rgba_parse couldn't parse the label color\n");
++	}
++      
++      ws->screen->display->labels = g_slist_append (ws->screen->display->labels, label);
++      
++      g_free (colorname);
++    }
++
++  return label;
++}
++#endif
++
+ void
+ meta_theme_set_current (const char *name,
+                         gboolean    force_reload)
+@@ -5522,7 +5883,12 @@ meta_theme_draw_frame_with_style (MetaTheme              *theme,
+                                   const MetaButtonLayout *button_layout,
+                                   MetaButtonState         button_states[META_BUTTON_TYPE_LAST],
+                                   GdkPixbuf              *mini_icon,
+-                                  GdkPixbuf              *icon)
++                                  GdkPixbuf              *icon
++#ifdef HAVE_XTSOL		       
++				  ,GtkWidget		 *widget,
++				  MetaTrustedLabel	 *label
++#endif		       
++				  )
+ {
+   MetaFrameGeometry fgeom;
+   MetaFrameStyle *style;
+@@ -5549,6 +5915,10 @@ meta_theme_draw_frame_with_style (MetaTheme              *theme,
+                                     &fgeom,
+                                     client_width, client_height,
+                                     title_layout,
++#ifdef HAVE_XTSOL
++				    widget,
++				    label,
++#endif				    
+                                     text_height,
+                                     button_states,
+                                     mini_icon, icon);
+@@ -5567,7 +5937,11 @@ meta_theme_draw_frame (MetaTheme              *theme,
+                        const MetaButtonLayout *button_layout,
+                        MetaButtonState         button_states[META_BUTTON_TYPE_LAST],
+                        GdkPixbuf              *mini_icon,
+-                       GdkPixbuf              *icon)
++                       GdkPixbuf              *icon
++#ifdef HAVE_XTSOL		       
++		       ,MetaTrustedLabel	      *label
++#endif		       
++		      )
+ {
+   meta_theme_draw_frame_with_style (theme,
+                                     gtk_widget_get_style_context (widget),
+@@ -5575,7 +5949,12 @@ meta_theme_draw_frame (MetaTheme              *theme,
+                                     type, flags, client_width, client_height,
+                                     title_layout, text_height,
+                                     button_layout, button_states,
+-                                    mini_icon, icon);
++                                    mini_icon, icon
++#ifdef HAVE_XTSOL			     
++				    ,widget,
++				    label
++#endif									    
++				    );
+ }
+ 
+ void
+@@ -5591,7 +5970,11 @@ meta_theme_draw_frame_by_name (MetaTheme              *theme,
+                                const MetaButtonLayout *button_layout,
+                                MetaButtonState         button_states[META_BUTTON_TYPE_LAST],
+                                GdkPixbuf              *mini_icon,
+-                               GdkPixbuf              *icon)
++                               GdkPixbuf              *icon
++#ifdef HAVE_XTSOL		       
++			      ,MetaTrustedLabel	      *label
++#endif		       
++			       )
+ {
+   MetaFrameGeometry fgeom;
+   MetaFrameStyle *style;
+@@ -5616,6 +5999,9 @@ meta_theme_draw_frame_by_name (MetaTheme              *theme,
+                          &fgeom,
+                          client_width, client_height,
+                          title_layout,
++#ifdef HAVE_XTSOL			 
++			 label,
++#endif			 
+                          text_height,
+                          button_states,
+                          mini_icon, icon);
+diff --git a/src/ui/theme.h b/src/ui/theme.h
+index 0713e2cec..b249f9250 100644
+--- a/src/ui/theme.h
++++ b/src/ui/theme.h
+@@ -28,6 +28,11 @@
+ #include "gradient.h"
+ #include "common.h"
+ #include <gtk/gtk.h>
++#include <config.h>
++#ifdef MARCO_DATADIR
++#include "../core/display-private.h"
++#include "../core/screen-private.h"
++#endif /* MARCO_DATADIR */
+ 
+ typedef struct _MetaFrameStyle MetaFrameStyle;
+ typedef struct _MetaFrameStyleSet MetaFrameStyleSet;
+@@ -43,6 +48,16 @@ typedef struct _MetaTheme MetaTheme;
+ typedef struct _MetaPositionExprEnv MetaPositionExprEnv;
+ typedef struct _MetaDrawInfo MetaDrawInfo;
+ 
++#ifdef HAVE_XTSOL
++struct _MetaTrustedLabel 
++{
++  char		*name;
++  PangoLayout	*layout;
++  MetaColorSpec *color;
++};
++typedef struct _MetaTrustedLabel  MetaTrustedLabel;
++#endif
++
+ #define META_THEME_ERROR (g_quark_from_static_string ("meta-theme-error"))
+ 
+ typedef enum
+@@ -262,6 +277,11 @@ struct _MetaColorSpec
+     struct {
+       GdkRGBA color;
+     } basic;
++#ifdef HAVE_XTSOL
++    struct {
++      gboolean dummy;
++    } label;
++#endif    
+     struct {
+       MetaGtkColorComponent component;
+       GtkStateFlags state;
+@@ -305,6 +325,9 @@ struct _MetaDrawInfo
+   int title_layout_width;
+   int title_layout_height;
+   const MetaFrameGeometry *fgeom;
++#ifdef HAVE_XTSOL 
++  MetaTrustedLabel *label;
++#endif 
+ };
+ 
+ /**
+@@ -342,6 +365,11 @@ typedef enum
+   META_DRAW_OP_LIST,
+   /** tiled draw op list */
+   META_DRAW_TILE
++#ifdef HAVE_XTSOL
++  ,
++  /* draw a string (used for trusted label) */
++  META_DRAW_TRUSTED_LABEL
++#endif
+ } MetaDrawType;
+ 
+ typedef enum
+@@ -570,7 +598,15 @@ struct _MetaDrawOp
+       MetaDrawSpec *tile_width;
+       MetaDrawSpec *tile_height;
+     } tile;
+-
++    
++#ifdef HAVE_XTSOL    
++    struct {
++      MetaColorSpec *color_spec;
++      char *x;
++      char *y;
++    } trusted_label;
++#endif    
++    
+   } data;
+ };
+ 
+@@ -860,6 +896,10 @@ struct _MetaPositionExprEnv
+   int bottom_height;
+   int title_width;
+   int title_height;
++#ifdef HAVE_XTSOL  
++  int trusted_label_width;
++  int trusted_label_height;
++#endif  
+   int frame_x_center;
+   int frame_y_center;
+   int mini_icon_width;
+@@ -972,6 +1012,25 @@ MetaFrameStyle* meta_frame_style_new   (MetaFrameStyle *parent);
+ void            meta_frame_style_ref   (MetaFrameStyle *style);
+ void            meta_frame_style_unref (MetaFrameStyle *style);
+ 
++#ifdef HAVE_XTSOL
++
++
++MetaTrustedLabel*     tsol_meta_window_label_get (MetaWindow  *window);
++MetaTrustedLabel*     tsol_workspace_get_label (MetaWorkspace *ws);
++MetaTrustedLabel*     tsol_xwindow_label_get (MetaDisplay *display, 
++					      Window	   xwindow);
++
++gboolean tsol_should_label_layout_be_black (MetaColorSpec *bkg);
++MetaDrawOpList*	      tsol_theme_trusted_label_ops_get (MetaFrameFocus focus,
++							MetaTheme *theme);
++MetaDrawOpList*	      tsol_theme_trusted_title_ops_get (MetaFrameFocus focus,
++							MetaTheme *theme);
++void    meta_ui_set_frame_label  (MetaUI           *ui,
++                                  Window            xwindow,
++				  MetaWindow       *window);
++
++#endif
++
+ void meta_frame_style_draw (MetaFrameStyle          *style,
+                             GtkWidget               *widget,
+                             cairo_t                 *cr,
+@@ -979,6 +1038,9 @@ void meta_frame_style_draw (MetaFrameStyle          *style,
+                             int                      client_width,
+                             int                      client_height,
+                             PangoLayout             *title_layout,
++#ifdef HAVE_XTSOL			    
++			    MetaTrustedLabel	    *label,
++#endif			    
+                             int                      text_height,
+                             MetaButtonState          button_states[META_BUTTON_TYPE_LAST],
+                             GdkPixbuf               *mini_icon,
+@@ -992,7 +1054,11 @@ void meta_frame_style_draw_with_style (MetaFrameStyle          *style,
+                                        int                      client_width,
+                                        int                      client_height,
+                                        PangoLayout             *title_layout,
+-                                       int                      text_height,
++#ifdef HAVE_XTSOL			    
++			    	       GtkWidget		*widget,
++				       MetaTrustedLabel	        *label,
++#endif			    
++				       int                      text_height,
+                                        MetaButtonState          button_states[META_BUTTON_TYPE_LAST],
+                                        GdkPixbuf               *mini_icon,
+                                        GdkPixbuf               *icon);
+@@ -1042,7 +1108,11 @@ void meta_theme_draw_frame (MetaTheme              *theme,
+                             const MetaButtonLayout *button_layout,
+                             MetaButtonState         button_states[META_BUTTON_TYPE_LAST],
+                             GdkPixbuf              *mini_icon,
+-                            GdkPixbuf              *icon);
++                            GdkPixbuf              *icon
++#ifdef HAVE_XTSOL
++                           ,MetaTrustedLabel       *label
++#endif
++                            );
+ 
+ void meta_theme_draw_frame_by_name (MetaTheme              *theme,
+                                     GtkWidget              *widget,
+@@ -1056,7 +1126,11 @@ void meta_theme_draw_frame_by_name (MetaTheme              *theme,
+                                     const MetaButtonLayout *button_layout,
+                                     MetaButtonState         button_states[META_BUTTON_TYPE_LAST],
+                                     GdkPixbuf              *mini_icon,
+-                                    GdkPixbuf              *icon);
++                                    GdkPixbuf              *icon
++#ifdef HAVE_XTSOL
++				    ,MetaTrustedLabel       *label
++#endif
++				    );
+ 
+ void meta_theme_draw_frame_with_style (MetaTheme              *theme,
+                                        GtkStyleContext        *style_gtk,
+@@ -1070,7 +1144,12 @@ void meta_theme_draw_frame_with_style (MetaTheme              *theme,
+                                        const MetaButtonLayout *button_layout,
+                                        MetaButtonState         button_states[META_BUTTON_TYPE_LAST],
+                                        GdkPixbuf              *mini_icon,
+-                                       GdkPixbuf              *icon);
++                                       GdkPixbuf              *icon
++#ifdef HAVE_XTSOL
++				       ,GtkWidget	      *widget,
++				       MetaTrustedLabel       *label
++#endif
++				       );
+ 
+ void meta_theme_get_frame_borders (MetaTheme         *theme,
+                                    MetaFrameType      type,
+diff --git a/src/ui/ui.c b/src/ui/ui.c
+index b3f400623..0ad4b49fc 100644
+--- a/src/ui/ui.c
++++ b/src/ui/ui.c
+@@ -21,6 +21,9 @@
+  */
+ 
+ #include "prefs.h"
++#ifdef HAVE_XTSOL
++#include "../core/trusted.h"
++#endif
+ #include "ui.h"
+ #include "frames.h"
+ #include "util.h"
+@@ -906,6 +909,19 @@ int meta_ui_get_drag_threshold(MetaUI* ui)
+ 	return threshold;
+ }
+ 
++#ifdef HAVE_XTSOL
++void
++meta_ui_set_frame_label (MetaUI     *ui,
++                         Window      xwindow,
++                         MetaWindow *window)
++{
++  MetaTrustedLabel *label;
++
++  label = tsol_meta_window_label_get (window);
++  meta_frames_set_label (ui->frames, xwindow, label);
++}
++#endif
++
+ MetaUIDirection meta_ui_get_direction(void)
+ {
+ 	if (gtk_widget_get_default_direction() == GTK_TEXT_DIR_RTL)
