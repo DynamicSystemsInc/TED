@@ -1,0 +1,15 @@
+Add Sun's old "bitstream" font module & IA & xtsol extension modules to the
+list of obsolete modules to ignore in xorg.conf files.
+
+not suitable for upstream
+
+--- a/hw/xfree86/common/xf86Config.c	2019-02-12 11:19:55.203658742 -0800
++++ b/hw/xfree86/common/xf86Config.c	2019-02-12 11:21:31.311477203 -0800
+@@ -254,6 +254,7 @@
+ 
+     const char *ignore[] = { "GLcore", "speedo", "bitmap", "drm",
+         "freetype", "type1",
++	"bitstream", "ia", "xtsol",
+         NULL
+     };
+     void **optarray;
