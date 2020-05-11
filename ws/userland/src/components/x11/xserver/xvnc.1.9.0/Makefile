@@ -40,6 +40,7 @@ COMPONENT_ANITYA_ID=	4970
 TPNO=			47610
 
 XORG_DIR=		$(COMPONENT_DIR:xvnc=xorg)
+XORG_DIR=		$(COMPONENT_DIR)/../xorg.1.20.3
 get-xorg-value=		$(MAKE) --no-print-directory -C $(XORG_DIR) print-$(1) \
 				| $(PERL) -ne 'print "$$1\n" if m/^$(1)=(.*?)\s*\(origin:/'
 
@@ -85,7 +86,10 @@ COMPONENT_POST_UNPACK_ACTION_1 += \
 # just as we do in the ../xorg build
 COMPONENT_POST_UNPACK_ACTION_1 += \
         $(CP) -r $(XORG_DIR)/sun-src/IA $(XSERVER_SRC)/IA ; \
-        $(CP) -r $(XORG_DIR)/sun-src/os/* $(XSERVER_SRC)/os/ ;
+        $(CP) -r $(XORG_DIR)/sun-src/os/* $(XSERVER_SRC)/os/ ; \
+	$(MKDIR) $(XSERVER_SRC)/tsol; \
+        $(CP) -r $(XORG_DIR)/sun-src/tsol/* $(XSERVER_SRC)/tsol; \
+        $(CP) $(XORG_DIR)/tsolmodule.c $(XSERVER_SRC)/hw/xfree86/dixmods
 
 
 # Apply patches from upstream tigervnc tarball and xorg directory to
@@ -120,7 +124,7 @@ CONFIGURE_ENV += LDFLAGS="$(strip $(LDFLAGS))"
 
 # Other settings we want
 CONFIGURE_ENV += LD="$(CC) -m$(BITS)"
-CPPFLAGS += -DSUNSOFT
+CPPFLAGS += -DSUNSOFT -DTSOL
 
 # Start with the configure options we use to build the Xorg server
 CONFIGURE_OPTIONS += $(shell $(call get-xorg-value,CONFIGURE_OPTIONS))
