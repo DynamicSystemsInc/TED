@@ -86,7 +86,10 @@ COMPONENT_PREP_ACTION +=(cd $(@D); $(AUTORECONF_ENV) autoreconf -fiv);
 
 COMPONENT_POST_UNPACK_ACTION = \
         $(CP) -r sun-src/IA $(SOURCE_DIR); \
-        $(CP) -r sun-src/os/* $(SOURCE_DIR)/os;
+        $(CP) -r sun-src/os/* $(SOURCE_DIR)/os; \
+	$(MKDIR) $(SOURCE_DIR)/tsol; \
+        $(CP) -r sun-src/tsol/* $(SOURCE_DIR)/tsol; \
+        $(CP) tsolmodule.c $(SOURCE_DIR)/hw/xfree86/dixmods/tsolmodule.c
 
 LIBDRM_BASE = $(WS_COMPONENTS)/x11/lib/libdrm/build/prototype/$(MACH)
 PKG_CONFIG_PATHS += $(LIBDRM_BASE)$(USRLIB)/pkgconfig/
