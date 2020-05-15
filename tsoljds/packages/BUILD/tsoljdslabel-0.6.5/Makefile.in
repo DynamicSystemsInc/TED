@@ -393,7 +393,14 @@ desktopdir =
 desktop_in_files =
 desktop_DATA = 
 sessiondir = /usr/dt/config
-session_SCRIPTS = Xinitrc.tjds tjds-exec_attr tjds-prof_attr policy.conf
+session_SCRIPTS = Xinitrc.tjds \
+	tjds-exec_attr \
+	tjds-prof_attr \
+	tjds-user_attr \
+	policy.conf \
+	txzonemgr \
+	pkgcreatezone \
+	common.ksh
 EXTRA_DIST = \
 	intltool-extract.in \
 	intltool-merge.in \

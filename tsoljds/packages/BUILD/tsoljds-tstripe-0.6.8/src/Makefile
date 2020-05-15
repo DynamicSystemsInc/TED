@@ -88,13 +88,13 @@ DATA = $(config_DATA)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/missing --run aclocal-1.10
+ACLOCAL = ${SHELL} /trusted-desktop/tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/missing --run aclocal-1.10
 ALL_LINGUAS = 
-AMTAR = ${SHELL} /tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/missing --run tar
+AMTAR = ${SHELL} /trusted-desktop/tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/missing --run autoconf
-AUTOHEADER = ${SHELL} /tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/missing --run autoheader
-AUTOMAKE = ${SHELL} /tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/missing --run automake-1.10
+AUTOCONF = ${SHELL} /trusted-desktop/tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/missing --run autoconf
+AUTOHEADER = ${SHELL} /trusted-desktop/tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/missing --run autoheader
+AUTOMAKE = ${SHELL} /trusted-desktop/tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/missing --run automake-1.10
 AWK = gawk
 CATALOGS = 
 CATOBJEXT = .gmo
@@ -140,7 +140,7 @@ LIPO =
 LN_S = ln -s
 LTLIBOBJS = 
 MAINT = #
-MAKEINFO = ${SHELL} /tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/missing --run makeinfo
+MAKEINFO = ${SHELL} /trusted-desktop/tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/missing --run makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/gnu/bin/mkdir -p
 MKINSTALLDIRS = ./mkinstalldirs
@@ -155,8 +155,8 @@ OTOOL =
 OTOOL64 = 
 PACKAGE = tsoljds-tstripe
 PACKAGE_BUGREPORT = 
-PACKAGE_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_REENTRANT -I/usr/include/libwnck-3.0 -I/usr/include/startup-notification-1.0 -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libdrm -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng14 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pcre -I/usr/include/freetype2 -I/usr/include/libpng14 -I/usr/include/libgnometsol
-PACKAGE_LIBS = -L/usr/openwin/lib -R/usr/openwin/lib -lXtsol -ltsol -lsecdb -lpam -lbsm -lcontract -lcmd -lXmu -lX11 -lXrandr -L/usr/lib/amd64 -lwnck-3 -lgtk-3 -lgdk-3 -lcairo-gobject -lgnometsol -lpam -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype
+PACKAGE_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_REENTRANT -I/usr/include/libwnck-3.0 -I/usr/include/startup-notification-1.0 -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/gtk-2.0 -I/usr/lib/amd64/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libdrm -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng14 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pcre -I/usr/include/freetype2 -I/usr/include/libpng14 -I/usr/include/libgnometsol
+PACKAGE_LIBS = -L/usr/openwin/lib -R/usr/openwin/lib -lXtsol -ltsol -lsecdb -lpam -lbsm -lcontract -lcmd -lXmu -lX11 -lXrandr -L/usr/lib/amd64 -lwnck-3 -lgtk-3 -lgdk-3 -lcairo-gobject -lgnometsol -lpam -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype
 PACKAGE_NAME = 
 PACKAGE_STRING = 
 PACKAGE_TARNAME = 
@@ -176,10 +176,10 @@ STRIP = strip
 USE_NLS = yes
 VERSION = 0.6.8
 XGETTEXT = /usr/gnu/bin/xgettext
-abs_builddir = /tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/src
-abs_srcdir = /tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/src
-abs_top_builddir = /tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8
-abs_top_srcdir = /tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8
+abs_builddir = /trusted-desktop/tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/src
+abs_srcdir = /trusted-desktop/tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/src
+abs_top_builddir = /trusted-desktop/tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8
+abs_top_srcdir = /trusted-desktop/tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -208,7 +208,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = $(SHELL) /tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/install-sh
+install_sh = $(SHELL) /trusted-desktop/tsoljds/packages/BUILD/tsoljds-tstripe-0.6.8/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -232,10 +232,11 @@ INCLUDES = \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	-D_POSIX_PTHREAD_SEMANTICS \
-	-D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_REENTRANT -I/usr/include/libwnck-3.0 -I/usr/include/startup-notification-1.0 -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libdrm -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng14 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pcre -I/usr/include/freetype2 -I/usr/include/libpng14 -I/usr/include/libgnometsol
+	-D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_REENTRANT -I/usr/include/libwnck-3.0 -I/usr/include/startup-notification-1.0 -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/gtk-2.0 -I/usr/lib/amd64/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libdrm -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng14 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pcre -I/usr/include/freetype2 -I/usr/include/libpng14 -I/usr/include/libgnometsol
 
-configdir = $(datadir)/gnome
-config_DATA = TrustedPathExecutables gtkrc.tjds
+configdir = $(datadir)/mate
+config_DATA = TrustedPathExecutables gtkrc.tjds DevMgrHelp.pdf  \
+LabelBuilderHelp.pdf  TrustedPathExecutables  TrustedStripeHelp.pdf
 tsoljds_tstripe_SOURCES = \
 	main.c \
 	ui-view.c ui-view.h \
@@ -255,9 +256,9 @@ tsoljds_xagent_proxy_SOURCES = \
 tsoljds_setssheight_SOURCES = \
 	stripe-height.c
 
-tsoljds_tstripe_LDADD = -L/usr/openwin/lib -R/usr/openwin/lib -lXtsol -ltsol -lsecdb -lpam -lbsm -lcontract -lcmd -lXmu -lX11 -lXrandr -L/usr/lib/amd64 -lwnck-3 -lgtk-3 -lgdk-3 -lcairo-gobject -lgnometsol -lpam -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype $(INTLLIBS) -lnsl
-tsoljds_xagent_proxy_LDADD = -L/usr/openwin/lib -R/usr/openwin/lib -lXtsol -ltsol -lsecdb -lpam -lbsm -lcontract -lcmd -lXmu -lX11 -lXrandr -L/usr/lib/amd64 -lwnck-3 -lgtk-3 -lgdk-3 -lcairo-gobject -lgnometsol -lpam -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype -ltsnet -lnsl
-tsoljds_setssheight_LDADD = -L/usr/openwin/lib -R/usr/openwin/lib -lXtsol -ltsol -lsecdb -lpam -lbsm -lcontract -lcmd -lXmu -lX11 -lXrandr -L/usr/lib/amd64 -lwnck-3 -lgtk-3 -lgdk-3 -lcairo-gobject -lgnometsol -lpam -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype  -lXtsol
+tsoljds_tstripe_LDADD = -L/usr/openwin/lib -R/usr/openwin/lib -lXtsol -ltsol -lsecdb -lpam -lbsm -lcontract -lcmd -lXmu -lX11 -lXrandr -L/usr/lib/amd64 -lwnck-3 -lgtk-3 -lgdk-3 -lcairo-gobject -lgnometsol -lpam -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype $(INTLLIBS) -lnsl
+tsoljds_xagent_proxy_LDADD = -L/usr/openwin/lib -R/usr/openwin/lib -lXtsol -ltsol -lsecdb -lpam -lbsm -lcontract -lcmd -lXmu -lX11 -lXrandr -L/usr/lib/amd64 -lwnck-3 -lgtk-3 -lgdk-3 -lcairo-gobject -lgnometsol -lpam -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype -ltsnet -lnsl
+tsoljds_setssheight_LDADD = -L/usr/openwin/lib -R/usr/openwin/lib -lXtsol -ltsol -lsecdb -lpam -lbsm -lcontract -lcmd -lXmu -lX11 -lXrandr -L/usr/lib/amd64 -lwnck-3 -lgtk-3 -lgdk-3 -lcairo-gobject -lgnometsol -lpam -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype  -lXtsol
 EXTRA_DIST = \
 	test-constraint.c \
 	menuitem2.png \

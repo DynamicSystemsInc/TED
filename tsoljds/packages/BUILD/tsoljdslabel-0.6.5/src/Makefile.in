@@ -370,7 +370,7 @@ INCLUDES = -I. -I$(srcdir) -I/usr/openwin/include/X11/extenstions 	\
 	-DGNOME_ICONDIR=\"$(prefix)/share/pixmaps\"			\
 	$(TSOLJDSLABEL_CFLAGS)				
 
-bin_SCRIPTS = 
+bin_SCRIPTS = txfailsafe
 tsoljdslabel_SOURCES = suidwrapper.c					\
 		       exec.c						\
 		       exec.h
