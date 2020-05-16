@@ -6,8 +6,9 @@ INCLUDES = \
 	-D_POSIX_PTHREAD_SEMANTICS \
 	@PACKAGE_CFLAGS@
 
-configdir = $(datadir)/gnome
-config_DATA = TrustedPathExecutables gtkrc.tjds
+configdir = $(datadir)/mate
+config_DATA = TrustedPathExecutables gtkrc.tjds DevMgrHelp.pdf  \
+LabelBuilderHelp.pdf  TrustedPathExecutables  TrustedStripeHelp.pdf
 
 bin_PROGRAMS = tsoljds-tstripe tsoljds-xagent-proxy tsoljds-setssheight
 
