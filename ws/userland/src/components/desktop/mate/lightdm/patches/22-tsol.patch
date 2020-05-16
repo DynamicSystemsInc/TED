@@ -1,0 +1,68 @@
+--- a/data/pam/lightdm-autologin	2020-05-16 20:29:02.977663930 +0000
++++ b/data/pam/lightdm-autologin	2020-05-16 20:30:33.921129302 +0000
+@@ -1,20 +1,10 @@
+-#%PAM-1.0
+-
+-# Block login if they are globally disabled
+-auth      required pam_nologin.so
+-
+-# Load environment from /etc/environment and ~/.pam_environment
+-auth      required pam_env.so
+-
+-# Allow access without authentication
+-auth      required pam_permit.so
+-
+-# Stop autologin if account requires action
+-account   required pam_unix.so
+-
+-# Can't change password
+-password  required pam_deny.so
+-
+-# Setup session
+-session   required pam_unix.so
+-session   optional pam_systemd.so
++#
++# Copyright (c) 2012, Oracle and/or its affiliates. All rights reserved.
++#
++# PAM configuration
++#
++# GDM Autologin (explicit because of pam_allow).
++#
++auth  required    pam_unix_cred.so.1
++auth  sufficient  pam_allow.so.1
++account  sufficient  pam_allow.so.1
+--- a/data/pam/lightdm-greeter	2020-05-16 20:29:18.048194368 +0000
++++ b/data/pam/lightdm-greeter	2020-05-16 20:30:01.266940901 +0000
+@@ -1,17 +1,15 @@
+-#%PAM-1.0
+-
+-# Load environment from /etc/environment and ~/.pam_environment
+-auth      required pam_env.so
+-
+-# Always let the greeter start without authentication
+-auth      required pam_permit.so
+-
+-# No action required for account management
+-account   required pam_permit.so
+-
+-# Can't change password
+-password  required pam_deny.so
+-
+-# Setup session
+-session   required pam_unix.so
+-session   optional pam_systemd.so
++#
++# Copyright (c) 2012, 2016, Oracle and/or its affiliates. All rights reserved.
++#
++# PAM configuration
++#
++# gdm service - account management for Trusted Extensions (TX)
++# These entries are required for TX environments since these services
++# run in the Trusted Path and pam_tsol_account(7) isn't applicable to
++# PAM sessions which run in the Trusted Path.
++# If Trusted Extensions aren't enabled then these entries are equivalent
++# to the /etc/pam.d/other PAM stack for account management.
++#
++account         requisite       pam_roles.so.1
++account         definitive      pam_user_policy.so.1
++account         required        pam_unix_account.so.1
