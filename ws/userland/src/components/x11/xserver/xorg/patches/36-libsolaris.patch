@@ -1,0 +1,11 @@
+--- a/hw/xfree86/Makefile.in	2017-10-12 10:25:16.000000000 +0000
++++ a/hw/xfree86/Makefile.in	2020-05-15 14:25:40.951464830 +0000
+@@ -113,7 +113,7 @@
+ CONFIG_CLEAN_VPATH_FILES =
+ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(wrapdir)"
+ PROGRAMS = $(bin_PROGRAMS) $(wrap_PROGRAMS)
+-nodist_Xorg_OBJECTS = sdksyms.$(OBJEXT)
++nodist_Xorg_OBJECTS = sdksyms.$(OBJEXT) os-support/$(XORG_OS_SUBDIR)/.libs/solaris-amd64.$(OBJEXT)
+ Xorg_OBJECTS = $(nodist_Xorg_OBJECTS)
+ am__DEPENDENCIES_1 =
+ am__DEPENDENCIES_2 = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
