@@ -22,9 +22,9 @@
 # 11.4 workaround to load the trusted-destkop package
 #
 BRANDS=/usr/lib/brand/solaris
-if [ -f $BRANDS/pkgcreatezone-tx ]; then
-	mv $BRANDS/pkgcreatezone $BRANDS/pkgcreatezone.orig
-	mv $BRANDS/pkgcreatezone-tx $BRANDS/pkgcreatezone
+grep trusted-desktop2 $BRANDS/pkgcreatezone > /dev/null 2>&1
+if [ $? != 0 ]; then
+        (cd $BRANDS; patch -p0 < pkgcreatezone.patch)
 fi
 
 #

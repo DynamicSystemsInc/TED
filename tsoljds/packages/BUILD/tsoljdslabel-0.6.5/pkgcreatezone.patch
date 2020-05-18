@@ -1,0 +1,26 @@
+--- pkgcreatezone	 2020-05-16 23:24:44.089495393 +0000
++++ pkgcreatezone       2020-05-19 06:05:04.277938666 +0000
+@@ -274,10 +274,14 @@
+                if [ $? != 0 ]; then
+                        gtprint "$f_nolabel"
+                        exit $ZONE_SUBPROC_TRYAGAIN
++               elif [ $primary = "primary=yes" ]; then
++                       labeled_pkg=pkg:/group/feature/trusted-desktop2
++               else
++                       labeled_pkg=pkg:/system/trusted
+                fi
+                aimanifest add \
+                    /auto_install/ai_instance/software/software_data[@action="install"]/name \
+-                   pkg:/system/trusted
++                   $labeled_pkg
+                if (( $? != 0 )); then
+                        gtprint "$f_aimanifest_add"
+                        exit $ZONE_SUBPROC_TRYAGAIN
+@@ -386,6 +390,7 @@
+ if (( $brand_labeled != 0 )); then
+        log "$m_postnote\n"
+ else
++       set -x
+        labeled_configure
+ fi
+ 

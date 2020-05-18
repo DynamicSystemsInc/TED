@@ -327,8 +327,8 @@ SET_MAKE =
 SHELL = /bin/sh
 START_COMMAND = 
 STRIP = strip
-TSOLJDSLABEL_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_REENTRANT -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/gtk-2.0 -I/usr/lib/amd64/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libdrm -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng14 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pcre -I/usr/include/freetype2 -I/usr/include/libpng14 -I/usr/include/libgnometsol
-TSOLJDSLABEL_LIBS = -L/usr/lib/amd64 -lgtk-3 -lgdk-3 -lcairo-gobject -lgnometsol -lpam -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype
+TSOLJDSLABEL_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_REENTRANT -I/usr/include/libgnometsol -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libdrm -I/usr/include/libpng14 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng14 -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/pcre
+TSOLJDSLABEL_LIBS = -L/usr/lib/amd64 -lgnometsol -lpam -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
 USE_NLS = yes
 VERSION = 0.6.5
 WARN_CFLAGS =  -Wall -Wstrict-prototypes -Wnested-externs -Werror=missing-prototypes -Werror=implicit-function-declaration -Werror=pointer-arith -Werror=init-self -Werror=format=2 -Werror=missing-include-dirs -Werror=return-type 
@@ -399,7 +399,7 @@ session_SCRIPTS = Xinitrc.tjds \
 	tjds-user_attr \
 	policy.conf \
 	txzonemgr \
-	pkgcreatezone \
+	pkgcreatezone.patch \
 	common.ksh
 EXTRA_DIST = \
 	intltool-extract.in \
