@@ -46,6 +46,10 @@ COMPONENT_PREP_ACTION =        ( cd $(@D) && \
 					automake --add-missing --copy --force && \
 					autoconf)
 
+# Update with Dynamic Systems icons
+COMPONENT_POST_UNPACK_ACTION = \
+        $(CP) -r files/icons/* $(SOURCE_DIR)/icons
+
 # Missing files in build dir without this.
 COMPONENT_PRE_CONFIGURE_ACTION =        ($(CLONEY) $(SOURCE_DIR) $(@D))
 
