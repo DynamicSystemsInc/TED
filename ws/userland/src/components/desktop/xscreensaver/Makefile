@@ -66,6 +66,9 @@ LDFLAGS += $(CC_BITS)
 # but it will update the required files.
 COMPONENT_PREP_ACTION += (cd $(@D); autoreconf -fiv; automake -af | true)
 
+COMPONENT_POST_UNPACK_ACTION = \
+        $(CP) files/logo-180.gif $(SOURCE_DIR)/utils/images;
+
 # Need to pick up the GNU version of xgettext.
 PATH=$(GNUBIN):$(USRBINDIR)
 
