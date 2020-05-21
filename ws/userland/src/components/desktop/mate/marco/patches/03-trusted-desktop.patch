@@ -715,16 +715,6 @@ index 81ce07b91..f27425a82 100644
    p = strrchr (name, '-');
    if (p == NULL)
      {
-@@ -2038,7 +2327,8 @@ update_workspace_name (const char  *name,
-                   "Workspace name %s has no dash?\n", name);
-       return FALSE;
-     }
--
-+  
-+  ++p;
-   ++p;
- 
-   if (!g_ascii_isdigit (*p))
 @@ -2100,14 +2390,156 @@ update_workspace_name (const char  *name,
  
    return TRUE;
