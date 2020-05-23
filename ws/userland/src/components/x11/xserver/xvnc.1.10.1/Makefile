@@ -40,7 +40,7 @@ COMPONENT_ANITYA_ID=	4970
 TPNO=			56638
 
 #XORG_DIR=		$(COMPONENT_DIR:xvnc=xorg)
-XORG_DIR=		$(COMPONENT_DIR)/../xorg.1.20.8
+XORG_DIR=		$(COMPONENT_DIR)/../xorg.1.20.6
 
 get-xorg-value=		$(MAKE) --no-print-directory -C $(XORG_DIR) print-$(1) \
 				| $(PERL) -ne 'print "$$1\n" if m/^$(1)=(.*?)\s*\(origin:/'
