@@ -1,0 +1,89 @@
+Integration of Display Manager (gdm/xdm/etc.) to X server communication pipe
+with core server code - see sun-src/os/dtlogin.c for the main implementation.
+
+Not suitable for upstream
+
+--- a/configure.ac	2019-02-12 10:44:52.641855979 -0800
++++ b/configure.ac	2019-02-12 10:45:52.571531858 -0800
+@@ -1708,6 +1708,7 @@
+ XSERVER_CFLAGS="${XSERVER_CFLAGS} ${XSERVERCFLAGS_CFLAGS}"
+ XSERVER_LIBS="$DIX_LIB $MI_LIB $OS_LIB"
+ XSERVER_SYS_LIBS="${XSERVERLIBS_LIBS} ${SYS_LIBS} ${LIBS}"
++XSERVER_SYS_LIBS="${XSERVER_SYS_LIBS} -lproject"
+ AC_SUBST([XSERVER_LIBS])
+ AC_SUBST([XSERVER_SYS_LIBS])
+ 
+--- a/dix/main.c	2019-02-12 10:46:02.034007612 -0800
++++ b/dix/main.c	2019-02-12 10:47:32.650322430 -0800
+@@ -118,6 +118,11 @@
+ #include "dpmsproc.h"
+ #endif
+ 
++#ifdef SUNSOFT
++extern void DtloginInit(void);
++extern void DtloginCloseDown(void);
++#endif /* SUNSOFT */
++
+ extern void Dispatch(void);
+ 
+ CallbackListPtr RootWindowFinalizeCallback = NULL;
+@@ -152,6 +157,13 @@
+         InitBlockAndWakeupHandlers();
+         /* Perform any operating system dependent initializations you'd like */
+         OsInit();
++
++#ifdef SUNSOFT
++        /* Create pipe for dtlogin authentication info before we tell dtlogin
++           we're done and ready for it to run. */
++        DtloginInit ();
++#endif
++
+         if (serverGeneration == 1) {
+             CreateWellKnownSockets();
+             for (i = 1; i < LimitClients; i++)
+@@ -276,6 +288,11 @@
+ 
+         Dispatch();
+ 
++#ifdef SUNSOFT
++        /* Return to root privs before calling the rest of close down */
++        DtloginCloseDown ();
++#endif
++
+         UndisplayDevices();
+         DisableAllDevices();
+ 
+--- a/os/Makefile.am	2019-02-12 10:47:42.997975674 -0800
++++ b/os/Makefile.am	2019-02-12 10:48:08.451699210 -0800
+@@ -46,6 +46,9 @@
+ libos_la_SOURCES += $(XDMCP_SRCS)
+ endif
+ 
++libos_la_SOURCES += dtlogin.c
++libos_la_LIBADD += -lproject
++
+ if HAVE_LIBUNWIND
+ AM_CFLAGS += $(LIBUNWIND_CFLAGS)
+ libos_la_LIBADD += $(LIBUNWIND_LIBS)
+--- a/os/auth.c	2019-02-12 10:48:24.613722135 -0800
++++ b/os/auth.c	2019-02-12 10:48:48.955837504 -0800
+@@ -278,6 +278,19 @@
+     return 0;
+ }
+ 
++#ifdef SUNSOFT
++/* This function is called from dtlogin.c
++ * This is added to do "chmod authorization_file" since
++ * this file is owned by root and we need to change this
++ * to user logged on.
++ */
++const char *
++GetAuthFilename(void)
++{
++    return (authorization_file);
++}
++#endif
++
+ #ifdef XCSECURITY
+ 
+ XID
