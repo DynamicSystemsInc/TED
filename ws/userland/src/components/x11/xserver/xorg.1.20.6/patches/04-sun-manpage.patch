@@ -1,0 +1,118 @@
+Specific manpage changes for Solaris
+
+Not suitable for upstream
+
+--- a/man/Xserver.man	2019-02-12 10:24:52.442517149 -0800
++++ b/man/Xserver.man	2019-02-12 10:29:34.221150088 -0800
+@@ -1,5 +1,27 @@
+ '\" t
+ .\"
++.\" Copyright (c) 2007, 2018, Oracle and/or its affiliates. All rights reserved.
++.\"
++.\" Permission is hereby granted, free of charge, to any person obtaining a
++.\" copy of this software and associated documentation files (the "Software"),
++.\" to deal in the Software without restriction, including without limitation
++.\" the rights to use, copy, modify, merge, publish, distribute, sublicense,
++.\" and/or sell copies of the Software, and to permit persons to whom the
++.\" Software is furnished to do so, subject to the following conditions:
++.\"
++.\" The above copyright notice and this permission notice (including the next
++.\" paragraph) shall be included in all copies or substantial portions of the
++.\" Software.
++.\"
++.\" THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++.\" IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++.\" FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
++.\" THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++.\" LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
++.\" FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
++.\" DEALINGS IN THE SOFTWARE.
++.\"
++.\"
+ .\" Copyright 1984 - 1991, 1993, 1994, 1998  The Open Group
+ .\"
+ .\" Permission to use, copy, modify, distribute, and sell this software and its
+@@ -32,14 +54,22 @@
+ .SH SYNOPSIS
+ .B X
+ [option ...]
++.PP
++\fB/usr/bin/Xserver\fP [\fB-c\fP \fIclass\fP] \fB:\fP\fIdisplaynumber\fP [\fIX server arguments\fP]
+ .SH DESCRIPTION
+ .I X
+ is the generic name for the X Window System display server.  It is
+ frequently a link or a copy of the appropriate server binary for
+ driving the most frequently used server on a given machine.
++In this release of Oracle Solaris, /usr/bin/X is a link to the
++Xserver program which starts the appropriate X server based on properties
++set for the service management facility, under the service identifier
++\fIsvc:/application/x11/x11-server\fP.  The properties are described in the
++\fIapplication/x11/x11-server\fP(8s) manual page.
+ .SH "STARTING THE SERVER"
+-The X server is usually started from the X Display Manager program
+-\fIxdm\fP(1) or a similar display manager program.
++On Oracle Solaris, the X server is usually started from the GNOME
++Display Manager program \fIgdm\fP(__adminmansuffix__).   This role may also be performed
++by the X Display Manager program \fIxdm\fP(1), or another display manager.
+ This utility is run from the system boot files and takes care of keeping
+ the server running, prompting for usernames and passwords, and starting up
+ the user sessions.
+@@ -205,13 +235,14 @@
+ .BR "\-nolisten tcp" .
+ This option may be issued multiple times to disable listening to different
+ transport types.
+-Supported transport types are platform dependent, but commonly include:
++The current transport names supported on Oracle Solaris are as follows:
+ .TS
+ l l.
+ tcp     TCP over IPv4 or IPv6
+ inet    TCP over IPv4 only
+ inet6   TCP over IPv6 only
+-unix    UNIX Domain Sockets
++unix    UNIX Domain Sockets (/tmp/.X11-unix/X\fIn\fP)
++pipe    Named pipes (/tmp/.X11-pipe/X\fIn\fP)
+ local   Platform preferred local connection method
+ .TE
+ .TP 8
+@@ -592,9 +623,13 @@
+ .I /tmp/.X11-unix/X\fBn\fP
+ Unix domain socket for display number \fBn\fP
+ .TP 30
+-.I /usr/adm/X\fBn\fPmsgs
+-Error log file for display number \fBn\fP if run from \fIinit\fP(@adminmansuffix@)
++.I /tmp/.X11-pipe/X\fBn\fP
++Named pipe (FIFO) for display number \fBn\fP
+ .TP 30
++.I /var/log/gdm/:\fBn\fP.log
++Default error log file for display number \fBn\fP if the server is run
++from \fIgdm\fP(__adminmansuffix__)
++.TP 30
+ .I @projectroot@/lib/X11/xdm/xdm-errors
+ Default error log file if the server is run from \fIxdm\fP(1)
+ .SH "SEE ALSO"
+@@ -615,15 +650,22 @@
+ \fIxdm\fP(1), \fIxhost\fP(1), \fIxfwp\fP(1),
+ .I "Security Extension Specification"
+ .PP
+-Starting the server: \fIstartx\fP(1), \fIxdm\fP(1), \fIxinit\fP(1)
++Starting the server: \fIgdm\fP(1m), \fIstartx\fP(1), \fIxdm\fP(1), \fIxinit\fP(1)
+ .PP
+ Controlling the server once started: \fIxset\fP(1), \fIxsetroot\fP(1),
+ \fIxhost\fP(1), \fIxinput\fP(1), \fIxrandr\fP(1)
++.\" Only list the servers shipped on Solaris
+ .PP
+ Server-specific man pages:
+-\fIXorg\fP(1), \fIXdmx\fP(1), \fIXephyr\fP(1), \fIXnest\fP(1),
+-\fIXvfb\fP(1), \fIXquartz\fP(1), \fIXWin\fP(1).
++\fIXorg\fP(1), \fIXdmx\fP(1), \fIXephyr\fP(1), \fIXvfb\fP(1), \fIXvnc\fP(1).
+ .PP
++Service management framework configuration:
++\fIapplication/x11/x11-server\fP(8s)
++.PP
++Dtrace probes:
++\fI/usr/share/doc/Xserver/Xserver-DTrace.html\fP,
++\fI/usr/share/doc/Xserver/Xserver-DTrace.txt\fP
++.PP
+ Server internal documentation:
+ .I "Definition of the Porting Layer for the X v11 Sample Server"
+ .SH AUTHORS
