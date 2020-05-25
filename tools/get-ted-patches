@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# This script generates a list of files that have been patched
+# for the TED project. It doesn't handle the tsoljds components
+# because their Makefiles don't have a patch target.
+
+workspace=/trusted-desktop/ws/userland/src
+(cd $workspace; find . -name "*patch" > /tmp/p1)
+grep -v patched /tmp/p1 > /tmp/p2
+grep tsol /tmp/p2 > new-patches
+grep ted /tmp/p2 >> new-patches
+
+/usr/bin/rm raw-files
+for i in `cat new-patches`; do
+	p=$workspace/$i
+	d=`dirname $i`
+	d=`dirname $d`
+	d1=`basename $d`
+	for b in $workspace/$d/*; do
+		if [ -d $b ];then
+			b1=`basename $b`
+			if [[ $b1 == $d1* ]]; then
+				src=$b1
+			fi
+		fi
+	done
+	for f in `grep ^+++ $p|cut -d" " -f2|cut -d/ -f2-99|cut -d" " -f1|cut  -f1`;do
+		echo $d/$src/$f >> raw-files
+	done
+done
+sort < raw-files | uniq > new-files
