@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# This script publishes updates to the package repository. 
+# It needs to be run from a component subdirectory of the manifest directory
+
+mypkg=$(basename `pwd`)
+repo=/var/share/pkg/repositories/trusted-desktop
+echo Making $mypkg package
+. destdir
+cd ..
+pkgsend -s $repo publish -d $DESTDIR $mypkg/$mypkg.p5m
+pkgrepo refresh -s $repo
+
