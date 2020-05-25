@@ -1,0 +1,20 @@
+set name=pkg.fmri value=pkg://trusted-desktop/x11/trusted/libxtsol@11.4,5.11-11.4.0.0.0.1.0
+set name=org.opensolaris.consolidation value=X
+set name=com.oracle.info.name value=libXtsol
+set name=info.classification value=org.opensolaris.category.2008:System/Trusted
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=com.oracle.info.description value="the libXtsol library"
+set name=variant.arch value=i386
+set name=pkg.summary value="libXtsol - Solaris Trusted Extensions X11 extension client library"
+set name=pkg.description value="Xlib-based client API for the Solaris Trusted Extensions (SUN_TSOL) extension to the X11 protocol"
+depend fmri=pkg:/x11/library/libx11 type=require
+depend fmri=pkg:/system/library type=require
+depend facet.devel=true fmri=pkg:/x11/header/x11-protocols type=require
+depend fmri=pkg:/consolidation/X/X-incorporation type=require
+file ../../../sun-src/Xtsol.h facet.devel=true group=bin mode=0444 owner=root path=usr/include/X11/extensions/Xtsol.h 
+file ../../../sun-src/Xtsolproto.h facet.devel=true group=bin mode=0444 owner=root path=usr/include/X11/extensions/Xtsolproto.h 
+file elfarch=i386 elfbits=64 group=bin mode=0555 owner=root path=usr/lib/amd64/libXtsol.so.1 variant.arch=i386
+link path=usr/lib/amd64/libXtsol.so target=libXtsol.so.1
+link facet.compat.x11-links=true path=usr/X11/lib/amd64/libXtsol.so target=../../../lib/amd64/libXtsol.so variant.arch=i386
+link facet.compat.x11-links=true path=usr/X11/lib/amd64/libXtsol.so.1 target=../../../lib/amd64/libXtsol.so.1 variant.arch=i386
+link path=usr/lib/amd64/libXtsol.so target=libXtsol.so.1 variant.arch=i386

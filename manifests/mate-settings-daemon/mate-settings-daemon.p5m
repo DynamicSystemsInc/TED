@@ -1,0 +1,955 @@
+set name=pkg.fmri value=pkg:/desktop/mate/mate-settings-daemon@1.22.1,5.11-1
+set name=pkg.summary value="fork of gnome-settings-deamon"
+set name=com.oracle.info.name value=mate-settings-daemon
+set name=com.oracle.info.version value=1.22.1
+set name=info.classification \
+    value=org.opensolaris.category.2008:System/Libraries
+set name=info.source-url \
+    value=http://pub.mate-desktop.org/releases/1.22/mate-settings-daemon-1.22.1.tar.xz
+set name=info.upstream-url value=http://www.mate-desktop.org
+set name=org.opensolaris.consolidation value=userland
+set name=variant.arch value=i386
+dir  path=etc owner=root group=sys mode=0755
+dir  path=etc/dbus-1 owner=root group=bin mode=0755
+dir  path=etc/dbus-1/system.d owner=root group=bin mode=0755
+file etc/dbus-1/system.d/org.mate.SettingsDaemon.DateTimeMechanism.conf \
+    path=etc/dbus-1/system.d/org.mate.SettingsDaemon.DateTimeMechanism.conf \
+    owner=root group=bin mode=0644
+dir  path=etc/mate-settings-daemon owner=root group=other mode=0755
+dir  path=etc/mate-settings-daemon/xrandr owner=root group=other mode=0755
+dir  path=etc/xdg owner=root group=sys mode=0755
+dir  path=etc/xdg/autostart owner=root group=sys mode=0755
+file etc/xdg/autostart/mate-settings-daemon.desktop \
+    path=etc/xdg/autostart/mate-settings-daemon.desktop owner=root group=bin \
+    mode=0644
+dir  path=etc/xrdb owner=root group=other mode=0755
+file etc/xrdb/Editres.ad path=etc/xrdb/Editres.ad owner=root group=bin mode=0644
+file etc/xrdb/Emacs.ad path=etc/xrdb/Emacs.ad owner=root group=bin mode=0644
+file etc/xrdb/General.ad path=etc/xrdb/General.ad owner=root group=bin mode=0644
+file etc/xrdb/Motif.ad path=etc/xrdb/Motif.ad owner=root group=bin mode=0644
+file etc/xrdb/Tk.ad path=etc/xrdb/Tk.ad owner=root group=bin mode=0644
+file etc/xrdb/Xaw.ad path=etc/xrdb/Xaw.ad owner=root group=bin mode=0644
+dir  path=usr owner=root group=sys mode=0755
+dir  path=usr/include owner=root group=bin mode=0755
+dir  path=usr/include/mate-settings-daemon owner=root group=other mode=0755
+file usr/include/mate-settings-daemon/mate-settings-client.h \
+    path=usr/include/mate-settings-daemon/mate-settings-client.h owner=root \
+    group=bin mode=0644
+file usr/include/mate-settings-daemon/mate-settings-plugin.h \
+    path=usr/include/mate-settings-daemon/mate-settings-plugin.h owner=root \
+    group=bin mode=0644
+dir  path=usr/lib owner=root group=bin mode=0755
+dir  path=usr/lib/amd64 owner=root group=bin mode=0755
+dir  path=usr/lib/amd64/mate-settings-daemon owner=root group=other mode=0755
+file usr/lib/amd64/mate-settings-daemon/a11y-keyboard.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/a11y-keyboard.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/a11y-settings.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/a11y-settings.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/background.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/background.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/clipboard.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/clipboard.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/housekeeping.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/housekeeping.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/keybindings.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/keybindings.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/keyboard.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/keyboard.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/liba11y-keyboard.la \
+    path=usr/lib/amd64/mate-settings-daemon/liba11y-keyboard.la owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/liba11y-keyboard.so \
+    path=usr/lib/amd64/mate-settings-daemon/liba11y-keyboard.so owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/liba11y-settings.la \
+    path=usr/lib/amd64/mate-settings-daemon/liba11y-settings.la owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/liba11y-settings.so \
+    path=usr/lib/amd64/mate-settings-daemon/liba11y-settings.so owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libbackground.la \
+    path=usr/lib/amd64/mate-settings-daemon/libbackground.la owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libbackground.so \
+    path=usr/lib/amd64/mate-settings-daemon/libbackground.so owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libclipboard.la \
+    path=usr/lib/amd64/mate-settings-daemon/libclipboard.la owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libclipboard.so \
+    path=usr/lib/amd64/mate-settings-daemon/libclipboard.so owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libhousekeeping.la \
+    path=usr/lib/amd64/mate-settings-daemon/libhousekeeping.la owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libhousekeeping.so \
+    path=usr/lib/amd64/mate-settings-daemon/libhousekeeping.so owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libkeybindings.la \
+    path=usr/lib/amd64/mate-settings-daemon/libkeybindings.la owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libkeybindings.so \
+    path=usr/lib/amd64/mate-settings-daemon/libkeybindings.so owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libkeyboard.la \
+    path=usr/lib/amd64/mate-settings-daemon/libkeyboard.la owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libkeyboard.so \
+    path=usr/lib/amd64/mate-settings-daemon/libkeyboard.so owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libmedia-keys.la \
+    path=usr/lib/amd64/mate-settings-daemon/libmedia-keys.la owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libmedia-keys.so \
+    path=usr/lib/amd64/mate-settings-daemon/libmedia-keys.so owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libmouse.la \
+    path=usr/lib/amd64/mate-settings-daemon/libmouse.la owner=root group=bin \
+    mode=0755
+file usr/lib/amd64/mate-settings-daemon/libmouse.so \
+    path=usr/lib/amd64/mate-settings-daemon/libmouse.so owner=root group=bin \
+    mode=0755
+file usr/lib/amd64/mate-settings-daemon/libmpris.la \
+    path=usr/lib/amd64/mate-settings-daemon/libmpris.la owner=root group=bin \
+    mode=0755
+file usr/lib/amd64/mate-settings-daemon/libmpris.so \
+    path=usr/lib/amd64/mate-settings-daemon/libmpris.so owner=root group=bin \
+    mode=0755
+file usr/lib/amd64/mate-settings-daemon/libsound.la \
+    path=usr/lib/amd64/mate-settings-daemon/libsound.la owner=root group=bin \
+    mode=0755
+file usr/lib/amd64/mate-settings-daemon/libsound.so \
+    path=usr/lib/amd64/mate-settings-daemon/libsound.so owner=root group=bin \
+    mode=0755
+file usr/lib/amd64/mate-settings-daemon/libtyping-break.la \
+    path=usr/lib/amd64/mate-settings-daemon/libtyping-break.la owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libtyping-break.so \
+    path=usr/lib/amd64/mate-settings-daemon/libtyping-break.so owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libxrandr.la \
+    path=usr/lib/amd64/mate-settings-daemon/libxrandr.la owner=root group=bin \
+    mode=0755
+file usr/lib/amd64/mate-settings-daemon/libxrandr.so \
+    path=usr/lib/amd64/mate-settings-daemon/libxrandr.so owner=root group=bin \
+    mode=0755
+file usr/lib/amd64/mate-settings-daemon/libxrdb.la \
+    path=usr/lib/amd64/mate-settings-daemon/libxrdb.la owner=root group=bin \
+    mode=0755
+file usr/lib/amd64/mate-settings-daemon/libxrdb.so \
+    path=usr/lib/amd64/mate-settings-daemon/libxrdb.so owner=root group=bin \
+    mode=0755
+file usr/lib/amd64/mate-settings-daemon/libxsettings.la \
+    path=usr/lib/amd64/mate-settings-daemon/libxsettings.la owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/libxsettings.so \
+    path=usr/lib/amd64/mate-settings-daemon/libxsettings.so owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/mate-settings-daemon \
+    path=usr/lib/amd64/mate-settings-daemon/mate-settings-daemon owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/media-keys.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/media-keys.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/mouse.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/mouse.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/mpris.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/mpris.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/msd-datetime-mechanism \
+    path=usr/lib/amd64/mate-settings-daemon/msd-datetime-mechanism owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/msd-locate-pointer \
+    path=usr/lib/amd64/mate-settings-daemon/msd-locate-pointer owner=root \
+    group=bin mode=0755
+file usr/lib/amd64/mate-settings-daemon/sound.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/sound.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/typing-break.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/typing-break.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/xrandr.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/xrandr.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/xrdb.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/xrdb.mate-settings-plugin \
+    owner=root group=bin mode=0644
+file usr/lib/amd64/mate-settings-daemon/xsettings.mate-settings-plugin \
+    path=usr/lib/amd64/mate-settings-daemon/xsettings.mate-settings-plugin \
+    owner=root group=bin mode=0644
+dir  path=usr/lib/amd64/pkgconfig owner=root group=other mode=0755
+file usr/lib/amd64/pkgconfig/mate-settings-daemon.pc \
+    path=usr/lib/amd64/pkgconfig/mate-settings-daemon.pc owner=root group=bin \
+    mode=0644
+dir  path=usr/share owner=root group=sys mode=0755
+dir  path=usr/share/dbus-1 owner=root group=sys mode=0755
+dir  path=usr/share/dbus-1/services owner=root group=bin mode=0755
+file usr/share/dbus-1/services/org.mate.SettingsDaemon.service \
+    path=usr/share/dbus-1/services/org.mate.SettingsDaemon.service owner=root \
+    group=bin mode=0644
+dir  path=usr/share/dbus-1/system-services owner=root group=bin mode=0755
+file usr/share/dbus-1/system-services/org.mate.SettingsDaemon.DateTimeMechanism.service \
+    path=usr/share/dbus-1/system-services/org.mate.SettingsDaemon.DateTimeMechanism.service \
+    owner=root group=bin mode=0644
+dir  path=usr/share/glib-2.0 owner=root group=other mode=0755
+dir  path=usr/share/glib-2.0/schemas owner=root group=other mode=0755
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.a11y-keyboard.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.a11y-keyboard.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.a11y-settings.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.a11y-settings.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.background.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.background.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.clipboard.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.clipboard.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.datetime.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.datetime.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.keybindings.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.keybindings.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.keyboard.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.keyboard.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.mouse.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.mouse.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.mpris.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.mpris.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.rfkill.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.rfkill.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.smartcard.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.smartcard.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.sound.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.sound.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.typing-break.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.typing-break.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.xrdb.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.xrdb.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.xsettings.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.SettingsDaemon.plugins.xsettings.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.applications-at.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.applications-at.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.font-rendering.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.font-rendering.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.peripherals-smartcard.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.peripherals-smartcard.gschema.xml \
+    owner=root group=bin mode=0644
+file usr/share/glib-2.0/schemas/org.mate.peripherals-touchpad.gschema.xml \
+    path=usr/share/glib-2.0/schemas/org.mate.peripherals-touchpad.gschema.xml \
+    owner=root group=bin mode=0644
+dir  path=usr/share/icons owner=root group=other mode=0755
+dir  path=usr/share/icons/hicolor owner=root group=other mode=0755
+dir  path=usr/share/icons/hicolor/16x16 owner=root group=other mode=0755
+dir  path=usr/share/icons/hicolor/16x16/apps owner=root group=other mode=0755
+file usr/share/icons/hicolor/16x16/apps/msd-xrandr.png \
+    path=usr/share/icons/hicolor/16x16/apps/msd-xrandr.png owner=root \
+    group=bin mode=0644
+dir  path=usr/share/icons/hicolor/22x22 owner=root group=other mode=0755
+dir  path=usr/share/icons/hicolor/22x22/apps owner=root group=other mode=0755
+file usr/share/icons/hicolor/22x22/apps/msd-xrandr.png \
+    path=usr/share/icons/hicolor/22x22/apps/msd-xrandr.png owner=root \
+    group=bin mode=0644
+dir  path=usr/share/icons/hicolor/24x24 owner=root group=other mode=0755
+dir  path=usr/share/icons/hicolor/24x24/apps owner=root group=other mode=0755
+file usr/share/icons/hicolor/24x24/apps/msd-xrandr.png \
+    path=usr/share/icons/hicolor/24x24/apps/msd-xrandr.png owner=root \
+    group=bin mode=0644
+dir  path=usr/share/icons/hicolor/32x32 owner=root group=other mode=0755
+dir  path=usr/share/icons/hicolor/32x32/apps owner=root group=other mode=0755
+file usr/share/icons/hicolor/32x32/apps/msd-xrandr.png \
+    path=usr/share/icons/hicolor/32x32/apps/msd-xrandr.png owner=root \
+    group=bin mode=0644
+dir  path=usr/share/icons/hicolor/scalable owner=root group=other mode=0755
+dir  path=usr/share/icons/hicolor/scalable/apps owner=root group=other mode=0755
+file usr/share/icons/hicolor/scalable/apps/msd-xrandr.svg \
+    path=usr/share/icons/hicolor/scalable/apps/msd-xrandr.svg owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale owner=root group=other mode=0755
+dir  path=usr/share/locale/af owner=root group=other mode=0755
+dir  path=usr/share/locale/af/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/af/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/af/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/am owner=root group=other mode=0755
+dir  path=usr/share/locale/am/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/am/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/am/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ar owner=root group=other mode=0755
+dir  path=usr/share/locale/ar/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ar/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ar/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/as owner=root group=other mode=0755
+dir  path=usr/share/locale/as/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/as/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/as/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ast owner=root group=other mode=0755
+dir  path=usr/share/locale/ast/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ast/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ast/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/az owner=root group=other mode=0755
+dir  path=usr/share/locale/az/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/az/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/az/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/be owner=root group=other mode=0755
+dir  path=usr/share/locale/be/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/be/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/be/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/bg owner=root group=other mode=0755
+dir  path=usr/share/locale/bg/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/bg/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/bg/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/bn owner=root group=other mode=0755
+dir  path=usr/share/locale/bn/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/bn/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/bn/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/bn_IN owner=root group=other mode=0755
+dir  path=usr/share/locale/bn_IN/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/bn_IN/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/bn_IN/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/br owner=root group=other mode=0755
+dir  path=usr/share/locale/br/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/br/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/br/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/bs owner=root group=other mode=0755
+dir  path=usr/share/locale/bs/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/bs/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/bs/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ca owner=root group=other mode=0755
+dir  path=usr/share/locale/ca/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ca/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ca/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ca@valencia owner=root group=other mode=0755
+dir  path=usr/share/locale/ca@valencia/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ca@valencia/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ca@valencia/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/cmn owner=root group=other mode=0755
+dir  path=usr/share/locale/cmn/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/cmn/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/cmn/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/crh owner=root group=other mode=0755
+dir  path=usr/share/locale/crh/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/crh/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/crh/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/cs owner=root group=other mode=0755
+dir  path=usr/share/locale/cs/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/cs/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/cs/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/cy owner=root group=other mode=0755
+dir  path=usr/share/locale/cy/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/cy/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/cy/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/da owner=root group=other mode=0755
+dir  path=usr/share/locale/da/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/da/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/da/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/de owner=root group=other mode=0755
+dir  path=usr/share/locale/de/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/de/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/de/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/dz owner=root group=other mode=0755
+dir  path=usr/share/locale/dz/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/dz/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/dz/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/el owner=root group=other mode=0755
+dir  path=usr/share/locale/el/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/el/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/el/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/en_AU owner=root group=other mode=0755
+dir  path=usr/share/locale/en_AU/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/en_AU/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/en_AU/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/en_CA owner=root group=other mode=0755
+dir  path=usr/share/locale/en_CA/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/en_CA/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/en_CA/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/en_GB owner=root group=other mode=0755
+dir  path=usr/share/locale/en_GB/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/en_GB/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/en_GB/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/eo owner=root group=other mode=0755
+dir  path=usr/share/locale/eo/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/eo/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/eo/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/es owner=root group=other mode=0755
+dir  path=usr/share/locale/es/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/es_AR owner=root group=other mode=0755
+dir  path=usr/share/locale/es_AR/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_AR/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_AR/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_CL owner=root group=other mode=0755
+dir  path=usr/share/locale/es_CL/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_CL/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_CL/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_CO owner=root group=other mode=0755
+dir  path=usr/share/locale/es_CO/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_CO/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_CO/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_CR owner=root group=other mode=0755
+dir  path=usr/share/locale/es_CR/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_CR/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_CR/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_DO owner=root group=other mode=0755
+dir  path=usr/share/locale/es_DO/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_DO/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_DO/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_EC owner=root group=other mode=0755
+dir  path=usr/share/locale/es_EC/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_EC/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_EC/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_ES owner=root group=other mode=0755
+dir  path=usr/share/locale/es_ES/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_ES/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_ES/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_MX owner=root group=other mode=0755
+dir  path=usr/share/locale/es_MX/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_MX/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_MX/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_NI owner=root group=other mode=0755
+dir  path=usr/share/locale/es_NI/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_NI/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_NI/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_PA owner=root group=other mode=0755
+dir  path=usr/share/locale/es_PA/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_PA/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_PA/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_PE owner=root group=other mode=0755
+dir  path=usr/share/locale/es_PE/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_PE/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_PE/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_PR owner=root group=other mode=0755
+dir  path=usr/share/locale/es_PR/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_PR/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_PR/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_SV owner=root group=other mode=0755
+dir  path=usr/share/locale/es_SV/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_SV/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_SV/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_UY owner=root group=other mode=0755
+dir  path=usr/share/locale/es_UY/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_UY/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_UY/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/es_VE owner=root group=other mode=0755
+dir  path=usr/share/locale/es_VE/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es_VE/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/es_VE/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/et owner=root group=other mode=0755
+dir  path=usr/share/locale/et/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/et/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/et/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/eu owner=root group=other mode=0755
+dir  path=usr/share/locale/eu/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/eu/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/eu/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/fa owner=root group=other mode=0755
+dir  path=usr/share/locale/fa/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/fa/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/fa/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/fi owner=root group=other mode=0755
+dir  path=usr/share/locale/fi/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/fi/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/fi/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/fr owner=root group=other mode=0755
+dir  path=usr/share/locale/fr/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/fr/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/fr/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/frp owner=root group=other mode=0755
+dir  path=usr/share/locale/frp/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/frp/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/frp/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/fur owner=root group=other mode=0755
+dir  path=usr/share/locale/fur/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/fur/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/fur/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/fy owner=root group=other mode=0755
+dir  path=usr/share/locale/fy/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/fy/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/fy/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ga owner=root group=other mode=0755
+dir  path=usr/share/locale/ga/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ga/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ga/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/gl owner=root group=other mode=0755
+dir  path=usr/share/locale/gl/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/gl/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/gl/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/gu owner=root group=other mode=0755
+dir  path=usr/share/locale/gu/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/gu/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/gu/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/he owner=root group=other mode=0755
+dir  path=usr/share/locale/he/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/he/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/he/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/hi owner=root group=other mode=0755
+dir  path=usr/share/locale/hi/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/hi/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/hi/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/hr owner=root group=other mode=0755
+dir  path=usr/share/locale/hr/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/hr/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/hr/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/hu owner=root group=other mode=0755
+dir  path=usr/share/locale/hu/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/hu/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/hu/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/hy owner=root group=other mode=0755
+dir  path=usr/share/locale/hy/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/hy/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/hy/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/id owner=root group=other mode=0755
+dir  path=usr/share/locale/id/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/id/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/id/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/is owner=root group=other mode=0755
+dir  path=usr/share/locale/is/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/is/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/is/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/it owner=root group=other mode=0755
+dir  path=usr/share/locale/it/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/it/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/it/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ja owner=root group=other mode=0755
+dir  path=usr/share/locale/ja/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ja/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ja/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ka owner=root group=other mode=0755
+dir  path=usr/share/locale/ka/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ka/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ka/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/kk owner=root group=other mode=0755
+dir  path=usr/share/locale/kk/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/kk/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/kk/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/kn owner=root group=other mode=0755
+dir  path=usr/share/locale/kn/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/kn/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/kn/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ko owner=root group=other mode=0755
+dir  path=usr/share/locale/ko/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ko/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ko/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ku owner=root group=other mode=0755
+dir  path=usr/share/locale/ku/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ku/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ku/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ku_IQ owner=root group=other mode=0755
+dir  path=usr/share/locale/ku_IQ/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ku_IQ/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ku_IQ/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/ky owner=root group=other mode=0755
+dir  path=usr/share/locale/ky/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ky/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ky/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/lt owner=root group=other mode=0755
+dir  path=usr/share/locale/lt/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/lt/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/lt/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/lv owner=root group=other mode=0755
+dir  path=usr/share/locale/lv/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/lv/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/lv/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/mai owner=root group=other mode=0755
+dir  path=usr/share/locale/mai/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/mai/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/mai/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/mg owner=root group=other mode=0755
+dir  path=usr/share/locale/mg/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/mg/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/mg/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/mk owner=root group=other mode=0755
+dir  path=usr/share/locale/mk/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/mk/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/mk/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ml owner=root group=other mode=0755
+dir  path=usr/share/locale/ml/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ml/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ml/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/mn owner=root group=other mode=0755
+dir  path=usr/share/locale/mn/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/mn/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/mn/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/mr owner=root group=other mode=0755
+dir  path=usr/share/locale/mr/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/mr/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/mr/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ms owner=root group=other mode=0755
+dir  path=usr/share/locale/ms/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ms/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ms/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/nb owner=root group=other mode=0755
+dir  path=usr/share/locale/nb/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/nb/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/nb/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/nds owner=root group=other mode=0755
+dir  path=usr/share/locale/nds/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/nds/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/nds/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ne owner=root group=other mode=0755
+dir  path=usr/share/locale/ne/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ne/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ne/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/nl owner=root group=other mode=0755
+dir  path=usr/share/locale/nl/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/nl/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/nl/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/nn owner=root group=other mode=0755
+dir  path=usr/share/locale/nn/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/nn/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/nn/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/nso owner=root group=other mode=0755
+dir  path=usr/share/locale/nso/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/nso/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/nso/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/oc owner=root group=other mode=0755
+dir  path=usr/share/locale/oc/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/oc/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/oc/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/or owner=root group=other mode=0755
+dir  path=usr/share/locale/or/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/or/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/or/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/pa owner=root group=other mode=0755
+dir  path=usr/share/locale/pa/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/pa/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/pa/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/pl owner=root group=other mode=0755
+dir  path=usr/share/locale/pl/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/pl/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/pl/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/pms owner=root group=other mode=0755
+dir  path=usr/share/locale/pms/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/pms/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/pms/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ps owner=root group=other mode=0755
+dir  path=usr/share/locale/ps/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ps/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ps/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/pt owner=root group=other mode=0755
+dir  path=usr/share/locale/pt/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/pt/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/pt/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/pt_BR owner=root group=other mode=0755
+dir  path=usr/share/locale/pt_BR/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/pt_BR/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/pt_BR/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/ro owner=root group=other mode=0755
+dir  path=usr/share/locale/ro/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ro/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ro/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ru owner=root group=other mode=0755
+dir  path=usr/share/locale/ru/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ru/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ru/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/rw owner=root group=other mode=0755
+dir  path=usr/share/locale/rw/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/rw/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/rw/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/si owner=root group=other mode=0755
+dir  path=usr/share/locale/si/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/si/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/si/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/sk owner=root group=other mode=0755
+dir  path=usr/share/locale/sk/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sk/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/sk/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/sl owner=root group=other mode=0755
+dir  path=usr/share/locale/sl/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sl/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/sl/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/sq owner=root group=other mode=0755
+dir  path=usr/share/locale/sq/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sq/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/sq/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/sr owner=root group=other mode=0755
+dir  path=usr/share/locale/sr/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sr/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/sr/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/sr@latin owner=root group=other mode=0755
+dir  path=usr/share/locale/sr@latin/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sr@latin/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/sr@latin/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/sv owner=root group=other mode=0755
+dir  path=usr/share/locale/sv/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sv/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/sv/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ta owner=root group=other mode=0755
+dir  path=usr/share/locale/ta/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ta/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ta/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/te owner=root group=other mode=0755
+dir  path=usr/share/locale/te/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/te/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/te/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/th owner=root group=other mode=0755
+dir  path=usr/share/locale/th/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/th/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/th/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/tr owner=root group=other mode=0755
+dir  path=usr/share/locale/tr/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/tr/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/tr/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ug owner=root group=other mode=0755
+dir  path=usr/share/locale/ug/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ug/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ug/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/uk owner=root group=other mode=0755
+dir  path=usr/share/locale/uk/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/uk/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/uk/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ur owner=root group=other mode=0755
+dir  path=usr/share/locale/ur/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ur/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/ur/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/uz owner=root group=other mode=0755
+dir  path=usr/share/locale/uz/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/uz/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/uz/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/vi owner=root group=other mode=0755
+dir  path=usr/share/locale/vi/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/vi/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/vi/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/wa owner=root group=other mode=0755
+dir  path=usr/share/locale/wa/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/wa/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/wa/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/xh owner=root group=other mode=0755
+dir  path=usr/share/locale/xh/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/xh/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/xh/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/zh_CN owner=root group=other mode=0755
+dir  path=usr/share/locale/zh_CN/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/zh_CN/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/zh_CN/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/zh_HK owner=root group=other mode=0755
+dir  path=usr/share/locale/zh_HK/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/zh_HK/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/zh_HK/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/zh_TW owner=root group=other mode=0755
+dir  path=usr/share/locale/zh_TW/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/zh_TW/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/zh_TW/LC_MESSAGES/mate-settings-daemon.mo \
+    owner=root group=bin mode=0644
+dir  path=usr/share/locale/zu owner=root group=other mode=0755
+dir  path=usr/share/locale/zu/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/zu/LC_MESSAGES/mate-settings-daemon.mo \
+    path=usr/share/locale/zu/LC_MESSAGES/mate-settings-daemon.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/man owner=root group=bin mode=0755
+dir  path=usr/share/man/man1 owner=root group=bin mode=0755
+file usr/share/man/man1/mate-settings-daemon.1 \
+    path=usr/share/man/man1/mate-settings-daemon.1 owner=root group=bin \
+    mode=0644
+file usr/share/man/man1/msd-datetime-mechanism.1 \
+    path=usr/share/man/man1/msd-datetime-mechanism.1 owner=root group=bin \
+    mode=0644
+file usr/share/man/man1/msd-locate-pointer.1 \
+    path=usr/share/man/man1/msd-locate-pointer.1 owner=root group=bin mode=0644
+dir  path=usr/share/mate-control-center owner=root group=other mode=0755
+dir  path=usr/share/mate-control-center/keyother owner=root group=bin \
+    mode=0755
+file usr/share/mate-control-center/keybindings/50-accessibility.xml \
+    path=usr/share/mate-control-center/keybindings/50-accessibility.xml \
+    owner=root group=bin mode=0644
+dir  path=usr/share/mate-settings-daemon owner=root group=other mode=0755
+file usr/share/mate-settings-daemon/acme.ui \
+    path=usr/share/mate-settings-daemon/acme.ui owner=root group=bin mode=0644
+dir  path=usr/share/mate-settings-daemon/icons owner=root group=other mode=0755
+dir  path=usr/share/mate-settings-daemon/icons/hicolor owner=root group=other \
+    mode=0755
+dir  path=usr/share/mate-settings-daemon/icons/hicolor/64x64 owner=root \
+    group=other mode=0755
+dir  path=usr/share/mate-settings-daemon/icons/hicolor/64x64/devices owner=root \
+    group=other mode=0755
+file usr/share/mate-settings-daemon/icons/hicolor/64x64/devices/kbd-capslock-off.png \
+    path=usr/share/mate-settings-daemon/icons/hicolor/64x64/devices/kbd-capslock-off.png \
+    owner=root group=bin mode=0644
+file usr/share/mate-settings-daemon/icons/hicolor/64x64/devices/kbd-capslock-on.png \
+    path=usr/share/mate-settings-daemon/icons/hicolor/64x64/devices/kbd-capslock-on.png \
+    owner=root group=bin mode=0644
+file usr/share/mate-settings-daemon/icons/hicolor/64x64/devices/kbd-numlock-off.png \
+    path=usr/share/mate-settings-daemon/icons/hicolor/64x64/devices/kbd-numlock-off.png \
+    owner=root group=bin mode=0644
+file usr/share/mate-settings-daemon/icons/hicolor/64x64/devices/kbd-numlock-on.png \
+    path=usr/share/mate-settings-daemon/icons/hicolor/64x64/devices/kbd-numlock-on.png \
+    owner=root group=bin mode=0644
+file usr/share/mate-settings-daemon/icons/hicolor/64x64/devices/kbd-scrolllock-off.png \
+    path=usr/share/mate-settings-daemon/icons/hicolor/64x64/devices/kbd-scrolllock-off.png \
+    owner=root group=bin mode=0644
+file usr/share/mate-settings-daemon/icons/hicolor/64x64/devices/kbd-scrolllock-on.png \
+    path=usr/share/mate-settings-daemon/icons/hicolor/64x64/devices/kbd-scrolllock-on.png \
+    owner=root group=bin mode=0644
+file usr/share/mate-settings-daemon/msd-a11y-preferences-dialog.ui \
+    path=usr/share/mate-settings-daemon/msd-a11y-preferences-dialog.ui \
+    owner=root group=bin mode=0644
+dir  path=usr/share/polkit-1 owner=root group=other mode=0755
+dir  path=usr/share/polkit-1/actions owner=root group=other mode=0755
+file usr/share/polkit-1/actions/org.mate.settingsdaemon.datetimemechanism.policy \
+    path=usr/share/polkit-1/actions/org.mate.settingsdaemon.datetimemechanism.policy \
+    owner=root group=bin mode=0644
+depend fmri=pkg:/desktop/mate/libmatekbd@1.22.1-0 type=require
+depend fmri=pkg:/library/desktop/cairo@1.14.8-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/library/desktop/gdk-pixbuf@2.36.11-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/library/desktop/gtk3@3.22.12-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/library/desktop/libnotify@0.7.7-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/library/desktop/libxklavier@5.0-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/library/glib2@2.52.0-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/library/gnome/dconf@0.26.0-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/desktop/mate/mate-desktop@1.22.1-0 type=require
+depend fmri=pkg:/system/library/fontconfig@2.12.1-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/system/library/libdbus-glib@0.102-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/system/library/libdbus@1.10.22-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/system/library/polkit@0.113-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.15.0 type=require
+depend fmri=pkg:/x11/library/libx11@1.6.5-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/x11/library/libxi@1.7.9-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/x11/library/libxxf86misc@1.0.3-11.4.0.0.1.14.0 type=require
