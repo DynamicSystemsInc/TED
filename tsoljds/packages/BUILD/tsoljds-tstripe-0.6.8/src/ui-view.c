@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2007 Sun Microsystems, Inc. All Rights Reserved.
+  Copyright (c) 2020, Dynamic Systems, Inc.
 
   The contents of this file are subject to the terms of the
   GNU General Public License version 2 (the "License")

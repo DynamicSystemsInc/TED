@@ -3,6 +3,7 @@
  * Copyright (C) 2006 Novell, Inc.
  * Copyright (C) 2008 Red Hat, Inc.
  * Copyright (C) 2008 Sun Microsystems, Inc.
+ * Copyright (c) 2020, Dynamic Systems, Inc.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -127,7 +128,7 @@ handle_pipe_input (GIOChannel *source,
 {
 #define BUFSIZE 1024
   gsize byteread, pos;
-  gchar *str;
+  gchar *str = NULL;
   GError *error = NULL;
   GIOStatus status=0;
   int screen_num;
@@ -159,13 +160,13 @@ handle_pipe_input (GIOChannel *source,
 	      appinfo = g_app_info_create_from_commandline(message,
 		      g_find_program_in_path(message), 0, &error);
 	      g_app_info_launch_uris(appinfo, NULL, NULL, &error);
-	      g_free(appinfo);
-	      //g_spawn_command_line_async (message, &error);
+	      g_object_unref(appinfo);
 	      break;
 	    case PIPE_MESSAGE_PARSE_ERROR:
 	    default:
 	      break;
 	    }
+	if (str) g_free (str);
         if (message) g_free (message);
         return TRUE;
 	case G_IO_STATUS_AGAIN:

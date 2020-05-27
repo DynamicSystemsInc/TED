@@ -1,6 +1,7 @@
 /* Solaris Trusted Extensions GNOME desktop library.
 
   Copyright (C) 2007 Sun Microsystems, Inc. All Rights Reserved.
+  Copyright (c) 2020, Dynamic Systems, Inc.
 
   The contents of this library are subject to the terms of the
   GNU Lesser General Public License version 2 (the "License")

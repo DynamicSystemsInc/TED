@@ -1,6 +1,7 @@
 /*Solaris Trusted Extensions GNOME desktop application.
 
   copyroght (c) 2007, 2012 Oracle and/or its affiliates. All rights reserved.
+  Copyright (c) 2020, Dynamic Systems, Inc.
 
 */
 
