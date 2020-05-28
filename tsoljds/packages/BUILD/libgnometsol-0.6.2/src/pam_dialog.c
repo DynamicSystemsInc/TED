@@ -354,6 +354,7 @@ gnome_tsol_password_dialog_instance_init (GnomeTsolPasswordDialog * password_dia
 	message_label = password_dialog->details->message_label;
 	gtk_label_set_justify (GTK_LABEL (message_label), GTK_JUSTIFY_LEFT);
 	gtk_label_set_line_wrap (GTK_LABEL (message_label), TRUE);
+	gtk_label_set_max_width_chars (GTK_LABEL (message_label), 40);
 	gtk_box_pack_start (GTK_BOX (vbox),
 			    message_label,
 			    TRUE,	/* expand */
