@@ -13,6 +13,13 @@ set name=variant.arch value=i386
 dir  path=usr owner=root group=sys mode=0755
 dir  path=usr/include owner=root group=bin mode=0755
 dir  path=usr/include/libxklavier owner=root group=bin mode=0755
+file ../../../files/audit_class path=etc/security/audit_class owner=root \
+    group=sys mode=0644 overlay=true preserve=renameold
+file ../../../files/audit_event path=etc/security/audit_event owner=root \
+    group=sys mode=0644 overlay=true preserve=renameold
+file ../../../files/policy.conf \
+    path=etc/security/policy.conf owner=root \
+    group=sys mode=0644 overlay=true preserve=renameold
 file usr/include/libxklavier/xkl-enum-types.h \
     path=usr/include/libxklavier/xkl-enum-types.h owner=root group=bin \
     mode=0644
