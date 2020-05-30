@@ -397,7 +397,6 @@ session_SCRIPTS = Xinitrc.tjds \
 	tjds-exec_attr \
 	tjds-prof_attr \
 	tjds-user_attr \
-	policy.conf \
 	txzonemgr \
 	pkgcreatezone.patch \
 	common.ksh
