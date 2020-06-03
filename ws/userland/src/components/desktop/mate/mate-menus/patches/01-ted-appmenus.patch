@@ -1,0 +1,521 @@
+diff -urN libmenu/Makefile.am libmenu2/Makefile.am
+--- mate-menus-1.22.0/libmenu/Makefile.am	2018-12-30 10:43:15.000000000 +0000
++++ mate-menus-1.22.0/libmenu/Makefile.am	2020-06-04 19:47:13.000000000 +0000
+@@ -18,7 +18,8 @@
+ 	matemenu-tree.c \
+ 	menu-layout.c \
+ 	menu-monitor.c \
+-	menu-util.c
++	menu-util.c \
++	menu-solaris.c
+ 
+ libmate_menu_la_SOURCES = \
+ 	$(libmate_menu_sources) \
+@@ -27,7 +28,8 @@
+ 	matemenu-tree.h \
+ 	menu-layout.h \
+ 	menu-monitor.h \
+-	menu-util.h
++	menu-util.h \
++	menu-solaris.h
+ 
+ libmate_menu_la_LIBADD = \
+ 	$(GIO_UNIX_LIBS)
+diff -urN libmenu/matemenu-tree.c libmenu2/matemenu-tree.c
+--- mate-menus-1.22.0/libmenu/matemenu-tree.c	2018-12-30 10:43:15.000000000 +0000
++++ mate-menus-1.22.0/libmenu/matemenu-tree.c	2020-06-04 22:16:43.000000000 +0000
+@@ -1,5 +1,6 @@
+ /*
+  * Copyright (C) 2003, 2004 Red Hat, Inc.
++ * Copyright (c) 2020, Dyanamic System, Inc.
+  *
+  * This library is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Lesser General Public
+@@ -20,6 +21,7 @@
+ #include <config.h>
+ 
+ #include "matemenu-tree.h"
++#include "menu-solaris.h"
+ 
+ #include <gio/gio.h>
+ #include <string.h>
+@@ -68,6 +70,8 @@
+   MateMenuTreeFlags flags;
+ 
+   GSList *menu_file_monitors;
++  guint workspace_handler;
++  guint labels_handler;
+ 
+   MenuLayoutNode *layout;
+   MateMenuTreeDirectory *root;
+@@ -479,6 +483,35 @@
+     }
+ }
+ 
++/*
++ * On workspace switch, reload the entire menu when in Trusted mode.
++ */
++static void
++workspace_changed_callback (gpointer screen, gpointer prev_workspace, gpointer data)
++{
++  MateMenuTree *tree;
++
++  if (prev_workspace == NULL)
++	  return;
++  tree = (MateMenuTree *)data;
++  if (tree != NULL)
++    {
++      matemenu_tree_invoke_monitors (tree);
++    }
++}
++
++static void
++label_changed_callback (gpointer workspace, gpointer data)
++{
++  MateMenuTree *tree;
++
++  tree = (MateMenuTree *)data;
++  if (tree != NULL)
++    {
++      matemenu_tree_invoke_monitors (tree);
++    }
++}
++
+ /**
+  * matemenu_tree_new:
+  * @menu_basename: Basename of menu file
+@@ -490,12 +523,32 @@
+ matemenu_tree_new (const char     *menu_basename,
+                 MateMenuTreeFlags  flags)
+ {
++  MateMenuTree *tree;
++  gboolean trusted;
++
+   g_return_val_if_fail (menu_basename != NULL, NULL);
+ 
+-  return g_object_new (MATEMENU_TYPE_TREE,
++  tree = g_object_new (MATEMENU_TYPE_TREE,
+                        "menu-basename", menu_basename,
+                        "flags", flags,
+                        NULL);
++
++  /*
++   * Set up a signal handler to cause the menu to reload on workspace
++   * switch or when the label or role changes, but only do this in Trusted mode.
++   * In Trusted, workspaces are associated with RBAC roles, so a workspace
++   * switch should trigger a menu reload in this situation.
++   */
++  trusted = use_trusted_extensions ();
++  if (trusted == TRUE)
++    {
++	gpointer *wnckscreen;
++
++	wnckscreen = get_wnckscreen();
++	tree->workspace_handler = g_signal_connect (wnckscreen, "active-workspace-changed", G_CALLBACK(workspace_changed_callback), tree);
++	tree->labels_handler = g_signal_connect (wnckscreen, "labels_changed", G_CALLBACK(label_changed_callback), tree);
++    }
++  return (tree);
+ }
+ 
+ /**
+diff -urN libmenu/menu-solaris.c libmenu2/menu-solaris.c
+--- mate-menus-1.22.0/libmenu/menu-solaris.c	1970-01-01 00:00:00.000000000 +0000
++++ mate-menus-1.22.0/libmenu/menu-solaris.c	2020-06-04 22:14:27.000000000 +0000
+@@ -0,0 +1,343 @@
++/*
++ * Copyright (c) 2020, Dynamic Systems, Inc.
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library; if not, write to the
++ * Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
++ * Boston, MA 02110-1301, USA.
++ *
++ */
++#include <config.h>
++
++#include <stdlib.h>
++#include <string.h>
++#include <dlfcn.h>
++#include <link.h>
++#include <user_attr.h>
++#include <exec_attr.h>
++#include <secdb.h>
++
++#include "matemenu-tree.h"
++#include "menu-solaris.h"
++
++  gpointer wnckscreen;
++  guint workspace_handler;
++  guint roles_handler;
++  guint labels_handler;
++
++
++static
++void * dlopen_libwnck (void)
++{
++   void  *handle = NULL;
++
++   if ((handle = dlopen ("/usr/lib/amd64/libwnck-3.so", RTLD_LAZY)) != NULL)
++       return handle;
++
++   return handle;
++}
++
++gboolean
++use_trusted_extensions (void)
++{
++    static int trusted = -1;
++
++    /*
++     * Sun Trusted Extensions (tm) for Solaris (tm) support. (Damn I should be a lawyer).
++     *
++     * It is necessary to use dlopen because the label aware extensions to libwnck work
++     * only on systems with the trusted extensions installed and with the SUN_TSOL
++     * xserver extension present
++     */
++
++    if (trusted < 0) {
++        static gpointer libwnck_handle = NULL;
++
++        if (getenv ("TRUSTED_SESSION") == NULL) {
++            trusted = 0;
++	    return (0);
++	}
++
++	libwnck_handle = dlopen_libwnck ();
++        if (libwnck_handle != NULL) {
++	   trusted = TRUE;
++           libmenu_wnck_screen_get_default = (menu_wnck_screen_get_default) dlsym (libwnck_handle, "wnck_screen_get_default");
++           libmenu_wnck_screen_get_active_workspace = (menu_wnck_screen_get_active_workspace) dlsym (libwnck_handle, "wnck_screen_get_active_workspace");
++           libmenu_wnck_workspace_get_role = (menu_wnck_workspace_get_role) dlsym (libwnck_handle, "wnck_workspace_get_role");
++           libmenu_wnck_workspace_get_label = (menu_wnck_workspace_get_label) dlsym (libwnck_handle, "wnck_workspace_get_label");
++	}
++        return trusted ? TRUE : FALSE;
++    }
++}
++
++static gchar *
++get_stripped_exec (const gchar *full_exec, gboolean use_global)
++{
++	gchar *str1, *str2, *retval, *p;
++	char *zoneroot = NULL;
++	gboolean trusted;
++
++	str1 = g_strdup (full_exec);
++	p = strtok (str1, " ");
++
++	if (p != NULL)
++		str2 = g_strdup (p);
++	else
++		str2 = g_strdup (full_exec);
++
++	g_free (str1);
++
++	trusted = use_trusted_extensions ();
++	if (trusted && use_global == FALSE) {
++		zoneroot = get_zoneroot ();
++	}
++
++	if (g_path_is_absolute (str2)) {
++		if (zoneroot != NULL) {
++			retval = g_strdup_printf ("%s/%s", zoneroot, str2);
++		} else {
++			retval = g_strdup (str2);
++		}
++	} else {
++		if (zoneroot != NULL) {
++			/*
++			 * If the desktop file doesn't specify the full path
++			 * and in Trusted mode, then check the zone's /usr/bin
++			 * directory.
++			 */
++			retval = g_strdup_printf ("%s/usr/bin/%s", zoneroot, str2);
++		} else {
++			retval = g_strdup (g_find_program_in_path ((const gchar *)str2));
++
++			/*
++			 * If a program is not installed in the global zone,
++			 * then assume it is installed in /usr/bin.
++			 */
++			if (use_global == TRUE && retval == NULL) {
++				retval = g_strdup_printf ("/usr/bin/%s", str2);
++			}
++		}
++	}
++	g_free (str2);
++
++	return retval;
++}
++
++/*
++ * Checks RBAC to see if the user can run the command.
++ */
++gboolean
++filter_with_rbac (gchar *command, gboolean use_global)
++{
++	execattr_t *exec;
++	gchar *stripped_cmd;
++	gchar *real_cmd;
++	char *path;
++	const char *username = NULL;
++	userattr_t *user;
++	int        i;
++	gboolean   program_has_profile;
++	gboolean   rc;
++	gboolean   trusted;
++
++	rc = TRUE;
++
++	stripped_cmd = get_stripped_exec (command, TRUE);
++	real_cmd     = get_stripped_exec (command, use_global);
++
++	trusted = use_trusted_extensions ();
++	if (trusted) {
++		/*
++		 * In trusted mode, use the single role associated with
++		 * the workspace.
++		 */
++		gpointer wnckscreen = NULL;
++		gpointer wnckworkspace = NULL;
++
++		wnckscreen = libmenu_wnck_screen_get_default ();
++		if (wnckscreen != NULL)
++			wnckworkspace = libmenu_wnck_screen_get_active_workspace (wnckscreen);
++
++		if (wnckworkspace != NULL)
++			username = libmenu_wnck_workspace_get_role (wnckworkspace);
++	}
++
++	if (username == NULL) {
++		username = g_get_user_name ();
++	}
++
++	/* If the command does not exist, do not show it. */
++	if (real_cmd == NULL || stripped_cmd == NULL) {
++		goto out;
++	}
++
++	path = g_find_program_in_path (g_strstrip (real_cmd));
++	if (path == NULL)
++		goto out;
++
++	/*
++	 * All programs should be available to root.  This check is done after
++	 * verifying the binary is in path.
++	 */
++	if (strcmp (username, "root") == 0) {
++		rc = FALSE;
++		goto out;
++	}
++
++	/* Check if the program is in any profile. */
++	program_has_profile = FALSE;
++	exec = getexecprof (NULL, KV_COMMAND, stripped_cmd, GET_ONE);
++	if (exec == NULL) {
++		goto out;
++	}
++
++	while (exec != NULL) {
++		if (exec->attr != NULL) {
++			program_has_profile = TRUE;
++			break;
++		}
++		exec = exec->next;
++	}
++
++	free_execattr (exec);
++
++	/* Check if the user can run the command.  If not filter it. */
++	exec = getexecuser (username, KV_COMMAND, stripped_cmd, GET_ONE);
++
++	/*
++	 * If the program is not associated with any profile, then do not
++	 * show it.
++	 */
++	if (exec == NULL)
++		goto out;
++
++	/*
++	 * If getexecuser does not return NULL and the program is not
++	 * associated with any profile, then show it.  Otherwise, more
++	 * tests are needed.
++	 */
++	if (use_global == TRUE || program_has_profile == FALSE) {
++		rc = FALSE;
++		free_execattr (exec);
++		goto out;
++	}
++
++	/*
++	 * If the user has a profile that can run the command, then it can
++	 * be shown.
++	 */
++	while (exec != NULL) {
++		if (exec->attr != NULL) {
++			rc = FALSE;
++			break;
++		}
++		exec = exec->next;
++	}
++
++	free_execattr (exec);
++
++	if (rc == FALSE)
++		goto out;
++
++	if (!trusted) {
++		/* If no gksu is available, then do not try to use it */
++	        path = g_find_program_in_path ("/usr/bin/gksu");
++		if (path == NULL)
++			goto out;
++	}
++
++	/* Check if the user is in a role that can run the command. */
++	/* If so, use gksu with that role */
++	if ((user = getusernam (username)) != NULL) {
++		const char *rolelist = NULL;
++		char **v = NULL;
++		char *role = NULL;
++
++		if (trusted && username != NULL) {
++			/* In trusted mode, use role associated with workspace */
++			rolelist = username;
++		} else {
++			/* Otherwise use roles associated with the user. */
++			rolelist = kva_match (user->attr, USERATTR_ROLES_KW);
++		}
++
++		if (rolelist != NULL)
++			v = g_strsplit (rolelist, ",", -1);
++
++		for (i=0; v != NULL && v[i] != NULL; i++) {
++			role = g_strdup (v[i]);
++			g_strstrip (role);
++
++			exec = getexecuser (role, KV_COMMAND, stripped_cmd, GET_ONE);
++			while (exec != NULL) {
++				if ((strcmp (role, "root") == 0) ||
++				    (exec->attr != NULL)) {
++					rc = FALSE;
++					break;
++				}
++				exec = exec->next;
++			}
++
++			g_free (role);
++			free_execattr (exec);
++
++			if (rc == FALSE) {
++				break;
++			}
++		}
++		if (v != NULL)
++			g_strfreev (v);
++	}
++
++out:
++	if (stripped_cmd)
++		g_free (stripped_cmd);
++	if (real_cmd)
++		g_free (real_cmd);
++
++	return (rc);
++}
++
++/* Function to return the zone root directory for the current workspace. */
++char *
++get_zoneroot (void)
++{
++  gpointer    wnckscreen    = NULL;
++  gpointer    wnckworkspace = NULL;
++  const char *zonelabelstr  = NULL;
++  m_label_t  *zonelabel     = NULL;
++  char       *zoneroot      = NULL;
++  int         err;
++
++  wnckscreen = libmenu_wnck_screen_get_default ();
++  if (wnckscreen != NULL)
++    wnckworkspace = libmenu_wnck_screen_get_active_workspace (wnckscreen);
++
++  if (wnckworkspace != NULL)
++    zonelabelstr = libmenu_wnck_workspace_get_label (wnckworkspace);
++
++  if (zonelabelstr != NULL)
++    str_to_label (zonelabelstr, &zonelabel, MAC_LABEL, L_NO_CORRECTION, &err);
++
++  if (zonelabel != NULL)
++    zoneroot = getzonerootbylabel (zonelabel);
++
++  return zoneroot;
++}
++
++gpointer *
++get_wnckscreen()
++{
++      return (libmenu_wnck_screen_get_default ());
++
++}
+diff -urN libmenu/menu-solaris.h libmenu2/menu-solaris.h
+--- mate-menus-1.22.0/libmenu/menu-solaris.h	1970-01-01 00:00:00.000000000 +0000
++++ mate-menus-1.22.0/libmenu/menu-solaris.h	2020-06-04 22:15:24.000000000 +0000
+@@ -0,0 +1,50 @@
++/*
++ * Copyright (c) 2020, Dynamic Systems, Inc.
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library; if not, write to the
++ * Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
++ * Boston, MA 02110-1301, USA.
++ *
++ */
++
++#ifndef __MENU_SOLARIS_H__
++#define __MENU_SOLARIS_H__
++
++#include <tsol/label.h>
++#include <sys/tsol/label_macro.h>
++
++#include <glib.h>
++#include <glib-object.h>
++
++G_BEGIN_DECLS
++
++gboolean use_trusted_extensions (void);
++char *get_zoneroot (void);
++gpointer *get_wnckscreen();
++
++/* libwnck functions */
++typedef gpointer        (*menu_wnck_screen_get_default) (void);
++typedef gpointer        (*menu_wnck_screen_get_active_workspace) (gpointer);
++typedef const char*     (*menu_wnck_workspace_get_role) (gpointer);
++typedef const char*     (*menu_wnck_workspace_get_label) (gpointer);
++
++/* libwnck functions */
++menu_wnck_screen_get_default          libmenu_wnck_screen_get_default;
++menu_wnck_screen_get_active_workspace libmenu_wnck_screen_get_active_workspace;
++menu_wnck_workspace_get_role          libmenu_wnck_workspace_get_role;
++menu_wnck_workspace_get_label         libmenu_wnck_workspace_get_label;
++
++G_END_DECLS
++
++#endif /* __MENU_SOLARIS_H__ */
