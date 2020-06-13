@@ -1,0 +1,127 @@
+diff -ur lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter-fallback.css lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter-fallback.css
+--- lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter-fallback.css	2018-06-29 10:49:06.000000000 +0000
++++ lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter-fallback.css	2020-06-13 05:26:00.000000000 +0000
+@@ -15,3 +15,8 @@
+ #panel_window menubar > separator { background: transparent; }
+ /* Workaround for Adwaita - and other themes - setting a smaller font for the keycap window */
+ #login_window.keycap, #power_window.keycap { font-size: initial; }
++
++/* Security Warning font properties */
++textview { font-size: 8pt; }
++textview { background: transparent; }
++textview { color: white; }
+diff -ur lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.c lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.c
+--- lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.c	2020-06-13 16:09:41.352260831 +0000
++++ lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.c	2020-06-13 16:16:54.664047505 +0000
+@@ -74,6 +74,8 @@
+ /* Screen window */
+ static GtkOverlay   *screen_overlay;
+ static GtkWidget    *screen_overlay_child;
++static GtkTextView  *security_text_view;
++static GtkTextBuffer  *security_buffer;
+ 
+ /* Login window */
+ static GtkWidget    *login_window;
+@@ -719,6 +721,8 @@
+     gint                  screen_width;
+     gint                  screen_height;
+     gint                  panel_height;
++    gchar                 *array;
++    gsize                 length;
+ 
+     if (!pos)
+         return FALSE;
+@@ -751,6 +755,11 @@
+             allocation->y = screen_height - allocation->height - panel_height;
+     }
+ 
++    if (g_file_get_contents ("/etc/issue", &array, &length, NULL)) {
++        gtk_text_buffer_set_text (security_buffer, array, length);
++    } else {
++	gtk_widget_hide (GTK_WIDGET (security_text_view));
++    }
+     return TRUE;
+ }
+ 
+@@ -2953,6 +2962,11 @@
+     screen_overlay = GTK_OVERLAY (gtk_builder_get_object (builder, "screen_overlay"));
+     screen_overlay_child = GTK_WIDGET (gtk_builder_get_object (builder, "screen_overlay_child"));
+ 
++    security_text_view = GTK_TEXT_VIEW (gtk_builder_get_object (builder, "security_text_view"));
++    gtk_widget_set_margin_start (GTK_WIDGET (security_text_view),
++        (gdk_screen_get_width (gdk_screen_get_default ()))/2);
++    security_buffer = GTK_TEXT_BUFFER (gtk_builder_get_object (builder, "security_buffer"));
++
+     /* Login window */
+     login_window = GTK_WIDGET (gtk_builder_get_object (builder, "login_window"));
+     user_image = GTK_IMAGE (gtk_builder_get_object (builder, "user_image"));
+diff -ur lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.glade lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.glade
+--- lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.glade	2020-06-13 16:09:41.386719902 +0000
++++ lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.glade	2020-06-13 16:14:08.586041837 +0000
+@@ -1,10 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<!-- Generated with glade 3.18.3 -->
++<!-- Generated with glade 3.20.3 -->
+ <interface>
+   <requires lib="gtk+" version="3.4"/>
+   <requires lib="greeter_menu_bar" version="1.0"/>
+   <object class="GtkAccelGroup" id="a11y_accelgroup"/>
+-  <object class="GtkAccelGroup" id="power_accelgroup"/>
+   <object class="GtkEventBox" id="panel_window">
+     <property name="name">panel_window</property>
+     <property name="visible">True</property>
+@@ -181,6 +180,7 @@
+       <class name="background"/>
+     </style>
+   </object>
++  <object class="GtkAccelGroup" id="power_accelgroup"/>
+   <object class="GtkEventBox" id="power_window">
+     <property name="name">power_window</property>
+     <property name="can_focus">False</property>
+@@ -323,6 +323,9 @@
+       <class name="keycap"/>
+     </style>
+   </object>
++  <object class="GtkTextBuffer" id="security_buffer">
++    <property name="text" translatable="yes">blah</property>
++  </object>
+   <object class="GtkOverlay" id="screen_overlay">
+     <property name="name">screen</property>
+     <property name="can_focus">False</property>
+@@ -335,9 +338,35 @@
+         <property name="can_focus">False</property>
+         <property name="visible_window">False</property>
+         <child>
+-          <placeholder/>
++          <object class="GtkTextView" id="security_text_view">
++            <property name="name">security_text</property>
++            <property name="width_request">300</property>
++            <property name="visible">True</property>
++            <property name="can_focus">False</property>
++            <property name="double_buffered">False</property>
++            <property name="valign">center</property>
++            <property name="margin_left">500</property>
++            <property name="margin_right">50</property>
++            <property name="margin_top">50</property>
++            <property name="margin_bottom">275</property>
++            <property name="hexpand">True</property>
++            <property name="vexpand">False</property>
++            <property name="vscroll_policy">natural</property>
++            <property name="editable">False</property>
++            <property name="wrap_mode">word</property>
++            <property name="left_margin">0</property>
++            <property name="right_margin">20</property>
++            <property name="top_margin">20</property>
++            <property name="bottom_margin">20</property>
++            <property name="cursor_visible">False</property>
++            <property name="buffer">security_buffer</property>
++            <property name="accepts_tab">False</property>
++          </object>
+         </child>
+       </object>
++      <packing>
++        <property name="index">-1</property>
++      </packing>
+     </child>
+     <style>
+       <class name="lightdm-gtk-greeter"/>
