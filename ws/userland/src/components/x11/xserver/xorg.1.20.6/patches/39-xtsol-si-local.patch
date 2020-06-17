@@ -1,0 +1,33 @@
+diff -ur os/access.c os2/access.c
+--- a/os/access.c	2019-11-22 23:44:19.000000000 +0000
++++ b/os/access.c	2020-06-17 21:31:45.961554735 +0000
+@@ -55,6 +55,7 @@
+ 
+ /*
+  * Copyright (c) 2004, Oracle and/or its affiliates. All rights reserved.
++ * Copyright (c) 2020, Dynamic Systems Inc.
+  *
+  * Permission is hereby granted, free of charge, to any person obtaining a
+  * copy of this software and associated documentation files (the "Software"),
+@@ -1123,7 +1124,21 @@
+ ComputeLocalClient(ClientPtr client)
+ {
+     const char *cmdname = GetClientCmdName(client);
++#ifdef TSOL
++    LocalClientCredRec *lcc;
+ 
++    /*
++     * Clients in labeled zones are local
++     */
++    if (GetLocalClientCreds(client, &lcc) != -1) {
++    	if (lcc->zoneid != -1) {
++        	FreeLocalClientCreds(lcc);
++		return (TRUE);
++	} else {
++        	FreeLocalClientCreds(lcc);
++	}
++    }
++#endif /* TSOL */
+     if (!xtransLocalClient(client))
+         return FALSE;
+ 
