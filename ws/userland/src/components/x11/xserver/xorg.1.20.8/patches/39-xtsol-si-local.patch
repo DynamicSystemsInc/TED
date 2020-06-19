@@ -1,6 +1,6 @@
 diff -ur os/access.c os2/access.c
---- a/os/access.c	2020-03-29 20:21:15.000000000 +0000
-+++ b/os/access.c	2020-06-17 21:35:05.515703754 +0000
+--- a/os/access.c	2020-03-29 13:21:15.000000000 +0000
++++ b/os/access.c	2020-06-20 16:45:05.087011415 +0000
 @@ -55,6 +55,7 @@
  
  /*
@@ -9,25 +9,53 @@ diff -ur os/access.c os2/access.c
   *
   * Permission is hereby granted, free of charge, to any person obtaining a
   * copy of this software and associated documentation files (the "Software"),
-@@ -1123,7 +1124,21 @@
- ComputeLocalClient(ClientPtr client)
- {
-     const char *cmdname = GetClientCmdName(client);
-+#ifdef TSOL
-+    LocalClientCredRec *lcc;
+@@ -2083,13 +2084,14 @@
+     if (GetLocalClientCreds(client, &lcc) == -1) {
+         return FALSE;
+     }
+-
++#ifndef TSOL
+ #ifdef HAVE_GETZONEID           /* Ensure process is in the same zone */
+     if ((lcc->fieldsSet & LCC_ZID_SET) && (lcc->zoneid != getzoneid())) {
+         FreeLocalClientCreds(lcc);
+         return FALSE;
+     }
+ #endif
++#endif /* TSOL */
  
-+    /*
-+     * Clients in labeled zones are local
-+     */
-+    if (GetLocalClientCreds(client, &lcc) != -1) {
-+    	if (lcc->zoneid != -1) {
-+        	FreeLocalClientCreds(lcc);
-+		return (TRUE);
-+	} else {
-+        	FreeLocalClientCreds(lcc);
+     if (siLocalCredGetId(siAddr, siAddrlen, lcPriv, &siAddrId) == FALSE) {
+         FreeLocalClientCreds(lcc);
+diff -ur os/connection.c os2/connection.c
+--- a/os/connection.c	2020-06-20 16:44:38.897258479 +0000
++++ b/os/connection.c	2020-06-20 16:45:05.086583447 +0000
+@@ -552,10 +552,28 @@
+     trans_conn = priv->trans_conn;
+ 
+ #ifdef TSOL
+-    if (pSecHook)
++    if (pSecHook) {
+         auth_id = (*pSecHook->CheckAuthorization) (proto_n, auth_proto,
+                                    string_n, auth_string, client, &reason);
+-    else
++        if (_XSERVTransGetPeerAddr(trans_conn, &family, &fromlen, &from) != -1) {
++	    /*
++	     * Check for SI:localuser: credentials 
++	     */
++            if (InvalidHost((struct sockaddr *) from, fromlen, client))
++		/*
++		 * Otherwise check for MIT-MAGIC-COOKIE-1
++		 */
++		auth_id = CheckAuthorization(proto_n, auth_proto, string_n, auth_string,
++	            client, &reason);
++            free(from);
 +	}
 +    }
-+#endif /* TSOL */
-     if (!xtransLocalClient(client))
-         return FALSE;
++    if (auth_id == (XID) ~0L) {
++        if (reason)
++	    return reason;
++        else
++	    return "Client is not authorized to connect to Server";
++    }
+ #endif /* TSOL */
  
+     /* Allow any client to connect without authorization on a launchd socket,

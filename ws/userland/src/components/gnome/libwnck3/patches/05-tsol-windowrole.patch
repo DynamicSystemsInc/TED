@@ -1,0 +1,23 @@
+diff -ur libwnck/window.c libwnck2/window.c
+--- a/libwnck/window.c	2020-06-19 22:11:05.496105916 +0000
++++ b/libwnck/window.c	2020-06-19 22:11:48.049296525 +0000
+@@ -2013,7 +2013,8 @@
+     /* Don't allow non-trusted path windows into role workspaces unless the window role
+      * matches the workspace role
+      */
+-    if ((workspacerole != NULL) && (strcmp (workstationowner, workspacerole)) &&
++    if ((workspacerole != NULL) && (windowrole != NULL) &&
++      (strcmp (workstationowner, workspacerole)) &&
+       (!wnck_window_is_trusted (window)) && (strcmp (workspacerole, windowrole)))
+       return;
+   }
+@@ -2659,7 +2660,8 @@
+         pwd = getpwuid (wsuid);
+ 	  workstationowner = g_strdup (pwd->pw_name);
+     }
+-    if ((workspacerole != NULL) && (strcmp (workstationowner, workspacerole)) &&
++    if ((workspacerole != NULL) && (windowrole != NULL) &&
++      (strcmp (workstationowner, workspacerole)) &&
+       (!wnck_window_is_trusted (window)) && (strcmp (workspacerole, windowrole))) {
+       return FALSE;
+     }
