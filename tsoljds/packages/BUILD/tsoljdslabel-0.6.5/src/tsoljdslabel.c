@@ -37,6 +37,7 @@
 
 #include <X11/Xlib.h>
 #include <X11/extensions/Xtsol.h>
+#include <X11/extensions/Xtsolproto.h>
 
 
 #include "tsolmotd.h"
@@ -335,6 +336,8 @@ start_session (int mode, char *label)
 			gtk_main_quit ();
 		}
 	} else {/* Multilabel or single label trusted session */
+		uid_t uid;
+
 		if (mode == LBUILD_MODE_SL) {
 			lower_sl_str = g_strdup (label);
 		} else {
@@ -343,6 +346,19 @@ start_session (int mode, char *label)
 
 		setenv ("USER_MIN_SL", lower_sl_str, 1);
 		setenv ("USER_MAX_SL", label, 1);
+
+		/*
+		 * Set the session label range in the Xserver
+		 */
+		XTSOLsetResLabel (gdk_x11_get_default_xdisplay (), 0,
+			SESSIONLO, &lower_sl);
+		XTSOLsetResLabel (gdk_x11_get_default_xdisplay (), 0,
+			SESSIONHI, &upper_clear);
+		/*
+		 * Need a roundtrip request to flush the queue
+		 * before dropping privileges and starting the session
+		 */
+		XTSOLgetWorkstationOwner (gdk_x11_get_default_xdisplay (), &uid);
 
 		g_free (lower_sl_str);
 
