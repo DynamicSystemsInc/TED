@@ -1,6 +1,36 @@
+diff -ur tsol/tsolextension.c tsol2/tsolextension.c
+--- a/tsol/tsolextension.c	2020-06-22 17:04:07.309186774 +0000
++++ b/tsol/tsolextension.c	2020-06-22 17:04:47.654368375 +0000
+@@ -43,6 +43,8 @@
+ #include <rpc/rpc.h>
+ #include <zone.h>
+ 
++#include <tsol/label.h>
++
+ #ifdef HAVE_DIX_CONFIG_H
+ #include <dix-config.h>
+ #endif
+@@ -1802,7 +1804,17 @@
+ 		    (HasTrustedPath(tsolinfo))) {
+ 			auth_token = (XID)(tsolinfo->uid);
+ 		} else {
++			char *clientLabel;
+ 			auth_token = ((XID)-1);
++
++			if (label_to_str(tsolinfo->sl, &clientLabel,
++			    MAC_LABEL, DEF_NAMES) != -1) {
++				LogMessageVerb(X_DEBUG, TSOL_MSG_POLICY_DENIED,
++				    "TsolLabelCheck: Label range error,  %s\n", clientLabel);
++				free(clientLabel);
++			} else {
++				LogMessageVerb(X_ERROR, 0, "TsolLabelCheck: invalid client label\n");
++			}
+ 		}
+ 	}
+ 
 diff -ur os/access.c os2/access.c
 --- a/os/access.c	2018-10-25 07:13:21.000000000 +0000
-+++ b/os/access.c	2020-06-20 15:47:05.452414046 +0000
++++ b/os/access.c	2020-06-22 17:06:20.448578699 +0000
 @@ -55,6 +55,7 @@
  
  /*
@@ -25,37 +55,60 @@ diff -ur os/access.c os2/access.c
  
      if (siLocalCredGetId(siAddr, siAddrlen, lcPriv, &siAddrId) == FALSE) {
          FreeLocalClientCreds(lcc);
+@@ -2099,6 +2101,7 @@
+     if (lcPriv->credType == LOCAL_USER) {
+         if ((lcc->fieldsSet & LCC_UID_SET) && (lcc->euid == siAddrId)) {
+             FreeLocalClientCreds(lcc);
++	    LogMessageVerb(X_DEBUG, 5, "siLocalCredMatch: accepted %s, uid = %d\n", siAddr, siAddrId);
+             return TRUE;
+         }
+     }
 diff -ur os/connection.c os2/connection.c
---- a/os/connection.c	2020-06-20 15:45:04.743995069 +0000
-+++ b/os/connection.c	2020-06-20 15:52:18.077127771 +0000
-@@ -552,10 +552,28 @@
+--- a/os/connection.c	2020-06-22 17:04:07.811191945 +0000
++++ b/os/connection.c	2020-06-22 17:08:56.630926255 +0000
+@@ -44,6 +44,7 @@
+ 
+ ******************************************************************/
+ /* Copyright (c) 2006, Oracle and/or its affiliates. All rights reserved.
++ * Copyright (c) 2020, Dynamic Systems Inc.
+  *
+  * Permission is hereby granted, free of charge, to any person obtaining a
+  * copy of this software and associated documentation files (the
+@@ -551,13 +552,6 @@
+     priv = (OsCommPtr) client->osPrivate;
      trans_conn = priv->trans_conn;
  
- #ifdef TSOL
+-#ifdef TSOL
 -    if (pSecHook)
-+    if (pSecHook) {
-         auth_id = (*pSecHook->CheckAuthorization) (proto_n, auth_proto,
-                                    string_n, auth_string, client, &reason);
+-        auth_id = (*pSecHook->CheckAuthorization) (proto_n, auth_proto,
+-                                   string_n, auth_string, client, &reason);
 -    else
-+        if (_XSERVTransGetPeerAddr(trans_conn, &family, &fromlen, &from) != -1) {
-+	    /*
-+	     * Check for SI:localuser: credentials 
-+	     */
-+            if (InvalidHost((struct sockaddr *) from, fromlen, client))
-+		/*
-+		 * Otherwise check for MIT-MAGIC-COOKIE-1
-+		 */
-+		auth_id = CheckAuthorization(proto_n, auth_proto, string_n, auth_string,
-+	            client, &reason);
-+            free(from);
-+	}
-+    }
-+    if (auth_id == (XID) ~0L) {
-+        if (reason)
-+	    return reason;
-+        else
-+	    return "Client is not authorized to connect to Server";
-+    }
- #endif /* TSOL */
- 
+-#endif /* TSOL */
+-
      /* Allow any client to connect without authorization on a launchd socket,
+        because it is securely created -- this prevents a race condition on launch */
+     if (trans_conn->flags & TRANS_NOXAUTH) {
+@@ -574,7 +568,22 @@
+             if (InvalidHost((struct sockaddr *) from, fromlen, client))
+                 AuthAudit(client, FALSE, (struct sockaddr *) from,
+                           fromlen, proto_n, auth_proto, auth_id);
+-            else {
++#ifdef TSOL
++            else if (pSecHook) {
++		auth_id = (*pSecHook->CheckAuthorization) (proto_n, auth_proto,
++		    string_n, auth_string, client, &reason);
++		if (auth_id == -1) {
++		    auth_id = (XID) ~0L;
++		} else {
++		    auth_id = (XID) 0;
++		}
++	    } else {
++		auth_id = (XID) 0;
++	    } 
++	    if (auth_id == (XID) ~0L)
++		LogMessageVerb(X_DEBUG, 5, "ClientAuthorized: outside label range\n");
++#endif /* TSOL */
++	    else {
+                 auth_id = (XID) 0;
+ #ifdef XSERVER_DTRACE
+                 if ((auditTrailLevel > 1) || XSERVER_CLIENT_AUTH_ENABLED())
