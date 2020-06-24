@@ -12,15 +12,14 @@ set name=info.source-url value=https://www.x.org/releases/individual/lib/xtrans-
 set name=org.opensolaris.consolidation value=userland
 set name=com.oracle.info.name value=xtrans
 depend facet.devel=true fmri=pkg:/x11/header/x11-protocols type=require
-dir  path=usr owner=root group=bin mode=0775
-dir  path=usr/include owner=root group=bin mode=0775
-dir  path=usr/include/X11 owner=root group=bin mode=0775
-dir  path=usr/include/X11/Xtrans owner=root group=bin mode=0775
-dir  path=usr/share owner=root group=bin mode=0775
-dir  path=usr/share/aclocal owner=root group=bin mode=0775
-dir  path=usr/share/doc owner=root group=bin mode=0775
-dir  path=usr/share/doc/xtrans owner=root group=bin mode=0775
-dir  path=usr/share/pkgconfig owner=root group=bin mode=0775
+dir  path=usr owner=root group=sys mode=0755
+dir  path=usr/include owner=root group=bin mode=0755
+dir  path=usr/include/X11 owner=root group=bin mode=0755
+dir  path=usr/include/X11/Xtrans owner=root group=bin mode=0755
+dir  path=usr/share owner=root group=sys mode=0755
+dir  path=usr/share/aclocal owner=root group=bin mode=0755
+dir  path=usr/share/doc/xtrans owner=root group=bin mode=0755
+dir  path=usr/share/pkgconfig owner=root group=bin mode=0755
 file facet.doc.html=all group=bin mode=0444 owner=root path=usr/share/doc/xtrans/xtrans.html.db variant.arch=i386
 file facet.doc.html=all group=bin mode=0444 owner=root path=usr/share/doc/xtrans/xtrans.html variant.arch=i386
 file facet.devel=all group=bin mode=0444 owner=root path=usr/share/pkgconfig/xtrans.pc 
