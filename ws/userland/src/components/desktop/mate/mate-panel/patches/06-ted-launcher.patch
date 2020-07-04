@@ -1,0 +1,98 @@
+diff -ur mate-panel/Makefile.am mate-panel2/Makefile.am
+--- a/mate-panel/Makefile.am	2020-07-04 22:08:39.917617549 +0000
++++ b/mate-panel/Makefile.am	2020-07-04 22:11:34.781873154 +0000
+@@ -170,6 +170,7 @@
+ 	panel-ditem-editor.c \
+ 	panel-marshal.c \
+ 	panel-util.c \
++	panel-solaris.c \
+ 	xstuff.c
+ 
+ mate_desktop_item_edit_LDADD = \
+diff -ur mate-panel/libpanel-util/panel-launch.c mate-panel2/libpanel-util/panel-launch.c
+--- a/mate-panel/libpanel-util/panel-launch.c	2019-04-24 11:15:07.000000000 +0000
++++ b/mate-panel/libpanel-util/panel-launch.c	2020-07-04 22:15:07.044147683 +0000
+@@ -2,6 +2,7 @@
+  * panel-launch.c: some helpers to launch desktop files
+  *
+  * Copyright (C) 2008 Novell, Inc.
++ * Copyright (C) 2020 Dynamic Systems Inc.
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License as
+@@ -116,17 +117,24 @@
+ 	gdk_app_launch_context_set_timestamp (context, timestamp);
+ 
+ 	local_error = NULL;
+-	if (action == NULL) {
+-		retval = g_desktop_app_info_launch_uris_as_manager (appinfo, uris,
+-						   G_APP_LAUNCH_CONTEXT (context),
+-						   G_SPAWN_SEARCH_PATH | G_SPAWN_DO_NOT_REAP_CHILD,
+-						   NULL, NULL, gather_pid_callback, appinfo,
+-						   &local_error);
+-	} else {
+-		g_desktop_app_info_launch_action (appinfo, action, G_APP_LAUNCH_CONTEXT (context));
+-		retval = TRUE;
++	if (gnome_desktop_tsol_is_multi_label_session ()) {
++                char *cmd = g_strdup_printf ("%d:%s",
++                                        gdk_screen_get_number (screen),
++                                        g_app_info_get_commandline (appinfo));
++                gnome_desktop_tsol_proxy_app_launch (cmd);
++                g_free (cmd);
++        } else {
++		if (action == NULL) {
++			retval = g_desktop_app_info_launch_uris_as_manager (appinfo, uris,
++							   G_APP_LAUNCH_CONTEXT (context),
++							   G_SPAWN_SEARCH_PATH | G_SPAWN_DO_NOT_REAP_CHILD,
++							   NULL, NULL, gather_pid_callback, appinfo,
++							   &local_error);
++		} else {
++			g_desktop_app_info_launch_action (appinfo, action, G_APP_LAUNCH_CONTEXT (context));
++			retval = TRUE;
++		}
+ 	}
+-
+ 	g_object_unref (context);
+ 
+ 	if ((local_error == NULL) && (retval == TRUE))
+diff -ur mate-panel/libpanel-util/panel-show.c mate-panel2/libpanel-util/panel-show.c
+--- a/mate-panel/libpanel-util/panel-show.c	2019-04-24 11:15:07.000000000 +0000
++++ b/mate-panel/libpanel-util/panel-show.c	2020-07-04 22:15:46.531284885 +0000
+@@ -2,6 +2,7 @@
+  * panel-show.c: a helper around gtk_show_uri
+  *
+  * Copyright (C) 2008 Novell, Inc.
++ * Copyright (C) 2020 Dynamic Systems Inc.
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License as
+@@ -178,6 +179,15 @@
+ 		return panel_show_caja_search_uri(screen, uri, timestamp, error);
+ 	}
+ 
++	if (gnome_desktop_tsol_is_multi_label_session ()) {
++                char *cmd = g_strdup_printf ("%d:[URI]%s",
++                                        gdk_screen_get_number (screen),
++                                        uri);
++                gnome_desktop_tsol_proxy_app_launch (cmd);
++                g_free (cmd);
++                return TRUE;
++        }
++
+ 	gtk_show_uri_on_window (NULL, uri,timestamp, &local_error);
+ 
+ 	return _panel_show_handle_error(uri, screen, local_error, error);
+diff -ur mate-panel/launcher.c mate-panel2/launcher.c
+--- a/mate-panel/launcher.c	2020-07-04 23:23:42.759947694 +0000
++++ b/mate-panel/launcher.c	2020-07-04 23:28:48.413370836 +0000
+@@ -828,6 +827,10 @@
+ void
+ launcher_properties (Launcher  *launcher)
+ {
++	if (gnome_desktop_tsol_is_multi_label_session () &&
++                    !gnome_desktop_tsol_is_clearance_admin_high())
++		return;
++
+ 	if (launcher->prop_dialog != NULL) {
+ 		gtk_window_set_screen (GTK_WINDOW (launcher->prop_dialog),
+ 				       gtk_widget_get_screen (launcher->button));
