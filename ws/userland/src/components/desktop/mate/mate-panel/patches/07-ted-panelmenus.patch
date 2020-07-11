@@ -1,0 +1,191 @@
+diff -ur mate-panel/menu.c mate-panel2/menu.c
+--- a/mate-panel/menu.c	2020-07-11 18:41:30.413289740 +0000
++++ b/mate-panel/menu.c	2020-07-11 18:43:32.497524678 +0000
+@@ -59,6 +59,7 @@
+ #include <sys/stat.h>
+ 
+ static char *zoneroot = NULL;
++static GList *filtered_menus = NULL;
+ 
+ static GtkWidget *populate_menu_from_directory (GtkWidget          *menu,
+ 						MateMenuTreeDirectory *directory);
+@@ -401,6 +402,8 @@
+ 		return;
+ 	}
+ 
++	filtered_menus = g_list_append(filtered_menus, g_object_ref(menuitem));
++
+ 	menu_filename = matemenu_tree_get_canonical_menu_path (tree);
+ 	g_object_unref (tree);
+ 	if (!menu_filename) {
+@@ -1069,39 +1072,30 @@
+ 			char *file_basename = NULL;
+ 			struct stat buf;
+ 			char app_path[] = "/usr/share/applications/";
++			char trusted_app_path[] = "/usr/share/mate/trusted/applications/";
+ 
+-			/* TODO
+-			 * The file_path for customized *.desktop files starts with
+-			 *
+-			 *   /export/home/<user>/.local/share/applications
+-			 *
+-			 * which generally is not present in labeled zones.
+-			 * I am just using the default path until we decide if
+-			 * zone users should be able to customize their menus.
+-			 */
+ 			file_path = matemenu_tree_entry_get_desktop_file_path(entry);
+ 			file_basename = matemenu_tree_entry_get_desktop_file_id(entry);
+ 			/*
+-			 * TODO
+-			 * Trusted applications are executed in the global zone
+-			 * so we don't need to check for their existance in
+-			 * labeled zones.
+-			 * But mozo does seen to know about this directory.
++			 * Check if the application is installed in the labeled zone
+ 			 */
+-			if (strncmp(file_path,
+-			    "/usr/share/mate/trusted/applications",
+-			    strlen ("/usr/share/mate/trusted/applications")) != 0) {
+-				strcpy(desktop_path, zoneroot);
+-				strcat(desktop_path, app_path);
+-				strcat(desktop_path, file_basename);
++			 strcpy(desktop_path, zoneroot);
++			 strcat(desktop_path, app_path);
++			 strcat(desktop_path, file_basename);
++			 if ((stat(desktop_path, &buf)) == -1) {
+ 				/*
+-				 * If the application isn't installed then don't
+-				 * display the item in the menu.
++				 * If the application isn't installed then check if it
++				 * is trusted to run in the global zone.
+ 				 */
+-				if ((stat(desktop_path, &buf)) == -1)
++				 strcpy(desktop_path, trusted_app_path);
++				 strcat(desktop_path, file_basename);
++				 if ((stat(desktop_path, &buf)) == -1)
++					/* App is neither installed nor
++					 * trutsted, so skip it.
++					 */
+ 					return;
+-			}
+-		}
++			 }
++	 	}
+ 	    }
+ 	}
+ 	g_object_set_data_full (G_OBJECT (menuitem),
+@@ -1215,20 +1209,45 @@
+ 
+ static void
+ handle_matemenu_tree_changed (MateMenuTree *tree,
+-			   GtkWidget *menu)
++			   GtkWidget *some_menu)
+ {
+-	GError *error = NULL;
+-	guint idle_id;
++    GError *error = NULL;
++    guint idle_id;
+ 
+-	GList *list, *l;
+-	list = gtk_container_get_children (GTK_CONTAINER (menu));
++    GList *list, *l;
++    GtkWidget *menu;
++    GList *m;
++
++    if (use_trusted_extensions()) {
++	if (zoneroot != NULL)
++		free(zoneroot);
++	zoneroot = get_zoneroot();
++    }
+ 
+-	if (use_trusted_extensions()) {
+-		if (zoneroot != NULL)
+-			free(zoneroot);
+-		zoneroot = get_zoneroot();
++    /*
++     * All menus need to be filtered when the current
++     * workspace label is changed. But this handler is
++     * only called once since all the menus share the
++     * same tree. A list of active filtered menus is
++     * maintained so that this function can loop through
++     * them and update both main menus and submenus.
++     */
++
++    for (m = filtered_menus; m; m = m->next) {
++	menu = m->data;
++	if (menu->parent_instance.ref_count == 1) {
++		/*
++		 * The menu has been removed from
++		 * the panel so remove it from the list
++		 */
++		filtered_menus = g_list_remove(filtered_menus, menu);
++		g_object_unref(menu);
++		continue;
+ 	}
+ 
++	list = gtk_container_get_children (GTK_CONTAINER (menu));
++
++
+ 	for (l = list; l; l = l->next)
+ 		gtk_widget_destroy (l->data);
+ 	g_list_free (list);
+@@ -1259,6 +1278,7 @@
+ 				"panel-menu-idle-id",
+ 				GUINT_TO_POINTER (idle_id),
+ 				remove_submenu_to_display_idle);
++    }
+ }
+ 
+ static void
+@@ -1490,6 +1510,7 @@
+ 	g_object_set_data(G_OBJECT(main_menu), "panel-menu-append-callback", main_menu_append);
+ 	g_object_set_data(G_OBJECT(main_menu), "panel-menu-append-callback-data", panel);
+ 
++	filtered_menus = g_list_append(filtered_menus, g_object_ref(main_menu));
+ 	return main_menu;
+ }
+ 
+diff -ur mate-panel/panel-solaris.c mate-panel2/panel-solaris.c
+--- a/mate-panel/panel-solaris.c	2020-07-11 18:41:30.469104560 +0000
++++ b/mate-panel/panel-solaris.c	2020-07-11 18:45:47.494410656 +0000
+@@ -243,7 +240,6 @@
+ {
+ 	execattr_t *exec;
+ 	gchar *stripped_cmd;
+-	gchar *real_cmd;
+ 	char *path;
+ 	const char *username = NULL;
+ 	userattr_t *user;
+@@ -255,7 +251,6 @@
+ 	rc = TRUE;
+ 
+ 	stripped_cmd = get_stripped_exec (command, TRUE);
+-	real_cmd     = get_stripped_exec (command, use_global);
+ 
+ 	trusted = use_trusted_extensions ();
+ 	if (trusted) {
+@@ -279,14 +274,10 @@
+ 	}
+ 
+ 	/* If the command does not exist, do not show it. */
+-	if (real_cmd == NULL || stripped_cmd == NULL) {
++	if (stripped_cmd == NULL) {
+ 		goto out;
+ 	}
+ 
+-	path = g_find_program_in_path (g_strstrip (real_cmd));
+-	if (path == NULL)
+-		goto out;
+-
+ 	/*
+ 	 * All programs should be available to root.  This check is done after
+ 	 * verifying the binary is in path.
+@@ -404,8 +395,6 @@
+ out:
+ 	if (stripped_cmd)
+ 		g_free (stripped_cmd);
+-	if (real_cmd)
+-		g_free (real_cmd);
+ 
+ 	return (rc);
+ }
