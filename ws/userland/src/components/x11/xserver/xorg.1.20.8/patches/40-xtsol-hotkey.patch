@@ -70,3 +70,21 @@ diff -ur tsol/tsolprotocol.c tsol2/tsolprotocol.c
      }
  }
  
+diff -ur tsol/tsolextension.c tsol2/tsolextension.c
+--- a/tsol/tsolextension.c	2020-07-20 19:25:35.665359141 +0000
++++ b/tsol/tsolextension.c	2020-07-20 19:28:04.082623514 +0000
+@@ -1791,8 +1791,12 @@
+ 	 */
+ 	if ((OwnerUID == (uid_t)(-1)) || (tsolMultiLevel && tpwin == NULL)) {
+ 		if (HasTrustedPath(tsolinfo)) {
+-			auth_token = CheckAuthorization(name_length, name, data_length,
+-				data, client, reason);
++                        /*
++                         * The CheckAuthorization() call has been
++                         * removed since it is redundant and can fail
++                         * for Xvnc clients.
++                         */
++                        auth_token = (XID)(tsolinfo->uid);
+ 		}
+ 	} else {
+ 		/*
