@@ -1,0 +1,19 @@
+diff -ur vnc/xvnc.c vnc2/xvnc.c
+--- a/unix/xserver/hw/vnc/xvnc.c	2020-07-25 22:20:29.052218352 +0000
++++ b/unix/xserver/hw/vnc/xvnc.c	2020-07-25 22:24:41.572732618 +0000
+@@ -291,6 +291,15 @@
+ }
+ #endif
+ 
++#if INPUTTHREAD
++/** This function is called in Xserver/os/inputthread.c when starting
++    the input thread. */
++void
++ddxInputThreadInit(void)
++{
++}
++#endif
++
+ void ddxUseMsg(void)
+ {
+     vncPrintBanner();
