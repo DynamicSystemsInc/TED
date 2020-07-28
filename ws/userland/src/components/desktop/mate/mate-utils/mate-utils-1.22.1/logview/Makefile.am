@@ -1,2 +1,0 @@
-SUBDIRS = data help src
-
