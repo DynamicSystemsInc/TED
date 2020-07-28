@@ -39,6 +39,7 @@ import json
 import subprocess
 from urllib import splittype, splithost
 from urllib2 import urlopen, HTTPError
+from urllib2 import Request
 import hashlib
 
 def printIOError(e, txt):
@@ -162,7 +163,8 @@ def download(url, timeout, filename=None, quiet=False):
 	src = None
 
 	try:
-		src = urlopen(url=url, timeout=timeout)
+                req = Request(url, headers = {"User-Agent": "Mozilla/5.0"})
+		src = urlopen(url=req, timeout=timeout)
 	except IOError as e:
 		if not quiet:
 			printIOError(e, "Can't open url " + url)
