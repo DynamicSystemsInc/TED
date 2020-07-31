@@ -1,4 +1,5 @@
-set name=pkg.fmri value=pkg://trusted-desktop/desktop/xscreensaver@5.39,5.11-11.4.0.0.1.14.0
+set name=pkg.fmri \
+value=pkg://trusted-desktop/desktop/xscreensaver@5.39,5.11-11.4.19.0.1.1.0.1
 set name=com.oracle.info.version value=5.40
 set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
 set name=info.upstream-url value=https://www.jwz.org/xscreensaver/
@@ -32,6 +33,10 @@ depend fmri=pkg:/library/libxml2@2.9.5-11.4.0.0.1.13.0 type=require
 depend fmri=pkg:/library/desktop/atk@2.24.0-11.4.0.0.1.13.0 type=require
 depend fmri=pkg:/x11/library/libxmu@1.1.2-11.4.0.0.1.13.0 type=require
 depend fmri=pkg:/library/desktop/gdk-pixbuf@2.36.11-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/trusted/trusted-global-zone@11.4,5.11-11.4.21.0.1.69.2 type=require
+dir  path=etc/pam.d owner=root group=sys mode=0755
+file ../../../files/xscreensaver path=etc/pam.d/xscreensaver owner=root \
+    group=sys mode=0644
 file group=bin mode=0444 owner=root path=usr/lib/xscreensaver/config/screensaver-colorselector.png pkg.csize=1127 pkg.size=1104
 file path=usr/lib/xscreensaver/config/logo-180.gif group=bin mode=0444 owner=root 
 file facet.locale.pt_BR=true group=other mode=0444 owner=root path=usr/share/locale/pt_BR/LC_MESSAGES/xscreensaver.mo pkg.csize=38938 pkg.size=98063
