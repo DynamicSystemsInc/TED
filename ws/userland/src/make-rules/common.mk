@@ -20,7 +20,7 @@
 #
 
 #
-# Copyright (c) 2015, 2016, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2015, 2020, Oracle and/or its affiliates. All rights reserved.
 #
 
 #
@@ -28,10 +28,12 @@
 # userland components.
 #
 
+ifeq ($(strip $(BUILD_STYLE)),cargo)
+include $(WS_MAKE_RULES)/cargo-vendored.mk
+endif
+
 include $(WS_MAKE_RULES)/prep.mk
 
-# Override this to limit builds and publication to a single architecture.
-BUILD_ARCH ?= $(MACH)
 ifneq ($(strip $(BUILD_ARCH)),$(MACH))
 PUBLISH_STAMP= 
 
@@ -71,6 +73,15 @@ endif
 CONFIGURE_ENV += LDFLAGS="$(strip $(LDFLAGS))"
 endif
 
+COMPONENT_BUILD_ENV += http_proxy=
+COMPONENT_BUILD_ENV += https_proxy=
+COMPONENT_BUILD_ENV += ftp_proxy=
+COMPONENT_INSTALL_ENV += http_proxy=
+COMPONENT_INSTALL_ENV += https_proxy=
+COMPONENT_INSTALL_ENV += ftp_proxy=
+CONFIGURE_ENV += http_proxy=
+CONFIGURE_ENV += https_proxy=
+CONFIGURE_ENV += ftp_proxy=
 ifeq ($(strip $(BUILD_STYLE)),justmake)
 # Assume these items should always be set in the build environment.
 COMPONENT_BUILD_ENV += CC="$(CC)"
@@ -105,6 +116,9 @@ LINT_LIBRARIES ?= $(wildcard llib-*)
 ifneq ($(strip $(LINT_LIBRARIES)),)
 include $(WS_MAKE_RULES)/lint-libraries.mk
 endif
+
+# Always needed; every component builds packages.
+include $(WS_MAKE_RULES)/ips.mk
 
 # Default targets; to omit a specific target, explicitly set the related target
 # variable to empty before including this file or set COMMON_TARGETS=no.
@@ -155,6 +169,7 @@ build:          $(BUILD_TARGET)
 endif
 
 INSTALL_TARGET ?= $(INSTALL_$(MK_BITS))
+INSTALL_TARGET += $(MANGLED)
 ifneq ($(strip $(INSTALL_TARGET)),)
 install:        $(INSTALL_TARGET)
 endif
@@ -170,9 +185,6 @@ ifneq ($(strip $(SYSTEM_TEST_TARGET)),)
 system-test:    $(SYSTEM_TEST_TARGET)
 endif
 endif # COMMON_TARGETS
-
-# Always needed; every component builds packages.
-include $(WS_MAKE_RULES)/ips.mk
 
 # Determine if we should automatically add files directory to PKG_PROTO_DIRS.
 ifeq ($(wildcard files),files)
@@ -196,3 +208,12 @@ COMPONENT_PRE_TEST_ACTION += $(COMPONENT_PRE_TEST_ACTION.$(BITS))
 COMPONENT_PRE_TEST_ACTION += $(COMPONENT_PRE_TEST_ACTION.$(MACH))
 COMPONENT_POST_TEST_ACTION += $(COMPONENT_POST_TEST_ACTION.$(BITS))
 COMPONENT_POST_TEST_ACTION += $(COMPONENT_POST_TEST_ACTION.$(MACH))
+
+ifeq ($(strip $(BUILD_STYLE)),meson)
+# This is needed in the build environment for gobject-introspection
+COMPONENT_BUILD_ENV += CC="$(CC) $(CC_BITS)"
+COMPONENT_INSTALL_ENV += CC="$(CC) $(CC_BITS)"
+endif
+
+# Tell g-ir-scanner not to cache results in homedir of user running the build
+COMPONENT_BUILD_ENV += GI_SCANNER_DISABLE_CACHE=""

@@ -1,0 +1,228 @@
+set name=pkg.fmri value=pkg:/x11/server/xorg@1.20.8,11.4-11.4.24.0.1.75.1
+set name=info.source-url value=https://www.x.org/releases/individual/xserver/xorg-server-1.20.6.tar.bz2
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.description value="Xorg is a full featured X server that was originally designed for UNIX and UNIX-like operating systems running on a wide range of hardware and OS platforms."
+set name=com.oracle.info.description value="portions of the X.Org X server software"
+set name=com.oracle.info.tpno value=49340
+set name=pkg.summary value="Xorg - X11R7 X server"
+set name=com.oracle.info.version value=1.20.6
+set name=info.upstream-url value=https://www.x.org
+set name=pkg.depend.runpath value=$PKGDEPEND_RUNPATH:usr/lib/mesa:usr/lib/mesa/amd64 variant.arch=i386
+set name=com.oracle.info.name value=xorg-server
+set name=variant.arch value=i386
+depend fmri=pkg:/diagnostic/scanpci@0.14-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/x11/library/libxau@1.0.9-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/system/library/libdbus@1.10.28-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/x11/keyboard/xkbcomp type=require
+depend fmri=pkg:/x11/keyboard/xkeyboard-config type=require
+depend fmri=pkg:/x11/library/libxshmfence@1.3-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/x11/library/libdrm@2.4.97-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/driver/x11/xsvc type=require variant.arch=i386
+depend fmri=pkg:/system/hal@11.4-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/system/library/libc@11.4-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/system/library/security/crypto@11.4-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.1.0.17.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/library/graphics/pixman@0.38.4-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/x11/library/mesa@18.1.9-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/x11/library/libxdmcp@1.1.3-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/x11/library/libxfont2@2.0.3-11.4.21.0.1.67.0 type=require
+depend fmri=pkg:/x11/server/xorg/driver/xorg-input-mouse type=group
+depend fmri=pkg:/x11/modeline-utilities type=group
+depend fmri=pkg:/x11/server/xorg/driver/xorg-input-keyboard type=group
+dir group=sys mode=0755 owner=root path=etc/X11
+dir group=sys mode=0755 owner=root path=etc/X11/xorg.conf.avail
+dir group=sys mode=0755 owner=root path=etc/X11/xorg.conf.d
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xkbsrv.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/fbdevhw.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/exevents.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/share/aclocal/xorg-server.m4 
+file facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4/exa.4 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/extinit.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/extnsionst.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/extension.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/fb.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/mipict.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/mioverlay.h 
+file facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4/fbdevhw.4 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/micoord.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/miline.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/mipointer.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/mipointrst.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/misc.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/misyncshm.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/mistruct.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/misync.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/miscstruct.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/misyncfd.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/nonsdk_extinit.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/opaque.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/optionstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/misyncstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/mizerarc.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/os.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/panoramiX.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/picture.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/panoramiXsrv.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/picturestr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/pixmapstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/pixmap.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/present.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/presentext.h 
+file elfarch=i386 elfbits=64 group=bin mode=4555 owner=root path=usr/bin/Xorg 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/privates.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/property.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xserver-properties.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/propertyst.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/ptrveloc.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/registry.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/randrstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/region.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/regionstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/resource.h 
+file elfarch=i386 elfbits=64 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/libshadowfb.so 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/rgb.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/rrtransform.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/sarea.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/screenint.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/scrnintstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/selection.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/servermd.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/shadow.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/shadowfb.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/shmint.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/site.h 
+file facet.devel=true group=bin mode=0444 owner=root path=usr/include/xorg/solaris-amd64.il variant.arch=i386
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/syncsdk.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/validate.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/vbe.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/vgaHW.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/wfbrename.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/windowstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xaarop.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xace.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/window.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xacestr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86Crtc.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86Cursor.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86DDC.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86Modes.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86Module.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86Opt.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86Optionstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86Optrec.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86Parser.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86Pci.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86PciInfo.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86Priv.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/vbeModes.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86Privstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86RamDac.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86RandR12.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86VGAarbiter.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86Xinput.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86_OSlib.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86_OSproc.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86cmap.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86xv.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86platformBus.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86str.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86xvmc.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86sbusBus.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86int10.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86i2c.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86xvpriv.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xf86fbman.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xvmcext.h 
+file elfarch=i386 elfbits=64 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/libshadow.so 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/dristruct.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xorgVersion.h 
+file ../../../files/10-x11-input.fdi group=bin mode=0444 owner=root path=etc/hal/fdi/preprobe/10osvendor/10-x11-input.fdi 
+file ../../../files/90-zap.conf group=bin mode=0444 owner=root path=etc/X11/xorg.conf.avail/90-zap.conf 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/fboverlay.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xvdix.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/fbpict.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/fbrop.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/TI.h 
+file elfarch=i386 elfbits=64 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/libwfb.so 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/XIstubs.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/Xprintf.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/fourcc.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/geext.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/gc.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/gcstruct.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/BT.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/IBM.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/callback.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/client.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/glx_extinit.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/globals.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/hotplug.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/glyphstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/geint.h 
+file ../../../files/xorgconfig.1 facet.doc.man=all group=bin mode=0444 \
+    owner=root path=usr/share/man/man1/xorgconfig.1 
+file ../../../files/xorgcfg.1 facet.doc.man=all group=bin mode=0444 \
+    owner=root path=usr/share/man/man1/xorgcfg.1 
+file facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/Xorg.1 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/closestr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/closure.h 
+file elfarch=i386 elfbits=64 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/drivers/modesetting_drv.so 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/colormap.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/migc.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/colormapst.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/compiler.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xisb.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/i2c_def.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/input.h 
+file facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man5/xorg.conf.5 
+file facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4/modesetting.4 variant.arch=i386
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/inputstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/dixfont.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/dixfontstr.h 
+file elfarch=i386 elfbits=64 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/libvgahw.so 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/dixgrabs.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/compositeext.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/cursor.h 
+file usr/lib/xorg/modules/extensions/libglx.so elfarch=i386 elfbits=64 group=bin mode=0555 owner=root path=usr/lib/mesa/modules/extensions/libglx.so pkg.size=853920 variant.arch=i386
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/damage.h 
+file facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man5/xorg.conf.d.5 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/damagestr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/dbestruct.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/cursorstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xkbrules.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/dgaproc.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/displaymode.h 
+file elfarch=i386 elfbits=64 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/libint10.so 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/dix.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xkbfile.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/dri.h 
+file elfarch=i386 elfbits=64 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/libfb.so 
+file elfarch=i386 elfbits=64 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/libexa.so 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/dixaccess.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xkbstr.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/dixevents.h 
+file elfarch=i386 elfbits=64 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/libfbdevhw.so 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/mi.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/micmap.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/list.h 
+file elfarch=i386 elfbits=64 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/libvbe.so variant.arch=i386
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/dixstruct.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xserver_poll.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/dri2.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/lib/amd64/pkgconfig/xorg-server.pc variant.arch=i386
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/edid.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/events.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/exa.h 
+file facet.devel=all group=bin mode=0444 owner=root path=usr/include/xorg/xorg-server.h variant.arch=i386
+link path=usr/X11/bin/cvt target=../../bin/cvt
+link facet.devel=all path=usr/X11/include/xorg target=../../include/xorg
+link path=usr/bin/amd64/Xorg target=../Xorg variant.arch=i386
+link path=usr/X11/bin/gtf target=../../bin/gtf
+link facet.devel=all path=usr/lib/pkgconfig/xorg-server.pc target=../amd64/pkgconfig/xorg-server.pc variant.arch=i386
+link path=usr/lib/mdb/proc/amd64/Xorg.so target=Xserver.so variant.arch=i386
+link path=usr/X11/bin/Xorg target=../../bin/Xorg

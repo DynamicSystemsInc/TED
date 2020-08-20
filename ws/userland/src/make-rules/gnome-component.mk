@@ -20,7 +20,7 @@
 #
 
 #
-# Copyright (c) 2016, 2017, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2016, 2020, Oracle and/or its affiliates. All rights reserved.
 #
 
 #
@@ -36,6 +36,7 @@ PKGMOGRIFY_TRANSFORMS += $(WS_TOP)/transforms/gnome-incorporation
 
 include $(WS_MAKE_RULES)/common.mk
 
+ifeq ($(strip $(BUILD_STYLE)),configure)
 CONFIGURE_OPTIONS += --libexecdir="$(USRLIB)"
 CONFIGURE_OPTIONS += --localstatedir="$(VARDIR)"
 
@@ -55,7 +56,5 @@ CONFIGURE_OPTIONS += --sysconfdir="$(ETCDIR.$(BITS))"
 CONFIGURE_ENV += MAKE=$(MAKE)
 
 CONFIGURE_ENV += INTLTOOL_PERL="$(PERL)"
-
-# Tell g-ir-scanner not to cache results in homedir of user running the build
-COMPONENT_BUILD_ENV += GI_SCANNER_DISABLE_CACHE=""
+endif # BUILD_STYLE == configure
 

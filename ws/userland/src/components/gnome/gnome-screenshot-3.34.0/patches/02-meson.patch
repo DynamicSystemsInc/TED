@@ -1,0 +1,11 @@
+--- meson.build	2019-10-14 15:18:09.000000000 +0000
++++ ../meson.build	2020-08-19 22:42:33.200195958 +0000
+@@ -26,7 +26,7 @@
+ gtk_req_version = '>= 3.12.0'
+ 
+ mathlib_dep = cc.find_library('m', required: false)
+-x11_dep = [ dependency('x11'), dependency('xext') ]
++x11_dep = [ dependency('x11'), dependency('xext'), dependency('gdk-pixbuf-xlib-2.0') ]
+ glib_dep = dependency('glib-2.0', version: glib_req_version)
+ gtk_dep = dependency('gtk+-3.0', version: gtk_req_version)
+ canberra_dep = dependency('libcanberra-gtk3')
