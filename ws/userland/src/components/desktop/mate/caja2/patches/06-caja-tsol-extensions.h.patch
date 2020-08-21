@@ -1,0 +1,26 @@
+*** new	2019-12-20 15:39:09.774563514 +0000
+--- caja-1.22.1/libcaja-private/caja-tsol-extensions.h	2019-09-24 22:43:29.002728358 +0000
+***************
+*** 0 ****
+--- 1,21 ----
++ /*
++  * Copyright 2005 Sun Microsystems, Inc.  All rights reserved.
++  * Use is subject to license terms.
++  */
++ #ifndef CAJA_TSOL_EXTENSIONS_H
++ #define CAJA_TSOL_EXTENSIONS_H
++ #include <config.h>
++ #include <gdk/gdk.h>
++ #include <gtk/gtk.h>
++ #include <glib/glist.h>
++ 
++ gboolean caja_tsol_multi_label_session (void);
++ gboolean caja_tsol_show_desktop_window (GdkScreen *screen);
++ gboolean caja_tsol_label_equal_to_process_label (char *label);
++ GdkFilterReturn caja_tsol_filter_func (GdkXEvent *gdkxevent, GdkEvent *event, gpointer data);
++ char *caja_tsol_get_file_label (const char *filename);
++ char *caja_tsol_get_process_label ();
++ void caja_tsol_update_paste_location_property (GtkClipboard *cb,
++ 		const unsigned char *dir);
++ 
++ #endif

@@ -1,0 +1,77 @@
+diff -ur caja-1.22.1/libcaja-private/caja-zfs.c caja-1.22.1-patched/libcaja-private/caja-zfs.c
+--- caja-1.22.1/libcaja-private/caja-zfs.c	2019-08-14 13:09:17.634035313 +0000
++++ caja-1.22.1-patched/libcaja-private/caja-zfs.c	2019-08-14 15:38:26.090489341 +0000
+@@ -662,7 +662,7 @@
+           zds->type = zfs_get_type (zhp);
+           zds->name = g_strdup (zfs_get_name(zhp));
+           zds->mountpoint = g_strdup (buf);
+-          zfs_iter_snapshots (zhp, B_FALSE, snapshot_callback, zds);
++          zfs_iter_snapshots (zhp, snapshot_callback, zds);
+           sync_backups_add (zhp, zds);
+           sds->datasets = g_list_append (sds->datasets, zds);
+           sds->match_found = TRUE;
+@@ -678,7 +678,7 @@
+               zds->type = zfs_get_type (zhp);
+               zds->name = g_strdup (zfs_get_name(zhp));
+               zds->mountpoint = mountp;
+-              zfs_iter_snapshots (zhp, B_FALSE, snapshot_callback, zds);
++              zfs_iter_snapshots (zhp, snapshot_callback, zds);
+               sync_backups_add (zhp, zds);
+               sds->datasets = g_list_append (sds->datasets, zds);
+               sds->match_found = TRUE;
+diff -ur caja-1.22.1/src/caja-application.c caja-1.22.1-patched/src/caja-application.c
+--- caja-1.22.1/src/caja-application.c	2019-04-22 13:44:05.000000000 +0000
++++ caja-1.22.1-patched/src/caja-application.c	2019-08-14 12:30:55.221798975 +0000
+@@ -361,13 +361,13 @@
+     gboolean browser_window = FALSE;
+     gboolean open_in_tabs = FALSE;
+     const gchar *geometry = NULL;
+-    const char splitter = '=';
++    const char *splitter = "=";
+ 
+     g_debug ("Open called on the GApplication instance; %d files", n_files);
+ 
+     /* Check if local command line passed --browser, --geometry or --tabs */
+     if (strlen (options) > 0) {
+-        gchar** splitedOptions = g_strsplit (options, &splitter, 3);
++        gchar** splitedOptions = g_strsplit (options, splitter, 3);
+         sscanf (splitedOptions[0], "%d", &browser_window);
+         if (strcmp (splitedOptions[1], "NULL") != 0) {
+             geometry = splitedOptions[1];
+diff -ur caja-1.22.1/src/caja-navigation-window.c caja-1.22.1-patched/src/caja-navigation-window.c
+--- caja-1.22.1/src/caja-navigation-window.c	2019-08-14 13:09:17.639034016 +0000
++++ caja-1.22.1-patched/src/caja-navigation-window.c	2019-08-14 13:55:49.996167499 +0000
+@@ -88,6 +88,8 @@
+ static void use_extra_mouse_buttons_changed          (gpointer                  callback_data);
+ static CajaWindowSlot *create_extra_pane         (CajaNavigationWindow *window);
+ 
++void caja_navigation_window_set_restore_icon (CajaNavigationWindow* window,
++     CajaNavigationRestoreIconType type);
+ 
+ G_DEFINE_TYPE_WITH_PRIVATE (CajaNavigationWindow, caja_navigation_window, CAJA_TYPE_WINDOW)
+ #define parent_class caja_navigation_window_parent_class
+diff -ur caja-1.22.1/src/caja-zfs-bar.c caja-1.22.1-patched/src/caja-zfs-bar.c
+--- caja-1.22.1/src/caja-zfs-bar.c	2019-08-14 13:09:17.647949094 +0000
++++ caja-1.22.1-patched/src/caja-zfs-bar.c	2019-08-14 12:30:55.221144850 +0000
+@@ -257,7 +257,7 @@
+         path = g_file_get_path (caja_directory_get_location (bar->priv->dir));
+         char *fs = ts_get_zfs_filesystem (path);
+         /* printf ("take a snapshot of zfs fs %s for dir %s\n", fs, path); */
+-        full_command = g_strdup_printf ("/usr/lib/time-slider-snapshot '%s' '%s'", path, fs);
++        full_command = g_strdup_printf ("pfexec /usr/lib/time-slider-snapshot '%s' '%s'", path, fs);
+         mate_gdk_spawn_command_line_on_screen (gtk_widget_get_screen (widget),
+                 full_command, NULL);
+         g_free (fs);
+@@ -367,9 +367,10 @@
+         g_object_unref (pb);
+     }
+ 
+-    path = caja_pixmap_file ("camera.png");
++    //path = caja_pixmap_file ("camera.png");
++    path = "/usr/share/pixmaps/caja/camera.png";
+     bar->priv->camera_image = gtk_image_new_from_file (path);
+-    g_free (path);
++    //g_free (path);
+ 
+     gtk_widget_show (bar->priv->delete_image);
+     gtk_widget_show (bar->priv->camera_image);
