@@ -1,6 +1,8 @@
-#!/usr/bin/python2.7 -Es
+#!/usr/bin/python3.7 -Es
+import solaris.no_site_packages
 #
-# Copyright (c) 2010, 2016, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2010, 2020, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2020, Dynamic Systems Inc.
 #
 
 import sys
@@ -10,7 +12,5 @@ sys.path.insert(0, join(dirname(__file__), pardir, 'share',
 
 from time_slider.deletegui2 import main
 
-# Pass through the executable path in case it needs to
-# be invoked via gksu (user has insufficient priviliges) 
 main(abspath(__file__))
 
