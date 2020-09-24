@@ -1,13 +1,12 @@
-#!/usr/bin/python
+#!/usr/bin/python2.7
 #
-# Copyright (c) 2010, 2020, Oracle and/or its affiliates. All rights reserved.
-# Copyright (c) 2020, Dynamic Systems Inc.
+# Copyright (c) 2010, 2016, Oracle and/or its affiliates. All rights reserved.
 #
 
 import os
 import pwd
 
-from . import util
+import util
 
 class RBACprofile2:
 
@@ -107,8 +106,8 @@ class RBACprofile2:
 
 if __name__ == "__main__":
   rbac = RBACprofile2()
-  print(rbac.name)
-  print(rbac.uid)
-  print(rbac.profiles)
-  print(rbac.auths)
+  print rbac.name
+  print rbac.uid
+  print rbac.profiles
+  print rbac.auths
 

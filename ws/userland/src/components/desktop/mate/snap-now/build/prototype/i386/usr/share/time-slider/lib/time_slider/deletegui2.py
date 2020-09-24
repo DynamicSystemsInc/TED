@@ -1,7 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/python2.7
 #
-# Copyright (c) 2010, 2020, Oracle and/or its affiliates. All rights reserved.
-# Copyright (c) 2020, Dynamic Systems Inc.
+# Copyright (c) 2010, 2017, Oracle and/or its affiliates. All rights reserved.
 #
 
 import threading
@@ -47,8 +46,8 @@ locale.bindtextdomain(GETTEXT_DOMAIN, LOCALE_PATH)
 gettext.bindtextdomain(GETTEXT_DOMAIN, LOCALE_PATH)
 gettext.textdomain(GETTEXT_DOMAIN)
 
-from . import zfs
-from . rbac2 import RBACprofile2
+import zfs
+from time_slider.rbac2 import RBACprofile2
 
 class RsyncBackup:
 
@@ -65,7 +64,7 @@ class RsyncBackup:
             self.creationtime = creationtime
             try:
                 tm = time.localtime(self.creationtime)
-                self.creationtime_str = str(time.strftime ("%c", tm),
+                self.creationtime_str = unicode(time.strftime ("%c", tm),
                            locale.getpreferredencoding()).encode('utf-8')
             except:
                 self.creationtime_str = time.ctime(self.creationtime)
@@ -107,21 +106,22 @@ class RsyncBackup:
                              rsyncsmf.RSYNCLOCKSUFFIX)
 
         if not os.path.exists(lockFileDir):
-            os.makedirs(lockFileDir, 0o755)
+            os.makedirs(lockFileDir, 0755)
 
         lockFile = os.path.join(lockFileDir, self.snaplabel + ".lock")
         try:
             lockFp = open(lockFile, 'w')
             fcntl.flock(lockFp, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except IOError:
-            raise RuntimeError("couldn't delete %s, already used by another process" % self.mountpoint)
+            raise RuntimeError, \
+            "couldn't delete %s, already used by another process" % self.mountpoint
             return
 
         trashDir = os.path.join(self.rsync_dir,
                           self.fsname,
                           rsyncsmf.RSYNCTRASHSUFFIX)
         if not os.path.exists(trashDir):
-            os.makedirs(trashDir, 0o755)
+            os.makedirs(trashDir, 0755)
 
         backupTrashDir = os.path.join (self.rsync_dir,
                                  self.fsname,
@@ -182,7 +182,7 @@ class DeleteSnapManager:
     def initialise_view(self):
         if len(self.shortcircuit) == 0:
             # Set TreeViews
-            self.liststorefs = Gtk.ListStore(str, str, str, str, str, int,
+            self.liststorefs = Gtk.ListStore(str, str, str, str, str, long,
                                              GObject.TYPE_PYOBJECT)
             list_filter = self.liststorefs.filter_new()
             list_sort = Gtk.TreeModelSort(list_filter)
@@ -416,7 +416,7 @@ class DeleteSnapManager:
         for snapshot in newlist:
             try:
                 tm = time.localtime(snapshot.get_creation_time())
-                t = str(time.strftime ("%c", tm),
+                t = unicode(time.strftime ("%c", tm),
                     locale.getpreferredencoding()).encode('utf-8')
             except:
                 t = time.ctime(snapshot.get_creation_time())
@@ -717,5 +717,5 @@ def main(argv):
                                        "administrative privileges."
                                        "\n\nConsult your system administrator "))
         dialog.run()
-        print (argv + "is not a valid executable path")
+        print argv + "is not a valid executable path"
         sys.exit(1)
