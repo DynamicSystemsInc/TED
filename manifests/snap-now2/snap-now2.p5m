@@ -1,0 +1,42 @@
+set name=pkg.fmri value=pkg:/desktop/mate/snap-now@1.0.0,5.11-11.4.24.0.1.0.0
+set name=pkg.summary value="Snapshot Now dialog for caja"
+set name=com.oracle.info.name value=snap-now
+set name=com.oracle.info.version value=1.0.0
+set name=info.classification \
+    value=org.opensolaris.category.2008:Applications/Accessories
+set name=org.opensolaris.consolidation value=userland
+set name=variant.arch value=i386
+dir  path=usr owner=root group=sys mode=0755
+dir  path=usr/lib owner=root group=bin mode=0755
+file usr/lib/time-slider-snapshot path=usr/lib/time-slider-snapshot owner=root \
+    group=bin mode=0755
+file usr/lib/time-slider-version path=usr/lib/time-slider-version owner=root \
+    group=bin mode=0755
+file usr/lib/time-slider-delete2 path=usr/lib/time-slider-delete2 owner=root \
+    group=bin mode=0755
+dir  path=usr/share owner=root group=sys mode=0755
+dir  path=usr/share/time-slider owner=root group=bin mode=0755
+dir  path=usr/share/time-slider/glade owner=root group=bin mode=0755
+file usr/share/time-slider/glade/time-slider-snapshot.glade \
+    path=usr/share/time-slider/glade/time-slider-snapshot.glade owner=root \
+    group=bin mode=0644
+file usr/share/time-slider/glade/time-slider-version.glade \
+    path=usr/share/time-slider/glade/time-slider-version.glade owner=root \
+    group=bin mode=0644
+dir  path=usr/share/time-slider/lib owner=root group=bin mode=0755
+dir  path=usr/share/time-slider/lib/time_slider owner=root group=bin mode=0755
+file usr/share/time-slider/lib/time_slider/rbac2.py \
+    path=usr/share/time-slider/lib/time_slider/rbac2.py owner=root group=bin \
+    mode=0444
+file usr/share/time-slider/lib/time_slider/snapnowui.py \
+    path=usr/share/time-slider/lib/time_slider/snapnowui.py owner=root \
+    group=bin mode=0755
+file usr/share/time-slider/lib/time_slider/fileversion.py \
+    path=usr/share/time-slider/lib/time_slider/fileversion.py owner=root \
+    group=bin mode=0755
+file usr/share/time-slider/lib/time_slider/deletegui2.py \
+    path=usr/share/time-slider/lib/time_slider/deletegui2.py owner=root \
+    group=bin mode=0755
+depend fmri=pkg:/library/python/pygobject-3-37@3.24.1-11.4.24.0.1.75.1 type=require
+depend fmri=pkg:/runtime/python-37@11.4-11.4.24.0.1.75.3 type=require
+depend fmri=pkg:/desktop/time-slider@11.4-11.4.24.0.1.75.3 type=require

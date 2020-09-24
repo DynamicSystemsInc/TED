@@ -8,6 +8,7 @@ workspace=/trusted-desktop/ws/userland/src/components
 repo=/var/share/pkg/repositories/trusted-desktop
 tedpub=trusted-desktop
 
+rm -rf $repo
 # create the repository if is does not exist
 if [ ! -d $repo ]
 then
@@ -25,10 +26,16 @@ do
 	pkgsend -s $repo publish -d $destdir $manifest
 done
 
-# Finally do the snap-now package
+# Finally do the snap-now packages
 
 component=snap-now
 componentdir=desktop/mate/snap-now
+destdir=$workspace/$componentdir/build/prototype/i386
+manifest=$manifests/$component/$component.p5m
+pkgsend -s $repo publish -d $destdir $manifest
+
+component=snap-now2
+componentdir=desktop/mate/snap-now2
 destdir=$workspace/$componentdir/build/prototype/i386
 manifest=$manifests/$component/$component.p5m
 pkgsend -s $repo publish -d $destdir $manifest
