@@ -40,13 +40,6 @@ destdir=$workspace/$componentdir/build/prototype/i386
 manifest=$manifests/$component/$component.p5m
 pkgsend -s $repo publish -d $destdir $manifest
 
-# This script builds and packages the meta packages
-
-# The value of $destdir is only relevant to the
-# trusted-xorg component, so it isn't set in the loop
-
-destdir=$workspace/x11/xserver/xorg/build/prototype/i386
-
 # Publish meta packages to the repository
 
 for i in `cat $tools/meta-components`
