@@ -398,6 +398,7 @@ session_SCRIPTS = Xinitrc.tjds \
 	tjds-prof_attr \
 	tjds-user_attr \
 	txzonemgr \
+	pkgcreatezone-patch \
 	pkgcreatezone.patch \
 	common.ksh
 EXTRA_DIST = \

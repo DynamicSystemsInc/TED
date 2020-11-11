@@ -1,0 +1,9 @@
+#!/bin/sh
+# Copyright (c) 2020, Dynamic Systems Inc.
+# 11.4 workaround to load the trusted-destkop package
+#
+BRANDS=/usr/lib/brand/solaris
+grep trusted-desktop $BRANDS/pkgcreatezone > /dev/null 2>&1
+if [ $? != 0 ]; then
+        (cd $BRANDS; patch -p0 < pkgcreatezone.patch)
+fi
