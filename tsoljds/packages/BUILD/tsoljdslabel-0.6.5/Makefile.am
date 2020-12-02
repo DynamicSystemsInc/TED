@@ -10,6 +10,8 @@ session_SCRIPTS = Xinitrc.tjds \
 	tjds-user_attr \
 	txzonemgr \
 	pkgcreatezone.patch \
+	pkgcreatezone-patch \
+	altroot.patch \
 	common.ksh
 
 

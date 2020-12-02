@@ -400,6 +400,7 @@ session_SCRIPTS = Xinitrc.tjds \
 	txzonemgr \
 	pkgcreatezone-patch \
 	pkgcreatezone.patch \
+	altroot.patch \
 	common.ksh
 EXTRA_DIST = \
 	intltool-extract.in \

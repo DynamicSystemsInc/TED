@@ -7,3 +7,14 @@ grep trusted-desktop $BRANDS/pkgcreatezone > /dev/null 2>&1
 if [ $? != 0 ]; then
         (cd $BRANDS; patch -p0 < pkgcreatezone.patch)
 fi
+#
+# patch for gam_server monitoring of alternate zone root
+
+ALTROOT=/usr/lib/python3.7/vendor-packages/solaris/smf
+if [ -x $ALTROOT/altroot.py ];then
+	cd $ALTROOT
+	grep cns altroot.py > /dev/null 2>&1
+	if [ $? != 0 ]; then
+		patch -p0 < altroot.path
+	fi
+fi
