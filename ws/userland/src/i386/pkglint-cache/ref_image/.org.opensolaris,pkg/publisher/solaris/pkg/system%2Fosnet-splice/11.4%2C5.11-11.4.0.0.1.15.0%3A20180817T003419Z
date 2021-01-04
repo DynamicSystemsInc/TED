@@ -1,0 +1,17 @@
+set name=pkg.fmri value=pkg://solaris/system/osnet-splice@11.4,5.11-11.4.0.0.1.15.0:20180817T003419Z
+set name=info.classification value=org.opensolaris.category.2008:System/Core
+set name=pkg.summary value="OS/Net ksplice objects"
+set name=pkg.description value="This package delivers splice modules for all OS/Net consolidation splices."
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=variant.arch value=sparc value=i386
+set name=variant.debug.osnet value=true value=false
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+dir group=sys mode=0755 owner=root path=usr variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=usr/share variant.opensolaris.zone=global
+dir group=other mode=0755 owner=root path=usr/share/doc variant.opensolaris.zone=global
+dir facet.doc=true group=other mode=0755 owner=root path=usr/share/doc/splice variant.opensolaris.zone=global
+file 70cff6313caa873f4df1569152381dacd4611f7c chash=ea3bf13a3a54b91cc481493a1ad6b8e1ccb5348a facet.doc=true group=bin mode=0444 owner=root path=usr/share/doc/splice/on-splice.xml pkg.content-hash=file:sha512t_256:599763110b5caca53eed8e09916dd4c9f5d2c1ddeb9a0173be1dac7f7360ae04 pkg.content-hash=gzip:sha512t_256:9f7229304ad058046c6b9491eb9d658d7db084574d1470e579544277f70637fd pkg.csize=288 pkg.size=505 variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=a1b23b1c288832b2b1bbee68750a3c4dd17bdd0f23fbf40e2cab10c3e01f846c3b37c79521897255b9cc654d384809653375f6c73a7491e3467ff0c2ba4ef0bd17fea0547b95c5345c606d2d5bc408b89992ecc9000068d0e285e8f4faa7210a70ba05d20e128355643644029cd3dc27570359759403fc1c6ec5fed5291044ebbd66a509ea5cd20ab9d57312b5fd5d7841b6a7bd809f215764f2e4c2b95dfe5bf5e1e94da963335d8c6bd145783603e9afaa173dee390b11af6925b7473993dff76affb107eb56aa1d8cd71e93bc4aecf73ae111886628f56f2bc7504d04acf275d579ccb12c34772d135eeb414947e53fcc14e8135997aeaf7dbe3c876ce1d1 version=0

@@ -1,0 +1,165 @@
+gmake: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils'
+/bin/rm -f -r /ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  desktop-file-utils-0.23.tar.xz
+/usr/bin/touch /ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23 --strip=1 --backup --version-control=numbered < patches/01-preserve-file-perm.patch
+patching file src/update-desktop-database.c
+/usr/bin/touch /ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23/.patched-01-preserve-file-perm.patch
+/usr/bin/touch /ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23/.patched
+/usr/bin/touch /ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23/.prep
+(/bin/rm -f -rf /ws/userland/src/components/desktop/desktop-file-utils/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/desktop/desktop-file-utils/build/amd64)
+(cd /ws/userland/src/components/desktop/desktop-file-utils/build/amd64 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++" PATH="/usr/bin/amd64:/usr/bin:/usr/gnu/bin" CC_FOR_BUILD="/usr/gcc/7/bin/gcc -m64" CXX_FOR_BUILD="/usr/gcc/7/bin/g++ -m64" CPPFLAGS="-m64" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m64 -O3" CXXFLAGS="-m64 -O3" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib/amd64   )
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether UID '100' is supported by ustar format... yes
+checking whether GID '10' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking whether make supports nested variables... (cached) yes
+checking whether ln -s works... yes
+checking for gcc... /usr/gcc/7/bin/gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of /usr/gcc/7/bin/gcc... gcc3
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for DESKTOP_FILE_UTILS... yes
+checking for emacs... emacs
+checking where .elc files should go... ${datarootdir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating man/Makefile
+config.status: creating misc/Makefile
+config.status: creating src/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+/usr/bin/touch /ws/userland/src/components/desktop/desktop-file-utils/build/amd64/.configured
+(cd /ws/userland/src/components/desktop/desktop-file-utils/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64'
+Making all in src
+make[3]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/src'
+  CC       keyfileutils.o
+  CC       mimeutils.o
+  CC       validate.o
+  CC       validator.o
+  CCLD     desktop-file-validate
+  CC       install.o
+  CCLD     desktop-file-install
+  CC       update-desktop-database.o
+  CCLD     update-desktop-database
+make[3]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/src'
+Making all in man
+make[3]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/man'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/man'
+Making all in misc
+make[3]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/misc'
+if test "emacs" != "no"; then \
+  am__dir=. am__subdir_includes=''; \
+  case desktop-entry-mode.elc in */*) \
+    am__dir=`echo 'desktop-entry-mode.elc' | sed 's,/[^/]*$,,'`; \
+    am__subdir_includes="-L $am__dir -L /ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23/misc/$am__dir"; \
+  esac; \
+  test -d "$am__dir" || /usr/bin/gmkdir -p "$am__dir" || exit 1; \
+  emacs --batch \
+      \
+    $am__subdir_includes -L . -L /ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23/misc \
+    --eval "(defun byte-compile-dest-file (f) \"desktop-entry-mode.elc\")" \
+    --eval "(unless (byte-compile-file \"/ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23/misc/desktop-entry-mode.el\") (kill-emacs 1))"; \
+else :; fi
+make[3]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/misc'
+make[3]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/desktop-file-utils/build/amd64/.built
+(cd /ws/userland/src/components/desktop/desktop-file-utils/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64'
+Making install in src
+make[2]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/src'
+make[3]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/src'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/usr/bin'
+  /usr/bin/ginstall -c desktop-file-validate desktop-file-install update-desktop-database '/ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/usr/bin'
+/usr/gnu/bin/make  install-exec-hook
+make[4]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/src'
+cd /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/usr/bin && \
+rm -f desktop-file-edit && \
+ln -s -f desktop-file-install desktop-file-edit
+make[4]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/src'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/src'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/src'
+Making install in man
+make[2]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/man'
+make[3]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/man'
+/usr/gnu/bin/make  install-exec-hook
+make[4]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/man'
+test -d /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/usr/share/man/man1 || mkdir -p /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/usr/share/man/man1
+cd /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/usr/share/man/man1 && \
+rm -f desktop-file-edit.1 && \
+ln -s -f desktop-file-install.1 desktop-file-edit.1
+make[4]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/man'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/usr/share/man/man1'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23/man/desktop-file-validate.1 /ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23/man/desktop-file-install.1 /ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23/man/update-desktop-database.1 '/ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/usr/share/man/man1'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/man'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/man'
+Making install in misc
+make[2]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/misc'
+make[3]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/misc'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/usr/share/emacs/site-lisp'
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/desktop/desktop-file-utils/desktop-file-utils-0.23/misc/desktop-entry-mode.el' '/ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/usr/share/emacs/site-lisp/desktop-entry-mode.el'
+ /usr/bin/ginstall -c -m 644 'desktop-entry-mode.elc' '/ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/usr/share/emacs/site-lisp/desktop-entry-mode.elc'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/misc'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64/misc'
+make[2]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/desktop-file-utils/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 desktop-file-utils.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=0\\.23 -D COMPONENT_RE_VERSION=0\\.23 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/desktop-file-utils -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="37080" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="0.23" -D IPS_COMPONENT_VERSION="0.23" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.23.tar.xz" -D COMPONENT_PROJECT_URL="https://freedesktop.org/wiki/Software/desktop-file-utils/" -D COMPONENT_NAME="desktop-file-utils" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" desktop-file-utils.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/desktop-file-utils/build/manifest-i386-desktop-file-utils.mogrified
+/bin/mkdir -p /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386 -d /ws/userland/src/components/desktop/desktop-file-utils/build -d /ws/userland/src/components/desktop/desktop-file-utils -d desktop-file-utils-0.23 -d /ws/userland/src/licenses -m /ws/userland/src/components/desktop/desktop-file-utils/build/manifest-i386-desktop-file-utils.mogrified >/ws/userland/src/components/desktop/desktop-file-utils/build/manifest-i386-desktop-file-utils.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386 -d /ws/userland/src/components/desktop/desktop-file-utils/build -d /ws/userland/src/components/desktop/desktop-file-utils -d desktop-file-utils-0.23 -d /ws/userland/src/licenses /ws/userland/src/components/desktop/desktop-file-utils/build/manifest-i386-desktop-file-utils.mangled >/ws/userland/src/components/desktop/desktop-file-utils/build/manifest-i386-desktop-file-utils.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/desktop/desktop-file-utils/build/resolve.deps -m /ws/userland/src/components/desktop/desktop-file-utils/build/manifest-i386-desktop-file-utils.depend
+/usr/bin/touch /ws/userland/src/components/desktop/desktop-file-utils/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/desktop/desktop-file-utils/build/manifest-i386-desktop-file-utils.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/mangled /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386 /ws/userland/src/components/desktop/desktop-file-utils/build /ws/userland/src/components/desktop/desktop-file-utils desktop-file-utils-0.23 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/desktop/desktop-file-utils/build/manifest-i386-desktop-file-utils.depend.res
+/usr/bin/touch /ws/userland/src/components/desktop/desktop-file-utils/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/desktop-file-utils/build/prototype/i386 -d /ws/userland/src/components/desktop/desktop-file-utils/build -d /ws/userland/src/components/desktop/desktop-file-utils -d desktop-file-utils-0.23 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/desktop/desktop-file-utils/build/manifest-i386-desktop-file-utils.depend.res
+pkg://nightly/desktop/xdg/desktop-file-utils@0.23,5.11-11.4.0.0.1.14.0:20190727T184233Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/desktop-file-utils/build/manifest-i386-desktop-file-utils.depend.res >/ws/userland/src/components/desktop/desktop-file-utils/build/manifest-i386-desktop-file-utils.published
+/usr/bin/touch /ws/userland/src/components/desktop/desktop-file-utils/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/desktop/desktop-file-utils'
+
+real        9.3
+user        4.0
+sys         1.5

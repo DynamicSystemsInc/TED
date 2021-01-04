@@ -1,0 +1,55 @@
+set name=pkg.fmri value=pkg://solaris/system/management/ilomconfig@11.4,5.11-11.4.0.0.1.9.0:20180618T184518Z
+set name=org.opensolaris.smf.fmri value=svc:/network/ilomconfig-interconnect value=svc:/network/ilomconfig-interconnect:default
+set name=pkg.summary value="ILOM Configuration Utility"
+set name=org.opensolaris.arc-caseid value=PSARC/2012/380
+set name=org.opensolaris.consolidation value=ssm
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=pkg.description value="Provide the ability to configure Service Processor ILOM properties"
+set name=info.classification value="org.opensolaris.category.2008:System/Administration and Configuration"
+set name=variant.arch value=sparc value=i386
+depend fmri=pkg:/library/libxml2@2.9.5-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/library/security/openssl@1.0.2.15-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/library/zlib@1.2.11-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/shell/ksh93@93.21.1.20120801-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/library/hmp-libs@2.4.4.0-11.4.0.0.1.9.0 type=require
+depend fmri=pkg:/system/library/libv12n@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/linker@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/management/ipmitool@1.8.15,5.11-11.4.0.0.1.9.0 type=require
+depend fmri=pkg:/system/core-os@11.4-11.4.0.0.1.8.0 type=require
+dir group=sys mode=0755 owner=root path=etc
+dir group=sys mode=0755 owner=root path=etc/security
+dir group=sys mode=0755 owner=root path=etc/security/exec_attr.d
+dir group=sys mode=0755 owner=root path=etc/sysevent variant.arch=sparc
+dir group=sys mode=0755 owner=root path=etc/sysevent/config variant.arch=sparc
+dir group=bin mode=0755 owner=root path=lib
+dir group=bin mode=0755 owner=root path=lib/svc
+dir group=sys mode=0755 owner=root path=lib/svc/manifest
+dir group=sys mode=0755 owner=root path=lib/svc/manifest/system
+dir group=bin mode=0755 owner=root path=lib/svc/method
+dir group=sys mode=0755 owner=root path=usr
+dir group=bin mode=0755 owner=root path=usr/lib
+dir group=bin mode=0755 owner=root path=usr/sbin
+dir group=sys mode=0755 owner=root path=usr/share
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man7d
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man8
+dir group=sys mode=0755 owner=root path=var
+dir group=sys mode=0755 owner=root path=var/log
+dir group=bin mode=0750 owner=root path=var/log/ssm
+file 265e4cf76c369635c454bcfca8e45f334b27e3d8 chash=b0460f48b87c8561c1fbfbb5acf9ba38fa63cb40 elfarch=sparc elfbits=32 elfhash=4d219a5125b1247dd5f6e37f68e4f89567d02614 group=bin mode=0755 owner=root path=usr/sbin/ilomconfig pkg.content-hash=gelf:sha512t_256:c3404735800ee9220f97586074114cb5d04ee2a027c3d2ba6e6af8d2c3aeabaf pkg.content-hash=gelf.unsigned:sha512t_256:fbd8f109dc382e91ad90733d826d2213cf3e3798ddec3ad8341a05d59c0d12cd pkg.content-hash=file:sha512t_256:5d3db8828a063712dd15f403df289d0060930f17976a76a7af419b6126a763d5 pkg.content-hash=gzip:sha512t_256:5e3a40aa2ec39efffda7bca06503cb48b2b11d3cac9796fc01dfb3c77b5413b5 pkg.csize=893956 pkg.size=2851284 variant.arch=sparc
+file 990ebe2b9c32b12b8f692c1eb74d88f6c3c10726 chash=cfcc9ab4acfcecd586befcc45a2793006c8dfd0c group=bin mode=0555 owner=root path=usr/sbin/ilomconfig_failover.sh pkg.content-hash=file:sha512t_256:9d15b5e9355c0ca8520e139f7f5a2218848a4bbdfff7c1fea88f321eac99e9d5 pkg.content-hash=gzip:sha512t_256:0fe222dc1b4f873e9ae071c17d39df003d5085cab661d46fdc2f245468f6031d pkg.csize=1744 pkg.size=5152 variant.arch=sparc
+file fe68d67a4c74b2c1bfbfd9dde227acf92ec97bd2 chash=0fc2f1c577f6dec9114fa2223d6162b79a8d77e4 group=bin mode=0555 owner=root path=lib/svc/method/svc-ilomconfig-interconnect pkg.content-hash=file:sha512t_256:25a1ffad501d4d5e44a61c18332db7d02f42e3d75d8885e54a41407b1836e3ea pkg.content-hash=gzip:sha512t_256:9eeac4d0605262b7e9f18a5bfea92b4abb92a4486bfac986c0823528eb16b525 pkg.csize=1239 pkg.size=2653
+file d94ee33fb043ffeb6e063247da3bf6ff6cae9575 chash=792efba3f0ff5b567382609a5ff6749622f50670 group=bin mode=0555 owner=root path=lib/svc/method/svc-ilomconfig-bg pkg.content-hash=file:sha512t_256:427428b557d3a94de6a5c5803eb89c7de362c1f246279f04e14b3cf967c66194 pkg.content-hash=gzip:sha512t_256:bbb7081e829362afd24033d304283591b3d6687751c3b48f2e638041c4704381 pkg.csize=1092 pkg.size=2800
+file 755cc2ad4e9b49c786362c83badf6cf98514ebac chash=de254d88fba54537317eb75eef4f06965d64d3ff facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man8/ilomconfig.8 pkg.content-hash=file:sha512t_256:29ecbe54f0a4aae1797696f1b6f0b6628a29566746bc809d3a769f7b0da17140 pkg.content-hash=gzip:sha512t_256:e2aa710364a1e5d5a9cf45181105bc79bef65d5ac894fe6d74932272b1525217 pkg.csize=6506 pkg.size=26956
+file da39a3ee5e6b4b0d3255bfef95601890afd80709 chash=89892054d65b8b0dd6a081b33a97b6f2bd1fa267 group=bin mode=0640 owner=root path=var/log/ssm/ilomconfig.log pkg.content-hash=file:sha512t_256:c672b8d1ef56ed28ab87c3622c5114069bdd3ad7b8f9737498d0c01ecef0967a pkg.content-hash=gzip:sha512t_256:1b57e79330d686247085553792cd8e2fcf61b03edc7da56d03efdb1e1458644a pkg.csize=20 pkg.size=0 preserve=true
+file da39a3ee5e6b4b0d3255bfef95601890afd80709 chash=89892054d65b8b0dd6a081b33a97b6f2bd1fa267 group=bin mode=0640 owner=root path=var/log/ssm/ilomconfig_EC_USB_sysevent.log pkg.content-hash=file:sha512t_256:c672b8d1ef56ed28ab87c3622c5114069bdd3ad7b8f9737498d0c01ecef0967a pkg.content-hash=gzip:sha512t_256:1b57e79330d686247085553792cd8e2fcf61b03edc7da56d03efdb1e1458644a pkg.csize=20 pkg.size=0 preserve=true variant.arch=sparc
+file 6a023fdcd83b3003bef1f104a4893d3457db9dd1 chash=dfe7f3755be22aa22900a561d69b615fdce64740 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man7d/sp-host0.7d pkg.content-hash=file:sha512t_256:ca601b7b50a5a73c1736566fd38f7f30d59ac8bf1fa60c69a4f750fe35f00e46 pkg.content-hash=gzip:sha512t_256:76b53c40e3151d49ddaae1c5c1794eb940920aee099285df7f5942be39f58194 pkg.csize=609 pkg.size=1050
+file 4791bbcdb52d3b65451e758d2538d327e24266e5 chash=e0bf92fcf3a8263f3378d43c9c0819cf57ba1db7 elfarch=i386 elfbits=32 elfhash=e7509fede61673fcf4bc63b79b528faf27fdeb40 group=bin mode=0755 owner=root path=usr/sbin/ilomconfig pkg.content-hash=gelf:sha512t_256:f275ea670b718a21c45315d20dcff6e0c0d5b3310c561bff812d96d8e600e05d pkg.content-hash=gelf.unsigned:sha512t_256:d4ec63b61df03b7bacd29529c504c09f329e6ead220877cbc0b350c79192f016 pkg.content-hash=file:sha512t_256:76acbf8c51910b5ddc3e6d387f2590328c96d470783161c7208586db1603c750 pkg.content-hash=gzip:sha512t_256:95813f17b77c6c610dd34c2500373d3589045a358f8aad326531d6ae0cc170d3 pkg.csize=491326 pkg.size=1504756 variant.arch=i386
+file b8db35f3853a61f426c9f026f2063937beefcd19 chash=01122bd04f9a3ebe3bd8f77786e4e2e44324e494 group=bin mode=0444 owner=root path=lib/svc/manifest/system/ilomconfig-interconnect.xml pkg.content-hash=file:sha512t_256:27b6406af59fde8478a57760a883f5766f7391f72de13043b271dbbe074d2088 pkg.content-hash=gzip:sha512t_256:e70066d7a2c5de146fee3726d2a428c78f1aa6b16e3f9be2016f0f18199be5c2 pkg.csize=1016 pkg.size=3359 restart_fmri=svc:/system/manifest-import:default
+file 8e54c9b6f174632f016568b88a1611389ac9b7bc chash=1936b82586bce0e9cc935616fe6ff6bdc9c52682 group=sys mode=0644 owner=root path=etc/sysevent/config/SUNW,EC_USB,sysevent.conf pkg.content-hash=file:sha512t_256:afea901e0c1d115b0157197b6977e9b9bfeda75012823c37dca4536fffb3cada pkg.content-hash=gzip:sha512t_256:374abc831acde47db8171cf26a0d107bbd6f9cfcbb2ce3c57d521722c4960b4c pkg.csize=159 pkg.size=167 variant.arch=sparc
+file f45246d12e190519374c8e6f27448acf00b25d8b chash=d0771520cef7c3afc98cc0f72a31db2a48c70c46 group=sys mode=0444 owner=root path=etc/security/exec_attr.d/ilomconfig pkg.content-hash=file:sha512t_256:ec6d9f9a6c2dc994c8949baaff6ed2b312bb68a91630646aa13430de4cc7e456 pkg.content-hash=gzip:sha512t_256:2fc98c8771a71bc613836bfcbc4be34f649c393c1001122696451872a44fd8b6 pkg.csize=103 pkg.size=105
+link path=usr/lib/ilomconfig.builtin target=../sbin/ilomconfig
+license e4a3f48ef48c47ae571c2f6ee63f261478986fae chash=6a799c3ce8ea2ccc2cf8bd23205ed9531a43e1e7 license=cr_Oracle pkg.content-hash=file:sha512t_256:e6fcd4138cbff522ad40ddb69bcc8e1086e4d98f20ba02e118fa125119f8b615 pkg.content-hash=gzip:sha512t_256:f6cf57bb3c69026ccc761456e014b2d091bff6053f9b9ddaa0c408e9ee586717 pkg.csize=91 pkg.size=77
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=16c3d44f0143319e482c50f1290156e94316e69a167ec30a2bc6bb0ad22531b7bc8e6924042dffff305b762a3953607ab90d2ab98f72e25677faf6610b554fbc712736f021d4e7acb80131e369cdadf32f78f6d322bc7be66fc25abfa999c30924355d866878cb970c0081c9c48518a632e42b570072342e85258ca0876d48ed372818f06045fa03b44720e6e1a3578936aafe5968483e4f32a362498328380a614a9212a020cc50de1efc0094c206f96e7fb010cf80c4cb5bddc0e83a0f78e06bf8608c1269762aa1a23e3775c9b1b3abe5da760cbd14356edb0a2aea18fbc5d95e1da6c10620f837e9b97ad73e7227e25759f7a79f0829adcf68e4e1ae1e42 version=0

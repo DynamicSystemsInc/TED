@@ -1,0 +1,42 @@
+set name=pkg.fmri value=pkg://solaris/system/management/ipmitool@1.8.15.0,5.11-11.4.0.0.1.9.0:20180618T184521Z
+set name=variant.arch value=sparc value=i386
+set name=info.classification value=org.opensolaris.category.2008:System/Hardware
+set name=org.opensolaris.smf.fmri value=svc:/network/ipmievd value=svc:/network/ipmievd:default
+set name=org.opensolaris.arc-caseid value=PSARC/2004/453
+set name=info.upstream-url value=http://ipmitool.sourceforge.net/
+set name=pkg.summary value="ipmitool - utility for controlling IPMI-enabled devices"
+set name=org.opensolaris.consolidation value=ssm
+set name=com.oracle.info.description value="A utility for controlling IPMI-enabled devices"
+set name=com.oracle.info.version value=1.8.15.0
+set name=com.oracle.info.tpno value=20660
+set name=com.oracle.info.name value=ipmitool
+depend fmri=pkg:/library/readline@6.3-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/linker@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/library/ncurses@6.0.0.20170708-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/shell/ksh93@93.21.1.20120801-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/core-os@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/library/security/openssl@1.0.2.15-11.4.0.0.1.8.0 type=require
+dir group=bin mode=0755 owner=root path=lib
+dir group=bin mode=0755 owner=root path=lib/svc
+dir group=sys mode=0755 owner=root path=lib/svc/manifest
+dir group=sys mode=0755 owner=root path=lib/svc/manifest/network
+dir group=bin mode=0755 owner=root path=lib/svc/method
+dir group=sys mode=0755 owner=root path=usr
+dir group=bin mode=0755 owner=root path=usr/lib
+dir group=bin mode=0755 owner=root path=usr/sbin
+dir group=sys mode=0755 owner=root path=usr/share
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man1m
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man8
+file 3653b7f9be28187fb9bddd2aef11d8a062ac20c4 chash=9b3c2f190e8b1ca9496cf7a4d4a8f50b4c8835d3 elfarch=sparc elfbits=32 elfhash=ec9cf2140506b9622581146f7207bfaa982e8dd9 group=bin mode=0755 owner=root path=usr/sbin/ipmitool pkg.content-hash=gelf:sha512t_256:ebace18239dd1a6798eb81cf8ccb4743fd416208d0d3bdb5e497173d5d188f99 pkg.content-hash=gelf.unsigned:sha512t_256:eb53fb5083382cf27a725293ec2d83988caf476a9aac3248b40143823378c6c0 pkg.content-hash=file:sha512t_256:221e2fc63467968ace03d337775f19d31d8190bc1acc8db7ea6310bab579fadd pkg.content-hash=gzip:sha512t_256:c9146ca94987d52084283dac61c87cae169cbbe9667bf1410e319ac1c0ded4f8 pkg.csize=287886 pkg.size=1230984 variant.arch=sparc
+file 5c73e5330ab7c5c166d2a90776afc9b7dca6ddb6 chash=687d0e46f5dbc181bc153b67e4971b6b271d4ac2 elfarch=sparc elfbits=32 elfhash=1a24b32805926d2d99327a2aae4244a95baf0428 group=bin mode=0755 owner=root path=usr/lib/ipmievd pkg.content-hash=gelf:sha512t_256:a548ac71167bd63982e07bfacd33d224ee96309ae71e6df1b15f99579875c1d2 pkg.content-hash=gelf.unsigned:sha512t_256:dc9e673cfbde22996f05db55bf3d501efa63900712f521dabe97da720a31e02b pkg.content-hash=file:sha512t_256:b6fb819321e14342424fa5c6ffc64a694eb9c72f1c889ed9fd3ca70dbb72f64b pkg.content-hash=gzip:sha512t_256:bec794d7ba0611ce588bf4292039d858a48808534a99536acee474b939e50447 pkg.csize=197122 pkg.size=831720 variant.arch=sparc
+file a134698ad3b6b224aa0d73ac0f5cd8b94d578789 chash=90a18dc2590652616133f14ba16779b2c6d7b06d facet.doc.man=all group=bin mode=0644 owner=root path=usr/share/man/man1m/ipmitool.1m pkg.content-hash=file:sha512t_256:030a8bcbebdd04ff0b23fe6dcaf3308fb20a698cca2a9d0a9bfb15dd106993e5 pkg.content-hash=gzip:sha512t_256:c396dd365abed1938ab04f7bff36efd9501ce847646e590469e36329b24b3b81 pkg.csize=23311 pkg.size=90714
+file c6de290e6b238c8c7ecfe92808bc537812110df5 chash=096a4d1433297dea7e6e04db5c1d3ed784e70df8 group=bin mode=0555 owner=root path=lib/svc/method/svc-ipmievd pkg.content-hash=file:sha512t_256:7d5b422b34a502a2abe6746a70e65b388aaaacf64e732d165d8af293e9952703 pkg.content-hash=gzip:sha512t_256:cd265ab75cff8e4fe82baf09891a500a576908da3200be58097da466b36753b9 pkg.csize=1040 pkg.size=1938
+file 25a911e97d993543db78c31c1d3e8a357bb31c79 chash=b2445adcf5b0c27884469fcdf39c9580b22fff6c group=sys mode=0444 owner=root path=lib/svc/manifest/network/ipmievd.xml pkg.content-hash=file:sha512t_256:9b1c82eacc546122b37b4bf7351fbfc3c08b06876d9418f3d3ff68d86aedcd10 pkg.content-hash=gzip:sha512t_256:fc7fc3d472593f7ae2e849cb8ba96d6d2bd641fb51bea4116ba14ffc1ffa974c pkg.csize=1296 pkg.size=2740 restart_fmri=svc:/system/manifest-import:default
+file 48cd5d28099d67fd4a2825cde0e554d54474996a chash=339287ba393f8ad4f291841cc4e358680b50a525 facet.doc.man=all group=bin mode=0644 owner=root path=usr/share/man/man8/ipmievd.8 pkg.content-hash=file:sha512t_256:e96e85fb5b896102db92777ac57b042864700aa29b995cccf736b172041eed2d pkg.content-hash=gzip:sha512t_256:f277ff9d188cba76d365c8d11f7fd1d2698b86042ed061d9137366dcbf61f8c2 pkg.csize=3106 pkg.size=8223
+file 5c72125127510e075b495ada14d71df4954725ac chash=c5f60f64a306f5dfd270e1856c804baf8885b02a elfarch=i386 elfbits=32 elfhash=fff158568d3b9523a6b29d5ab2af480dc844b53c group=bin mode=0755 owner=root path=usr/lib/ipmievd pkg.content-hash=gelf:sha512t_256:13a9c1096f85b959133e202298614e4a10ddd214bc81d031e102e2993f80e78c pkg.content-hash=gelf.unsigned:sha512t_256:10144585465895f36d983db0ae10ec28b18520fc4c1188f80a179ec371a8825a pkg.content-hash=file:sha512t_256:b7303ed12fa0143f3ab3bce8e0b004fa1d4b2a252a8223acea9d88a8b411191b pkg.content-hash=gzip:sha512t_256:ee925eb9e244d0e7c7943ff7937a2a75da3b372e193b9560ee2cd0c8ef908514 pkg.csize=190002 pkg.size=626700 variant.arch=i386
+file 002f94342e06fec85943a182c7bee4fddd4aa604 chash=c15da1aff7fa18ad2112dcd81aad56fe9d4414ca elfarch=i386 elfbits=32 elfhash=32e30440839b7ee481b8c4a5db45646e3fc51082 group=bin mode=0755 owner=root path=usr/sbin/ipmitool pkg.content-hash=gelf:sha512t_256:ab8182069e2869f7782f985eb56f13e92816c5fa96dac18490a22b44319ba709 pkg.content-hash=gelf.unsigned:sha512t_256:a457983087d83cc5e7e00254a28250d2ee2d2c99a8c9430823dea08af7b5b25e pkg.content-hash=file:sha512t_256:dfdf91fc03696a44eb8bb479461a8d8eb2c09d46d1093a357a608741ff909371 pkg.content-hash=gzip:sha512t_256:1430c1c285a4c61bf214ef7ab08f2183b05d6dbc866e805138963fa1e33125d4 pkg.csize=271091 pkg.size=938700 variant.arch=i386
+license 9cae69e9a41bfe2fd2f5f099e7e3a5c8062e65a7 chash=8bda10c50116ec1b67f4ece250ead4dab96817b0 license=BSD-like pkg.content-hash=file:sha512t_256:8136899027838c6ac7b163295ee6fe6b5e4ab00dfe6d1a9f1b9f4dcbca5e3774 pkg.content-hash=gzip:sha512t_256:704c076f2ee57d8d17c77fe6fa7c0b0d837dc2ba94975219bdedfe77003eca68 pkg.csize=1127 pkg.size=2673
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=2a2930b9890ae21f379cf6420f4ae116f3da03f7f06592ab69a946af5c2f51fdda623d3eb73d7a11e05709f1debb10b28ff36641d4b0d8958d025aabf10cedd14686b2b913d3ab866142344a06a52be69235af0f02e037f4ef79ef6ce7305c609dcb6dbc010a4147a594b84150057bd7785baac292196906f531febcbd8bc0e7eae6d95b00cf61a6667c94ab98da137cce27b0734badf7929de646ad844935933bfc40322e8bf27789185735c806c8a29f7f34b86ecaea2d8739cb4f0067dd38a7f20b56a652a1a04b8a9127e800d3de0a74503fb07e26e7a3672e8ff483d413961cc911a0b499f1d532f2459f1fd93ce076a1788aa1ecba577ad27f0ab27bbc version=0

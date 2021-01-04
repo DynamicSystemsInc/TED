@@ -1,0 +1,21 @@
+set name=pkg.fmri value=pkg://solaris/library/python/six@1.10.0,5.11-11.4.0.0.1.14.0:20180814T170427Z
+set name=info.upstream value="Benjamin Peterson <benjamin@python.org>"
+set name=org.opensolaris.arc-caseid value=PSARC/2013/241
+set name=info.upstream-url value=https://bitbucket.org/gutworth/six
+set name=info.source-url value=pypi:///six==1.10.0
+set name=pkg.summary value="Python 2 and 3 compatibility utilities"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.description value="the Python six module"
+set name=pkg.description value="Six is a Python 2 and 3 compatibility library. It provides utility functions for smoothing over the differences between the Python versions with the goal of writing Python code that is compatible on both Python versions."
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.name value=six
+set name=com.oracle.info.version value=1.10.0
+set name=org.opensolaris.consolidation value=userland
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/python/six-35@1.10.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python/six-34@1.10.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python-2/six@1.4.1,5.12-5.12.0.0.0.41.0 type=optional
+depend fmri=library/python/six-27@1.10.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=b89dc05c8d396827d5d35882003f31f1fdfa8bfd70a8c879d135bcf64a2a1a7c7ccfb191d4906eea94a8c15d6c5340a8cedf6066037d63ea10d9d6703febe4c4541caffde270975e449e2f9d32fcdfa4aaadece2e494b37b19a4ade758a7dc7bae0c0a6a856c27157b86631bf063c9e5e2c80dda651cae041d1ca1299ef4996d7843e4bc7a7d10117f5a00a6e6c5fa1e6952de684e8b3bc4cf91d253a1b3cb611414c00204271f23e95f40599b8b2e95b7e0e920549ca03aca8aeb3d7a842337f4faf597174ace231eedfbb0d0afadbc4e5c6d0f1914f2de2a6fbe68bb62f705b800f38f6e168a72dc14729a4c89a740773e70a356c141777656ba1a58b060c0 version=0

@@ -1,0 +1,89 @@
+diff -ur mate-panel/menu.c mate-panel2/menu.c
+--- mate-panel-1.22.1/mate-panel/menu.c	2020-06-03 23:04:50.934909253 +0000
++++ mate-panel-1.22.1/mate-panel/menu.c	2020-06-03 23:05:53.761044722 +0000
+@@ -3,6 +3,7 @@
+  * Copyright (C) 2000 Helix Code, Inc.
+  * Copyright (C) 2000 Eazel, Inc.
+  * Copyright (C) 2004 Red Hat Inc.
++ * Copyright (C) 2020 Dynamic Systems, Inc.
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License as
+@@ -51,6 +52,13 @@
+ #include "panel-lockdown.h"
+ #include "panel-icon-names.h"
+ #include "panel-schemas.h"
++#include "panel-solaris.h"
++
++#include <fcntl.h>
++#include <sys/types.h>
++#include <sys/stat.h>
++
++static char *zoneroot = NULL;
+ 
+ static GtkWidget *populate_menu_from_directory (GtkWidget          *menu,
+ 						MateMenuTreeDirectory *directory);
+@@ -1053,6 +1061,49 @@
+ 
+ 	menuitem = panel_image_menu_item_new ();
+ 
++	if (use_trusted_extensions()) {
++	    if (zoneroot != NULL) {
++		if (strcmp(zoneroot, "/") != 0) {
++			char desktop_path[200];
++			char *file_path = NULL;
++			char *file_basename = NULL;
++			struct stat buf;
++			char app_path[] = "/usr/share/applications/";
++
++			/* TODO
++			 * The file_path for customized *.desktop files starts with
++			 *
++			 *   /export/home/<user>/.local/share/applications
++			 *
++			 * which generally is not present in labeled zones.
++			 * I am just using the default path until we decide if
++			 * zone users should be able to customize their menus.
++			 */
++			file_path = matemenu_tree_entry_get_desktop_file_path(entry);
++			file_basename = matemenu_tree_entry_get_desktop_file_id(entry);
++			/*
++			 * TODO
++			 * Trusted applications are executed in the global zone
++			 * so we don't need to check for their existance in
++			 * labeled zones.
++			 * But mozo does seen to know about this directory.
++			 */
++			if (strncmp(file_path,
++			    "/usr/share/mate/trusted/applications",
++			    strlen ("/usr/share/mate/trusted/applications")) != 0) {
++				strcpy(desktop_path, zoneroot);
++				strcat(desktop_path, app_path);
++				strcat(desktop_path, file_basename);
++				/*
++				 * If the application isn't installed then don't
++				 * display the item in the menu.
++				 */
++				if ((stat(desktop_path, &buf)) == -1)
++					return;
++			}
++		}
++	    }
++	}
+ 	g_object_set_data_full (G_OBJECT (menuitem),
+ 				"panel-menu-tree-entry",
+ 				matemenu_tree_item_ref (entry),
+@@ -1171,6 +1222,13 @@
+ 
+ 	GList *list, *l;
+ 	list = gtk_container_get_children (GTK_CONTAINER (menu));
++
++	if (use_trusted_extensions()) {
++		if (zoneroot != NULL)
++			free(zoneroot);
++		zoneroot = get_zoneroot();
++	}
++
+ 	for (l = list; l; l = l->next)
+ 		gtk_widget_destroy (l->data);
+ 	g_list_free (list);

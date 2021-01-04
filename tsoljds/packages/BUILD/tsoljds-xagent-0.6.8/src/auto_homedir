@@ -1,0 +1,79 @@
+#!/bin/bash
+#
+# Automounter executable script.
+# This script must be referenced in file /etc/auto_master in order
+# to have any effect. Furthermore it must have the sticky bit set.
+#
+# This script receives as $1 the name of the object (file or directory)
+# that is being accessed under the moint point. For example if the
+# moint point is /home and someone is accessing /home/johndoe then
+# $1 will be "johndoe".
+# The script is expected to write the path of the physical location
+# on stdout.
+
+#chmod +t+x /etc/auto_homedir
+
+# ------------------------------------------------------------------------------
+# Customizations
+
+
+# Path of our mount point. This must be the same as the name
+# in the first column in the file /etc/auto_master.
+HOMEDIRPATH=/home
+
+# Where the physical user home directories are
+PHYSICALDIRPATH=/export/home
+
+# The group owner to give to a user's home directory
+HOMEDIRGROUP=staff
+
+# ------------------------------------------------------------------------------
+
+eval hdir=$(printf ~$1)
+
+# Sanity check
+
+if [[ $hdir != $HOMEDIRPATH/* ]]; then
+# Someone is trying to access a directory under $HOMEDIRPATH
+# which is not the name of a user. This we simply ignore, i.e. we exit
+# without writing anything on stdout. This will make the automounter
+# ignore the action and thus the user will get an error.
+
+exit
+fi
+
+# Now we know that $1 is a valid user with a home directory
+# under $HOMEDIRPATH
+
+# Next see if the user's physical home dir exist. If not create it.
+
+phdir="$PHYSICALDIRPATH/$1"
+
+if [ -d "$phdir" ]; then
+# Yes the user's physical home dir already exist.
+# Return the path of the physical home dir to the automounter
+# and exit.
+echo "localhost:$phdir"
+exit
+fi
+
+# Create the directory
+#mkdir -p $phdir
+zfs create rpool/$phdir
+
+# Set owner and group
+chown "$1":"$HOMEDIRGROUP" $phdir
+
+# At this point we can copy setup files into the user's home directory
+# e.g. files from /etc/skel. This step is optional.
+
+# Example for Bash logins :
+cp /etc/skel/local.profile $phdir/.profile
+chown "$1":"$HOMEDIRGROUP" $phdir/.profile
+
+# This was all we needed to do.
+# Return the path of the physical home dir to the automounter
+# and exit.
+
+echo "localhost:$phdir"
+exit

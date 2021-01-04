@@ -1,0 +1,29 @@
+set name=pkg.fmri value=pkg://solaris/system/library/security/sasl/crammd5@2.1.26,5.11-11.4.0.0.1.14.0:20180814T172726Z
+set name=com.oracle.info.description value="sasl CRAM-MD5 mechanism plugin"
+set name=info.source-url value=ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.tpno value=21351
+set name=info.classification value=org.opensolaris.category.2008:System/Libraries
+set name=pkg.summary value="CRAM-MD5 plugin for SASL --Simple Authentication and Security Layer"
+set name=com.oracle.info.name value=cyrus-sasl
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.version value=2.1.26
+set name=info.upstream-url value=https://www.cyrusimap.org/sasl/
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.arc-caseid value=PSARC/2016/158
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=system/library/security/libsasl2@2.1.26 type=require
+file 801f9551d82ddcd9c9a11427785eec0a55af91ae chash=c4ccc05172a7636595a1929e2f6c39c22ee50e5b elfarch=sparc elfbits=32 elfhash=e2d2319365ae4776e7eb1d1550f6142a56ce9217 group=bin mode=0555 owner=root path=usr/lib/sasl2/libcrammd5.so.3.0.0 pkg.content-hash=gelf:sha512t_256:cbf01154002dec1fd288edfdc2924d18c59cf1aa9c22fd7117c009319e6d1b4f pkg.content-hash=gelf.unsigned:sha512t_256:6150aded89f87abf76c3f15cd61576c47040bd14001f0c1fdb6aa32e3f44727e pkg.content-hash=file:sha512t_256:63cae5dfcc5573535664b3d2def9231d3e6b70458a47db1578135d32d00b63bc pkg.content-hash=gzip:sha512t_256:a53df3c31758fea5e38994ffbcd45fa8b0726bd1e66f494c6233c4340398f2e7 pkg.csize=12802 pkg.size=36960 variant.arch=sparc
+file 4e5255f9d03ad7f6d411db1dad293018c2517369 chash=d2012505589f008430ff44c01236e5afd4b4b04a elfarch=sparc elfbits=64 elfhash=0e1354b07e708041040fbcf45fca6135a883c1a7 group=bin mode=0555 owner=root path=usr/lib/sasl2/sparcv9/libcrammd5.so.3.0.0 pkg.content-hash=gelf:sha512t_256:bb6d836e842e764e8563249a7f339c56d07e18392374b0df972684e7a5878684 pkg.content-hash=gelf.unsigned:sha512t_256:f4d74ae25fbe69e99106cdbf9095d8a1a6a38a1516f253d7ac47b05f01eccc9e pkg.content-hash=file:sha512t_256:247bdf11590ca59f93253156c61de304fe4eb0a529e3beb1d64c8470def4f0e3 pkg.content-hash=gzip:sha512t_256:4c68237de8d608287921402e7f4c2871438e316f531f78fbcaad170e5a2e7728 pkg.csize=14395 pkg.size=39320 variant.arch=sparc
+file a221911ac5773c674487b44ef04b29d444fc242a chash=bb9e73e2fed8d9501bfb71dc9b942dc0d353f9b2 elfarch=i386 elfbits=64 elfhash=7c3adfe9e86baf2f5014b638a56091f6a7638332 group=bin mode=0555 owner=root path=usr/lib/sasl2/amd64/libcrammd5.so.3.0.0 pkg.content-hash=gelf:sha512t_256:45418d02f58db96efcf71791e2812b6b635b4c0d586e4395a2be1f99f9308c11 pkg.content-hash=gelf.unsigned:sha512t_256:afb7e4f06b6dd8fbbbdba9729f3e7f23132d618b80836d093b71c7a3b304c141 pkg.content-hash=file:sha512t_256:a7a1cabfc794e1d9f8b8936fcbd0498dfa66598d9ce8c3b968a9d6f1ea581d7f pkg.content-hash=gzip:sha512t_256:7434b6c7e4096606572c34227ed99b6255ca1972546270aa1ef50bfc500dc9f1 pkg.csize=11908 pkg.size=42448 variant.arch=i386
+file c1b0f1083228efe92f86519c5a94830e08e18bfd chash=37dd43235d349b131ab0152feea88f0bbd1f608b elfarch=i386 elfbits=32 elfhash=14367dbe2b6cee4af716edac0eaef7681f24c21b group=bin mode=0555 owner=root path=usr/lib/sasl2/libcrammd5.so.3.0.0 pkg.content-hash=gelf:sha512t_256:5e6e90a1d4196aab233bdc5ae283f87f06ad34bef86ff20b8454bb6b837877df pkg.content-hash=gelf.unsigned:sha512t_256:5f035b3ef340edc6ad632d74d886878d91f90130b5b70777853f4fb362a1af8c pkg.content-hash=file:sha512t_256:4d0d2813756b030eeaf6a2d9a2a09fedfa320e1d05e0dcbed49ba4d90885f970 pkg.content-hash=gzip:sha512t_256:9419f78ebb69b760a84de95685904e8656d2bc81abb2e51c9ba781a91679d7fd pkg.csize=11146 pkg.size=36376 variant.arch=i386
+link path=usr/lib/sasl2/libcrammd5.so.3 target=libcrammd5.so.3.0.0
+link path=usr/lib/sasl2/amd64/libcrammd5.so.3 target=libcrammd5.so.3.0.0 variant.arch=i386
+link path=usr/lib/sasl2/amd64/libcrammd5.so target=libcrammd5.so.3.0.0 variant.arch=i386
+link path=usr/lib/sasl2/libcrammd5.so target=libcrammd5.so.3.0.0
+link path=usr/lib/sasl2/sparcv9/libcrammd5.so target=libcrammd5.so.3.0.0 variant.arch=sparc
+link path=usr/lib/sasl2/sparcv9/libcrammd5.so.3 target=libcrammd5.so.3.0.0 variant.arch=sparc
+license 178cdd3a52e7220b3a3f50b35a9f2f18023a5553 chash=3199b02812667f21d8c024d6dafd14a30724048d license="BSD with attribution to CMU, MIT, others" pkg.content-hash=file:sha512t_256:ee2de1d2be7d6a69ef7e6a7648ae656a12041ab8b06f6aa091d71cbc20594479 pkg.content-hash=gzip:sha512t_256:04be64c6efeddf6118f85f077fcc815a50572428bd74c2d1a345a83ae9a70cbf pkg.csize=5387 pkg.size=16724
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=1e47e5e43b68f027374282f91ba6d24a3108dcc7fc4eab41dc14bf991d9c4b943c22e1a19d5a185d14c8a6695bc747ea50a1c871ac9bb4ad8e62a2d855046ba054058b5455e79f95837f49f7bfa8b197920ba5f676114cf8f21a6064057ec7ec0309ebce286a140925d1a9fc76f6f2299ed433c3a00928cb9c1d2057d86040da8391c90e31510a29c22170851c17e438709ba605030b19b9e28888707deb2b3fd160232ea3811b84dc995acd48f52573f79d25c0c8afadee6ad09a3ef26472756f165c75ed88040ed99b4d21cd1774b3ad7b15c243cf2cb3d03ea884f4a65fd340c0d1226893bc11976fa3728fd2f47c2dd59c02d7a3d94ffed5487a80fc73e7 version=0

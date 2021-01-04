@@ -1,0 +1,90 @@
+diff -ur tsol/tsolprotocol.c tsol2/tsolprotocol.c
+--- a/tsol/tsolprotocol.c	2020-07-18 13:18:59.533943715 +0000
++++ b/tsol/tsolprotocol.c	2020-07-18 13:20:19.482029211 +0000
+@@ -562,7 +562,6 @@
+ HandleHotKey(DeviceIntPtr keybd)
+ {
+     int	            x, y;
+-    Bool            trusted_grab = FALSE;
+     ClientPtr       client;
+     DeviceIntPtr    mouse = GetPairedDevice(keybd);
+     TsolInfoPtr	    tsolinfo;
+@@ -574,39 +573,31 @@
+     {
+ 	client = clients[CLIENT_ID(kbdgrab->resource)];
+ 	tsolinfo = GetClientTsolInfo(client);
+-
+-        if (tsolinfo)
+-        {
+-            if (HasTrustedPath(tsolinfo))
+-                trusted_grab = TRUE;
+-            else
+-	        (*keybd->deviceGrab.DeactivateGrab)(keybd);
++	if (!HasTrustedPath(tsolinfo) || tsolinfo->uid != OwnerUID) {
++		(*keybd->deviceGrab.DeactivateGrab)(keybd);
+ 	}
+-
+-	if (ptrgrab)
+-	{
+-	    client = clients[CLIENT_ID(ptrgrab->resource)];
+-	    tsolinfo = GetClientTsolInfo(client);
+-
+-            if (tsolinfo)
+-            {
+-                if (HasTrustedPath(tsolinfo))
+-                    trusted_grab = TRUE;
+-                else
+-	            (*mouse->deviceGrab.DeactivateGrab)(mouse);
+-	    }
+-        }
+     }
+ 
+-    if (!trusted_grab)
++    if (ptrgrab)
+     {
+-        /*
+-         * Warp the pointer to the Trusted Stripe
+-         */
+-	    pScreen = screenInfo.screens[0];
+-	    x = pScreen->width/2;
+-	    y = pScreen->height - StripeHeight/2;
+-	    (*pScreen->SetCursorPosition)(mouse, pScreen, x, y, TRUE);
++	client = clients[CLIENT_ID(ptrgrab->resource)];
++	tsolinfo = GetClientTsolInfo(client);
++	if (!HasTrustedPath(tsolinfo) || tsolinfo->uid != OwnerUID) {
++		(*mouse->deviceGrab.DeactivateGrab)(mouse);
++		/*
++		 * Warp the pointer to the Trusted Stripe
++		 */
++		pScreen = screenInfo.screens[0];
++		x = pScreen->width/2;
++		if (StripeHeight == 0)
++			/*
++			 * Stripe is on top
++			 */
++			y = 15;
++		else
++			y = pScreen->height - StripeHeight/2;
++		(*pScreen->SetCursorPosition)(mouse, pScreen, x, y, TRUE);
++	}
+     }
+ }
+ 
+diff -ur tsol/tsolextension.c tsol2/tsolextension.c
+--- a/tsol/tsolextension.c	2020-07-20 19:25:35.665359141 +0000
++++ b/tsol/tsolextension.c	2020-07-20 19:28:04.082623514 +0000
+@@ -1791,8 +1791,12 @@
+ 	 */
+ 	if ((OwnerUID == (uid_t)(-1)) || (tsolMultiLevel && tpwin == NULL)) {
+ 		if (HasTrustedPath(tsolinfo)) {
+-			auth_token = CheckAuthorization(name_length, name, data_length,
+-				data, client, reason);
++                        /*
++                         * The CheckAuthorization() call has been
++                         * removed since it is redundant and can fail
++                         * for Xvnc clients.
++                         */
++                        auth_token = (XID)(tsolinfo->uid);
+ 		}
+ 	} else {
+ 		/*

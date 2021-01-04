@@ -1,0 +1,1097 @@
+gmake: Entering directory '/ws/userland/src/components/aalib'
+/bin/rm -f -r /ws/userland/src/components/aalib/aalib-1.4.0
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  aalib-1.4rc5.tar.gz
+/usr/bin/touch /ws/userland/src/components/aalib/aalib-1.4.0/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/aalib/aalib-1.4.0 --strip=1 --backup --version-control=numbered < patches/aalib-config.patch
+patching file aalib-config.in
+/usr/bin/touch /ws/userland/src/components/aalib/aalib-1.4.0/.patched-aalib-config.patch
+/usr/bin/touch /ws/userland/src/components/aalib/aalib-1.4.0/.patched
+(cd /ws/userland/src/components/aalib/aalib-1.4.0; autoreconf -fiv)
+autoreconf: Entering directory `.'
+autoreconf: configure.in: not using Gettext
+autoreconf: running: aclocal --force 
+aclocal: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+configure.in:129: warning: underquoted definition of AC_USE_SUNOS_CURSES
+configure.in:129:   run info Automake 'Extending aclocal'
+configure.in:129:   or see http://www.gnu.org/software/automake/manual/automake.html#Extending-aclocal
+configure.in:5: warning: AC_ARG_PROGRAM was called before AC_CANONICAL_TARGET
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:1833: AC_CANONICAL_TARGET is expanded from...
+configure.in:5: the top level
+autoreconf: configure.in: tracing
+configure.in:5: warning: AC_ARG_PROGRAM was called before AC_CANONICAL_TARGET
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:1833: AC_CANONICAL_TARGET is expanded from...
+configure.in:5: the top level
+autoreconf: running: libtoolize --copy --force
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.in,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+aclocal: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+configure.in:129: warning: underquoted definition of AC_USE_SUNOS_CURSES
+configure.in:129:   run info Automake 'Extending aclocal'
+configure.in:129:   or see http://www.gnu.org/software/automake/manual/automake.html#Extending-aclocal
+configure.in:5: warning: AC_ARG_PROGRAM was called before AC_CANONICAL_TARGET
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:1833: AC_CANONICAL_TARGET is expanded from...
+configure.in:5: the top level
+autoreconf: running: /usr/bin/autoconf --force
+configure.in:5: warning: AC_ARG_PROGRAM was called before AC_CANONICAL_TARGET
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:1833: AC_CANONICAL_TARGET is expanded from...
+configure.in:5: the top level
+autoreconf: running: /usr/bin/autoheader --force
+autoheader: WARNING: Using auxiliary files such as `acconfig.h', `config.h.bot'
+autoheader: WARNING: and `config.h.top', to define templates for `config.h.in'
+autoheader: WARNING: is deprecated and discouraged.
+autoheader: 
+autoheader: WARNING: Using the third argument of `AC_DEFINE' and
+autoheader: WARNING: `AC_DEFINE_UNQUOTED' allows one to define a template without
+autoheader: WARNING: `acconfig.h':
+autoheader: 
+autoheader: WARNING:   AC_DEFINE([NEED_FUNC_MAIN], 1,
+autoheader: 		[Define if a function `main' is needed.])
+autoheader: 
+autoheader: WARNING: More sophisticated templates can also be produced, see the
+autoheader: WARNING: documentation.
+configure.in:5: warning: AC_ARG_PROGRAM was called before AC_CANONICAL_TARGET
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:1833: AC_CANONICAL_TARGET is expanded from...
+configure.in:5: the top level
+autoreconf: running: automake --add-missing --copy --force-missing
+automake: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+configure.in:5: warning: AC_ARG_PROGRAM was called before AC_CANONICAL_TARGET
+/builds/ulhg/workspace/Solaris_11u4/Userland/full-build/02a-build-i386/components/autoconf/autoconf-2.69/lib/autoconf/general.m4:1833: AC_CANONICAL_TARGET is expanded from...
+configure.in:5: the top level
+configure.in:3: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.  For more info, see:
+configure.in:3: http://www.gnu.org/software/automake/manual/automake.html#Modernize-AM_005fINIT_005fAUTOMAKE-invocation
+configure.in:36: installing './compile'
+configure.in:3: installing './missing'
+automake: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+doc/Makefile.am:1: warning: suffix '.texinfo' for Texinfo files is discouraged; use '.texi' instead
+src/Makefile.am: installing './depcomp'
+autoreconf: Leaving directory `.'
+/usr/bin/touch /ws/userland/src/components/aalib/aalib-1.4.0/.prep
+(/bin/rm -f -rf /ws/userland/src/components/aalib/build/i86 ; /bin/mkdir -p /ws/userland/src/components/aalib/build/i86)
+(cd /ws/userland/src/components/aalib/build/i86 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/pkgconfig" CC="/opt/solarisstudio12.4/bin/cc" CXX="/opt/solarisstudio12.4/bin/CC"  CC_FOR_BUILD="/opt/solarisstudio12.4/bin/cc -m32" CXX_FOR_BUILD="/opt/solarisstudio12.4/bin/CC -m32" CPPFLAGS="-m32" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt" CXXFLAGS="-norunpath -m32 -xO4 -xchip=pentium -xregs=no%frameptr" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/aalib/aalib-1.4.0/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib    --infodir=/usr/share/info --enable-shared --disable-static --with-curses-driver --without-slang-driver --x-includes=/usr/include --x-libraries=/usr/lib)
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking build system type... i386-pc-solaris2.11
+checking host system type... i386-pc-solaris2.11
+checking target system type... i386-pc-solaris2.11
+checking for gcc... /opt/solarisstudio12.4/bin/cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... no
+checking whether /opt/solarisstudio12.4/bin/cc accepts -g... yes
+checking for /opt/solarisstudio12.4/bin/cc option to accept ISO C89... none needed
+checking whether /opt/solarisstudio12.4/bin/cc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /opt/solarisstudio12.4/bin/cc... none
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for fgrep... /usr/bin/ggrep -F
+checking for non-GNU ld... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert i386-pc-solaris2.11 file names to i386-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert i386-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /opt/solarisstudio12.4/bin/cc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... /opt/solarisstudio12.4/bin/cc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking for /opt/solarisstudio12.4/bin/cc option to produce PIC... -KPIC -DPIC
+checking if /opt/solarisstudio12.4/bin/cc PIC flag -KPIC -DPIC works... yes
+checking if /opt/solarisstudio12.4/bin/cc static flag -Bstatic works... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... (cached) yes
+checking whether the /opt/solarisstudio12.4/bin/cc linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking whether make sets $(MAKE)... (cached) yes
+checking for uname... SunOS
+checking for ANSI C header files... (cached) yes
+checking for pow in -lm... yes
+checking for X... libraries /usr/lib, headers /usr/include
+checking whether -R must be followed by a space... no
+checking for gethostbyname... yes
+checking for connect... yes
+checking for remove... yes
+checking for shmat... yes
+checking for IceConnectionNumber in -lICE... yes
+checking for Gpm_Repeat in -lgpm... no
+configure: checking "location of curses"...
+checking for initscr in -lncurses... yes
+Found ncurses on /usr/include/ncurses/ncurses.h
+checking for mousemask... yes
+checking for termattrs... yes
+checking for wredrawln... yes
+checking for redrawwin... yes
+checking for curs_set... yes
+checking for ANSI C header files... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for struct stat.st_rdev... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking return type of signal handlers... void
+checking for strdup... yes
+-----------------------------------------------------
+CFLAGS  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses
+LDFLAGS -lncurses -lm    -L/usr/lib -R/usr/lib -lX11  
+AA-LIBD -laa -lm   -L/usr/lib -R/usr/lib -lX11  -lncurses
+CC      /opt/solarisstudio12.4/bin/cc
+-----------------------------------------------------
+Display drivers:
+ curses
+ x11
+Keyboard drivers:
+ curses
+ X11
+Mouse drivers:
+ curses
+ X11
+-----------------------------------------------------
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating man/Makefile
+config.status: creating doc/Makefile
+config.status: creating src/Makefile
+config.status: creating aalib-config
+config.status: creating src/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing default commands
+/usr/bin/touch /ws/userland/src/components/aalib/build/i86/.configured
+(cd /ws/userland/src/components/aalib/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/aalib/build/i86'
+Making all in src
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/i86/src'
+/usr/gnu/bin/make  all-am
+make[3]: Entering directory '/ws/userland/src/components/aalib/build/i86/src'
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aafont.c' object='aafont.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aafont.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aafont.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aafont.c  -KPIC -DPIC -o .libs/aafont.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aafonts.c' object='aafonts.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aafonts.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aafonts.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aafonts.c  -KPIC -DPIC -o .libs/aafonts.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aavyhen.c' object='aavyhen.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aavyhen.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aavyhen.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aavyhen.c  -KPIC -DPIC -o .libs/aavyhen.o
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aavyhen.c", line 394: warning: empty translation unit
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aamktabl.c' object='aamktabl.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aamktabl.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aamktabl.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aamktabl.c  -KPIC -DPIC -o .libs/aamktabl.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aamem.c' object='aamem.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aamem.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aamem.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aamem.c  -KPIC -DPIC -o .libs/aamem.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaprintf.c' object='aaprintf.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaprintf.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaprintf.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaprintf.c  -KPIC -DPIC -o .libs/aaprintf.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aahelp.c' object='aahelp.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aahelp.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aahelp.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aahelp.c  -KPIC -DPIC -o .libs/aahelp.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaslnkbd.c' object='aaslnkbd.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaslnkbd.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaslnkbd.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaslnkbd.c  -KPIC -DPIC -o .libs/aaslnkbd.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaslang.c' object='aaslang.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaslang.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaslang.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaslang.c  -KPIC -DPIC -o .libs/aaslang.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aafastre.c' object='aafastre.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aafastre.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aafastre.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aafastre.c  -KPIC -DPIC -o .libs/aafastre.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aalinux.c' object='aalinux.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aalinux.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aalinux.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aalinux.c  -KPIC -DPIC -o .libs/aalinux.o
+"./config.h", line 141: warning: empty translation unit
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aalinuxkbd.c' object='aalinuxkbd.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aalinuxkbd.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aalinuxkbd.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aalinuxkbd.c  -KPIC -DPIC -o .libs/aalinuxkbd.o
+"./config.h", line 141: warning: empty translation unit
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aax.c' object='aax.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aax.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aax.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aax.c  -KPIC -DPIC -o .libs/aax.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaxkbd.c' object='aaxkbd.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaxkbd.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaxkbd.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaxkbd.c  -KPIC -DPIC -o .libs/aaxkbd.o
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aaxkbd.c", line 56: warning: implicit function declaration: XLookupString
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaxmouse.c' object='aaxmouse.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaxmouse.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaxmouse.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaxmouse.c  -KPIC -DPIC -o .libs/aaxmouse.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/fontgl.c' object='fontgl.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o fontgl.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/fontgl.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/fontgl.c  -KPIC -DPIC -o .libs/fontgl.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/font16.c' object='font16.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o font16.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/font16.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/font16.c  -KPIC -DPIC -o .libs/font16.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/font14.c' object='font14.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o font14.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/font14.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/font14.c  -KPIC -DPIC -o .libs/font14.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/fontx16.c' object='fontx16.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o fontx16.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/fontx16.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/fontx16.c  -KPIC -DPIC -o .libs/fontx16.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/fontx13.c' object='fontx13.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o fontx13.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/fontx13.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/fontx13.c  -KPIC -DPIC -o .libs/fontx13.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/fontx13b.c' object='fontx13b.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o fontx13b.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/fontx13b.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/fontx13b.c  -KPIC -DPIC -o .libs/fontx13b.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/fontcour.c' object='fontcour.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o fontcour.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/fontcour.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/fontcour.c  -KPIC -DPIC -o .libs/fontcour.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aarec.c' object='aarec.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aarec.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aarec.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aarec.c  -KPIC -DPIC -o .libs/aarec.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/font9.c' object='font9.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o font9.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/font9.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/font9.c  -KPIC -DPIC -o .libs/font9.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/font8.c' object='font8.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o font8.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/font8.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/font8.c  -KPIC -DPIC -o .libs/font8.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/fontline.c' object='fontline.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o fontline.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/fontline.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/fontline.c  -KPIC -DPIC -o .libs/fontline.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aacurses.c' object='aacurses.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aacurses.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurses.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurses.c  -KPIC -DPIC -o .libs/aacurses.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aacurkbd.c' object='aacurkbd.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aacurkbd.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurkbd.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurkbd.c  -KPIC -DPIC -o .libs/aacurkbd.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aacurmou.c' object='aacurmou.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aacurmou.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurmou.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurmou.c  -KPIC -DPIC -o .libs/aacurmou.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.c' object='aalib.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aalib.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.c  -KPIC -DPIC -o .libs/aalib.o
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.c", line 37: warning: implicit function declaration: abs
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.c", line 42: warning: implicit function declaration: exit
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaflush.c' object='aaflush.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaflush.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaflush.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaflush.c  -KPIC -DPIC -o .libs/aaflush.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aarender.c' object='aarender.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aarender.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aarender.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aarender.c  -KPIC -DPIC -o .libs/aarender.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaout.c' object='aaout.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaout.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaout.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaout.c  -KPIC -DPIC -o .libs/aaout.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aain.c' object='aain.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aain.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aain.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aain.c  -KPIC -DPIC -o .libs/aain.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaedit.c' object='aaedit.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaedit.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaedit.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaedit.c  -KPIC -DPIC -o .libs/aaedit.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaregist.c' object='aaregist.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaregist.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaregist.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaregist.c  -KPIC -DPIC -o .libs/aaregist.o
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aaregist.c", line 38: warning: implicit function declaration: strcmp
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aakbdreg.c' object='aakbdreg.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aakbdreg.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aakbdreg.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aakbdreg.c  -KPIC -DPIC -o .libs/aakbdreg.o
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aakbdreg.c", line 37: warning: implicit function declaration: strcmp
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aagpm.c' object='aagpm.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aagpm.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aagpm.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aagpm.c  -KPIC -DPIC -o .libs/aagpm.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aamoureg.c' object='aamoureg.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aamoureg.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aamoureg.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aamoureg.c  -KPIC -DPIC -o .libs/aamoureg.o
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aamoureg.c", line 33: warning: implicit function declaration: strcmp
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aasave.c' object='aasave.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aasave.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aasave.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aasave.c  -KPIC -DPIC -o .libs/aasave.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aastdout.c' object='aastdout.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aastdout.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aastdout.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aastdout.c  -KPIC -DPIC -o .libs/aastdout.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aastdin.c' object='aastdin.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aastdin.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aastdin.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aastdin.c  -KPIC -DPIC -o .libs/aastdin.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaparse.c' object='aaparse.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaparse.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaparse.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaparse.c  -KPIC -DPIC -o .libs/aaparse.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaimgwidth.c' object='aaimgwidth.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaimgwidth.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaimgwidth.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaimgwidth.c  -KPIC -DPIC -o .libs/aaimgwidth.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaimgheight.c' object='aaimgheight.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaimgheight.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaimgheight.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaimgheight.c  -KPIC -DPIC -o .libs/aaimgheight.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aascrwidth.c' object='aascrwidth.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aascrwidth.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aascrwidth.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aascrwidth.c  -KPIC -DPIC -o .libs/aascrwidth.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aascrheight.c' object='aascrheight.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aascrheight.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aascrheight.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aascrheight.c  -KPIC -DPIC -o .libs/aascrheight.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aammwidth.c' object='aammwidth.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aammwidth.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aammwidth.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aammwidth.c  -KPIC -DPIC -o .libs/aammwidth.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aammheight.c' object='aammheight.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aammheight.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aammheight.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aammheight.c  -KPIC -DPIC -o .libs/aammheight.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaimage.c' object='aaimage.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaimage.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaimage.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaimage.c  -KPIC -DPIC -o .libs/aaimage.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aatext.c' object='aatext.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aatext.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aatext.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aatext.c  -KPIC -DPIC -o .libs/aatext.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aacurrfnt.c' object='aacurrfnt.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aacurrfnt.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurrfnt.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurrfnt.c  -KPIC -DPIC -o .libs/aacurrfnt.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaattrs.c' object='aaattrs.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaattrs.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaattrs.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaattrs.c  -KPIC -DPIC -o .libs/aaattrs.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaputpixel.c' object='aaputpixel.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaputpixel.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaputpixel.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaputpixel.c  -KPIC -DPIC -o .libs/aaputpixel.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aarecfunc.c' object='aarecfunc.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aarecfunc.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aarecfunc.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m32 -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aarecfunc.c  -KPIC -DPIC -o .libs/aarecfunc.o
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -version-info 1:4:0  -o libaa.la -rpath /usr/lib aafont.lo aafonts.lo aavyhen.lo aamktabl.lo aamem.lo aaprintf.lo aahelp.lo aaslnkbd.lo aaslang.lo aafastre.lo aalinux.lo aalinuxkbd.lo aax.lo aaxkbd.lo aaxmouse.lo fontgl.lo font16.lo font14.lo fontx16.lo fontx13.lo fontx13b.lo fontcour.lo aarec.lo font9.lo font8.lo fontline.lo aacurses.lo aacurkbd.lo aacurmou.lo aalib.lo aaflush.lo aarender.lo aaout.lo aain.lo aaedit.lo aaregist.lo aakbdreg.lo aagpm.lo aamoureg.lo aasave.lo aastdout.lo aastdin.lo aaparse.lo aaimgwidth.lo aaimgheight.lo aascrwidth.lo aascrheight.lo aammwidth.lo aammheight.lo aaimage.lo aatext.lo aacurrfnt.lo aaattrs.lo aaputpixel.lo aarecfunc.lo  -lncurses -lm    -L/usr/lib -R/usr/lib -lX11  
+libtool: link: /opt/solarisstudio12.4/bin/cc -G -h libaa.so.1 -o .libs/libaa.so.1.0.4  .libs/aafont.o .libs/aafonts.o .libs/aavyhen.o .libs/aamktabl.o .libs/aamem.o .libs/aaprintf.o .libs/aahelp.o .libs/aaslnkbd.o .libs/aaslang.o .libs/aafastre.o .libs/aalinux.o .libs/aalinuxkbd.o .libs/aax.o .libs/aaxkbd.o .libs/aaxmouse.o .libs/fontgl.o .libs/font16.o .libs/font14.o .libs/fontx16.o .libs/fontx13.o .libs/fontx13b.o .libs/fontcour.o .libs/aarec.o .libs/font9.o .libs/font8.o .libs/fontline.o .libs/aacurses.o .libs/aacurkbd.o .libs/aacurmou.o .libs/aalib.o .libs/aaflush.o .libs/aarender.o .libs/aaout.o .libs/aain.o .libs/aaedit.o .libs/aaregist.o .libs/aakbdreg.o .libs/aagpm.o .libs/aamoureg.o .libs/aasave.o .libs/aastdout.o .libs/aastdin.o .libs/aaparse.o .libs/aaimgwidth.o .libs/aaimgheight.o .libs/aascrwidth.o .libs/aascrheight.o .libs/aammwidth.o .libs/aammheight.o .libs/aaimage.o .libs/aatext.o .libs/aacurrfnt.o .libs/aaattrs.o .libs/aaputpixel.o .libs/aarecfunc.o   -R/usr/lib -lncurses -lm -L/usr/lib -lX11 -lc  -m32 -mt   -mt
+libtool: link: (cd ".libs" && rm -f "libaa.so.1" && ln -s "libaa.so.1.0.4" "libaa.so.1")
+libtool: link: (cd ".libs" && rm -f "libaa.so" && ln -s "libaa.so.1.0.4" "libaa.so")
+libtool: link: ( cd ".libs" && rm -f "libaa.la" && ln -s "../libaa.la" "libaa.la" )
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aainfo.c' object='aainfo.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aainfo.o /ws/userland/src/components/aalib/aalib-1.4.0/src/aainfo.c
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aainfo.c", line 12: warning: implicit function declaration: exit
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses   -o aainfo aainfo.o libaa.la -lncurses -lm    -L/usr/lib -R/usr/lib -lX11  
+libtool: link: /opt/solarisstudio12.4/bin/cc -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -o .libs/aainfo aainfo.o  ./.libs/libaa.so -L/usr/lib -lncurses -lm -lX11 -mt -R/usr/lib
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aatest.c' object='aatest.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aatest.o /ws/userland/src/components/aalib/aalib-1.4.0/src/aatest.c
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aatest.c", line 8: warning: implicit function declaration: strcpy
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aatest.c", line 11: warning: implicit function declaration: exit
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses   -o aatest aatest.o libaa.la -lncurses -lm    -L/usr/lib -R/usr/lib -lX11  
+libtool: link: /opt/solarisstudio12.4/bin/cc -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -o .libs/aatest aatest.o  ./.libs/libaa.so -L/usr/lib -lncurses -lm -lX11 -mt -R/usr/lib
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c' object='aafire.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aafire.o /ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 55: warning: implicit function declaration: exit
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 95: warning: assignment type mismatch:
+	pointer to char "=" pointer to unsigned char
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 98: warning: assignment type mismatch:
+	pointer to unsigned char "=" pointer to char
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 112: warning: assignment type mismatch:
+	pointer to char "=" pointer to unsigned char
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 117: warning: implicit function declaration: rand
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 120: warning: assignment type mismatch:
+	pointer to unsigned char "=" pointer to char
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 157: warning: argument #2 is incompatible with prototype:
+	prototype: pointer to function(pointer to struct aa_context {pointer to const struct aa_driver {..} driver, pointer to const struct aa_kbddriver {..} kbddriver, pointer to const struct aa_mousedriver {..} mousedriver, struct aa_hardware_params {..} params, struct aa_hardware_params {..} driverparams, int mulx, int muly, int imgwidth, int imgheight, pointer to unsigned char imagebuffer, pointer to unsigned char textbuffer, pointer to unsigned char attrbuffer, pointer to unsigned short table, pointer to unsigned short filltable, pointer to struct parameters {..} parameters, int cursorx, int cursory, int cursorstate, int mousex, int mousey, int buttons, int mousemode, pointer to function(..) returning void resizehandler, pointer to void driverdata, pointer to void kbddriverdata, pointer to void mousedriverdata}) returning void : "/ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.h", line 802
+	argument : pointer to void
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses   -o aafire aafire.o libaa.la -lncurses -lm    -L/usr/lib -R/usr/lib -lX11  
+libtool: link: /opt/solarisstudio12.4/bin/cc -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -o .libs/aafire aafire.o  ./.libs/libaa.so -L/usr/lib -lncurses -lm -lX11 -mt -R/usr/lib
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aasavefont.c' object='aasavefont.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m32  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aasavefont.o /ws/userland/src/components/aalib/aalib-1.4.0/src/aasavefont.c
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aasavefont.c", line 10: warning: implicit function declaration: exit
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses   -o aasavefont aasavefont.o libaa.la -lncurses -lm    -L/usr/lib -R/usr/lib -lX11  
+libtool: link: /opt/solarisstudio12.4/bin/cc -m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -o .libs/aasavefont aasavefont.o  ./.libs/libaa.so -L/usr/lib -lncurses -lm -lX11 -mt -R/usr/lib
+make[3]: Leaving directory '/ws/userland/src/components/aalib/build/i86/src'
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/i86/src'
+Making all in man
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/i86/man'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/i86/man'
+Making all in doc
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/i86/doc'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/i86/doc'
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/i86'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/aalib/build/i86'
+/usr/bin/touch /ws/userland/src/components/aalib/build/i86/.built
+(cd /ws/userland/src/components/aalib/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/aalib/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/aalib/build/i86'
+Making install in src
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/i86/src'
+make[3]: Entering directory '/ws/userland/src/components/aalib/build/i86/src'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/lib'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libaa.la '/ws/userland/src/components/aalib/build/prototype/i386/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/libaa.so.1.0.4 /ws/userland/src/components/aalib/build/prototype/i386/usr/lib/libaa.so.1.0.4
+libtool: install: (cd /ws/userland/src/components/aalib/build/prototype/i386/usr/lib && { ln -s -f libaa.so.1.0.4 libaa.so.1 || { rm -f libaa.so.1 && ln -s libaa.so.1.0.4 libaa.so.1; }; })
+libtool: install: (cd /ws/userland/src/components/aalib/build/prototype/i386/usr/lib && { ln -s -f libaa.so.1.0.4 libaa.so || { rm -f libaa.so && ln -s libaa.so.1.0.4 libaa.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/aalib/build/prototype/i386/usr/lib/libaa.so.1.0.4
+libtool: install: /usr/bin/ginstall -c .libs/libaa.lai /ws/userland/src/components/aalib/build/prototype/i386/usr/lib/libaa.la
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/bin'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c aainfo aatest aafire aasavefont '/ws/userland/src/components/aalib/build/prototype/i386/usr/bin'
+libtool: warning: 'libaa.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/aainfo /ws/userland/src/components/aalib/build/prototype/i386/usr/bin/aainfo
+libtool: warning: 'libaa.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/aatest /ws/userland/src/components/aalib/build/prototype/i386/usr/bin/aatest
+libtool: warning: 'libaa.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/aafire /ws/userland/src/components/aalib/build/prototype/i386/usr/bin/aafire
+libtool: warning: 'libaa.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/ginstall -c .libs/aasavefont /ws/userland/src/components/aalib/build/prototype/i386/usr/bin/aasavefont
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/include'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.h '/ws/userland/src/components/aalib/build/prototype/i386/usr/include'
+make[3]: Leaving directory '/ws/userland/src/components/aalib/build/i86/src'
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/i86/src'
+Making install in man
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/i86/man'
+make[3]: Entering directory '/ws/userland/src/components/aalib/build/i86/man'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/man/man1'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/aalib/aalib-1.4.0/man/aafire.1 '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/man/man1'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/man/man3'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_attrs.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_autoinit.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_autoinitkbd.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_autoinitmouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_close.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_createedit.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_currentfont.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_defparams.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_defrenderparams.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_displayrecommended.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_dithernames.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_drivers.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_edit.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_editkey.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_fastrender.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_fonts.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_formats.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_getevent.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_getkey.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_getmouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_gotoxy.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_help.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_hidecursor.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_hidemouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_image.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_imgheight.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_imgwidth.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_init.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_initkbd.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_initmouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_kbddrivers.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_kbdrecommended.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_mmheight.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_mmwidth.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_mousedrivers.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_mouserecommended.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_parseoptions.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_printf.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_putpixel.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_puts.3 '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/man/man3'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendhi.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendhidisplay.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendhikbd.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendhimouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendlow.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendlowdisplay.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendlowkbd.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendlowmouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_registerfont.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_render.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_resize.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_resizehandler.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_scrheight.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_scrwidth.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_setfont.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_setsupported.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_showcursor.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_showmouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_text.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_uninitkbd.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_uninitmouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/mem_d.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/save_d.3 '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/man/man3'
+make[3]: Leaving directory '/ws/userland/src/components/aalib/build/i86/man'
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/i86/man'
+Making install in doc
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/i86/doc'
+make[3]: Entering directory '/ws/userland/src/components/aalib/build/i86/doc'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/info'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/aalib/aalib-1.4.0/doc/aalib.info /ws/userland/src/components/aalib/aalib-1.4.0/doc/aalib.info-1 /ws/userland/src/components/aalib/aalib-1.4.0/doc/aalib.info-2 /ws/userland/src/components/aalib/aalib-1.4.0/doc/aalib.info-3 '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/info'
+ install-info --info-dir='/ws/userland/src/components/aalib/build/prototype/i386/usr/share/info' '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/info/aalib.info'
+make[3]: Leaving directory '/ws/userland/src/components/aalib/build/i86/doc'
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/i86/doc'
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/aalib/build/i86'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/bin'
+ /usr/bin/ginstall -c aalib-config '/ws/userland/src/components/aalib/build/prototype/i386/usr/bin'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/aclocal'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/aalib/aalib-1.4.0/aalib.m4 '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/aclocal'
+make[3]: Leaving directory '/ws/userland/src/components/aalib/build/i86'
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/aalib/build/i86'
+/usr/bin/touch /ws/userland/src/components/aalib/build/i86/.installed
+(cd /ws/userland/src/components/aalib/build/i86 ; /opt/solarisstudio12.4/bin/lint -m32 -nsvx -I/ws/userland/src/components/aalib/build/i86 -I/ws/userland/src/components/aalib/aalib-1.4.0/include -I/ws/userland/src/components/aalib/aalib-1.4.0 -I/ws/userland/src/components/aalib/aalib-1.4.0/src -o aa ../../llib-laa)
+(/bin/rm -f -rf /ws/userland/src/components/aalib/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/aalib/build/amd64)
+(cd /ws/userland/src/components/aalib/build/amd64 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/opt/solarisstudio12.4/bin/cc" CXX="/opt/solarisstudio12.4/bin/CC" PATH="/usr/bin/amd64:/usr/bin:/usr/gnu/bin" CC_FOR_BUILD="/opt/solarisstudio12.4/bin/cc -m64" CXX_FOR_BUILD="/opt/solarisstudio12.4/bin/CC -m64" CPPFLAGS="-m64" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt" CXXFLAGS="-norunpath -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/aalib/aalib-1.4.0/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin/amd64 --sbindir=/usr/sbin/amd64 --libdir=/usr/lib/amd64    --infodir=/usr/share/info --enable-shared --disable-static --with-curses-driver --without-slang-driver --x-includes=/usr/include --x-libraries=/usr/lib/amd64)
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking build system type... x86_64-pc-solaris2.11
+checking host system type... x86_64-pc-solaris2.11
+checking target system type... x86_64-pc-solaris2.11
+checking for gcc... /opt/solarisstudio12.4/bin/cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... no
+checking whether /opt/solarisstudio12.4/bin/cc accepts -g... yes
+checking for /opt/solarisstudio12.4/bin/cc option to accept ISO C89... none needed
+checking whether /opt/solarisstudio12.4/bin/cc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /opt/solarisstudio12.4/bin/cc... none
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for fgrep... /usr/bin/ggrep -F
+checking for non-GNU ld... /usr/bin/amd64/ld
+checking if the linker (/usr/bin/amd64/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert x86_64-pc-solaris2.11 file names to x86_64-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert x86_64-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/amd64/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /opt/solarisstudio12.4/bin/cc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... /opt/solarisstudio12.4/bin/cc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking for /opt/solarisstudio12.4/bin/cc option to produce PIC... -KPIC -DPIC
+checking if /opt/solarisstudio12.4/bin/cc PIC flag -KPIC -DPIC works... yes
+checking if /opt/solarisstudio12.4/bin/cc static flag -Bstatic works... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... (cached) yes
+checking whether the /opt/solarisstudio12.4/bin/cc linker (/usr/bin/amd64/ld -64) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking whether make sets $(MAKE)... (cached) yes
+checking for uname... SunOS
+checking for ANSI C header files... (cached) yes
+checking for pow in -lm... yes
+checking for X... libraries /usr/lib/amd64, headers /usr/include
+checking whether -R must be followed by a space... no
+checking for gethostbyname... yes
+checking for connect... yes
+checking for remove... yes
+checking for shmat... yes
+checking for IceConnectionNumber in -lICE... yes
+checking for Gpm_Repeat in -lgpm... no
+configure: checking "location of curses"...
+checking for initscr in -lncurses... yes
+Found ncurses on /usr/include/ncurses/ncurses.h
+checking for mousemask... yes
+checking for termattrs... yes
+checking for wredrawln... yes
+checking for redrawwin... yes
+checking for curs_set... yes
+checking for ANSI C header files... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for struct stat.st_rdev... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking return type of signal handlers... void
+checking for strdup... yes
+-----------------------------------------------------
+CFLAGS  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses
+LDFLAGS -lncurses -lm    -L/usr/lib/amd64 -R/usr/lib/amd64 -lX11  
+AA-LIBD -laa -lm   -L/usr/lib/amd64 -R/usr/lib/amd64 -lX11  -lncurses
+CC      /opt/solarisstudio12.4/bin/cc
+-----------------------------------------------------
+Display drivers:
+ curses
+ x11
+Keyboard drivers:
+ curses
+ X11
+Mouse drivers:
+ curses
+ X11
+-----------------------------------------------------
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating man/Makefile
+config.status: creating doc/Makefile
+config.status: creating src/Makefile
+config.status: creating aalib-config
+config.status: creating src/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing default commands
+/usr/bin/touch /ws/userland/src/components/aalib/build/amd64/.configured
+(cd /ws/userland/src/components/aalib/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/aalib/build/amd64'
+Making all in src
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/amd64/src'
+/usr/gnu/bin/make  all-am
+make[3]: Entering directory '/ws/userland/src/components/aalib/build/amd64/src'
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aafont.c' object='aafont.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aafont.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aafont.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aafont.c  -KPIC -DPIC -o .libs/aafont.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aafonts.c' object='aafonts.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aafonts.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aafonts.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aafonts.c  -KPIC -DPIC -o .libs/aafonts.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aavyhen.c' object='aavyhen.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aavyhen.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aavyhen.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aavyhen.c  -KPIC -DPIC -o .libs/aavyhen.o
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aavyhen.c", line 394: warning: empty translation unit
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aamktabl.c' object='aamktabl.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aamktabl.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aamktabl.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aamktabl.c  -KPIC -DPIC -o .libs/aamktabl.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aamem.c' object='aamem.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aamem.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aamem.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aamem.c  -KPIC -DPIC -o .libs/aamem.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaprintf.c' object='aaprintf.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaprintf.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaprintf.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaprintf.c  -KPIC -DPIC -o .libs/aaprintf.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aahelp.c' object='aahelp.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aahelp.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aahelp.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aahelp.c  -KPIC -DPIC -o .libs/aahelp.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaslnkbd.c' object='aaslnkbd.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaslnkbd.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaslnkbd.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaslnkbd.c  -KPIC -DPIC -o .libs/aaslnkbd.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaslang.c' object='aaslang.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaslang.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaslang.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaslang.c  -KPIC -DPIC -o .libs/aaslang.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aafastre.c' object='aafastre.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aafastre.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aafastre.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aafastre.c  -KPIC -DPIC -o .libs/aafastre.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aalinux.c' object='aalinux.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aalinux.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aalinux.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aalinux.c  -KPIC -DPIC -o .libs/aalinux.o
+"./config.h", line 141: warning: empty translation unit
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aalinuxkbd.c' object='aalinuxkbd.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aalinuxkbd.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aalinuxkbd.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aalinuxkbd.c  -KPIC -DPIC -o .libs/aalinuxkbd.o
+"./config.h", line 141: warning: empty translation unit
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aax.c' object='aax.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aax.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aax.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aax.c  -KPIC -DPIC -o .libs/aax.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaxkbd.c' object='aaxkbd.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaxkbd.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaxkbd.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaxkbd.c  -KPIC -DPIC -o .libs/aaxkbd.o
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aaxkbd.c", line 56: warning: implicit function declaration: XLookupString
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaxmouse.c' object='aaxmouse.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaxmouse.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaxmouse.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaxmouse.c  -KPIC -DPIC -o .libs/aaxmouse.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/fontgl.c' object='fontgl.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o fontgl.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/fontgl.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/fontgl.c  -KPIC -DPIC -o .libs/fontgl.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/font16.c' object='font16.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o font16.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/font16.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/font16.c  -KPIC -DPIC -o .libs/font16.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/font14.c' object='font14.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o font14.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/font14.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/font14.c  -KPIC -DPIC -o .libs/font14.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/fontx16.c' object='fontx16.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o fontx16.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/fontx16.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/fontx16.c  -KPIC -DPIC -o .libs/fontx16.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/fontx13.c' object='fontx13.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o fontx13.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/fontx13.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/fontx13.c  -KPIC -DPIC -o .libs/fontx13.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/fontx13b.c' object='fontx13b.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o fontx13b.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/fontx13b.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/fontx13b.c  -KPIC -DPIC -o .libs/fontx13b.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/fontcour.c' object='fontcour.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o fontcour.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/fontcour.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/fontcour.c  -KPIC -DPIC -o .libs/fontcour.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aarec.c' object='aarec.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aarec.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aarec.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aarec.c  -KPIC -DPIC -o .libs/aarec.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/font9.c' object='font9.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o font9.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/font9.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/font9.c  -KPIC -DPIC -o .libs/font9.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/font8.c' object='font8.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o font8.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/font8.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/font8.c  -KPIC -DPIC -o .libs/font8.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/fontline.c' object='fontline.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o fontline.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/fontline.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/fontline.c  -KPIC -DPIC -o .libs/fontline.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aacurses.c' object='aacurses.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aacurses.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurses.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurses.c  -KPIC -DPIC -o .libs/aacurses.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aacurkbd.c' object='aacurkbd.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aacurkbd.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurkbd.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurkbd.c  -KPIC -DPIC -o .libs/aacurkbd.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aacurmou.c' object='aacurmou.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aacurmou.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurmou.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurmou.c  -KPIC -DPIC -o .libs/aacurmou.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.c' object='aalib.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aalib.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.c  -KPIC -DPIC -o .libs/aalib.o
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.c", line 37: warning: implicit function declaration: abs
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.c", line 42: warning: implicit function declaration: exit
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaflush.c' object='aaflush.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaflush.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaflush.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaflush.c  -KPIC -DPIC -o .libs/aaflush.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aarender.c' object='aarender.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aarender.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aarender.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aarender.c  -KPIC -DPIC -o .libs/aarender.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaout.c' object='aaout.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaout.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaout.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaout.c  -KPIC -DPIC -o .libs/aaout.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aain.c' object='aain.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aain.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aain.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aain.c  -KPIC -DPIC -o .libs/aain.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaedit.c' object='aaedit.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaedit.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaedit.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaedit.c  -KPIC -DPIC -o .libs/aaedit.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaregist.c' object='aaregist.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaregist.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaregist.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaregist.c  -KPIC -DPIC -o .libs/aaregist.o
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aaregist.c", line 38: warning: implicit function declaration: strcmp
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aakbdreg.c' object='aakbdreg.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aakbdreg.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aakbdreg.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aakbdreg.c  -KPIC -DPIC -o .libs/aakbdreg.o
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aakbdreg.c", line 37: warning: implicit function declaration: strcmp
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aagpm.c' object='aagpm.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aagpm.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aagpm.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aagpm.c  -KPIC -DPIC -o .libs/aagpm.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aamoureg.c' object='aamoureg.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aamoureg.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aamoureg.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aamoureg.c  -KPIC -DPIC -o .libs/aamoureg.o
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aamoureg.c", line 33: warning: implicit function declaration: strcmp
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aasave.c' object='aasave.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aasave.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aasave.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aasave.c  -KPIC -DPIC -o .libs/aasave.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aastdout.c' object='aastdout.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aastdout.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aastdout.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aastdout.c  -KPIC -DPIC -o .libs/aastdout.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aastdin.c' object='aastdin.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aastdin.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aastdin.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aastdin.c  -KPIC -DPIC -o .libs/aastdin.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaparse.c' object='aaparse.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaparse.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaparse.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaparse.c  -KPIC -DPIC -o .libs/aaparse.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaimgwidth.c' object='aaimgwidth.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaimgwidth.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaimgwidth.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaimgwidth.c  -KPIC -DPIC -o .libs/aaimgwidth.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaimgheight.c' object='aaimgheight.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaimgheight.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaimgheight.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaimgheight.c  -KPIC -DPIC -o .libs/aaimgheight.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aascrwidth.c' object='aascrwidth.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aascrwidth.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aascrwidth.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aascrwidth.c  -KPIC -DPIC -o .libs/aascrwidth.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aascrheight.c' object='aascrheight.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aascrheight.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aascrheight.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aascrheight.c  -KPIC -DPIC -o .libs/aascrheight.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aammwidth.c' object='aammwidth.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aammwidth.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aammwidth.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aammwidth.c  -KPIC -DPIC -o .libs/aammwidth.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aammheight.c' object='aammheight.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aammheight.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aammheight.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aammheight.c  -KPIC -DPIC -o .libs/aammheight.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaimage.c' object='aaimage.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaimage.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaimage.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaimage.c  -KPIC -DPIC -o .libs/aaimage.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aatext.c' object='aatext.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aatext.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aatext.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aatext.c  -KPIC -DPIC -o .libs/aatext.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aacurrfnt.c' object='aacurrfnt.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aacurrfnt.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurrfnt.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aacurrfnt.c  -KPIC -DPIC -o .libs/aacurrfnt.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaattrs.c' object='aaattrs.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaattrs.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaattrs.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaattrs.c  -KPIC -DPIC -o .libs/aaattrs.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aaputpixel.c' object='aaputpixel.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aaputpixel.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aaputpixel.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aaputpixel.c  -KPIC -DPIC -o .libs/aaputpixel.o
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aarecfunc.c' object='aarecfunc.lo' libtool=yes \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/bin/bash ../libtool  --tag=CC   --mode=compile /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aarecfunc.lo /ws/userland/src/components/aalib/aalib-1.4.0/src/aarecfunc.c
+libtool: compile:  /opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src -m64 -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -c /ws/userland/src/components/aalib/aalib-1.4.0/src/aarecfunc.c  -KPIC -DPIC -o .libs/aarecfunc.o
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -version-info 1:4:0  -o libaa.la -rpath /usr/lib/amd64 aafont.lo aafonts.lo aavyhen.lo aamktabl.lo aamem.lo aaprintf.lo aahelp.lo aaslnkbd.lo aaslang.lo aafastre.lo aalinux.lo aalinuxkbd.lo aax.lo aaxkbd.lo aaxmouse.lo fontgl.lo font16.lo font14.lo fontx16.lo fontx13.lo fontx13b.lo fontcour.lo aarec.lo font9.lo font8.lo fontline.lo aacurses.lo aacurkbd.lo aacurmou.lo aalib.lo aaflush.lo aarender.lo aaout.lo aain.lo aaedit.lo aaregist.lo aakbdreg.lo aagpm.lo aamoureg.lo aasave.lo aastdout.lo aastdin.lo aaparse.lo aaimgwidth.lo aaimgheight.lo aascrwidth.lo aascrheight.lo aammwidth.lo aammheight.lo aaimage.lo aatext.lo aacurrfnt.lo aaattrs.lo aaputpixel.lo aarecfunc.lo  -lncurses -lm    -L/usr/lib/amd64 -R/usr/lib/amd64 -lX11  
+libtool: link: /opt/solarisstudio12.4/bin/cc -G -h libaa.so.1 -o .libs/libaa.so.1.0.4  .libs/aafont.o .libs/aafonts.o .libs/aavyhen.o .libs/aamktabl.o .libs/aamem.o .libs/aaprintf.o .libs/aahelp.o .libs/aaslnkbd.o .libs/aaslang.o .libs/aafastre.o .libs/aalinux.o .libs/aalinuxkbd.o .libs/aax.o .libs/aaxkbd.o .libs/aaxmouse.o .libs/fontgl.o .libs/font16.o .libs/font14.o .libs/fontx16.o .libs/fontx13.o .libs/fontx13b.o .libs/fontcour.o .libs/aarec.o .libs/font9.o .libs/font8.o .libs/fontline.o .libs/aacurses.o .libs/aacurkbd.o .libs/aacurmou.o .libs/aalib.o .libs/aaflush.o .libs/aarender.o .libs/aaout.o .libs/aain.o .libs/aaedit.o .libs/aaregist.o .libs/aakbdreg.o .libs/aagpm.o .libs/aamoureg.o .libs/aasave.o .libs/aastdout.o .libs/aastdin.o .libs/aaparse.o .libs/aaimgwidth.o .libs/aaimgheight.o .libs/aascrwidth.o .libs/aascrheight.o .libs/aammwidth.o .libs/aammheight.o .libs/aaimage.o .libs/aatext.o .libs/aacurrfnt.o .libs/aaattrs.o .libs/aaputpixel.o .libs/aarecfunc.o   -R/usr/lib/amd64 -lncurses -lm -L/usr/lib/amd64 -lX11 -lc  -m64 -mt   -mt
+libtool: link: (cd ".libs" && rm -f "libaa.so.1" && ln -s "libaa.so.1.0.4" "libaa.so.1")
+libtool: link: (cd ".libs" && rm -f "libaa.so" && ln -s "libaa.so.1.0.4" "libaa.so")
+libtool: link: ( cd ".libs" && rm -f "libaa.la" && ln -s "../libaa.la" "libaa.la" )
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aainfo.c' object='aainfo.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aainfo.o /ws/userland/src/components/aalib/aalib-1.4.0/src/aainfo.c
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aainfo.c", line 12: warning: implicit function declaration: exit
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses   -o aainfo aainfo.o libaa.la -lncurses -lm    -L/usr/lib/amd64 -R/usr/lib/amd64 -lX11  
+libtool: link: /opt/solarisstudio12.4/bin/cc -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -o .libs/aainfo aainfo.o  ./.libs/libaa.so -L/usr/lib/amd64 -lncurses -lm -lX11 -mt -R/usr/lib/amd64
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aatest.c' object='aatest.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aatest.o /ws/userland/src/components/aalib/aalib-1.4.0/src/aatest.c
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aatest.c", line 8: warning: implicit function declaration: strcpy
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aatest.c", line 11: warning: implicit function declaration: exit
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses   -o aatest aatest.o libaa.la -lncurses -lm    -L/usr/lib/amd64 -R/usr/lib/amd64 -lX11  
+libtool: link: /opt/solarisstudio12.4/bin/cc -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -o .libs/aatest aatest.o  ./.libs/libaa.so -L/usr/lib/amd64 -lncurses -lm -lX11 -mt -R/usr/lib/amd64
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c' object='aafire.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aafire.o /ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 55: warning: implicit function declaration: exit
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 95: warning: assignment type mismatch:
+	pointer to char "=" pointer to unsigned char
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 98: warning: assignment type mismatch:
+	pointer to unsigned char "=" pointer to char
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 112: warning: assignment type mismatch:
+	pointer to char "=" pointer to unsigned char
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 117: warning: implicit function declaration: rand
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 120: warning: assignment type mismatch:
+	pointer to unsigned char "=" pointer to char
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aafire.c", line 157: warning: argument #2 is incompatible with prototype:
+	prototype: pointer to function(pointer to struct aa_context {pointer to const struct aa_driver {..} driver, pointer to const struct aa_kbddriver {..} kbddriver, pointer to const struct aa_mousedriver {..} mousedriver, struct aa_hardware_params {..} params, struct aa_hardware_params {..} driverparams, int mulx, int muly, int imgwidth, int imgheight, pointer to unsigned char imagebuffer, pointer to unsigned char textbuffer, pointer to unsigned char attrbuffer, pointer to unsigned short table, pointer to unsigned short filltable, pointer to struct parameters {..} parameters, int cursorx, int cursory, int cursorstate, int mousex, int mousey, int buttons, int mousemode, pointer to function(..) returning void resizehandler, pointer to void driverdata, pointer to void kbddriverdata, pointer to void mousedriverdata}) returning void : "/ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.h", line 802
+	argument : pointer to void
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses   -o aafire aafire.o libaa.la -lncurses -lm    -L/usr/lib/amd64 -R/usr/lib/amd64 -lX11  
+libtool: link: /opt/solarisstudio12.4/bin/cc -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -o .libs/aafire aafire.o  ./.libs/libaa.so -L/usr/lib/amd64 -lncurses -lm -lX11 -mt -R/usr/lib/amd64
+source='/ws/userland/src/components/aalib/aalib-1.4.0/src/aasavefont.c' object='aasavefont.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/bash /ws/userland/src/components/aalib/aalib-1.4.0/depcomp \
+/opt/solarisstudio12.4/bin/cc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/aalib/aalib-1.4.0/src   -m64  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses -c -o aasavefont.o /ws/userland/src/components/aalib/aalib-1.4.0/src/aasavefont.c
+"/ws/userland/src/components/aalib/aalib-1.4.0/src/aasavefont.c", line 10: warning: implicit function declaration: exit
+/bin/bash ../libtool  --tag=CC   --mode=link /opt/solarisstudio12.4/bin/cc  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  -I/usr/include -I/usr/include/ncurses   -o aasavefont aasavefont.o libaa.la -lncurses -lm    -L/usr/lib/amd64 -R/usr/lib/amd64 -lX11  
+libtool: link: /opt/solarisstudio12.4/bin/cc -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt -I/usr/include -I/usr/include/ncurses -o .libs/aasavefont aasavefont.o  ./.libs/libaa.so -L/usr/lib/amd64 -lncurses -lm -lX11 -mt -R/usr/lib/amd64
+make[3]: Leaving directory '/ws/userland/src/components/aalib/build/amd64/src'
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/amd64/src'
+Making all in man
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/amd64/man'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/amd64/man'
+Making all in doc
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/amd64/doc'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/amd64/doc'
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/amd64'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/aalib/build/amd64'
+/usr/bin/touch /ws/userland/src/components/aalib/build/amd64/.built
+(cd /ws/userland/src/components/aalib/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/aalib/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/aalib/build/amd64'
+Making install in src
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/amd64/src'
+make[3]: Entering directory '/ws/userland/src/components/aalib/build/amd64/src'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/lib/amd64'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libaa.la '/ws/userland/src/components/aalib/build/prototype/i386/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/libaa.so.1.0.4 /ws/userland/src/components/aalib/build/prototype/i386/usr/lib/amd64/libaa.so.1.0.4
+libtool: install: (cd /ws/userland/src/components/aalib/build/prototype/i386/usr/lib/amd64 && { ln -s -f libaa.so.1.0.4 libaa.so.1 || { rm -f libaa.so.1 && ln -s libaa.so.1.0.4 libaa.so.1; }; })
+libtool: install: (cd /ws/userland/src/components/aalib/build/prototype/i386/usr/lib/amd64 && { ln -s -f libaa.so.1.0.4 libaa.so || { rm -f libaa.so && ln -s libaa.so.1.0.4 libaa.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/aalib/build/prototype/i386/usr/lib/amd64/libaa.so.1.0.4
+libtool: install: /usr/bin/ginstall -c .libs/libaa.lai /ws/userland/src/components/aalib/build/prototype/i386/usr/lib/amd64/libaa.la
+libtool: warning: remember to run 'libtool --finish /usr/lib/amd64'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/bin/amd64'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c aainfo aatest aafire aasavefont '/ws/userland/src/components/aalib/build/prototype/i386/usr/bin/amd64'
+libtool: warning: 'libaa.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/aainfo /ws/userland/src/components/aalib/build/prototype/i386/usr/bin/amd64/aainfo
+libtool: warning: 'libaa.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/aatest /ws/userland/src/components/aalib/build/prototype/i386/usr/bin/amd64/aatest
+libtool: warning: 'libaa.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/aafire /ws/userland/src/components/aalib/build/prototype/i386/usr/bin/amd64/aafire
+libtool: warning: 'libaa.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/aasavefont /ws/userland/src/components/aalib/build/prototype/i386/usr/bin/amd64/aasavefont
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/include'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/aalib/aalib-1.4.0/src/aalib.h '/ws/userland/src/components/aalib/build/prototype/i386/usr/include'
+make[3]: Leaving directory '/ws/userland/src/components/aalib/build/amd64/src'
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/amd64/src'
+Making install in man
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/amd64/man'
+make[3]: Entering directory '/ws/userland/src/components/aalib/build/amd64/man'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/man/man1'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/aalib/aalib-1.4.0/man/aafire.1 '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/man/man1'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/man/man3'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_attrs.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_autoinit.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_autoinitkbd.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_autoinitmouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_close.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_createedit.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_currentfont.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_defparams.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_defrenderparams.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_displayrecommended.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_dithernames.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_drivers.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_edit.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_editkey.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_fastrender.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_fonts.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_formats.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_getevent.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_getkey.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_getmouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_gotoxy.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_help.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_hidecursor.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_hidemouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_image.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_imgheight.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_imgwidth.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_init.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_initkbd.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_initmouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_kbddrivers.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_kbdrecommended.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_mmheight.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_mmwidth.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_mousedrivers.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_mouserecommended.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_parseoptions.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_printf.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_putpixel.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_puts.3 '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/man/man3'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendhi.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendhidisplay.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendhikbd.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendhimouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendlow.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendlowdisplay.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendlowkbd.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_recommendlowmouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_registerfont.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_render.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_resize.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_resizehandler.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_scrheight.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_scrwidth.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_setfont.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_setsupported.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_showcursor.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_showmouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_text.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_uninitkbd.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/aa_uninitmouse.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/mem_d.3 /ws/userland/src/components/aalib/aalib-1.4.0/man/save_d.3 '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/man/man3'
+make[3]: Leaving directory '/ws/userland/src/components/aalib/build/amd64/man'
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/amd64/man'
+Making install in doc
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/amd64/doc'
+make[3]: Entering directory '/ws/userland/src/components/aalib/build/amd64/doc'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/info'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/aalib/aalib-1.4.0/doc/aalib.info /ws/userland/src/components/aalib/aalib-1.4.0/doc/aalib.info-1 /ws/userland/src/components/aalib/aalib-1.4.0/doc/aalib.info-2 /ws/userland/src/components/aalib/aalib-1.4.0/doc/aalib.info-3 '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/info'
+ install-info --info-dir='/ws/userland/src/components/aalib/build/prototype/i386/usr/share/info' '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/info/aalib.info'
+make[3]: Leaving directory '/ws/userland/src/components/aalib/build/amd64/doc'
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/amd64/doc'
+make[2]: Entering directory '/ws/userland/src/components/aalib/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/aalib/build/amd64'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/bin/amd64'
+ /usr/bin/ginstall -c aalib-config '/ws/userland/src/components/aalib/build/prototype/i386/usr/bin/amd64'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/aclocal'
+ /usr/bin/ginstall -c -m 644 /ws/userland/src/components/aalib/aalib-1.4.0/aalib.m4 '/ws/userland/src/components/aalib/build/prototype/i386/usr/share/aclocal'
+make[3]: Leaving directory '/ws/userland/src/components/aalib/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/aalib/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/aalib/build/amd64'
+/usr/bin/touch /ws/userland/src/components/aalib/build/amd64/.installed
+(cd /ws/userland/src/components/aalib/build/amd64 ; /opt/solarisstudio12.4/bin/lint -m64 -nsvx -I/ws/userland/src/components/aalib/build/amd64 -I/ws/userland/src/components/aalib/aalib-1.4.0/include -I/ws/userland/src/components/aalib/aalib-1.4.0 -I/ws/userland/src/components/aalib/aalib-1.4.0/src -o aa ../../llib-laa)
+/usr/bin/ginstall -c llib-laa /ws/userland/src/components/aalib/build/prototype/i386/usr/lib/llib-laa
+/usr/bin/ginstall -c /ws/userland/src/components/aalib/build/i86/llib-laa.ln /ws/userland/src/components/aalib/build/prototype/i386/usr/lib/llib-laa.ln
+/usr/bin/ginstall -c /ws/userland/src/components/aalib/build/amd64/llib-laa.ln /ws/userland/src/components/aalib/build/prototype/i386/usr/lib/amd64/llib-laa.ln
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 aalib.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=1\\.4\\.5 -D COMPONENT_RE_VERSION=1\\.4\\.0 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/aalib -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="6118" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="1.4.0" -D IPS_COMPONENT_VERSION="1.4.5" -D HUMAN_VERSION="1.4rc5" -D COMPONENT_ARCHIVE_URL="http://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz" -D COMPONENT_PROJECT_URL="http://aa-project.sourceforge.net/aalib/" -D COMPONENT_NAME="aalib" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" aalib.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/aalib/build/manifest-i386-aalib.mogrified
+/bin/mkdir -p /ws/userland/src/components/aalib/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/aalib/build/prototype/i386/mangled -d /ws/userland/src/components/aalib/build/prototype/i386/mangled -d /ws/userland/src/components/aalib/build/prototype/i386 -d /ws/userland/src/components/aalib/build -d /ws/userland/src/components/aalib -d aalib-1.4.0 -d /ws/userland/src/licenses -m /ws/userland/src/components/aalib/build/manifest-i386-aalib.mogrified >/ws/userland/src/components/aalib/build/manifest-i386-aalib.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/aalib/build/prototype/i386/mangled -d /ws/userland/src/components/aalib/build/prototype/i386 -d /ws/userland/src/components/aalib/build -d /ws/userland/src/components/aalib -d aalib-1.4.0 -d /ws/userland/src/licenses /ws/userland/src/components/aalib/build/manifest-i386-aalib.mangled >/ws/userland/src/components/aalib/build/manifest-i386-aalib.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/aalib/build/resolve.deps -m /ws/userland/src/components/aalib/build/manifest-i386-aalib.depend
+/usr/bin/touch /ws/userland/src/components/aalib/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/aalib/build/manifest-i386-aalib.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/aalib/build/prototype/i386/mangled /ws/userland/src/components/aalib/build/prototype/i386 /ws/userland/src/components/aalib/build /ws/userland/src/components/aalib aalib-1.4.0 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/aalib/build/manifest-i386-aalib.depend.res
+/usr/bin/touch /ws/userland/src/components/aalib/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/aalib/build/prototype/i386/mangled -d /ws/userland/src/components/aalib/build/prototype/i386 -d /ws/userland/src/components/aalib/build -d /ws/userland/src/components/aalib -d aalib-1.4.0 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/aalib/build/manifest-i386-aalib.depend.res
+pkg://nightly/library/aalib@1.4.5,5.11-11.4.0.0.1.14.0:20190727T162616Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/aalib/build/manifest-i386-aalib.depend.res >/ws/userland/src/components/aalib/build/manifest-i386-aalib.published
+/usr/bin/touch /ws/userland/src/components/aalib/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/aalib'
+
+real     1:06.1
+user       21.4
+sys         6.2

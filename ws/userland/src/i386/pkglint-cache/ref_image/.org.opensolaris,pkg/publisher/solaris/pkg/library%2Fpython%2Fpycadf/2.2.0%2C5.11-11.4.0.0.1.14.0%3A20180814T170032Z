@@ -1,0 +1,26 @@
+set name=pkg.fmri value=pkg://solaris/library/python/pycadf@2.2.0,5.11-11.4.0.0.1.14.0:20180814T170032Z
+set name=pkg.description value="pyCADF is the Python implementation of the Cloud Audit Data Federation (CADF) Working Group specification. The CADF specification for audit event data, interface models, and a compatible interaction model describes interactions between IT resources for cloud deployment models."
+set name=com.oracle.info.description value="the Python pyCADF module"
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=info.upstream-url value=http://docs.openstack.org/developer/pycadf/
+set name=info.upstream value="OpenStack <openstack-dev@lists.openstack.org>"
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=com.oracle.info.name value=pycadf
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=info.source-url value=pypi:///pycadf==2.2.0
+set name=pkg.summary value="Python implementation of CADF data model"
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.tpno value=27909
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.arc-caseid value=PSARC/2014/329
+set name=com.oracle.info.version value=2.2.0
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/python/pycadf-27@2.2.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+file d7ffa3d3179eddb966d7fca8fd87251b870d8bc8 chash=9f32d35ffd87e56c94a6e8c7c55d8de5dbb5528d group=bin mode=0644 overlay=allow owner=root path=etc/pycadf/cinder_api_audit_map.conf pkg.content-hash=file:sha512t_256:eea55e52448c68d6200bfdab827afe5d09d0e3fb847ce169a1640740478369af pkg.content-hash=gzip:sha512t_256:72af4139c61c785eaa3f0c1d2eca2d8f30864afd2489f499cb1c4a0b9914d1d0 pkg.csize=345 pkg.size=689 preserve=true
+file 406fc509109d459e590d97f84475fa34c2ecab6e chash=c3be150c25e8425c6943d900e54cb68201af0960 group=bin mode=0644 overlay=allow owner=root path=etc/pycadf/nova_api_audit_map.conf pkg.content-hash=file:sha512t_256:cbeae88cba530f0cee2f2e724d44f32546d74ef73ba9beea0ecc632e60afaed5 pkg.content-hash=gzip:sha512t_256:0951aba2693941970fe3697166aa4a7074653db3a14075d16ac4533c3503f2b2 pkg.csize=673 pkg.size=1568 preserve=true
+file 4955c4abb192cb21539b8ecd829513c3b14028f0 chash=2935830eb7c697bfaaf4bc8fa52efb74e5e23056 group=bin mode=0644 overlay=allow owner=root path=etc/pycadf/ceilometer_api_audit_map.conf pkg.content-hash=file:sha512t_256:953b683f517ccb14a9118a0800db2e457e352b6dba1ba0d69793f65f986085d2 pkg.content-hash=gzip:sha512t_256:5ac34b20ec5479f988b1dae6d77bd0459bc3d3fd10450f791f712a66acd3a1e1 pkg.csize=276 pkg.size=507 preserve=true
+file 48dd19b03733bebd55c9bc454844ea84ecfa534b chash=80146fe89cedf33a2b05c44e6dcda36ce00c876e group=bin mode=0644 overlay=allow owner=root path=etc/pycadf/neutron_api_audit_map.conf pkg.content-hash=file:sha512t_256:3df623df18535c608fcc1171473de66d46eba60a5f465adc9be14c1e66aac39a pkg.content-hash=gzip:sha512t_256:869b452f3e5b10da279afc82e4cbd7c03eb8e62e36084b2961845e511e6d415c pkg.csize=363 pkg.size=715 preserve=true
+file bb227fed10985002ef26a6bce85e28e41fe8b946 chash=670358eb97793afe65289e71b25702076ced1041 group=bin mode=0644 overlay=allow owner=root path=etc/pycadf/glance_api_audit_map.conf pkg.content-hash=file:sha512t_256:1dd0bf3720fea4f0d1e3ac236f4a77daec1fa5a80d6656dc2f0f07fd266f2f78 pkg.content-hash=gzip:sha512t_256:1215281c917b38ed7a24ec1c609e835d28f64604863a77b91b171cc809dedacf pkg.csize=226 pkg.size=364 preserve=true
+file 69f28f2742f11beacea5d844fca21403325ac29a chash=8072705af456014490cd2fd045f42fff19543f70 group=bin mode=0644 overlay=allow owner=root path=etc/pycadf/trove_api_audit_map.conf pkg.content-hash=file:sha512t_256:3d92936fa94c814c6cc8eb252da46fda92276db796ee17691d976dca0f9645b7 pkg.content-hash=gzip:sha512t_256:72c746bb7fca55e46f9dc489dced9eb03e528a6d157c0b3a1d822d157d39f0ce pkg.csize=274 pkg.size=500 preserve=true
+license 30646a8d159b611bde4f3956811f267c97d0b8fb chash=34a4a9f1aa9492fa10e3468165510583a8375189 license="Apache v2.0" pkg.content-hash=file:sha512t_256:fe4da05ab9db6bf2c354dbe76fe871689e5eff47eb77ee2b6211516009fc4201 pkg.content-hash=gzip:sha512t_256:850dfc4489ac28f438828b7e2c5b94a190c627c0ce5a76d74289839877672222 pkg.csize=4447 pkg.size=12410
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=21a5c881da6fdceae32041e7fda06ea82b265e29bb81496c99aa94a110b775abcdd3dd7337221fcc5ba812d3a3002d4c58588dab5960fb4a8d7952eb42a8b9673731f31a907c44653d0ca0ec8c25cef3216267800280a75fabd9eedbee58dbaa94ac4af1ef5c51862a83f9ce1770f00bfde9fc741dec6476443772a6e062fd1d231a7629d38fb99268141af72de0309e1bbeb633f340ce5fa3d7013ccef6c49223be3b016feea18129a413888eafcdb90c7069d24ee57c219fc9f79b6c029aca60d92e751a6f75b0be101bf7f355913d688d5bf6bd947853e89f706afd8ba0acb1e62ae81f97fdda707ed31647fb9d4e0c9bcef8118139736e0d6a9e0eddfbf5 version=0

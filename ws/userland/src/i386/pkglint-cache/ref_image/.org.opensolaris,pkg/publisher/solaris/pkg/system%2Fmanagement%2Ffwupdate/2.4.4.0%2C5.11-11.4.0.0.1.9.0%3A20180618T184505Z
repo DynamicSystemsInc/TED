@@ -1,0 +1,42 @@
+set name=pkg.fmri value=pkg://solaris/system/management/fwupdate@2.4.4.0,5.11-11.4.0.0.1.9.0:20180618T184505Z
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=pkg.description value="Oracle Hardware Management Tools - firmware update utility"
+set name=org.opensolaris.arc-caseid value=PSARC/2012/391
+set name=info.classification value="org.opensolaris.category.2008:System/Administration and Configuration"
+set name=org.opensolaris.consolidation value=ssm
+set name=pkg.summary value="Oracle Hardware Management Pack - fwupdate"
+set name=variant.arch value=sparc value=i386
+depend fmri=pkg:/library/zlib@1.2.11-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/library/security/openssl@1.0.2.15-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/library/libxml2@2.9.5-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/management/fwupdate/qlogic@2.1.0,5.11-11.4.0.0.1.9.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/linker@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/system/library/hmp-libs@2.4.4.0-11.4.0.0.1.9.0 type=require
+depend fmri=pkg:/system/management/fwupdate/emulex@10.6.125.0,5.11-11.4.0.0.1.9.0 type=require
+depend fmri=pkg:/system/library/libv12n@11.4-11.4.0.0.1.8.0 type=require
+dir group=sys mode=0755 owner=root path=etc
+dir group=sys mode=0755 owner=root path=etc/security
+dir group=sys mode=0755 owner=root path=etc/security/exec_attr.d
+dir group=sys mode=0755 owner=root path=usr
+dir group=bin mode=0755 owner=root path=usr/lib
+dir group=bin mode=0755 owner=root path=usr/lib/ssm
+dir facet.doc=all group=bin mode=0755 owner=root path=usr/lib/ssm/doc
+dir group=bin mode=0755 owner=root path=usr/sbin
+dir group=sys mode=0755 owner=root path=usr/share
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man8
+dir group=sys mode=0755 owner=root path=var
+dir group=sys mode=0755 owner=root path=var/log
+dir group=bin mode=0750 owner=root path=var/log/ssm
+file d27fa81c72246a06be0a0433684e5f638770231f chash=5ad88147cf3e7468c5342f9d2da6bb9dcaab3863 elfarch=i386 elfbits=64 elfhash=785640263882e8f8c18b46c1866f2dfa1052ad37 group=bin mode=0755 owner=root path=usr/lib/ssm/nvmupdate64e pkg.content-hash=gelf:sha512t_256:2ddb22e41ca9146f556781143e933319796ad182130c297d80cae68a8ec86c67 pkg.content-hash=gelf.unsigned:sha512t_256:9d0c1c512b7079c95385c515b1bd5b173763b54dbd3b07e18a9d5746d6d9678a pkg.content-hash=file:sha512t_256:366095136a1af5ca3cde6d116f683b03e08b5c0ea01f36c36343345723ef9997 pkg.content-hash=gzip:sha512t_256:68bbbf2d1c002fcd0c48e0d5660f73b3fd0b1fa196a12232acc5888527400f99 pkg.csize=1541467 pkg.size=3982176 variant.arch=i386
+file e1545050bd1b969049468a7375bdfef3149cfff2 chash=298a8eba90dab7d8503965f0b3a7a2f7fcf428a2 elfarch=sparc elfbits=64 elfhash=1a2062770c4d4867a6f37566f666ab23a7f9001a group=bin mode=0755 owner=root path=usr/lib/ssm/nvmupdate64s pkg.content-hash=gelf:sha512t_256:f14672d6bfcf5cab5ca58dc478dd9d31734cac2bee6a2220eb21a2cd472b803b pkg.content-hash=gelf.unsigned:sha512t_256:7ae7d22712a38def8ee708919846e99da8c8e9f339fa9e252844a560caef994c pkg.content-hash=file:sha512t_256:c69247a10c9fac9ae816eb3a17d49d070fedb8412940ba55dafad216ac00bb38 pkg.content-hash=gzip:sha512t_256:7917f4bd9c8e26a033b85ccaa58aaa4a0b2e72a47f34bc32cae8400d04884343 pkg.csize=1573913 pkg.size=4022128 variant.arch=sparc
+file ac7c2f88c06494af84a450513a610d51b851bca9 chash=f15b8c3a0d2ede792b9c6ce5e787ef1c248b1a97 group=sys mode=0444 owner=root path=etc/security/exec_attr.d/fwupdate pkg.content-hash=file:sha512t_256:e7830a4eeb59757ee9f0a0e82eae87f1c9d867137ed5a0b9cb0561747966e060 pkg.content-hash=gzip:sha512t_256:622a68b773abeaeb96ed2fc62e738bd3a33995a080f32868023b4a42e43df20c pkg.csize=87 pkg.size=68
+file 975ca069b48bb78b2a2f7bc333c5971fe2a8af69 chash=aa8e6b3da0e91ec43c7315bef19abac9eb51c797 facet.doc=all group=bin mode=0444 owner=root path=usr/lib/ssm/doc/fwupdate.xsd pkg.content-hash=file:sha512t_256:25e5d1667843a28a5f524c72ec404a8f7662e6a516cad7bbb7be575c5f4ee845 pkg.content-hash=gzip:sha512t_256:795a58ab3bc001b1ef4878a36a84602903d107f8c0f84100b1ae1d75517597d5 pkg.csize=930 pkg.size=15010
+file 9efd4896f1d3bb6a0df05aa63f0fdc230af2af43 chash=7817b3d15461af714f03b20156d458724b0a8b8c elfarch=sparc elfbits=32 elfhash=436bee6bbb368450c2a4e145303183c4f8f7e0fe group=bin mode=0755 owner=root path=usr/sbin/fwupdate pkg.content-hash=gelf:sha512t_256:81373f575321505555bfb0f6b321be1808b3c9a59fb890590c1917465ac49744 pkg.content-hash=gelf.unsigned:sha512t_256:fcbed4cc49b64876fd363aa002e3ac30cd714cfa2ca84430b5b8e073c82dcb3a pkg.content-hash=file:sha512t_256:c5ff4e778819ab2e9f9abf3f0d053ca1a972dd677d3973185c26f81adc76d941 pkg.content-hash=gzip:sha512t_256:64d056dba0b0097d4494c427c2d1b00291869ea7c7c037dde24cc59e821c08e9 pkg.csize=899851 pkg.size=2991920 variant.arch=sparc
+file 805e77c0be3aeca189a531c04d83cc007c5a3875 chash=b55679f403c8b37b501b4c42b7865a85c84c9c86 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man8/fwupdate.8 pkg.content-hash=file:sha512t_256:01488b09afe6900dde33bf442b7b50f22b8c76cd3d1da7626a77919585363d3d pkg.content-hash=gzip:sha512t_256:ff1892940350947efe5362ad46f7263491a910acdb7d65c3a1e77d44334a73db pkg.csize=5797 pkg.size=22454
+file bbb164a6d66ad629b59118961e6962923d5c4dd9 chash=8e486aa835f0b0b2feef0ef7b705a860c8521651 group=bin mode=0640 owner=root path=var/log/ssm/fwupdate.log pkg.content-hash=file:sha512t_256:f68667db0d7ba717c07a050c6703cf3c402b2a325cd031919fdcd651ebf68a04 pkg.content-hash=gzip:sha512t_256:90a8d10216d5d200eb8fe554ae64c6cc396ea20ce848448e6ae846c21f3f03ef pkg.csize=35 pkg.size=17 preserve=true
+file 69370790b104e39df6e7e698899dba0601814186 chash=9051fd678f234ee9d487fa4709ce8d76ada66886 elfarch=i386 elfbits=32 elfhash=e177d8788fd126a8d57a77cfbe229a338f97c5c2 group=bin mode=0755 owner=root path=usr/sbin/fwupdate pkg.content-hash=gelf:sha512t_256:13f91191ae365bc819dc9ccb08c5a25bfb8717a1e206dd828e7f41ca0a5d9ee5 pkg.content-hash=gelf.unsigned:sha512t_256:de61e03033c166c7555902de1df3f2a5c853e6cadaac05a4f927c53718fe2340 pkg.content-hash=file:sha512t_256:b88546fee2625c5aeba1370d9def0ef37b6b5f6f84c175f38c2339a05f676201 pkg.content-hash=gzip:sha512t_256:795a5bda4fbd2dbfe12c5c9716d2f8723a5ac1be81735f76c7a624f007c665c1 pkg.csize=506373 pkg.size=1637428 variant.arch=i386
+license e4a3f48ef48c47ae571c2f6ee63f261478986fae chash=6a799c3ce8ea2ccc2cf8bd23205ed9531a43e1e7 license=cr_Oracle pkg.content-hash=file:sha512t_256:e6fcd4138cbff522ad40ddb69bcc8e1086e4d98f20ba02e118fa125119f8b615 pkg.content-hash=gzip:sha512t_256:f6cf57bb3c69026ccc761456e014b2d091bff6053f9b9ddaa0c408e9ee586717 pkg.csize=91 pkg.size=77
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=9d6175250e18251fdc02101e50f57a5556ea1d001ef230a0614728d945ed5f1019a34bdb14f029dc7b76de7911aec9b5a3f70408e1ad0d1692ae4af64dd3fa8eb6be99a5bd17f50a3122a5b206b0cb3ef27ccdfe43e854f0e07d084b2769ffb4d73d571276783efbf746ebb12c93e9e401f6eb72e9cc44fcad0dfcfef8f8ee43ff8f894eadb464bc5f56c082ed645b05197a5ce17da5a71aa69363e0c0632f062397c020bdb1ca0f173519da8b65b1975e0560d278e972c0e5e2f70ced98d28c8120f1dfe554f6fced77e065ba93adc6a37d41c9637064470b524761e9678936a15e1057579cf1f3cc75db63363cb3bdd15e39b4c2ea44e3221503dfb55eca50 version=0

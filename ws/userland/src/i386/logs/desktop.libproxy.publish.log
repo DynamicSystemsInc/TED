@@ -1,0 +1,1297 @@
+gmake: Entering directory '/ws/userland/src/components/desktop/libproxy'
+/bin/rm -f -r /ws/userland/src/components/desktop/libproxy/libproxy-master
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  master.zip
+/usr/bin/touch /ws/userland/src/components/desktop/libproxy/libproxy-master/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/desktop/libproxy/libproxy-master --strip=1 --backup --version-control=numbered < patches/01-memset.patch
+patching file libproxy/modules/config_gnome3.cpp
+/usr/bin/touch /ws/userland/src/components/desktop/libproxy/libproxy-master/.patched-01-memset.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/libproxy/libproxy-master --strip=1 --backup --version-control=numbered < patches/02-get-pac-test-Fix-overflow-test.patch
+patching file libproxy/test/get-pac-test.cpp
+Hunk #1 succeeded at 14 (offset -2 lines).
+Hunk #2 succeeded at 118 (offset -2 lines).
+Hunk #3 succeeded at 193 with fuzz 1 (offset -5 lines).
+/usr/bin/touch /ws/userland/src/components/desktop/libproxy/libproxy-master/.patched-02-get-pac-test-Fix-overflow-test.patch
+/usr/bin/touch /ws/userland/src/components/desktop/libproxy/libproxy-master/.patched
+/usr/bin/touch /ws/userland/src/components/desktop/libproxy/libproxy-master/.prep
+/bin/rm -f -r /ws/userland/src/components/desktop/libproxy/build/i86 ; /bin/mkdir -p /ws/userland/src/components/desktop/libproxy/build/i86
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/libproxy/libproxy-master /ws/userland/src/components/desktop/libproxy/build/i86
+symlink cloning /ws/userland/src/components/desktop/libproxy/libproxy-master to /ws/userland/src/components/desktop/libproxy/build/i86
+cd /ws/userland/src/components/desktop/libproxy/build/i86; echo Running cmake with -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m32 -O3 -mincoming-stack-boundary=2      -std=c++11" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m32  -O3 -mincoming-stack-boundary=2    " -DCMAKE_EXE_LINKER_FLAGS="-m32   " -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m32   " -DCMAKE_SHARED_LINKER_FLAGS="-m32   " -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin" -DEXEC_INSTALL_DIR="/usr/lib" -DLIBEXEC_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_BINDIR="/usr/bin" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib" -DLIB_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_LIBDIR="/usr/lib" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_PERL=OFF -DINCLUDE_INSTALL_DIR="/usr/include/libproxy" -DPERL_VENDORINSTALL=ON -DPYTHON_EXECUTABLE="/usr/bin/python2.7" -DPYTHON_SITEPKG_DIR=/usr/lib/python2.7/vendor-packages -DWITH_GNOME3=ON -DWITH_PYTHON=ON -DWITH_VALA=ON -DBIPR=ON; /usr/bin/env - LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" PATH="/usr/gnu/bin:/usr/bin:/usr/gnu/bin" /usr/bin/cmake -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m32 -O3 -mincoming-stack-boundary=2      -std=c++11" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m32  -O3 -mincoming-stack-boundary=2    " -DCMAKE_EXE_LINKER_FLAGS="-m32   " -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m32   " -DCMAKE_SHARED_LINKER_FLAGS="-m32   " -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin" -DEXEC_INSTALL_DIR="/usr/lib" -DLIBEXEC_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_BINDIR="/usr/bin" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib" -DLIB_INSTALL_DIR="/usr/lib" -DCMAKE_INSTALL_LIBDIR="/usr/lib" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_PERL=OFF -DINCLUDE_INSTALL_DIR="/usr/include/libproxy" -DPERL_VENDORINSTALL=ON -DPYTHON_EXECUTABLE="/usr/bin/python2.7" -DPYTHON_SITEPKG_DIR=/usr/lib/python2.7/vendor-packages -DWITH_GNOME3=ON -DWITH_PYTHON=ON -DWITH_VALA=ON -DBIPR=ON /ws/userland/src/components/desktop/libproxy/libproxy-master;  
+Running cmake with -DCMAKE_CXX_COMPILER=/usr/gcc/7/bin/g++ -DCMAKE_CXX_FLAGS= -m32 -O3 -mincoming-stack-boundary=2      -std=c++11 -DCMAKE_C_COMPILER=/usr/gcc/7/bin/gcc -DCMAKE_C_FLAGS=-m32  -O3 -mincoming-stack-boundary=2     -DCMAKE_EXE_LINKER_FLAGS=-m32    -DCMAKE_AR=/usr/bin/ar -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MODULE_LINKER_FLAGS=-m32    -DCMAKE_SHARED_LINKER_FLAGS=-m32    -DGETTEXT_MSGFMT_EXECUTABLE=/usr/gnu/bin/msgfmt -DBIN_INSTALL_DIR=/usr/bin -DEXEC_INSTALL_DIR=/usr/lib -DLIBEXEC_INSTALL_DIR=/usr/lib -DCMAKE_INSTALL_BINDIR=/usr/bin -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib -DLIB_INSTALL_DIR=/usr/lib -DCMAKE_INSTALL_LIBDIR=/usr/lib -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_PERL=OFF -DINCLUDE_INSTALL_DIR=/usr/include/libproxy -DPERL_VENDORINSTALL=ON -DPYTHON_EXECUTABLE=/usr/bin/python2.7 -DPYTHON_SITEPKG_DIR=/usr/lib/python2.7/vendor-packages -DWITH_GNOME3=ON -DWITH_PYTHON=ON -DWITH_VALA=ON -DBIPR=ON
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: /usr/gcc/7/bin/gcc
+-- Check for working C compiler: /usr/gcc/7/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Building with bundled libmodman
+-- Found PythonInterp: /usr/bin/python2.7 (found version "2.7.14") 
+-- Using PYTHON_SITEPKG_DIR=/usr/lib/python2.7/vendor-packages
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29") 
+-- Checking for modules 'gio-2.0>=2.26;gobject-2.0'
+--   Found gio-2.0, version 2.52.0
+--   Found gobject-2.0, version 2.52.0
+-- Found unsuitable Qt version "" from NOTFOUND
+-- Checking for modules 'NetworkManager;dbus-1'
+--   No package 'NetworkManager' found
+-- Checking for one of the modules 'mozjs185'
+-- Checking for module 'natus'
+--   No package 'natus' found
+-- Checking for module 'webkit-1.0'
+--   No package 'webkit-1.0' found
+MODULES TO BUILD:
+	*	config_envvar
+		config_sysconfig
+		config_gnome
+	m	config_gnome3
+		config_kde4
+		config_macosx
+		config_w32reg
+	*	ignore_domain
+	*	ignore_hostname
+	*	ignore_ip
+		network_networkmanager
+		pacrunner_mozjs
+		pacrunner_natus
+		pacrunner_webkit
+	*	wpad_dns_alias
+
+-- Configuring done
+CMake Warning (dev) in libproxy/CMakeLists.txt:
+  Policy CMP0022 is not set: INTERFACE_LINK_LIBRARIES defines the link
+  interface.  Run "cmake --help-policy CMP0022" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Target "libproxy" has an INTERFACE_LINK_LIBRARIES property which differs
+  from its LINK_INTERFACE_LIBRARIES properties.
+
+  INTERFACE_LINK_LIBRARIES:
+
+    modman;m;pthread;dl
+
+  LINK_INTERFACE_LIBRARIES:
+
+    
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    EXEC_INSTALL_DIR
+    GETTEXT_MSGFMT_EXECUTABLE
+    PERL_VENDORINSTALL
+
+
+-- Build files have been written to: /ws/userland/src/components/desktop/libproxy/build/i86
+(cd /ws/userland/src/components/desktop/libproxy/build/i86; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" PATH="/usr/gnu/bin:/usr/bin:/usr/gnu/bin" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target modman
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[  1%] Building CXX object libmodman/CMakeFiles/modman.dir/module_manager.cpp.o
+[  3%] Linking CXX static library libmodman.a
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[  3%] Built target modman
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target symbollnk
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[  5%] Building CXX object libmodman/test/CMakeFiles/symbollnk.dir/main.cpp.o
+[  6%] Linking CXX executable symbollnk
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[  6%] Built target symbollnk
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target sorted_two
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[  8%] Building CXX object libmodman/test/CMakeFiles/sorted_two.dir/sorted_two.cpp.o
+[ 10%] Linking CXX shared module modules/sorted/sorted_two.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 10%] Built target sorted_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target sorted
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 11%] Building CXX object libmodman/test/CMakeFiles/sorted.dir/main.cpp.o
+[ 13%] Linking CXX executable sorted
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 13%] Built target sorted
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target singleton_two
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 15%] Building CXX object libmodman/test/CMakeFiles/singleton_two.dir/singleton_two.cpp.o
+[ 16%] Linking CXX shared module modules/singleton/singleton_two.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 16%] Built target singleton_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target singleton_one
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 18%] Building CXX object libmodman/test/CMakeFiles/singleton_one.dir/singleton_one.cpp.o
+[ 20%] Linking CXX shared module modules/singleton/singleton_one.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 20%] Built target singleton_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target condition_one
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 22%] Building CXX object libmodman/test/CMakeFiles/condition_one.dir/condition_one.cpp.o
+[ 23%] Linking CXX shared module modules/condition/condition_one.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 23%] Built target condition_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target condition_two
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 25%] Building CXX object libmodman/test/CMakeFiles/condition_two.dir/condition_two.cpp.o
+[ 27%] Linking CXX shared module modules/condition/condition_two.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 27%] Built target condition_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target builtin_one
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 28%] Building CXX object libmodman/test/CMakeFiles/builtin_one.dir/builtin_one.cpp.o
+[ 30%] Linking CXX shared module modules/builtin/builtin_one.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 30%] Built target builtin_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target symbol_one
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 32%] Building CXX object libmodman/test/CMakeFiles/symbol_one.dir/symbol_one.cpp.o
+[ 33%] Linking CXX shared module modules/symbol/symbol_one.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 33%] Built target symbol_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target symbol_two
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 35%] Building CXX object libmodman/test/CMakeFiles/symbol_two.dir/symbol_two.cpp.o
+[ 37%] Linking CXX shared module modules/symbol/symbol_two.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 37%] Built target symbol_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target symbol
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 38%] Building CXX object libmodman/test/CMakeFiles/symbol.dir/main.cpp.o
+[ 40%] Linking CXX executable symbol
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 40%] Built target symbol
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target sorted_one
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 42%] Building CXX object libmodman/test/CMakeFiles/sorted_one.dir/sorted_one.cpp.o
+[ 44%] Linking CXX shared module modules/sorted/sorted_one.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 44%] Built target sorted_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target condition
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 45%] Building CXX object libmodman/test/CMakeFiles/condition.dir/main.cpp.o
+[ 47%] Linking CXX executable condition
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 47%] Built target condition
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target builtin
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 49%] Building CXX object libmodman/test/CMakeFiles/builtin.dir/builtin.cpp.o
+[ 50%] Building CXX object libmodman/test/CMakeFiles/builtin.dir/builtin_one.cpp.o
+[ 52%] Linking CXX executable builtin
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 52%] Built target builtin
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target singleton
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 54%] Building CXX object libmodman/test/CMakeFiles/singleton.dir/main.cpp.o
+[ 55%] Linking CXX executable singleton
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 55%] Built target singleton
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target libproxy
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 57%] Building CXX object libproxy/CMakeFiles/libproxy.dir/extension_config.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_config.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_config.cpp:20:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_config.cpp:20:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_config.hpp:34:54: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual vector<url>      get_config(const url &dst) throw (runtime_error)=0;
+                                                      ^~~~~
+[ 59%] Building CXX object libproxy/CMakeFiles/libproxy.dir/extension_pacrunner.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.cpp:20:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.cpp:20:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:44:37: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual string run(const url& url) throw (bad_alloc)=0;
+                                     ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:50:56: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual pacrunner* get(string pac, const url& pacurl) throw (bad_alloc);
+                                                        ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:58:59: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual pacrunner* create(string pac, const url& pacurl) throw (bad_alloc)=0;
+                                                           ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.cpp:33:68: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ pacrunner* pacrunner_extension::get(string pac, const url& pacurl) throw (bad_alloc) {
+                                                                    ^~~~~
+[ 61%] Building CXX object libproxy/CMakeFiles/libproxy.dir/extension_wpad.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_wpad.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_wpad.cpp:1:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 62%] Building CXX object libproxy/CMakeFiles/libproxy.dir/proxy.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_config.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/proxy.cpp:28:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/proxy.cpp:28:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_config.hpp:34:54: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual vector<url>      get_config(const url &dst) throw (runtime_error)=0;
+                                                      ^~~~~
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/proxy.cpp:31:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:44:37: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual string run(const url& url) throw (bad_alloc)=0;
+                                     ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:50:56: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual pacrunner* get(string pac, const url& pacurl) throw (bad_alloc);
+                                                        ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:58:59: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual pacrunner* create(string pac, const url& pacurl) throw (bad_alloc)=0;
+                                                           ^~~~~
+[ 64%] Building CXX object libproxy/CMakeFiles/libproxy.dir/url.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:45:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:116:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url::url(const string &url) throw(parse_error)
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:289:36: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url& url::operator=(string strurl) throw (parse_error) {
+                                    ^~~~~
+[ 66%] Building CXX object libproxy/CMakeFiles/libproxy.dir/modules/config_envvar.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_config.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_envvar.cpp:22:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_envvar.cpp:22:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_config.hpp:34:54: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual vector<url>      get_config(const url &dst) throw (runtime_error)=0;
+                                                      ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_envvar.cpp:27:41: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  vector<url> get_config(const url &dst) throw (runtime_error) {
+                                         ^~~~~
+[ 67%] Building CXX object libproxy/CMakeFiles/libproxy.dir/modules/ignore_domain.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_ignore.hpp:25:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/ignore_domain.cpp:22:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 69%] Building CXX object libproxy/CMakeFiles/libproxy.dir/modules/ignore_hostname.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_ignore.hpp:25:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/ignore_hostname.cpp:22:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 71%] Building CXX object libproxy/CMakeFiles/libproxy.dir/modules/ignore_ip.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_ignore.hpp:25:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/ignore_ip.cpp:23:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 72%] Building CXX object libproxy/CMakeFiles/libproxy.dir/modules/wpad_dns_alias.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_wpad.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/wpad_dns_alias.cpp:20:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 74%] Linking CXX shared library libproxy.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 74%] Built target libproxy
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target config_gnome3
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 76%] Building CXX object libproxy/CMakeFiles/config_gnome3.dir/modules/config_gnome3.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_config.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp:30:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp:30:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_config.hpp:34:54: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual vector<url>      get_config(const url &dst) throw (runtime_error)=0;
+                                                      ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp: In function 'int popen2(const char*, std::FILE**, std::FILE**, pid_t*)':
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp:78:23: warning: 'pid_t vfork()' is deprecated [-Wdeprecated-declarations]
+  switch (*pid = vfork()) {
+                       ^
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp:26:0:
+/usr/include/unistd.h:672:14: note: declared here
+ extern pid_t vfork(void) __ATTR_DEPRECATED;
+              ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp: At global scope:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp:183:42: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  vector<url> get_config(const url &dest) throw (runtime_error) {
+                                          ^~~~~
+[ 77%] Linking CXX shared module config_gnome3.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 77%] Built target config_gnome3
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target pxgsettings
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 79%] Building CXX object libproxy/CMakeFiles/pxgsettings.dir/modules/pxgsettings.cpp.o
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/pxgsettings.cpp: In function 'int main(int, char**)':
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/pxgsettings.cpp:131:14: warning: 'void g_type_init()' is deprecated [-Wdeprecated-declarations]
+  g_type_init();
+              ^
+In file included from /usr/include/glib-2.0/gobject/gobject.h:24:0,
+                 from /usr/include/glib-2.0/gobject/gbinding.h:29,
+                 from /usr/include/glib-2.0/glib-object.h:23,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/pxgsettings.cpp:27:
+/usr/include/glib-2.0/gobject/gtype.h:686:23: note: declared here
+ void                  g_type_init                    (void);
+                       ^~~~~~~~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/pxgsettings.cpp:151:47: warning: 'gchar** g_settings_list_keys(GSettings*)' is deprecated: Use 'g_settings_schema_list_keys' instead [-Wdeprecated-declarations]
+   gchar** keys = g_settings_list_keys(settings);
+                                               ^
+In file included from /usr/include/glib-2.0/gio/gio.h:114:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/pxgsettings.cpp:28:
+/usr/include/glib-2.0/gio/gsettings.h:96:25: note: declared here
+ gchar **                g_settings_list_keys                            (GSettings          *settings);
+                         ^~~~~~~~~~~~~~~~~~~~
+[ 81%] Linking CXX executable pxgsettings
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 81%] Built target pxgsettings
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target url-encode
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 83%] Building CXX object libproxy/test/CMakeFiles/url-encode.dir/url-encode.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/test/url-encode.cpp:6:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 84%] Building CXX object libproxy/test/CMakeFiles/url-encode.dir/__/url.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:45:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:116:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url::url(const string &url) throw(parse_error)
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:289:36: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url& url::operator=(string strurl) throw (parse_error) {
+                                    ^~~~~
+[ 86%] Linking CXX executable url-encode
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 86%] Built target url-encode
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target url-test
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 88%] Building CXX object libproxy/test/CMakeFiles/url-test.dir/url-test.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/test/url-test.cpp:7:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 89%] Building CXX object libproxy/test/CMakeFiles/url-test.dir/__/url.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:45:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:116:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url::url(const string &url) throw(parse_error)
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:289:36: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url& url::operator=(string strurl) throw (parse_error) {
+                                    ^~~~~
+[ 91%] Linking CXX executable url-test
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 91%] Built target url-test
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target get-pac-test
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 93%] Building CXX object libproxy/test/CMakeFiles/get-pac-test.dir/get-pac-test.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/test/get-pac-test.cpp:15:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 94%] Building CXX object libproxy/test/CMakeFiles/get-pac-test.dir/__/url.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:45:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:116:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url::url(const string &url) throw(parse_error)
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:289:36: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url& url::operator=(string strurl) throw (parse_error) {
+                                    ^~~~~
+[ 96%] Linking CXX executable get-pac-test
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 96%] Built target get-pac-test
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Scanning dependencies of target proxy
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 98%] Building C object utils/CMakeFiles/proxy.dir/proxy.c.o
+[100%] Linking C executable proxy
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[100%] Built target proxy
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+/usr/bin/touch /ws/userland/src/components/desktop/libproxy/build/i86/.built
+/bin/rm -f -r /ws/userland/src/components/desktop/libproxy/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/desktop/libproxy/build/amd64
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/libproxy/libproxy-master /ws/userland/src/components/desktop/libproxy/build/amd64
+symlink cloning /ws/userland/src/components/desktop/libproxy/libproxy-master to /ws/userland/src/components/desktop/libproxy/build/amd64
+cd /ws/userland/src/components/desktop/libproxy/build/amd64; echo Running cmake with -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m64 -O3       -std=c++11" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m64  -O3     " -DCMAKE_EXE_LINKER_FLAGS="-m64   " -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m64   " -DCMAKE_SHARED_LINKER_FLAGS="-m64   " -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin/amd64" -DEXEC_INSTALL_DIR="/usr/lib/amd64" -DLIBEXEC_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_BINDIR="/usr/bin/amd64" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib/amd64" -DLIB_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_LIBDIR="/usr/lib/amd64" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_PERL=ON -DINCLUDE_INSTALL_DIR="/usr/include/libproxy" -DPERL_VENDORINSTALL=ON -DPYTHON_EXECUTABLE="/usr/bin/amd64/python2.7" -DPYTHON_SITEPKG_DIR=/usr/lib/python2.7/vendor-packages -DWITH_GNOME3=ON -DWITH_PYTHON=ON -DWITH_VALA=ON -DBIPR=ON; /usr/bin/env - LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" PATH="/usr/gnu/bin:/usr/bin:/usr/gnu/bin" /usr/bin/cmake -DCMAKE_CXX_COMPILER="/usr/gcc/7/bin/g++" -DCMAKE_CXX_FLAGS=" -m64 -O3       -std=c++11" -DCMAKE_C_COMPILER="/usr/gcc/7/bin/gcc" -DCMAKE_C_FLAGS="-m64  -O3     " -DCMAKE_EXE_LINKER_FLAGS="-m64   " -DCMAKE_AR="/usr/bin/ar" -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_MODULE_LINKER_FLAGS="-m64   " -DCMAKE_SHARED_LINKER_FLAGS="-m64   " -DGETTEXT_MSGFMT_EXECUTABLE="/usr/gnu/bin/msgfmt" -DBIN_INSTALL_DIR="/usr/bin/amd64" -DEXEC_INSTALL_DIR="/usr/lib/amd64" -DLIBEXEC_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_BINDIR="/usr/bin/amd64" -DCMAKE_INSTALL_LIBEXECDIR="/usr/lib/amd64" -DLIB_INSTALL_DIR="/usr/lib/amd64" -DCMAKE_INSTALL_LIBDIR="/usr/lib/amd64" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_PERL=ON -DINCLUDE_INSTALL_DIR="/usr/include/libproxy" -DPERL_VENDORINSTALL=ON -DPYTHON_EXECUTABLE="/usr/bin/amd64/python2.7" -DPYTHON_SITEPKG_DIR=/usr/lib/python2.7/vendor-packages -DWITH_GNOME3=ON -DWITH_PYTHON=ON -DWITH_VALA=ON -DBIPR=ON /ws/userland/src/components/desktop/libproxy/libproxy-master;  
+Running cmake with -DCMAKE_CXX_COMPILER=/usr/gcc/7/bin/g++ -DCMAKE_CXX_FLAGS= -m64 -O3       -std=c++11 -DCMAKE_C_COMPILER=/usr/gcc/7/bin/gcc -DCMAKE_C_FLAGS=-m64  -O3      -DCMAKE_EXE_LINKER_FLAGS=-m64    -DCMAKE_AR=/usr/bin/ar -DCMAKE_MAKE_PROGRAM=/usr/gnu/bin/make -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MODULE_LINKER_FLAGS=-m64    -DCMAKE_SHARED_LINKER_FLAGS=-m64    -DGETTEXT_MSGFMT_EXECUTABLE=/usr/gnu/bin/msgfmt -DBIN_INSTALL_DIR=/usr/bin/amd64 -DEXEC_INSTALL_DIR=/usr/lib/amd64 -DLIBEXEC_INSTALL_DIR=/usr/lib/amd64 -DCMAKE_INSTALL_BINDIR=/usr/bin/amd64 -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib/amd64 -DLIB_INSTALL_DIR=/usr/lib/amd64 -DCMAKE_INSTALL_LIBDIR=/usr/lib/amd64 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_PERL=ON -DINCLUDE_INSTALL_DIR=/usr/include/libproxy -DPERL_VENDORINSTALL=ON -DPYTHON_EXECUTABLE=/usr/bin/amd64/python2.7 -DPYTHON_SITEPKG_DIR=/usr/lib/python2.7/vendor-packages -DWITH_GNOME3=ON -DWITH_PYTHON=ON -DWITH_VALA=ON -DBIPR=ON
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: /usr/gcc/7/bin/gcc
+-- Check for working C compiler: /usr/gcc/7/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++
+-- Check for working CXX compiler: /usr/gcc/7/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Building with bundled libmodman
+-- Found PythonInterp: /usr/bin/amd64/python2.7 (found version "2.7.14") 
+-- Using PYTHON_SITEPKG_DIR=/usr/lib/python2.7/vendor-packages
+-- Found Perl: /usr/bin/perl (found version "5.22.1") 
+-- Found PerlLibs: /usr/perl5/5.22/lib/i86pc-solaris-thread-multi-64/CORE/libperl.so (found version "5.22.1") 
+CMake Warning (dev) at bindings/perl/t/CMakeLists.txt:1 (add_custom_target):
+  Policy CMP0037 is not set: Target names should not be reserved and should
+  match a validity pattern.  Run "cmake --help-policy CMP0037" for policy
+  details.  Use the cmake_policy command to set the policy and suppress this
+  warning.
+
+  The target name "test" is reserved or not valid for certain CMake features,
+  such as generator expressions, and may result in undefined behavior.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29") 
+-- Checking for modules 'gio-2.0>=2.26;gobject-2.0'
+--   Found gio-2.0, version 2.52.0
+--   Found gobject-2.0, version 2.52.0
+-- Found unsuitable Qt version "" from NOTFOUND
+-- Checking for modules 'NetworkManager;dbus-1'
+--   No package 'NetworkManager' found
+-- Checking for one of the modules 'mozjs185'
+-- Checking for module 'natus'
+--   No package 'natus' found
+-- Checking for module 'webkit-1.0'
+--   No package 'webkit-1.0' found
+MODULES TO BUILD:
+	*	config_envvar
+		config_sysconfig
+		config_gnome
+	m	config_gnome3
+		config_kde4
+		config_macosx
+		config_w32reg
+	*	ignore_domain
+	*	ignore_hostname
+	*	ignore_ip
+		network_networkmanager
+		pacrunner_mozjs
+		pacrunner_natus
+		pacrunner_webkit
+	*	wpad_dns_alias
+
+-- Configuring done
+CMake Warning (dev) in libproxy/CMakeLists.txt:
+  Policy CMP0022 is not set: INTERFACE_LINK_LIBRARIES defines the link
+  interface.  Run "cmake --help-policy CMP0022" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Target "libproxy" has an INTERFACE_LINK_LIBRARIES property which differs
+  from its LINK_INTERFACE_LIBRARIES properties.
+
+  INTERFACE_LINK_LIBRARIES:
+
+    modman;m;pthread;dl
+
+  LINK_INTERFACE_LIBRARIES:
+
+    
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    EXEC_INSTALL_DIR
+    GETTEXT_MSGFMT_EXECUTABLE
+
+
+-- Build files have been written to: /ws/userland/src/components/desktop/libproxy/build/amd64
+(cd /ws/userland/src/components/desktop/libproxy/build/amd64; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" PATH="/usr/gnu/bin:/usr/bin:/usr/gnu/bin" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target modman
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[  1%] Building CXX object libmodman/CMakeFiles/modman.dir/module_manager.cpp.o
+[  3%] Linking CXX static library libmodman.a
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[  3%] Built target modman
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target symbollnk
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[  4%] Building CXX object libmodman/test/CMakeFiles/symbollnk.dir/main.cpp.o
+[  6%] Linking CXX executable symbollnk
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[  6%] Built target symbollnk
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target sorted_two
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[  8%] Building CXX object libmodman/test/CMakeFiles/sorted_two.dir/sorted_two.cpp.o
+[  9%] Linking CXX shared module modules/sorted/sorted_two.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[  9%] Built target sorted_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target sorted
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 11%] Building CXX object libmodman/test/CMakeFiles/sorted.dir/main.cpp.o
+[ 12%] Linking CXX executable sorted
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 12%] Built target sorted
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target singleton_two
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 14%] Building CXX object libmodman/test/CMakeFiles/singleton_two.dir/singleton_two.cpp.o
+[ 16%] Linking CXX shared module modules/singleton/singleton_two.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 16%] Built target singleton_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target singleton_one
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 17%] Building CXX object libmodman/test/CMakeFiles/singleton_one.dir/singleton_one.cpp.o
+[ 19%] Linking CXX shared module modules/singleton/singleton_one.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 19%] Built target singleton_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target condition_one
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 20%] Building CXX object libmodman/test/CMakeFiles/condition_one.dir/condition_one.cpp.o
+[ 22%] Linking CXX shared module modules/condition/condition_one.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 22%] Built target condition_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target condition_two
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 24%] Building CXX object libmodman/test/CMakeFiles/condition_two.dir/condition_two.cpp.o
+[ 25%] Linking CXX shared module modules/condition/condition_two.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 25%] Built target condition_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target builtin_one
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 27%] Building CXX object libmodman/test/CMakeFiles/builtin_one.dir/builtin_one.cpp.o
+[ 29%] Linking CXX shared module modules/builtin/builtin_one.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 29%] Built target builtin_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target symbol_one
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 30%] Building CXX object libmodman/test/CMakeFiles/symbol_one.dir/symbol_one.cpp.o
+[ 32%] Linking CXX shared module modules/symbol/symbol_one.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 32%] Built target symbol_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target symbol_two
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 33%] Building CXX object libmodman/test/CMakeFiles/symbol_two.dir/symbol_two.cpp.o
+[ 35%] Linking CXX shared module modules/symbol/symbol_two.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 35%] Built target symbol_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target symbol
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 37%] Building CXX object libmodman/test/CMakeFiles/symbol.dir/main.cpp.o
+[ 38%] Linking CXX executable symbol
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 38%] Built target symbol
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target sorted_one
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 40%] Building CXX object libmodman/test/CMakeFiles/sorted_one.dir/sorted_one.cpp.o
+[ 41%] Linking CXX shared module modules/sorted/sorted_one.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 41%] Built target sorted_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target condition
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 43%] Building CXX object libmodman/test/CMakeFiles/condition.dir/main.cpp.o
+[ 45%] Linking CXX executable condition
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 45%] Built target condition
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target builtin
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 46%] Building CXX object libmodman/test/CMakeFiles/builtin.dir/builtin.cpp.o
+[ 48%] Building CXX object libmodman/test/CMakeFiles/builtin.dir/builtin_one.cpp.o
+[ 50%] Linking CXX executable builtin
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 50%] Built target builtin
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target singleton
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 51%] Building CXX object libmodman/test/CMakeFiles/singleton.dir/main.cpp.o
+[ 53%] Linking CXX executable singleton
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 53%] Built target singleton
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target PMlibproxy
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 53%] Built target PMlibproxy
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target libproxy
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 54%] Building CXX object libproxy/CMakeFiles/libproxy.dir/extension_config.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_config.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_config.cpp:20:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_config.cpp:20:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_config.hpp:34:54: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual vector<url>      get_config(const url &dst) throw (runtime_error)=0;
+                                                      ^~~~~
+[ 56%] Building CXX object libproxy/CMakeFiles/libproxy.dir/extension_pacrunner.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.cpp:20:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.cpp:20:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:44:37: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual string run(const url& url) throw (bad_alloc)=0;
+                                     ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:50:56: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual pacrunner* get(string pac, const url& pacurl) throw (bad_alloc);
+                                                        ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:58:59: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual pacrunner* create(string pac, const url& pacurl) throw (bad_alloc)=0;
+                                                           ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.cpp:33:68: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ pacrunner* pacrunner_extension::get(string pac, const url& pacurl) throw (bad_alloc) {
+                                                                    ^~~~~
+[ 58%] Building CXX object libproxy/CMakeFiles/libproxy.dir/extension_wpad.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_wpad.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_wpad.cpp:1:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 59%] Building CXX object libproxy/CMakeFiles/libproxy.dir/proxy.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_config.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/proxy.cpp:28:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/proxy.cpp:28:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_config.hpp:34:54: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual vector<url>      get_config(const url &dst) throw (runtime_error)=0;
+                                                      ^~~~~
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/proxy.cpp:31:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:44:37: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual string run(const url& url) throw (bad_alloc)=0;
+                                     ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:50:56: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual pacrunner* get(string pac, const url& pacurl) throw (bad_alloc);
+                                                        ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/extension_pacrunner.hpp:58:59: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual pacrunner* create(string pac, const url& pacurl) throw (bad_alloc)=0;
+                                                           ^~~~~
+[ 61%] Building CXX object libproxy/CMakeFiles/libproxy.dir/url.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:45:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:116:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url::url(const string &url) throw(parse_error)
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:289:36: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url& url::operator=(string strurl) throw (parse_error) {
+                                    ^~~~~
+[ 62%] Building CXX object libproxy/CMakeFiles/libproxy.dir/modules/config_envvar.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_config.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_envvar.cpp:22:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_envvar.cpp:22:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_config.hpp:34:54: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual vector<url>      get_config(const url &dst) throw (runtime_error)=0;
+                                                      ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_envvar.cpp:27:41: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  vector<url> get_config(const url &dst) throw (runtime_error) {
+                                         ^~~~~
+[ 64%] Building CXX object libproxy/CMakeFiles/libproxy.dir/modules/ignore_domain.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_ignore.hpp:25:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/ignore_domain.cpp:22:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 66%] Building CXX object libproxy/CMakeFiles/libproxy.dir/modules/ignore_hostname.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_ignore.hpp:25:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/ignore_hostname.cpp:22:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 67%] Building CXX object libproxy/CMakeFiles/libproxy.dir/modules/ignore_ip.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_ignore.hpp:25:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/ignore_ip.cpp:23:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 69%] Building CXX object libproxy/CMakeFiles/libproxy.dir/modules/wpad_dns_alias.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_wpad.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/wpad_dns_alias.cpp:20:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 70%] Linking CXX shared library libproxy.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 70%] Built target libproxy
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 72%] Generating Libproxy.c
+Scanning dependencies of target PLlibproxy
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 74%] Building C object bindings/perl/src/CMakeFiles/PLlibproxy.dir/Libproxy.c.o
+[ 75%] Linking C shared library ../../../perl/blib/arch/auto/Net/Libproxy.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 75%] Built target PLlibproxy
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target config_gnome3
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 77%] Building CXX object libproxy/CMakeFiles/config_gnome3.dir/modules/config_gnome3.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_config.hpp:24:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp:30:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp:30:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/../extension_config.hpp:34:54: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  virtual vector<url>      get_config(const url &dst) throw (runtime_error)=0;
+                                                      ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp: In function 'int popen2(const char*, std::FILE**, std::FILE**, pid_t*)':
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp:78:23: warning: 'pid_t vfork()' is deprecated [-Wdeprecated-declarations]
+  switch (*pid = vfork()) {
+                       ^
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp:26:0:
+/usr/include/unistd.h:672:14: note: declared here
+ extern pid_t vfork(void) __ATTR_DEPRECATED;
+              ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp: At global scope:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/config_gnome3.cpp:183:42: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  vector<url> get_config(const url &dest) throw (runtime_error) {
+                                          ^~~~~
+[ 79%] Linking CXX shared module config_gnome3.so
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 79%] Built target config_gnome3
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target pxgsettings
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 80%] Building CXX object libproxy/CMakeFiles/pxgsettings.dir/modules/pxgsettings.cpp.o
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/pxgsettings.cpp: In function 'int main(int, char**)':
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/pxgsettings.cpp:131:14: warning: 'void g_type_init()' is deprecated [-Wdeprecated-declarations]
+  g_type_init();
+              ^
+In file included from /usr/include/glib-2.0/gobject/gobject.h:24:0,
+                 from /usr/include/glib-2.0/gobject/gbinding.h:29,
+                 from /usr/include/glib-2.0/glib-object.h:23,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/pxgsettings.cpp:27:
+/usr/include/glib-2.0/gobject/gtype.h:686:23: note: declared here
+ void                  g_type_init                    (void);
+                       ^~~~~~~~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/pxgsettings.cpp:151:47: warning: 'gchar** g_settings_list_keys(GSettings*)' is deprecated: Use 'g_settings_schema_list_keys' instead [-Wdeprecated-declarations]
+   gchar** keys = g_settings_list_keys(settings);
+                                               ^
+In file included from /usr/include/glib-2.0/gio/gio.h:114:0,
+                 from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/modules/pxgsettings.cpp:28:
+/usr/include/glib-2.0/gio/gsettings.h:96:25: note: declared here
+ gchar **                g_settings_list_keys                            (GSettings          *settings);
+                         ^~~~~~~~~~~~~~~~~~~~
+[ 82%] Linking CXX executable pxgsettings
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 82%] Built target pxgsettings
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target url-encode
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 83%] Building CXX object libproxy/test/CMakeFiles/url-encode.dir/url-encode.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/test/url-encode.cpp:6:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 85%] Building CXX object libproxy/test/CMakeFiles/url-encode.dir/__/url.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:45:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:116:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url::url(const string &url) throw(parse_error)
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:289:36: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url& url::operator=(string strurl) throw (parse_error) {
+                                    ^~~~~
+[ 87%] Linking CXX executable url-encode
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 87%] Built target url-encode
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target url-test
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 88%] Building CXX object libproxy/test/CMakeFiles/url-test.dir/url-test.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/test/url-test.cpp:7:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 90%] Building CXX object libproxy/test/CMakeFiles/url-test.dir/__/url.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:45:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:116:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url::url(const string &url) throw(parse_error)
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:289:36: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url& url::operator=(string strurl) throw (parse_error) {
+                                    ^~~~~
+[ 91%] Linking CXX executable url-test
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 91%] Built target url-test
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target get-pac-test
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 93%] Building CXX object libproxy/test/CMakeFiles/get-pac-test.dir/get-pac-test.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/test/get-pac-test.cpp:15:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+[ 95%] Building CXX object libproxy/test/CMakeFiles/get-pac-test.dir/__/url.cpp.o
+In file included from /ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:45:0:
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:53:25: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url(const string& url) throw (parse_error);
+                         ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.hpp:56:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+  url& operator=(string url) throw (parse_error);
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:116:29: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url::url(const string &url) throw(parse_error)
+                             ^~~~~
+/ws/userland/src/components/desktop/libproxy/libproxy-master/libproxy/url.cpp:289:36: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ url& url::operator=(string strurl) throw (parse_error) {
+                                    ^~~~~
+[ 96%] Linking CXX executable get-pac-test
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 96%] Built target get-pac-test
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Scanning dependencies of target proxy
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 98%] Building C object utils/CMakeFiles/proxy.dir/proxy.c.o
+[100%] Linking C executable proxy
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[100%] Built target proxy
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+/usr/bin/touch /ws/userland/src/components/desktop/libproxy/build/amd64/.built
+(cd /ws/userland/src/components/desktop/libproxy/build/i86 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/desktop/libproxy/build/prototype/i386  install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[  3%] Built target modman
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[  6%] Built target symbollnk
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 10%] Built target sorted_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 13%] Built target sorted
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 16%] Built target singleton_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 20%] Built target singleton_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 23%] Built target condition_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 27%] Built target condition_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 30%] Built target builtin_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 33%] Built target symbol_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 37%] Built target symbol_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 40%] Built target symbol
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 44%] Built target sorted_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 47%] Built target condition
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 52%] Built target builtin
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 55%] Built target singleton
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 74%] Built target libproxy
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 77%] Built target config_gnome3
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 81%] Built target pxgsettings
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 86%] Built target url-encode
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 91%] Built target url-test
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[ 96%] Built target get-pac-test
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+[100%] Built target proxy
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/share/vala/vapi/libproxy-1.0.vapi
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/python2.7/vendor-packages/libproxy.py
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/pxgsettings
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/libproxy/0.4.11/modules/config_gnome3.so
+-- Set runtime path of "/ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/libproxy/0.4.11/modules/config_gnome3.so" to ""
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/pkgconfig/libproxy-1.0.pc
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/share/cmake/Modules/Findlibproxy.cmake
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/libproxy.so.1.0.0
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/libproxy.so.1
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/libproxy.so
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/include/libproxy/proxy.h
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/bin/proxy
+-- Set runtime path of "/ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/bin/proxy" to ""
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/i86'
+/usr/bin/python2.7 -m py_compile /ws/userland/src/components/desktop/libproxy/build/prototype/i386//usr/lib/python2.7/vendor-packages/libproxy.py
+/usr/bin/touch /ws/userland/src/components/desktop/libproxy/build/i86/.installed
+(cd /ws/userland/src/components/desktop/libproxy/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/desktop/libproxy/build/prototype/i386  install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[2]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[  3%] Built target modman
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[  6%] Built target symbollnk
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[  9%] Built target sorted_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 12%] Built target sorted
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 16%] Built target singleton_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 19%] Built target singleton_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 22%] Built target condition_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 25%] Built target condition_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 29%] Built target builtin_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 32%] Built target symbol_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 35%] Built target symbol_two
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 38%] Built target symbol
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 41%] Built target sorted_one
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 45%] Built target condition
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 50%] Built target builtin
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 53%] Built target singleton
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 53%] Built target PMlibproxy
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 70%] Built target libproxy
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 75%] Built target PLlibproxy
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 79%] Built target config_gnome3
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 82%] Built target pxgsettings
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 87%] Built target url-encode
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 91%] Built target url-test
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[ 96%] Built target get-pac-test
+make[3]: Entering directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+[100%] Built target proxy
+make[2]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Up-to-date: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/share/vala/vapi/libproxy-1.0.vapi
+-- Up-to-date: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/python2.7/vendor-packages/libproxy.py
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/perl5/vendor_perl/5.22/i86pc-solaris-thread-multi-64/Net/Libproxy.pm
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/perl5/vendor_perl/5.22/i86pc-solaris-thread-multi-64/auto/Net/Libproxy/Libproxy.so
+-- Set runtime path of "/ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/perl5/vendor_perl/5.22/i86pc-solaris-thread-multi-64/auto/Net/Libproxy/Libproxy.so" to ""
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/amd64/pxgsettings
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/amd64/libproxy/0.4.11/modules/config_gnome3.so
+-- Set runtime path of "/ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/amd64/libproxy/0.4.11/modules/config_gnome3.so" to ""
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/amd64/pkgconfig/libproxy-1.0.pc
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/share/cmake/Modules/Findlibproxy.cmake
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/amd64/libproxy.so.1.0.0
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/amd64/libproxy.so.1
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/lib/amd64/libproxy.so
+-- Up-to-date: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/include/libproxy/proxy.h
+-- Installing: /ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/bin/amd64/proxy
+-- Set runtime path of "/ws/userland/src/components/desktop/libproxy/build/prototype/i386/usr/bin/amd64/proxy" to ""
+make[1]: Leaving directory '/ws/userland/src/components/desktop/libproxy/build/amd64'
+/usr/bin/amd64/python2.7 -m py_compile /ws/userland/src/components/desktop/libproxy/build/prototype/i386//usr/lib/python2.7/vendor-packages/libproxy.py
+/usr/bin/touch /ws/userland/src/components/desktop/libproxy/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 libproxy-gnome.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=0\\.4\\.11\\.1 -D COMPONENT_RE_VERSION=0\\.4\\.11\\.1 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/libproxy -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="24459" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="0.4.11.1" -D IPS_COMPONENT_VERSION="0.4.11.1" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://github.com/binarycrusader/libproxy/archive/master.zip" -D COMPONENT_PROJECT_URL="https://libproxy.github.io/libproxy/" -D COMPONENT_NAME="libproxy" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" libproxy-gnome.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy-gnome.mogrified
+/bin/mkdir -p /ws/userland/src/components/desktop/libproxy/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/libproxy/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libproxy/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libproxy/build/prototype/i386 -d /ws/userland/src/components/desktop/libproxy/build -d /ws/userland/src/components/desktop/libproxy -d libproxy-master -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/libproxy/files -m /ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy-gnome.mogrified >/ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy-gnome.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/libproxy/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libproxy/build/prototype/i386 -d /ws/userland/src/components/desktop/libproxy/build -d /ws/userland/src/components/desktop/libproxy -d libproxy-master -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/libproxy/files /ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy-gnome.mangled >/ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy-gnome.depend
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 libproxy.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=0\\.4\\.11\\.1 -D COMPONENT_RE_VERSION=0\\.4\\.11\\.1 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/libproxy -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="24459" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="0.4.11.1" -D IPS_COMPONENT_VERSION="0.4.11.1" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://github.com/binarycrusader/libproxy/archive/master.zip" -D COMPONENT_PROJECT_URL="https://libproxy.github.io/libproxy/" -D COMPONENT_NAME="libproxy" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" libproxy.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy.mogrified
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/libproxy/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libproxy/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libproxy/build/prototype/i386 -d /ws/userland/src/components/desktop/libproxy/build -d /ws/userland/src/components/desktop/libproxy -d libproxy-master -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/libproxy/files -m /ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy.mogrified >/ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/libproxy/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libproxy/build/prototype/i386 -d /ws/userland/src/components/desktop/libproxy/build -d /ws/userland/src/components/desktop/libproxy -d libproxy-master -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/libproxy/files /ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy.mangled >/ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/desktop/libproxy/build/resolve.deps -m /ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy-gnome.depend /ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy.depend
+/usr/bin/touch /ws/userland/src/components/desktop/libproxy/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy-gnome.depend.res /ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/desktop/libproxy/build/prototype/i386/mangled /ws/userland/src/components/desktop/libproxy/build/prototype/i386 /ws/userland/src/components/desktop/libproxy/build /ws/userland/src/components/desktop/libproxy libproxy-master /ws/userland/src/licenses /ws/userland/src/components/desktop/libproxy/files"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy-gnome.depend.res /ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy.depend.res
+/usr/bin/touch /ws/userland/src/components/desktop/libproxy/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/libproxy/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libproxy/build/prototype/i386 -d /ws/userland/src/components/desktop/libproxy/build -d /ws/userland/src/components/desktop/libproxy -d libproxy-master -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/libproxy/files -T \*.py /ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy-gnome.depend.res
+pkg://nightly/library/libproxy/libproxy-gnome@0.4.11.1,5.11-11.4.0.0.1.14.0:20190727T212940Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy-gnome.depend.res >/ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy-gnome.published
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/libproxy/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/libproxy/build/prototype/i386 -d /ws/userland/src/components/desktop/libproxy/build -d /ws/userland/src/components/desktop/libproxy -d libproxy-master -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/libproxy/files -T \*.py /ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy.depend.res
+pkg://nightly/library/libproxy@0.4.11.1,5.11-11.4.0.0.1.14.0:20190727T212941Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy.depend.res >/ws/userland/src/components/desktop/libproxy/build/manifest-i386-libproxy.published
+/usr/bin/touch /ws/userland/src/components/desktop/libproxy/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/desktop/libproxy'
+
+real     1:28.5
+user       55.7
+sys        11.5

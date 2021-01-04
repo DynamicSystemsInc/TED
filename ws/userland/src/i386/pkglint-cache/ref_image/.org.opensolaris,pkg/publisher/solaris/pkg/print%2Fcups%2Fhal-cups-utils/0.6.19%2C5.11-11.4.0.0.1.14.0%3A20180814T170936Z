@@ -1,0 +1,28 @@
+set name=pkg.fmri value=pkg://solaris/print/cups/hal-cups-utils@0.6.19,5.11-11.4.0.0.1.14.0:20180814T170936Z
+set name=pkg.description value="hal-cups-utils is a Hardware Abstraction Layer (HAL) plugin module that automatically creates print queues under the Common UNIX Printing System (CUPS) for printers detected by HAL."
+set name=com.oracle.info.tpno value=8957
+set name=pkg.summary value="Automatic queue creation for CUPS"
+set name=com.oracle.info.description value="the HAL automatic queue creation plugin module for CUPS"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.upstream-url value=http://fedorahosted.org/hal-cups-utils/
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.version value=0.6.19
+set name=info.classification value=org.opensolaris.category.2008:System/Printing
+set name=info.source-url value=http://fedorahosted.org/releases/h/a/hal-cups-utils/hal-cups-utils-0.6.19.tar.gz
+set name=org.opensolaris.arc-caseid value=PSARC/2009/240
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=pkg.debug.depend.bypassed value=usr/lib/hal/hal_lpadmin:.*
+set name=com.oracle.info.name value=hal-cups-utils
+set name=variant.arch value=i386 value=sparc
+depend fmri=pkg:/system/hal@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/library/libdbus@1.10.22-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/print/cups-libs@1.4.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file fa0dbf261a72cc26db29028d345edb904d2d1645 chash=575aa82ff2008e34fde1c6bb02cbd0d62d24276b elfarch=sparc elfbits=32 elfhash=0f6886dfc2d8373667672fcf001e895004e3edbc group=bin mode=0555 owner=root path=usr/lib/cups/backend/hal pkg.content-hash=gelf:sha512t_256:278cc845b0e98f3b035fb7e9537b2b19bd9fcab75f17ec6f0be27d869e25e39e pkg.content-hash=gelf.unsigned:sha512t_256:95463c01c0cf0081eca7d3754c3eb8b9c06587d1da10c35c599f5835d0a1f44a pkg.content-hash=file:sha512t_256:c2d6178aa64fceabc87569c14be362cb043c74133da793dbcdd36578f0171820 pkg.content-hash=gzip:sha512t_256:120731c7d685352a7f43b9f608f52aa8a3cf6f8834e02a63feb86a3ed7a81002 pkg.csize=6834 pkg.size=23972 variant.arch=sparc
+file 62ac21ce68a8b35eb30d1f76d8350d0d1236003a chash=73dd7018482bb9b08e086641410fec4707f8d806 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man7/hal-cups-utils.7 pkg.content-hash=file:sha512t_256:39f8c83e7933133053167d93369a0603b00f6989197817c19860347ac3e9fdbe pkg.content-hash=gzip:sha512t_256:845a75acfb189de9ba00a9759f7885a7edf944b60e5b49a967884c2cd064e8f7 pkg.csize=776 pkg.size=1507
+file 66d1210ba9f932872387822ba0cc8bbc5066cf32 chash=6d3a7b157f766943610106f7cbee1bf17717926b group=bin mode=0555 owner=root path=usr/lib/hal/hal_lpadmin pkg.content-hash=file:sha512t_256:24c3b6513941ba63f57dab2b60949cf10835688526c5d107aa421753dbce7f50 pkg.content-hash=gzip:sha512t_256:ad5d48863e282d39b0f929cff855470ead2411b52e461ce5eefb567e07c7e5e8 pkg.csize=6629 pkg.depend.bypass-generate=.* pkg.size=31286
+file 97837e9f11326a3c534240df55a68f47fa6dbedf chash=8db127bc4aa95575276a35c901d71d93a45c7827 elfarch=i386 elfbits=32 elfhash=b0101a806c6c9658cf175cd5aff6da334837e8d1 group=bin mode=0555 owner=root path=usr/lib/cups/backend/hal pkg.content-hash=gelf:sha512t_256:db6c79829d22a80dc7ef1ffd1060c4241a2db3c957b73889255411342fd93625 pkg.content-hash=gelf.unsigned:sha512t_256:75b3fd7894dc6bb37ee7b13a173857a9023c770013d8c174e898635913e316df pkg.content-hash=file:sha512t_256:33e0ce802419e128722cfe81d5bf6e9e258696eea4eda8eac711700ae86e8929 pkg.content-hash=gzip:sha512t_256:e93a4b7876fec1a2c7ac40524801f7856f09003764fa0be35cc488191dd9e61d pkg.csize=7238 pkg.size=19588 variant.arch=i386
+file 6f4fa9c85a959d6f7f5b78638e92802a24aba98e chash=7bd6c1fa5fbd669230af5f1391eb158423e77a48 group=bin mode=0444 owner=root path=etc/hal/fdi/policy/10osvendor/10-hal_lpadmin.fdi pkg.content-hash=file:sha512t_256:17fe90f52894b78f926462a230d298c10490facc1e828419f2fb1f6b69c71649 pkg.content-hash=gzip:sha512t_256:542795872307efd5af716595f45f8c0f48eb5600664704877ee6eed60a89beca pkg.csize=294 pkg.size=856
+license bf5a3e094412549f685cb8c16ad4e6cac7a986e1 chash=2cd758f80c850e957a1a0cc05a8821798260d077 license="CUPS license" pkg.content-hash=file:sha512t_256:b1ab5934e96f376f7ea05bb859213bfc4732f30e05ff378b7e0d4be296186f98 pkg.content-hash=gzip:sha512t_256:bdfccd1da4d984ee0e0fd7e375c2933a1fe5d12d432dd58484bc1add66579051 pkg.csize=10047 pkg.size=38403
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=189c112ef44c29920df815d44d1df8476e32f6c3b4a9f2f31e340dcec4cda3c0b94cf2decf875a5e43f415d8a5fd2fd6e449b636588947170818c9d2335579af59754a3439639ade7512cb0c5388c674aa006193e477f0fd8dd523c2ec883ad0a552e4c1149e19102bbb8b1d1bc7de3e9b5934f57f95e031af3e447108793c66962085b6a04efc92f493da122d8a930fdf846fb15da43d5b142d7b42d3123fd9b63272d318c06997f9155cd579ff6d78236b4f2832c4275b71c5fb8351586a86cf6a29d0b7aa5827cab734760d47bd71b7a09bc59ff239b35357761e5d2159a9202ca57f3ff2f2c49f473167ceaa79e07d76a06ee496efdd475ce093de1f2624 version=0

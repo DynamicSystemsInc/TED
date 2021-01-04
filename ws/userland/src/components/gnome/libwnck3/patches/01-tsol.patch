@@ -1,0 +1,2063 @@
+diff -uBr libwnck-3.20.1/libwnck/Makefile.am libwnck-3.20.1/libwnck/Makefile.am
+--- libwnck-3.20.1/libwnck/Makefile.am	2016-02-05 08:43:57.000000000 +0000
++++ libwnck-3.20.1/libwnck/Makefile.am	2019-12-22 12:29:39.696974753 +0000
+@@ -22,6 +22,7 @@
+ 	$(LIBWNCK_CFLAGS)			\
+ 	-I$(top_srcdir)				\
+ 	-I$(top_builddir)			\
++	-I/usr/include/libgnometsol		\
+ 	-DWNCK_I_KNOW_THIS_IS_UNSTABLE		\
+ 	-DWNCK_LOCALEDIR=\"$(wncklocaledir)\"	\
+ 	$(DISABLE_DEPRECATED_CFLAGS)
+@@ -39,6 +40,7 @@
+ 	util.h			\
+ 	window.h 		\
+ 	window-action-menu.h	\
++	wnck-tsol.h		\
+ 	workspace.h
+ 
+ wnck_built_installed_headers = wnck-enum-types.h
+@@ -60,6 +62,7 @@
+ 	util.c			\
+ 	window.c		\
+ 	window-action-menu.c	\
++	wnck-tsol.c		\
+ 	workspace.c
+ 
+ wnck_accessibility_files =			\
+@@ -91,11 +94,13 @@
+ 	$(XLIB_CFLAGS)			\
+ 	-DG_LOG_DOMAIN=\"Wnck\"		\
+ 	-DWNCK_COMPILATION		\
+-	-DSN_API_NOT_YET_FROZEN=1
++	-DSN_API_NOT_YET_FROZEN=1	\
++	-DHAVE_XTSOL
+ 
+ libwnck_3_la_LIBADD =	\
+ 	$(LIBWNCK_LIBS)	\
+ 	$(XLIB_LIBS)	\
++	-lgnometsol	\
+ 	$(LIBM)
+ 
+ libwnck_3_la_LDFLAGS =								\
+diff -uBr libwnck-3.20.1/libwnck/Makefile.in libwnck-3.20.1/libwnck/Makefile.in
+--- libwnck-3.20.1/libwnck/Makefile.in	2016-06-28 03:36:35.000000000 +0000
++++ libwnck-3.20.1/libwnck/Makefile.in	2019-09-08 12:37:03.000000000 +0000
+@@ -162,7 +162,7 @@
+ 	libwnck_3_la-screen.lo libwnck_3_la-selector.lo \
+ 	libwnck_3_la-tasklist.lo libwnck_3_la-util.lo \
+ 	libwnck_3_la-window.lo libwnck_3_la-window-action-menu.lo \
+-	libwnck_3_la-workspace.lo
++	libwnck_3_la-wnck-tsol.lo libwnck_3_la-workspace.lo
+ am__objects_5 = libwnck_3_la-pager-accessible.lo \
+ 	libwnck_3_la-pager-accessible-factory.lo \
+ 	libwnck_3_la-workspace-accessible.lo \
+@@ -228,11 +228,11 @@
+ am__depfiles_maybe = depfiles
+ am__mv = mv -f
+ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+-	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
++	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -DHAVE_XTSOL
+ LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
+ 	$(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) \
+ 	$(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
+-	$(AM_CFLAGS) $(CFLAGS)
++	$(AM_CFLAGS) $(CFLAGS) -DHAVE_XTSOL
+ AM_V_CC = $(am__v_CC_@AM_V@)
+ am__v_CC_ = $(am__v_CC_@AM_DEFAULT_V@)
+ am__v_CC_0 = @echo "  CC      " $@;
+@@ -357,7 +357,7 @@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+ LIBWNCK_AGE = @LIBWNCK_AGE@
+-LIBWNCK_CFLAGS = @LIBWNCK_CFLAGS@
++LIBWNCK_CFLAGS = @LIBWNCK_CFLAGS@ -DHAVE_XTSOL
+ LIBWNCK_CURRENT = @LIBWNCK_CURRENT@
+ LIBWNCK_LIBS = @LIBWNCK_LIBS@
+ LIBWNCK_REVISION = @LIBWNCK_REVISION@
+@@ -495,6 +495,7 @@
+ 	util.h			\
+ 	window.h 		\
+ 	window-action-menu.h	\
++	wnck-tsol.h		\
+ 	workspace.h
+ 
+ wnck_built_installed_headers = wnck-enum-types.h
+@@ -516,6 +517,7 @@
+ 	util.c			\
+ 	window.c		\
+ 	window-action-menu.c	\
++	wnck-tsol.c		\
+ 	workspace.c
+ 
+ wnck_accessibility_files = \
+@@ -779,6 +781,7 @@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-wnck-enum-types.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-workspace-accessible-factory.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-workspace-accessible.Plo@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-wnck-tsol.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-workspace.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libwnck_3_la-xutils.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test-pager.Po@am__quote@
+@@ -881,6 +884,13 @@
+ @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwnck_3_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libwnck_3_la-window-action-menu.lo `test -f 'window-action-menu.c' || echo '$(srcdir)/'`window-action-menu.c
+ 
++libwnck_3_la-wnck-tsol.lo: wnck-tsol.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwnck_3_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libwnck_3_la-wnck-tsol.lo -MD -MP -MF $(DEPDIR)/libwnck_3_la-wnck-tsol.Tpo -c -o libwnck_3_la-wnck-tsol.lo `test -f 'wnck-tsol.c' || echo '$(srcdir)/'`wnck-tsol.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libwnck_3_la-wnck-tsol.Tpo $(DEPDIR)/libwnck_3_la-wnck-tsol.Plo
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='wnck-tsol.c' object='libwnck_3_la-wnck-tsol.lo' libtool=yes @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwnck_3_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libwnck_3_la-wnck-tsol.lo `test -f 'wnck-tsol.c' || echo '$(srcdir)/'`wnck-tsol.c
++
+ libwnck_3_la-workspace.lo: workspace.c
+ @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwnck_3_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libwnck_3_la-workspace.lo -MD -MP -MF $(DEPDIR)/libwnck_3_la-workspace.Tpo -c -o libwnck_3_la-workspace.lo `test -f 'workspace.c' || echo '$(srcdir)/'`workspace.c
+ @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libwnck_3_la-workspace.Tpo $(DEPDIR)/libwnck_3_la-workspace.Plo
+diff -uBr libwnck-3.20.1/libwnck/pager.c libwnck-3.20.1/libwnck/pager.c
+--- libwnck-3.20.1/libwnck/pager.c	2016-06-21 07:19:37.000000000 +0000
++++ libwnck-3.20.1/libwnck/pager.c	2020-04-14 17:26:16.114485027 +0000
+@@ -27,6 +27,7 @@
+ #include <math.h>
+ #include <glib/gi18n-lib.h>
+ 
++#include <config.h>
+ #include "pager.h"
+ #include "workspace.h"
+ #include "window.h"
+@@ -57,6 +58,14 @@
+  * layout.
+  */
+ 
++#ifdef HAVE_XTSOL_LATER
++#include "trusted-tooltips.h"
++#endif
++
++#ifdef HAVE_XTSOL
++#include "wnck-tsol.h"
++#endif
++
+ #define N_SCREEN_CONNECTIONS 11
+ 
+ struct _WnckPagerPrivate
+@@ -80,6 +89,9 @@
+   WnckWindow *drag_window;
+ 
+   GdkPixbuf *bg_cache;
++#ifdef HAVE_XTSOL_LATER
++  TrustedTooltips *tooltips;
++#endif /* HAVE_XTSOL */  
+ 
+   int layout_manager_token;
+ 
+@@ -1406,7 +1418,55 @@
+       cairo_rectangle (cr, rect->x + 0.5, rect->y + 0.5,
+                            MAX (0, rect->width - 1), MAX (0, rect->height - 1));
+       cairo_stroke (cr);
++      cairo_destroy (cr);
+     }
++#ifdef HAVE_XTSOL
++    {
++      #define DEFAULT_COLOR	"white"
++      const char *label = NULL;
++      char *colorname;
++      int error;
++      GdkRGBA label_color;
++      m_label_t *mlabel = NULL;
++
++      if (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions())
++	{
++          label = wnck_workspace_get_label (wnck_screen_get_workspace(pager->priv->screen, workspace));
++	  if (label != NULL && (libtsol_str_to_label (label, &mlabel, MAC_LABEL, L_NO_CORRECTION, &error) == 0)) 
++	  {
++		  cairo_t *cr; 
++		  cr = gdk_cairo_create (gtk_widget_get_window(widget));
++
++		  libtsol_label_to_str (mlabel, &colorname, M_COLOR, DEF_NAMES);
++
++		  if (colorname == NULL)
++			  colorname = g_strdup(DEFAULT_COLOR);
++
++		  gdk_rgba_parse (&label_color, (const char*)colorname );
++
++		  g_free (colorname);
++
++		  cairo_set_source_rgba (cr,
++				  label_color.red,
++				  label_color.green,
++				  label_color.blue,
++				  0.5);
++		  cairo_set_line_width (cr, 1.0);
++		  cairo_rectangle (cr,
++				  rect->x + 0.5, rect->y + 0.5,
++				  rect->width - 1, rect->height - 1);
++		  cairo_fill (cr);
++		  cairo_destroy (cr);
++	  }
++	  else
++	    {
++	      g_warning("Could not validate sensitivity label \"%s\"", label ? label : "no label defined");
++	    }
++	}
++	  
++    }
++#endif /*HAVE_XTSOL*/
++
+ }
+ 
+ static gboolean
+@@ -1590,8 +1650,16 @@
+ 
+   if (id != pager->priv->prelight)
+     {
+-      wnck_pager_queue_draw_workspace (pager, pager->priv->prelight);
+-      wnck_pager_queue_draw_workspace (pager, id);
++      /*
++       * The following two function calls conflict with the
++       * draw_dark_rectange() function, which shares the
++       * cairo context. This presents a race condition that
++       * results in an reference count assertion failure in
++       * libcairo when the context is freed
++       *
++       * wnck_pager_queue_draw_workspace (pager, pager->priv->prelight);
++       * wnck_pager_queue_draw_workspace (pager, id);
++       */
+       pager->priv->prelight = id;
+       pager->priv->prelight_dnd = prelight_dnd;
+     }
+@@ -2185,6 +2253,14 @@
+   WnckPager *pager;
+ 
+   pager = g_object_new (WNCK_TYPE_PAGER, NULL);
++#ifdef HAVE_XTSOL_TODO 
++  if (_wnck_use_trusted_extensions () == TRUE) {
++    pager->priv->tooltips = trusted_tooltips_new ();
++    trusted_tooltips_set_pager (pager->priv->tooltips, pager);
++    gtk_object_ref (GTK_OBJECT (pager->priv->tooltips));
++    gtk_object_sink (GTK_OBJECT (pager->priv->tooltips));
++  }
++#endif /* HAVE_XTSOL */  
+ 
+   return GTK_WIDGET (pager);
+ }
+diff -uBr libwnck-3.20.1/libwnck/private.h libwnck-3.20.1/libwnck/private.h
+--- libwnck-3.20.1/libwnck/private.h	2014-10-21 11:40:29.000000000 +0000
++++ libwnck-3.20.1/libwnck/private.h	2019-09-08 12:37:03.000000000 +0000
+@@ -33,6 +33,9 @@
+ #ifdef HAVE_STARTUP_NOTIFICATION
+ #include <libsn/sn.h>
+ #endif
++#ifdef HAVE_XTSOL
++#include <tsol/label.h>
++#endif
+ 
+ G_BEGIN_DECLS
+ 
+@@ -106,6 +109,13 @@
+ 
+ void _wnck_workspace_update_name (WnckWorkspace *workspace,
+                                   const char    *name);
++#ifdef HAVE_XTSOL
++void _wnck_workspace_update_label (WnckWorkspace *workspace,
++                                   const char    *label);
++void _wnck_workspace_update_role (WnckWorkspace *workspace,
++                                  const char    *role);
++blrange_t * _wnck_workspace_get_range (WnckWorkspace *space);
++#endif
+ void _wnck_screen_change_workspace_name (WnckScreen *screen,
+                                          int         number,
+                                          const char *name);
+@@ -109,8 +119,14 @@
+ void _wnck_screen_change_workspace_name (WnckScreen *screen,
+                                          int         number,
+                                          const char *name);
+-
+ void _wnck_screen_shutdown_all          (void);
++#ifdef HAVE_XTSOL
++void _wnck_screen_change_workspace_label (WnckScreen *screen,
++                                          int         number,
++                                          const char *label);
++gboolean _wnck_check_xtsol_extension    ();
++gboolean _wnck_use_trusted_extensions	();
++#endif
+ 
+ gboolean _wnck_workspace_set_geometry (WnckWorkspace *space, int w, int h);
+ gboolean _wnck_workspace_set_viewport (WnckWorkspace *space, int x, int y);
+diff -uBr libwnck-3.20.1/libwnck/screen.c libwnck-3.20.1/libwnck/screen.c
+--- libwnck-3.20.1/libwnck/screen.c	2014-02-18 05:12:08.000000000 +0000
++++ libwnck-3.20.1/libwnck/screen.c	2019-09-22 23:47:03.246856708 +0000
+@@ -33,11 +33,17 @@
+ #include "class-group.h"
+ #include "xutils.h"
+ #include "private.h"
++#include "wnck-tsol.h"
+ #include <gdk/gdk.h>
+ #include <gdk/gdkx.h>
+ #include <string.h>
+ #include <stdlib.h>
+ 
++#ifdef HAVE_XTSOL
++#include <tsol/label.h>
++#include <sys/tsol/label_macro.h> 
++#endif
++
+ /**
+  * SECTION:screen
+  * @short_description: an object representing a screen.
+@@ -124,6 +130,10 @@
+   guint need_update_active_window : 1;
+   guint need_update_workspace_layout : 1;
+   guint need_update_workspace_names : 1;
++#ifdef HAVE_XTSOL
++  guint need_update_workspace_labels : 1;
++  guint need_update_workspace_roles : 1;
++#endif
+   guint need_update_bg_pixmap : 1;
+   guint need_update_showing_desktop : 1;
+   guint need_update_wm : 1;
+@@ -148,6 +158,8 @@
+   SHOWING_DESKTOP_CHANGED,
+   VIEWPORTS_CHANGED,
+   WM_CHANGED,
++  ROLES_CHANGED,
++  LABELS_CHANGED,
+   LAST_SIGNAL
+ };
+ 
+@@ -162,6 +174,10 @@
+ static void update_active_window      (WnckScreen      *screen);
+ static void update_workspace_layout   (WnckScreen      *screen);
+ static void update_workspace_names    (WnckScreen      *screen);
++#ifdef HAVE_XTSOL
++static void update_workspace_labels   (WnckScreen      *screen);
++static void update_workspace_roles    (WnckScreen      *screen);
++#endif
+ static void update_showing_desktop    (WnckScreen      *screen);
+ 
+ static void queue_update            (WnckScreen      *screen);
+@@ -193,6 +209,9 @@
+ static void emit_viewports_changed        (WnckScreen      *screen);
+ static void emit_wm_changed               (WnckScreen *screen);
+ 
++void wnck_screen_emit_roles_changed       (WnckScreen *screen);
++void wnck_screen_emit_labels_changed      (WnckScreen *screen);
++
+ static guint signals[LAST_SIGNAL] = { 0 };
+ 
+ static void
+@@ -449,6 +468,22 @@
+                   G_STRUCT_OFFSET (WnckScreenClass, window_manager_changed),
+                   NULL, NULL, NULL,
+                   G_TYPE_NONE, 0);
++
++    signals[ROLES_CHANGED] =
++    g_signal_new ("roles_changed",
++                  G_OBJECT_CLASS_TYPE (object_class),
++                  G_SIGNAL_RUN_LAST,
++                  G_STRUCT_OFFSET (WnckScreenClass, roles_changed),
++                  NULL, NULL, NULL,
++                  G_TYPE_NONE, 0);
++
++    signals[LABELS_CHANGED] =
++    g_signal_new ("labels_changed",
++                  G_OBJECT_CLASS_TYPE (object_class),
++                  G_SIGNAL_RUN_LAST,
++                  G_STRUCT_OFFSET (WnckScreenClass, labels_changed),
++                  NULL, NULL, NULL,
++                  G_TYPE_NONE, 0);
+ }
+ 
+ static void
+@@ -559,6 +594,10 @@
+   screen->priv->need_update_active_window = TRUE;
+   screen->priv->need_update_workspace_layout = TRUE;
+   screen->priv->need_update_workspace_names = TRUE;
++#ifdef HAVE_XTSOL
++  screen->priv->need_update_workspace_labels = TRUE;
++  screen->priv->need_update_workspace_roles = TRUE;
++#endif
+   screen->priv->need_update_bg_pixmap = TRUE;
+   screen->priv->need_update_showing_desktop = TRUE;
+   screen->priv->need_update_wm = TRUE;
+@@ -1003,6 +1042,20 @@
+       screen->priv->need_update_workspace_names = TRUE;
+       queue_update (screen);
+     }
++#ifdef HAVE_XTSOL
++  else if (xevent->xproperty.atom ==
++           _wnck_atom_get ("_NET_DESKTOP_LABELS"))
++    {
++      screen->priv->need_update_workspace_labels = TRUE;
++      queue_update (screen);
++    }
++  else if (xevent->xproperty.atom ==
++           _wnck_atom_get ("_NET_DESKTOP_ROLES"))
++    {
++      screen->priv->need_update_workspace_roles = TRUE;
++      queue_update (screen);
++    }
++#endif
+   else if (xevent->xproperty.atom ==
+            _wnck_atom_get ("_XROOTPMAP_ID"))
+     {
+@@ -2108,6 +2161,87 @@
+   g_list_free (copy);
+ }
+ 
++#ifdef  HAVE_XTSOL
++static void
++update_workspace_labels (WnckScreen *screen)
++{
++  char **labels;
++  int i;
++  GList *tmp;
++  GList *copy;
++
++  if (!screen->priv->need_update_workspace_labels)
++    return;
++
++  screen->priv->need_update_workspace_labels = FALSE;
++
++  labels = _wnck_get_utf8_list (screen->priv->xscreen,
++                                screen->priv->xroot,
++                                _wnck_atom_get ("_NET_DESKTOP_LABELS"));
++
++  copy = g_list_copy (screen->priv->workspaces);
++
++  i = 0;
++  tmp = copy;
++  while (tmp != NULL)
++    {
++      if (labels && labels[i])
++        {
++          _wnck_workspace_update_label (tmp->data, labels[i]);
++          ++i;
++        }
++      else
++        _wnck_workspace_update_label (tmp->data, NULL);
++
++      tmp = tmp->next;
++    }
++
++  g_strfreev (labels);
++
++  g_list_free (copy);
++}
++
++static void
++update_workspace_roles (WnckScreen *screen)
++{
++  char **roles;
++  int i;
++  GList *tmp;
++  GList *copy;
++
++  if (!screen->priv->need_update_workspace_roles)
++    return;
++
++  screen->priv->need_update_workspace_roles = FALSE;
++
++  roles = _wnck_get_utf8_list (screen->priv->xscreen,
++                               screen->priv->xroot,
++                                _wnck_atom_get ("_NET_DESKTOP_ROLES"));
++
++  copy = g_list_copy (screen->priv->workspaces);
++
++  i = 0;
++  tmp = copy;
++  while (tmp != NULL)
++    {
++      if (roles && roles[i])
++        {
++          _wnck_workspace_update_role (tmp->data, roles[i]);
++          ++i;
++        }
++      else
++        _wnck_workspace_update_role (tmp->data, NULL);
++
++      tmp = tmp->next;
++    }
++
++  g_strfreev (roles);
++
++  g_list_free (copy);
++}
++#endif /* HAVE_XTSOL */
++
++
+ static void
+ update_bg_pixmap (WnckScreen *screen)
+ {
+@@ -2197,6 +2331,10 @@
+     {
+       screen->priv->need_update_viewport_settings = TRUE;
+       screen->priv->need_update_workspace_names = TRUE;
++#ifdef HAVE_XTSOL
++      screen->priv->need_update_workspace_labels = TRUE;
++      screen->priv->need_update_workspace_roles = TRUE;
++#endif
+     }
+ 
+   /* First get our big-picture state in order */
+@@ -2209,6 +2347,15 @@
+   update_active_window (screen);
+   update_workspace_layout (screen);
+   update_workspace_names (screen);
++#ifdef HAVE_XTSOL
++  /* IMPORTANT
++   * Workspace roles MUST be set before labels 
++   * as the valid label range for role workspaces
++   * is different from the user's min and max label
++   */
++  update_workspace_roles (screen);
++  update_workspace_labels (screen);
++#endif
+   update_showing_desktop (screen);
+   update_wm (screen);
+ 
+@@ -2377,6 +2524,22 @@
+                  0);
+ }
+ 
++void
++wnck_screen_emit_roles_changed (WnckScreen *screen)
++{
++  g_signal_emit (G_OBJECT (screen),
++                 signals[ROLES_CHANGED],
++                 0);
++}
++
++void
++wnck_screen_emit_labels_changed (WnckScreen *screen)
++{
++  g_signal_emit (G_OBJECT (screen),
++                 signals[LABELS_CHANGED],
++                 0);
++}
++
+ /**
+  * wnck_screen_get_window_manager_name:
+  * @screen: a #WnckScreen.
+@@ -2731,3 +2894,87 @@
+   g_free (screens);
+   screens = NULL;
+ }
++
++#ifdef HAVE_XTSOL
++void
++_wnck_screen_change_workspace_label (WnckScreen *screen,
++                                    int         number,
++                                    const char *label)
++{
++  int n_spaces;
++  char **labels;
++  int i;
++  int error=-2;
++  m_label_t *mlabel = NULL;
++
++  static char		*lower_sl_str = NULL;
++  static char		*upper_clear_str = NULL;
++  static blrange_t	*workspace_range = NULL;
++
++  WnckWorkspace		*tmp_space = NULL;
++  
++  /* First check that we are running in a trusted windowing environment */
++  if (! _wnck_check_xtsol_extension ()) {
++      g_warning("Workspace labelling can not work with out the SUN_TSOL X extension");
++      return;
++  }
++
++  if (!_wnck_use_trusted_extensions())
++      return;
++
++  /* 
++   * Label must be validated.
++   * Convert the label string to a binary MAC_LABEL type.
++   * Then check that it is in the workspace's range which 
++   * depends on what role (if any) the workspace has.
++   */
++  
++  if (libtsol_str_to_label (label, &mlabel, MAC_LABEL, L_NO_CORRECTION, &error) < 0) {
++      g_warning("Could not validate sensitivity label \"%s\"", label);
++      return;
++  }
++
++  tmp_space = wnck_screen_get_workspace (screen, number);
++  /* need to refresh the role cache if an app is calling change label 
++   * after setting directly the _NET_DESKTOP_ROLES as this wouldn't have been 
++   * updated in libwnck yet */
++  screen->priv->need_update_workspace_roles = TRUE;
++  update_workspace_roles (screen); 
++   workspace_range = _wnck_workspace_get_range (tmp_space);
++
++  if (!libtsol_blinrange (mlabel, workspace_range)) {
++      g_warning("Could not change the sensitivity label of workspace %d because \"%s\" "
++                "appears to be outside of the workspace's label range", number, label);
++      libtsol_m_label_free (mlabel);
++      return;
++  }
++
++  n_spaces = wnck_screen_get_workspace_count (screen);
++
++  labels = g_new0 (char*, n_spaces + 1);
++
++  i = 0;
++  while (i < n_spaces) {
++      if (i == number)
++          labels[i] = (char*) label;
++      else {
++          WnckWorkspace *workspace;
++          workspace = wnck_screen_get_workspace (screen, i);
++          if (workspace) {
++              labels[i] = (char*) wnck_workspace_get_label (workspace);
++              if (labels[i] == NULL)
++                  labels[i] = (char*) ""; /* Maybe a g_warning too ? */
++          } else
++              labels[i] = (char*) ""; /* maybe this should be a g_warning too */
++      }
++      i++;
++  }
++
++  _wnck_set_utf8_list (screen->priv->xscreen,
++                       screen->priv->xroot,
++                       _wnck_atom_get ("_NET_DESKTOP_LABELS"),
++                       labels);
++  libtsol_m_label_free (mlabel);
++  g_free (labels);
++}
++#endif /* HAVE_XTSOL */
+diff -uBr libwnck-3.20.1/libwnck/screen.h libwnck-3.20.1/libwnck/screen.h
+--- libwnck-3.20.1/libwnck/screen.h	2014-02-18 05:12:08.000000000 +0000
++++ libwnck-3.20.1/libwnck/screen.h	2019-09-08 12:37:03.000000000 +0000
+@@ -111,6 +111,12 @@
+   /* Window manager changed */
+   void (* window_manager_changed)   (WnckScreen      *screen);
+ 
++   /* Roles changed */
++  void (* roles_changed)            (WnckScreen      *screen);
++
++  /* Labels changed */
++  void (* labels_changed)           (WnckScreen      *screen);
++
+   /* Padding for future expansion */
+   void (* pad2) (void);
+   void (* pad3) (void);
+@@ -232,6 +238,8 @@
+                                                      int         columns);
+ void           wnck_screen_release_workspace_layout (WnckScreen *screen,
+                                                      int         current_token);
++void           wnck_screen_emit_labels_changed      (WnckScreen *screen);
++void           wnck_screen_emit_roles_changed      (WnckScreen *screen);
+ #ifndef WNCK_DISABLE_DEPRECATED
+ G_DEPRECATED
+ void           wnck_screen_calc_workspace_layout    (WnckScreen          *screen,
+diff -uBr libwnck-3.20.1/libwnck/tasklist.c libwnck-3.20.1/libwnck/tasklist.c
+--- libwnck-3.20.1/libwnck/tasklist.c	2016-06-28 03:35:55.000000000 +0000
++++ libwnck-3.20.1/libwnck/tasklist.c	2019-09-26 23:12:01.391168067 +0000
+@@ -34,6 +34,12 @@
+ #include "workspace.h"
+ #include "xutils.h"
+ #include "private.h"
++#ifdef HAVE_XTSOL 
++#include "wnck-tsol.h"
++#endif /* HAVE_XTSOL */
++#ifdef HAVE_XTSOL_LATER
++#include "trusted-tooltips.h"
++#endif /* HAVE_XTSOL_LATER */
+ 
+ /**
+  * SECTION:tasklist
+@@ -197,6 +203,10 @@
+ 
+   GHashTable *class_group_hash;
+   GHashTable *win_hash;
++  
++#ifdef HAVE_XTSOL_LATER
++  TrustedTooltips *tooltips;
++#endif /*HAVE_XTSOL*/   
+ 
+   gint max_button_width;
+   gint max_button_height;
+@@ -1209,10 +1219,16 @@
+    * into account the hidden widgets.
+    */
+   tasklist->priv->max_button_width = wnck_tasklist_get_button_size (widget);
++  /* GLENN*/
++  //max_height -= 4;
++
+   tasklist->priv->max_button_height = max_height;
+ 
+   gtk_widget_get_allocation (GTK_WIDGET (tasklist), &tasklist_allocation);
+ 
++  /* GLENN */
++ //tasklist_allocation.height -= 4;
++
+   fake_allocation.width = tasklist_allocation.width;
+   fake_allocation.height = tasklist_allocation.height;
+ 
+@@ -2067,6 +2083,10 @@
+   WnckTasklist *tasklist;
+ 
+   tasklist = g_object_new (WNCK_TYPE_TASKLIST, NULL);
++#ifdef HAVE_XTSOL_LATER
++  if (_wnck_use_trusted_extensions () == TRUE)
++    tasklist->priv->tooltips = trusted_tooltips_new ();
++#endif /*HAVE_XTSOL*/
+ 
+   return GTK_WIDGET (tasklist);
+ }
+@@ -2935,6 +2955,10 @@
+ 	{
+ 	  image = gtk_image_new_from_pixbuf (pixbuf);
+ 	  gtk_widget_show (image);
++#ifdef HAVE_XTSOL
++      if (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions())
++	image = window_menu_create_label_indicator (win_task->window, image);
++#endif /*HAVE_XTSOL*/	  
+ 	  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item),
+ 					 image);
+ 	  g_object_unref (pixbuf);
+@@ -3317,6 +3341,15 @@
+   text = wnck_task_get_text (task, TRUE, TRUE);
+   if (text != NULL)
+     {
++#ifdef HAVE_XTSOL_LATER
++    if (_wnck_use_trusted_extensions () == TRUE)
++        trusted_tooltips_set_tip (task->tasklist->priv->tooltips,
++                                task->button,
++                                 text,
++                                 task->window ? wnck_window_get_label_human_readable (task->window) : "",
++                                 task->window ? wnck_window_get_label_color (task->window) : NULL,
++                                 NULL);
++#endif /* HAVE_XTSOL */
+       gtk_label_set_text (GTK_LABEL (task->label), text);
+       if (wnck_task_get_needs_attention (task))
+         {
+@@ -3800,7 +3833,24 @@
+   g_free (text);
+ 
+   text = wnck_task_get_text (task, FALSE, FALSE);
++#ifdef HAVE_XTSOL_LATER
++  if (_wnck_use_trusted_extensions () == TRUE)
++    {
++      if (task->window)
++        {
++         trusted_tooltips_set_tip (task->tasklist->priv->tooltips,
++                                   task->button,
++                                   text,
++                                   wnck_window_get_label_human_readable (task->window),
++                                   wnck_window_get_label_color (task->window),
++                                   NULL);
++        }
++    else
++      trusted_tooltips_set_tip (task->tasklist->priv->tooltips, task->button, text, "Hum No Label", NULL, NULL);
++  }
++#else
+   gtk_widget_set_tooltip_text (task->button, text);
++#endif /*HAVE_XTSOL*/
+   g_free (text);
+ 
+   /* Set up signals */
+@@ -3897,6 +3947,45 @@
+ #define ARROW_SIZE 12
+ #define INDICATOR_SIZE 7
+ 
++#ifdef HAVE_XTSOL
++static void
++draw_trusted_label (GtkWidget* widget, cairo_t *cr, WnckTask *task)
++{
++  GtkStyle *style;
++  int x_offset;
++  ConstraintImage *cimage;
++  GdkRectangle area;
++  GdkRectangle task_label_area;
++  GdkRectangle task_button_area;
++  GdkRectangle task_image_area;
++
++  style = gtk_widget_get_style(task->button);
++  /* get the width of the icon and the padding */
++  gtk_widget_get_allocation(task->image, &task_image_area);
++  x_offset = task_image_area.width + (style->xthickness *2);
++
++  gtk_widget_get_allocation(widget, &area);
++  area.x = x_offset;
++  gtk_widget_get_allocation(task->label, &task_label_area);
++  gtk_widget_get_allocation(task->button, &task_button_area);
++  area.height = task_button_area.height - task_label_area.height;
++  area.height = 4;
++  area.width = task_label_area.width;
++
++  cimage = get_highlight_stripe ((char*)wnck_window_get_label (task->window),
++        wnck_window_get_label_color (task->window));
++
++  if (cimage)
++    libgnome_tsol_constraint_image_render (cr, cimage, gtk_widget_get_window(widget),
++                                          &area,
++                                          FALSE,
++                                          area.x,
++                                          area.y,
++                                          area.width,
++                                          area.height);
++}
++#endif /* HAVE_XTSOL */
++
+ static gboolean
+ wnck_task_draw (GtkWidget *widget,
+                 cairo_t   *cr,
+@@ -3915,6 +4004,9 @@
+   GdkRGBA color;
+ 
+   task = WNCK_TASK (data);
++#ifdef HAVE_XTSOL 
++  draw_trusted_label (widget, cr, (WnckTask*) data);
++#endif
+ 
+   switch (task->type)
+     {
+diff -uBr libwnck-3.20.1/libwnck/window.c libwnck-3.20.1/libwnck/window.c
+--- libwnck-3.20.1/libwnck/window.c	2016-06-21 07:13:39.000000000 +0000
++++ libwnck-3.20.1/libwnck/window.c	2019-12-22 13:26:01.676495137 +0000
+@@ -26,6 +26,7 @@
+ #include <glib/gi18n-lib.h>
+ #include <string.h>
+ #include <time.h>
++#include <gdk/gdkx.h>
+ 
+ #include "window.h"
+ #include "class-group.h"
+@@ -44,6 +45,13 @@
+  * referenced or unreferenced.
+  */
+ 
++#ifdef HAVE_XTSOL
++#include <strings.h>
++#include <sys/types.h>
++#include <unistd.h>
++#include <wnck-tsol.h>
++#endif
++
+ #define FALLBACK_NAME _("Untitled window")
+ #define ALL_WORKSPACES (0xFFFFFFFF)
+ 
+@@ -81,6 +89,11 @@
+   char *icon_name;
+   char *session_id;
+   char *session_id_utf8;
++#ifdef HAVE_XTSOL
++  char *label;
++  GdkRGBA *label_color;
++  char *label_color_str;
++#endif
+   char *role;
+   int pid;
+   int workspace;
+@@ -99,6 +112,9 @@
+   int y;
+   int width;
+   int height;
++#ifdef HAVE_XTSOL
++  int is_trusted;
++#endif
+ 
+   int left_frame;
+   int right_frame;
+@@ -164,6 +180,9 @@
+   guint need_emit_class_changed : 1;
+   guint need_emit_role_changed : 1;
+   guint need_emit_type_changed : 1;
++#ifdef HAVE_XTSOL
++  guint need_update_label : 1;
++#endif
+ };
+ 
+ G_DEFINE_TYPE (WnckWindow, wnck_window, G_TYPE_OBJECT);
+@@ -221,6 +240,10 @@
+ 
+ static guint signals[LAST_SIGNAL] = { 0 };
+ 
++#ifdef TSOL
++static void update_window_role (WnckWindow *window);
++#endif
++
+ void
+ _wnck_window_shutdown_all (void)
+ {
+@@ -240,6 +263,9 @@
+   window->priv->icon_geometry.width = -1; /* invalid cached value */
+   window->priv->workspace = -1;
+   window->priv->sort_order = G_MAXINT;
++#ifdef HAVE_XTSOL
++  window->priv->is_trusted = -1;
++#endif
+ 
+   /* FIXME: should we have an invalid window type for this? */
+   window->priv->wintype = WNCK_WINDOW_NORMAL;
+@@ -438,6 +464,12 @@
+   _wnck_icon_cache_free (window->priv->icon_cache);
+   window->priv->icon_cache = NULL;
+ 
++#ifdef HAVE_XTSOL
++  g_free (window->priv->label);
++  g_free (window->priv->label_color);
++  g_free (window->priv->role);
++#endif
++
+   g_free (window->priv->startup_id);
+   window->priv->startup_id = NULL;
+   g_free (window->priv->res_class);
+@@ -563,11 +595,40 @@
+   window->priv->need_emit_class_changed = FALSE;
+   window->priv->need_emit_role_changed = FALSE;
+   window->priv->need_emit_type_changed = FALSE;
++#ifdef HAVE_XTSOL
++  window->priv->need_update_label = TRUE;
++#endif
+   force_update_now (window);
+ 
+   return window;
+ }
+ 
++#ifdef HAVE_XTSOL
++/**
++ * wnck_window_is_trusted:
++ * @window: a #WnckWindow
++ *
++ * Trusted here means that the application running in the window is
++ * in the trusted path.
++ *
++ * Return value: %TRUE if the window is trusted.
++ **/
++gboolean
++wnck_window_is_trusted                (WnckWindow *window)
++{
++  g_return_val_if_fail (WNCK_IS_WINDOW (window), FALSE);
++  if (!_wnck_check_xtsol_extension()) {
++      g_warning ("wnck_window_is_trusted() was called but the X server does not support the SUN_TSOL extension");
++      return 0;
++  }
++  if (!_wnck_use_trusted_extensions()) {
++      g_warning ("wnck_window_is_trusted(): Can not initialise the trusted extensions libraries. Check your installation");
++      return 0;
++  }
++  return window->priv->is_trusted;
++}
++#endif
++
+ void
+ _wnck_window_destroy (WnckWindow *window)
+ {
+@@ -722,6 +783,84 @@
+     return g_strdup (name);
+ }
+ 
++#ifdef HAVE_XTSOL
++/**
++ * wnck_window_get_label:
++ * @window: a #WnckWindow
++ *
++ * Gets the sensitivity label of the window in it's long string
++ * representation.
++ *
++ * Return value: sensitivity label of the window.
++ * If the window has no sensitivity label set, %NULL is returned.
++ **/
++const char*
++wnck_window_get_label (WnckWindow *window)
++{
++  g_return_val_if_fail (WNCK_IS_WINDOW (window), NULL);
++  if (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions())
++      return window->priv->label;
++  return NULL;
++}
++/**
++ * wnck_window_get_label_human_readable:
++ * @window: a #WnckWindow
++ *
++ * Gets the sensitivity label of the window and returns it in a
++ * form suitable for presentation in a user visible interface.
++ *
++ * Return value: sensitivity label of the window appropriate for
++ * human presentation.
++ * If the window has no sensitivity label set, %NULL is returned.
++ **/
++char*
++wnck_window_get_label_human_readable (WnckWindow *window)
++{
++  char *human_readable_label;
++  g_return_val_if_fail (WNCK_IS_WINDOW (window), NULL);
++  if (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions())
++    {
++      int error;
++      m_label_t *mlabel = NULL;
++
++      if (wnck_window_is_trusted (window))
++       /* SUN_BRANDING TJDS */
++       return g_strdup (_("Trusted Path"));
++
++      if (window->priv->label != NULL &&
++         (error = libtsol_str_to_label (window->priv->label,
++                                &mlabel, MAC_LABEL,
++                                L_NO_CORRECTION, &error)) == 0)
++       {
++         error = libtsol_label_to_str (mlabel,
++                               &human_readable_label,
++                               M_LABEL, DEF_NAMES);
++         return human_readable_label;
++       }
++    }
++  return NULL;
++}
++
++GdkRGBA *
++wnck_window_get_label_color (WnckWindow *window)
++{
++  g_return_val_if_fail (WNCK_IS_WINDOW (window), NULL);
++  if (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions())
++      return window->priv->label_color;
++  else
++      return NULL;
++}
++
++const char *
++wnck_window_get_label_color_str (WnckWindow *window)
++{
++  g_return_val_if_fail (WNCK_IS_WINDOW (window), NULL);
++  if (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions())
++      return window->priv->label_color_str;
++  else
++      return NULL;
++}
++#endif
+ 
+ /**
+  * wnck_window_get_application:
+@@ -1842,9 +1981,44 @@
+ wnck_window_move_to_workspace (WnckWindow    *window,
+                                WnckWorkspace *space)
+ {
++#ifdef HAVE_XTSOL
++  static char *workstationowner = NULL;
++#endif
++
+   g_return_if_fail (WNCK_IS_WINDOW (window));
+   g_return_if_fail (WNCK_IS_WORKSPACE (space));
+ 
++#ifdef HAVE_XTSOL
++  if ((_wnck_check_xtsol_extension) && (_wnck_use_trusted_extensions ())) {
++    char *windowrole = NULL;
++    char *workspacerole = wnck_workspace_get_role (space);
++	windowrole = wnck_window_get_role (window);
++    /*
++     * Only windows that are in the Trusted Path
++     * are allowed to be move onto a role workspace
++     * This could be implemented in _wnck_window_change_workspace() but
++     * it's less complicated to do so here.
++     */
++    if (workstationowner == NULL) {
++      uid_t wsuid;
++      struct passwd *pwd;
++      if ((libxtsol_XTSOLgetWorkstationOwner (gdk_x11_get_default_xdisplay (), &wsuid)) < 0) {
++        g_warning ("XTSOLgetWorkstationOwner() failed. Using getuid() instead");
++        pwd = getpwuid (getuid ());
++      } else
++        pwd = getpwuid (wsuid);
++	  workstationowner = g_strdup (pwd->pw_name);
++    }
++
++    /* Don't allow non-trusted path windows into role workspaces unless the window role
++     * matches the workspace role
++     */
++    if ((workspacerole != NULL) && (strcmp (workstationowner, workspacerole)) &&
++      (!wnck_window_is_trusted (window)) && (strcmp (workspacerole, windowrole)))
++      return;
++  }
++#endif
++
+   _wnck_change_workspace (WNCK_SCREEN_XSCREEN (window->priv->screen),
+ 			  window->priv->xwindow,
+                           wnck_workspace_get_number (space));
+@@ -2459,9 +2633,38 @@
+ wnck_window_is_on_workspace (WnckWindow    *window,
+                              WnckWorkspace *workspace)
+ {
++#ifdef HAVE_XTSOL
++  static char *workstationowner = NULL;
++#endif
++
+   g_return_val_if_fail (WNCK_IS_WINDOW (window), FALSE);
+   g_return_val_if_fail (WNCK_IS_WORKSPACE (workspace), FALSE);
+ 
++#ifdef HAVE_XTSOL
++  /*
++   * Non trusted path windows will not be visible on role workspaces
++   * unless the window role matches the workspace role.
++   */
++  if (_wnck_use_trusted_extensions () && _wnck_check_xtsol_extension ()) {
++	char *windowrole = g_strdup (wnck_window_get_role (window));
++    char *workspacerole = wnck_workspace_get_role (workspace);
++
++    if (workstationowner == NULL) {
++      uid_t wsuid;
++      struct passwd *pwd;
++      if ((libxtsol_XTSOLgetWorkstationOwner (gdk_x11_get_default_xdisplay (), &wsuid)) < 0) {
++        g_warning ("XTSOLgetWorkstationOwner() failed. Using getuid() instead");
++        pwd = getpwuid (getuid ());
++      } else
++        pwd = getpwuid (wsuid);
++	  workstationowner = g_strdup (pwd->pw_name);
++    }
++    if ((workspacerole != NULL) && (strcmp (workstationowner, workspacerole)) &&
++      (!wnck_window_is_trusted (window)) && (strcmp (workspacerole, windowrole))) {
++      return FALSE;
++    }
++  }
++#endif
+   return wnck_window_is_pinned (window) ||
+     wnck_window_get_workspace (window) == workspace;
+ }
+@@ -2488,8 +2691,12 @@
+   g_return_val_if_fail (WNCK_IS_WINDOW (window), FALSE);
+   g_return_val_if_fail (WNCK_IS_WORKSPACE (workspace), FALSE);
+ 
++  /* Being pinned is no guarantee in a trusted desktop */
++  /* TESTME */
++#ifndef HAVE_XTSOL
+   if (wnck_window_is_pinned (window) )
+     return TRUE;
++#endif
+ 
+   if (wnck_window_get_workspace (window) != workspace)
+     return FALSE;
+@@ -2867,6 +3074,91 @@
+   window->priv->icon_name = new_name;
+ }
+ 
++#ifdef HAVE_XTSOL
++
++static void 
++update_label_color (WnckWindow *window, m_label_t* label)
++{
++  #define DEFAULT_COLOR	"white"
++  int error;
++
++  if (window->priv->label_color)
++    g_free (window->priv->label_color);
++
++  if (window->priv->label_color_str)
++    g_free (window->priv->label_color_str);
++
++  window->priv->label_color = g_new0 (GdkRGBA, 1);
++  
++  error = libtsol_label_to_str (label, &window->priv->label_color_str, M_COLOR, DEF_NAMES);
++  if (window->priv->label_color_str == NULL)
++    window->priv->label_color_str = g_strdup(DEFAULT_COLOR);
++
++  gdk_rgba_parse (window->priv->label_color, (const char*)window->priv->label_color_str);
++}
++
++static void
++update_window_role (WnckWindow *window)
++{
++  int error;
++  gulong xid;
++  uid_t uid = -1;
++  struct passwd *pwd;
++
++  if (window->priv->role)
++    g_free (window->priv->role);
++  xid = wnck_window_get_xid (window);
++  error = libxtsol_XTSOLgetResUID (gdk_x11_get_default_xdisplay (),
++    xid, IsWindow, &uid);
++  if ((error < 0) || (uid < 0)) {
++    pwd = getpwuid (getuid);
++    g_warning ("XTSOLgetResUID() failed. Assuming window %ld belongs to %s\n", xid, pwd->pw_name);
++  } else
++    pwd = getpwuid (uid);
++  window->priv->role = g_strdup (pwd->pw_name);
++}
++
++/*
++ * Since window sensitivity labels are static, this is a one time
++ * only function for each window.
++ */
++void
++wnck_window_update_label (WnckWindow *window)
++{
++  g_return_if_fail (window->priv->label == NULL);
++
++  if (!window->priv->need_update_label)
++    return;
++  window->priv->need_update_label = FALSE;
++
++  if (!_wnck_use_trusted_extensions())
++    return;
++
++  /* Check for a trusted windowing environment first */
++  if (_wnck_check_xtsol_extension () && _wnck_use_trusted_extensions()) {
++      if (window->priv->label == NULL) {
++          m_label_t label;
++          int error;
++          if (libxtsol_XTSOLgetResLabel(gdk_x11_get_default_xdisplay(),
++                window->priv->xwindow, IsWindow, &label)) {
++             error = libtsol_label_to_str (&label, &window->priv->label, M_INTERNAL,
++                                   LONG_NAMES);
++	      /* add label color */
++	     update_label_color (window, &label);
++	     update_window_role (window);
++	     
++          } else {
++             window->priv->label = NULL;
++          }
++      }
++  } else {
++      g_warning("Window labelling needs the SUN_TSOL X server extension");
++      return;
++  }
++ 
++}
++#endif
++
+ static void
+ update_workspace (WnckWindow *window)
+ {
+@@ -3281,6 +3573,16 @@
+   if (window->priv->need_emit_name_changed)
+     emit_name_changed (window);
+ 
++#ifdef HAVE_XTSOL
++  if (_wnck_check_xtsol_extension () && _wnck_use_trusted_extensions()) {
++      if (window->priv->is_trusted < 0)
++          window->priv->is_trusted =
++              libxtsol_XTSOLIsWindowTrusted(gdk_x11_get_default_xdisplay(),
++              window->priv->xwindow);
++      if (window->priv->label == NULL)
++          wnck_window_update_label (window);
++  }
++#endif
+   old_state = COMPRESS_STATE (window);
+   old_actions = window->priv->actions;
+ 
+diff -uBr libwnck-3.20.1/libwnck/window.h libwnck-3.20.1/libwnck/window.h
+--- libwnck-3.20.1/libwnck/window.h	2016-02-05 07:47:09.000000000 +0000
++++ libwnck-3.20.1/libwnck/window.h	2019-09-08 12:37:03.000000000 +0000
+@@ -33,6 +33,7 @@
+ #include <glib-object.h>
+ #include <libwnck/screen.h>
+ #include <gdk-pixbuf/gdk-pixbuf.h>
++#include <gdk/gdk.h>
+ 
+ G_BEGIN_DECLS
+ 
+@@ -296,6 +297,13 @@
+ const char* wnck_window_get_name      (WnckWindow *window);
+ gboolean    wnck_window_has_icon_name (WnckWindow *window);
+ const char* wnck_window_get_icon_name (WnckWindow *window);
++#ifdef HAVE_XTSOL
++const char* wnck_window_get_label	   (WnckWindow *window);
++char* wnck_window_get_label_human_readable (WnckWindow *window);
++GdkRGBA* wnck_window_get_label_color	   (WnckWindow *window);
++const char* wnck_window_get_label_color_str	   (WnckWindow *window);
++void wnck_window_update_label	       (WnckWindow *window);
++#endif
+ 
+ WnckApplication* wnck_window_get_application  (WnckWindow *window);
+ WnckWindow*      wnck_window_get_transient    (WnckWindow *window);
+@@ -332,6 +340,9 @@
+ gboolean wnck_window_is_sticky                 (WnckWindow *window);
+ gboolean wnck_window_needs_attention           (WnckWindow *window);
+ gboolean wnck_window_or_transient_needs_attention (WnckWindow *window);
++#ifdef HAVE_XTSOL
++gboolean wnck_window_is_trusted                (WnckWindow *window);
++#endif
+ 
+ void wnck_window_set_skip_pager    (WnckWindow *window,
+                                     gboolean skip);
+diff -uBr libwnck-3.20.1/libwnck/wnck-enum-types.c libwnck-3.20.1/libwnck/wnck-enum-types.c
+--- libwnck-3.20.1/libwnck/wnck-enum-types.c	2016-02-05 08:29:17.000000000 +0000
++++ libwnck-3.20.1/libwnck/wnck-enum-types.c	2019-09-22 23:47:03.247354240 +0000
+@@ -3,7 +3,7 @@
+ 
+ #include <libwnck/libwnck.h>
+ 
+-/* enumerations from "pager.h" */
++/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/pager.h" */
+ static const GEnumValue _wnck_pager_display_mode_values[] = {
+   { WNCK_PAGER_DISPLAY_NAME, "WNCK_PAGER_DISPLAY_NAME", "name" },
+   { WNCK_PAGER_DISPLAY_CONTENT, "WNCK_PAGER_DISPLAY_CONTENT", "content" },
+@@ -22,7 +22,7 @@
+ }
+ 
+ 
+-/* enumerations from "screen.h" */
++/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/screen.h" */
+ static const GEnumValue __wncklayoutorientation___wnck_layout_orientation_values[] = {
+   { WNCK_LAYOUT_ORIENTATION_HORIZONTAL, "WNCK_LAYOUT_ORIENTATION_HORIZONTAL", "horizontal" },
+   { WNCK_LAYOUT_ORIENTATION_VERTICAL, "WNCK_LAYOUT_ORIENTATION_VERTICAL", "vertical" },
+@@ -60,7 +60,7 @@
+ }
+ 
+ 
+-/* enumerations from "tasklist.h" */
++/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/tasklist.h" */
+ static const GEnumValue _wnck_tasklist_grouping_type_values[] = {
+   { WNCK_TASKLIST_NEVER_GROUP, "WNCK_TASKLIST_NEVER_GROUP", "never-group" },
+   { WNCK_TASKLIST_AUTO_GROUP, "WNCK_TASKLIST_AUTO_GROUP", "auto-group" },
+@@ -80,7 +80,7 @@
+ }
+ 
+ 
+-/* enumerations from "util.h" */
++/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/util.h" */
+ static const GEnumValue _wnck_client_type_values[] = {
+   { WNCK_CLIENT_TYPE_APPLICATION, "WNCK_CLIENT_TYPE_APPLICATION", "application" },
+   { WNCK_CLIENT_TYPE_PAGER, "WNCK_CLIENT_TYPE_PAGER", "pager" },
+@@ -99,7 +99,7 @@
+ }
+ 
+ 
+-/* enumerations from "window.h" */
++/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/window.h" */
+ static const GFlagsValue _wnck_window_state_values[] = {
+   { WNCK_WINDOW_STATE_MINIMIZED, "WNCK_WINDOW_STATE_MINIMIZED", "minimized" },
+   { WNCK_WINDOW_STATE_MAXIMIZED_HORIZONTALLY, "WNCK_WINDOW_STATE_MAXIMIZED_HORIZONTALLY", "maximized-horizontally" },
+@@ -231,7 +231,7 @@
+ }
+ 
+ 
+-/* enumerations from "workspace.h" */
++/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/workspace.h" */
+ static const GEnumValue _wnck_motion_direction_values[] = {
+   { WNCK_MOTION_UP, "WNCK_MOTION_UP", "up" },
+   { WNCK_MOTION_DOWN, "WNCK_MOTION_DOWN", "down" },
+diff -uBr libwnck-3.20.1/libwnck/wnck-enum-types.h libwnck-3.20.1/libwnck/wnck-enum-types.h
+--- libwnck-3.20.1/libwnck/wnck-enum-types.h	2016-02-05 08:29:17.000000000 +0000
++++ libwnck-3.20.1/libwnck/wnck-enum-types.h	2019-09-08 12:37:03.000000000 +0000
+@@ -11,25 +11,25 @@
+ G_BEGIN_DECLS
+ 
+ 
+-/* enumerations from "pager.h" */
++/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/pager.h" */
+ #define WNCK_TYPE_PAGER_DISPLAY_MODE wnck_pager_display_mode_get_type()
+ GType wnck_pager_display_mode_get_type (void);
+ 
+-/* enumerations from "screen.h" */
++/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/screen.h" */
+ #define WNCK_TYPE___WNCK_LAYOUT_ORIENTATION _wncklayoutorientation___wnck_layout_orientation_get_type()
+ GType _wncklayoutorientation___wnck_layout_orientation_get_type (void);
+ #define WNCK_TYPE___WNCK_LAYOUT_CORNER _wncklayoutcorner___wnck_layout_corner_get_type()
+ GType _wncklayoutcorner___wnck_layout_corner_get_type (void);
+ 
+-/* enumerations from "tasklist.h" */
++/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/tasklist.h" */
+ #define WNCK_TYPE_TASKLIST_GROUPING_TYPE wnck_tasklist_grouping_type_get_type()
+ GType wnck_tasklist_grouping_type_get_type (void);
+ 
+-/* enumerations from "util.h" */
++/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/util.h" */
+ #define WNCK_TYPE_CLIENT_TYPE wnck_client_type_get_type()
+ GType wnck_client_type_get_type (void);
+ 
+-/* enumerations from "window.h" */
++/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/window.h" */
+ #define WNCK_TYPE_WINDOW_STATE wnck_window_state_get_type()
+ GType wnck_window_state_get_type (void);
+ #define WNCK_TYPE_WINDOW_ACTIONS wnck_window_actions_get_type()
+@@ -41,7 +41,7 @@
+ #define WNCK_TYPE_WINDOW_MOVE_RESIZE_MASK wnck_window_move_resize_mask_get_type()
+ GType wnck_window_move_resize_mask_get_type (void);
+ 
+-/* enumerations from "workspace.h" */
++/* enumerations from "/ws/userland/src/components/gnome/libwnck3/libwnck-3.20.1/libwnck/workspace.h" */
+ #define WNCK_TYPE_MOTION_DIRECTION wnck_motion_direction_get_type()
+ GType wnck_motion_direction_get_type (void);
+ G_END_DECLS
+diff -uBr libwnck-3.20.1/libwnck/workspace.c libwnck-3.20.1/libwnck/workspace.c
+--- libwnck-3.20.1/libwnck/workspace.c	2014-02-18 05:12:08.000000000 +0000
++++ libwnck-3.20.1/libwnck/workspace.c	2019-09-22 23:47:03.247582407 +0000
+@@ -24,6 +24,16 @@
+ #include <config.h>
+ 
+ #include <glib/gi18n-lib.h>
++#ifdef HAVE_XTSOL
++#include <stdlib.h>
++#include <sys/types.h>
++#include <unistd.h>
++#include <user_attr.h>
++#include <X11/Xlib.h>
++#include <X11/extensions/Xtsol.h>
++#include <libgnometsol/userattr.h>
++#include <wnck-tsol.h>
++#endif
+ #include "workspace.h"
+ #include "xutils.h"
+ #include "private.h"
+@@ -67,6 +77,13 @@
+   WnckScreen *screen;
+   int number;
+   char *name;
++#ifdef HAVE_XTSOL  /* TSOL */
++  char *label; /* Workspace sensitivity label */
++  char *role;  /* Workspace role : login name. Set only once */
++  /* The workspace range can differ for Workstation Owner and role workspaces */
++  const blrange_t *ws_range;
++#endif
++
+   int width, height;            /* Workspace size */
+   int viewport_x, viewport_y;   /* Viewport origin */
+   gboolean is_virtual;
+@@ -77,6 +94,10 @@
+ 
+ enum {
+   NAME_CHANGED,
++#ifdef HAVE_XTSOL
++  LABEL_CHANGED,
++  ROLE_CHANGED,
++#endif
+   LAST_SIGNAL
+ };
+ 
+@@ -89,12 +110,28 @@
+ 
+ static guint signals[LAST_SIGNAL] = { 0 };
+ 
++#ifdef HAVE_XTSOL
++static void emit_label_changed (WnckWorkspace *space);
++static void emit_role_changed (WnckWorkspace *space);
++static blrange_t * get_display_range (void);
++#endif
++
+ static void
+ wnck_workspace_init (WnckWorkspace *workspace)
+ {
+   workspace->priv = WNCK_WORKSPACE_GET_PRIVATE (workspace);
+ 
++  workspace->priv->screen = NULL;
+   workspace->priv->number = -1;
++  workspace->priv->name = NULL;
++  workspace->priv->width = 0;
++  workspace->priv->height = 0;
++  workspace->priv->viewport_x = 0;
++  workspace->priv->viewport_y = 0;
++  workspace->priv->is_virtual = FALSE;
++#ifdef HAVE_XTSOL
++  workspace->priv->ws_range = NULL;
++#endif
+ }
+ 
+ static void
+@@ -117,8 +154,27 @@
+                   G_OBJECT_CLASS_TYPE (object_class),
+                   G_SIGNAL_RUN_LAST,
+                   G_STRUCT_OFFSET (WnckWorkspaceClass, name_changed),
+-                  NULL, NULL, NULL,
++                  NULL, NULL,
++                  g_cclosure_marshal_VOID__VOID,
++                  G_TYPE_NONE, 0);
++#ifdef HAVE_XTSOL
++  signals[LABEL_CHANGED] =
++    g_signal_new ("label_changed",
++                  G_OBJECT_CLASS_TYPE (object_class),
++                  G_SIGNAL_RUN_LAST,
++                  G_STRUCT_OFFSET (WnckWorkspaceClass, label_changed),
++                  NULL, NULL,
++                  g_cclosure_marshal_VOID__VOID,
++                  G_TYPE_NONE, 0);
++  signals[ROLE_CHANGED] =
++    g_signal_new ("role_changed",
++                  G_OBJECT_CLASS_TYPE (object_class),
++                  G_SIGNAL_RUN_LAST,
++                  G_STRUCT_OFFSET (WnckWorkspaceClass, role_changed),
++                  NULL, NULL,
++                  g_cclosure_marshal_VOID__VOID,
+                   G_TYPE_NONE, 0);
++#endif
+ }
+ 
+ static void
+@@ -131,16 +187,21 @@
+   g_free (workspace->priv->name);
+   workspace->priv->name = NULL;
+ 
++#ifdef HAVE_XTSOL
++  g_free (workspace->priv->role);
++  g_free (workspace->priv->label);
++#endif
++  
+   G_OBJECT_CLASS (wnck_workspace_parent_class)->finalize (object);
+ }
+ 
+ /**
+  * wnck_workspace_get_number:
+  * @space: a #WnckWorkspace.
+- *
++ * 
+  * Gets the index of @space on the #WnckScreen to which it belongs. The
+  * first workspace has an index of 0.
+- *
++ * 
+  * Return value: the index of @space on its #WnckScreen, or -1 on errors.
+  **/
+ int
+@@ -169,6 +230,138 @@
+   return space->priv->name;
+ }
+ 
++#ifdef HAVE_XTSOL
++/**
++ * wnck_workspace_get_label_range:
++ * @space: a #WnckWorkspace
++ * @min_label: a string pointer to pointer to the minimum valid label value for @space
++ * @max_label: a string pointer to pointer to the maximum valid label value for @space
++ *
++ * Gets the sensitivity label range for the specified workspace when
++ * running in a label aware desktop session. @min_label represents the minimum
++ * sensitivity label that the #WnckWorkspace, @space, may be assigned.
++ * @max_label represents the maximum sensitivity label thatthe #WnckWorkspace,
++ * @space may be assigned. Both min_label and max_label are allocated memory
++ * on behalf of the caller. It is the caller's responsibility to free the memory
++ * pointed to by @min_label and @max_label.
++ *
++ * Return value: 0 on success, non zero on failure.
++ **/
++int
++wnck_workspace_get_label_range (WnckWorkspace *space, char **min_label, char **max_label)
++{
++  int error = 0;
++  blrange_t *brange;
++  g_return_val_if_fail (WNCK_IS_WORKSPACE (space), -1);
++
++  if (! _wnck_check_xtsol_extension ())
++      return -1;
++
++  if (!_wnck_use_trusted_extensions())
++      return -1;
++
++  brange = _wnck_workspace_get_range (space);
++  if (!brange)
++      return -1;
++
++  if (libtsol_label_to_str (brange->lower_bound, min_label, M_INTERNAL,
++                        LONG_NAMES) != 0) {
++      g_warning ("wnck_workspace_get_label_range: Workspace has an invalid minimum label bound");
++      return -1;
++  }
++
++  if (libtsol_label_to_str (brange->upper_bound, max_label, M_INTERNAL,
++                        LONG_NAMES) != 0) {
++      g_warning ("wnck_workspace_get_label_range: Workspace has an invalid maximum label bound");
++      return -1;
++  }
++  return 0;
++}
++
++/**
++ * wnck_workspace_get_label:
++ * @space: a #WnckWorkspace
++ *
++ * Gets the sensitivity label as an hex number for the specified 
++ * workspace when running in a label aware desktop session.
++ *
++ * Return value: workspace sensitivity label, %NULL on failure.
++ **/
++const char*
++wnck_workspace_get_label (WnckWorkspace *space)
++{
++  g_return_val_if_fail (WNCK_IS_WORKSPACE (space), NULL);
++  /* A bit anal perhaps but I'd rather make sure nothing useful is returned */
++  if (! (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions()) )
++    return NULL;
++  return space->priv->label;
++}
++
++/**
++ * wnck_workspace_get_human_readable_label:
++ * @space: a #WnckWorkspace
++ *
++ * Gets the sensitivity label as a string for the specified workspace when
++ * running in a label aware desktop session.
++ * 
++ *
++ * Return value: workspace sensitivity label, %NULL on failure.
++ **/
++char*
++wnck_workspace_get_human_readable_label (WnckWorkspace *space)
++{
++  const char *hex_label;
++  char *human_readable_label;
++  int error;
++  m_label_t *mlabel = NULL;
++  
++  g_return_val_if_fail (WNCK_IS_WORKSPACE (space), NULL);
++  if (! (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions()) )
++    return NULL;
++
++  hex_label = space->priv->label;
++
++  if (hex_label && (error = libtsol_str_to_label (hex_label, &mlabel, MAC_LABEL, 
++			    L_NO_CORRECTION, &error) == 0))
++    {
++      error = libtsol_label_to_str (mlabel, 
++			    &human_readable_label, 
++			    M_LABEL, DEF_NAMES);
++      m_label_free(mlabel);
++      if (strcmp (human_readable_label, "ADMIN_HIGH") == 0 ||
++	  strcmp (human_readable_label, "ADMIN_LOW") == 0) {
++	/* SUN_BRANDING TJDS */
++        free(human_readable_label);
++	return g_strdup ("Trusted Path");
++      } else {
++        return human_readable_label;
++      }
++    }
++  return NULL;
++}
++
++
++/**
++ * wnck_workspace_get_role:
++ * @space: a #WnckWorkspace
++ *
++ * Gets the role (login name) for the specified workspace when
++ * running in a trusted desktop session.
++ *
++ * Return value: workspace user role, %NULL on failure.
++ **/
++const char*
++wnck_workspace_get_role (WnckWorkspace *space)
++{
++  g_return_val_if_fail (WNCK_IS_WORKSPACE (space), NULL);
++  /* Make sure to return NULL for non-tsol */
++  if (! (_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions()) )
++    return NULL;
++  return space->priv->role;
++}
++#endif /* HAVE_XTSOL */
++
++
+ /**
+  * wnck_workspace_change_name:
+  * @space: a #WnckWorkspace.
+@@ -207,6 +400,29 @@
+   return space->priv->screen;
+ }
+ 
++#ifdef HAVE_XTSOL
++/**
++ * wnck_workspace_change_label:
++ * @space: a #WnckWorkspace
++ * @label: new workspace sensitivity label
++ *
++ * Try changing the sensitivity label of the workspace.
++ *
++ **/
++
++void
++wnck_workspace_change_label (WnckWorkspace *space,
++                             const char    *label)
++{
++  g_return_if_fail (WNCK_IS_WORKSPACE (space));
++  g_return_if_fail (label != NULL);
++
++  _wnck_screen_change_workspace_label (space->priv->screen,
++                                       space->priv->number,
++                                       label);
++}
++#endif
++
+ /**
+  * wnck_workspace_activate:
+  * @space: a #WnckWorkspace.
+@@ -244,7 +460,8 @@
+   space->priv->screen = screen;
+ 
+   _wnck_workspace_update_name (space, NULL);
+-
++/* FIXME - do label and role need to be updated here? */  
++  
+   /* Just set reasonable defaults */
+   space->priv->width = wnck_screen_get_width (screen);
+   space->priv->height = wnck_screen_get_height (screen);
+@@ -279,6 +496,251 @@
+   g_free (old);
+ }
+ 
++#ifdef HAVE_XTSOL
++
++static char*
++get_workstationowner (void)
++{
++  static char *workstationowner = NULL;
++  uid_t wsuid;
++  struct passwd *pwd;
++
++  if (workstationowner == NULL) {
++    if ((libxtsol_XTSOLgetWorkstationOwner (gdk_x11_get_default_xdisplay (),
++					    &wsuid)) < 0) {
++      g_warning ("XTSOLgetWorkstationOwner() failed. Using getuid() instead");
++      pwd = getpwuid (getuid ());
++    } else {
++      pwd = getpwuid (wsuid);
++    }
++    
++    workstationowner = g_strdup (pwd->pw_name);
++  }
++ 
++  return workstationowner;
++}
++
++void
++_wnck_workspace_update_label (WnckWorkspace *space,
++                              const char    *label)
++{
++  char *old;
++
++  g_return_if_fail (WNCK_IS_WORKSPACE (space));
++  /* Don't do anything unless this is a trusted system */
++  if (!(_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions()))
++      return;
++
++  /* Should a warning be called here? */
++  if (label == NULL)
++	g_warning("Workspace %d label is null\n",
++                   wnck_workspace_get_number (space));
++
++  old = space->priv->label;
++  space->priv->label = g_strdup (label);
++
++  /*
++   *Initialise the label range for this workspace
++   */
++
++  if (!space->priv->ws_range) {
++      if ((!space->priv->role) || (strlen (space->priv->role) == 0) ||
++	   (strcmp (space->priv->role, get_workstationowner ()) == 0)) {
++          blrange_t		*range;
++          int error;
++          char *min_label = NULL;
++          char *max_label = NULL;
++          range = g_malloc (sizeof (blrange_t));
++          range->lower_bound = range->upper_bound = NULL;
++     
++          min_label = g_strdup (_wnck_get_min_label ());
++          max_label = g_strdup (_wnck_get_max_label ());
++
++          if (libtsol_str_to_label (min_label, &(range->lower_bound),
++                                    MAC_LABEL, L_NO_CORRECTION, &error) < 0) {
++              g_warning ("Couldn't determine minimum workspace label");
++              g_free (min_label);
++              g_free (max_label);
++              return;
++          }
++          if (libtsol_str_to_label (max_label, &(range->upper_bound),
++                                    USER_CLEAR, L_NO_CORRECTION, &error) < 0) {
++              g_warning ("Couldn't determine workspace clearance");
++              g_free (min_label);
++              g_free (max_label);
++              return;
++          }
++          space->priv->ws_range = range;
++          g_free (min_label);
++          g_free (max_label);
++
++      } else {
++          int           error;
++          blrange_t     *role_range;
++          blrange_t		*disp_range;
++          userattr_t	*u_ent; 
++          /* 
++           * This is a role workspace so we need to construct the correct label range
++           * instead of relying on USER_MIN_SL and USER_MAX_SL
++           */
++          if ((role_range = libtsol_getuserrange (space->priv->role)) == NULL) {
++              g_warning ("Couldn't get label range for %s\n", space->priv->role);
++              return;
++          }
++
++    	  /* Get display device's range */
++    	  if ((disp_range = get_display_range ()) == NULL) {
++    		  g_warning ("Couldn't get the display's device range");
++    		  return;
++    	  }
++
++          /*
++           * Determine the low & high bound of the label range
++           * where the role user can operate. This is the
++           * intersection of display label range & role label
++           * range.
++           */
++          libtsol_blmaximum (role_range->lower_bound, disp_range->lower_bound);
++          libtsol_blminimum (role_range->upper_bound, disp_range->upper_bound);
++          space->priv->ws_range = role_range;
++          libtsol_blabel_free (disp_range->lower_bound);
++          libtsol_blabel_free (disp_range->upper_bound);
++          free (disp_range);
++      }
++  }
++  /* Should we put a g_warning here? */
++  /* if (space->priv->label == NULL) */
++
++  if ((!old && label) ||
++      (old && label && strcmp (old, label) != 0))
++    emit_label_changed (space);
++
++  g_free (old);
++}
++
++void
++_wnck_workspace_update_role (WnckWorkspace *space,
++                             const char    *role)
++{
++	char *workstationowner = NULL;
++	char *old;
++
++	g_return_if_fail (WNCK_IS_WORKSPACE (space));
++	/* Check for a multi label trusted environment first */
++	if (!(_wnck_check_xtsol_extension() && _wnck_use_trusted_extensions()))
++		return;
++	workstationowner = get_workstationowner ();
++
++	if (role == NULL)
++		return;
++	old = space->priv->role;
++
++	/* Check the the workspace role really is changing */
++	if ((!old && role) ||
++		(old && role && strcmp (old, role) != 0)) {
++		g_free (space->priv->role);
++		if (strlen (role) ==0)
++			{ space->priv->role = g_strdup (workstationowner); return;}
++		else
++			space->priv->role = g_strdup (role);
++
++		/*
++		 * A role change requires that the label range of the 
++		 * workspace be reset. The label also needs to be 
++		 * silently set to the lowest in the range.
++		 */
++
++		if (space->priv->ws_range) {
++			libtsol_blabel_free (space->priv->ws_range->lower_bound);
++			libtsol_blabel_free (space->priv->ws_range->upper_bound);
++			/* FIXME - man pages tell me to use free but generates a compiler warning */
++			free ((void *)space->priv->ws_range);
++		}
++
++		if (strcmp (space->priv->role, workstationowner) == 0) {
++			/* Workstation owner, so it's not a real role */
++			blrange_t		*range;
++			int error;
++			char *min_label = NULL;
++			char *max_label = NULL;
++			range = g_malloc (sizeof (blrange_t));
++			range->lower_bound = range->upper_bound = NULL;
++ 
++			min_label = g_strdup (_wnck_get_min_label ());
++			max_label = g_strdup (_wnck_get_max_label ());
++
++			/* Workspace label must be reset by default to the min_label value */
++			if (space->priv->label)
++				g_free (space->priv->label);
++				space->priv->label = g_strdup (min_label);  
++
++			if (libtsol_str_to_label (min_label, &(range->lower_bound),
++					MAC_LABEL, L_NO_CORRECTION, &error) < 0) {
++				g_warning ("Couldn't determine minimum workspace label");
++				g_free (min_label);
++				g_free (max_label);
++				return;
++			}
++
++			if (libtsol_str_to_label (max_label, &(range->upper_bound),
++				USER_CLEAR, L_NO_CORRECTION, &error) < 0) {
++				g_warning ("Couldn't determine workspace clearance");
++				g_free (min_label);
++				g_free (max_label);
++				return;
++    	  	}
++
++			space->priv->ws_range = range;
++			g_free (min_label);
++			g_free (max_label);
++
++		} else {
++			int           error;
++			blrange_t     *role_range;
++			blrange_t		*disp_range;
++			userattr_t	*u_ent;
++
++			/* 
++			 * This is a role workspace so we need to construct the correct label range
++			 * instead of relying on USER_MIN_SL and USER_MAX_SL
++			 */
++			if ((role_range = libtsol_getuserrange (space->priv->role)) == NULL) {
++				g_warning ("Couldn't get label range for %s\n", space->priv->role);
++				return;
++			}
++
++			/* Get display device's range */
++			if ((disp_range = get_display_range ()) == NULL) {
++				g_warning ("Couldn't get the display's device range");
++				return;
++			}
++
++			/*
++			 * Determine the low & high bound of the label range
++			 * where the role user can operate. This is the
++			 * intersection of display label range & role label
++			 * range.
++			 */
++			libtsol_blmaximum (role_range->lower_bound, disp_range->lower_bound);
++			libtsol_blminimum (role_range->upper_bound, disp_range->upper_bound);
++			space->priv->ws_range = role_range;
++
++			/* Workspace label must be reset by default to the lower_bound value */
++			if (libtsol_label_to_str (role_range->lower_bound, &space->priv->label, M_INTERNAL,
++					LONG_NAMES) != 0) {
++				/* Weird - default to admin_low */
++        		space->priv->label = g_strup ("ADMIN_LOW");
++			}
++
++			libtsol_blabel_free (disp_range->lower_bound);
++			libtsol_blabel_free (disp_range->upper_bound);
++			free (disp_range);
++		}
++    	emit_role_changed (space);
++	}
++}
++#endif /* HAVE_XTSOL */
++
+ static void
+ emit_name_changed (WnckWorkspace *space)
+ {
+@@ -287,6 +749,26 @@
+                  0);
+ }
+ 
++#ifdef HAVE_XTSOL
++static void
++emit_label_changed (WnckWorkspace *space)
++{
++  g_signal_emit (G_OBJECT (space),
++                 signals[LABEL_CHANGED],
++                 0);
++  wnck_screen_emit_labels_changed (space->priv->screen);
++}
++
++static void
++emit_role_changed (WnckWorkspace *space)
++{
++  g_signal_emit (G_OBJECT (space),
++                 signals[ROLE_CHANGED],
++                 0);
++  wnck_screen_emit_roles_changed (space->priv->screen);
++}
++#endif /* HAVE_XTSOL */
++
+ gboolean
+ _wnck_workspace_set_geometry (WnckWorkspace *space,
+                               int            w,
+@@ -602,3 +1084,33 @@
+ 
+   return wnck_screen_get_workspace (space->priv->screen, index);
+ }
++
++#ifdef HAVE_XTSOL
++/*
++ * These private (hint hint) functions assume that they have been called
++ * from within a trusted desktop session. The caller must ensure that
++ * this is the case otherwise it will trigger a load of the potentially
++ * non existant tsol and xtsol libs. That would be bad!
++ */
++static blrange_t *
++get_display_range (void)
++{
++  blrange_t       *range = NULL;
++
++  range = libbsm_getdevicerange ("framebuffer");
++  if (range == NULL) {
++    range = g_malloc (sizeof (blrange_t));
++    range->lower_bound = libtsol_blabel_alloc ();
++    range->upper_bound = libtsol_blabel_alloc ();
++    libtsol_bsllow  (range->lower_bound);
++    libtsol_bslhigh (range->upper_bound);
++  }
++  return (range);
++}
++
++blrange_t *
++_wnck_workspace_get_range (WnckWorkspace *space)
++{
++  return space->priv->ws_range;
++}
++#endif
+diff -uBr libwnck-3.20.1/libwnck/workspace.h libwnck-3.20.1/libwnck/workspace.h
+--- libwnck-3.20.1/libwnck/workspace.h	2014-02-18 05:12:08.000000000 +0000
++++ libwnck-3.20.1/libwnck/workspace.h	2019-09-08 12:37:03.000000000 +0000
+@@ -59,6 +59,11 @@
+   GObjectClass parent_class;
+ 
+   void (* name_changed) (WnckWorkspace *space);
++
++#ifdef HAVE_XTSOL
++  void (* label_changed) (WnckWorkspace *space);
++  void (* role_changed)  (WnckWorkspace *space);
++#endif
+   
+   /* Padding for future expansion */
+   void (* pad1) (void);
+@@ -94,9 +99,22 @@
+ 
+ int         wnck_workspace_get_number     (WnckWorkspace *space);
+ const char* wnck_workspace_get_name       (WnckWorkspace *space);
++#ifdef HAVE_XTSOL
++int        wnck_workspace_get_label_range(WnckWorkspace *space,
++                                          char **min_label,
++                                          char **max_label);
++const char*        wnck_workspace_get_label      (WnckWorkspace *space);
++char*      wnck_workspace_get_human_readable_label (WnckWorkspace *space);
++const char*        wnck_workspace_get_role       (WnckWorkspace *space);
++#endif
++
+ void        wnck_workspace_change_name    (WnckWorkspace *space,
+                                            const char    *name);
+ WnckScreen* wnck_workspace_get_screen     (WnckWorkspace *space);
++#ifdef HAVE_XTSOL
++void        wnck_workspace_change_label   (WnckWorkspace *space,
++                                           const char    *label);
++#endif
+ void        wnck_workspace_activate       (WnckWorkspace *space,
+                                            guint32        timestamp);
+ int         wnck_workspace_get_width      (WnckWorkspace *space);
+diff -uBr libwnck-3.20.1/libwnck/xutils.c libwnck-3.20.1/libwnck/xutils.c
+--- libwnck-3.20.1/libwnck/xutils.c	2016-06-21 07:13:39.000000000 +0000
++++ libwnck-3.20.1/libwnck/xutils.c	2019-09-22 23:47:03.247620608 +0000
+@@ -24,6 +24,7 @@
+ #include <string.h>
+ #include <stdio.h>
+ #include <cairo-xlib.h>
++#include <gdk/gdkx.h>
+ #if HAVE_CAIRO_XLIB_XRENDER
+ #include <cairo-xlib-xrender.h>
+ #endif
+@@ -253,6 +254,21 @@
+   return TRUE;
+ }
+ 
++#ifdef HAVE_XTSOL
++gboolean
++_wnck_check_xtsol_extension ()
++{
++  static int foundxtsol = -1;
++  int major_code, first_event, first_error;
++
++  if (foundxtsol < 0) { 
++      foundxtsol = XQueryExtension (gdk_x11_get_default_xdisplay(),
++          "SUN_TSOL", &major_code, &first_event, &first_error);
++  }
++  return foundxtsol;
++}
++#endif
++
+ static char*
+ text_property_to_utf8 (Display             *display,
+                        const XTextProperty *prop)

@@ -1,0 +1,28 @@
+set name=pkg.fmri value=pkg://solaris/x11/server/xorg/driver/xorg-video-ati@7.8.0,5.11-11.4.0.0.1.14.0:20180814T173459Z
+set name=variant.arch value=i386
+set name=org.opensolaris.arc-caseid value=PSARC/2017/212
+set name=com.oracle.info.tpno value=39514
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=info.upstream-url value=https://www.x.org
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.version value=7.8.0
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Display
+set name=info.source-url value=https://www.x.org/releases/individual/driver/xf86-video-ati-7.8.0.tar.bz2
+set name=pkg.summary value="xf86-video-ati - ATI/AMD Radeon video driver for the Xorg X server"
+set name=com.oracle.info.name value=xf86-video-ati
+set name=com.oracle.info.description value="the xf86-video-ati driver"
+set name=pkg.description value="Xorg video driver for ATI Radeon and Radeon HD graphics devices from AMD"
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/x11/server/xorg@1.19.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/diagnostic/scanpci@0.13.4-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/x11/library/libdrm@2.4.67-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/graphics/pixman@0.34.0-11.4.0.0.1.13.0 type=require
+file d2780b18018182c94d5d94f022fbf6839aa111c3 chash=4aeda6641de397f3fb397f26b75e4fe895dd9d61 elfarch=i386 elfbits=64 elfhash=34422e26f5ead433429dfe0be9e5a2a20562ce3e group=bin mode=0555 owner=root path=usr/lib/xorg/modules/drivers/ati_drv.so pkg.content-hash=gelf:sha512t_256:dbb985bfb7c3ca00e71c8d54d6e17b0d9cb5858bda5b6a599873e3d596d68683 pkg.content-hash=gelf.unsigned:sha512t_256:4057db0b6e8a73f5d9a0883cec0c07d06dfd465bd5f764aaa75457b3a1f04fca pkg.content-hash=file:sha512t_256:7326ababbcc1cab5788df88a668a9f4cbb8fc3125914470be38157fa243df9ac pkg.content-hash=gzip:sha512t_256:3b78fb5309018858e7573b2c25c09a5a1fc9bf75954e7230b36b2d26546f255f pkg.csize=4104 pkg.size=13832
+file b4ae7369150e34e4854f1f151d155328d226ff9e chash=e09075dccf7def1f28fcdb6d08f6cf712796e762 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4/ati.4 pkg.content-hash=file:sha512t_256:def78f403fd39a5a1430afb0c74ae0049cb8ea8e36f8a05fe56adad4cb0410f5 pkg.content-hash=gzip:sha512t_256:184a16569f10e3de6047f11bbe5c479d7cc3dcd6b46be231f7e623c969ad4ec8 pkg.csize=936 pkg.size=1702
+file dbb311fe4070e605ee911e2f2b395edfd1472014 chash=5801b2fcb3894742191720e7d03f3e3dc2f805fd elfarch=i386 elfbits=64 elfhash=c493011c4493c73ff0190f2d4548560277965d09 group=bin mode=0555 owner=root path=usr/lib/xorg/modules/drivers/radeon_drv.so pkg.content-hash=gelf:sha512t_256:38b8c8f5b507a3f1453a6f7f247c37e6810baf89942862588aa62a2bd9c9709b pkg.content-hash=gelf.unsigned:sha512t_256:c61cbdf80cefb83beeb72d7f0acf87353d14f2a343a635aa4ef3264db441a95e pkg.content-hash=file:sha512t_256:c99eda8e7928504403dc95fd9eeee6f1df6d798c7d40f4500837af80b2e6c104 pkg.content-hash=gzip:sha512t_256:bd37a6a2190e98d9d4f462c049c7354e097c641bc92f545d7cc6d0251af34222 pkg.csize=180635 pkg.size=545024
+file 7d757b756c665850b34bebdc71d637fa53f34fd4 chash=3d0755125ce9191df49e7106cab61261dfa19703 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4/radeon.4 pkg.content-hash=file:sha512t_256:e77abb75403c057677d3c6bdaac6069d864370b7c3bc15f0636243f4a0701483 pkg.content-hash=gzip:sha512t_256:25bf0efb36c7c136dbb6bc01803abff49477be6b8c7c708ea2b1509fe6095dbd pkg.csize=4645 pkg.size=11679
+license a297a2b3d9f367ccee795c8a4260d8c7f40ab78f chash=eda09f07df1023744303acfa08dc7f608882bb62 license=MIT,Other pkg.content-hash=file:sha512t_256:cbd91dff6dbbff5d719f28e3cc407a9270ea6f4e7402e4086c283e3e0d55f1a4 pkg.content-hash=gzip:sha512t_256:8abf65baac19a8035bd3fb87c7066099b32fa0951ab70ba66338e4901a864fb2 pkg.csize=1804 pkg.size=6871
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=2fe147f3a1b2febe88e282abef9f07e82d65a3c1e012153b452517f8349fb83da55c540ba480ee46cc4c752c250ae9dd1e5adf10b4109d7efa886323286769e9a2c4d38e615c0c85dd11cab4f1a206ec282829960eeb2718dc301ad8e5f70b6cfe95b0a0cd45569867b45cfcd0dc016a88ffbe45ef970830c1232f8a19f80f38468e3a7fcb71ac3374d60f47549300c613a306516d1eab6e48851a7a575baa26073a3c6026a0679b980be1e4844dfe9dfc9c1dedfd03ac46c2517217ef580c585cfae44f96302cef92367b1294e56c47a33d1ec8946eb58227bd0915d92f65b31f8f764a40fdd6249f9ca31b66430035927008c8144ad97118c2970caec00eb6 version=0

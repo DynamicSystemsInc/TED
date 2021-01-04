@@ -1,0 +1,56 @@
+AC_INIT(src)
+AM_CONFIG_HEADER(config.h)
+AM_INIT_AUTOMAKE(libgnometsol, 0.6.2)
+
+AM_MAINTAINER_MODE
+
+AC_ISC_POSIX
+AC_PROG_CC
+AM_PROG_LIBTOOL
+IT_PROG_INTLTOOL([0.35.5])
+
+GNOME_COMPILE_WARNINGS
+
+dnl pkg-config dependency checks
+
+PKG_CHECK_MODULES(LIBGNOMETSOL, glib-2.0 gtk+-2.0 libgnomeui-2.0) 
+AC_SUBST(LIBGNOMETSOL_CFLAGS)
+AC_SUBST(LIBGNOMETSOL_LIBS)
+
+found_pam=no
+PAM_LIBS=
+case "$host" in
+    *-*-solaris*)
+        old_LDFLAGS="$LDFLAGS"
+        LDFLAGS="$LDFLAGS -L/usr/openwin/lib -R/usr/openwin/lib"
+        AC_CHECK_LIB(pam, pam_start,
+                     PAM_LIBS="-lsecdb -lpam -lcontract -lcmd" found_pam=yes AC_DEFINE(HAVE_PAM, ,[Building with PAM support]), ,-lsecdb -lcontract -lcmd)
+        LDFLAGS="$old_LDFLAGS"
+        ;;
+    *)
+        ;;
+esac
+
+AM_CONDITIONAL(PAM_DEFINED, test x$found_pam = xyes)
+
+LDFLAGS="$LDFLAGS $PAM_LIBS"
+
+echo "LDFLAGS"
+echo $LDFLAGS
+
+dnl Build Flags 
+
+AC_SUBST(CFLAGS)
+AC_SUBST(CPPFLAGS)
+AC_SUBST(LDFLAGS)
+
+AM_GLIB_GNU_GETTEXT
+GETTEXT_PACKAGE=libgnometsol-0.5
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Finding gettext])
+
+AC_OUTPUT([
+Makefile
+po/Makefile.in
+src/Makefile
+libgnometsol.pc ])

@@ -1,0 +1,1513 @@
+gmake: Entering directory '/ws/userland/src/components/a2ps'
+/bin/rm -f -r /ws/userland/src/components/a2ps/a2ps-4.14
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  a2ps-4.14.tar.gz
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/a2ps/a2ps-4.14 --strip=1 --backup --version-control=numbered < patches/01_a2ps_el_path_fix.patch
+patching file contrib/emacs/a2ps.el
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.patched-01_a2ps_el_path_fix.patch
+/usr/bin/patch -d /ws/userland/src/components/a2ps/a2ps-4.14 --strip=1 --backup --version-control=numbered < patches/02_composite_fonts.patch
+patching file encoding/Makefile.am
+patching file encoding/Makefile.in
+patching file encoding/encoding.map
+patching file encoding/euc-jp.edf
+patching file lib/encoding.c
+patching file lib/encoding.h
+patching file lib/pair_ht.c
+patching file lib/pair_ht.h
+patching file lib/psgen.c
+patching file ps/base.ps
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.patched-02_composite_fonts.patch
+/usr/bin/patch -d /ws/userland/src/components/a2ps/a2ps-4.14 --strip=1 --backup --version-control=numbered < patches/03_koi8_fonts_debian.patch
+patching file encoding/koi8.edf
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.patched-03_koi8_fonts_debian.patch
+/usr/bin/patch -d /ws/userland/src/components/a2ps/a2ps-4.14 --strip=1 --backup --version-control=numbered < patches/05_no_acroread_for_pdf.patch
+patching file etc/a2ps_cfg.in
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.patched-05_no_acroread_for_pdf.patch
+/usr/bin/patch -d /ws/userland/src/components/a2ps/a2ps-4.14 --strip=1 --backup --version-control=numbered < patches/07_a2ps_info.patch
+patching file doc/a2ps.info
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.patched-07_a2ps_info.patch
+/usr/bin/patch -d /ws/userland/src/components/a2ps/a2ps-4.14 --strip=1 --backup --version-control=numbered < patches/08_man.patch
+patching file man/a2ps.x
+patching file man/card.x
+patching file man/fixps.x
+patching file man/pdiff.x
+patching file man/psmandup.x
+patching file man/psset.x
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.patched-08_man.patch
+/usr/bin/patch -d /ws/userland/src/components/a2ps/a2ps-4.14 --strip=1 --backup --version-control=numbered < patches/09_CVE-2001-1593.patch
+patching file lib/routines.c
+patching file lib/routines.h
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.patched-09_CVE-2001-1593.patch
+/usr/bin/patch -d /ws/userland/src/components/a2ps/a2ps-4.14 --strip=1 --backup --version-control=numbered < patches/10_CVE-2014-0466.patch
+patching file contrib/fixps.in
+patching file contrib/fixps.m4
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.patched-10_CVE-2014-0466.patch
+/usr/bin/patch -d /ws/userland/src/components/a2ps/a2ps-4.14 --strip=1 --backup --version-control=numbered < patches/11_fix-bad-free.patch
+patching file lib/encoding.c
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.patched-11_fix-bad-free.patch
+/usr/bin/patch -d /ws/userland/src/components/a2ps/a2ps-4.14 --strip=1 --backup --version-control=numbered < patches/12_fix-format-security.patch
+patching file lib/psgen.c
+patching file lib/output.c
+patching file lib/parseppd.y
+patching file src/parsessh.y
+patching file lib/parseppd.c
+patching file src/parsessh.c
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.patched-12_fix-format-security.patch
+/usr/bin/patch -d /ws/userland/src/components/a2ps/a2ps-4.14 --strip=1 --backup --version-control=numbered < patches/14_sheets.map.patch
+patching file sheets/sheets.map
+Hunk #1 succeeded at 250 (offset 13 lines).
+Hunk #2 succeeded at 337 (offset 10 lines).
+Hunk #3 succeeded at 353 (offset 13 lines).
+Hunk #4 succeeded at 503 (offset 26 lines).
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.patched-14_sheets.map.patch
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.patched
+(cd /ws/userland/src/components/a2ps/a2ps-4.14 ; /bin/rm -f mkinstalldirs ; ln -s /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs)
+/usr/bin/touch /ws/userland/src/components/a2ps/a2ps-4.14/.prep
+(/bin/rm -f -rf /ws/userland/src/components/a2ps/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/a2ps/build/amd64)
+(/ws/userland/src/tools/cloney /ws/userland/src/components/a2ps/a2ps-4.14 /ws/userland/src/components/a2ps/build/amd64)
+symlink cloning /ws/userland/src/components/a2ps/a2ps-4.14 to /ws/userland/src/components/a2ps/build/amd64
+(cd /ws/userland/src/components/a2ps/build/amd64 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++" PATH="/usr/bin/amd64:/usr/bin:/usr/gnu/bin" CC_FOR_BUILD="/usr/gcc/7/bin/gcc -m64" CXX_FOR_BUILD="/usr/gcc/7/bin/g++ -m64" CPPFLAGS="-m64" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m64 -O3" CXXFLAGS="-m64 -O3" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/a2ps/a2ps-4.14/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib/amd64    --enable-shared --disable-static --sysconfdir=/etc/gnu --infodir=/usr/share/info --with-medium=letter)
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking for gawk... (cached) gawk
+checking for gm4... /usr/bin/gm4
+checking whether m4 supports frozen files... yes
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether ln -s works... yes
+checking whether make sets $(MAKE)... (cached) yes
+checking for perl... /usr/bin/perl
+checking for gcc... /usr/gcc/7/bin/gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of /usr/gcc/7/bin/gcc... gcc3
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for AIX... no
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking for strerror in -lcposix... no
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for gcc... (cached) /usr/gcc/7/bin/gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... (cached) yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... (cached) none needed
+checking dependency style of /usr/gcc/7/bin/gcc... (cached) gcc3
+checking for function prototypes... yes
+checking for bison... bison -y
+checking how to suppress newlines using echo... escape
+checking for gperf... /usr/bin/gperf
+checking for gperf - version >= 2.7... no
+checking for flex... flex
+checking for flex... (cached) flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking build system type... i386-pc-solaris2.11
+checking host system type... i386-pc-solaris2.11
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for /usr/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/gnu/bin/nm
+checking how to recognize dependent libraries... pass_all
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking whether we are using the GNU C++ compiler... yes
+checking whether /usr/gcc/7/bin/g++ accepts -g... yes
+checking dependency style of /usr/gcc/7/bin/g++... gcc3
+checking how to run the C++ preprocessor... /usr/gcc/7/bin/g++ -E
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... gfortran
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether gfortran accepts -g... yes
+checking the maximum length of command line arguments... 1572480
+checking command to parse /usr/gnu/bin/nm output from /usr/gcc/7/bin/gcc object... ok
+checking for objdir... .libs
+checking for ar... ar
+checking for ranlib... ranlib
+checking for strip... strip
+checking if /usr/gcc/7/bin/gcc supports -fno-rtti -fno-exceptions... no
+checking for /usr/gcc/7/bin/gcc option to produce PIC... -fPIC
+checking if /usr/gcc/7/bin/gcc PIC flag -fPIC works... yes
+checking if /usr/gcc/7/bin/gcc static flag -static works... no
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... yes
+checking whether the /usr/gcc/7/bin/gcc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by /usr/gcc/7/bin/g++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking for /usr/gcc/7/bin/g++ option to produce PIC... -fPIC
+checking if /usr/gcc/7/bin/g++ PIC flag -fPIC works... yes
+checking if /usr/gcc/7/bin/g++ static flag -static works... no
+checking if /usr/gcc/7/bin/g++ supports -c -o file.o... yes
+checking whether the /usr/gcc/7/bin/g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for gfortran option to produce PIC... -fPIC
+checking if gfortran PIC flag -fPIC works... yes
+checking if gfortran static flag -static works... no
+checking if gfortran supports -c -o file.o... yes
+checking whether the gfortran linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking for ANSI C header files... (cached) yes
+checking whether stat file-mode macros are broken... no
+checking whether time.h and sys/time.h may both be included... yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for sys/stat.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking math.h usability... yes
+checking math.h presence... yes
+checking for math.h... yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking for pwd.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking for memory.h... (cached) yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking stdbool.h usability... yes
+checking stdbool.h presence... yes
+checking for stdbool.h... yes
+checking fnmatch.h usability... yes
+checking fnmatch.h presence... yes
+checking for fnmatch.h... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for uchar... no
+checking for size_t... yes
+checking for pid_t... yes
+checking return type of signal handlers... void
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for struct passwd.pw_gecos... yes
+checking for inttypes.h... yes
+checking for unsigned long long... yes
+checking for stdlib.h... (cached) yes
+checking for strtoumax... yes
+checking for stdint.h... yes
+checking whether sys_siglist is declared... no
+checking for sys_siglist... no
+checking for library containing getpwuid... none required
+checking for stpcpy... yes
+checking for stpncpy... yes
+checking for strtoul... yes
+checking for memcpy... yes
+checking for memset... yes
+checking for gethostname... yes
+checking for getuid... yes
+checking for strcasecmp... yes
+checking for strncasecmp... yes
+checking for rename... yes
+checking whether rename works... yes
+checking for uname... yes
+checking for strchr... yes
+checking for strerror... yes
+checking for strerror_r... yes
+checking for getcwd... yes
+checking for bcopy... yes
+checking for bzero... yes
+checking for tempnam... yes
+checking for strsignal... yes
+checking for psignal... yes
+checking for setlocale... yes
+checking for systempapername in -lpaper... no
+checking for atexit... yes
+checking for sys/time.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for alarm... yes
+checking for strftime... yes
+checking for struct tm.tm_zone... no
+checking whether tzname is declared... yes
+checking for tzname... yes
+checking for tzset... yes
+checking for mblen... yes
+checking for mbrlen... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking for working mktime... no
+checking whether closedir returns void... no
+checking for vprintf... yes
+checking for _doprnt... yes
+checking for obstacks... no
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for error_at_line... no
+checking for working malloc... yes
+checking for working realloc... yes
+checking for isascii... yes
+checking for iswprint... yes
+checking for mbsinit... yes
+checking whether mbrtowc and mbstate_t are properly declared... yes
+checking for limits.h... (cached) yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking wctype.h usability... yes
+checking wctype.h presence... yes
+checking for wctype.h... yes
+checking for ANSI C header files... (cached) yes
+checking whether backslash-a works in strings... yes
+checking for mbstate_t... yes
+checking for function prototypes... yes
+checking for working POSIX fnmatch... yes
+checking POSIX termios... yes
+checking whether use of TIOCGWINSZ requires sys/ioctl.h... no
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking for sys/types.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for limits.h... (cached) yes
+checking whether fputs is declared... yes
+checking whether strlen is declared... yes
+checking for msgfmt... /usr/gnu/bin/msgfmt
+checking for gmsgfmt... /usr/bin/gmsgfmt
+checking for xgettext... /usr/gnu/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for ld used by GCC... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for shared library run path origin... done
+checking whether NLS is requested... yes
+checking for GNU gettext in libc... yes
+checking for emacs... emacs
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking whether paths should be hardcoded... no
+checking for PostScript fonts path... :/usr/local/ghostscript/fonts:/usr/local/share/ghostscript/fonts
+checking for file... /usr/bin/file
+checking for the option for file to follow the links... no way
+checking for lp... lp
+checking for printer queue selection... lp -d PRINTER
+checking for gv... no
+checking for ghostview... no
+checking for gzip... yes
+checking for bzip... no
+checking for bzip2... yes
+checking for dvips... no
+checking for convert... yes
+checking for netscape... no
+checking for html2ps... no
+checking for acroread... no
+checking for pdf2ps... yes
+checking for distill... no
+checking for ps2pdf... yes
+checking for psselect... yes
+checking for psnup... yes
+checking for grog... yes
+checking for makeinfo... yes
+checking for tex... no
+checking for latex... no
+configure: creating ./config.status
+config.status: creating contrib/card
+config.status: creating contrib/fixps
+config.status: creating contrib/pdiff
+config.status: creating contrib/psmandup
+config.status: creating contrib/psset
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating doc/Makefile
+config.status: creating man/Makefile
+config.status: creating tests/Makefile
+config.status: creating tests/defs
+config.status: creating lib/Makefile
+config.status: creating auxdir/Makefile
+config.status: creating m4/Makefile
+config.status: creating etc/Makefile
+config.status: creating etc/a2ps_cfg
+config.status: creating etc/a2ps-site.cfg
+config.status: creating po/Makefile.in
+config.status: WARNING:  po/Makefile.in.in seems to ignore the --datarootdir setting
+config.status: creating sheets/Makefile
+config.status: creating encoding/Makefile
+config.status: creating ps/Makefile
+config.status: creating afm/Makefile
+config.status: creating contrib/Makefile
+config.status: creating contrib/sample/Makefile
+config.status: creating contrib/emacs/Makefile
+config.status: creating fonts/Makefile
+config.status: creating ppd/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+=== configuring in ogonkify (/ws/userland/src/components/a2ps/build/amd64/ogonkify)
+configure: running /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/ogonkify/configure '--prefix=/usr'  '--mandir=/usr/share/man' '--bindir=/usr/bin' '--sbindir=/usr/sbin' '--libdir=/usr/lib/amd64' '--enable-shared' '--disable-static' '--sysconfdir=/etc/gnu' '--infodir=/usr/share/info' '--with-medium=letter' 'CC=/usr/gcc/7/bin/gcc' 'CFLAGS=-m64 -O3' 'LDFLAGS=' 'CPPFLAGS=-m64' 'CXX=/usr/gcc/7/bin/g++' 'CXXFLAGS=-m64 -O3' --cache-file=/dev/null --srcdir=/ws/userland/src/components/a2ps/a2ps-4.14/ogonkify
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking for perl... /usr/bin/perl
+checking for style of include used by make... GNU
+checking for gcc... /usr/gcc/7/bin/gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking dependency style of /usr/gcc/7/bin/gcc... gcc3
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for X... libraries , headers 
+checking for IBM font files... no
+configure: creating ./config.status
+config.status: creating composeglyphs
+config.status: creating Makefile
+config.status: creating ogonkify.in
+config.status: creating doc/Makefile
+config.status: creating m4/Makefile
+config.status: executing depfiles commands
+*****************************************************************
+* a2ps thinks it should be configured the following way:
+* - you print on `letter' paper
+* - your charset is `latin1'
+* - to send a JOB to the default printer, run `lp job'
+* - to send a JOB to the printer PRINTER, run `lp -d PRINTER job'
+* - to ask `file(1)' to follow the links, run `/usr/bin/file'
+*   (`file(1)' is used to guess the type of the files to print.)
+*
+* If a2ps is wrong somewhere, fix the `System Dependent parameters'
+* in `etc/a2ps-site.cfg'.  See the README file.
+*****************************************************************
+/usr/bin/touch /ws/userland/src/components/a2ps/build/amd64/.configured
+(cd /ws/userland/src/components/a2ps/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect  -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/a2ps/build/amd64'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64'
+Making all in auxdir
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/auxdir'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/auxdir'
+Making all in m4
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/m4'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/m4'
+Making all in etc
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/etc'
+sed "s!@date@!`date`!g;s!@version@!4.14!g"	\
+/ws/userland/src/components/a2ps/a2ps-4.14/etc/README.in > README
+sed "s!@libpath@!/usr/share/a2ps/sheets:/usr/share/a2ps/ps:/usr/share/a2ps/encoding:/usr/share/a2ps/afm:/usr/share/ogonkify/afm:/usr/share/a2ps/ppd:/usr/share/a2ps/fonts:/usr/share/ogonkify/fonts:/usr/share/a2ps!" a2ps_cfg > a2ps.cfg
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/etc'
+Making all in ps
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ps'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ps'
+Making all in ogonkify
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify'
+Making all in doc
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify/doc'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify/doc'
+Making all in m4
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify/m4'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify/m4'
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify'
+sed -e "s#@LIBDIR@#/usr/share/ogonkify#g" ogonkify.in > ogonkify-t
+chmod +x ogonkify-t
+mv ogonkify-t ogonkify
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify'
+Making all in lib
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/lib'
+/usr/gnu/bin/make  all-am
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/lib'
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT encoding.lo -MD -MP -MF ".deps/encoding.Tpo" -c -o encoding.lo encoding.c; \
+then mv -f ".deps/encoding.Tpo" ".deps/encoding.Plo"; else rm -f ".deps/encoding.Tpo"; exit 1; fi
+mkdir .libs
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT encoding.lo -MD -MP -MF .deps/encoding.Tpo -c encoding.c  -fPIC -DPIC -o .libs/encoding.o
+encoding.c: In function 'encoding_add_slant_font':
+encoding.c:509:10: warning: type defaults to 'int' in declaration of 'num' [-Wimplicit-int]
+   static num =  0;
+          ^~~
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT media.lo -MD -MP -MF ".deps/media.Tpo" -c -o media.lo media.c; \
+then mv -f ".deps/media.Tpo" ".deps/media.Plo"; else rm -f ".deps/media.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT media.lo -MD -MP -MF .deps/media.Tpo -c media.c  -fPIC -DPIC -o .libs/media.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT jobs.lo -MD -MP -MF ".deps/jobs.Tpo" -c -o jobs.lo jobs.c; \
+then mv -f ".deps/jobs.Tpo" ".deps/jobs.Plo"; else rm -f ".deps/jobs.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT jobs.lo -MD -MP -MF .deps/jobs.Tpo -c jobs.c  -fPIC -DPIC -o .libs/jobs.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT output.lo -MD -MP -MF ".deps/output.Tpo" -c -o output.lo output.c; \
+then mv -f ".deps/output.Tpo" ".deps/output.Plo"; else rm -f ".deps/output.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT output.lo -MD -MP -MF .deps/output.Tpo -c output.c  -fPIC -DPIC -o .libs/output.o
+output.c: In function 'derivation_self_print':
+output.c:87:31: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   fprintf (stream, "At %x: ", (int) derivation);
+                               ^
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT routines.lo -MD -MP -MF ".deps/routines.Tpo" -c -o routines.lo routines.c; \
+then mv -f ".deps/routines.Tpo" ".deps/routines.Plo"; else rm -f ".deps/routines.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT routines.lo -MD -MP -MF .deps/routines.Tpo -c routines.c  -fPIC -DPIC -o .libs/routines.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT psgen.lo -MD -MP -MF ".deps/psgen.Tpo" -c -o psgen.lo psgen.c; \
+then mv -f ".deps/psgen.Tpo" ".deps/psgen.Plo"; else rm -f ".deps/psgen.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT psgen.lo -MD -MP -MF .deps/psgen.Tpo -c psgen.c  -fPIC -DPIC -o .libs/psgen.o
+psgen.c: In function 'ps_print_char':
+psgen.c:878:14: warning: type defaults to 'int' in declaration of 'mb_flag' [-Wimplicit-int]
+       static mb_flag= 0;
+              ^~~~~~~
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT prolog.lo -MD -MP -MF ".deps/prolog.Tpo" -c -o prolog.lo prolog.c; \
+then mv -f ".deps/prolog.Tpo" ".deps/prolog.Plo"; else rm -f ".deps/prolog.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT prolog.lo -MD -MP -MF .deps/prolog.Tpo -c prolog.c  -fPIC -DPIC -o .libs/prolog.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT faces.lo -MD -MP -MF ".deps/faces.Tpo" -c -o faces.lo faces.c; \
+then mv -f ".deps/faces.Tpo" ".deps/faces.Plo"; else rm -f ".deps/faces.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT faces.lo -MD -MP -MF .deps/faces.Tpo -c faces.c  -fPIC -DPIC -o .libs/faces.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT confg.lo -MD -MP -MF ".deps/confg.Tpo" -c -o confg.lo confg.c; \
+then mv -f ".deps/confg.Tpo" ".deps/confg.Plo"; else rm -f ".deps/confg.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT confg.lo -MD -MP -MF .deps/confg.Tpo -c confg.c  -fPIC -DPIC -o .libs/confg.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT useropt.lo -MD -MP -MF ".deps/useropt.Tpo" -c -o useropt.lo useropt.c; \
+then mv -f ".deps/useropt.Tpo" ".deps/useropt.Plo"; else rm -f ".deps/useropt.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT useropt.lo -MD -MP -MF .deps/useropt.Tpo -c useropt.c  -fPIC -DPIC -o .libs/useropt.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT gen.lo -MD -MP -MF ".deps/gen.Tpo" -c -o gen.lo gen.c; \
+then mv -f ".deps/gen.Tpo" ".deps/gen.Plo"; else rm -f ".deps/gen.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT gen.lo -MD -MP -MF .deps/gen.Tpo -c gen.c  -fPIC -DPIC -o .libs/gen.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT printers.lo -MD -MP -MF ".deps/printers.Tpo" -c -o printers.lo printers.c; \
+then mv -f ".deps/printers.Tpo" ".deps/printers.Plo"; else rm -f ".deps/printers.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT printers.lo -MD -MP -MF .deps/printers.Tpo -c printers.c  -fPIC -DPIC -o .libs/printers.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT psstat.lo -MD -MP -MF ".deps/psstat.Tpo" -c -o psstat.lo psstat.c; \
+then mv -f ".deps/psstat.Tpo" ".deps/psstat.Plo"; else rm -f ".deps/psstat.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT psstat.lo -MD -MP -MF .deps/psstat.Tpo -c psstat.c  -fPIC -DPIC -o .libs/psstat.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT caret.lo -MD -MP -MF ".deps/caret.Tpo" -c -o caret.lo caret.c; \
+then mv -f ".deps/caret.Tpo" ".deps/caret.Plo"; else rm -f ".deps/caret.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT caret.lo -MD -MP -MF .deps/caret.Tpo -c caret.c  -fPIC -DPIC -o .libs/caret.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT metaseq.lo -MD -MP -MF ".deps/metaseq.Tpo" -c -o metaseq.lo metaseq.c; \
+then mv -f ".deps/metaseq.Tpo" ".deps/metaseq.Plo"; else rm -f ".deps/metaseq.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT metaseq.lo -MD -MP -MF .deps/metaseq.Tpo -c metaseq.c  -fPIC -DPIC -o .libs/metaseq.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT options.lo -MD -MP -MF ".deps/options.Tpo" -c -o options.lo options.c; \
+then mv -f ".deps/options.Tpo" ".deps/options.Plo"; else rm -f ".deps/options.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT options.lo -MD -MP -MF .deps/options.Tpo -c options.c  -fPIC -DPIC -o .libs/options.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT dsc.lo -MD -MP -MF ".deps/dsc.Tpo" -c -o dsc.lo dsc.c; \
+then mv -f ".deps/dsc.Tpo" ".deps/dsc.Plo"; else rm -f ".deps/dsc.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT dsc.lo -MD -MP -MF .deps/dsc.Tpo -c dsc.c  -fPIC -DPIC -o .libs/dsc.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT fonts.lo -MD -MP -MF ".deps/fonts.Tpo" -c -o fonts.lo fonts.c; \
+then mv -f ".deps/fonts.Tpo" ".deps/fonts.Plo"; else rm -f ".deps/fonts.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT fonts.lo -MD -MP -MF .deps/fonts.Tpo -c fonts.c  -fPIC -DPIC -o .libs/fonts.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT ppd.lo -MD -MP -MF ".deps/ppd.Tpo" -c -o ppd.lo ppd.c; \
+then mv -f ".deps/ppd.Tpo" ".deps/ppd.Plo"; else rm -f ".deps/ppd.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT ppd.lo -MD -MP -MF .deps/ppd.Tpo -c ppd.c  -fPIC -DPIC -o .libs/ppd.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT prange.lo -MD -MP -MF ".deps/prange.Tpo" -c -o prange.lo prange.c; \
+then mv -f ".deps/prange.Tpo" ".deps/prange.Plo"; else rm -f ".deps/prange.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT prange.lo -MD -MP -MF .deps/prange.Tpo -c prange.c  -fPIC -DPIC -o .libs/prange.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT stream.lo -MD -MP -MF ".deps/stream.Tpo" -c -o stream.lo stream.c; \
+then mv -f ".deps/stream.Tpo" ".deps/stream.Plo"; else rm -f ".deps/stream.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT stream.lo -MD -MP -MF .deps/stream.Tpo -c stream.c  -fPIC -DPIC -o .libs/stream.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT document.lo -MD -MP -MF ".deps/document.Tpo" -c -o document.lo document.c; \
+then mv -f ".deps/document.Tpo" ".deps/document.Plo"; else rm -f ".deps/document.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT document.lo -MD -MP -MF .deps/document.Tpo -c document.c  -fPIC -DPIC -o .libs/document.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT fjobs.lo -MD -MP -MF ".deps/fjobs.Tpo" -c -o fjobs.lo fjobs.c; \
+then mv -f ".deps/fjobs.Tpo" ".deps/fjobs.Plo"; else rm -f ".deps/fjobs.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT fjobs.lo -MD -MP -MF .deps/fjobs.Tpo -c fjobs.c  -fPIC -DPIC -o .libs/fjobs.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT common.lo -MD -MP -MF ".deps/common.Tpo" -c -o common.lo common.c; \
+then mv -f ".deps/common.Tpo" ".deps/common.Plo"; else rm -f ".deps/common.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT common.lo -MD -MP -MF .deps/common.Tpo -c common.c  -fPIC -DPIC -o .libs/common.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT madir.lo -MD -MP -MF ".deps/madir.Tpo" -c -o madir.lo madir.c; \
+then mv -f ".deps/madir.Tpo" ".deps/madir.Plo"; else rm -f ".deps/madir.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT madir.lo -MD -MP -MF .deps/madir.Tpo -c madir.c  -fPIC -DPIC -o .libs/madir.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT filalign.lo -MD -MP -MF ".deps/filalign.Tpo" -c -o filalign.lo filalign.c; \
+then mv -f ".deps/filalign.Tpo" ".deps/filalign.Plo"; else rm -f ".deps/filalign.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT filalign.lo -MD -MP -MF .deps/filalign.Tpo -c filalign.c  -fPIC -DPIC -o .libs/filalign.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT lexppd.lo -MD -MP -MF ".deps/lexppd.Tpo" -c -o lexppd.lo lexppd.c; \
+then mv -f ".deps/lexppd.Tpo" ".deps/lexppd.Plo"; else rm -f ".deps/lexppd.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT lexppd.lo -MD -MP -MF .deps/lexppd.Tpo -c lexppd.c  -fPIC -DPIC -o .libs/lexppd.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT parseppd.lo -MD -MP -MF ".deps/parseppd.Tpo" -c -o parseppd.lo parseppd.c; \
+then mv -f ".deps/parseppd.Tpo" ".deps/parseppd.Plo"; else rm -f ".deps/parseppd.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT parseppd.lo -MD -MP -MF .deps/parseppd.Tpo -c parseppd.c  -fPIC -DPIC -o .libs/parseppd.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT argmatch.lo -MD -MP -MF ".deps/argmatch.Tpo" -c -o argmatch.lo argmatch.c; \
+then mv -f ".deps/argmatch.Tpo" ".deps/argmatch.Plo"; else rm -f ".deps/argmatch.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT argmatch.lo -MD -MP -MF .deps/argmatch.Tpo -c argmatch.c  -fPIC -DPIC -o .libs/argmatch.o
+argmatch.c: In function '__argmatch_die':
+argmatch.c:59:23: warning: implicit declaration of function 'exit' [-Wimplicit-function-declaration]
+ # define ARGMATCH_DIE exit (EXIT_FAILURE)
+                       ^
+argmatch.c:69:3: note: in expansion of macro 'ARGMATCH_DIE'
+   ARGMATCH_DIE;
+   ^~~~~~~~~~~~
+argmatch.c:59:23: warning: incompatible implicit declaration of built-in function 'exit'
+ # define ARGMATCH_DIE exit (EXIT_FAILURE)
+                       ^
+argmatch.c:69:3: note: in expansion of macro 'ARGMATCH_DIE'
+   ARGMATCH_DIE;
+   ^~~~~~~~~~~~
+argmatch.c:59:23: note: include '<stdlib.h>' or provide a declaration of 'exit'
+ # define ARGMATCH_DIE exit (EXIT_FAILURE)
+                       ^
+argmatch.c:69:3: note: in expansion of macro 'ARGMATCH_DIE'
+   ARGMATCH_DIE;
+   ^~~~~~~~~~~~
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT argv.lo -MD -MP -MF ".deps/argv.Tpo" -c -o argv.lo argv.c; \
+then mv -f ".deps/argv.Tpo" ".deps/argv.Plo"; else rm -f ".deps/argv.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT argv.lo -MD -MP -MF .deps/argv.Tpo -c argv.c  -fPIC -DPIC -o .libs/argv.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT backupfile.lo -MD -MP -MF ".deps/backupfile.Tpo" -c -o backupfile.lo backupfile.c; \
+then mv -f ".deps/backupfile.Tpo" ".deps/backupfile.Plo"; else rm -f ".deps/backupfile.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT backupfile.lo -MD -MP -MF .deps/backupfile.Tpo -c backupfile.c  -fPIC -DPIC -o .libs/backupfile.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT dirname.lo -MD -MP -MF ".deps/dirname.Tpo" -c -o dirname.lo dirname.c; \
+then mv -f ".deps/dirname.Tpo" ".deps/dirname.Plo"; else rm -f ".deps/dirname.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT dirname.lo -MD -MP -MF .deps/dirname.Tpo -c dirname.c  -fPIC -DPIC -o .libs/dirname.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT getopt.lo -MD -MP -MF ".deps/getopt.Tpo" -c -o getopt.lo getopt.c; \
+then mv -f ".deps/getopt.Tpo" ".deps/getopt.Plo"; else rm -f ".deps/getopt.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT getopt.lo -MD -MP -MF .deps/getopt.Tpo -c getopt.c  -fPIC -DPIC -o .libs/getopt.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT hashtab.lo -MD -MP -MF ".deps/hashtab.Tpo" -c -o hashtab.lo hashtab.c; \
+then mv -f ".deps/hashtab.Tpo" ".deps/hashtab.Plo"; else rm -f ".deps/hashtab.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT hashtab.lo -MD -MP -MF .deps/hashtab.Tpo -c hashtab.c  -fPIC -DPIC -o .libs/hashtab.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT path-concat.lo -MD -MP -MF ".deps/path-concat.Tpo" -c -o path-concat.lo path-concat.c; \
+then mv -f ".deps/path-concat.Tpo" ".deps/path-concat.Plo"; else rm -f ".deps/path-concat.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT path-concat.lo -MD -MP -MF .deps/path-concat.Tpo -c path-concat.c  -fPIC -DPIC -o .libs/path-concat.o
+path-concat.c: In function 'path_concat':
+path-concat.c:81:23: warning: implicit declaration of function 'malloc' [-Wimplicit-function-declaration]
+   p_concat = (char *) malloc (dir_len + base_len + 2);
+                       ^~~~~~
+path-concat.c:81:23: warning: incompatible implicit declaration of built-in function 'malloc'
+path-concat.c:81:23: note: include '<stdlib.h>' or provide a declaration of 'malloc'
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT quotearg.lo -MD -MP -MF ".deps/quotearg.Tpo" -c -o quotearg.lo quotearg.c; \
+then mv -f ".deps/quotearg.Tpo" ".deps/quotearg.Plo"; else rm -f ".deps/quotearg.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT quotearg.lo -MD -MP -MF .deps/quotearg.Tpo -c quotearg.c  -fPIC -DPIC -o .libs/quotearg.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT signame.lo -MD -MP -MF ".deps/signame.Tpo" -c -o signame.lo signame.c; \
+then mv -f ".deps/signame.Tpo" ".deps/signame.Plo"; else rm -f ".deps/signame.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT signame.lo -MD -MP -MF .deps/signame.Tpo -c signame.c  -fPIC -DPIC -o .libs/signame.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT strverscmp.lo -MD -MP -MF ".deps/strverscmp.Tpo" -c -o strverscmp.lo strverscmp.c; \
+then mv -f ".deps/strverscmp.Tpo" ".deps/strverscmp.Plo"; else rm -f ".deps/strverscmp.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT strverscmp.lo -MD -MP -MF .deps/strverscmp.Tpo -c strverscmp.c  -fPIC -DPIC -o .libs/strverscmp.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT xmalloc.lo -MD -MP -MF ".deps/xmalloc.Tpo" -c -o xmalloc.lo xmalloc.c; \
+then mv -f ".deps/xmalloc.Tpo" ".deps/xmalloc.Plo"; else rm -f ".deps/xmalloc.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT xmalloc.lo -MD -MP -MF .deps/xmalloc.Tpo -c xmalloc.c  -fPIC -DPIC -o .libs/xmalloc.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT xstrtol.lo -MD -MP -MF ".deps/xstrtol.Tpo" -c -o xstrtol.lo xstrtol.c; \
+then mv -f ".deps/xstrtol.Tpo" ".deps/xstrtol.Plo"; else rm -f ".deps/xstrtol.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT xstrtol.lo -MD -MP -MF .deps/xstrtol.Tpo -c xstrtol.c  -fPIC -DPIC -o .libs/xstrtol.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT closeout.lo -MD -MP -MF ".deps/closeout.Tpo" -c -o closeout.lo closeout.c; \
+then mv -f ".deps/closeout.Tpo" ".deps/closeout.Plo"; else rm -f ".deps/closeout.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT closeout.lo -MD -MP -MF .deps/closeout.Tpo -c closeout.c  -fPIC -DPIC -o .libs/closeout.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT message.lo -MD -MP -MF ".deps/message.Tpo" -c -o message.lo message.c; \
+then mv -f ".deps/message.Tpo" ".deps/message.Plo"; else rm -f ".deps/message.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT message.lo -MD -MP -MF .deps/message.Tpo -c message.c  -fPIC -DPIC -o .libs/message.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT xstrrpl.lo -MD -MP -MF ".deps/xstrrpl.Tpo" -c -o xstrrpl.lo xstrrpl.c; \
+then mv -f ".deps/xstrrpl.Tpo" ".deps/xstrrpl.Plo"; else rm -f ".deps/xstrrpl.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT xstrrpl.lo -MD -MP -MF .deps/xstrrpl.Tpo -c xstrrpl.c  -fPIC -DPIC -o .libs/xstrrpl.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT getshline.lo -MD -MP -MF ".deps/getshline.Tpo" -c -o getshline.lo getshline.c; \
+then mv -f ".deps/getshline.Tpo" ".deps/getshline.Plo"; else rm -f ".deps/getshline.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT getshline.lo -MD -MP -MF .deps/getshline.Tpo -c getshline.c  -fPIC -DPIC -o .libs/getshline.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT pathwalk.lo -MD -MP -MF ".deps/pathwalk.Tpo" -c -o pathwalk.lo pathwalk.c; \
+then mv -f ".deps/pathwalk.Tpo" ".deps/pathwalk.Plo"; else rm -f ".deps/pathwalk.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT pathwalk.lo -MD -MP -MF .deps/pathwalk.Tpo -c pathwalk.c  -fPIC -DPIC -o .libs/pathwalk.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT darray.lo -MD -MP -MF ".deps/darray.Tpo" -c -o darray.lo darray.c; \
+then mv -f ".deps/darray.Tpo" ".deps/darray.Plo"; else rm -f ".deps/darray.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT darray.lo -MD -MP -MF .deps/darray.Tpo -c darray.c  -fPIC -DPIC -o .libs/darray.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT dstring.lo -MD -MP -MF ".deps/dstring.Tpo" -c -o dstring.lo dstring.c; \
+then mv -f ".deps/dstring.Tpo" ".deps/dstring.Plo"; else rm -f ".deps/dstring.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT dstring.lo -MD -MP -MF .deps/dstring.Tpo -c dstring.c  -fPIC -DPIC -o .libs/dstring.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT printlen.lo -MD -MP -MF ".deps/printlen.Tpo" -c -o printlen.lo printlen.c; \
+then mv -f ".deps/printlen.Tpo" ".deps/printlen.Plo"; else rm -f ".deps/printlen.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT printlen.lo -MD -MP -MF .deps/printlen.Tpo -c printlen.c  -fPIC -DPIC -o .libs/printlen.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT pair_ht.lo -MD -MP -MF ".deps/pair_ht.Tpo" -c -o pair_ht.lo pair_ht.c; \
+then mv -f ".deps/pair_ht.Tpo" ".deps/pair_ht.Plo"; else rm -f ".deps/pair_ht.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT pair_ht.lo -MD -MP -MF .deps/pair_ht.Tpo -c pair_ht.c  -fPIC -DPIC -o .libs/pair_ht.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT filtdir.lo -MD -MP -MF ".deps/filtdir.Tpo" -c -o filtdir.lo filtdir.c; \
+then mv -f ".deps/filtdir.Tpo" ".deps/filtdir.Plo"; else rm -f ".deps/filtdir.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT filtdir.lo -MD -MP -MF .deps/filtdir.Tpo -c filtdir.c  -fPIC -DPIC -o .libs/filtdir.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT str_ht.lo -MD -MP -MF ".deps/str_ht.Tpo" -c -o str_ht.lo str_ht.c; \
+then mv -f ".deps/str_ht.Tpo" ".deps/str_ht.Plo"; else rm -f ".deps/str_ht.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT str_ht.lo -MD -MP -MF .deps/str_ht.Tpo -c str_ht.c  -fPIC -DPIC -o .libs/str_ht.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT title.lo -MD -MP -MF ".deps/title.Tpo" -c -o title.lo title.c; \
+then mv -f ".deps/title.Tpo" ".deps/title.Plo"; else rm -f ".deps/title.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT title.lo -MD -MP -MF .deps/title.Tpo -c title.c  -fPIC -DPIC -o .libs/title.o
+title.c: In function 'title':
+title.c:89:15: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   if (format [strlen (format) - 1] == '\n')
+               ^~~~~~
+title.c:89:15: warning: incompatible implicit declaration of built-in function 'strlen'
+title.c:89:15: note: include '<string.h>' or provide a declaration of 'strlen'
+title.c:108:15: warning: incompatible implicit declaration of built-in function 'strlen'
+   if (format [strlen (format) - 1] != '\n')
+               ^~~~~~
+title.c:108:15: note: include '<string.h>' or provide a declaration of 'strlen'
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT xbackupfile.lo -MD -MP -MF ".deps/xbackupfile.Tpo" -c -o xbackupfile.lo xbackupfile.c; \
+then mv -f ".deps/xbackupfile.Tpo" ".deps/xbackupfile.Plo"; else rm -f ".deps/xbackupfile.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT xbackupfile.lo -MD -MP -MF .deps/xbackupfile.Tpo -c xbackupfile.c  -fPIC -DPIC -o .libs/xbackupfile.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT getnum.lo -MD -MP -MF ".deps/getnum.Tpo" -c -o getnum.lo getnum.c; \
+then mv -f ".deps/getnum.Tpo" ".deps/getnum.Plo"; else rm -f ".deps/getnum.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT getnum.lo -MD -MP -MF .deps/getnum.Tpo -c getnum.c  -fPIC -DPIC -o .libs/getnum.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT tterm.lo -MD -MP -MF ".deps/tterm.Tpo" -c -o tterm.lo tterm.c; \
+then mv -f ".deps/tterm.Tpo" ".deps/tterm.Plo"; else rm -f ".deps/tterm.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT tterm.lo -MD -MP -MF .deps/tterm.Tpo -c tterm.c  -fPIC -DPIC -o .libs/tterm.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT lister.lo -MD -MP -MF ".deps/lister.Tpo" -c -o lister.lo lister.c; \
+then mv -f ".deps/lister.Tpo" ".deps/lister.Plo"; else rm -f ".deps/lister.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT lister.lo -MD -MP -MF .deps/lister.Tpo -c lister.c  -fPIC -DPIC -o .libs/lister.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT userdata.lo -MD -MP -MF ".deps/userdata.Tpo" -c -o userdata.lo userdata.c; \
+then mv -f ".deps/userdata.Tpo" ".deps/userdata.Plo"; else rm -f ".deps/userdata.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT userdata.lo -MD -MP -MF .deps/userdata.Tpo -c userdata.c  -fPIC -DPIC -o .libs/userdata.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT addext.lo -MD -MP -MF ".deps/addext.Tpo" -c -o addext.lo addext.c; \
+then mv -f ".deps/addext.Tpo" ".deps/addext.Plo"; else rm -f ".deps/addext.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT addext.lo -MD -MP -MF .deps/addext.Tpo -c addext.c  -fPIC -DPIC -o .libs/addext.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT basename.lo -MD -MP -MF ".deps/basename.Tpo" -c -o basename.lo basename.c; \
+then mv -f ".deps/basename.Tpo" ".deps/basename.Plo"; else rm -f ".deps/basename.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT basename.lo -MD -MP -MF .deps/basename.Tpo -c basename.c  -fPIC -DPIC -o .libs/basename.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT getopt1.lo -MD -MP -MF ".deps/getopt1.Tpo" -c -o getopt1.lo getopt1.c; \
+then mv -f ".deps/getopt1.Tpo" ".deps/getopt1.Plo"; else rm -f ".deps/getopt1.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT getopt1.lo -MD -MP -MF .deps/getopt1.Tpo -c getopt1.c  -fPIC -DPIC -o .libs/getopt1.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT isdir.lo -MD -MP -MF ".deps/isdir.Tpo" -c -o isdir.lo isdir.c; \
+then mv -f ".deps/isdir.Tpo" ".deps/isdir.Plo"; else rm -f ".deps/isdir.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT isdir.lo -MD -MP -MF .deps/isdir.Tpo -c isdir.c  -fPIC -DPIC -o .libs/isdir.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT xgetcwd.lo -MD -MP -MF ".deps/xgetcwd.Tpo" -c -o xgetcwd.lo xgetcwd.c; \
+then mv -f ".deps/xgetcwd.Tpo" ".deps/xgetcwd.Plo"; else rm -f ".deps/xgetcwd.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT xgetcwd.lo -MD -MP -MF .deps/xgetcwd.Tpo -c xgetcwd.c  -fPIC -DPIC -o .libs/xgetcwd.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT xgethostname.lo -MD -MP -MF ".deps/xgethostname.Tpo" -c -o xgethostname.lo xgethostname.c; \
+then mv -f ".deps/xgethostname.Tpo" ".deps/xgethostname.Plo"; else rm -f ".deps/xgethostname.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT xgethostname.lo -MD -MP -MF .deps/xgethostname.Tpo -c xgethostname.c  -fPIC -DPIC -o .libs/xgethostname.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT xstrdup.lo -MD -MP -MF ".deps/xstrdup.Tpo" -c -o xstrdup.lo xstrdup.c; \
+then mv -f ".deps/xstrdup.Tpo" ".deps/xstrdup.Plo"; else rm -f ".deps/xstrdup.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT xstrdup.lo -MD -MP -MF .deps/xstrdup.Tpo -c xstrdup.c  -fPIC -DPIC -o .libs/xstrdup.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT mktime.lo -MD -MP -MF ".deps/mktime.Tpo" -c -o mktime.lo mktime.c; \
+then mv -f ".deps/mktime.Tpo" ".deps/mktime.Plo"; else rm -f ".deps/mktime.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT mktime.lo -MD -MP -MF .deps/mktime.Tpo -c mktime.c  -fPIC -DPIC -o .libs/mktime.o
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT obstack.lo -MD -MP -MF ".deps/obstack.Tpo" -c -o obstack.lo obstack.c; \
+then mv -f ".deps/obstack.Tpo" ".deps/obstack.Plo"; else rm -f ".deps/obstack.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT obstack.lo -MD -MP -MF .deps/obstack.Tpo -c obstack.c  -fPIC -DPIC -o .libs/obstack.o
+obstack.c: In function '_obstack_free':
+obstack.c:396:5: warning: implicit declaration of function 'abort' [-Wimplicit-function-declaration]
+     abort ();
+     ^~~~~
+obstack.c:396:5: warning: incompatible implicit declaration of built-in function 'abort'
+obstack.c:396:5: note: include '<stdlib.h>' or provide a declaration of 'abort'
+obstack.c: In function 'obstack_free':
+obstack.c:430:5: warning: incompatible implicit declaration of built-in function 'abort'
+     abort ();
+     ^~~~~
+obstack.c:430:5: note: include '<stdlib.h>' or provide a declaration of 'abort'
+obstack.c: In function 'print_and_abort':
+obstack.c:463:3: warning: implicit declaration of function 'exit' [-Wimplicit-function-declaration]
+   exit (obstack_exit_failure);
+   ^~~~
+obstack.c:463:3: warning: incompatible implicit declaration of built-in function 'exit'
+obstack.c:463:3: note: include '<stdlib.h>' or provide a declaration of 'exit'
+if /bin/bash ../libtool --tag=CC --mode=compile /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT error.lo -MD -MP -MF ".deps/error.Tpo" -c -o error.lo error.c; \
+then mv -f ".deps/error.Tpo" ".deps/error.Plo"; else rm -f ".deps/error.Tpo"; exit 1; fi
+ /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -DSYSCONFFILE=\"/etc/gnu/a2ps.cfg\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I.. -I.. -I../intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -m64 -m64 -O3 -MT error.lo -MD -MP -MF .deps/error.Tpo -c error.c  -fPIC -DPIC -o .libs/error.o
+/bin/bash ../libtool --tag=CC --mode=link /usr/gcc/7/bin/gcc  -m64 -O3    -o liba2ps.la -rpath /usr/lib/amd64 -version-info 1:0:0 encoding.lo media.lo jobs.lo output.lo routines.lo psgen.lo prolog.lo faces.lo confg.lo useropt.lo gen.lo printers.lo psstat.lo caret.lo metaseq.lo options.lo dsc.lo fonts.lo ppd.lo prange.lo stream.lo document.lo fjobs.lo common.lo madir.lo filalign.lo lexppd.lo parseppd.lo argmatch.lo argv.lo backupfile.lo dirname.lo getopt.lo hashtab.lo path-concat.lo quotearg.lo signame.lo strverscmp.lo xmalloc.lo xstrtol.lo closeout.lo message.lo xstrrpl.lo getshline.lo pathwalk.lo darray.lo dstring.lo printlen.lo pair_ht.lo filtdir.lo str_ht.lo title.lo xbackupfile.lo getnum.lo tterm.lo lister.lo userdata.lo addext.lo basename.lo getopt1.lo isdir.lo xgetcwd.lo xgethostname.lo xstrdup.lo mktime.lo obstack.lo error.lo 
+/usr/gcc/7/bin/gcc -shared -Wl,-h -Wl,liba2ps.so.1 -o .libs/liba2ps.so.1.0.0  .libs/encoding.o .libs/media.o .libs/jobs.o .libs/output.o .libs/routines.o .libs/psgen.o .libs/prolog.o .libs/faces.o .libs/confg.o .libs/useropt.o .libs/gen.o .libs/printers.o .libs/psstat.o .libs/caret.o .libs/metaseq.o .libs/options.o .libs/dsc.o .libs/fonts.o .libs/ppd.o .libs/prange.o .libs/stream.o .libs/document.o .libs/fjobs.o .libs/common.o .libs/madir.o .libs/filalign.o .libs/lexppd.o .libs/parseppd.o .libs/argmatch.o .libs/argv.o .libs/backupfile.o .libs/dirname.o .libs/getopt.o .libs/hashtab.o .libs/path-concat.o .libs/quotearg.o .libs/signame.o .libs/strverscmp.o .libs/xmalloc.o .libs/xstrtol.o .libs/closeout.o .libs/message.o .libs/xstrrpl.o .libs/getshline.o .libs/pathwalk.o .libs/darray.o .libs/dstring.o .libs/printlen.o .libs/pair_ht.o .libs/filtdir.o .libs/str_ht.o .libs/title.o .libs/xbackupfile.o .libs/getnum.o .libs/tterm.o .libs/lister.o .libs/userdata.o .libs/addext.o .libs/basename.o .libs/getopt1.o .libs/isdir.o .libs/xgetcwd.o .libs/xgethostname.o .libs/xstrdup.o .libs/mktime.o .libs/obstack.o .libs/error.o   -m64
+(cd .libs && rm -f liba2ps.so.1 && ln -s liba2ps.so.1.0.0 liba2ps.so.1)
+(cd .libs && rm -f liba2ps.so && ln -s liba2ps.so.1.0.0 liba2ps.so)
+creating liba2ps.la
+(cd .libs && rm -f liba2ps.la && ln -s ../liba2ps.la liba2ps.la)
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/lib'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/lib'
+Making all in src
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/src'
+/usr/gnu/bin/make  all-am
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/src'
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT main.o -MD -MP -MF ".deps/main.Tpo" -c -o main.o main.c; \
+then mv -f ".deps/main.Tpo" ".deps/main.Po"; else rm -f ".deps/main.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT read.o -MD -MP -MF ".deps/read.Tpo" -c -o read.o read.c; \
+then mv -f ".deps/read.Tpo" ".deps/read.Po"; else rm -f ".deps/read.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT sshread.o -MD -MP -MF ".deps/sshread.Tpo" -c -o sshread.o sshread.c; \
+then mv -f ".deps/sshread.Tpo" ".deps/sshread.Po"; else rm -f ".deps/sshread.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT ssheet.o -MD -MP -MF ".deps/ssheet.Tpo" -c -o ssheet.o ssheet.c; \
+then mv -f ".deps/ssheet.Tpo" ".deps/ssheet.Po"; else rm -f ".deps/ssheet.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT select.o -MD -MP -MF ".deps/select.Tpo" -c -o select.o select.c; \
+then mv -f ".deps/select.Tpo" ".deps/select.Po"; else rm -f ".deps/select.Tpo"; exit 1; fi
+select.c: In function 'file_verdict_on':
+select.c:185:8: warning: passing argument 1 of 'free' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   free(filename);
+        ^~~~~~~~
+In file included from /usr/include/stdlib.h:12:0,
+                 from /ws/userland/src/components/a2ps/a2ps-4.14/lib/system.h:88,
+                 from /ws/userland/src/components/a2ps/a2ps-4.14/lib/a2ps.h:28,
+                 from select.c:26:
+/usr/include/iso/stdlib_iso.h:175:13: note: expected 'void *' but argument is of type 'const unsigned char *'
+ extern void free(void *);
+             ^~~~
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT generate.o -MD -MP -MF ".deps/generate.Tpo" -c -o generate.o generate.c; \
+then mv -f ".deps/generate.Tpo" ".deps/generate.Po"; else rm -f ".deps/generate.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT delegate.o -MD -MP -MF ".deps/delegate.Tpo" -c -o delegate.o delegate.c; \
+then mv -f ".deps/delegate.Tpo" ".deps/delegate.Po"; else rm -f ".deps/delegate.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT regex.o -MD -MP -MF ".deps/regex.Tpo" -c -o regex.o regex.c; \
+then mv -f ".deps/regex.Tpo" ".deps/regex.Po"; else rm -f ".deps/regex.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT buffer.o -MD -MP -MF ".deps/buffer.Tpo" -c -o buffer.o buffer.c; \
+then mv -f ".deps/buffer.Tpo" ".deps/buffer.Po"; else rm -f ".deps/buffer.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT versions.o -MD -MP -MF ".deps/versions.Tpo" -c -o versions.o versions.c; \
+then mv -f ".deps/versions.Tpo" ".deps/versions.Po"; else rm -f ".deps/versions.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT ffaces.o -MD -MP -MF ".deps/ffaces.Tpo" -c -o ffaces.o ffaces.c; \
+then mv -f ".deps/ffaces.Tpo" ".deps/ffaces.Po"; else rm -f ".deps/ffaces.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT version-etc.o -MD -MP -MF ".deps/version-etc.Tpo" -c -o version-etc.o version-etc.c; \
+then mv -f ".deps/version-etc.Tpo" ".deps/version-etc.Po"; else rm -f ".deps/version-etc.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT long-options.o -MD -MP -MF ".deps/long-options.Tpo" -c -o long-options.o long-options.c; \
+then mv -f ".deps/long-options.Tpo" ".deps/long-options.Po"; else rm -f ".deps/long-options.Tpo"; exit 1; fi
+long-options.c: In function 'parse_long_options':
+long-options.c:76:4: warning: implicit declaration of function 'exit' [-Wimplicit-function-declaration]
+    exit (0);
+    ^~~~
+long-options.c:76:4: warning: incompatible implicit declaration of built-in function 'exit'
+long-options.c:76:4: note: include '<stdlib.h>' or provide a declaration of 'exit'
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT parsessh.o -MD -MP -MF ".deps/parsessh.Tpo" -c -o parsessh.o parsessh.c; \
+then mv -f ".deps/parsessh.Tpo" ".deps/parsessh.Po"; else rm -f ".deps/parsessh.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT lexssh.o -MD -MP -MF ".deps/lexssh.Tpo" -c -o lexssh.o lexssh.c; \
+then mv -f ".deps/lexssh.Tpo" ".deps/lexssh.Po"; else rm -f ".deps/lexssh.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT lexps.o -MD -MP -MF ".deps/lexps.Tpo" -c -o lexps.o lexps.c; \
+then mv -f ".deps/lexps.Tpo" ".deps/lexps.Po"; else rm -f ".deps/lexps.Tpo"; exit 1; fi
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I.. -I.. -I/ws/userland/src/components/a2ps/a2ps-4.14/src -I/ws/userland/src/components/a2ps/a2ps-4.14/lib -I../intl  -m64  -m64 -O3  -MT sheets-map.o -MD -MP -MF ".deps/sheets-map.Tpo" -c -o sheets-map.o sheets-map.c; \
+then mv -f ".deps/sheets-map.Tpo" ".deps/sheets-map.Po"; else rm -f ".deps/sheets-map.Tpo"; exit 1; fi
+/bin/bash ../libtool --tag=CC --mode=link /usr/gcc/7/bin/gcc  -m64 -O3    -o a2ps  main.o read.o sshread.o ssheet.o select.o generate.o delegate.o regex.o buffer.o versions.o ffaces.o version-etc.o long-options.o parsessh.o lexssh.o lexps.o sheets-map.o ../lib/liba2ps.la  -lm 
+mkdir .libs
+/usr/gcc/7/bin/gcc -m64 -O3 -o .libs/a2ps main.o read.o sshread.o ssheet.o select.o generate.o delegate.o regex.o buffer.o versions.o ffaces.o version-etc.o long-options.o parsessh.o lexssh.o lexps.o sheets-map.o  ../lib/.libs/liba2ps.so -lm  -R/usr/lib/amd64
+creating a2ps
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/src'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/src'
+Making all in po
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/po'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/po'
+Making all in tests
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/tests'
+top_srcdir=`cd /ws/userland/src/components/a2ps/a2ps-4.14 && pwd`;	\
+top_builddir=`cd .. && pwd`;	\
+sed -e "s#@libpath@#$top_builddir/etc:$top_srcdir/ogonkify:$top_builddir/ogonkify:$top_srcdir/sheets:$top_srcdir/ps:$top_srcdir/encoding:$top_srcdir/afm:$top_builddir/afm:$top_srcdir/fonts:$top_srcdir/ppd:/usr/local/ghostscript/fonts:/usr/local/share/ghostscript/fonts#g;s#@file_link@#/usr/bin/file#g" \
+/ws/userland/src/components/a2ps/a2ps-4.14/tests/a2ps-tst.cfg.in > a2ps-tst.cfg
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/tests'
+Making all in sheets
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/sheets'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/sheets'
+Making all in encoding
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/encoding'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/encoding'
+Making all in afm
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/afm'
+. ../tests/defs ;\
+touch fonts.map ; \
+if /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/afm/make_fonts_map.sh > /dev/null; then \
+  mv fonts.map.new fonts.map ;\
+else \
+  echo "Failed to build a fonts.map file."; \
+  echo "Reverting to default file."; \
+  cp /ws/userland/src/components/a2ps/a2ps-4.14/afm/fontsmap fonts.map; \
+fi
+Looking for the afm files read by /ws/userland/src/components/a2ps/build/amd64/src/a2ps...
+  /ws/userland/src/components/a2ps/build/amd64/etc...
+  /ws/userland/src/components/a2ps/a2ps-4.14/ogonkify...
+  /ws/userland/src/components/a2ps/build/amd64/ogonkify...
+  /ws/userland/src/components/a2ps/a2ps-4.14/sheets...
+  /ws/userland/src/components/a2ps/a2ps-4.14/ps...
+  /ws/userland/src/components/a2ps/a2ps-4.14/encoding...
+  /ws/userland/src/components/a2ps/a2ps-4.14/afm...
+  /ws/userland/src/components/a2ps/build/amd64/afm...
+  /ws/userland/src/components/a2ps/a2ps-4.14/fonts...
+  /ws/userland/src/components/a2ps/a2ps-4.14/ppd...
+  /usr/local/ghostscript/fonts...
+  /usr/local/share/ghostscript/fonts...
+Extracting font names...
+Sorting entries...
+Finishing.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/afm'
+Making all in fonts
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/fonts'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/fonts'
+Making all in ppd
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ppd'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ppd'
+Making all in contrib
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/contrib'
+Making all in sample
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/contrib/sample'
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/contrib/sample -I../.. -I. -I.. -I../.. -I/ws/userland/src/components/a2ps/a2ps-4.14/intl -I/ws/userland/src/components/a2ps/a2ps-4.14/lib  -m64  -m64 -O3  -MT main.o -MD -MP -MF ".deps/main.Tpo" -c -o main.o main.c; \
+then mv -f ".deps/main.Tpo" ".deps/main.Po"; else rm -f ".deps/main.Tpo"; exit 1; fi
+/bin/bash ../../libtool --tag=CC --mode=link /usr/gcc/7/bin/gcc  -m64 -O3    -o sample  main.o ../../lib/liba2ps.la  -lm 
+mkdir .libs
+/usr/gcc/7/bin/gcc -m64 -O3 -o .libs/sample main.o  ../../lib/.libs/liba2ps.so -lm  -R/usr/lib/amd64
+creating sample
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/contrib/sample'
+Making all in emacs
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/contrib/emacs'
+WARNING: Warnings can be ignored. :-)
+if test "emacs" != no; then \
+  set x; \
+  list='a2ps.el a2ps-print.el'; for p in $list; do \
+    if test -f "$p"; then d=; else d="/ws/userland/src/components/a2ps/a2ps-4.14/contrib/emacs/"; fi; \
+    set x "$@" "$d$p"; shift; \
+  done; \
+  shift; \
+  EMACS="emacs" /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/elisp-comp "$@" || exit 1; \
+else : ; fi
+
+In end of data:
+a2ps.el:226:1:Warning: the following functions are not known to be defined:
+    Info-goto-node, filladapt-mode
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/contrib/emacs'
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/contrib'
+if /usr/gcc/7/bin/gcc -DHAVE_CONFIG_H -I. -I/ws/userland/src/components/a2ps/a2ps-4.14/contrib -I..   -m64  -m64 -O3  -MT fixnt.o -MD -MP -MF ".deps/fixnt.Tpo" -c -o fixnt.o fixnt.c; \
+then mv -f ".deps/fixnt.Tpo" ".deps/fixnt.Po"; else rm -f ".deps/fixnt.Tpo"; exit 1; fi
+/bin/bash ../libtool --tag=CC --mode=link /usr/gcc/7/bin/gcc  -m64 -O3    -o fixnt  fixnt.o  
+mkdir .libs
+/usr/gcc/7/bin/gcc -m64 -O3 -o fixnt fixnt.o   
+/usr/bin/gm4 /ws/userland/src/components/a2ps/a2ps-4.14/contrib/fixps.m4 | \
+  sed -e 's/@BKL@/[/g;s/@BKR@/]/g;s/@DLR@/$/g;s/@PND@/#/g'>/ws/userland/src/components/a2ps/a2ps-4.14/contrib/fixps.in-tmp
+mv /ws/userland/src/components/a2ps/a2ps-4.14/contrib/fixps.in-tmp /ws/userland/src/components/a2ps/a2ps-4.14/contrib/fixps.in
+cd .. && /bin/bash ./config.status contrib/fixps
+config.status: creating contrib/fixps
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/contrib'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/contrib'
+Making all in doc
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/doc'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/doc'
+Making all in man
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/man'
+Updating man page a2ps.1
+Updating man page card.1
+Updating man page fixps.1
+Updating man page pdiff.1
+Updating man page psmandup.1
+Updating man page psset.1
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/man'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64'
+cd doc \
+&& /usr/bin/perl make-authors.pl > AUTHORS-t \
+&& chmod 644 AUTHORS-t
+mv doc/AUTHORS-t AUTHORS
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64'
+/usr/bin/touch /ws/userland/src/components/a2ps/build/amd64/.built
+(cd /ws/userland/src/components/a2ps/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect  -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/a2ps/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/a2ps/build/amd64'
+Making install in auxdir
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/auxdir'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/auxdir'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/auxdir'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/auxdir'
+Making install in m4
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/m4'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/m4'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/m4'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/m4'
+Making install in etc
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/etc'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/etc'
+make[3]: Nothing to be done for 'install-exec-am'.
+/bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs /ws/userland/src/components/a2ps/build/prototype/i386/etc/gnu
+mkdir /ws/userland/src/components/a2ps/build/prototype
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/etc
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/etc/gnu
+test -z "/usr/share/a2ps" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps
+ /usr/bin/ginstall -c -m 644 'README' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/README'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/etc'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/etc'
+Making install in ps
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ps'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ps'
+make[3]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/a2ps/ps" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps
+ /usr/bin/ginstall -c -m 644 'bw.pro' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/bw.pro'
+ /usr/bin/ginstall -c -m 644 'bold.pro' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/bold.pro'
+ /usr/bin/ginstall -c -m 644 'fixed.pro' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/fixed.pro'
+ /usr/bin/ginstall -c -m 644 'gray.pro' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/gray.pro'
+ /usr/bin/ginstall -c -m 644 'color.pro' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/color.pro'
+ /usr/bin/ginstall -c -m 644 'gray2.pro' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/gray2.pro'
+ /usr/bin/ginstall -c -m 644 'matrix.pro' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/matrix.pro'
+ /usr/bin/ginstall -c -m 644 'diff.pro' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/diff.pro'
+ /usr/bin/ginstall -c -m 644 'diffcolor.pro' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/diffcolor.pro'
+ /usr/bin/ginstall -c -m 644 'ul.pro' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/ul.pro'
+ /usr/bin/ginstall -c -m 644 'base.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/base.ps'
+ /usr/bin/ginstall -c -m 644 'ehandler.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/ehandler.ps'
+ /usr/bin/ginstall -c -m 644 'a2ps.hdr' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/a2ps.hdr'
+ /usr/bin/ginstall -c -m 644 'color.hdr' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ps/color.hdr'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ps'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ps'
+Making install in ogonkify
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify'
+Making install in doc
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify/doc'
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify/doc'
+make[4]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/info" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/ogonkify/../auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/info"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/info
+ /usr/bin/ginstall -c -m 644 './ogonkify.info' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/info/ogonkify.info'
+ install-info --info-dir='/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/info' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/info/ogonkify.info'
+test -z "/usr/share/man/man1" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/ogonkify/../auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/man/man1"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/man
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/man/man1
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/a2ps/a2ps-4.14/ogonkify/doc/ogonkify.1' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/man/man1/ogonkify.1'
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify/doc'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify/doc'
+Making install in m4
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify/m4'
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify/m4'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify/m4'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify/m4'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify'
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify'
+test -z "/usr/bin" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/ogonkify/../auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/bin
+ /usr/bin/ginstall -c 'ogonkify' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/ogonkify'
+ /usr/bin/ginstall -c 'composeglyphs' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/composeglyphs'
+test -z "/usr/share/ogonkify/afm" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/ogonkify/../auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm
+ /usr/bin/ginstall -c -m 644 'pcrr-o.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm/pcrr-o.afm'
+ /usr/bin/ginstall -c -m 644 'pcrro-o.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm/pcrro-o.afm'
+ /usr/bin/ginstall -c -m 644 'pcrb-o.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm/pcrb-o.afm'
+ /usr/bin/ginstall -c -m 644 'pcrbo-o.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm/pcrbo-o.afm'
+ /usr/bin/ginstall -c -m 644 'ptmr-o.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm/ptmr-o.afm'
+ /usr/bin/ginstall -c -m 644 'ptmri-o.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm/ptmri-o.afm'
+ /usr/bin/ginstall -c -m 644 'ptmb-o.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm/ptmb-o.afm'
+ /usr/bin/ginstall -c -m 644 'ptmbi-o.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm/ptmbi-o.afm'
+ /usr/bin/ginstall -c -m 644 'phvr-o.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm/phvr-o.afm'
+ /usr/bin/ginstall -c -m 644 'phvro-o.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm/phvro-o.afm'
+ /usr/bin/ginstall -c -m 644 'phvb-o.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm/phvb-o.afm'
+ /usr/bin/ginstall -c -m 644 'phvbo-o.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/afm/phvbo-o.afm'
+test -z "/usr/share/ogonkify/fonts" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/ogonkify/../auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts
+ /usr/bin/ginstall -c -m 644 'pcrr-o.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts/pcrr-o.pfa'
+ /usr/bin/ginstall -c -m 644 'pcrro-o.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts/pcrro-o.pfa'
+ /usr/bin/ginstall -c -m 644 'pcrb-o.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts/pcrb-o.pfa'
+ /usr/bin/ginstall -c -m 644 'pcrbo-o.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts/pcrbo-o.pfa'
+ /usr/bin/ginstall -c -m 644 'ptmr-o.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts/ptmr-o.pfa'
+ /usr/bin/ginstall -c -m 644 'ptmri-o.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts/ptmri-o.pfa'
+ /usr/bin/ginstall -c -m 644 'ptmb-o.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts/ptmb-o.pfa'
+ /usr/bin/ginstall -c -m 644 'ptmbi-o.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts/ptmbi-o.pfa'
+ /usr/bin/ginstall -c -m 644 'phvr-o.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts/phvr-o.pfa'
+ /usr/bin/ginstall -c -m 644 'phvro-o.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts/phvro-o.pfa'
+ /usr/bin/ginstall -c -m 644 'phvb-o.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts/phvb-o.pfa'
+ /usr/bin/ginstall -c -m 644 'phvbo-o.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/fonts/phvbo-o.pfa'
+test -z "/usr/share/ogonkify" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/ogonkify/../auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify"
+ /usr/bin/ginstall -c -m 644 'ascii.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/ascii.enc'
+ /usr/bin/ginstall -c -m 644 'adobe.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/adobe.enc'
+ /usr/bin/ginstall -c -m 644 'latin1.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/latin1.enc'
+ /usr/bin/ginstall -c -m 644 'latin2.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/latin2.enc'
+ /usr/bin/ginstall -c -m 644 'latin3.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/latin3.enc'
+ /usr/bin/ginstall -c -m 644 'latin4.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/latin4.enc'
+ /usr/bin/ginstall -c -m 644 'latin5.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/latin5.enc'
+ /usr/bin/ginstall -c -m 644 'latin6.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/latin6.enc'
+ /usr/bin/ginstall -c -m 644 'latin7.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/latin7.enc'
+ /usr/bin/ginstall -c -m 644 'latin9.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/latin9.enc'
+ /usr/bin/ginstall -c -m 644 'cp1250.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/cp1250.enc'
+ /usr/bin/ginstall -c -m 644 'ogonki.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/ogonki.enc'
+ /usr/bin/ginstall -c -m 644 'mac.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/mac.enc'
+ /usr/bin/ginstall -c -m 644 'ibmpc.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/ibmpc.enc'
+ /usr/bin/ginstall -c -m 644 'hp.enc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/hp.enc'
+ /usr/bin/ginstall -c -m 644 'pcrr-o.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/pcrr-o.ps'
+ /usr/bin/ginstall -c -m 644 'pcrro-o.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/pcrro-o.ps'
+ /usr/bin/ginstall -c -m 644 'pcrb-o.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/pcrb-o.ps'
+ /usr/bin/ginstall -c -m 644 'pcrbo-o.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/pcrbo-o.ps'
+ /usr/bin/ginstall -c -m 644 'ptmr-o.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/ptmr-o.ps'
+ /usr/bin/ginstall -c -m 644 'ptmri-o.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/ptmri-o.ps'
+ /usr/bin/ginstall -c -m 644 'ptmb-o.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/ptmb-o.ps'
+ /usr/bin/ginstall -c -m 644 'ptmbi-o.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/ptmbi-o.ps'
+ /usr/bin/ginstall -c -m 644 'phvr-o.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/phvr-o.ps'
+ /usr/bin/ginstall -c -m 644 'phvro-o.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/phvro-o.ps'
+ /usr/bin/ginstall -c -m 644 'phvb-o.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/phvb-o.ps'
+ /usr/bin/ginstall -c -m 644 'phvbo-o.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/phvbo-o.ps'
+ /usr/bin/ginstall -c -m 644 'allchars.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/allchars.ps'
+ /usr/bin/ginstall -c -m 644 'compose.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/compose.ps'
+ /usr/bin/ginstall -c -m 644 'helper.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/helper.ps'
+ /usr/bin/ginstall -c -m 644 'printenc.ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/printenc.ps'
+ /usr/bin/ginstall -c -m 644 'README' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/ogonkify/README'
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ogonkify'
+Making install in lib
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/lib'
+/usr/gnu/bin/make  install-am
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/lib'
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/lib'
+test -z "/usr/lib/amd64" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/lib/amd64"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/lib
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/lib/amd64
+ /bin/bash ../libtool --mode=install /usr/bin/ginstall -c  'liba2ps.la' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/lib/amd64/liba2ps.la'
+/usr/bin/ginstall -c .libs/liba2ps.so.1.0.0 /ws/userland/src/components/a2ps/build/prototype/i386/usr/lib/amd64/liba2ps.so.1.0.0
+(cd /ws/userland/src/components/a2ps/build/prototype/i386/usr/lib/amd64 && { ln -s -f liba2ps.so.1.0.0 liba2ps.so.1 || { rm -f liba2ps.so.1 && ln -s liba2ps.so.1.0.0 liba2ps.so.1; }; })
+(cd /ws/userland/src/components/a2ps/build/prototype/i386/usr/lib/amd64 && { ln -s -f liba2ps.so.1.0.0 liba2ps.so || { rm -f liba2ps.so && ln -s liba2ps.so.1.0.0 liba2ps.so; }; })
+chmod +x /ws/userland/src/components/a2ps/build/prototype/i386/usr/lib/amd64/liba2ps.so.1.0.0
+/usr/bin/ginstall -c .libs/liba2ps.lai /ws/userland/src/components/a2ps/build/prototype/i386/usr/lib/amd64/liba2ps.la
+libtool: install: warning: remember to run `libtool --finish /usr/lib/amd64'
+test -z "/usr/include" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/include"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/include
+ /usr/bin/ginstall -c -m 644 'liba2ps.h' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/include/liba2ps.h'
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/lib'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/lib'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/lib'
+Making install in src
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/src'
+/usr/gnu/bin/make  install-am
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/src'
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/src'
+test -z "/usr/bin" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin"
+  /bin/bash ../libtool --mode=install /usr/bin/ginstall -c 'a2ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/a2ps'
+libtool: install: warning: `../lib/liba2ps.la' has not been installed in `/usr/lib/amd64'
+/usr/bin/ginstall -c .libs/a2ps /ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/a2ps
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/src'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/src'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/src'
+Making install in po
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/po'
+/bin/sh `case "auxdir/mkinstalldirs" in /*) echo "auxdir/mkinstalldirs" ;; *) echo "../auxdir/mkinstalldirs" ;; esac` /ws/userland/src/components/a2ps/build/prototype/i386/usr/share
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/ca
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/ca/LC_MESSAGES
+installing ca.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/ca/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/cs
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/cs/LC_MESSAGES
+installing cs.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/cs/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/da
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/da/LC_MESSAGES
+installing da.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/da/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/de
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/de/LC_MESSAGES
+installing de.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/de/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/es
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/es/LC_MESSAGES
+installing es.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/es/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/fr
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/fr/LC_MESSAGES
+installing fr.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/fr/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/it
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/it/LC_MESSAGES
+installing it.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/it/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/ja
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/ja/LC_MESSAGES
+installing ja.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/ja/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/ko
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/ko/LC_MESSAGES
+installing ko.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/ko/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/nl
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/nl/LC_MESSAGES
+installing nl.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/nl/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/no
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/no/LC_MESSAGES
+installing no.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/no/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/pl
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/pl/LC_MESSAGES
+installing pl.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/pl/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/pt
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/pt/LC_MESSAGES
+installing pt.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/pt/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/ru
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/ru/LC_MESSAGES
+installing ru.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/ru/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/sl
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/sl/LC_MESSAGES
+installing sl.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/sl/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/sv
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/sv/LC_MESSAGES
+installing sv.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/sv/LC_MESSAGES/a2ps.mo
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/tr
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/tr/LC_MESSAGES
+installing tr.gmo as /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/locale/tr/LC_MESSAGES/a2ps.mo
+if test "a2ps" = "gettext"; then \
+  /bin/sh `case "auxdir/mkinstalldirs" in /*) echo "auxdir/mkinstalldirs" ;; *) echo "../auxdir/mkinstalldirs" ;; esac` /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/gettext/po; \
+  for file in Makefile.in.in Makevars remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot  ; do \
+    /usr/bin/ginstall -c -m 644 /ws/userland/src/components/a2ps/a2ps-4.14/po/$file \
+		    /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/po'
+Making install in tests
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/tests'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/tests'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/tests'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/tests'
+Making install in sheets
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/sheets'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/sheets'
+make[3]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/a2ps/sheets" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets
+ /usr/bin/ginstall -c -m 644 'sheets.map' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/sheets.map'
+ /usr/bin/ginstall -c -m 644 'ada.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/ada.ssh'
+ /usr/bin/ginstall -c -m 644 'c.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/c.ssh'
+ /usr/bin/ginstall -c -m 644 'card.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/card.ssh'
+ /usr/bin/ginstall -c -m 644 'clisp.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/clisp.ssh'
+ /usr/bin/ginstall -c -m 644 'cpp.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/cpp.ssh'
+ /usr/bin/ginstall -c -m 644 'cxx.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/cxx.ssh'
+ /usr/bin/ginstall -c -m 644 'eiffel.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/eiffel.ssh'
+ /usr/bin/ginstall -c -m 644 'elisp.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/elisp.ssh'
+ /usr/bin/ginstall -c -m 644 'for-fixed.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/for-fixed.ssh'
+ /usr/bin/ginstall -c -m 644 'for-free.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/for-free.ssh'
+ /usr/bin/ginstall -c -m 644 'for77-fixed.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/for77-fixed.ssh'
+ /usr/bin/ginstall -c -m 644 'for77-free.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/for77-free.ssh'
+ /usr/bin/ginstall -c -m 644 'for77kwds.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/for77kwds.ssh'
+ /usr/bin/ginstall -c -m 644 'for90-fixed.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/for90-fixed.ssh'
+ /usr/bin/ginstall -c -m 644 'for90-free.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/for90-free.ssh'
+ /usr/bin/ginstall -c -m 644 'for90kwds.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/for90kwds.ssh'
+ /usr/bin/ginstall -c -m 644 'fortran.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/fortran.ssh'
+ /usr/bin/ginstall -c -m 644 'gnuc.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/gnuc.ssh'
+ /usr/bin/ginstall -c -m 644 'java.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/java.ssh'
+ /usr/bin/ginstall -c -m 644 'mail.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/mail.ssh'
+ /usr/bin/ginstall -c -m 644 'make.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/make.ssh'
+ /usr/bin/ginstall -c -m 644 'objc.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/objc.ssh'
+ /usr/bin/ginstall -c -m 644 'ocaml.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/ocaml.ssh'
+ /usr/bin/ginstall -c -m 644 'pascal.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/pascal.ssh'
+ /usr/bin/ginstall -c -m 644 'perl.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/perl.ssh'
+ /usr/bin/ginstall -c -m 644 'pre.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/pre.ssh'
+ /usr/bin/ginstall -c -m 644 'pretex.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/pretex.ssh'
+ /usr/bin/ginstall -c -m 644 'scheme.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/scheme.ssh'
+ /usr/bin/ginstall -c -m 644 'sh.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/sh.ssh'
+ /usr/bin/ginstall -c -m 644 'shell.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/shell.ssh'
+ /usr/bin/ginstall -c -m 644 'ssh.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/ssh.ssh'
+ /usr/bin/ginstall -c -m 644 'symbols.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/symbols.ssh'
+ /usr/bin/ginstall -c -m 644 'tcl.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/tcl.ssh'
+ /usr/bin/ginstall -c -m 644 'texscript.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/texscript.ssh'
+ /usr/bin/ginstall -c -m 644 'tk.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/tk.ssh'
+ /usr/bin/ginstall -c -m 644 'udiff.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/udiff.ssh'
+ /usr/bin/ginstall -c -m 644 'wdiff.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/wdiff.ssh'
+ /usr/bin/ginstall -c -m 644 '68000.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/68000.ssh'
+ /usr/bin/ginstall -c -m 644 'a2psrc.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/a2psrc.ssh'
+ /usr/bin/ginstall -c -m 644 'asn1.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/asn1.ssh'
+ /usr/bin/ginstall -c -m 644 'autoconf.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/autoconf.ssh'
+ /usr/bin/ginstall -c -m 644 'awk.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/awk.ssh'
+ /usr/bin/ginstall -c -m 644 'b.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/b.ssh'
+ /usr/bin/ginstall -c -m 644 'bc.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/bc.ssh'
+ /usr/bin/ginstall -c -m 644 'caml.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/caml.ssh'
+ /usr/bin/ginstall -c -m 644 'chlog.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/chlog.ssh'
+ /usr/bin/ginstall -c -m 644 'cidl.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/cidl.ssh'
+ /usr/bin/ginstall -c -m 644 'claire.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/claire.ssh'
+ /usr/bin/ginstall -c -m 644 'coqv.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/coqv.ssh'
+ /usr/bin/ginstall -c -m 644 'csh.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/csh.ssh'
+ /usr/bin/ginstall -c -m 644 'csharp.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/csharp.ssh'
+ /usr/bin/ginstall -c -m 644 'dc_shell.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/dc_shell.ssh'
+ /usr/bin/ginstall -c -m 644 'eps.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/eps.ssh'
+ /usr/bin/ginstall -c -m 644 'gmake.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/gmake.ssh'
+ /usr/bin/ginstall -c -m 644 'haskell.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/haskell.ssh'
+ /usr/bin/ginstall -c -m 644 'html.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/html.ssh'
+ /usr/bin/ginstall -c -m 644 'idl.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/idl.ssh'
+ /usr/bin/ginstall -c -m 644 'initora.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/initora.ssh'
+ /usr/bin/ginstall -c -m 644 'is5rul.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/is5rul.ssh'
+ /usr/bin/ginstall -c -m 644 'js.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/js.ssh'
+ /usr/bin/ginstall -c -m 644 'lace.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/lace.ssh'
+ /usr/bin/ginstall -c -m 644 'lex.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/lex.ssh'
+ /usr/bin/ginstall -c -m 644 'lout.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/lout.ssh'
+ /usr/bin/ginstall -c -m 644 'maple.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/maple.ssh'
+ /usr/bin/ginstall -c -m 644 'matlab.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/matlab.ssh'
+ /usr/bin/ginstall -c -m 644 'matlab4.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/matlab4.ssh'
+ /usr/bin/ginstall -c -m 644 'mib.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/mib.ssh'
+ /usr/bin/ginstall -c -m 644 'mly.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/mly.ssh'
+ /usr/bin/ginstall -c -m 644 'modula2.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/modula2.ssh'
+ /usr/bin/ginstall -c -m 644 'modula3.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/modula3.ssh'
+ /usr/bin/ginstall -c -m 644 'nasm.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/nasm.ssh'
+ /usr/bin/ginstall -c -m 644 'o2c.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/o2c.ssh'
+ /usr/bin/ginstall -c -m 644 'oberon.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/oberon.ssh'
+ /usr/bin/ginstall -c -m 644 'octave.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/octave.ssh'
+ /usr/bin/ginstall -c -m 644 'oracle.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/oracle.ssh'
+ /usr/bin/ginstall -c -m 644 'pic16f84.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/pic16f84.ssh'
+ /usr/bin/ginstall -c -m 644 'plsql.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/plsql.ssh'
+ /usr/bin/ginstall -c -m 644 'pov.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/pov.ssh'
+ /usr/bin/ginstall -c -m 644 'ppd.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/ppd.ssh'
+ /usr/bin/ginstall -c -m 644 'ps.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/ps.ssh'
+ /usr/bin/ginstall -c -m 644 'prolog.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/prolog.ssh'
+ /usr/bin/ginstall -c -m 644 'promela.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/promela.ssh'
+ /usr/bin/ginstall -c -m 644 'python.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/python.ssh'
+ /usr/bin/ginstall -c -m 644 'rexx.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/rexx.ssh'
+ /usr/bin/ginstall -c -m 644 'sather.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/sather.ssh'
+ /usr/bin/ginstall -c -m 644 'sdl88.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/sdl88.ssh'
+ /usr/bin/ginstall -c -m 644 'sed.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/sed.ssh'
+ /usr/bin/ginstall -c -m 644 'small.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/small.ssh'
+ /usr/bin/ginstall -c -m 644 'sml.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/sml.ssh'
+ /usr/bin/ginstall -c -m 644 'specc.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/specc.ssh'
+ /usr/bin/ginstall -c -m 644 'sql.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/sql.ssh'
+ /usr/bin/ginstall -c -m 644 'sql92.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/sql92.ssh'
+ /usr/bin/ginstall -c -m 644 'stratego.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/stratego.ssh'
+ /usr/bin/ginstall -c -m 644 'tclx.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/tclx.ssh'
+ /usr/bin/ginstall -c -m 644 'tcsh.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/tcsh.ssh'
+ /usr/bin/ginstall -c -m 644 'tex.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/tex.ssh'
+ /usr/bin/ginstall -c -m 644 'texinfo.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/texinfo.ssh'
+ /usr/bin/ginstall -c -m 644 'tiger.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/tiger.ssh'
+ /usr/bin/ginstall -c -m 644 'unity.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/unity.ssh'
+ /usr/bin/ginstall -c -m 644 'vba.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/vba.ssh'
+ /usr/bin/ginstall -c -m 644 'verilog.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/verilog.ssh'
+ /usr/bin/ginstall -c -m 644 'vhdl.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/vhdl.ssh'
+ /usr/bin/ginstall -c -m 644 'vrml.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/vrml.ssh'
+ /usr/bin/ginstall -c -m 644 'vtcl.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/vtcl.ssh'
+ /usr/bin/ginstall -c -m 644 'yacc.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/yacc.ssh'
+ /usr/bin/ginstall -c -m 644 'xs.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/xs.ssh'
+ /usr/bin/ginstall -c -m 644 'zsh.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/zsh.ssh'
+ /usr/bin/ginstall -c -m 644 'php.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/php.ssh'
+ /usr/bin/ginstall -c -m 644 'rd.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/rd.ssh'
+ /usr/bin/ginstall -c -m 644 's.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/s.ssh'
+ /usr/bin/ginstall -c -m 644 'st.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/st.ssh'
+ /usr/bin/ginstall -c -m 644 'ruby.ssh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/sheets/ruby.ssh'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/sheets'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/sheets'
+Making install in encoding
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/encoding'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/encoding'
+make[3]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/a2ps/encoding" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding
+ /usr/bin/ginstall -c -m 644 'encoding.map' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/encoding.map'
+ /usr/bin/ginstall -c -m 644 'ascii.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/ascii.edf'
+ /usr/bin/ginstall -c -m 644 'iso1.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/iso1.edf'
+ /usr/bin/ginstall -c -m 644 'ms-cp1250.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/ms-cp1250.edf'
+ /usr/bin/ginstall -c -m 644 'hp.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/hp.edf'
+ /usr/bin/ginstall -c -m 644 'mac.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/mac.edf'
+ /usr/bin/ginstall -c -m 644 'ibm-cp437.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/ibm-cp437.edf'
+ /usr/bin/ginstall -c -m 644 'ibm-cp850.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/ibm-cp850.edf'
+ /usr/bin/ginstall -c -m 644 'iso2.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/iso2.edf'
+ /usr/bin/ginstall -c -m 644 'iso3.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/iso3.edf'
+ /usr/bin/ginstall -c -m 644 'iso4.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/iso4.edf'
+ /usr/bin/ginstall -c -m 644 'iso5.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/iso5.edf'
+ /usr/bin/ginstall -c -m 644 'iso7.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/iso7.edf'
+ /usr/bin/ginstall -c -m 644 'iso9.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/iso9.edf'
+ /usr/bin/ginstall -c -m 644 'iso10.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/iso10.edf'
+ /usr/bin/ginstall -c -m 644 'iso13.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/iso13.edf'
+ /usr/bin/ginstall -c -m 644 'iso15.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/iso15.edf'
+ /usr/bin/ginstall -c -m 644 'koi8.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/koi8.edf'
+ /usr/bin/ginstall -c -m 644 'ms-cp1251.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/ms-cp1251.edf'
+ /usr/bin/ginstall -c -m 644 'euc-jp.edf' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/encoding/euc-jp.edf'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/encoding'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/encoding'
+Making install in afm
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/afm'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/afm'
+make[3]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/a2ps/afm" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm
+ /usr/bin/ginstall -c -m 644 'fonts.map' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/fonts.map'
+ /usr/bin/ginstall -c -m 644 'pcfont.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pcfont.afm'
+ /usr/bin/ginstall -c -m 644 'pcrb.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pcrb.afm'
+ /usr/bin/ginstall -c -m 644 'pcrbo.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pcrbo.afm'
+ /usr/bin/ginstall -c -m 644 'pcrr.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pcrr.afm'
+ /usr/bin/ginstall -c -m 644 'pcrro.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pcrro.afm'
+ /usr/bin/ginstall -c -m 644 'phvb.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/phvb.afm'
+ /usr/bin/ginstall -c -m 644 'phvbo.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/phvbo.afm'
+ /usr/bin/ginstall -c -m 644 'phvr.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/phvr.afm'
+ /usr/bin/ginstall -c -m 644 'phvro.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/phvro.afm'
+ /usr/bin/ginstall -c -m 644 'ptmb.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/ptmb.afm'
+ /usr/bin/ginstall -c -m 644 'ptmbi.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/ptmbi.afm'
+ /usr/bin/ginstall -c -m 644 'ptmi.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/ptmi.afm'
+ /usr/bin/ginstall -c -m 644 'ptmr.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/ptmr.afm'
+ /usr/bin/ginstall -c -m 644 'psyr.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/psyr.afm'
+ /usr/bin/ginstall -c -m 644 'pagb.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pagb.afm'
+ /usr/bin/ginstall -c -m 644 'pagbo.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pagbo.afm'
+ /usr/bin/ginstall -c -m 644 'pagd.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pagd.afm'
+ /usr/bin/ginstall -c -m 644 'pagdo.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pagdo.afm'
+ /usr/bin/ginstall -c -m 644 'pbkd.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pbkd.afm'
+ /usr/bin/ginstall -c -m 644 'pbkdi.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pbkdi.afm'
+ /usr/bin/ginstall -c -m 644 'pbkl.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pbkl.afm'
+ /usr/bin/ginstall -c -m 644 'pbkli.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pbkli.afm'
+ /usr/bin/ginstall -c -m 644 'phvbon.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/phvbon.afm'
+ /usr/bin/ginstall -c -m 644 'phvbrn.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/phvbrn.afm'
+ /usr/bin/ginstall -c -m 644 'phvron.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/phvron.afm'
+ /usr/bin/ginstall -c -m 644 'phvrrn.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/phvrrn.afm'
+ /usr/bin/ginstall -c -m 644 'pncb.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pncb.afm'
+ /usr/bin/ginstall -c -m 644 'pncbi.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pncbi.afm'
+ /usr/bin/ginstall -c -m 644 'pncr.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pncr.afm'
+ /usr/bin/ginstall -c -m 644 'pncri.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pncri.afm'
+ /usr/bin/ginstall -c -m 644 'pplb.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pplb.afm'
+ /usr/bin/ginstall -c -m 644 'pplbi.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pplbi.afm'
+ /usr/bin/ginstall -c -m 644 'pplr.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pplr.afm'
+ /usr/bin/ginstall -c -m 644 'pplri.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pplri.afm'
+ /usr/bin/ginstall -c -m 644 'pzcmi.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pzcmi.afm'
+ /usr/bin/ginstall -c -m 644 'pzdr.afm' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/pzdr.afm'
+test -z "/usr/share/a2ps/afm" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm"
+ /usr/bin/ginstall -c 'make_fonts_map.sh' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/afm/make_fonts_map.sh'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/afm'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/afm'
+Making install in fonts
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/fonts'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/fonts'
+make[3]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/a2ps/fonts" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/fonts"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/fonts
+ /usr/bin/ginstall -c -m 644 'pcfont.pfa' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/fonts/pcfont.pfa'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/fonts'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/fonts'
+Making install in ppd
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ppd'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/ppd'
+make[3]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/a2ps/ppd" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ppd"
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ppd
+ /usr/bin/ginstall -c -m 644 'README' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ppd/README'
+ /usr/bin/ginstall -c -m 644 'level1.ppd' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ppd/level1.ppd'
+ /usr/bin/ginstall -c -m 644 'level2.ppd' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/a2ps/ppd/level2.ppd'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ppd'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/ppd'
+Making install in contrib
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/contrib'
+Making install in sample
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/contrib/sample'
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/contrib/sample'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/contrib/sample'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/contrib/sample'
+Making install in emacs
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/contrib/emacs'
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/contrib/emacs'
+make[4]: Nothing to be done for 'install-exec-am'.
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/emacs
+mkdir /ws/userland/src/components/a2ps/build/prototype/i386/usr/share/emacs/site-lisp
+ /usr/bin/ginstall -c -m 644 'a2ps.el' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/emacs/site-lisp/a2ps.el'
+ /usr/bin/ginstall -c -m 644 'a2ps.elc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/emacs/site-lisp/a2ps.elc'
+ /usr/bin/ginstall -c -m 644 'a2ps-print.el' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/emacs/site-lisp/a2ps-print.el'
+ /usr/bin/ginstall -c -m 644 'a2ps-print.elc' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/emacs/site-lisp/a2ps-print.elc'
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/contrib/emacs'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/contrib/emacs'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/contrib'
+make[4]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/contrib'
+test -z "/usr/bin" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin"
+  /bin/bash ../libtool --mode=install /usr/bin/ginstall -c 'fixnt' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/fixnt'
+/usr/bin/ginstall -c fixnt /ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/fixnt
+test -z "/usr/bin" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin"
+ /usr/bin/ginstall -c 'card' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/card'
+ /usr/bin/ginstall -c 'fixps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/fixps'
+ /usr/bin/ginstall -c 'pdiff' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/pdiff'
+ /usr/bin/ginstall -c 'psmandup' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/psmandup'
+ /usr/bin/ginstall -c 'psset' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/psset'
+ /usr/bin/ginstall -c 'texi2dvi4a2ps' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/texi2dvi4a2ps'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/contrib'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/contrib'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/contrib'
+Making install in doc
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/doc'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/doc'
+make[3]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/info" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/info"
+ /usr/bin/ginstall -c -m 644 './a2ps.info' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/info/a2ps.info'
+ /usr/bin/ginstall -c -m 644 './regex.info' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/info/regex.info'
+ install-info --info-dir='/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/info' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/info/a2ps.info'
+ install-info --info-dir='/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/info' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/info/regex.info'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/doc'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/doc'
+Making install in man
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/man'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64/man'
+make[3]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/man/man1" || /bin/bash /ws/userland/src/components/a2ps/a2ps-4.14/auxdir/mkinstalldirs "/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/man/man1"
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/a2ps/a2ps-4.14/man/a2ps.1' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/man/man1/a2ps.1'
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/a2ps/a2ps-4.14/man/card.1' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/man/man1/card.1'
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/a2ps/a2ps-4.14/man/fixps.1' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/man/man1/fixps.1'
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/a2ps/a2ps-4.14/man/pdiff.1' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/man/man1/pdiff.1'
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/a2ps/a2ps-4.14/man/psmandup.1' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/man/man1/psmandup.1'
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/a2ps/a2ps-4.14/man/psset.1' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/man/man1/psset.1'
+ /usr/bin/ginstall -c -m 644 '/ws/userland/src/components/a2ps/a2ps-4.14/man/texi2dvi4a2ps.1' '/ws/userland/src/components/a2ps/build/prototype/i386/usr/share/man/man1/texi2dvi4a2ps.1'
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/man'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64/man'
+make[2]: Entering directory '/ws/userland/src/components/a2ps/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/a2ps/build/amd64'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/a2ps/build/amd64'
+/usr/gnu/bin/sed -i -e '1s@/usr/bin/perl@/usr/perl5/5.22/bin/perl@' -e '1s@/usr/perl5/bin/perl@/usr/perl5/5.22/bin/perl@' -e '1s@/usr/bin/env\ perl@/usr/perl5/5.22/bin/perl@' /ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/composeglyphs;  /usr/gnu/bin/sed -i -e '1s@/usr/bin/perl@/usr/perl5/5.22/bin/perl@' -e '1s@/usr/perl5/bin/perl@/usr/perl5/5.22/bin/perl@' -e '1s@/usr/bin/env\ perl@/usr/perl5/5.22/bin/perl@' /ws/userland/src/components/a2ps/build/prototype/i386/usr/bin/ogonkify;  
+/usr/bin/touch /ws/userland/src/components/a2ps/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 a2ps.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=4\\.14 -D COMPONENT_RE_VERSION=4\\.14 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/a2ps -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="4517" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="4.14" -D IPS_COMPONENT_VERSION="4.14" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://ftp.gnu.org/gnu/a2ps/a2ps-4.14.tar.gz" -D COMPONENT_PROJECT_URL="https://www.gnu.org/software/a2ps" -D COMPONENT_NAME="a2ps" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" a2ps.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/a2ps/build/manifest-i386-a2ps.mogrified
+/bin/mkdir -p /ws/userland/src/components/a2ps/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/a2ps/build/prototype/i386/mangled -d /ws/userland/src/components/a2ps/build/prototype/i386/mangled -d /ws/userland/src/components/a2ps/build/prototype/i386 -d /ws/userland/src/components/a2ps/build -d /ws/userland/src/components/a2ps -d a2ps-4.14 -d /ws/userland/src/licenses -m /ws/userland/src/components/a2ps/build/manifest-i386-a2ps.mogrified >/ws/userland/src/components/a2ps/build/manifest-i386-a2ps.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/a2ps/build/prototype/i386/mangled -d /ws/userland/src/components/a2ps/build/prototype/i386 -d /ws/userland/src/components/a2ps/build -d /ws/userland/src/components/a2ps -d a2ps-4.14 -d /ws/userland/src/licenses /ws/userland/src/components/a2ps/build/manifest-i386-a2ps.mangled >/ws/userland/src/components/a2ps/build/manifest-i386-a2ps.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/a2ps/build/resolve.deps -m /ws/userland/src/components/a2ps/build/manifest-i386-a2ps.depend
+/usr/bin/touch /ws/userland/src/components/a2ps/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/a2ps/build/manifest-i386-a2ps.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/a2ps/build/prototype/i386/mangled /ws/userland/src/components/a2ps/build/prototype/i386 /ws/userland/src/components/a2ps/build /ws/userland/src/components/a2ps a2ps-4.14 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/a2ps/build/manifest-i386-a2ps.depend.res
+/usr/bin/touch /ws/userland/src/components/a2ps/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/a2ps/build/prototype/i386/mangled -d /ws/userland/src/components/a2ps/build/prototype/i386 -d /ws/userland/src/components/a2ps/build -d /ws/userland/src/components/a2ps -d a2ps-4.14 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/a2ps/build/manifest-i386-a2ps.depend.res
+pkg://nightly/print/filter/a2ps@4.14,5.11-11.4.0.0.1.14.0:20190727T162510Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/a2ps/build/manifest-i386-a2ps.depend.res >/ws/userland/src/components/a2ps/build/manifest-i386-a2ps.published
+/usr/bin/touch /ws/userland/src/components/a2ps/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/a2ps'
+
+real     2:25.8
+user     1:19.0
+sys         7.7

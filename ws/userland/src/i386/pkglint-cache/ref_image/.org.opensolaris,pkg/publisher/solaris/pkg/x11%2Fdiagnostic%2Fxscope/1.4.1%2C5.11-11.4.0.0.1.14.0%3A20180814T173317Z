@@ -1,0 +1,23 @@
+set name=pkg.fmri value=pkg://solaris/x11/diagnostic/xscope@1.4.1,5.11-11.4.0.0.1.14.0:20180814T173317Z
+set name=info.source-url value=https://www.x.org/releases/individual/app/xscope-1.4.1.tar.bz2
+set name=com.oracle.info.description value=xscope
+set name=com.oracle.info.tpno value=39514
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=LSARC/2009/549
+set name=pkg.description value="Xscope sits in-between an X11 client and an X11 server and prints the contents of each request, reply, error, or event that is communicated between them. Xscope can decode the core X11 protocol and several extensions, including BIG-REQUESTS, LBX, MIT-SHM, NCD-WinCenterPro, RANDR, and RENDER."
+set name=info.upstream-url value=https://www.x.org
+set name=pkg.summary value="xscope - X Window Protocol Viewer"
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=com.oracle.info.name value=xscope
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.version value=1.4.1
+set name=variant.arch value=i386 value=sparc
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file 8305e1b6bcff707b78ce8d1a79686b4c0f4e8d3f chash=c293fe1ce61757323e51355624c36f07c319b75a facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/xscope.1 pkg.content-hash=file:sha512t_256:d66f7d21540436e2dbe5af9e204a7ec8764283cf90dbcdbd1a339f33dba83315 pkg.content-hash=gzip:sha512t_256:b75fecd918d8547344b44cdad8bf5ca6df56fd2f1609b73ea452f63af030c308 pkg.csize=3364 pkg.size=8145
+file bef0757bd3e299705cacdb26624961b89851c18d chash=c08d91ffcfe7a629f9f34d1050a3f6bc54b8d0de elfarch=i386 elfbits=64 elfhash=6bb2dfd98dcb2c934114accbc394e2bd6be502d1 group=bin mode=0555 owner=root path=usr/bin/xscope pkg.content-hash=gelf:sha512t_256:02f11067bd902bea97b9950289d50b474cc29f3ffb68e975d2e8182bc828ed49 pkg.content-hash=gelf.unsigned:sha512t_256:29b5195c56ab7b6490ee338976686770f234c67afa24396d7f41bc3972ae0119 pkg.content-hash=file:sha512t_256:8d7f291fcc26f1773f634155743b0d35024ac3ff049d4a128028c9c607b7ab38 pkg.content-hash=gzip:sha512t_256:9b913a0f7b7c78cf535c62a50254390859d5744eb509db98260285c5b7065c6b pkg.csize=195093 pkg.size=666128 variant.arch=i386
+file 19cee0a6760862ae6754e41af6689d27271f0cf9 chash=11f43b7e490ad2f09f50e39405f7eb438bbb1976 elfarch=sparc elfbits=64 elfhash=f5640857e59fb0b1c0f8d1b99a11e07999a9626d group=bin mode=0555 owner=root path=usr/bin/xscope pkg.content-hash=gelf:sha512t_256:733237ecd99b66f4458e22968f90d3150422c3b1882df90f5049c66d9c0f2d04 pkg.content-hash=gelf.unsigned:sha512t_256:dc08cc90f66a21725278202e6e5c359ce3627563f5528117ff4eeb0a4d5e88e4 pkg.content-hash=file:sha512t_256:c3fac0552771f1f5ae141ac78ba1644cd9f388ff2484c63bbbbdc6add97b40e8 pkg.content-hash=gzip:sha512t_256:427792cdb5a589da4316a5e50da9a0cd0436904c66e9fa4ef86463b94b558fe1 pkg.csize=190409 pkg.size=618592 variant.arch=sparc
+link path=usr/X11/bin/xscope target=../../bin/xscope
+license 1cdc2ae4870b7bfc6af96522fbfa02acbaf32d65 chash=8a105f5c3113bd396e20ef324c2dc3a12c0db53c license=MIT pkg.content-hash=file:sha512t_256:e8c48aaaab6fd494e1c12b5e915f7a3c7778a1cb26c01b4339072b47648318fc pkg.content-hash=gzip:sha512t_256:a441031ae1bb7918186c6d6b0caf985541c3a38eff34ab96f3a1436fb8dfae48 pkg.csize=1435 pkg.size=4607
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=02a25df41a599b07c1d7b87b49a1ba8df3cd691e084924648be919f7d626a503155b5263eb786d0263be28093c9732b5b55fc95367f637629eef4c1ac42c2887fccc80d773981be7a553ef658467ff233f4588ea0e85f2826cd45312274744adb9d6153fcad439233d5f1963eae9f9facbb33f7208d28dc1088951a4c26ab07244c55a76981d2d1e21625ddf423a968aa9f73a27b22ea6f2f5acf4baa1ce66b501797cfb1431f8a148b17a1fdbb9caa4c69beaf41e48d4231857fea834b77ac0e6efdf97f553659c63fe6648dace6eb28889d855b1b964c33f19a2a5d51638e70d4c65ef9cd494f3e9a811ba966648ea59399650401c963dba28266f3773eae0 version=0

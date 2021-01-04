@@ -1,0 +1,18 @@
+set name=pkg.fmri value=pkg://solaris/library/python/ldappool@1.0,5.11-11.4.0.0.1.14.0:20180814T165610Z
+set name=variant.arch value=i386 value=sparc
+set name=org.opensolaris.arc-caseid value=PSARC/2015/097
+set name=com.oracle.info.version value=1.0
+set name=com.oracle.info.description value="the Python ldappool module"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=info.upstream-url value=https://github.com/mozilla-services/ldappool
+set name=info.upstream value="Mozilla Services <services-dev@mozilla.org>"
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=pkg.description value="A simple connector pool for python-ldap. The pool keeps LDAP connectors alive and allows the reuse of them, drastically reducing the time spent to initiate a ldap connection. The pool has useful features like: transparent reconnection on failures or server restarts; configurable pool size and connectors timeouts; configurable max lifetime for connectors; a context manager to simplify acquiring and releasing a connector."
+set name=info.source-url value=pypi:///ldappool==1.0
+set name=org.opensolaris.consolidation value=userland
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=pkg.summary value="A connection pool for python-ldap"
+set name=com.oracle.info.name value=ldappool
+depend fmri=library/python/ldappool-27@1.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=501595ab1e468d263946b9d54252d27abce73d69d3c59e865509cf1cf7afdb91f9c90681a005d722adac1c31c18fc012fdfbb37d5b3e59f5a28ca40df02d6d877ea9edff8b7b3908a9042442f68bb7c6f13a8c8e0a8614466a217098335beaf737ad65402fb51a50fc795e594c81ca83fa4fe7a80d036b57ef60657b6e040264321b578d6a82969c2eb6e95b707f5fc873236637e066cb13874cb73a879f79305d2bc0ec22d147580a848d2685d38551f0988969646f8b684828f3eaa96fa7f1feb2b689a13879ba666e7298ec0b2c1ff6cd6742ac5f9c2ea750e5a1fa7797011f82860d978e736eecbdd370fc9032425584f6e92d2b97d268fb487d7bca6a0a version=0

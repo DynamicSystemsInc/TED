@@ -1,0 +1,40 @@
+set name=pkg.fmri value=pkg:/desktop/mate/mate-common@1.22.1,5.11-11.4.0.0.1.0.0
+set name=pkg.summary value="Common automake macros for MATE"
+set name=com.oracle.info.name value=mate-common
+set name=com.oracle.info.version value=1.22.1
+set name=info.classification \
+    value=org.opensolaris.category.2008:System/Libraries
+set name=info.source-url \
+    value=http://pub.mate-desktop.org/releases/1.22/mate-common-1.22.1.tar.xz
+set name=info.upstream-url value=http://www.mate-desktop.org
+set name=org.opensolaris.consolidation value=userland
+set name=variant.arch value=i386
+dir  path=usr owner=root group=sys mode=0755
+dir  path=usr/bin owner=root group=bin mode=0755
+file usr/bin/mate-autogen path=usr/bin/mate-autogen owner=root group=bin \
+    mode=0755
+file usr/bin/mate-doc-common path=usr/bin/mate-doc-common owner=root group=bin \
+    mode=0755
+dir  path=usr/share owner=root group=sys mode=0755
+dir  path=usr/share/aclocal owner=root group=bin mode=0755
+file usr/share/aclocal/mate-code-coverage.m4 \
+    path=usr/share/aclocal/mate-code-coverage.m4 owner=root group=bin mode=0644
+file usr/share/aclocal/mate-common.m4 path=usr/share/aclocal/mate-common.m4 \
+    owner=root group=bin mode=0644
+file usr/share/aclocal/mate-compiler-flags.m4 \
+    path=usr/share/aclocal/mate-compiler-flags.m4 owner=root group=bin \
+    mode=0644
+dir  path=usr/share/man owner=root group=bin mode=0755
+dir  path=usr/share/man/man1 owner=root group=bin mode=0755
+file usr/share/man/man1/mate-autogen.1 path=usr/share/man/man1/mate-autogen.1 \
+    owner=root group=bin mode=0644
+file usr/share/man/man1/mate-doc-common.1 \
+    path=usr/share/man/man1/mate-doc-common.1 owner=root group=bin mode=0644
+dir  path=usr/share/mate-common owner=root group=other mode=0755
+dir  path=usr/share/mate-common/data owner=root group=other mode=0755
+file usr/share/mate-common/data/omf.make \
+    path=usr/share/mate-common/data/omf.make owner=root group=other mode=0644
+file usr/share/mate-common/data/xmldocs.make \
+    path=usr/share/mate-common/data/xmldocs.make owner=root group=other mode=0644
+depend fmri=pkg:/shell/bash@4.4.19.19-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/shell/ksh93@93.21.1.20120801-11.4.0.0.1.14.0 type=require

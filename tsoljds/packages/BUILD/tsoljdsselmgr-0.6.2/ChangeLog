@@ -1,0 +1,188 @@
+2008-03-25  Takao Fujiwara  <takao.fujiwara@sun.com>
+
+	* configure.in: update version number to 0.6.1
+
+2008-03-14  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: update version number to 0.6
+
+2008-03-10  Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr-dialog.c: cleanup the code for not showing the Selection
+	data based by not creating it in the init.
+
+2008-03-07  Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr.c: process an autocancel option and don't present
+	a confirmation dialog for authorised users if it is set and auto
+	confirm is not. Fixes 6670956 
+
+2008-03-07  Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr-dialog.c: don't show the selection text if the user
+	has the solaris.label.win.noview authorisation
+
+2008-03-03  Stephen Browne <stephen.browne@sun.com>
+
+	* COPYING: added
+	  AUTHORS, src/selmgr-dialog.c, src/selmgr-dialog.h, src/selmgr.c: 
+	  updated license
+
+2007-10-16  Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr-dialog.c: update tooltips for new gtk code. Remove View as
+	drop down list and always view as text. 
+
+2007-08-22  Stephen Browne <stephen.browne@sun.com>
+
+        * src/Makefile.am: remove -ltlc from link line we dont need libtlc
+          bugid 6584062
+        * src/selmgr-dialog.c: use a plain coloured background for label
+          bugid 6588919
+        * src/selmgr.c: reset the selection if the user cancels a transaction
+          This avoids problems with misbehaving apps continually asking for
+          the contents of a selection.  bugid 6574943
+
+2007-06-29 Takao Fujiwara <takao.fujiwara@sun.com>
+
+	* po/cs.po, po/de.po, po/es.po, po/fr.po, po/hu.po, po/it.po,
+	  po/ja.po, po/ko.po, po/pl.po, po/pt_BR.po, po/ru.po, po/sv.po,
+	  po/zh_CN.po, po/zh_HK.po, po/zh_TW.po: Updated translations.
+
+2007-02-06 Takao Fujiwara <takao.fujiwara@sun.com>
+
+	* src/selmgr.c: stopped multiple confirmer dialogs when copy & paste
+	  UTF-8 strings from Java apps to Java apps. Fixes 6488675
+
+2006-10-12 Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr.c: port audit_transfer to ADT API
+	* src/auditwrite.h: remove since this is no longer needed.
+	fixes 6401319
+
+2006-09-15 Takao Fujiwara - <takao.fujiwara@sun.com>
+
+	* src/selmgr.c: stopped multiple confirmer dialogs when copy & paste
+	  UTF-8 strings between labeled zones. Fixes localized pathnames and
+	  contents. Fixes 6467770
+
+2006-09-08 Erwann Chenede - <erwann.chenede@sun.com>
+
+	* src/selmgr.c: changed calls to bsltos by calls to label_to_str
+	  to fix bug 6466531. Added checks to output "Trusted Path" instead
+	  of ADMIN_LOW/ADMIN_HIGH too.
+
+2006-08-11  Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr.c: added test for NONE atom in selection_notify to stop
+	the selection manager exiting with a bad atom when testing for sucessful
+	transfers.  This fixes 6406306
+
+2006-07-27  Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr-dialog.c: added a gtk_window_set_keep_above to fix 6452071
+
+2006-06-19  Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr.c: added gnome_help code for HELP response
+
+2006-06-12  Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr-dialog.c: Truncate long selection data types and use 
+	tooltips to provide the full string. Fixes 6424662
+
+2006-06-12  Stephen Browne <stephen.browne@sun.com>
+
+	* src/auditwrite.h: header file for auditing, used until new auditing
+	mechanism is enhanced
+	* src/Makefile.am: add auditwrite.h to source file list
+	* src/selmgr.c: reactivate auditwrite API auditing. Fixes 6401319
+	check file up/down grade auths for file transfers. Fixes 6404592
+
+2006-05-26  Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr.c: fixed typo in string for translation
+
+2006-05-24  Stephen Browne <stephen.browne@sun.com>
+
+        * Makefile.am: remove man page
+        * tsoljdsselmgr.1: remove
+
+2006-05-18 Stephen Browne <stephen.browne@sun.com>
+
+        * configure.in: match up gettext package version with module version
+        for a more sane pot file
+	* src/selmgr.c: add a function to tell nautilus to refresh the locations	involved in a transfer.
+
+2006-04-19 Niall Power <niall.power@sun.com>
+
+	* src/selmgr.c src/selmgr-dialog.c: cleaned up code with indent.
+	  indent arguments: -bad -bap -br -bs -cdb -ce -d0 -eei -pcs
+
+2006-03-21 Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr.c: dont reduce privs, check this later and remove some 
+	printfs :)
+
+2006-03-21 Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: added gnome-vfs libs
+	* src/selmgr.c: added support for copying/moving files from C&P or D&D
+	actions in nautilus.
+
+2006-03-07 Stephen Browne <stephen.browne@sun.com>
+
+	* Makerfile.am: added man_MANS
+	* tsoljdsselmgr.1: man page place holder
+
+2006-02-26 Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr-dialog.[ch]: add authorised arg to dialog creation
+	  and grey out the ok button for unauthorised transfers.
+	* src/selmgr.c: pass in authorised when creating confirmer dialogs
+
+2006-02-03 Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr-dialog.c: return TRUE from the expose event
+	handler now since we are rendering the text of the label in
+	libgnometsol.
+
+2006-02-03 Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr-dialog.c: added an expose event handler for LABEL labels
+	to render coloured labels
+
+2006-01-31 Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr.c: add gnome session management support. 
+	* configure.in: add libgnomeui-2.0 as dep
+
+2006-01-31 Stephen Browne <stephen.browne@sun.com>
+
+	* Makefile.am: added sel_config data file to remove our dependancy on
+	a file delivered by TCDE.
+	* sel_config: new configuration file for the TJDS selection manager
+	Please ignore the NOTE step in the previous commit message
+
+2006-01-30 Stephen Browne <stephen.browne@sun.com>
+
+	* src/selmgr*.c: mostly completed port.
+	Still needs the View as functionality (currently always views as text)
+	I still have no idea why people want to view selections as hex but 
+	whatever. Also need to make the view conditional.  i.e. dont show if the
+	transaction is not authorised.
+
+	NOTE: to get GTK text view C&P working correctly (no dup confirmation
+	dialogs and proper text display) you need to add the following line to
+	the end of the file "/usr/dt/config/sel_config"
+
+	replytype: GTK_TEXT_BUFFER_CONTENTS
+
+2006-01-23 Stephen Browne <stephen.browne@sun.com>
+
+	* just checkpointing code so I dont lose it.
+
+2005-10-19 Stephen Browne <stephen.browne@sun.com>
+
+	* initial import of skeleton GUI
+

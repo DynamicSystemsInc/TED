@@ -1,0 +1,16 @@
+set name=pkg.fmri value=pkg://solaris/consolidation/nvidia/nvidia-incorporation@11.4,5.11-11.4.0.0.1.1.0:20180226T183036Z
+set name=pkg.summary value="nvidia consolidation incorporation"
+set name=pkg.description value="This incorporation constrains packages from the nvidia consolidation."
+set name=pkg.depend.install-hold value=core-os.nvidia
+set name=info.classification value="org.opensolaris.category.2008:Meta Packages/Incorporations"
+set name=variant.arch value=i386
+set name=org.opensolaris.consolidation value=nvidia
+set name=variant.opensolaris.zone value=global value=nonglobal
+depend fmri=NVDAcg@2.2-5.12.0.0.0.97.0 type=incorporate
+depend fmri=NVDAgraphics@0.190.53-5.12.0.0.0.97.0 type=incorporate
+depend facet.version-lock.driver/graphics/nvidia=true fmri=driver/graphics/nvidia@0.384.111.0-11.4.0.0.1.1.0 type=incorporate
+depend facet.version-lock.driver/graphics/nvidiaR304=true fmri=driver/graphics/nvidiaR304@0.304.137.0-11.4.0.0.1.1.0 type=incorporate
+depend facet.version-lock.driver/graphics/nvidiaR340=true fmri=driver/graphics/nvidiaR340@0.340.104.0-11.4.0.0.1.1.0 type=incorporate
+depend fmri=image/nvidia/cg-toolkit@3.0.15-11.4.0.0.1.1.0 type=incorporate
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=3eafe9577b9bafbec5c71c7cf5e793cc3e93588119213dda93387cf2ca8b2af02be0b3ff57bd18f569f3cf4b369ea9279c4e94f914f27b5aaf3870da3904e907b389701f41f9c94bbf5ffd03e0f9a77abad74ff30bf6b9bb1fa0e992e759d88f926563b8ff2ee3146409b05b6cc5e221ef0b74015d286d3cec3ae22ada9ef2ee5fb503340b8b6f8f1aeae2c8bfa89d807556e951502e1442a103148c4a98db4c92e9965081a1ddb0bceb0a8876a76bf49826d8dbed393d19bc4d4f3b34bfcc18697723f230ed59accab79f6a0bbf0d2da2b7a8fd419c08d4800bbaa43281323dd98459ac0b95208e58227e1bb98fcbdac60a28048808430507f63a395ae47c8e version=0

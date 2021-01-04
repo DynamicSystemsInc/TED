@@ -1,0 +1,42 @@
+set name=pkg.fmri value=group/system/solaris-mate-desktop@11.4,5.11-11.4.0.0.1.0.0
+set name=pkg.summary value="Oracle Solaris MATE desktop"
+set name=com.oracle.info.name value=solaris-mate-desktop
+set name=com.oracle.info.version value=11.4
+set name=info.classification \
+    value="org.opensolaris.category.2008:Meta Packages/Group Packages"
+set name=org.opensolaris.consolidation value=userland
+set name=variant.arch value=i386
+dir  path=usr owner=root group=sys mode=0755
+dir  path=usr/bin owner=root group=bin mode=0755
+link path=usr/bin/mate-terminal target=gnome-terminal  
+dir  path=usr/share owner=root group=sys mode=0755
+dir  path=usr/share/xsessions owner=root group=other mode=0755
+link path=usr/share/xsessions/.desktop target=mate.desktop
+depend fmri=pkg:/desktop/mate/atril@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/caja@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/caja-extensions@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/marco@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mozo@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/nimbus@1.0 type=require
+depend fmri=pkg:/desktop/mate/libmatekbd@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/libmatemixer@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/libmateweather@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-applets@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-backgrounds@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-calc@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-common@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-control-center@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-desktop@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-icon-theme@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-media@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-menus@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-notification-daemon@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-panel@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-session-manager@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-settings-daemon@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-system-monitor@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-themes@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-user-guide@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-power-manager@1.22.1 type=require
+depend fmri=pkg:/group/system/solaris-desktop type=require
+depend fmri=pkg:/library/desktop/xdg/icon-naming-utils@0.8.90 type=require

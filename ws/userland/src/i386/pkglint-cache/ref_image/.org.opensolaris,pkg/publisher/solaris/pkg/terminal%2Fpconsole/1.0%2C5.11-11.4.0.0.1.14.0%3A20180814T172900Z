@@ -1,0 +1,29 @@
+set name=pkg.fmri value=pkg://solaris/terminal/pconsole@1.0,5.11-11.4.0.0.1.14.0:20180814T172900Z
+set name=com.oracle.info.version value=1.0
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
+set name=pkg.description value="pconsole is an administrative tool for working with clusters of machines: it distributes the commands you type to each node in the cluster."
+set name=com.oracle.info.name value=pconsole
+set name=pkg.summary value="Parallel console"
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=info.upstream-url value=http://www.heiho.net/pconsole/
+set name=org.opensolaris.arc-caseid value=PSARC/2008/606
+set name=com.oracle.info.tpno value=9270
+set name=com.oracle.info.description value="pconsole, the parallel console"
+set name=org.opensolaris.consolidation value=userland
+set name=info.source-url value=http://www.heiho.net/pconsole/pconsole-1.0.tar.gz
+set name=variant.arch value=i386 value=sparc
+depend fmri=pkg:/shell/bash@4.4.19.19-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/text/gawk@4.1.4-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/shell/ksh93@93.21.1.20120801-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file 916a7bf7dd7a8a6fbd835f104326989c51576b12 chash=78cf0a67dd64764afc9c6131eec6a6ed93ccecf2 elfarch=i386 elfbits=64 elfhash=3a82a6d26ce1811c04a0b16a4f25f66ea71fe36b group=bin mode=0555 owner=root path=usr/sbin/pconsole-bin pkg.content-hash=gelf:sha512t_256:1859b463caf83e13c9753a6b26ffa14a1a032e8c15078c75e6c353ac5f2cae6f pkg.content-hash=gelf.unsigned:sha512t_256:a7b95171b029cae3f258acc7ece63396c16205416bb96c45b559c639334e8138 pkg.content-hash=file:sha512t_256:7339a3218fd120ff02399f6c6688c31a9290f899e469dc0fe0528daaf12ea51f pkg.content-hash=gzip:sha512t_256:5760189356392fb8ec70e00c1c415abe6a10674806d8e5cf805aa687f3630885 pkg.csize=12177 pkg.size=35584 variant.arch=i386
+file 2ddb4b582e75147742e79dd7c4c86d0cec54cc7c chash=077044d8a0ca6c99f71dae250673276532d2005c facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/pconsole.1 pkg.content-hash=file:sha512t_256:468f62c3c21986ac8f1541e1d8dc4afa37cc0c1e2daac06e789ef2684dceda69 pkg.content-hash=gzip:sha512t_256:d2039b62bbee6177f90b897127a89d143a80144538a3e7894fb618da623d8344 pkg.csize=1642 pkg.size=3663
+file 12b8b37c487d901896cea9acc6b9ef726bc325ea chash=8fc20f401140e2be5d6fb2af7fb49be04eaba616 elfarch=sparc elfbits=64 elfhash=3f41e3719ceec619de76fc0feb56fee0989b4a4b group=bin mode=0555 owner=root path=usr/sbin/pconsole-bin pkg.content-hash=gelf:sha512t_256:877a231f8220b2309fa007c95bbd1301db32795aa55949976ed37ae9bfa99158 pkg.content-hash=gelf.unsigned:sha512t_256:9f83bad20966f98d8ae079a1e83c01b05003a6e32b868de6327b0aa17e66dfc8 pkg.content-hash=file:sha512t_256:62816afce8db953d7777888720eb2c85f20f82d2275ec3d609dd5cb8f40547dd pkg.content-hash=gzip:sha512t_256:f562192a686387f776325073d5f532f77fd155db423790a1ad2a946f849c5be3 pkg.csize=11627 pkg.size=40496 variant.arch=sparc
+file c4057399e75e4d837c5c7ada845dd9885e800a77 chash=e93fe76924a3d5787802387150e931f69c34c2e5 group=bin mode=0444 owner=root path=etc/security/exec_attr.d/pconsole pkg.content-hash=file:sha512t_256:d29c6c600e856019f8d0ce1390e25518fd10c1086e71ba92cb3101fd6abcd1ee pkg.content-hash=gzip:sha512t_256:808d69073701f8f39791f8ce03c71a054ef08f1d763fac3c14866df2c43371b6 pkg.csize=86 pkg.size=74
+file 438e78b780618282024d94dc6b9ca230a20b8dc7 chash=54362ec29dc07e71456c557c08c356fc412a9920 facet.doc=all group=bin mode=0555 owner=root path=usr/share/doc/pconsole/ssh.sh pkg.content-hash=file:sha512t_256:63015cafe981f98dc15bfb44e0defe882b37106c31809f13e2584914dd235786 pkg.content-hash=gzip:sha512t_256:5594a6e95ede3c16830cef0a0bd762f50d0af5235a072b3b4d5112ed13368d63 pkg.csize=713 pkg.size=1276
+file 86c6e3b22141c758019551d837c7b313b537b4c8 chash=099900a5b383a552a26d758bc6130f40417950a0 group=bin mode=0555 owner=root path=usr/sbin/pconsole pkg.content-hash=file:sha512t_256:96a7fd08fc14a3c2a9485c5268f94590e865c3ef69e27a2ec3c7498e187dfefd pkg.content-hash=gzip:sha512t_256:6df73dfe5610e02b13352f6242efd6b9331ba4e9fcc8a2197f66eb28b545b940 pkg.csize=1738 pkg.size=3561
+file b893c647e9797bdc66aaaf4755786731c1c9a5da chash=16a3b1f6d8d9b02eca7c75f980e08d1ae10543e2 group=bin mode=0444 owner=root path=etc/security/prof_attr.d/pconsole pkg.content-hash=file:sha512t_256:9053ebfd01a8be5d69ade2e2d4f0ec644ecd81927ef0457ad7bd7a7797078585 pkg.content-hash=gzip:sha512t_256:0012e5093ccab52aa2a31aabfb975fda2e607e10c207b44b5f8f6779ba9be665 pkg.csize=79 pkg.size=70
+license fc75cccde8a51d3636cbf9ae23d3adb756e0a91e chash=9a9185061f1e0fc083fb666c8bd31039e9c5b688 license="GPLv2, CDDLv1.0" pkg.content-hash=file:sha512t_256:3d417a704d4eb673b213ec304241cc085b60b9a94bf003eea47fa0d9767760f1 pkg.content-hash=gzip:sha512t_256:bf5cfda7d6b9eb62ed157276e2dfb94ebe97a92699c9af4882687afc7720027c pkg.csize=11622 pkg.size=35312
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=3a19cc8e59a03421a8cee1fcc919306f21ec82501fa9397715914dd0e91a8560b75d4fd72cb21e2c2fbeb9a351bf5a9088c13a80b6c16773c7e61047d947abb62108ba87dc4ff80d9aaa70fa2c48b1a6e9b86cdf650502ace05e8c3df348c16655e03454a3612cd7593f19da183fe7329263b4e9bcc7db77730450e67d697ab489617d4c77fb56cfe9eef30c2781c846ba27fb2904c272fe5cad660caf6846eea60ec226fe421623f5ebe00e9163384dccea10b659600c42623641e9a7aa66f12e1f5a13e277f747cd6c34e474e07ff4bbdadc568c2e9ff30f3a6305b14df368138769025c9492a2f0ff8e827fce5463a43d0475e9a5b1249a6efd74ca6f2c29 version=0

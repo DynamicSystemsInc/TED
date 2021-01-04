@@ -1,0 +1,22 @@
+set name=pkg.fmri value=pkg://solaris/system/prerequisite/gnu@0.5.11,5.11-11.4.0.0.1.14.0:20180814T172843Z
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.version value=0.5.11
+set name=pkg.summary value="GNU prerequisites"
+set name=org.opensolaris.consolidation value=userland
+set name=info.classification value=org.opensolaris.category.2008:Development/GNU
+set name=org.opensolaris.arc-caseid value=PSARC/2000/487
+set name=com.oracle.info.name value=gnu-common
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=variant.arch value=i386 value=sparc
+dir facet.locale=true group=bin mode=0755 owner=root path=usr/sfw/lib/locale
+dir facet.doc=all group=bin mode=0755 owner=root path=usr/sfw/share/doc
+dir group=bin mode=0755 owner=root path=usr/sfw/share/info
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/sfw/share/man
+dir group=bin mode=0755 owner=root path=usr/sfw/share/src
+link path=usr/sfw/man target=share/man
+link facet.doc=all path=usr/sfw/doc target=share/doc
+link facet.locale=true path=usr/sfw/share/locale target=../lib/locale
+link path=usr/sfw/src target=share/src
+link path=usr/sfw/info target=share/info
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=c0b3893aa751db41b3e1e5fd991a3c24e67ea3ba9189bff92abd360beca12c2b5fa7b8145eaccaa58c8a7372a5a1cb1f14c251c6e7bdf35da459b70f13453a697a95cceb1f08601d506dcdc707a82028c59a8634f963d668c16acd270fbb95ccc950bfb74d3cf7ddf8b1246d024f16a121161564da5f2d53644b76308d823dbc753b854494c1ad9e179e5b5d177ab7210b56cf84f37d117c9787ce0317877cfbbdbdd42a81cfcf1b8b35ee59cf770aae71dcdc4c7b0cbad50b76bbb82f59253f9f0755cbc40664b51c568f047dcd405bc3b4026b77b42d13538cbe6d17aaf246ba14de3456c47ea48d54c9bc9465c663208ed989379b87213f2f72ce8b3d2e12 version=0

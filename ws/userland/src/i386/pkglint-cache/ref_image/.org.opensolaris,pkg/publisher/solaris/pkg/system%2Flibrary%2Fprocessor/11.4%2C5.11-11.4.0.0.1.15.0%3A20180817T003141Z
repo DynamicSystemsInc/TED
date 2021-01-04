@@ -1,0 +1,25 @@
+set name=pkg.fmri value=pkg://solaris/system/library/processor@11.4,5.11-11.4.0.0.1.15.0:20180817T003141Z
+set name=pkg.description value="core software for a specific hardware platform group"
+set name=pkg.summary value="Core Architecture"
+set name=info.classification value=org.opensolaris.category.2008:System/Core
+set name=variant.debug.osnet value=true value=false
+set name=variant.arch value=sparc value=i386
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.opensolaris.zone value=global value=nonglobal
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+dir group=sys mode=0755 owner=root path=platform
+dir group=sys mode=0755 owner=root path=platform/i86pc variant.arch=i386
+dir group=sys mode=0755 owner=root path=platform/sun4v variant.arch=sparc
+dir group=bin mode=0755 owner=root path=platform/sun4v/lib variant.arch=sparc
+dir group=bin mode=0755 owner=root path=platform/sun4v/lib/fs variant.arch=sparc
+dir group=bin mode=0755 owner=root path=platform/sun4v/lib/fs/hsfs variant.arch=sparc
+dir group=bin mode=0755 owner=root path=platform/sun4v/lib/fs/ufs variant.arch=sparc
+dir group=bin mode=0755 owner=root path=platform/sun4v/lib/fs/zfs variant.arch=sparc
+dir group=bin mode=0755 owner=root path=platform/sun4v/lib/sparcv9 variant.arch=sparc
+file 8eed7735a72eab5c3b2b8322390186b7e312d71c chash=8a953ff34ea2b29fdc49327c626f3796e51e2141 group=sys mode=0444 owner=root path=platform/sun4v/lib/fs/zfs/bootblk pkg.content-hash=file:sha512t_256:d3a7a168e3f0ac384d69bb88d22f448092fea920f953f63428a37cba03287fe4 pkg.content-hash=gzip:sha512t_256:b6747e61dc31e68796c445a97e320c60f10ad297c87809db6cc223b4f22b5beb pkg.csize=8960 pkg.size=24064 reboot-needed=true variant.arch=sparc
+file 510aba57149e0f1621a0ae1d6af0f53bfaf158da chash=10414db42734d60bdc26db23f04a357bd4bd19f1 group=sys mode=0444 owner=root path=platform/sun4v/lib/fs/ufs/bootblk pkg.content-hash=file:sha512t_256:f2b09744e413044c55aba9aa16d2238ce8971be4394f6e90f93a1c1142b9b560 pkg.content-hash=gzip:sha512t_256:d54306bb98059840afda8d8d35376ebef3f45ae671a45cb4422a7c8958584607 pkg.csize=4488 pkg.size=7680 reboot-needed=true variant.arch=sparc
+file 84185aeda93a87631e1a9c401335dcb14cdb0448 chash=fae0b689c19cd8f7aca1f7bc64a5ded91af2881e group=sys mode=0444 owner=root path=platform/sun4v/lib/fs/hsfs/bootblk pkg.content-hash=file:sha512t_256:302a4e6d2d6d6b795eb85060dfa2bbe7d66585e4f86026ac87a9ff970702d0cc pkg.content-hash=gzip:sha512t_256:51b05eba7f2391a80b49f7cedcf9dd25e592991eb5e3622ff59a8439bd09b1d3 pkg.csize=4859 pkg.size=7680 reboot-needed=true variant.arch=sparc
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+legacy arch=sparc.sun4v category=system desc="core software for a specific hardware platform group" hotline="Please contact your local service provider" name="Core Architecture, (Root)" pkg=SUNWcar.v variant.arch=sparc vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+legacy arch=i386.i86pc category=system desc="core software for a specific hardware platform group" hotline="Please contact your local service provider" name="Core Architecture, (Root)" pkg=SUNWcar.i variant.arch=i386 vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=26bfa57089148e1f7c91d51c62932839a878fd7bc9683d888cd708f5648ed1969cc69231a7dbf828b8862172745ebb52091ad3ee1918800ee85c920012b2dd993957b36209bdaf949bad80e0ff0df477e0b0df6b6716a4a4e477d695b524290095f7eda491690c54e50161dbe9d04b909c8eaebe0c2859a36cd1fa006340205fe158f248d2ab8286eca60c5b0ac585ebd17ef8d39007277a68e8403b4029c316e9390b597d8244fa862d1aa7833783b110569f309c19dca1c70326f80d0fc8f40ebfbd88cae76b20ddf1587d0b1a56e85f09813b83761f97e8fc66fabe06909f8c3d6cf38201ba333152694ffb7576a344a08f9dda41165f28b0ff8f5de665b4 version=0

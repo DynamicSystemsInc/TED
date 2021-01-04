@@ -1,0 +1,26 @@
+set name=pkg.fmri value=pkg://solaris/editor/gnu-emacs/gnu-emacs-no-x11@25.2,5.11-11.4.0.0.1.14.0:20180814T163411Z
+set name=variant.arch value=i386 value=sparc
+set name=info.upstream-url value=https://www.gnu.org/software/emacs
+set name=com.oracle.info.tpno value=35834
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.version value=25.2
+set name=org.opensolaris.consolidation value=userland
+set name=pkg.summary value="GNU emacs without X Window System support"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.source-url value=https://ftp.gnu.org/gnu/emacs/emacs-25.2.tar.gz
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.arc-caseid value=PSARC/2008/494
+set name=com.oracle.info.description value="GNU emacs without X Window System support"
+set name=info.classification value=org.opensolaris.category.2008:Development/Editors
+set name=com.oracle.info.name value=emacs
+depend fmri=pkg:/editor/gnu-emacs@25.2-11.4.0.0.1.14.0 pkg.debug.reason=usr/bin/emacs-nox type=require
+depend fmri=pkg:/library/ncurses@6.0.0.20170708-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+file dc6f3b28c099c0873dd68a174ac664bd1408647b chash=67c2191783fda9fd2f656fd93cd60fd863b2db74 elfarch=i386 elfbits=64 elfhash=f55170bb22e6c1936fb4992b3a4f724a7a0dc4b1 group=bin mode=0555 owner=root path=usr/bin/emacs-nox pkg.content-hash=gelf:sha512t_256:bb88e0757103dd6bc93e151064ac2817bec44958baf1c94f5c1db0c5e0a752ed pkg.content-hash=gelf.unsigned:sha512t_256:a43afd94846d95da106090c3b3aea542418cae410c84b1aae14f572b8769caa7 pkg.content-hash=file:sha512t_256:dc9a1446b5092fcd6b7e8caac4e1844d95db9689f700a730d651b83f09598459 pkg.content-hash=gzip:sha512t_256:65a65086e4f11df19c73d65c0ea3f3f88c84b52e018150fafb6702724c50f393 pkg.csize=3619515 pkg.size=20798152 variant.arch=i386
+file 72404517d32a5e94ad253c39b4de798a825b7891 chash=5713c27006167cd113df06c22df94a8f54132701 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/emacs-nox.1 pkg.content-hash=file:sha512t_256:5f13e3b1fb0132d842cd6a920e4edc6134b11d3922dd41a4ffb54d8945eb2734 pkg.content-hash=gzip:sha512t_256:c4074a9c90f7540e14ea7099b6d16d97075a492f6b077526349717e562f880e7 pkg.csize=1022 pkg.size=2059
+file 49427eac548eddc4d3a87bb017d52f21ecf97a36 chash=463c70ee51cdba33379ed54a0bb8972a54e37546 elfarch=sparc elfbits=64 elfhash=e2a208defc549899181eaade32f7f9a01526d152 group=bin mode=0555 owner=root path=usr/bin/emacs-nox pkg.content-hash=gelf:sha512t_256:2220c32c86739aca2507cee27b5d5dfa1468a65312569c8d2831a081e9799dc1 pkg.content-hash=gelf.unsigned:sha512t_256:599579aea5af4647a8735859f8355f88393a989efaba1aa7d65a9e92db3dbf5f pkg.content-hash=file:sha512t_256:4d22ac2fd3c51b443dd3fe28174004107778253118a1678a569f704d6fdfc202 pkg.content-hash=gzip:sha512t_256:4fa50fe1a257aded90923f12930d8d05ea796e109f81dcf63287de5b7441d39e pkg.csize=3787019 pkg.size=24401696 variant.arch=sparc
+hardlink path=usr/bin/emacs-nox-25.2 target=emacs-nox
+link mediator=emacs mediator-implementation=emacs-nox path=usr/bin/emacs target=emacs-nox
+license 8624bcdae55baeef00cd11d5dfcfa60f68710a02 chash=27dc99e72f87543d57556e76364fc123d2cdac99 license=GPLv3 pkg.content-hash=file:sha512t_256:50103044e3b51c68da9a3bf617b5961d718241973db744ca93f283961c613d1d pkg.content-hash=gzip:sha512t_256:c2fe536b54c054ad9cdd56eee93d46624670218ebd675eee459ecdc3c8c2a8b2 pkg.csize=12130 pkg.size=35147
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=29bf5eff9c6059ec313075dbf2f99b07c442f10e3d41077e731df3fa8af5e12f494203a43410c3230ff5efb7129868512b858020d39f2d89cd55548847bd7b54ad5b734e1104278d6a60d063c69d119b1e7247f300306d0aed530c31fca251c5dd4b8aed366f0f6276c82982b5c31389802789b3bdeb98c26b19de6ec1f40641bfa489bee57abc51e21daed850a27fd8161c3be1871bff2c0921c6e32cfc33c58f2e0bf955a0b65868549766ad052d4ea1cd18a747ea37723516c1fc05c60895ed02b481203eb5606c57ff2f811cab38c2ed41810c2ee6691f10d9c079ecbd363bc7151afcdfad162a86d5cae7a59a394431e317fb7516dae45015dd851dd0ae version=0

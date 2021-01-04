@@ -1,0 +1,37 @@
+--- a/mate-session/main.c.	2020-05-16 22:19:44.773775845 +0000
++++ b/mate-session/main.c	2020-05-16 22:20:00.033320914 +0000
+@@ -33,6 +33,8 @@
+ #include <glib.h>
+ #include <gtk/gtk.h>
+ #include <gio/gio.h>
++#include <gdk/gdkx.h>
++#include <X11/Xlib.h>
+ 
+ #include <dbus/dbus.h>
+ #include <dbus/dbus-glib.h>
+@@ -614,9 +616,6 @@
+ 	error = NULL;
+ 	gtk_init_with_args(&argc, &argv, (char*) _(" - the MATE session manager"), entries, GETTEXT_PACKAGE, &error);
+ 
+-	/* GLENN */
+-	//trusted_session = FALSE;
+-
+ 	if (error != NULL)
+ 	{
+ 		g_warning("%s", error->message);
+@@ -658,11 +657,10 @@
+ 	gsm_util_setenv("DISPLAY", display_str);
+ 
+     	if (trusted_session) {
+-		/*
+-        	if (!trusted_session_init (gdk_x11_get_default_xdisplay ()));
+-            		exit (1);
+-		*/
+-        	trusted_session_init (gdk_x11_get_default_xdisplay ());
++		Display *dpy;
++
++		dpy = GDK_DISPLAY_XDISPLAY(gdisp);
++        	trusted_session_init (dpy);
+ 	}
+ 
+ 	/* Some third-party programs rely on MATE_DESKTOP_SESSION_ID to

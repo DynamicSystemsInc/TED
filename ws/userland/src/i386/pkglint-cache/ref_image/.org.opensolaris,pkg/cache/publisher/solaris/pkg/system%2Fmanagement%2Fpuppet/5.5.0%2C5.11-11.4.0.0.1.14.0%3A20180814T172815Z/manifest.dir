@@ -1,0 +1,6 @@
+dir group=puppet mode=0755 owner=puppet path=etc/puppetlabs/code/environments
+dir group=puppet mode=0755 owner=puppet path=etc/puppetlabs/puppet revert-tag=system:clone=* salvage-from=etc/puppet
+dir group=bin mode=755 owner=puppet path=usr/puppetlabs/puppet/modules salvage-from=/etc/puppet/modules
+dir group=puppet mode=0755 owner=puppet path=var/cache/puppetlabs revert-tag=system:clone=*
+dir group=puppet mode=0755 owner=puppet path=var/log/puppetlabs revert-tag=system:clone=*
+dir group=bin mode=0755 owner=root path=var/log/puppetlabs/puppet

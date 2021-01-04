@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+
+trap exit SIGINT
+
+rootrole=$(roles | grep -c root)
+if [[ $rootrole == 1 ]] ; then
+	echo "This is the failsafe xterm session.  You must provide the root"
+	echo "password to continue.  If you cannot log in any other way please"
+	echo "type Control-C and contact your system administrator."
+	echo ""
+	echo "Please enter the root password"
+	su	 
+	while [[ $? == 1 ]] ; do 
+		su 
+	done
+else 
+	echo "The failsafe session is restricted to users who have been"
+	echo "assigned the root role.  If you cannot log in any other way"
+	echo "please contact your system administrator."
+	echo ""
+	echo "Press the return key to return to the login screen"
+	read line
+fi
+

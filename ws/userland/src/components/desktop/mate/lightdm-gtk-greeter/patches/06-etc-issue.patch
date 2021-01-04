@@ -1,0 +1,224 @@
+diff -ur lightdm-gtk-greeter-2.0.6/data/lightdm-gtk-greeter.conf lightdm-gtk-greeter-2.0.6/data/lightdm-gtk-greeter.conf
+--- lightdm-gtk-greeter-2.0.6/data/lightdm-gtk-greeter.conf	2020-06-15 05:32:18.631443404 +0000
++++ lightdm-gtk-greeter-2.0.6/data/lightdm-gtk-greeter.conf	2020-06-15 05:49:03.690663658 +0000
+@@ -24,6 +24,11 @@
+ #  default-user-image = Image used as default user icon, path or #icon-name
+ #  hide-user-image = false|true ("false" by default)
+ #
++# Issue Text:
++#  issue-position = x y ("50% 10%" by default) issue text position
++#  issue-text-color = foreground text color ("white" by default)
++#  issue-text-size = font size in points (8 by default)
++#
+ # Panel:
+ #  panel-position = top|bottom ("top" by default)
+ #  clock-format = strftime-format string, e.g. %H:%M
+@@ -63,4 +68,7 @@
+ #keyboard=
+ #reader=
+ #position=
++#issue-position=
++#issue-text-color=
++#issue-text-size=
+ #screensaver-timeout=
+diff -ur lightdm-gtk-greeter-2.0.6/src/greeterconfiguration.h lightdm-gtk-greeter-2.0.6/src/greeterconfiguration.h
+--- lightdm-gtk-greeter-2.0.6/src/greeterconfiguration.h	2018-06-29 10:49:06.000000000 +0000
++++ lightdm-gtk-greeter-2.0.6/src/greeterconfiguration.h	2020-06-15 05:45:55.961577286 +0000
+@@ -1,5 +1,6 @@
+ /*
+  * Copyright (C) 2015 - 2018, Sean Davis <smd.seandavis@gmail.com>
++ * Copyright (C) 2020, Dynamic Systems Inc.
+  *
+  * This program is free software: you can redistribute it and/or modify it under
+  * the terms of the GNU General Public License as published by the Free Software
+@@ -45,6 +46,9 @@
+ #define CONFIG_KEY_LAPTOP               "laptop"
+ #define CONFIG_KEY_T_TYPE               "transition-type"
+ #define CONFIG_KEY_T_DURATION           "transition-duration"
++#define CONFIG_KEY_ISSUE_TEXT_COLOR     "issue-text-color"
++#define CONFIG_KEY_ISSUE_TEXT_SIZE	"issue-text-size"
++#define CONFIG_KEY_ISSUE_POSITION	"issue-position"
+ 
+ #define STATE_SECTION_GREETER           "/greeter"
+ #define STATE_SECTION_A11Y              "/a11y-states"
+diff -ur lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter-fallback.css lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter-fallback.css
+--- lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter-fallback.css	2018-06-29 10:49:06.000000000 +0000
++++ lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter-fallback.css	2020-06-16 05:39:21.000000000 +0000
+@@ -15,3 +15,8 @@
+ #panel_window menubar > separator { background: transparent; }
+ /* Workaround for Adwaita - and other themes - setting a smaller font for the keycap window */
+ #login_window.keycap, #power_window.keycap { font-size: initial; }
++
++/* Security Warning font properties */
++textview { font-size: 8pt; }
++textview { background: transparent; }
++textview { color: white; }
+diff -ur lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.c lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.c
+--- lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.c	2020-06-15 05:32:18.585057272 +0000
++++ lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.c	2020-06-16 05:38:53.000000000 +0000
+@@ -6,6 +6,7 @@
+  * Copyright (C) 2013 - 2015, Simon Steinbeiß <ochosi@shimmerproject.org>
+  * Copyright (C) 2013 - 2018, Sean Davis <smd.seandavis@gmail.com>
+  * Copyright (C) 2014, Andrew P. <pan.pav.7c5@gmail.com>
++ * Copyright (C) 2020, Dynamic Systems Inc.
+  *
+  * This program is free software: you can redistribute it and/or modify it under
+  * the terms of the GNU General Public License as published by the Free Software
+@@ -74,6 +75,8 @@
+ /* Screen window */
+ static GtkOverlay   *screen_overlay;
+ static GtkWidget    *screen_overlay_child;
++static GtkTextView  *security_text_view;
++static GtkTextBuffer  *security_buffer;
+ 
+ /* Login window */
+ static GtkWidget    *login_window;
+@@ -140,6 +143,7 @@
+ static const WindowPosition WINDOW_POS_CENTER   = {.x = { 50, +1, TRUE,   0}, .y = { 50, +1, TRUE,   0}, .use_size = FALSE};
+ static const WindowPosition KEYBOARD_POSITION   = {.x = { 50, +1, TRUE,   0}, .y = {  0, -1, FALSE, +1}, .use_size = TRUE,
+                                                    .width = {50, 0, TRUE, 0}, .height = {25, 0, TRUE, 0}};
++static const WindowPosition ISSUE_POSITION   = {.x = { 50, +1, TRUE,   0}, .y = { 10, +1, TRUE,   0}, .use_size = FALSE};
+ 
+ /* Clock */
+ static gchar *clock_format;
+@@ -750,7 +754,6 @@
+         else if (valign == GTK_ALIGN_END && screen_height - allocation->y - allocation->height < panel_height)
+             allocation->y = screen_height - allocation->height - panel_height;
+     }
+-
+     return TRUE;
+ }
+ 
+@@ -2770,6 +2773,9 @@
+     guint            fallback_css_priority = GTK_STYLE_PROVIDER_PRIORITY_APPLICATION;
+     GtkIconTheme    *icon_theme;
+ 
++    gchar           *array;
++    gsize            length;
++
+     /* Prevent memory from being swapped out, as we are dealing with passwords */
+     mlockall (MCL_CURRENT | MCL_FUTURE);
+ 
+@@ -2953,6 +2959,44 @@
+     screen_overlay = GTK_OVERLAY (gtk_builder_get_object (builder, "screen_overlay"));
+     screen_overlay_child = GTK_WIDGET (gtk_builder_get_object (builder, "screen_overlay_child"));
+ 
++    /* Security Warning */
++    security_text_view = GTK_TEXT_VIEW (gtk_builder_get_object (builder, "security_text_view"));
++    security_buffer = GTK_TEXT_BUFFER (gtk_builder_get_object (builder, "security_buffer"));
++
++    if (g_file_get_contents ("/etc/issue", &array, &length, NULL)) {
++	char		*pos;
++	WindowPosition	*issuePosition;
++	gint		screen_width, screen_height;
++	gint		xpos, ypos;
++	GtkTextIter	iter;
++	gchar		*textColor;
++	gint		textSize;
++
++	pos = config_get_string (NULL, CONFIG_KEY_ISSUE_POSITION, NULL);
++	issuePosition = str_to_position (pos, &ISSUE_POSITION);
++	screen_width = gdk_screen_get_width (gdk_screen_get_default ());
++	xpos = get_absolute_position (&issuePosition->x, screen_width, 0);
++	gtk_widget_set_margin_start (GTK_WIDGET (security_text_view), xpos);
++	screen_height = gdk_screen_get_height (gdk_screen_get_default ());
++	ypos = get_absolute_position (&issuePosition->y, screen_height, 0);
++	gtk_widget_set_margin_top (GTK_WIDGET (security_text_view), ypos);
++
++	textColor = config_get_string (NULL, CONFIG_KEY_ISSUE_TEXT_COLOR, "white");
++	textSize = config_get_int (NULL, CONFIG_KEY_ISSUE_TEXT_SIZE, 8);
++	gtk_text_buffer_get_iter_at_offset(security_buffer, &iter, 0);
++	gtk_text_buffer_create_tag(security_buffer, "textColor",
++		"foreground", textColor,
++		"size-points", (double) textSize,
++		NULL);
++	gtk_text_buffer_insert_with_tags_by_name (security_buffer, &iter, array,
++		length - 1, "textColor", NULL);
++	g_free (issuePosition);
++	g_free (pos);
++	g_free (textColor);
++    } else {
++	gtk_widget_hide (GTK_WIDGET (security_text_view));
++    }
++    
+     /* Login window */
+     login_window = GTK_WIDGET (gtk_builder_get_object (builder, "login_window"));
+     user_image = GTK_IMAGE (gtk_builder_get_object (builder, "user_image"));
+@@ -3264,7 +3308,6 @@
+     g_object_set_data_full (G_OBJECT (login_window), WINDOW_DATA_POSITION, str_to_position (value, &WINDOW_POS_CENTER), g_free);
+     g_free (value);
+ 
+-
+     gtk_widget_set_valign (panel_window, config_get_enum (NULL, CONFIG_KEY_PANEL_POSITION, GTK_ALIGN_START,
+                                                           "bottom", GTK_ALIGN_END,
+                                                           "top", GTK_ALIGN_START, NULL));
+diff -ur lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.glade lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.glade
+--- lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.glade	2020-06-15 05:32:18.616360254 +0000
++++ lightdm-gtk-greeter-2.0.6/src/lightdm-gtk-greeter.glade	2020-06-15 05:34:14.845004420 +0000
+@@ -1,10 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<!-- Generated with glade 3.18.3 -->
++<!-- Generated with glade 3.20.3 -->
+ <interface>
+   <requires lib="gtk+" version="3.4"/>
+   <requires lib="greeter_menu_bar" version="1.0"/>
+   <object class="GtkAccelGroup" id="a11y_accelgroup"/>
+-  <object class="GtkAccelGroup" id="power_accelgroup"/>
+   <object class="GtkEventBox" id="panel_window">
+     <property name="name">panel_window</property>
+     <property name="visible">True</property>
+@@ -181,6 +180,7 @@
+       <class name="background"/>
+     </style>
+   </object>
++  <object class="GtkAccelGroup" id="power_accelgroup"/>
+   <object class="GtkEventBox" id="power_window">
+     <property name="name">power_window</property>
+     <property name="can_focus">False</property>
+@@ -323,6 +323,9 @@
+       <class name="keycap"/>
+     </style>
+   </object>
++  <object class="GtkTextBuffer" id="security_buffer">
++    <property name="text" translatable="yes"></property>
++  </object>
+   <object class="GtkOverlay" id="screen_overlay">
+     <property name="name">screen</property>
+     <property name="can_focus">False</property>
+@@ -335,9 +338,35 @@
+         <property name="can_focus">False</property>
+         <property name="visible_window">False</property>
+         <child>
+-          <placeholder/>
++          <object class="GtkTextView" id="security_text_view">
++            <property name="name">security_text</property>
++            <property name="width_request">300</property>
++            <property name="visible">True</property>
++            <property name="can_focus">False</property>
++            <property name="double_buffered">False</property>
++            <property name="valign">center</property>
++            <property name="margin_left">500</property>
++            <property name="margin_right">50</property>
++            <property name="margin_top">50</property>
++            <property name="margin_bottom">275</property>
++            <property name="hexpand">True</property>
++            <property name="vexpand">False</property>
++            <property name="vscroll_policy">natural</property>
++            <property name="editable">False</property>
++            <property name="wrap_mode">word</property>
++            <property name="left_margin">0</property>
++            <property name="right_margin">20</property>
++            <property name="top_margin">20</property>
++            <property name="bottom_margin">20</property>
++            <property name="cursor_visible">False</property>
++            <property name="buffer">security_buffer</property>
++            <property name="accepts_tab">False</property>
++          </object>
+         </child>
+       </object>
++      <packing>
++        <property name="index">-1</property>
++      </packing>
+     </child>
+     <style>
+       <class name="lightdm-gtk-greeter"/>

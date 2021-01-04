@@ -1,0 +1,327 @@
+2009-08-13  Stephen Browne  <stephen.browne@sun.com>
+
+        * configure.in: uprev to 0.6.5
+
+2009-07-31  Stephen Browne  <stephen.browne@sun.com>
+
+	* configure.in: Remove conditional START_COMMAND
+	* tgnome.desktop.in: always start with gnome-session --trusted-session
+	* src/tsoljdslabel.c: only allow MLS Trusted GNOME session, Try SL for
+	  all other session types. Fixes bugster 6843614.  Also define env
+	  GNOME_DISABLE_CRASH_DIALOG=1 to disable bug buddy if installed.
+	  Fixes 6863535
+
+2009-02-13  Takao Fujiwara  <takao.fujiwara@sun.com>
+
+	* configure.in: assign gnome-session directly in START_COMMAND
+	We don't use CDE scripts but migrate into /etc/X11/xinit/xinitrc.d.
+
+2008-10-03  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in:	version 0.6.4
+	* src/tsoljdslabel.c: save mode
+
+2008-10-03  Stephen Browne <stephen.browne@sun.com>
+
+	* tcde.dekstop.in: renove - no more TCDE from GDM
+	* Xtsolresources.jds: remove - moved to TCDE pkg
+	* Xinintrc.tjds: invoke dbus-launch because gnome-session strips
+	last arg when it tries to do this
+	* src/suidwrapper.c, src/tsoljdslabel.c: fix argument parsing to work
+	correctly with dtstart on OpenSolaris
+
+2008-08-22  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: version 0.6.3
+	* src/Makefile.am: remove disable gtk deprecated
+	* src/tsoljdslabel.c: add mode to the session start
+
+2008-06-12  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: add --with-dtstart option
+	* tgnome.desktop.in: use @START_COMMAND@ var instead of hardcoding
+	startup script.  autoconf substitute it base on --with-dtstart or not
+
+2008-05-30  Stephen Browne <stephen.browne@sun.com>
+
+	* Xsession.jds: dont launch dbus anymore as gnome-session does this.
+
+2008-05-20  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: 0.6.2 release
+
+2008-05-15  Stephen Browne  <stephen.browne@sun.com>
+	
+	* src/tsol-mod.c: make text entry uneditable
+	* src/tsoljdslabel.c: refacor for new label builder code
+	* src/Makefile.am: dont install tcde.desktop
+
+2008-03-25  Takao Fujiwara  <takao.fujiwara@sun.com>
+
+	* configure.in: update version number to 0.6.1
+
+2008-03-14  Takao Fujiwara  <takao.fujiwara@sun.com>
+
+	* po/cs.po po/de.po po/es.po po/fr.po po/hu.po po/it.po po/ja.po
+	  po/ko.po po/pl.po po/pt_BR.po po/ru.po po/sv.po po/zh_CN.po
+	  po/zh_HK.po po/zh_TW.po: Updated translations.
+
+2008-03-14  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: update version number to 0.6
+	* tsoljds.desktop.in, tsolcde.dekstop.in: remove
+	* tgnome.desktop.in, tcde.desktop.in: add
+	* Makefile.am: add new .desktop files for GDM
+
+2008-03-03  Stephen browne <stephen.browne@sun.com>
+
+	* COPYING: added
+	* README, src/suidwrapper.c, src/tsoljdslabel.c, src/tsolmotd.c,
+	  src/tsolmotd.h: upated License
+
+2007-11-14  Stephen Browne <stephen.browne@sun.com>
+
+	Revert bogus changes to *.desktop.in and Makefile.am from previous 
+	commit
+
+2007-11-14  Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsoljdsmotd.c: change seconds to minutes
+	* src/tsoljdslabel.c: add start_screensaver() and stop_screensaver()
+	and call them appropriately. Fixes 6607327
+
+2007-10-24  Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsoljdslabel.c: make the default label selection be the users
+	clearance.
+
+2007-09-06  Stephen Browne <stephen.browne@sun.com>
+
+	* Makefile.am: dont dist the dtlogin and gdm config files
+
+2007-09-06  Stephen Browne <stephen.browne@sun.com>
+
+	* Xinitrc.tjds: remove the dbus launch code
+	* Xsession.tjds: add dbus-launch code
+	Move the dbus launch code to earlier in the login sequence
+	Fixes 6578766
+
+2007-06-29  Takao Fujiwara <takao.fujiwara@sun.com>
+
+	* po/cs.po, po/de.po, po/es.po, po/fr.po, po/hu.po, po/it.po,
+	  po/ja.po, po/ko.po, po/pl.po, po/pt_BR.po, po/ru.po, po/sv.po,
+	  po/zh_CN.po, po/zh_HK.po, po/zh_TW.po: Updated translations.
+
+2007-02-06  Takao Fujiwara <takao.fujiwara@sun.com>
+
+	* src/tsolmotd.c: support none UTF-8 string from strftime, add gettext 
+	  for "lock" and change the order of the string "Idle time before session %s".
+	  Fixes 6487643.
+
+2006-11-15  Ghee Teo <ghee.teo@sun.com>
+
+	* Xinitrc.tjds:  updated to start gnome-session using dbus-launch to fix
+	  6493997. Also have tagged and branched this module before commiting this change.
+	  - cvs tag TJDS_JDS3_1_BRANCH_POINT
+ 	  - cvs tag -b cinnabar-solaris.
+
+2006-11-06  Stephen Browne <stephen.browne@sun.com>
+
+	* src/Makefile.am: remove tsoljdslabel-helper refs
+	* src/tsoljdslabel-helper.c: remove
+	* src/tsoljdslabel.c: added fork exec code and removed call to suid
+	helper.
+
+2006-10-26  John Fischer <john.fischer@sun.com>
+
+	* src/tsoljdslabel-helper.c: used an unsafe system() call: 6487012
+	Changed the code to use fork/exec call instead of system().
+
+2006-09-25  Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsolmotd.c: bsltos and bcleartos seem to be b0rked!
+	ported calls to label_to_str which seems to work. Fixes 6474600
+
+2006-08-11 Yuriy Kuznetsov <Yuriy.Kuznetsov@Sun.COM>
+
+        * po/cs.po po/de.po po/es.po po/fr.po po/hu.po po/it.po 
+          po/ja.po po/ko.po po/pl.po po/pt_BR.po po/ru.po
+          po/sv.po po/zh_CN.po po/zh_HK.po po/zh_TW.po
+          fix for CR#6401835
+
+2006-07-31  Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsoljdslabel.c: only enter a zone for a non trusted desktop.
+	Even a single label trusted session should be run as a ML session with 
+	a label range restricted to a single label.  Also, quit the gtk main 
+	loop after starting a labeled zone session and simply wait on the child.
+	This fixes 6398242.
+
+2006-07-28  Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsoljdslabel-helper.c: update to reflect new commandline arg
+	for allocating audio device
+
+2006-07-28  Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsoljdslabel.c: oh don't skip the label selector if an admin user 
+	has opted to restrict the sesison to a single label.
+
+2006-07-28  Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsolmotd.c: added seconds to indicate the unit of the timeout
+	for lock or logout.  Also changed two labels to gtk_entries to avoid
+	truncation of data.
+	* src/tsoljdslabel.c: DOnt show label selector for admin users.  Just 
+	login them in with a clearance of admin_high. Fixes bug 6426363.
+
+2006-07-26  Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsolmotd.c: added new sl_only arg to MOTD dialog creation
+	which is used to restrict  non trusted desktop sessions to a single 
+	label
+	* src/tsoljdslabel.c: added code to determine when to go sl_only or not
+	Fixes bug #6432070
+
+2006-07-26  Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsoljdslabel.c : user getdevicerange from libbsm
+	* src/Makefile.am: add bsm to link line
+
+2006-06-19  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: added libgnomeui dep
+	* src/tsoljdslabel.c: added gnome_program_init and show help in 
+	label_builder response
+
+2006-05-24  Stephen Browne <stephen.browne@sun.com>
+
+        * Makefile.am: remove man page
+        * tsoljdslabel.1: remove
+
+2006-05-18 Stephen Browne <stephen.browne@sun.com>
+
+        * configure.in: match up gettext package version with module version
+        for a more sane pot file
+
+2006-04-13  Niall Power <niall.power@sun.com>
+
+	* src/suidwrapper.c src/tsojdslabel-helper.c src/tsoljdslabel.c
+	  src/tsolmotd.c: cleaned up C source with indent. Indent args:
+	  -bad -bap -br -bs -cdb -ce -d0 -eei -pcs
+
+2006-03-21  Ghee Teo <ghee.teo@sun.com>
+	
+	* Xtsolresources.jds: changed /etc to /usr which was omiited in the last putback.
+ 
+2006-03-16  Ghee Teo <ghee.teo@sun.com>
+
+	* Xinitrc.tjds: invoked gnome-session with --trusted-session parameter.
+ 	  Makefile.am: changed /etc to /usr for installation location of the scripts.
+	  Fixes ARC TCR.
+
+2006-03-07  Stephen Browne <stephen.browne@sun.com>
+
+	* Makefile.am: added man_MANS
+	* tsoljdslabel.1: added man page placeholder
+	* tsoljds.deskop.in, tsolcde.desktop.in: removed as were are always 
+	using tsoljdslabel from GDM
+
+2006-02-07  Ghee Teo <ghee.teo@sun.com>
+
+	* Xtsolresources.jds: renamed reference to tsolmecity to metacity
+	  so that Trusted JDS session option will appear on dtgreet.
+
+2006-01-31 Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: bump release number
+
+2006-01-25  Ghee Teo <ghee.teo@sun.com>
+
+	* Xinitrc.tjds: invoked gnome-session instead of tsolgnome-session.
+  	  fixes 6371867.
+
+2005-12-21 Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsoljdslabel.c: fix the path to both cde and jds launch scripts
+	* src/Makefile.am: only setuid for user not group
+
+2005-11-23 Stephen Browne <stephen.browne@sun.com>
+
+	* Makefile.am: install scripts for dtlogin
+	* Xinitrc.tjds: new file for dtlogin integration
+	* Xsession.tjds: new file for dtlgin integration
+	* Xsession2.tjds: new file for dtlogin integration
+	* tsolcde.desktop.in: add commandline option
+	* tsoljds.desktop.in: add commandline option
+	* src/Makefile.am: add suidwrapper
+	* src/suidwrapper.c: add new file
+	* src/tsoljdslabel.c: add commandline option for cde or jds
+
+	tsoljdslabel is still b0rked so dont use GDM.  Dtlogin integration
+	should be better now.
+
+2005-11-02 Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsoljdslabel.c: move to the new lbuilder API
+
+2005-10-19 Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsoljdslabel.c: remove signal handlers for close and delete
+	as these are now handled in the label builder itself
+
+2005-10-19 Stephen Browne <stephen.browne@sun.com>
+
+	* Makefile.am: add tsolcde.desktop.in as a GDM session option for
+	Trusted CDE
+	* tsolcde.desktop.in: new file
+	* tsoljds.desktop.in: change Name field to be consistent with dtlogin
+
+2005-10-19 Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsoljdslabel.c: src/tsoljdslabel-helper.c: only use helper
+	to allocate the audio device with suid. Move single label session
+	startup back to the main program
+
+2005-10-04 Stephen Browne <stephen.browne@sun.com>
+
+	* Xtsolresources.jds: dtlogin Trusted JDS session file (new)
+	* Makefile.am: install Xtsolresources.jds data file
+
+2005-09-30 Stephen Browne <stephen.browne@sun.com>
+
+        * autogen.sh: new autogen to fix aclocal issues with gnome-common
+        * mkinstalldirs: updated (still need to get rid of this when building
+          with a newer version of glib)
+
+2005-09-02 Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsolmotd.c: use gtk_misc for label alignment instead of adding
+	another alignment widget
+
+2005-09-02 Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsolmotd.c: make motd text view uneditable 
+
+2005-09-02 Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsolmotd.c, src/tsolmotd.h, src/tsoljdslabel.c: new UI
+
+2005-09-01 Stephen Browne <stephen.browne@sun.com>
+
+        * Makefile.am: dist bz2 instead of gz
+
+2005-09-01 Stephen Browne <stephen.browne@sun.com>
+
+        * mkinstalldirs: added this since we still only have glib 2.4.1
+        on solaris.  We can delete this when we have a new version of glib
+        in the future
+
+2005-08-25 Stephen Browne <stephen.browne@sun.com>
+
+	* src/Makefile.am: added missing $(DESTDIR) to chmod line
+	install-exec-local:
+
+2005-08-24 Stephen Browne <stephen.browne@sun.com>
+
+	Initial import of tsoljdslabel

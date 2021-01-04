@@ -1,0 +1,280 @@
+diff -ur caja-1.22.1/libcaja-private/caja-clipboard-monitor.c caja-1.22.1/libcaja-private/caja-clipboard-monitor.c
+--- caja-1.22.1/libcaja-private/caja-clipboard-monitor.c	2019-04-22 13:44:05.000000000 +0000
++++ caja-1.22.1/libcaja-private/caja-clipboard-monitor.c	2019-10-07 15:42:10.039478751 +0000
+@@ -30,6 +30,8 @@
+ #include <eel/eel-gtk-macros.h>
+ #include <eel/eel-glib-extensions.h>
+ #include <gtk/gtk.h>
++#include "caja-tsol-extensions.h"
++
+ 
+ /* X11 has a weakness when it comes to clipboard handling,
+  * there is no way to get told when the owner of the clipboard
+@@ -226,7 +228,7 @@
+                              gsize *len)
+ {
+     GString *uris;
+-    char *uri, *tmp;
++    char *uri, *tmp, *label;
+     GFile *f;
+     guint i;
+     GList *l;
+@@ -238,6 +240,13 @@
+     else
+     {
+         uris = g_string_new (info->cut ? "cut" : "copy");
++		if (caja_tsol_multi_label_session ()) {
++		label = caja_tsol_get_process_label ();
++		g_string_append_c (uris, '\n');
++		g_string_append (uris, label);
++		g_free (label);
++	}
++
+     }
+ 
+     for (i = 0, l = info->files; l != NULL; l = l->next, i++)
+diff -ur caja-1.22.1/libcaja-private/caja-file-utilities.c caja-1.22.1/libcaja-private/caja-file-utilities.c
+--- caja-1.22.1/libcaja-private/caja-file-utilities.c	2019-04-22 13:44:05.000000000 +0000
++++ caja-1.22.1/libcaja-private/caja-file-utilities.c	2019-08-09 14:25:06.892026269 +0000
+@@ -823,7 +823,8 @@
+     path = g_build_filename (DATADIR "/pixmaps/caja", partial_path, NULL);
+     if (g_file_test (path, G_FILE_TEST_EXISTS))
+     {
+-        return path;
++	    /* GLENN */
++        return strdup(path);
+     }
+     else
+     {
+diff -ur caja-1.22.1/libcaja-private/caja-module.c caja-1.22.1/libcaja-private/caja-module.c
+--- caja-1.22.1/libcaja-private/caja-module.c	2019-04-22 13:44:05.000000000 +0000
++++ caja-1.22.1/libcaja-private/caja-module.c	2019-09-24 16:45:45.686638605 +0000
+@@ -28,6 +28,7 @@
+ #include <eel/eel-debug.h>
+ #include <gmodule.h>
+ #include <libcaja-private/caja-extensions.h>
++#include "caja-tsol-extensions.h"
+ 
+ #define CAJA_TYPE_MODULE    	(caja_module_get_type ())
+ #define CAJA_MODULE(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_MODULE, CajaModule))
+@@ -225,6 +226,16 @@
+ 
+         while ((name = g_dir_read_name (dir)))
+         {
++		/* Brasero extension does not currently work with
++		   labeled zones (no dbus system bus)*/
++		if (caja_tsol_multi_label_session () &&
++		    getzoneid () != 0) {
++			if (g_str_has_prefix (name,
++					      "libcaja-brasero")) {
++				continue;
++			}
++		}
++
+             if (g_str_has_suffix (name, "." G_MODULE_SUFFIX))
+             {
+                 char *filename;
+diff -ur caja-1.22.1/src/caja-application.c caja-1.22.1/src/caja-application.c
+--- caja-1.22.1/src/caja-application.c	2019-12-20 14:48:15.811615882 +0000
++++ caja-1.22.1/src/caja-application.c	2019-09-25 14:08:06.396005367 +0000
+@@ -77,6 +77,7 @@
+ #include <libcaja-private/caja-signaller.h>
+ #include <libcaja-extension/caja-menu-provider.h>
+ #include <libcaja-private/caja-autorun.h>
++#include <libcaja-private/caja-tsol-extensions.h>
+ #define MATE_DESKTOP_USE_UNSTABLE_API
+ #include <libmate-desktop/mate-bg.h>
+ 
+@@ -2054,7 +2055,11 @@
+ static gboolean
+ running_as_root (void)
+ {
+-    return geteuid () == 0;
++    if (caja_tsol_multi_label_session ()) {
++	    return FALSE;
++    } else {
++    	return geteuid () == 0;
++    }
+ }
+ 
+ static gboolean
+diff -ur caja-1.22.1/src/caja-desktop-window.c caja-1.22.1/src/caja-desktop-window.c
+--- caja-1.22.1/src/caja-desktop-window.c	2019-04-22 13:44:05.000000000 +0000
++++ caja-1.22.1/src/caja-desktop-window.c	2019-09-24 22:53:18.009261717 +0000
+@@ -36,6 +36,8 @@
+ #include <libcaja-private/caja-icon-names.h>
+ #include <gio/gio.h>
+ #include <glib/gi18n.h>    
++#include <libcaja-private/caja-tsol-extensions.h>
++
+ 
+ /* Tell screen readers that this is a desktop window */
+ 
+@@ -165,6 +167,7 @@
+ caja_desktop_window_new (CajaApplication *application,
+                          GdkScreen           *screen)
+ {
++    GdkWindow *root_window;
+     CajaDesktopWindow *window;
+     int width_request, height_request;
+     int scale;
+@@ -201,6 +204,12 @@
+ 
+     g_signal_connect (window, "delete_event", G_CALLBACK (caja_desktop_window_delete_event), NULL);
+ 
++        if (caja_tsol_multi_label_session ()) {
++                root_window = gdk_screen_get_root_window (screen);
++                gdk_window_add_filter (root_window,
++		caja_tsol_filter_func, window);
++        }
++
+     /* Point window at the desktop folder.
+      * Note that caja_desktop_window_init is too early to do this.
+      */
+diff -ur caja-1.22.1/src/caja-main.c caja-1.22.1/src/caja-main.c
+--- caja-1.22.1/src/caja-main.c	2019-04-22 13:44:05.000000000 +0000
++++ caja-1.22.1/src/caja-main.c	2019-09-25 14:09:20.281136623 +0000
+@@ -224,11 +224,13 @@
+         || (g_strcmp0 (g_getenv ("DESKTOP_SESSION"), "mate") == 0);
+ }
+ 
++/*
+ static gboolean
+ running_as_root (void)
+ {
+     return geteuid () == 0;
+ }
++*/
+ 
+ int
+ main (int argc, char *argv[])
+diff -ur caja-1.22.1/src/caja-window-manage-views.c caja-1.22.1/src/caja-window-manage-views.c
+--- caja-1.22.1/src/caja-window-manage-views.c	2019-12-20 14:48:15.765933924 +0000
++++ caja-1.22.1/src/caja-window-manage-views.c	2019-09-24 22:54:33.878956775 +0000
+@@ -69,6 +69,7 @@
+ #include <libcaja-private/caja-window-info.h>
+ #include <libcaja-private/caja-window-slot-info.h>
+ #include <libcaja-private/caja-autorun.h>
++#include <libcaja-private/caja-tsol-extensions.h>
+ 
+ /* FIXME bugzilla.gnome.org 41243:
+  * We should use inheritance instead of these special cases
+@@ -1669,6 +1670,12 @@
+ 
+         g_object_unref (location_copy);
+     }
++       if (caja_tsol_multi_label_session () &&
++            CAJA_IS_DESKTOP_WINDOW (window) &&
++            !caja_tsol_show_desktop_window (gtk_widget_get_screen (GTK_WIDGET (window)))) {
++                gtk_widget_hide (GTK_WIDGET (window));
++        }
++
+ }
+ 
+ static void
+diff -ur caja-1.22.1/src/caja-zfs-bar.c caja-1.22.1/src/caja-zfs-bar.c
+--- caja-1.22.1/src/caja-zfs-bar.c	2019-12-20 14:48:15.812888390 +0000
++++ caja-1.22.1/src/caja-zfs-bar.c	2019-08-17 16:35:49.227243588 +0000
+@@ -241,12 +241,12 @@
+         if (snap->type)
+         {
+             /*printf ("path %s snapshot to delete %s\n", path, snap->name);*/
+-            full_command = g_strdup_printf ("/usr/lib/time-slider-delete '%s'", snap->name);
++            full_command = g_strdup_printf ("pfexec /usr/lib/time-slider-delete2 '%s'", snap->name);
+         }
+         else
+         {
+             /*printf ("path %s backup to delete %s\n", path, snap->name);*/
+-            full_command = g_strdup_printf ("/usr/lib/time-slider-delete '%s'", path);
++            full_command = g_strdup_printf ("pfexec /usr/lib/time-slider-delete2 '%s'", path);
+         }
+ 
+         mate_gdk_spawn_command_line_on_screen (gtk_widget_get_screen (widget),
+diff -ur caja-1.22.1/src/file-manager/fm-directory-view.c caja-1.22.1/src/file-manager/fm-directory-view.c
+--- caja-1.22.1/src/file-manager/fm-directory-view.c	2019-12-20 14:48:15.773564098 +0000
++++ caja-1.22.1/src/file-manager/fm-directory-view.c	2019-10-07 15:33:18.487803343 +0000
+@@ -83,6 +83,7 @@
+ #include <libcaja-private/caja-autorun.h>
+ #include <libcaja-private/caja-icon-names.h>
+ #include <libcaja-private/caja-undostack-manager.h>
++#include <libcaja-private/caja-tsol-extensions.h>
+ 
+ #define MATE_DESKTOP_USE_UNSTABLE_API
+ #include <libmate-desktop/mate-desktop-utils.h>
+@@ -6270,6 +6271,7 @@
+ {
+ 	gboolean cut;
+ 	GList *item_uris;
++	char *label = NULL;
+ 
+ 	cut = FALSE;
+ 	item_uris = caja_clipboard_get_uri_list_from_selection_data (selection_data, &cut,
+@@ -6279,10 +6281,12 @@
+ 		caja_window_slot_info_set_status (view->details->slot,
+ 						      _("There is nothing on the clipboard to paste."));
+ 	} else {
+-		fm_directory_view_move_copy_items (item_uris, NULL, destination_uri,
+-						   cut ? GDK_ACTION_MOVE : GDK_ACTION_COPY,
+-						   0, 0,
+-						   view);
++		if (!label || caja_tsol_label_equal_to_process_label (label)){
++                        fm_directory_view_move_copy_items (item_uris, NULL, destination_uri,
++                                                   cut ? GDK_ACTION_MOVE : GDK_ACTION_COPY,
++                                                   0, 0,
++                                                   view);
++                }
+ 
+ 		/* If items are cut then remove from clipboard */
+ 		if (cut) {
+@@ -6352,6 +6356,12 @@
+ 	FMDirectoryView *view;
+ 
+ 	view = FM_DIRECTORY_VIEW (callback_data);
++	if (caja_tsol_multi_label_session ()) {
++                char *target_dir = fm_directory_view_get_backing_uri (view);
++                caja_tsol_update_paste_location_property (caja_clipboard_get (view), target_dir);
++                g_free (target_dir);
++        }
++
+ 
+ 	g_object_ref (view);
+ 	gtk_clipboard_request_contents (caja_clipboard_get (GTK_WIDGET (view)),
+diff -ur caja-1.22.1/src/file-manager/fm-properties-window.c caja-1.22.1/src/file-manager/fm-properties-window.c
+--- caja-1.22.1/src/file-manager/fm-properties-window.c	2019-04-22 13:44:05.000000000 +0000
++++ caja-1.22.1/src/file-manager/fm-properties-window.c	2019-10-07 10:06:59.966873575 +0000
+@@ -55,6 +55,7 @@
+ #include <libcaja-private/caja-metadata.h>
+ #include <libcaja-private/caja-module.h>
+ #include <libcaja-private/caja-mime-actions.h>
++#include <libcaja-private/caja-tsol-extensions.h>
+ #include <string.h>
+ #include <sys/stat.h>
+ #include <cairo.h>
+@@ -4752,6 +4753,8 @@
+ 	GtkGrid *page_grid;
+ 	char *file_name, *prompt_text;
+ 	GList *file_list;
++	char *label_str, *uri;
++	GtkLabel *label_label;
+ 
+ 	vbox = create_page_with_vbox (window->details->notebook,
+ 				      _("Permissions"));
+@@ -4791,6 +4794,18 @@
+ 			 "selinux_context", INCONSISTENT_STATE_STRING,
+ 			 FALSE);
+ #endif
++                if (caja_tsol_multi_label_session ()) {
++                        label_label = attach_title_field (page_grid,
++                                /* SUN_BRANDING TJDS */
++                                _("File Label:"));
++                        uri = caja_file_get_uri (get_target_file (window));
++                        label_str = caja_tsol_get_file_label (uri);
++                        attach_value_label (page_grid, label_label, 
++                                label_str);
++                        g_free (label_str);
++                }
++
++
+ 		append_title_value_pair
+ 			(window, page_grid, _("Last changed:"),
+ 			 "date_permissions", INCONSISTENT_STATE_STRING,

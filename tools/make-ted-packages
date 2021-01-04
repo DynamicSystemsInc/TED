@@ -1,0 +1,63 @@
+#!/bin/sh
+
+# This script builds the packages all the TED components
+
+tools=/trusted-desktop/tools
+manifests=/trusted-desktop/manifests
+workspace=/trusted-desktop/ws/userland/src/components
+repo=/var/share/pkg/repositories/trusted-desktop
+tedpub=trusted-desktop
+
+rm -rf $repo
+# create the repository if is does not exist
+if [ ! -d $repo ]
+then
+  pkgrepo create $repo
+  pkgrepo -s $repo set publisher/prefix=$tedpub
+fi
+
+# Publish all the packages to the repository
+
+for i in `cat $tools/userland-components`
+do
+	destdir=$workspace/$i/build/prototype/i386
+	component=`basename $i`
+	manifest=$manifests/$component/$component.p5m
+	pkgsend -s $repo publish -d $destdir $manifest
+done
+
+# Finally do the snap-now packages
+
+component=snap-now
+componentdir=desktop/mate/snap-now
+destdir=$workspace/$componentdir/build/prototype/i386
+manifest=$manifests/$component/$component.p5m
+pkgsend -s $repo publish -d $destdir $manifest
+
+component=snap-now2
+componentdir=desktop/mate/snap-now2
+destdir=$workspace/$componentdir/build/prototype/i386
+manifest=$manifests/$component/$component.p5m
+pkgsend -s $repo publish -d $destdir $manifest
+
+# Publish meta packages to the repository
+
+for i in `cat $tools/meta-components`
+do
+	manifest=$manifests/$i/$i.p5m
+	pkgsend -s $repo publish -d $destdir $manifest
+done
+
+# This script builds and packages the tsoljds components
+
+workspace=/trusted-desktop/tsoljds
+
+# Publish all the tsoljds packages to the repository
+
+for i in `cat $tools/tsoljds-components`
+do
+	destdir=$workspace/proto/$i/prototype/i386
+	manifest=$manifests/$i/$i.p5m
+	pkgsend -s $repo publish -d $destdir $manifest
+done
+pkgrepo refresh -s $repo

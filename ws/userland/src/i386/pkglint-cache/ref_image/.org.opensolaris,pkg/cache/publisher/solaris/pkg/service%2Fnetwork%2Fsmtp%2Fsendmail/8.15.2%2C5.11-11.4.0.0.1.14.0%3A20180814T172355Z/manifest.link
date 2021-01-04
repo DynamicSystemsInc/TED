@@ -1,0 +1,17 @@
+link path=etc/mail/subsidiary.cf target=sendmail.cf
+link path=etc/mail/main.cf target=sendmail.cf
+link mediator=sendmail mediator-implementation=sendmail mediator-priority=vendor path=usr/sbin/sendmail target=../lib/inet/sendmail
+link path=etc/mail/sendmail.hf target=helpfile
+link path=usr/lib/mail target=../../etc/mail/cf
+link mediator=sendmail mediator-implementation=sendmail mediator-priority=vendor path=usr/lib/sendmail target=../lib/inet/sendmail
+link mediator=sendmail mediator-implementation=sendmail mediator-priority=vendor path=usr/sbin/newaliases target=../lib/inet/sendmail
+link mediator=sendmail mediator-implementation=sendmail mediator-priority=vendor path=usr/bin/mailq target=../lib/inet/mailq
+link path=etc/mail/cf/cf/subsidiary.cf target=sendmail.cf
+link path=etc/mail/cf/cf/subsidiary.mc target=sendmail.mc
+link path=etc/mail/cf/cf/main.mc target=sendmail.mc
+link path=etc/aliases target=./mail/aliases
+link path=etc/mail/cf/sh/check-hostname target=../../../../usr/sbin/check-hostname
+link path=etc/mail/cf/cf/main.cf target=sendmail.cf
+link path=etc/mail/cf/sh/check-permissions target=../../../../usr/sbin/check-permissions
+link facet.doc.man=all mediator=sendmail mediator-implementation=sendmail mediator-priority=vendor path=usr/share/man/man1/mailq.1 target=sendmail-mailq.1
+link facet.doc.man=all mediator=sendmail mediator-implementation=sendmail mediator-priority=vendor path=usr/share/man/man5/aliases.5 target=sendmail-aliases.5

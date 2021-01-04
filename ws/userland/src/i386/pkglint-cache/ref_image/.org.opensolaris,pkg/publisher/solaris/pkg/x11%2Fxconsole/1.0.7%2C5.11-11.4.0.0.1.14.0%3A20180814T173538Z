@@ -1,0 +1,28 @@
+set name=pkg.fmri value=pkg://solaris/x11/xconsole@1.0.7,5.11-11.4.0.0.1.14.0:20180814T173538Z
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.version value=1.0.7
+set name=org.opensolaris.consolidation value=userland
+set name=pkg.description value="The xconsole program displays in a X window the messages which are usually sent to /dev/console."
+set name=org.opensolaris.arc-caseid value=PSARC/1992/173 value=PSARC/2008/089
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.summary value="xconsole - monitor system console messages with X"
+set name=com.oracle.info.tpno value=39514
+set name=info.source-url value=https://www.x.org/releases/individual/app/xconsole-1.0.7.tar.bz2
+set name=info.upstream-url value=https://www.x.org
+set name=com.oracle.info.name value=xconsole
+set name=com.oracle.info.description value=xconsole
+set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
+set name=variant.arch value=i386 value=sparc
+depend fmri=pkg:/x11/library/toolkit/libxaw7@1.0.13-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/x11/library/libxmu@1.1.2-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/toolkit/libxt@1.1.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libx11@1.6.5-11.4.0.0.1.13.0 type=require
+file 63f62ba38b417690be9dd5790c0c5d510365c1ee chash=7e4e0fb408dd704ff145e99feff107f79aefcf44 elfarch=sparc elfbits=64 elfhash=37ec34d92be6293d5d930ea5ce150a56930d94e2 group=bin mode=0555 owner=root path=usr/bin/xconsole pkg.content-hash=gelf:sha512t_256:b1d0298bcaa0782173ea8cdd54d3ae30f56bf3496e00d35b181762e4ac67e992 pkg.content-hash=gelf.unsigned:sha512t_256:ec64e7b6187f87e7497ec8160ae2e372d8e8f44a36344c709267a78e3f88e6b3 pkg.content-hash=file:sha512t_256:fe2387ffb0f80ba1c7e2a993c9af138ba4d0b3b3e0e8d168b109f78b08cc1e08 pkg.content-hash=gzip:sha512t_256:0ca3c5fc03a483276cc699e210fc5ae60ee00c5b98ff5c934af31f0d4bae2e69 pkg.csize=11632 pkg.size=39872 variant.arch=sparc
+file b1fbb1363ae0f2ceb7cedd530e5fa99c37a2b1bd chash=ad8a0c6f26d846cd3255c8dbc0aaface89552054 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/xconsole.1 pkg.content-hash=file:sha512t_256:eefcfd2a82af4aa03a0a99ad7186cc2945ad8dac0968b77591581f10ed2d3c33 pkg.content-hash=gzip:sha512t_256:5f9b7779ff0b2954e9e6c1f594dba5f9958f2358b118edf9d9622404a573b819 pkg.csize=2194 pkg.size=4483
+file 207851734713ce9e8de2bb178d58fcbd06c6d0f2 chash=bfbe05d3fe6cacdfe4b36e4b0936d7bf2921dce8 group=bin mode=0444 owner=root path=usr/share/X11/app-defaults/XConsole pkg.content-hash=file:sha512t_256:06de69db0afb3bef489158363e56cdbe7ff03fe91854fc2ed6601432ab07fd28 pkg.content-hash=gzip:sha512t_256:b3aeafddc3e8d624b973f4f3cce4f9a01b3e5fc643f0c381ed34bd701b9a24e5 pkg.csize=265 pkg.size=615
+file 447abdda36edd4534fcd08a5a3f864763b453dd5 chash=5480026f8c22da56e940bda6c2a0b51dfb4dae0e elfarch=i386 elfbits=64 elfhash=a1ec248f2632f93fb324313a12895a08b2a23d05 group=bin mode=0555 owner=root path=usr/bin/xconsole pkg.content-hash=gelf:sha512t_256:aa4f32b6ff7d2d672b455918b390aabdd70a3228708ab059e324eba9ddd36da2 pkg.content-hash=gelf.unsigned:sha512t_256:5c36f8b5b3d001551df42ca13414aed337ea3898ab87065b26c0d36dc39c9328 pkg.content-hash=file:sha512t_256:08f149987a29b56a8957f7e6c3ca5d3715b8d4430df9c845710f830ba6cb91f6 pkg.content-hash=gzip:sha512t_256:9d5096227d177ee2ff3ead932dc0cfd8bfd15c0e6d77e948e2e43678017e9b18 pkg.csize=11671 pkg.size=34624 variant.arch=i386
+link path=usr/X11/bin/xconsole target=../../bin/xconsole
+license 8ab92344d3efd941beb850c6ec6e04ce47d626dd chash=b195ecad2bbceb3612bc22dd8e9ea7559b0e5f4f license=MIT pkg.content-hash=file:sha512t_256:83d2cea6613d7b2ce33473490ea3147ed980500be846e596858cff9b51d710a3 pkg.content-hash=gzip:sha512t_256:c15e3959a8d6f835cd2fb1ffaa18d5443fe02320ad3cff9d06bccd4fdd258bec pkg.csize=649 pkg.size=1142
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=0f4304fa05e35aa69fb13e8effebe2810b84b0c00af17363cf8b2680f000d28068b4191d268d540c7dce0d5eb13589d89a67f97e4d39246a86b97bb9a6fb1aee2741decb2d2e1228169ca2000127d49af9035da4933c724fe34a3d10eda40e49426492e6b4b3740ccbbf4ec4bffcfdcc9b5f49e57b475a544c0531bfd0c4189bf100434f42b67168d304c63847288ff10673e76954c4ee83a9acff16189990ee073702b8d88f7bd8e2d87163ff144c6f5cfad8ff8505d49458d9d0010b15537ecbc034f5a11752a0ad4cdad7ce8adef60b0be10c57558930c70cffab5b0246ba738a19d062a3d6a30429c4be685560e23e1f63affe634741b2bddcc454ed60c5 version=0

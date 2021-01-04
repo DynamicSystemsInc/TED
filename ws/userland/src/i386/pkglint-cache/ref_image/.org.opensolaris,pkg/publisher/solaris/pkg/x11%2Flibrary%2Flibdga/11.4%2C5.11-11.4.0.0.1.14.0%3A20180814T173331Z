@@ -1,0 +1,22 @@
+set name=pkg.fmri value=pkg://solaris/x11/library/libdga@11.4,5.11-11.4.0.0.1.14.0:20180814T173331Z
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+set name=org.opensolaris.arc-caseid value=LSARC/1994/436 value=PSARC/1992/120 value=PSARC/1993/308
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.version value=11.4
+set name=variant.arch value=i386 value=sparc
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.description value="the libdga library"
+set name=pkg.summary value="X Window System SUN-DGA extension client compatibility libraries"
+set name=com.oracle.info.name value=libdga
+set name=pkg.description value="Libraries provided for binary compatibility with X clients designed to connect to Xsun servers supporting the SUN-DGA extension."
+depend fmri=pkg:/x11/library/libx11@1.6.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file 63fa9372e38a41ec8e33773250772617c2848fdd chash=85990ba35d05bf57a5ba709b3342499f3e36a47a elfarch=i386 elfbits=32 elfhash=d00de30cef8366853279f97ece5ab109a23f3c94 group=bin mode=0555 owner=root path=usr/lib/libdga.so.1 pkg.content-hash=gelf:sha512t_256:e881a6183d553847bb595ed3d548af5a970315771b0492784d4c41c0dee96c73 pkg.content-hash=gelf.unsigned:sha512t_256:8f9ce2fd834304f0aea3d12570f1e112cbab2c8000de6459b73a043b8d58b4aa pkg.content-hash=file:sha512t_256:da624680a81df401b2e1cade1b08fcff511b0afb5f219a3ffaabf26ea14a7c37 pkg.content-hash=gzip:sha512t_256:09a9fd7418e41d810b3992b84329ae15c144eceab7ebeedba6dcb48e15a1f374 pkg.csize=42483 pkg.size=122312 variant.arch=i386
+file f776f85b97c399aeafe8375f1fd17f18addbb9eb chash=4cf923f64f2a3cdb533e41173e5f9b9ca47a66f6 elfarch=sparc elfbits=64 elfhash=d8ff81e70ef69b8903f4073f60b8b5dcc76d8006 group=bin mode=0555 owner=root path=usr/lib/sparcv9/libdga.so.1 pkg.content-hash=gelf:sha512t_256:e04645b33dac73648505ebe6e93b30cb044332c2fee7f9ca89f950895c446f28 pkg.content-hash=gelf.unsigned:sha512t_256:0653c4801a48c1964af7449f94d875640bfc03d8adb27dd2323d6f5da819260b pkg.content-hash=file:sha512t_256:bec34cca1401e7a09a90592255e2e03a996b65df7c016fbd584069a5d17ebeea pkg.content-hash=gzip:sha512t_256:7ecc034ec592f1230f8a93d04dac31fca18e1c6908a1402699a87cb51710b318 pkg.csize=50799 pkg.size=157192 variant.arch=sparc
+file b8e9cbc2ffd60d432aa2d589af42e59e15acd080 chash=fee8ff17bf89fd8ef854c368302bc1fd4181fc80 elfarch=sparc elfbits=32 elfhash=bf6ae1bbf83f15c48223f6e062e462937ee9c9ad group=bin mode=0555 owner=root path=usr/lib/libdga.so.1 pkg.content-hash=gelf:sha512t_256:64a89f479ea45fe620b58a4a8e581f5b222136259fae139926f037e554ca697d pkg.content-hash=gelf.unsigned:sha512t_256:e0704241c3345c6ac3994bfb0944a720dca696f85e3502538d2db3b9420cde6d pkg.content-hash=file:sha512t_256:327dc81b26da1563abac24fd8dd512e4f0dc28d92b52ac0f314a34c081fef560 pkg.content-hash=gzip:sha512t_256:fdf49fb3252b93be0e597b3fe30976419a9ea3cfff71ea6291d4fe555ea90df2 pkg.csize=48843 pkg.size=132340 variant.arch=sparc
+link path=usr/X11/lib/libdga.so.1 target=../../lib/libdga.so.1
+link path=usr/X11/lib/sparcv9/libdga.so.1 target=../../../lib/sparcv9/libdga.so.1 variant.arch=sparc
+license e2d1bb96a896c2ee950485850cb648169ab75c57 chash=4021e740d7975df1cca0b4b75547cc6be4b4fed7 license=Oracle pkg.content-hash=file:sha512t_256:8909aa1887df9354d18d1113f5a00d5c9d4dd12a5e5b008782fa6743eb0f50e3 pkg.content-hash=gzip:sha512t_256:8f987406d73a1d8aad33c18fb8e3a270b615f2889fe3108733630237998847f6 pkg.csize=698 pkg.size=1175
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=894bcdccdf03d0721b92a3faf0e1b60fd538461308e2a8b5fd415da45e0fee70bc7630a5a79e0b74635c76b258022158060a8293944ec63a55dd463c5c3bab25b8520de7932b1665f2556c5763f4894563b4863af405e0b1e6fbd77e943de95064e599d6631499e9cf8e85e9d03acdbe93398dfc76ed282bf8c7904dc147992f04b906fe6454a2d39c5d7c1fe332fb6ffc860a9e8529e06b6c4fd5f5af077c957dec98842a4e7b700e32e9274ae16a1a5c5d4c243de218cfe084394cb2a17e4f81f56cdac86f9039e1e18ebd5492703e800c939418db4e9c40f2eecd581c91072187458b13b0cd8b2a13d0bc8fbf316d47aaf91f71b08c40457a375fbaf5c1e5 version=0

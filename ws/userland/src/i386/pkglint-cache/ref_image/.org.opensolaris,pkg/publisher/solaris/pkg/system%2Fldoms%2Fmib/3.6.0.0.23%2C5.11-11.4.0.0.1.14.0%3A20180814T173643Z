@@ -1,0 +1,22 @@
+set name=pkg.fmri value=pkg://solaris/system/ldoms/mib@3.6.0.0.23,5.11-11.4.0.0.1.14.0:20180814T173643Z
+set name=org.opensolaris.consolidation value=ldoms
+set name=pkg.summary value="Oracle VM Server for SPARC MIB"
+set name=pkg.description value="Oracle VM Server for SPARC Management Information Base (MIB)"
+set name=info.classification value=org.opensolaris.category.2008:System/Virtualization
+set name=variant.arch value=sparc
+set name=variant.opensolaris.zone value=global
+dir group=sys mode=0755 owner=root path=opt
+dir group=sys mode=0755 owner=root path=opt/SUNWldmib
+dir group=sys mode=0755 owner=root path=opt/SUNWldmib/lib
+file 0e1240b1c2542830f507da657a9e4321ec4bade7 chash=0b597238bd3c8035eea66de1b8e53658f64f3b71 elfarch=sparc elfbits=64 elfhash=969dfd183d5c899021a22f924406944f89866a35 group=sys mode=0444 owner=root path=opt/SUNWldmib/lib/ldomMIB.so pkg.content-hash=gelf:sha512t_256:01eca6577532630d0dafbd42601c7e3a21c7bd8bc630ae49f28d3a2570436b34 pkg.content-hash=gelf.unsigned:sha512t_256:69c664920f30cc8205290337e8b9d9862a467689d1bd0e42d45dcfee9a963895 pkg.content-hash=file:sha512t_256:e4e6cfde64f2a7c0b03a0f3799cfcfb904f5ead542a2428c95a8499e1946bf6f pkg.content-hash=gzip:sha512t_256:434f3f5a28af7392565f954880cf3a5678207dc60d9e7101fbfa208c021701a1 pkg.csize=1568481 pkg.size=4994488
+dir group=sys mode=0755 owner=root path=opt/SUNWldmib/lib/mibs
+file 310058c02909067e93b201354c286a367e834135 chash=fb67d079e7efec29a80080c61d8cb5b3f96e2381 group=sys mode=0444 owner=root path=opt/SUNWldmib/lib/mibs/SUN-LDOM-MIB.mib pkg.content-hash=file:sha512t_256:0ff51947285f8c7222b7fd6010cc8107ae1414dc9b5556b378a735af449c7f78 pkg.content-hash=gzip:sha512t_256:a88b18a83a398edc2bf2a3cc63538abf39429dc099289212ac72c6717913d25e pkg.csize=14300 pkg.size=88337
+license 7f9bdc229eb3ae4e2ab93bb4221b42ae275a2146 chash=a8aa505af6b4acdf9c38f470068d1dd143574712 license=UPL pkg.content-hash=file:sha512t_256:8477ff0977667e38ffc0b5308b0d3c25df70387a431b57933e006b31d2243f5b pkg.content-hash=gzip:sha512t_256:cf15a987e44d0a8554e46e4e6607b730e6e1456e41def5d574e3de91ce9471fa pkg.csize=1036 pkg.size=1883
+depend fmri=pkg:/library/security/openssl@1.0.2.15-11.4.0.0.1.13.0 predicate=pkg:/library/security/openssl/openssl-fips-140@2.0.13-11.4.0.0.1.13.0 type=conditional
+depend fmri=pkg:/library/libxml2@2.9.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library/security/libsasl2@2.1.26-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/management/snmp/net-snmp@5.7.3-11.4.0.0.1.13.0 type=require
+depend fmri=system/ldoms/ldomsmanager type=require
+depend fmri=pkg:/library/security/openssl/openssl-fips-140@2.0.13-11.4.0.0.1.13.0 fmri=pkg:/library/security/openssl@1.0.2.15-11.4.0.0.1.13.0 type=require-any
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=5340353d9bea18b04419ca5c24bac335de829d961c8ebcb30d74064a985da3b875136610afa78f243422c1c99d8601658e2788f114d4274bafdda9bf5cf66fb3780cbecb2f3ff7495e7c328911a6a316b73b09d83481ae83f0d9a7b3f6e300b66d781a5297a4430f3207e7257a2dae073dbffc28e3d9bc091a9393266ce40340b6a1cd443b38b4245f915b2c0c8d8fd54be5ac295a88dfedd0f9f36c561877f675dac8f9030b028294091ac28e0c7f79b8dfb06f47e4d8fee60115d7e2e7600f7882c252a49cd0509fa40b37ff6049e457ea20bffd3d7a0f9766de798ee0ac63a9a9b0acd5069846a1bbee4d82d54a91859382080d7611b95ce57c17b07525f6 version=0

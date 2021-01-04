@@ -1,0 +1,31 @@
+set name=pkg.fmri value=pkg://solaris/system/library/flex-runtime@2.6.4,5.11-11.4.0.0.1.14.0:20180814T172641Z
+set name=com.oracle.info.name value=flex
+set name=pkg.summary value="Flex Lexer (Runtime)"
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.arc-caseid value=PSARC/2007/289 value=PSARC/2016/309
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.version value=2.6.4
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.upstream-url value=https://github.com/westes/flex
+set name=info.classification value="org.opensolaris.category.2008:Development/Other Languages"
+set name=com.oracle.info.tpno value=35362
+set name=com.oracle.info.description value="the flex lexer runtime"
+set name=variant.arch value=i386 value=sparc
+set name=info.source-url value=https://github.com/westes/flex/archive/v2.6.4.tar.gz
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file 72d98fc128d37380e94c9a0867e865c7008da68c chash=8c20a7bfe7585cbdf406d22aa2f36f849da8c3b3 elfarch=sparc elfbits=32 elfhash=d03c982a60a54025f660ba5910f9334fd8b71868 group=bin mode=0555 owner=root path=usr/lib/libfl.so.2.0.0 pkg.content-hash=gelf:sha512t_256:6ce702293b9cf7cc9fd7bf1df7e9b81c06af40c21381c2d3933319e6d0f64802 pkg.content-hash=gelf.unsigned:sha512t_256:cefd2cc6a50b106b48efb0fa4369291dd7c65b8253923f5abb44d7edf7a24104 pkg.content-hash=file:sha512t_256:a080c48c5bb88f8b9865b3bd83a30312dec64a246785e7d9d8713b49a94ea610 pkg.content-hash=gzip:sha512t_256:c471892fc4b066e080597954b3f82cb3567d5423d84188c808fe378c994c433f pkg.csize=2400 pkg.size=13396 variant.arch=sparc
+file 189731f0295ec6f0ed6c7420ab2a5a1b571a6f65 chash=09f8cce520af7089c97c4415cd2cc19fb131de10 elfarch=sparc elfbits=64 elfhash=6d4d1b7e308a728947014e17fa021b90796b30d2 group=bin mode=0555 owner=root path=usr/lib/sparcv9/libfl.so.2.0.0 pkg.content-hash=gelf:sha512t_256:9db9c1bf5f356105bd3abc5b243393350e8df8d9659eb4fd40e33fc29b084b15 pkg.content-hash=gelf.unsigned:sha512t_256:02751fa455254ec35b36ac3e7afa97b78e2fddd77c963207266318ac7d555be5 pkg.content-hash=file:sha512t_256:b9dcc273e5f1a5cec74ea6bb229935477814b6b63c2967de8a25b5b71baaeb09 pkg.content-hash=gzip:sha512t_256:787080de7ccbc16665fd3fa453717df961568e01f0fc64ba1d63db88c66be64b pkg.csize=2481 pkg.size=14648 variant.arch=sparc
+file 8505c05436605897d72ce5ed0599f2994cd5dca4 chash=f6a985f17f644211ee8486318f6f08e2f760abce elfarch=i386 elfbits=64 elfhash=8290423047518d2886dd93130b7940904639c110 group=bin mode=0555 owner=root path=usr/lib/amd64/libfl.so.2.0.0 pkg.content-hash=gelf:sha512t_256:dac0b8c7d252b63e03821163bc6f8eae03839cafa29786a61f8267a327492ee6 pkg.content-hash=gelf.unsigned:sha512t_256:9b8180d5cdc582064ec1efa909888fa6b519714bda10d4849204384331a9b743 pkg.content-hash=file:sha512t_256:ef695b88328a0964feed4f7ca89f8a9af2600afecd7f572da7420b5e30a36d61 pkg.content-hash=gzip:sha512t_256:78f6f84b351f51e6130117498d0a5858bc9568dfc9184ed0500ad6a996326e44 pkg.csize=2565 pkg.size=10440 variant.arch=i386
+file 6e45a299dc320c549552cdb0fffccd20bcfc260c chash=4257f4e6bfc87562880b8f69b563bc18d1ae9404 elfarch=i386 elfbits=32 elfhash=2b48d88c20b7fa589b05ed051ba316964b96bb70 group=bin mode=0555 owner=root path=usr/lib/libfl.so.2.0.0 pkg.content-hash=gelf:sha512t_256:0ff24426ba72c8f06cff5c24b87874c515cb84e4097156f884ab0ba46488f10e pkg.content-hash=gelf.unsigned:sha512t_256:93b706d7a26e0ff2be8dc0592c9d54d02b27259b9d7f5a582b8684156ec14d58 pkg.content-hash=file:sha512t_256:65cc5ba6e86c2c6d3d234a620052ad0dd3fb7a1be8e72f53a19e77fea6bc3cbc pkg.content-hash=gzip:sha512t_256:f995750d74e7dc83e42fa64e3f670323f08b2cc6e5fd128c9dbba41cd6ea52cc pkg.csize=2398 pkg.size=9068 variant.arch=i386
+link path=usr/lib/libfl.so target=libfl.so.2.0.0
+link path=usr/lib/libfl.so.2 target=libfl.so.2.0.0
+link path=usr/lib/amd64/libfl.so.2 target=libfl.so.2.0.0 variant.arch=i386
+link path=usr/lib/sparcv9/libfl.so.1 target=libfl.so.2.0.0 variant.arch=sparc
+link path=usr/lib/amd64/libfl.so.1 target=libfl.so.2.0.0 variant.arch=i386
+link path=usr/lib/sparcv9/libfl.so.2 target=libfl.so.2.0.0 variant.arch=sparc
+link path=usr/lib/sparcv9/libfl.so target=libfl.so.2.0.0 variant.arch=sparc
+link path=usr/lib/amd64/libfl.so target=libfl.so.2.0.0 variant.arch=i386
+link path=usr/lib/libfl.so.1 target=libfl.so.2.0.0
+license 8700ab23bab4b72fb847af3d2a52c46f8fb6b62a chash=92d4b555cb795402a8fa4ca3ffe4f20b041cb109 license=BSD pkg.content-hash=file:sha512t_256:9d130cad74ee432e6334b53dec56a935ae900175589393798eef8dc36d8a60d8 pkg.content-hash=gzip:sha512t_256:84db36b931dc0a0e2adad6e189c0adcf23d7739afce183f680a0acf2fe55fcbd pkg.csize=944 pkg.size=1855
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=21139635910b6b2df87451cc03f2797f6d8e18c4ad5aff48a8c1c4fbf6722b6593222ec0ca247e6eb01bea95b32e330f28ca34c36ebb84f0f828835e125a8a16c259fda1763ea288d74e1e3e9a366f6ca23633c47a7c16230548ad0e6e7f2a486f4ccfa961793d350cb89855ff6fb56ce23d4f052443277073418ea58770c3d199b5d896524ba278ef50182b5cc25457b0f7a2a6fb9178c156471542f9cc1b5cdac502e3f00c38950aa3fbafa93e04a99e59513f5386f8fe8a5148495e68f5d28b5bca51c21b109e48bf92ac99ff6814e5abd1aa18df7e54d75eafcb44d62daba312f74f83b9deedea4b09bb19d8801f8c9ad874d8e3187a048f435c2bfaac49 version=0

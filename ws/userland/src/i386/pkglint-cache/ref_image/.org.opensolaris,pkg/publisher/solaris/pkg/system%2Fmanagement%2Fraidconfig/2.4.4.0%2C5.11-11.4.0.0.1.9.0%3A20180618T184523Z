@@ -1,0 +1,39 @@
+set name=pkg.fmri value=pkg://solaris/system/management/raidconfig@2.4.4.0,5.11-11.4.0.0.1.9.0:20180618T184523Z
+set name=pkg.summary value="Oracle Hardware Management Pack - raidconfig"
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=info.classification value="org.opensolaris.category.2008:System/Administration and Configuration"
+set name=org.opensolaris.consolidation value=ssm
+set name=org.opensolaris.arc-caseid value=PSARC/2012/321
+set name=pkg.description value="Oracle Hardware Management Tools - hardware RAID configuration utility"
+set name=variant.arch value=sparc value=i386
+depend fmri=pkg:/system/linker@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/library/zlib@1.2.11-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/library/security/openssl@1.0.2.15-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/system/library/hmp-libs@2.4.4.0-11.4.0.0.1.9.0 type=require
+depend fmri=pkg:/system/library/libv12n@11.4-11.4.0.0.1.8.0 type=require
+depend fmri=pkg:/library/libxml2@2.9.5-11.4.0.0.1.8.0 type=require
+dir group=sys mode=0755 owner=root path=etc
+dir group=sys mode=0755 owner=root path=etc/security
+dir group=sys mode=0755 owner=root path=etc/security/exec_attr.d
+dir group=sys mode=0755 owner=root path=usr
+dir group=bin mode=0755 owner=root path=usr/lib
+dir group=bin mode=0755 owner=root path=usr/lib/ssm
+dir facet.doc=all group=bin mode=0755 owner=root path=usr/lib/ssm/doc
+dir group=bin mode=0755 owner=root path=usr/sbin
+dir group=sys mode=0755 owner=root path=usr/share
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man8
+dir group=sys mode=0755 owner=root path=var
+dir group=sys mode=0755 owner=root path=var/log
+dir group=bin mode=0750 owner=root path=var/log/ssm
+file a10379a4915740c7d529847966fb4d638c71e601 chash=9c58acc58456448ad1afb95de33ec0c6bb27c9e6 facet.doc=all group=bin mode=0444 owner=root path=usr/lib/ssm/doc/raidconfig_inventory.xsd pkg.content-hash=file:sha512t_256:a4ac3592c50ae1a1e2724f1e598c622a943ee2b769b5b9295b6cefb19bc70d9f pkg.content-hash=gzip:sha512t_256:f43ba9a1e6a04e4edf5dee86d51ddac15827f9e940fe104118b1fb97e433b30d pkg.csize=924 pkg.size=8434
+file 71fb5f995c6e7bdb493b7ff3ec5a0c59b1016e9d chash=2c4be91eda532e23096cf265681a03ea4aa4dea8 group=sys mode=0444 owner=root path=etc/security/exec_attr.d/raidconfig pkg.content-hash=file:sha512t_256:b43b7cd8653e3931ed8c26b3417bb8befd5abb4111ac7a02b23284f8a818c761 pkg.content-hash=gzip:sha512t_256:a934152e9a36b9df0362e912097d2046e015c944be5725e00c4de96bef530a30 pkg.csize=102 pkg.size=89
+file ee9cf84e0fc31194604766ec6c7dd4bca263214f chash=9796cc784cc0430b370a68d9d401620a6383f787 facet.doc=all group=bin mode=0444 owner=root path=usr/lib/ssm/doc/raidconfig_config.xsd pkg.content-hash=file:sha512t_256:d2563bc8f41d506b43130b098e184308b149c7ec25c75cf4c45297a65c21d589 pkg.content-hash=gzip:sha512t_256:b70ff2fd40b575b8c4079f69d1e8cd95d2588f7659358944638718897ff7ef24 pkg.csize=623 pkg.size=5387
+file 9b8bf2bc67576d023c6b5b2f28065f8ad49eb20b chash=2857d2c77ab8f236f6086e685286d913972085aa elfarch=sparc elfbits=32 elfhash=2758cadeba69a2c1791ca971420018fed594074c group=bin mode=0755 owner=root path=usr/sbin/raidconfig pkg.content-hash=gelf:sha512t_256:1264735c8f6daee3e0ccc7bec3a10c40309bc2201a7968567aa8fa9cad1e1747 pkg.content-hash=gelf.unsigned:sha512t_256:a026df03f008e874cc0972f9d8e4aee8ed2ec1bf72c422285a8d078a8d955ac0 pkg.content-hash=file:sha512t_256:1de4d328affa6898903a61ade8b16e810af5b68357a53da9849b069ef76b5f70 pkg.content-hash=gzip:sha512t_256:e3ff24fd053c8ee12b8238e766310c800e1b90869d9e35e4c7765c3b2091831d pkg.csize=775274 pkg.size=2628048 variant.arch=sparc
+file 9e2223e5d44caf4447e2cb126e4e92924011a701 chash=4878870187bc9eb150b01e85b19e214c61ed1333 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man8/raidconfig.8 pkg.content-hash=file:sha512t_256:5d75771a9115b3af3ab27df5bdcb13e476c98a52af1245f5e5c42547a74f318e pkg.content-hash=gzip:sha512t_256:d9f5690c63479aa9c5528942f05ce1c3982f2f4bed5c200426247a10bf47666a pkg.csize=6256 pkg.size=29641
+file e046f8635ca28da5ac7b01e01264a84d0f1ff765 chash=fc1d8d2a46882774637b204274117d12c15f4e22 group=bin mode=0640 owner=root path=var/log/ssm/raidconfig.log pkg.content-hash=file:sha512t_256:a8093a932b8457a0f03db3fd5651d3ddd56f224523a75b0280f72d3b360a40d4 pkg.content-hash=gzip:sha512t_256:31439a2d4af099545ac754ff486ce194fad6c71c03546a89921d5a743fd55d51 pkg.csize=37 pkg.size=19 preserve=true
+file 7d98d397dfe12f6ba4d119962764e87f71d5933e chash=b6d7c2dc336476d609df2e7711d46b14d94560af elfarch=i386 elfbits=32 elfhash=637170da7b8d5b8456b8499093a43b35e1f4f40c group=bin mode=0755 owner=root path=usr/sbin/raidconfig pkg.content-hash=gelf:sha512t_256:d6f3c6f3fbe55766e7d75557312764cc683d0529c184159991903210a3444e93 pkg.content-hash=gelf.unsigned:sha512t_256:464ea34bf63392de6398cd41e26ca2ecaafba6a7d8e583c3a4a22fb7f2f149c7 pkg.content-hash=file:sha512t_256:245b737bdd73dda8b56564d94f990d29c030481938a1a8bec12fcedb16771c95 pkg.content-hash=gzip:sha512t_256:3c5f754aed26e2958f41cae160a977602d71724bd4b0a51c83841526811d842f pkg.csize=477751 pkg.size=1480948 variant.arch=i386
+license e4a3f48ef48c47ae571c2f6ee63f261478986fae chash=6a799c3ce8ea2ccc2cf8bd23205ed9531a43e1e7 license=cr_Oracle pkg.content-hash=file:sha512t_256:e6fcd4138cbff522ad40ddb69bcc8e1086e4d98f20ba02e118fa125119f8b615 pkg.content-hash=gzip:sha512t_256:f6cf57bb3c69026ccc761456e014b2d091bff6053f9b9ddaa0c408e9ee586717 pkg.csize=91 pkg.size=77
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=4c60a2a354b2c9391a8e68391f6ef12ca54671a6f7eeefbd87cbf44f51e41e325bce1572a78ea7071da7bf64c628634a0d3da9e094a6445ac7a262c4633815a872d4961c425bfd2169f1dd26ba3dfe37ef6bc118c3c510625dbb107adc7e7049a0618a40313540dd801a913f2fc397271b566dc73ffce323468ea20ecd6f4f6acc1e4a1290569650129dc99d00a456279433caaf17bbefeb1aea5b32645cf3131d329e9b59bf4537528f0a18eba0689f98c2e3c8e3d3d2ad957582241978e18b3d43ee024e33e6354220a01033617539d0b933418bf04317150b314685b5cf46d4a16aae76dc9e60cf24aeecec0f95d4b03294669469e36f828d704da9f881e3 version=0

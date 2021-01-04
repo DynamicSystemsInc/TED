@@ -1,0 +1,979 @@
+2010-07-28  Stephen Browne  <stephen.browne@oracle.com>
+
+	* configure.in: uprev to 0.6.8
+
+2010-07-28  Stephen Browne  <stephen.browne@oracle.com>
+
+	* src/xagent-proxy.c: only authenticate login user in non global zones 
+	if /var/tsoldoors/nscd_per_label exists.
+
+2010-06-15  Stephen Browne  <stephen.browne@oracle.com>
+
+	* src/menus.c: add a file monitor to dynamically change the Change
+	Workspace Password menu entry in response to the nscd_per_label
+	file creation and deletion.
+	* src/tsol-user.c: use a different pam service name for login user
+	and roles for all zones. Fixes 6960609.
+
+2010-06-15  Stephen Browne  <stephen.browne@oracle.com>
+
+	* src/menus.c: grey out Change Workspace Password if nscd_per_label 
+	is not configured. Fixes 6959839.
+
+2010-06-04  Stephen Browne  <stephen.browne@oracle.com>
+
+	* src/tsol-user.c: s/PAM_RUSER/PAM_AUSER
+
+2010-06-04  Stephen Browne  <stephen.browne@oracle.com>
+
+	* src/xagent-proxy.c: Fixes for 6958607. Add correct return values in 
+	validate_label, add an error dailog for the case where there is no 
+	bootable zone for a label and assume zero length passwords are a cancel 
+	operation.
+
+2010-03-28  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/xagent-management.c: Strip out local zone session. 
+	Dont do any direct xagent spawning, always use a proxy.  
+	Run proxy processes as user by moving setcred code to proxy launching 
+	of xagent. Dont do role authentication here when swicthing to a role ws.
+	This is delayed until proxy startup.
+	Call waitpid on child death so as not to leave zombie <defunct> 
+	processes behind.
+	Only start an xagent-proxy for the first workspace then start them as 
+	required when workspaces are switched.
+	* src/tsol-user.h: new pipe fd args for _tstripe_authenticate_role and 
+	_tstripe_solaris_chauthtok to support bidirectional pipe comms between 
+	parent and child across a zone boundary in the pam conversation.
+	* src/xagent-proxy.c: implement the core of the per zone credentials
+	functionality combining the code for both the client and the server 
+	for cross zone authentication and auth token changing. Communication is
+	via a pair of parent/child pipes. Also boot zones if they are halted
+	and user has zone admin auth.
+	* src/privs.h: fix typo 
+	* src/main.c: remove local zone session 
+	* src/menus.c: make change password specific to workstation owner.
+	add new menu entry for changing labeled zone password.
+	* src/Makefile.am: add UI and tsnet deps for xagent-proxy
+	* src/tsol-user.c: add pipe file descriptors to auth and chauthtok calls
+
+	All this implements the bugster RFEs 685450, 6885442, 6885464.
+	and requires an associated putback for libgnometsol to work.
+
+
+2010-03-09  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/ui-controller.c: No Window -> Initializing workspace
+	* src/xagent-management.c: move label vaidation to proxy
+	* src/xagent-proxy.c: validate label and boot zone if necessary
+	* src/TrustedPathExecutables: remove vino-properties
+	* src/Makefile.am: add libtsnet to proxy to get zonename of unbooted
+	labeled zone
+
+2009-10-19  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/TrustedPathExecutables: remove xscreensaver. Fixes 6858546.
+
+2009-10-07  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/privs.h, src/privs.c: new files to consolidate privs code
+	* src/main.c, src/xagent-management.c, src/xagent-proxy.c, src/menus.c:
+	clean up privs code.
+
+2009-09-01  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/main.c: putenv GDK_NATIVE_WINDOWS to disable client side windows
+	as it is affecting label rendering in the stripe. Fixes d.o.o 10954
+
+2009-08-13  Stephen Browne  <stephen.browne@sun.com>
+
+	* configure.in: uprev to 0.6.6
+
+2009-08-04  Stephen Browne  <stephen.browne@sun.com>
+
+        * src/TrustedPathExecutables: removed several entries as part of the 
+        fix for 6865681.
+
+2009-07-31  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/xagent-management: immediately drop I privs to stop launching
+	TPExecs with too much privs.  Code is already in place to escalate privs
+	when required. Fixes 6858545.
+
+2009-07-31  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/ui-controller.c: fix typo in XRR call event should be xevent.
+	Fixes 6848006. Thanks alanc
+
+2009-04-07  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/ui-controller.c: replace XTSOLgetClientLabel with XTSOLgetResLabel
+	as it is more correct
+
+2009-03-24  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/ui-view.c: set placeholder decorations to FALSE. Fixes d.o.o 7103
+
+2009-03-24  Stephen Browne  <stephen.browne@sun.com>
+
+	*src/TrustedPathExecutables: further updates for 679563
+
+2009-02-10  Stephen Browne  <stephen.browne@sun.com>
+
+	*src/TrustedPathExecutables: updated to fix 679563
+
+2009-01-16  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/main.c: wait for notification from WM that workspace labels/roles 	are setup. Fixes 6737664. Requires matching change in metacity to send 
+	the notification.
+
+2009-01-15  Stephen Browne  <stephen.browne@sun.com>
+	
+	* src/xagent-management.c: save roleid for info dialog before 
+	overwritting it. Fixes 6721151
+
+2009-01-15  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/TrustedPathExecutables: update for new opensolaris binaries
+	* src/main.c: remove bogus call causing build failure
+	
+2008-11-04  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/ui-controller.c: get rid of the last FAKE_TSOL ifdef.
+	
+2008-11-04  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/xagent-management.c: add a chdir for role users in the global 
+	zone to make sure applications sartup with a CWD of the role's $HOME.
+	Fixes 6757818
+
+2008-10-03  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/Makefile.am: add libsecdb as a dep to xagent-proxy
+	* src/xagent-proxy: drop privs after zone_enter() since we dont need		them any more
+	* src/TrustedPathExecutables: remove bogus entries
+
+2008-08-07  Stephen Browne  <stephen.browne@sun.com>
+
+	* autogen.sh: remove glib-gettextize
+	* configure.in: uprev o 0.6.3
+
+2008-08-06  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/gtkrc.tjds: file used to default to nimbus gtk and icon theme.
+	* src/xagemt-proxy.c: point GTK2_RC_FILES at above instead of directly
+	at nimbus.  Allows us to specify the icon theme and have it configurable
+	* src/Makefile.am: install new config file
+
+2008-08-06  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/Makefile.am: add explicit dep for libnsl
+	* src/menus.c; launch devmgr on correct screen. Fixes 6606545
+	* src/ui-view.c: remove debug string
+	* src/ui-controller.c: update the query label correctly. Fixes 6713798
+	* src/TrustedPathExecutables: added new apps. Fixes 6725459 6727225 
+	* src/xagent-proxy.c: better arg parsing. Fixes 6647003
+
+2008-05-26  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/TrustedPathExecutables: add 3 new binaries to the Trusted 
+	white list. Fixes 6706640. 
+
+2008-05-20  Stephen Browne  <stephen.browne@sun.com>
+
+	* configure.in: 0.6.2 release
+
+2008-05-15  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/xagent-management.c: apply patch from niallp to fix 6699794
+	by not iheriting the DBUS environment to admin roles or labeled 
+	applications.
+
+2008-05-14  Stephen Browne  <stephen.browne@sun.com>
+
+	* src/xagent-proxy.c: fix spelling of nimbus
+	* src/ui-controller.c: reposition stripe at top of the screen 
+	after a resolution change. Fixes 6700652
+
+2008-04-09  Stephen Browne  <stephen.browne@sun.com>
+
+	* autogen.sh: add intltoolize
+	* src/Makefile.am: add -D_POSIX_PTHREAD_SEMANTICS to get correct 
+	getpwnam_r prototype.
+	* src/ui-controller.c: (update_trusted_stripe_roles): update the 
+	workspace label any time there is a role change to make sure it is in 
+	sync.  Fixes 6648343.
+	* src/tsol-user.c: fix the return check of getpwnam_r so roles work 
+	again. Fixes 683909
+
+2008-03-25  Takao Fujiwara  <takao.fujiwara@sun.com>
+
+	* Makefile.am: Updated for po dir
+	* configure.in: update version number to 0.6.1
+
+2008-03-14  Takao Fujiwara  <takao.fujiwara@sun.com>
+
+	* po/cs.po po/de.po po/es.po po/fr.po po/hu.po po/it.po po/ja.po
+	  po/ko.po po/pl.po po/pt_BR.po po/ru.po po/sv.po po/zh_CN.po
+	  po/zh_HK.po po/zh_TW.po: Updated translations.
+
+2008-03-14  Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsol-user.c, src/xagent-management.c: build patch from Damien 
+	Carbery
+
+2008-03-14  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: update version number to 0.6
+
+2008-03-07  Stephen Browne <stephen.browne@sun.com>
+
+	* src/ui-view.c: change light text label rendering to use white_gc
+	Fixes: 6648343
+
+2008-03-03  Stephen Browne <stephen.browne@sun.com>
+
+	AUTHORS, COPYING, src/TrustedPathExecutables, src/main.c, src/menus.c,
+	src/menus.h src/pics.h, src/stripe-height.c, src/test-constraint.c, 
+	src/tsol-user.c, src/tsol-user.h, src/ui-controller.c, 
+	src/ui-controller.h, src/ui-view.c, src/ui-view.h,
+	src/xagent-management.c, src/xagent-management.h src/xagent-proxy.c,
+	src/xutils.c, src/xutils.h: update License
+
+2008-02-06  Stephen Browne <stephen.browne@sun.com>
+
+	* src/ui-view.c, src/setssheight.c: move stripe to the top of the
+	screen again as it caused more problems than it solved. Fixes 6607645
+	for now.
+	* src/xagent-management.c: forward port 20 delay fix from S10. 6649549
+
+2008-01-11  Ghee Teo <ghee.teo@sun.com>
+
+        * src/xagent-proxy.c: fixed a typo changing --default-session to
+          --defaultsession. Even though this has no real effect to the 
+          semantics in tsoljds-xagent, it is changed for consistency.
+
+2008-01-07 Stephen Browne  <stephen.browne@sun.com>
+
+	* src/TrustedPathExecutables: remove 
+	gnome-default-applications-properties. Fixes 6622093 properly
+
+2007-12-02 Stephen Browne  <stephen.browne@sun.com>
+
+	* src/ui-controller.c: keep resize_all_stripes outside the 
+	#ifdef HAVE_RANDR so resize and reposition still happens on root window
+	ConfgureNotify events even on systems without 
+	/usr/include/X11/extensions/Xrandr.h Fixes 6617487
+
+2007-11-28 Stephen Browne  <stephen.browne@sun.com>
+
+	* src/xagent-management.c: Change the colour of the root window 
+	background to the colour of the label of the workspace in 
+	update_desktop_window. Fixes 6573283 and also provides visual context
+	for those deployments choosing not to use nautilus.
+
+2007-11-07 Stephen Browne  <stephen.browne@sun.com>
+
+	* src/ui-controller.c: call resize_all_stripes to reposition all stripes
+	* src/xagent-management.c: unset GNOME_KEYRING_SOCKET when spawning a 
+	role xagent so that it doesn't SIGPIPE when tying to access the
+	workstation owner socket. Fixes 6603746.
+
+2007-10-30 Stephen Browne  <stephen.browne@sun.com>
+
+	* configure.in: test for XRANDR
+	* src/ui-controller.c: respond to ConfigureNotify on the root window to
+	detect screen resolution changes and reposition stripe at the NEW 
+	bottom of the screen 
+	* src/ui-view.c: remove unused #define for stripe at the bottom.
+
+2007-10-26 Stephen Browne  <stephen.browne@sun.com>
+	
+	* src/TrustedPathExecutables: add gnome-default-applications-properties.
+	Fixes 6622093. add alacarte and gnome-appearance-properties. 
+	Fixes 6622030. 
+
+2007-10-23 Stephen Browne  <stephen.browne@sun.com>
+
+	* src/menus.c, src/tsol-user.c, src/tsol-user.h, src/ui-controller.c,
+	  src/ui-controller.h, src/ui-view.c, src/ui-view.h,
+	  src/xagent-management.c: port wnck callbacks to new libwnck API
+	  and clean up some structure code to simplify memory management.
+	  Fixes 6609583.  Thanks Niall!
+
+2007-10-18 Stephen Browne  <stephen.browne@sun.com>
+
+	src/TrustedPathExecutables: add gnome-system-monitor, fixes 6608277
+
+2007-09-20 Stephen Browne  <stephen.browne@sun.com>
+
+	* src/xagent-proxy.c: force nimbus default instead of blueprint for 
+	label zone applications. 
+
+2007-09-18  Ghee Teo <ghee.teo@sun.com>
+
+	* src/ui-controller.c: REDO becasue stephen has not merged my changes in
+	  his putback. Added conditional check that the user does
+	  have a role before allowing the UI to access the stripe->role_da.
+	  Fixed 6601623.
+
+2007-09-19  Stephen Browne <stephen.browne@sun.com>
+
+        * src/Makefile.am: add two new binaries
+        * src/main.c: init gtk to die early if there is no x connection
+        * src/ ui-controller.c: reshape the window label indicator
+        * src/ui-view.c: allow stripe to render on the bottom of the screen
+        * src/xagent-management.c, src/xagent-proxy: refactor xagent management
+          to use a proxy process for xagents in labeled zones
+        * src/stripe-height.c: new binary to XTSOLsetSSHeight for stripe
+
+2007-09-18  Ghee Teo <ghee.teo@sun.com>
+
+	* src/ui-controller.c: Added conditional check that the user does
+	  have a role before allowing the UI to access the stripe->role_da.
+	  Fixed 6601623.
+
+2007-06-29  Takao Fujiwara <takao.fujiwara@sun.com>
+
+	* po/cs.po, po/de.po, po/es.po, po/fr.po, po/hu.po, po/it.po,
+	  po/ja.po, po/ko.po, po/pl.po, po/pt_BR.po, po/ru.po, po/sv.po,
+	  po/zh_CN.po, po/zh_HK.po, po/zh_TW.po: Updated translations.
+
+2007-03-02  Stephen Browne <stephen.browne@sun.com>
+
+        * src/xagent-management.c: add support for an additional /etc merged
+        config file for specifying new Trusted Path executables
+
+2007-02-06  Takao Fujiwara <takao.fujiwara@sun.com>
+
+	* src/ui-controller.c: avoid freeing static chars from gettext.
+	  Fixes 6495454
+	* src/menus.c: add gettext for "Please close...". Fixes 6487704.
+
+2007-01-31  Niall Power <niall.power@sun.com>
+
+	* src/menus.c: avoid accessing NULL pointers.
+	  Fixes bugster: 6515868
+
+2007-01-30  Stephen Browne <stephen.browne@sun.com>
+
+	* src/TrustedPathExecutables: remove /usr/bin/gnome-volume-properties
+
+2007-01-30  Stephen Browne <stephen.browne@sun.com>
+
+	* src/xagent-management.c:rewrite of the TP apps hardcoded special cases
+	to now use a new configuration file
+	* src/TrustedPathExecutables: new configuration file.
+	* src/Makefile.am: install new configuration data file
+	This commit fixes bugster 6499185 and makes it possible for 3rd parties
+	to install new Trusted Path applications (req for sunray)
+
+2006-11-10  Niall Power <niall.power@sun.com>
+
+	* src/xagent-nanagement.c: add new SSA dialogs to Global Zone White list
+	Fixes bugster: 6495523
+	Also update ENV to use nimbus instead of blueprint in apps spawned from
+	xagent.
+
+2006-11-10  Niall Power <niall.power@sun.com>
+
+	* src/xagent-management.c: connect up the role_changed callback so
+	workspace role changes always get handled. Fixes 6492388
+
+2006-09-18  Stephen Browne <stephen.browne@sun.com>
+
+	* src/xagent-management.c: add GTK2_RC_FILE env var so apps launched 
+	pick up blueprint as their gtk theme. Fixes 6471927
+
+2006-09-12 Niall Power <niall.power@sun.com>
+
+	* src/tsol-user.c src/ui-controller.c src/ui-controller.h src/ui-view.c:
+	  Create a global overide mechanism for displaying the trusted shield and
+	  trusted path in the window label stripe when the role auth dialog is
+	  mapped. Necessary because the dialog is system modal and prevents the
+	  stripe updating while the dialog is mapped. So we have to set it manually
+	  at the right moment. Fixes CR #6462970
+	* src/tsol-user.c: Handle the case of non existant roles being assigned
+	  to the user instead of crashing.
+
+2006-09-06 Erwann Chenede - <erwann.chenede@sun.com>
+
+        * src/ui-controller.c: hide the stripe when xscreensaver is running
+	* src/ui-view.c: enable properly XTSOLMakeTPWindow
+	fix for 6424818
+
+2006-08-29  Niall Power <niall.power@sun.com>
+
+	* src/menus.c: REcommit fix for 6462478. Until the rampart team
+	  decide amongst themselves whether dtpasswd is a suitable service
+	  name for us to use or not, or whether it makes sense to have 2
+	  pam.conf entries for the same thing makes sense - at least it
+	  will work this way.
+
+2006-08-29  Niall Power <niall.power@sun.com>
+
+	* src/menus.c: backout previous commit of fix for 6462478.
+	  Fix for the bug needs to come from SUNWtsr postinstall script.
+
+2006-08-29  Niall Power <niall.power@sun.com>
+
+	* src/menus.c: use "dtpasswd" as the PAM service name when changing
+	  password so that users without global zone clearance may change 
+	  password. Fixes bug #6462478
+
+2006-08-24  Stephen Browne <stephen.browne@sun.com>
+
+	* src/ui-controller.c: dont rely on the id of 
+	_NET_TRUSTED_ACTIVE_WINDOW to update the label for the current window. 
+	Instead use the atom for change notification only and just query the 
+	pointer and get frame child 
+
+2006-08-14  Stephen Browne <stephen.browne@sun.com>
+
+	* src/menus.c: delay updating the role label to make sure we dont use
+	the old username for widget space allocation calculations. Fixes 6424024
+
+2006-08-14  Stephen Browne <stephen.browne@sun.com>
+
+	* src/xagent-management.c: remove redundant privilege code
+
+2006-08-11 Yuriy Kuznetsov <Yuriy.Kuznetsov@Sun.COM>
+
+        * po/cs.po po/de.po po/es.po po/fr.po po/hu.po po/it.po 
+          po/ja.po po/ko.po po/pl.po po/pt_BR.po po/ru.po
+          po/sv.po po/zh_CN.po po/zh_HK.po po/zh_TW.po
+          fix for CR#6401835
+
+2006-08-11  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c: Fixes 6458533. also cleaned some code.
+
+2006-08-01  Stephen Browne <stephen.browne@sun.com>
+
+	* src/xagent-management.c: remove extra win privs from I set
+	This fixes 6421220 but unfortunatly exposes 6455516 which is much less
+	severe and can be fixed separately
+
+2006-07-20  Niall Power <niall.power@sun.com>
+
+	* src/menus.c: Fixed a number of multi-screen bugs in
+	  the role menu.
+
+2006-06-19  Stephen Browne <stephen.browne@sun.com>
+
+	* src/menus.c: added callback for help item
+	* src/ui-controller.[ch]: show help callback
+
+2006-06-15  Niall Power <niall.power@sun.com>
+
+	* Fixed incorrect month in previous 3 Changelog entries. Doh.
+	* src/menus.c: Make the change workspace label dialog always
+	  apply to it's originating workspace, regardless of what workspace
+	  it's actually on when the new label is applied. 
+
+2006-05-26  Stephen Browne <stephen.browne@sun.com>
+
+	* src/tsol-user.c: fixed spelling mistake in string for translation
+
+2006-05-25  Niall Power <niall.power@sun.com>
+
+	* src/menus.c: add Help menu item to Trusted Path menu.
+	* src/ui-controller.c, src/ui-view.c: Make "Trusted Path"
+	  strings localisable. Note: Passing around "Trusted Path"
+	  internally inside the application instead of using a real
+	  label is probably going to cause i18n problems also. Should
+	  be using ADMIN_LOW or ADMIN_HIGH internally unless it is
+	  going to be displayed to the user immediately.
+
+2006-05-25  Stephen Browne <stephen.browne@sun.com>
+
+	* Makefile.am: remove man page
+	* tsoljdstsripe.1: remove
+
+2006-05-22  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c: A proper fix to 6425300 which was caused by a
+	  fix to 6373870 by specify full path for the preferences in the table.
+	  Use dirname(3C) to check that the path is one of the system one,
+	  Use basename(3C) to strip down the program name before doing a compare.
+
+2006-05-17  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c: Fixed 6425300 which was caused by a
+	  fix to 6373870 by specify full path for the preferences in the table.
+
+2006-04-28  Niall Power <niall.power@sun.com>
+
+	* src/tsol-user.[ch]: Drop the password remembering feature
+	  for successfully authenticated roles. This is a security
+	  risk (despite the fact that TCDE does it). Instead remember
+	  if the role was successfully authenticated without remembering
+	  the actual authentication token.
+	* src/xagent-management.c: check for workspace switches to 
+	  non-authenticated role workspaces and prompt for authentication
+	  if necessary.
+
+2006-04-19  Niall Power <niall.power@sun.com>
+
+	* src/menus.c: fix up alignment of window titles in the dialog
+	  that pops up when user tries to assume a role on a busy 
+	  workspace. Labels are left now left aligned.
+
+2006-04-13  Niall Power <niall.power@sun.com>
+
+	* src/tsol-user.c: set the audit context to the role uid/gid
+	  for auditing failures from pam_acct_mgmt(). Use ADT_UPDATE
+	  instead of ADT_USER as per Gary Winiger's suggestion.
+
+2006-04-13  Niall Power <niall.power@sun.com>
+
+	* src/main.c src/menus.c src/test-constraint.c src/tsol-user.c
+	  src/ui-controller.c src/ui-view.c src/xagent-management.c
+	  src/xutils.c: passed C files through indent. Indent options:
+	  -bad -bap -br -bs -cdb -ce -d0 -eei -pcs
+
+2006-04-12  Niall Power <niall.power@sun.com>
+
+	* src/menus.c: plug a memory leak.
+	* src/tsol-user.[ch] Only user 1 audit session handle for the
+	  app and reset it's audit context as necessary.
+
+2006-04-12  Niall Power <niall.power@sun.com>
+
+	* src/menus.c: UI improvements to the dialog that pops up when
+	  you try to assume a role on a busy workspace. Displays window
+	  icons now. Needs some alignment work still.
+
+2006-04-07  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c: Cleaned up some using lint's report and 
+	  fixed 6373870.
+	* src/main.c: Cleaned up some using lint's report. 
+	* src/tsol-user.c: Cleaned up some using lint's report. 
+	* src/menus.c: Cleaned up some using lint's report. 
+	* src/ui-controller.c: Cleaned up some using lint's report. 
+	* src/ui-view.c: Cleaned up some using lint's report. 
+	* src/test-constraint.c: Cleaned up some using lint's report. 
+	Most of the cleanup were to removed unsed variables.
+
+2006-04-06  Niall Power <niall.power@sun.com>
+
+	* configure.in: add libbsm to the the XTSOL_LIBS link line.
+	* src/main.c: user GETTEXT_PACKAGE instead of hardcoding 
+	 "tsoljds-tstripe" as the app name.
+	* src/menus.c: Fix a bad label reference passed into the
+	  label builder so that it sets the initial label correctly.
+	  Fixed a spelling mistake in an error message.
+	* src/tsol-user.[ch]: Add auditing support for password change and
+	  role su events. Seems to be working, but waiting for feedback
+	  from Gary Winiger concerning several grey areas.
+	  Fortified the change password function to handle more errors
+	  and actually prompt for the current password first before 
+	  wiping it with the new one. Give up after 3 failed attempts.
+	* src/xagent-management.c: user GETTEXT_PACKAGE instead of 
+	  hardcoding application name.
+
+2006-03-31  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c: fix the other part of bug 6402088.
+	  Now tstripe take into consideration of defaultpriv in /etc/user_attr.
+	  Also clean up lots of g_print() statements.
+
+2006-03-31  Niall Power <niall.power@sun.com>
+
+	* src/xagent-management.c: fix label_changed_callback() so that it 
+	  doesn't call update_desktop_window() if the label change occured
+	  on a non active workspace.
+	 
+2006-03-21  Niall Power <niall.power@sun.com>
+
+	* src/menus.c src/xagent-management.c: compilation cleanups and
+	  removed erroneuous free()s of memory that didn't belong to us
+	  in the first place. Whoops.
+	* src/tsol-user.c src/tsol-user.h: modify prototypes of auth functions
+	  from char* to const char*.
+
+2006-03-20  Niall Power <niall.power@sun.com>
+
+	* src/menus.c: better pam error messages, handle PAM_ACCT_EXPIRED
+	  and unknown error cases for role authentication.
+
+2006-03-20  Niall Power <niall.power@sun.com>
+
+	* src/menus.c src/tsol-user.c src/tsol-user.h: pop up change
+	  password and role authentication dialogs on the correct screen.
+	* src/ui-view.c src/ui-controller.c: don't create the role 
+	  menu if the user isn't assigned any usable roles.
+	* src/menus.c src/ui-controller.c src/ui-controller.h 
+	  src/ui-view.h src/xagent-management.c src/xagent-management.h:
+	  Associate a persistent WnckScreen object for each stripe and
+	  reuse these instead of having to call wnck_screen_force_update()
+	  all over the place. Removed dead/unused code in
+	  src/xagent-management.c
+
+2006-03-19  Niall Power <niall.power@sun.com>
+
+	* src/menus.c: replace usage of deprecated libtsol functions 
+	  (stobsl, stoclear, bsltos) with newer equivalents 
+	  (str_to_label, label_to_str). Remove unused variables and
+	  plugged some memory leaks.
+
+	* src/main.c: check that tsoljds-stripe is not already running.
+	  Check that tsoljds-tstripe is running with "all" priviliges.
+	  Exit if either check fails. Compilation cleanups.
+
+2006-03-18  Niall Power <niall.power@sun.com>
+
+	* src/menus.c: imporove single label session support:
+	  enable/disable the workspace label change menu depending on
+	  the active workspace's label range.
+
+2006-03-15  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c: make sure role_user field is initialised
+	  either to TRUE or FALSE based on the check.
+
+2006-03-10  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c:  corrected the logic for working role user
+	  and also sessioning for starting up xagent in both GZ and LZ.
+
+2006-03-07  Stephen Browne - <stephen.browne@sun.com>
+
+	* Makefile.am: added man_MANS
+	* tsoljds-tstripe.1: added man page place holder
+
+2006-02-22 Erwann Chenede - <erwann.chenede@sun.com>
+
+	* src/ui-controller.c : fix for 6388827
+	  make sure the stripe window is a the top.
+	* ui-view.c, ui-view.h : set keep_below and keep_above for the 
+	  placehoder window and the stripe window.
+
+2006-02-20 Niall POwer <niall.power@sun.com>
+
+	* src/menus.c: fix bad return value check in add_role_to_acl().
+
+2006-02-20 Niall Power <niall.power@sun.com>
+
+	* src/menus.c: Prevent role switching until all windows are 
+	  removed from the active workspace. Tell user in dialog 
+	  what needs to be done (needs UI beautification). Use gettext
+	  message macro for UI messages strings.
+	* src/tsol-user.c: call pam_acct_mgmt() after pam_authenticate
+	  for proper authentication and invoke pam_chauthtok() if 
+	  pam_acct_mgmt() says the password has expired(). Use gettext
+	  message macro for UI messages strings.
+	* src/xagent-management.c: Use gettext macro for message strings.
+	
+2006-02-16  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c: Make gnome-font-properties per zone.
+
+2006-02-16  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c: Added code now to manage preferences
+	  launching for labels. Some preferences (typically) manage the
+	  machine/devices are always launched in TP and others are 
+	  lauched in per zone basis.
+
+2006-02-13 Niall Power <niall.power@sun.com>
+
+	* wrong year in previous change log entry. Doh.
+	* src/menus.c: use GNOME_STOCK_AUTHENTICATION for password icon.
+
+2006-02-13 Niall Power <niall.power@sun.com>
+
+	* src/menus.c: add menu icons for change password and allocate
+	  device. Waiting for clarification from Calum on what icon to
+	  use for query window label
+
+2006-02-13 Erwann Chenede - <erwann.chenede@sun.com>
+
+	* configure.in : added dependency to Xmu
+	* src/menus.c : enabled query window label popup
+	* src/ui-controller.c : finished window label popup handling
+	* src/ui-view.c : finished window label popup creation
+
+2006-02-10 Niall Power <niall.power@sun.com>
+
+	* src/menus.c: add callbacks to redraw workspace label on 
+	  workspace label change events.
+
+2006-02-10 Niall Power <niall.power@sun.com>
+
+	* src/xagent-management.c: #include "menus.h" to fix compilation
+	  warning
+	* src/ui-controller.c: fix blank role name condition.
+
+2006-02-10 Niall Power <niall.power@sun.com>
+
+	* src/menus.c: added workspace label changing support.
+	* src/menus.h: workspace menu prototypes added.
+	* src/tsol-user.h: added missing function protoype for User
+	  index searching.
+	* src/ui-controller.c : add menu for workspace label switching.
+
+2006-02-10 Erwann Chenede - <erwann.chenede@sun.com>
+
+	Refactored the UI code
+	* removed interface.[hc] and utils.[hc]
+	* replaced them with ui-view.[hc] and ui-controller.[hc]
+	* src/Makefile.am : added new files
+	* src/main.c : moved add UI setup/update code to ui-controller.[hc]
+	* src/menus.c : added hook for query window label popup
+	* src/xutils.c : moved X specific code from ui-controller.[hc] here
+
+2006-02-09 Erwann Chenede - <erwann.chenede@sun.com>
+	
+	Xmas spirit commit ;)
+
+	* src/interface.c src/interface.h :
+	  added icons to the role, workspace and window custom menu
+	  on the stripe
+	* src/main.c : updated custom menus dynamic size
+	* src/menus.c : fixed gtk warning
+	* src/pics.h : new inline icons
+	* src/utils.c src/utils.h : new support functions for 
+	  the icons.
+
+2006-02-09 Erwann Chenede - <erwann.chenede@sun.com>
+
+	* src/interface.c : fixed initial colorize crash. 
+	  Fixed role and trusted path menu width
+	* src/main.c, src/menus.c, src/utils.c, src/utils.h :
+	  implemented dynamic update of the role menu custom menu 
+	  on the stripe
+
+2006-02-09 Niall Power <niall.power@sun.com>
+
+	* src/menus.c: fix menu positioning function's horizontal
+	  positining.
+
+2006-02-09 Niall Power <niall.power@sun.com>
+
+	* src/menus.c: set the initial radio menu state to reflect
+	  the role of the active workspace on menu initialisation.
+	
+2006-02-09 Niall Power <niall.power@sun.com>
+
+	* src/tsol-user.c: abort if XTSOLgetWorkstatoinOwner returns
+	  a bad value and tell the user their environment is screwed up.
+
+2006-02-09 Niall Power <niall.power@sun.com>
+
+	* src/role-ui.[ch]: removed
+	* src/menus.[ch]: added. Provide trusted path and role menu
+	  functionality and a menu positioning function that seems to
+	  position the trusted path menu fine but the role menu too far
+	  right :-/
+	* src/tsol-user.[ch]: seperate User list initialisation out of
+	  role menu creation and provide a set of functions to find and
+	  index User structures. Removes lots of duplicated search loops.
+	* src/main.c: initialise User list in setup_trusted_stripes() and
+	  hook up trusted path and role menus.
+
+2006-02-09 Erwann Chenede - <erwann.chenede@sun.com>
+
+	* src/utils.c, src/interface.c : 
+	  don't assume libwnck return meaningful result all the time.
+
+2006-02-09 Erwann Chenede - <erwann.chenede@sun.com>
+
+	* src/utils.c : renamed HighlightStripe to CacheStripe 
+	  because of the integration of HighlightStripe in libgnometsol
+
+2006-02-08 Erwann Chenede - <erwann.chenede@sun.com>
+
+	* src/interface.c, src/interface.h : 
+	  rewrote the trusted panel to match Calum's design
+	* src/main.c : separated UI from xagent part a bit more
+	* src/pics.h src/utils.c src/utils.h : added support functions
+
+2006-02-02 Niall Power <niall.power@sun.com>
+
+	* src/xagent-management.c: Call set_tstripe_inheritable_to_basic();
+          in forked child process after _tstripe_solaris_setcred() so that
+	  xagents and nautilus inherit win_dac_read, win_dac_write etc..
+
+2006-02-02 Erwann Chenede - <erwann.chenede@sun.com>
+
+	* src/main.c: don't update the stripes if win id = 0
+	  to avoid Xserver crash.
+
+2006-01-27  Stephen Browne <stephen.browne@sun.com>
+
+	* src/xagent-management.c: registered label_changed callback for newly 
+	created workspaces.
+
+2006-02-01  Niall Power <niall.power@sun.com>
+
+	* src/tsol-user.c: Properly clean up memory in the conv_info_t
+	  structure.
+
+2006-02-01  Niall Power <niall.power@sun.com>
+
+	* src/tsol-user.h: prototype for _tstripe_solaris_chauthtok() added.
+	* src/tsol-user.c, src/role-ui.c: implement change password 
+	  functionality from trusted stripe menu. Change password dialog is
+	  effective for the role of the active workspace. Remembers changed
+	  passwords so reauthentication is not necessary next time the role
+	  is assumed.
+	  
+2006-01-31  Ghee Teo <ghee.teo@sun.com>
+
+	* src/main.c, src/xagent-management.c, src/xagent-management.h: Added
+	  _SAVE_LOCAL_ZONE_SESSION atom to decide whether to save session in
+	  local zones or not.
+
+2006-01-27  Niall Power <niall.power@sun.com>
+
+	* src/role-ui.c, src/tsol-user.c: Supply context specific information
+	  message into pam authenticaion conversation.
+
+2006-01-27  Niall Power <niall.power@sun.com>
+	* src/xagent-management.c: Add support for session restoration of role
+          workspaces including proper authentication. Drop invalid roles
+          from workspaces. Rename proxy_get_screen to something suitable
+	  for exporting in src/xagent-management.h.
+	* src/xagent-management.h: add xagent_mgmt_get_wnck_screen ()
+	* src/role-ui.c: Refactor the role authentication code into 2 new
+	  functions that can be called from xagent-managemnt.c. Add function
+	  to allow workspace roles to be changed (this is not supported in
+	  libwnck because it can't assume proper authentication took place
+	  for the role.
+	* src/role-ui.h: define 2 new function prototypes..
+	  _tstripe_role_authentication_top_level ()
+	  _tstripe_set_workspace_role ()
+
+2006-01-27  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: updated version number
+
+2006-01-20  Stephen Browne <stephen.browne@sun.com>
+
+	* src/xagent-management.c: rewrote the code that indicates which copy 
+	of nautilus should render its desktop window at any given time 
+
+2005-12-09  Niall Power <niall.power@sun.com>
+
+	* src/interface.c, src/role-ui.c, src/tsol-user.c, src/tsol-user.h:
+	* Move the authentication dialog inside the PAM conversation 
+	  callback function.
+	* Create dialogs for all information and error messages from the PAM
+	  modules.
+	* Store passwords so that roles don't need to be authenticated with a
+	  password dialog more than once during the session.
+	* Provide some visual feedback to indicate that the role assumption
+	  succeeded.
+
+2005-12-09  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c: Do not exec tsoljds-xagent with
+	  --nosession option for role user.
+
+2005-12-06  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c: putenv PATH for local zone based on that
+	  set in /etc/default/login or limited to /usr/bin only.
+
+2005-12-06  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.[ch]: Cleaned up some of the code and reduced
+	  the use of wnck_screen_force_update () call to one per screen only.
+          Added check for return value for wnck_workspace_get_label().
+	* src/main.c: renamed the filter function.
+
+2005-12-05  Niall Power <niall.power@sun.com>
+
+	* src/role-ui.[ch]: removed std. gnome-password-dialog and replaced
+	  it with a custom dialog that locks out the screen until dismissed.
+
+2005-11-30  Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c: make proxy to launch app from applet
+	  with label on the right head. 
+
+2005-11-29 Niall Power <niall.power@sun.com>
+
+	* tsol_user.[ch] renamed to tsol-user.[ch]
+	* button.[ch] renamed to role-ui.[ch]
+	* role-ui.c: make the role menu and related UI multihead aware.
+
+2005-11-25 Niall Power <niall.power@sun.com>
+
+	* src/button.c: Assuming roles no longer creates a new workspace but
+	  now changes the role of the current workspace. Add menu item to
+	  allow the workspace role to be reset to the workstation owner.
+
+2005-11-21 Niall Power <niall.power@sun.com>
+
+	* src/pics.h, button.c: A nice hat icon for the role menus.
+	  Pop up an error dialog when role authentication fails.
+
+2005-11-21 Ghee Teo <ghee.teo@sun.com>
+
+	* configure.in,src/Makefile.am: rename tstripe to tsoljds-tstripe to
+	  make it consistent with the functional spec. More changes
+	  required.
+
+2005-11-21 Ghee Teo <ghee.teo@sun.com>
+
+	* src/xagent-management.c: Updated to fix global xagent from
+	  crashing and aslo not to start xagent when gloabl zone by
+	  passing an additional argument to tsoljds-xagent.
+
+2005-11-21 Ghee Teo <ghee.teo@sun.com>
+
+	* src/Makefile.am: rename tstripe to tsoljds-tstripe to
+	  make it consistent with the functional spec.
+
+2005-11-17 Niall Power - <niall.power@sun.com>
+
+  * Add pam credential setting before launching xagents
+  * Xagents now launched in global zone also (needed for
+    launcing with a role uid.
+  * Replace calls to getpwuid with reentrant versions (getpwuid_r)
+    to prevent all the xagent structures getting clobbered.
+  * Add role support to xagent-management.c. Still needs some work.
+    
+2005-11-16 Niall Power - <niall.power@sun.com>
+
+  * First cut at merging the component formerly known as tsoljds-proxy
+    Still a bit of cleaning up required but it workd for now.
+
+2005-10-18 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * configure.in: bumped version renamed tarball to match cvs module
+    name.
+
+2005-09-30 Stephen Browne <stephen.browne@sun.com>
+
+        * Makefile.am: dist bz2 instead of gz
+
+2005-09-23 Niall Power - <niall.power@sun.com>
+
+  * src/button.c: Fix some broken return value checks
+
+2005-09-23 Niall Power - <niall.power@sun.com>
+
+  * src/button.c: Added. Allows roles to be assumed via a menu
+  * src/button.h: Added.
+  * src/tsol_user.c: Added. PAM authentication routines.
+  * src/tsol_user.h: Added.
+  * src/xutils.c: Added. Taken from libwnck. Gets/sets window
+  * src/xutils.h: Added.
+  * src/interface.c: Add menu button for adding role functionality
+  * src/Makefile.am: Add new sources to build target
+  * configure.in: Add libpam and libsecdb to XTSOL_LIBS.
+
+2005-09-23 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * src/main.c: added session management and automatic restart
+
+2005-09-23 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * src/constraint-scaling.c: fixed colorized function
+  * src/interface.c: make the stripe a sticky window
+  * src/menuitem2.png: -> greyscale
+  * src/pics.h: -> greyscale

@@ -1,0 +1,27 @@
+set name=pkg.fmri value=pkg://solaris/network/rtorrent@0.9.6,5.11-11.4.0.0.1.14.0:20180814T170858Z
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.name value=rtorrent
+set name=org.opensolaris.consolidation value=userland
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.arc-caseid value=PSARC/2009/336
+set name=com.oracle.info.version value=0.9.6
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.upstream-url value=https://rakshasa.github.io/rtorrent/
+set name=com.oracle.info.tpno value=24573
+set name=pkg.summary value="rtorrent - a BitTorrent client for ncurses"
+set name=info.classification value=org.opensolaris.category.2008:Applications/Internet
+set name=info.source-url value=http://rtorrent.net/downloads/rtorrent-0.9.6.tar.gz
+set name=com.oracle.info.description value="the rtorrent BitTorrent client"
+depend fmri=pkg:/library/ncurses@6.0.0.20170708-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/libtorrent@0.13.6-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/system/library/gcc/gcc-c++-runtime@7.3.0-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/web/curl@7.60.0-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library/gcc/gcc-c-runtime@7.3.0-11.4.0.0.1.13.0 type=require
+file 8acfd70bb33bc06cac3ea6c53a1cdd50c88a2080 chash=9cf0abbe17348b935f4c1340453570809130b1da elfarch=sparc elfbits=64 elfhash=1c2da5ffa4a5b1d678ec8d1ff587e6ded9698bce group=bin mode=0555 owner=root path=usr/bin/rtorrent pkg.content-hash=gelf:sha512t_256:a4b3d8a3450dfe398dd00a427049b3fd4351869ec3ab61d0058ef3b866f7044e pkg.content-hash=gelf.unsigned:sha512t_256:8a108f771b8e13fd6fcfb6a901b485094be7b4f6c9e4bf9dcca6cd82f1187ec4 pkg.content-hash=file:sha512t_256:87eaea7b4e1f99d711ff39e3d10fdd91b516e49338dd9fe4132552a622ba9e3b pkg.content-hash=gzip:sha512t_256:72c89d8e8a8585446b6cf4fd6a97ba6e38a4eac36d59cf4fdb26b5e2d343055f pkg.csize=685942 pkg.size=2384184 variant.arch=sparc
+file baeef9ef45f0b169590997329dda31b394e8d447 chash=2e20709df70dcaa55fc0cc2fc5e5d4750a54c7f9 elfarch=i386 elfbits=64 elfhash=5a714c2a882d27411fe909700f8961cc2d5319ef group=bin mode=0555 owner=root path=usr/bin/rtorrent pkg.content-hash=gelf:sha512t_256:e19d1ed8f92f904cb211ab0876fe58f56fdc5c603d6da4a4793b6a08a68c0ea2 pkg.content-hash=gelf.unsigned:sha512t_256:6c8305435a0a7199926be0f555a60516d2df6cf07591a3d02d8f51f10b1852f3 pkg.content-hash=file:sha512t_256:ba8a86a42e62cd9a6da9bf526330b9ee51168654c30521f4fdda946298fcbe78 pkg.content-hash=gzip:sha512t_256:34b2aeb0c9cab340f37d6dbefd8be855d4a12cadce80f81463f1926333d4f4e5 pkg.csize=709537 pkg.size=2465608 variant.arch=i386
+file a8a618c75ffdb1abaea14bc5162b905dfbadca3e chash=9a36181ff1c5a923f7bda0c3b54c8caf4481631e facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/rtorrent.1 pkg.content-hash=file:sha512t_256:3d5478aae20c6ef596cb9fdd895de9c34f0dc3228e48a8290386430e761c1280 pkg.content-hash=gzip:sha512t_256:99b6d2467a87b8f6afae6c784ba52f7220e03ba115fd08a67be1fe71a1e629c2 pkg.csize=6552 pkg.size=17772
+license 569cc97e44f274a061ec25cf4fa69572ad06fd65 chash=ff0c4692e7fc813f1e400740907f5594a437a47f license=GPLv2 pkg.content-hash=file:sha512t_256:3a2f359e51af49d76490a0370067cd7b7d54bac6e8d3c85f49320afdedf2f046 pkg.content-hash=gzip:sha512t_256:35352fe8e587c73106e0ffb91e1cb68f2b23bdeae97edcf5b694852a99942b4e pkg.csize=6837 pkg.size=18102
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=193b7b8ee7aceb4c3b268bd1c97bd0951c2fb961dd9e89d9fc5375a9c6f4c61fedae37641c39d2e16f8a445715879decde86cff0b7928c95630e9809f8915c39b923d06f48a0c35d75b7d1c6a20248eed338ecfb3f58a82c0ca19d6401222dcf807249d0954c320f74ab8471a8191e1dadd02f518dc5f3562f835e5c6a6216f654a6ea69424137a0f19f50c12c2476e766806ee341f3d70364a0ed39691522cbf1cbb1f1334b81e85d5f667fbb1f7aeba196c5e4dfa046aa6f999da8432c5526cda767e58af514103a9546254949f4b8c60c7ec80039b9ddb0d2a179fc5293dec71118855031df545479d2f7eb5920e9836ebf8168e54c88403483e8ae154940 version=0

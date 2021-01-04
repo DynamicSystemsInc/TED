@@ -1,0 +1,114 @@
+gmake: Entering directory '/ws/userland/src/components/autoconf-213'
+/bin/rm -f -r /ws/userland/src/components/autoconf-213/autoconf-2.13
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  autoconf-2.13.tar.gz
+/usr/bin/touch /ws/userland/src/components/autoconf-213/autoconf-2.13/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/autoconf-213/autoconf-2.13 --strip=1 --backup --version-control=numbered < patches/01-install.patch
+patching file Makefile.in
+/usr/bin/touch /ws/userland/src/components/autoconf-213/autoconf-2.13/.patched-01-install.patch
+/usr/bin/patch -d /ws/userland/src/components/autoconf-213/autoconf-2.13 --strip=1 --backup --version-control=numbered < patches/02-test-cache.patch
+patching file testsuite/config/unix.exp
+Hunk #1 succeeded at 101 with fuzz 2.
+/usr/bin/touch /ws/userland/src/components/autoconf-213/autoconf-2.13/.patched-02-test-cache.patch
+/usr/bin/touch /ws/userland/src/components/autoconf-213/autoconf-2.13/.patched
+/usr/bin/touch /ws/userland/src/components/autoconf-213/autoconf-2.13/.prep
+(/bin/rm -f -rf /ws/userland/src/components/autoconf-213/build/i386 ; /bin/mkdir -p /ws/userland/src/components/autoconf-213/build/i386)
+(/ws/userland/src/tools/cloney /ws/userland/src/components/autoconf-213/autoconf-2.13 /ws/userland/src/components/autoconf-213/build/i386)  
+symlink cloning /ws/userland/src/components/autoconf-213/autoconf-2.13 to /ws/userland/src/components/autoconf-213/build/i386
+(cd /ws/userland/src/components/autoconf-213/build/i386 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/pkgconfig" CC="/opt/solarisstudio12.4/bin/cc" CXX="/opt/solarisstudio12.4/bin/CC"  CC_FOR_BUILD="/opt/solarisstudio12.4/bin/cc -m32" CXX_FOR_BUILD="/opt/solarisstudio12.4/bin/CC -m32" CPPFLAGS="-m32" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m32 -xO4 -xchip=pentium -xregs=no%frameptr -mt" CXXFLAGS="-norunpath -m32 -xO4 -xchip=pentium -xregs=no%frameptr" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/autoconf-213/autoconf-2.13/configure --program-suffix=-2.13 --datadir=/usr/share/autoconf-2.13 --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib   )
+creating cache ./config.cache
+checking for gm4... /usr/bin/gm4
+checking for mawk... no
+checking for gawk... gawk
+checking for perl... /usr/bin/perl
+checking for a BSD compatible install... /usr/bin/ginstall -c
+updating cache ./config.cache
+creating ./config.status
+creating Makefile
+creating testsuite/Makefile
+/usr/bin/touch /ws/userland/src/components/autoconf-213/build/i386/.configured
+(cd /ws/userland/src/components/autoconf-213/build/i386 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=disable -zsx=nxstack=disable -zsx=nxheap=disable " LD_PIE_OPTIONS="-zsx=aslr=disable -zsx=nxstack=disable -zsx=nxheap=disable "  PKG_CONFIG_PATH="/usr/lib/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/autoconf-213/build/i386'
+rm -f autoconf autoconf.tmp
+sed -e 's,@''datadir''@,/usr/share/autoconf-2.13/autoconf,g' -e 's,@''M4''@,/usr/bin/gm4,g'  -e 's,@''AWK''@,gawk,g' -e 's,@''SHELL''@,/bin/bash,g' autoconf.sh > autoconf.tmp && chmod +x autoconf.tmp && mv autoconf.tmp autoconf
+rm -f autoheader autoheader.tmp
+sed -e 's,@''datadir''@,/usr/share/autoconf-2.13/autoconf,g' -e 's,@''M4''@,/usr/bin/gm4,g'  -e 's,@''AWK''@,gawk,g' -e 's,@''SHELL''@,/bin/bash,g' autoheader.sh > autoheader.tmp && chmod +x autoheader.tmp && mv autoheader.tmp autoheader
+rm -f autoreconf autoreconf.tmp
+sed -e 's,@''datadir''@,/usr/share/autoconf-2.13/autoconf,g' -e 's,@''M4''@,/usr/bin/gm4,g'  -e 's,@''AWK''@,gawk,g' -e 's,@''SHELL''@,/bin/bash,g' autoreconf.sh > autoreconf.tmp && chmod +x autoreconf.tmp && mv autoreconf.tmp autoreconf
+rm -f autoupdate autoupdate.tmp
+sed -e 's,@''datadir''@,/usr/share/autoconf-2.13/autoconf,g' -e 's,@''M4''@,/usr/bin/gm4,g'  -e 's,@''AWK''@,gawk,g' -e 's,@''SHELL''@,/bin/bash,g' autoupdate.sh > autoupdate.tmp && chmod +x autoupdate.tmp && mv autoupdate.tmp autoupdate
+rm -f ifnames ifnames.tmp
+sed -e 's,@''datadir''@,/usr/share/autoconf-2.13/autoconf,g' -e 's,@''M4''@,/usr/bin/gm4,g'  -e 's,@''AWK''@,gawk,g' -e 's,@''SHELL''@,/bin/bash,g' ifnames.sh > ifnames.tmp && chmod +x ifnames.tmp && mv ifnames.tmp ifnames
+rm -f autoscan autoscan.tmp
+sed -e 's,@''datadir''@,/usr/share/autoconf-2.13/autoconf,g' -e 's,@''PERL''@,/usr/bin/perl,g' autoscan.pl > autoscan.tmp && chmod +x autoscan.tmp && mv autoscan.tmp autoscan
+freezing autoconf.m4
+freezing autoheader.m4
+make[1]: Leaving directory '/ws/userland/src/components/autoconf-213/build/i386'
+/usr/bin/touch /ws/userland/src/components/autoconf-213/build/i386/.built
+(cd /ws/userland/src/components/autoconf-213/build/i386 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=disable -zsx=nxstack=disable -zsx=nxheap=disable " LD_PIE_OPTIONS="-zsx=aslr=disable -zsx=nxstack=disable -zsx=nxheap=disable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/autoconf-213/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/autoconf-213/build/i386'
+/bin/bash /ws/userland/src/components/autoconf-213/autoconf-2.13/mkinstalldirs /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/bin /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/info /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/share/autoconf-2.13/autoconf
+mkdir /ws/userland/src/components/autoconf-213/build/prototype
+mkdir /ws/userland/src/components/autoconf-213/build/prototype/i386
+mkdir /ws/userland/src/components/autoconf-213/build/prototype/i386/usr
+mkdir /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/bin
+mkdir /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/info
+mkdir /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/share
+mkdir /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/share/autoconf-2.13
+mkdir /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/share/autoconf-2.13/autoconf
+if test -f autoconf.info; then \
+  for i in *.info*; do \
+    /usr/bin/ginstall -c -m 644 $i /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/info/$i; \
+  done; \
+else \
+  for i in /ws/userland/src/components/autoconf-213/autoconf-2.13/*.info*; do \
+    /usr/bin/ginstall -c -m 644 $i /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/info/`echo $i | sed 's|^/ws/userland/src/components/autoconf-213/autoconf-2.13/||'`; \
+  done; \
+fi
+for p in autoconf autoheader autoreconf autoupdate ifnames ; do \
+  /usr/bin/ginstall -c $p /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/bin/`echo $p|sed 's,$,-2.13,; '`; \
+done
+for i in autoconf.m4f autoheader.m4f; do \
+  /usr/bin/ginstall -c -m 644 $i /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/share/autoconf-2.13/autoconf/$i; \
+done
+for i in autoconf.m4 acgeneral.m4 acoldnames.m4 acspecific.m4 autoheader.m4 acconfig.h; do \
+  /usr/bin/ginstall -c -m 644 /ws/userland/src/components/autoconf-213/autoconf-2.13/$i /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/share/autoconf-2.13/autoconf/$i; \
+done
+if test -f autoscan; then \
+/usr/bin/ginstall -c autoscan /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/bin/`echo autoscan|sed 's,$,-2.13,; '`; \
+for i in acfunctions acheaders acidentifiers acprograms \
+  acmakevars; do \
+/usr/bin/ginstall -c -m 644 /ws/userland/src/components/autoconf-213/autoconf-2.13/$i /ws/userland/src/components/autoconf-213/build/prototype/i386/usr/share/autoconf-2.13/autoconf/$i; \
+done; \
+else :; fi
+make[1]: Leaving directory '/ws/userland/src/components/autoconf-213/build/i386'
+/usr/bin/touch /ws/userland/src/components/autoconf-213/build/i386/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 autoconf.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=2\\.13 -D COMPONENT_RE_VERSION=2\\.13 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/autoconf-213 -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="34462" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="2.13" -D IPS_COMPONENT_VERSION="2.13" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz" -D COMPONENT_PROJECT_URL="https://www.gnu.org/software/autoconf" -D COMPONENT_NAME="autoconf" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" autoconf.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/autoconf-213/build/manifest-i386-autoconf.mogrified
+/bin/mkdir -p /ws/userland/src/components/autoconf-213/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/autoconf-213/build/prototype/i386/mangled -d /ws/userland/src/components/autoconf-213/build/prototype/i386/mangled -d /ws/userland/src/components/autoconf-213/build/prototype/i386 -d /ws/userland/src/components/autoconf-213/build -d /ws/userland/src/components/autoconf-213 -d autoconf-2.13 -d /ws/userland/src/licenses -m /ws/userland/src/components/autoconf-213/build/manifest-i386-autoconf.mogrified >/ws/userland/src/components/autoconf-213/build/manifest-i386-autoconf.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/autoconf-213/build/prototype/i386/mangled -d /ws/userland/src/components/autoconf-213/build/prototype/i386 -d /ws/userland/src/components/autoconf-213/build -d /ws/userland/src/components/autoconf-213 -d autoconf-2.13 -d /ws/userland/src/licenses /ws/userland/src/components/autoconf-213/build/manifest-i386-autoconf.mangled >/ws/userland/src/components/autoconf-213/build/manifest-i386-autoconf.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/autoconf-213/build/resolve.deps -m /ws/userland/src/components/autoconf-213/build/manifest-i386-autoconf.depend
+/usr/bin/touch /ws/userland/src/components/autoconf-213/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/autoconf-213/build/manifest-i386-autoconf.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/autoconf-213/build/prototype/i386/mangled /ws/userland/src/components/autoconf-213/build/prototype/i386 /ws/userland/src/components/autoconf-213/build /ws/userland/src/components/autoconf-213 autoconf-2.13 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/autoconf-213/build/manifest-i386-autoconf.depend.res
+/usr/bin/touch /ws/userland/src/components/autoconf-213/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/autoconf-213/build/prototype/i386/mangled -d /ws/userland/src/components/autoconf-213/build/prototype/i386 -d /ws/userland/src/components/autoconf-213/build -d /ws/userland/src/components/autoconf-213 -d autoconf-2.13 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/autoconf-213/build/manifest-i386-autoconf.depend.res
+pkg://nightly/developer/build/autoconf-213@2.13,5.11-11.4.0.0.1.14.0:20190727T165004Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/autoconf-213/build/manifest-i386-autoconf.depend.res >/ws/userland/src/components/autoconf-213/build/manifest-i386-autoconf.published
+/usr/bin/touch /ws/userland/src/components/autoconf-213/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/autoconf-213'
+
+real        5.0
+user        2.3
+sys         1.1

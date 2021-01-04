@@ -1,0 +1,33 @@
+set name=pkg.fmri value=pkg://solaris/desktop/window-manager/twm@1.0.9,5.11-11.4.0.0.1.14.0:20180814T160906Z
+set name=variant.arch value=i386 value=sparc
+set name=pkg.summary value="twm - Tab Window Manager for the X Window System"
+set name=com.oracle.info.name value=twm
+set name=com.oracle.info.description value="the Tab Window Manager (twm)"
+set name=pkg.description value="Twm is a simple window manager for the X Window System.  It provides titlebars, shaped windows, several forms of icon management, user-defined macro functions, click-to-type  and pointer-driven  keyboard  focus,  and user-specified key and pointer button bindings."
+set name=com.oracle.info.tpno value=39514
+set name=org.opensolaris.arc-caseid value=PSARC/1992/173
+set name=info.source-url value=https://www.x.org/releases/individual/app/twm-1.0.9.tar.bz2
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=com.oracle.info.version value=1.0.9
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=info.upstream-url value=https://www.x.org
+depend fmri=pkg:/x11/library/libxmu@1.1.2-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/toolkit/libxt@1.1.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libx11@1.6.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libice@1.0.9-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libxext@1.3.3-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/terminal/xterm type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/font/xorg/xorg-core type=require
+depend fmri=pkg:/x11/library/libsm@1.2.2-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/data/xbitmaps type=require
+file 1d8a62ff37704bb6716ece5ab216be3d750f9516 chash=0c17c81c6410cf2d578d4a09486987eaf0cc01f6 elfarch=i386 elfbits=64 elfhash=c25a86de6f3015902bf8cbfde7981e7f3eb8828e group=bin mode=0555 owner=root path=usr/bin/twm pkg.content-hash=gelf:sha512t_256:336f7ad84683cf5cb7a393341da93d16467a1158052e1a1b95c5045d45493737 pkg.content-hash=gelf.unsigned:sha512t_256:44b8257a8f14e02ba17cf1d98c4cdba074cbcae7b16f3b9a4a775679d722babd pkg.content-hash=file:sha512t_256:b4cbb1211ce2337f259c3d9a88b134b736f61e8a4643857e3f3c3f7ec519e304 pkg.content-hash=gzip:sha512t_256:3521072f591bc90ca8bf989b1e790a2d35234d91df622c1ba036f03ddaebcc69 pkg.csize=126160 pkg.size=334400 variant.arch=i386
+file b1ea01db5d39c067b7ca49ec29aa8621333a742a chash=34d8d5b2185d23ac5e23540485866095bef9636e group=bin mode=0444 owner=root path=usr/share/X11/twm/system.twmrc pkg.content-hash=file:sha512t_256:9141a85d2c576405893d3d5e72ef745c78bea3a22454c4a0da9be8c278a03eac pkg.content-hash=gzip:sha512t_256:1646e8e8e5c2dc612d3bd025e3375b80d005afd1fd6a220cf7738513d4102d51 pkg.csize=942 pkg.size=2419
+file 233a64b2bde7b7d19924d7a82e578e03057b5e8d chash=10cffe8d08c2e283c7d77e98a7206e2c90c003fb elfarch=sparc elfbits=64 elfhash=815a9aa3db849611b4b7ef4fe07ed512a0009365 group=bin mode=0555 owner=root path=usr/bin/twm pkg.content-hash=gelf:sha512t_256:0315dfaf3d5b790bdc4215d6960981f70c6c3e725c1a76e0e4ee70d9fe93f656 pkg.content-hash=gelf.unsigned:sha512t_256:2d495f470d309b1fa12d4c939d864e184ddeae87377cf5231d9748fa81e47446 pkg.content-hash=file:sha512t_256:78935b12bcad66f2f2abb3b5061c22e6878f915c4df173179786336ac52fcd05 pkg.content-hash=gzip:sha512t_256:be92329cf91f9a9a3625c388ddc1afde935613c89b80c07c9b3d03b79571a573 pkg.csize=141868 pkg.size=315824 variant.arch=sparc
+file 3ac137b2f7c3c41592c00fb921f8b7c284015789 chash=887b6812e8d6e263d10fc5bfa7176aabcea17e75 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/twm.1 pkg.content-hash=file:sha512t_256:1baa90e5c55f4612cd52e719036fc2a43925b68a42e63ba82769b51a1a2b99c5 pkg.content-hash=gzip:sha512t_256:70b23d04cb4d059b325c2bea56321ebb22dacf682cbb22a378425f8c170552d2 pkg.csize=17961 pkg.size=63309
+link path=usr/X11/bin/twm target=../../bin/twm
+license 922e3ebe82d80cae2f6c89bbb065ae455d0265b6 chash=f38b7b3ff8d89964f2895f8372013a9d2c91733b license=MIT pkg.content-hash=file:sha512t_256:8c3d79ca050fcd18b11bf7574c1552e7a6840649d4b13bcc19a47a57cfaaa519 pkg.content-hash=gzip:sha512t_256:28d4673ca160d69e5329853ee66a6b9ee54260f2978364207ba77e46a5fc2438 pkg.csize=1339 pkg.size=3649
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=8bf6ad737fe3b3fff2227f8d34bac0d890ae0cc09fef2a1a94826a4c27b38cbc39865fccb5f0b705d6a998634668f857fd409954d6eb0efddf93017c93a2a178f711c38935a31657eeb07991d72b7117c616258f3bfbbd94031e07e90dd650dc65388039283f914550e468607fd6b779af1951ebd5dee417840e6d2ae86b252a5201337330f1136c9c3855f3b070109d105c47b4f02d5327069a115e0faa499814cd8285e11c6b7a296c0f2bfbe1e3430df4c1dffb0ab0ae5e9965e33bcd6a5b4eb2934b2e5a250a1723f9efafeaf2172c265ad41be182e5d8211d0b1f0f44bb7befaa9af896a59be214414cd9bb66a1304fd0bc55b986cb8f6108c2f7470d07 version=0

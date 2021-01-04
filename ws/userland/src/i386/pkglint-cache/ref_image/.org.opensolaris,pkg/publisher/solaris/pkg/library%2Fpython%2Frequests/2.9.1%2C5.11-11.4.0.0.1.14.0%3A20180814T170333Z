@@ -1,0 +1,21 @@
+set name=pkg.fmri value=pkg://solaris/library/python/requests@2.9.1,5.11-11.4.0.0.1.14.0:20180814T170333Z
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=info.classification value=org.opensolaris.category.2008:Development/Python value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
+set name=org.opensolaris.arc-caseid value=PSARC/2013/255
+set name=com.oracle.info.version value=2.9.1
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=info.upstream-url value=http://python-requests.org/
+set name=info.source-url value=pypi:///requests==2.9.1
+set name=com.oracle.info.description value="the Python requests module"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.upstream value="Kenneth Reitz <me@kennethreitz.com>"
+set name=com.oracle.info.name value=requests
+set name=pkg.description value="Requests is a HTTP library, written in Python, for human beings.  Requests takes all of the work out of Python HTTP/1.1 - making integration with web services seamless. There's no need to manually add query strings to URLs, or to form-encode POST data. Headers, form data, multipart files, and parameters can be added using simple Python dictionaries, and the response data can be accessed in the same way.  Keep-alive and HTTP connection pooling are 100% automatic."
+set name=org.opensolaris.consolidation value=userland
+set name=pkg.summary value="Python HTTP for Humans"
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/python-2/requests@1.2.3,5.12-5.12.0.0.0.41.0 type=optional
+depend fmri=library/python/requests-34@2.9.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/requests-35@2.9.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python/requests-27@2.9.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=29cce4d08c482a956137298ac124879f371e038f458e58e18f3ce92ff27ff26fe280df2a7d0fcf707a2c85ea0bdfbc4e251f006c3e898b7b0e11da6e13461d122ee9b78b769ecb6b523a343897556b39939b6287d99816fe92beed443ff9fe0cd75c0c49259aed2136820d19098b6c3879c9a7a2bab9e7e418f927bfa5567a071f1d860f4451477a329619b37ea1bbf409cc0e4cfd56513ce476a5b96fda6971e36c020bb600a2c44eb1f0f6af8f91f62d35a187c88b05a7a67a1ff4618050beb7f1e4b48a72a4d383e01e92a85e8ed23f5238e2559d9e2ba44c9d040500cea4613272a9018cda4412a299c2cf7fe891f48f95f988ab80d897b12b7def17d8f2 version=0

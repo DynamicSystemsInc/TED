@@ -1,0 +1,21 @@
+set name=pkg.fmri value=pkg://solaris/library/python/simplejson@3.6.5,5.11-11.4.0.0.1.14.0:20180814T170420Z
+set name=variant.arch value=i386 value=sparc
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.version value=3.6.5
+set name=com.oracle.info.name value=simplejson
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=com.oracle.info.description value="the JSON encoder/decoder for Python"
+set name=pkg.summary value="JSON (JavaScript Object Notation) encoder/decoder for Python"
+set name=info.source-url value=https://pypi.python.org/packages/source/s/simplejson/simplejson-3.6.5.tar.gz
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.description value="The simplejson module is a simple, fast, complete, correct, and extensible JSON encoder and decoder for Python. The encoder can be specialized to provide serialization in any kind of situation, without any special support by the objects to be serialized (somewhat like pickle). The decoder can handle incoming JSON strings of any specified encoding (UTF-8 by default). It can also be specialized to post-process JSON objects, which is particularly useful for implementing protocols such as JSON-RPC that have a richer type system than JSON itself."
+set name=info.upstream-url value=http://undefined.org/python/
+set name=org.opensolaris.arc-caseid value=LSARC/2008/722
+depend fmri=library/python/simplejson-27@3.6.5,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+depend fmri=library/python/simplejson-34@3.6.5,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python-2/simplejson@2.1.2,5.12-5.12.0.0.0.41.0 type=optional
+depend fmri=library/python/simplejson-35@3.6.5,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend facet.version-lock.library/python/simplejson=true fmri=consolidation/desktop/desktop-incorporation@5.12-5.12.0.0.0.14.0 type=optional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=b2d70f3447f67907f0e17f684e233e0523277557f8e3d0e61508c7212649dfe05fb7dce6280cfd9b90b177fbb68eca0c42c3de542d1666493c19bb010e640de1514b3660224c8b31d4e1c251534667e167b06cff2ff0340dd14c245273bec54a79c30b46ffc1df1e645d47d7fac855387a49906caf67dd927233e17b7575365c5884f8484d7a8706c740602a38e4cb237c7db00e3509a85203f02541f91e209a0b2f6c542bced2746ce67499a108d63b5ccbc44f8fe6578fcabc28e8bdc93c62bd21e3344b0ef49a872f41d1e2612e28d827de444eefe9cca6b85d6285db2b5213f62d9563f72f572b057770f10eac01ac4418e0d40a01bd04f3877824ccee96 version=0

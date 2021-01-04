@@ -1,0 +1,41 @@
+set name=pkg.fmri value=pkg://solaris/system/security/kerberos-5@11.4,5.11-11.4.0.0.1.15.0:20180817T003427Z
+set name=pkg.summary value="Kerberos V5 master Key Distribution Center (KDC) (1.8.3)"
+set name=info.classification value=org.opensolaris.category.2008:System/Security
+set name=pkg.description value="The Kerberos service is a client-server architecture that provides secure transactions over networks and offers strong, single sign-on user authentication, as well as integrity and privacy.  The server package provides for the administration of Kerberos principals, policies, and service key tables (keytabs).  It can also be used to configure master and slave Key Distribution Centers (KDCs)."
+set name=info.upstream value="MIT Kerberos Consortium"
+set name=info.upstream-url value=http://web.mit.edu/kerberos/
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=variant.debug.osnet value=true value=false
+set name=variant.arch value=sparc value=i386
+depend fmri=pkg:/system/library/security/rpcsec type=require
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=pkg:/network/ping type=require
+depend fmri=pkg:/security/kerberos-5/kdc type=require
+depend fmri=pkg:/shell/ksh93@93.21.1.20120801-11.4.0.0.1.14.0 type=require
+dir group=sys mode=0755 owner=root path=etc
+dir group=sys mode=0755 owner=root path=etc/inet
+dir group=sys mode=0755 owner=root path=etc/krb5 revert-tag=system:clone=*
+dir group=bin mode=0755 owner=root path=lib/svc
+dir group=sys mode=0755 owner=root path=lib/svc/manifest
+dir group=sys mode=0755 owner=root path=lib/svc/manifest/network
+dir group=sys mode=0755 owner=root path=lib/svc/manifest/network/security
+dir group=sys mode=0755 owner=root path=usr
+dir group=bin mode=0755 owner=root path=usr/sbin
+dir group=sys mode=0755 owner=root path=usr/share
+dir group=sys mode=0755 owner=root path=usr/share/lib
+dir group=sys mode=0755 owner=root path=usr/share/lib/ldif
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man8
+dir group=sys mode=0755 owner=root path=var
+dir group=sys mode=0755 owner=root path=var/krb5
+file 76e322755cb66365ad49b2eed7169aec520740a5 chash=837291bb356b5777657a1b1eeca23b2a5dace6ff group=sys mode=0644 original_name=SUNWkdc:etc/krb5/kadm5.acl overlay=allow owner=root path=etc/krb5/kadm5.acl pkg.content-hash=file:sha512t_256:d3e45738197387cd66fff3307f2d1c5f92bd5f4582dc3b143f3c49ac60e80204 pkg.content-hash=gzip:sha512t_256:334e4a3c31cba1af93df8177a5a6e748cb5ac60fb1eb15f18ff2f20538fdb618 pkg.csize=163 pkg.size=168 preserve=renamenew
+file 329789435221fde7332bc016bb175da2207b7180 chash=0ed669939f95b1de65a4600fcbb73728ad73831d facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man8/kdcmgr.8 pkg.content-hash=file:sha512t_256:a2c09f951f30515c202d6de833e84a5f8b25bd5eee9d03a48218da0de20a86ef pkg.content-hash=gzip:sha512t_256:dac90e7f883d0a653d9f0f432faa02e3237724633cda9938386f8b2cca6f97db pkg.csize=2895 pkg.size=8775
+file 3cf4388dd2c64d0975a86748711f59d64af4126b chash=9a47dddae043d3fc59cae37f637cacdf7e82f90a group=sys mode=0644 original_name=SUNWkdc:etc/krb5/kdc.conf overlay=allow owner=root path=etc/krb5/kdc.conf pkg.content-hash=file:sha512t_256:dee95899cc6cc2309dec5a27c00f46cbce67167a6040f31a0fd77157b44be32a pkg.content-hash=gzip:sha512t_256:b2562430e8bbaca196de835b7568f7d3bb666997235eea8a7c9e0b131804e415 pkg.csize=260 pkg.size=371 preserve=renamenew revert-tag=system:clone
+file d47f9d295b1132f90ea1ee7a7ce22d54a54f21d7 chash=822fb9760c8b6a72bc45503345dfd7a9a0aebb4b group=sys mode=0644 original_name=SUNWkdc:etc/krb5/kpropd.acl overlay=allow owner=root path=etc/krb5/kpropd.acl pkg.content-hash=file:sha512t_256:35bdce247b12a096c5dc2c88d108b7213cdf26fe3c23527631426fbcccce20fb pkg.content-hash=gzip:sha512t_256:509600d92c71fe5d5b1d95daee96c31a6d75b58dd2ab5cbecf132b3ecfc5efbe pkg.csize=141 pkg.size=137 preserve=renamenew
+file f00407db748c0cd1db9a82591916049c572d5b1a chash=023bf12af2f07a9f7ff5041b7fd62279e45e77ff group=bin mode=0555 owner=root path=usr/sbin/kdcmgr pkg.content-hash=file:sha512t_256:4716284b9a25718904415c1ca11e4cdf2591c044b49913f5f95e355399b80c71 pkg.content-hash=gzip:sha512t_256:43f611d8990ae4312c92c2e382deada168646ffba17dcc636c9d5cd54d5e18ad pkg.csize=5424 pkg.size=18687
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+legacy arch=i386 category=system desc=" Kerberos V5 Master KDC (user)" hotline="Please contact your local service provider" name="Kerberos V5 Master KDC (user)" pkg=SUNWkdcu variant.arch=i386 vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+legacy arch=i386 category=system desc="Kerberos V5 KDC (root)" hotline="Please contact your local service provider" name="Kerberos V5 KDC (root)" pkg=SUNWkdcr variant.arch=i386 vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+legacy arch=sparc category=system desc="Kerberos V5 KDC (root)" hotline="Please contact your local service provider" name="Kerberos V5 KDC (root)" pkg=SUNWkdcr variant.arch=sparc vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+legacy arch=sparc category=system desc=" Kerberos V5 Master KDC (user)" hotline="Please contact your local service provider" name="Kerberos V5 Master KDC (user)" pkg=SUNWkdcu variant.arch=sparc vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=660c6773078c19d804a91de48ed73a923533635f66d714b20ecb362b38410807b18eea2b742272db09252223d728c5504ab94b8d7444fc3f6aed76505e6d8eb86c8f8e86c906b25e5d3b993223aed8ac1bc43ae04ff53f147c6df76b3ab63940c89e5cc56738f1daf0acee0fe0efdec5e722530480f56f3f7b0394d540f1782213ab20c21cee1f48f46dc37f895d65661385efbecaa1dc59b62e7f156221a97ee619e4e4b14efed5f39d1b4b3dd1594e99ba0b14617e3a867d3a6db0504b7ca51be0a319fdb98088873465b2beee8b74cab4b987d242edcec73ad75be29ccdb1df2b43c2c1d2afc8a94a0fdfba2ec0eefb71aabf22dc893ed23bfc66d16db686 version=0

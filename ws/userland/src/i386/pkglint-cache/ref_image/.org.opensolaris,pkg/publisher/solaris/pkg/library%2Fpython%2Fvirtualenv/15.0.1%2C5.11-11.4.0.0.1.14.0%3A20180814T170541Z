@@ -1,0 +1,21 @@
+set name=pkg.fmri value=pkg://solaris/library/python/virtualenv@15.0.1,5.11-11.4.0.0.1.14.0:20180814T170541Z
+set name=com.oracle.info.version value=15.0.1
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=variant.arch value=i386 value=sparc
+set name=pkg.description value="virtualenv is a tool to create isolated Python environments. It creates an environment that has its own installation directories, that doesn't share libraries with other virtualenv environments (and optionally doesn't access the globally installed libraries either)."
+set name=com.oracle.info.name value=virtualenv
+set name=pkg.summary value="Virtual Python Environment builder"
+set name=info.upstream value=python-virtualenv@groups.google.com
+set name=org.opensolaris.consolidation value=userland
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=org.opensolaris.arc-caseid value=PSARC/2013/362
+set name=info.source-url value=pypi:///virtualenv==15.0.1
+set name=info.upstream-url value=https://github.com/pypa/virtualenv
+set name=com.oracle.info.description value="the Python virtualenv module"
+depend fmri=library/python-2/virtualenv@1.9.1,5.12-5.12.0.0.0.41.0 type=optional
+depend fmri=library/python/virtualenv-35@15.0.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python/virtualenv-34@15.0.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/virtualenv-27@15.0.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=8c6cd01d4b1c10fb0dc6b70d011f7d2704fd394bef90f7c1fb044b4b7773f21f8cb77a614b1e18c61a6b4a1433d6e143b77f0e442bbd05d1e2101ee284796562bddfd44103294ba7db668894ae595ef6be0838d634e2740c9409ecb7d34b1693949e7c47fc1f36b4451554a3ca5b62adcad736ea2bb9d9b7dc308d6b486a4903955b70fd85cac30776d27aed94f5e5188d2b77f5d27f12a67a7cedcc0d488485a4124b7a69667a7fbc1c751c15f4f36f2cb889e2593b6ae9de74c97f3186aff05ed12b41cd7719ae8b29510d5879e3da239d761654843df968d6c183cb7cdc201accb326732d739067ba0a5e6b25bb9cc7e0117a7a10461caadee7327976134e version=0

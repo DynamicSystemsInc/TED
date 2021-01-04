@@ -1,0 +1,380 @@
+gmake: Entering directory '/ws/userland/src/components/desktop/espeak'
+/bin/rm -f -r /ws/userland/src/components/desktop/espeak/espeak-1.44.05-source
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  espeak-1.44.05-source.zip
+/usr/bin/touch /ws/userland/src/components/desktop/espeak/espeak-1.44.05-source/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/desktop/espeak/espeak-1.44.05-source --strip=1 --backup --version-control=numbered < patches/01-wave_sada.patch
+patching file src/wave_sada.cpp
+/usr/bin/touch /ws/userland/src/components/desktop/espeak/espeak-1.44.05-source/.patched-01-wave_sada.patch
+/usr/bin/patch -d /ws/userland/src/components/desktop/espeak/espeak-1.44.05-source --strip=1 --backup --version-control=numbered < patches/02-sox.patch
+patching file src/readclause.cpp
+/usr/bin/touch /ws/userland/src/components/desktop/espeak/espeak-1.44.05-source/.patched-02-sox.patch
+/usr/bin/touch /ws/userland/src/components/desktop/espeak/espeak-1.44.05-source/.patched
+/usr/bin/touch /ws/userland/src/components/desktop/espeak/espeak-1.44.05-source/.prep
+/bin/rm -f -r /ws/userland/src/components/desktop/espeak/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/desktop/espeak/build/amd64
+/ws/userland/src/tools/cloney /ws/userland/src/components/desktop/espeak/espeak-1.44.05-source /ws/userland/src/components/desktop/espeak/build/amd64
+symlink cloning /ws/userland/src/components/desktop/espeak/espeak-1.44.05-source to /ws/userland/src/components/desktop/espeak/build/amd64
+(cd /ws/userland/src/components/desktop/espeak/build/amd64/src; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++" CFLAGS="-m64 -O3" CXXFLAGS="-m64 -O3 -fpermissive" LDFLAGS="" /usr/gnu/bin/make  AUDIO="sada" CC="/usr/gcc/7/bin/gcc" CFLAGS=" -m64  -O3     " CXX="/usr/gcc/7/bin/g++" CXXFLAGS="  -m64 -O3       -fpermissive" EXTRA_LIBS="-lm" )
+make[1]: Entering directory '/ws/userland/src/components/desktop/espeak/build/amd64/src'
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  speak.cpp
+speak.cpp: In function 'void DisplayVoices(std::FILE*, char*)':
+speak.cpp:160:6: warning: variable 'scores' set but not used [-Wunused-but-set-variable]
+  int scores = 0;
+      ^~~~~~
+speak.cpp: In function 'int main(int, char**)':
+speak.cpp:499:6: warning: unused variable 'speaking' [-Wunused-variable]
+  int speaking = 0;
+      ^~~~~~~~
+speak.cpp:506:7: warning: variable 'dictname' set but not used [-Wunused-but-set-variable]
+  char dictname[40];
+       ^~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  compiledict.cpp
+compiledict.cpp: In function 'int compile_line(char*, char*, int*)':
+compiledict.cpp:388:8: warning: variable 'comment' set but not used [-Wunused-but-set-variable]
+  char *comment;
+        ^~~~~~~
+compiledict.cpp: In function 'char* compile_rule(char*)':
+compiledict.cpp:1163:6: warning: variable 'pre_bracket' set but not used [-Wunused-but-set-variable]
+  int pre_bracket=0;
+      ^~~~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  dictionary.cpp
+dictionary.cpp: In function 'int Unpronouncable(Translator*, char*)':
+dictionary.cpp:797:7: warning: variable 'apostrophe' set but not used [-Wunused-but-set-variable]
+  int  apostrophe=0;
+       ^~~~~~~~~~
+dictionary.cpp: In function 'void SetWordStress(Translator*, char*, unsigned int*, int, int)':
+dictionary.cpp:1351:8: warning: variable 'prev_stressed' set but not used [-Wunused-but-set-variable]
+    int prev_stressed;
+        ^~~~~~~~~~~~~
+dictionary.cpp:1088:6: warning: variable 'post_tonic' set but not used [-Wunused-but-set-variable]
+  int post_tonic;
+      ^~~~~~~~~~
+dictionary.cpp: In function 'int TranslateRules(Translator*, char*, char*, int, char*, int, unsigned int*)':
+dictionary.cpp:2367:21: warning: variable 'c123' set but not used [-Wunused-but-set-variable]
+  unsigned int  c12, c123;
+                     ^~~~
+dictionary.cpp:2369:6: warning: variable 'wc_prev' set but not used [-Wunused-but-set-variable]
+  int wc_prev;
+      ^~~~~~~
+dictionary.cpp: In function 'const char* LookupDict2(Translator*, const char*, const char*, char*, unsigned int*, int, WORD_TAB*)':
+dictionary.cpp:3136:17: warning: variable 'flags1' set but not used [-Wunused-but-set-variable]
+    unsigned int flags1 = 0;
+                 ^~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  intonation.cpp
+intonation.cpp: In function 'int calc_pitches2(int, int, int)':
+intonation.cpp:790:6: warning: variable 'continuing' set but not used [-Wunused-but-set-variable]
+  int continuing = 0;
+      ^~~~~~~~~~
+intonation.cpp: In function 'void CalcPitches_Tone(Translator*, int)':
+intonation.cpp:944:15: warning: variable 'prev2_tph' set but not used [-Wunused-but-set-variable]
+  PHONEME_TAB *prev2_tph;  // 2 tones previous
+               ^~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  readclause.cpp
+readclause.cpp: In function 'int GetC()':
+readclause.cpp:461:16: warning: variable 'm' set but not used [-Wunused-but-set-variable]
+  unsigned char m;
+                ^
+readclause.cpp: In function 'int ReadClause(Translator*, std::FILE*, char*, short int*, int*, int, int*, char*)':
+readclause.cpp:2031:6: warning: variable 'prev_announced_punctuation' set but not used [-Wunused-but-set-variable]
+  int prev_announced_punctuation;
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  setlengths.cpp
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  numbers.cpp
+numbers.cpp: In function 'void LookupLetter(Translator*, unsigned int, int, char*, int)':
+numbers.cpp:509:8: warning: variable 'ptr' set but not used [-Wunused-but-set-variable]
+  char *ptr;
+        ^~~
+numbers.cpp: In function 'int LookupThousands(Translator*, int, int, int, char*)':
+numbers.cpp:1006:7: warning: suggest parentheses around operand of '!' or change '&' to '&&' or '!' to '~' [-Wparentheses]
+    if(!found_value & (number_control & 1))
+       ^~~~~~~~~~~~
+numbers.cpp: In function 'int TranslateNumber_1(Translator*, char*, char*, unsigned int*, WORD_TAB*, int)':
+numbers.cpp:1543:6: warning: variable 'hyphen' set but not used [-Wunused-but-set-variable]
+  int hyphen;
+      ^~~~~~
+numbers.cpp: In function 'int LookupThousands(Translator*, int, int, int, char*)':
+numbers.cpp:983:12: warning: '%d' directive writing between 1 and 10 bytes into a region of size 9 [-Wformat-overflow=]
+ static int LookupThousands(Translator *tr, int value, int thousandplex, int thousands_exact, char *ph_out)
+            ^~~~~~~~~~~~~~~
+numbers.cpp:983:12: note: directive argument in the range [3, 2147483646]
+numbers.cpp:1063:13: note: 'std::sprintf' output between 5 and 14 bytes into a destination of size 12
+      sprintf(string,"_0M%d", thousandplex-1);
+      ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  synth_mbrola.cpp
+synth_mbrola.cpp: In function 'int MbrolaTranslate(PHONEME_LIST*, int, int, std::FILE*)':
+synth_mbrola.cpp:389:16: warning: variable 'prev' set but not used [-Wunused-but-set-variable]
+  PHONEME_LIST *prev;
+                ^~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  synthdata.cpp
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  synthesize.cpp
+synthesize.cpp: In function 'int Generate(PHONEME_LIST*, int*, int)':
+synthesize.cpp:1308:15: warning: variable 'prev_ph' set but not used [-Wunused-but-set-variable]
+  PHONEME_TAB *prev_ph;
+               ^~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  translate.cpp
+translate.cpp: In function 'int TranslateWord(Translator*, char*, int, WORD_TAB*)':
+translate.cpp:779:8: warning: variable 'ph_limit' set but not used [-Wunused-but-set-variable]
+  char *ph_limit;
+        ^~~~~~~~
+translate.cpp: In function 'void* TranslateClause(Translator*, std::FILE*, const void*, int*, char**)':
+translate.cpp:2294:6: warning: variable 'prev_in2' set but not used [-Wunused-but-set-variable]
+  int prev_in2=0;
+      ^~~~~~~~
+translate.cpp:2318:6: warning: variable 'individual_digits' set but not used [-Wunused-but-set-variable]
+  int individual_digits;
+      ^~~~~~~~~~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  mbrowrap.cpp
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  tr_languages.cpp
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  voices.cpp
+voices.cpp: In function 'voice_t* LoadVoice(const char*, int)':
+voices.cpp:531:7: warning: variable 'error' set but not used [-Wunused-but-set-variable]
+  int  error = 0;
+       ^~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  wavegen.cpp
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  phonemelist.cpp
+phonemelist.cpp: In function 'void MakePhonemeList(Translator*, int, int)':
+phonemelist.cpp:117:15: warning: variable 'prev' set but not used [-Wunused-but-set-variable]
+  PHONEME_TAB *prev, *next, *next2;
+               ^~~~
+phonemelist.cpp:126:6: warning: variable 'first_vowel' set but not used [-Wunused-but-set-variable]
+  int first_vowel=0;   // first vowel in a word
+      ^~~~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  klatt.cpp
+/usr/gcc/7/bin/g++ -o speak speak.o compiledict.o dictionary.o intonation.o readclause.o setlengths.o numbers.o synth_mbrola.o synthdata.o synthesize.o translate.o mbrowrap.o tr_languages.o voices.o wavegen.o phonemelist.o klatt.o -lstdc++  -lpthread -lm
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  speak_lib.cpp  -o x_speak_lib.o
+speak_lib.cpp: In function 'int dispatch_audio(short int*, int, espeak_EVENT*)':
+speak_lib.cpp:99:7: warning: variable 'event_data' set but not used [-Wunused-but-set-variable]
+   int event_data=0;
+       ^~~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  compiledict.cpp  -o x_compiledict.o
+compiledict.cpp: In function 'int compile_line(char*, char*, int*)':
+compiledict.cpp:388:8: warning: variable 'comment' set but not used [-Wunused-but-set-variable]
+  char *comment;
+        ^~~~~~~
+compiledict.cpp: In function 'char* compile_rule(char*)':
+compiledict.cpp:1163:6: warning: variable 'pre_bracket' set but not used [-Wunused-but-set-variable]
+  int pre_bracket=0;
+      ^~~~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  dictionary.cpp  -o x_dictionary.o
+dictionary.cpp: In function 'int Unpronouncable(Translator*, char*)':
+dictionary.cpp:797:7: warning: variable 'apostrophe' set but not used [-Wunused-but-set-variable]
+  int  apostrophe=0;
+       ^~~~~~~~~~
+dictionary.cpp: In function 'void SetWordStress(Translator*, char*, unsigned int*, int, int)':
+dictionary.cpp:1351:8: warning: variable 'prev_stressed' set but not used [-Wunused-but-set-variable]
+    int prev_stressed;
+        ^~~~~~~~~~~~~
+dictionary.cpp:1088:6: warning: variable 'post_tonic' set but not used [-Wunused-but-set-variable]
+  int post_tonic;
+      ^~~~~~~~~~
+dictionary.cpp: In function 'int TranslateRules(Translator*, char*, char*, int, char*, int, unsigned int*)':
+dictionary.cpp:2367:21: warning: variable 'c123' set but not used [-Wunused-but-set-variable]
+  unsigned int  c12, c123;
+                     ^~~~
+dictionary.cpp:2369:6: warning: variable 'wc_prev' set but not used [-Wunused-but-set-variable]
+  int wc_prev;
+      ^~~~~~~
+dictionary.cpp: In function 'const char* LookupDict2(Translator*, const char*, const char*, char*, unsigned int*, int, WORD_TAB*)':
+dictionary.cpp:3136:17: warning: variable 'flags1' set but not used [-Wunused-but-set-variable]
+    unsigned int flags1 = 0;
+                 ^~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  intonation.cpp  -o x_intonation.o
+intonation.cpp: In function 'int calc_pitches2(int, int, int)':
+intonation.cpp:790:6: warning: variable 'continuing' set but not used [-Wunused-but-set-variable]
+  int continuing = 0;
+      ^~~~~~~~~~
+intonation.cpp: In function 'void CalcPitches_Tone(Translator*, int)':
+intonation.cpp:944:15: warning: variable 'prev2_tph' set but not used [-Wunused-but-set-variable]
+  PHONEME_TAB *prev2_tph;  // 2 tones previous
+               ^~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  readclause.cpp  -o x_readclause.o
+readclause.cpp: In function 'int GetC()':
+readclause.cpp:461:16: warning: variable 'm' set but not used [-Wunused-but-set-variable]
+  unsigned char m;
+                ^
+readclause.cpp: In function 'int ReadClause(Translator*, std::FILE*, char*, short int*, int*, int, int*, char*)':
+readclause.cpp:2031:6: warning: variable 'prev_announced_punctuation' set but not used [-Wunused-but-set-variable]
+  int prev_announced_punctuation;
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  setlengths.cpp  -o x_setlengths.o
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  numbers.cpp  -o x_numbers.o
+numbers.cpp: In function 'void LookupLetter(Translator*, unsigned int, int, char*, int)':
+numbers.cpp:509:8: warning: variable 'ptr' set but not used [-Wunused-but-set-variable]
+  char *ptr;
+        ^~~
+numbers.cpp: In function 'int LookupThousands(Translator*, int, int, int, char*)':
+numbers.cpp:1006:7: warning: suggest parentheses around operand of '!' or change '&' to '&&' or '!' to '~' [-Wparentheses]
+    if(!found_value & (number_control & 1))
+       ^~~~~~~~~~~~
+numbers.cpp: In function 'int TranslateNumber_1(Translator*, char*, char*, unsigned int*, WORD_TAB*, int)':
+numbers.cpp:1543:6: warning: variable 'hyphen' set but not used [-Wunused-but-set-variable]
+  int hyphen;
+      ^~~~~~
+numbers.cpp: In function 'int LookupThousands(Translator*, int, int, int, char*)':
+numbers.cpp:983:12: warning: '%d' directive writing between 1 and 10 bytes into a region of size 9 [-Wformat-overflow=]
+ static int LookupThousands(Translator *tr, int value, int thousandplex, int thousands_exact, char *ph_out)
+            ^~~~~~~~~~~~~~~
+numbers.cpp:983:12: note: directive argument in the range [3, 2147483646]
+numbers.cpp:1063:13: note: 'std::sprintf' output between 5 and 14 bytes into a destination of size 12
+      sprintf(string,"_0M%d", thousandplex-1);
+      ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  synth_mbrola.cpp  -o x_synth_mbrola.o
+synth_mbrola.cpp: In function 'int MbrolaTranslate(PHONEME_LIST*, int, int, std::FILE*)':
+synth_mbrola.cpp:389:16: warning: variable 'prev' set but not used [-Wunused-but-set-variable]
+  PHONEME_LIST *prev;
+                ^~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  synthdata.cpp  -o x_synthdata.o
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  synthesize.cpp  -o x_synthesize.o
+synthesize.cpp: In function 'int Generate(PHONEME_LIST*, int*, int)':
+synthesize.cpp:1308:15: warning: variable 'prev_ph' set but not used [-Wunused-but-set-variable]
+  PHONEME_TAB *prev_ph;
+               ^~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  translate.cpp  -o x_translate.o
+translate.cpp: In function 'int TranslateWord(Translator*, char*, int, WORD_TAB*)':
+translate.cpp:779:8: warning: variable 'ph_limit' set but not used [-Wunused-but-set-variable]
+  char *ph_limit;
+        ^~~~~~~~
+translate.cpp: In function 'void* TranslateClause(Translator*, std::FILE*, const void*, int*, char**)':
+translate.cpp:2294:6: warning: variable 'prev_in2' set but not used [-Wunused-but-set-variable]
+  int prev_in2=0;
+      ^~~~~~~~
+translate.cpp:2318:6: warning: variable 'individual_digits' set but not used [-Wunused-but-set-variable]
+  int individual_digits;
+      ^~~~~~~~~~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  mbrowrap.cpp  -o x_mbrowrap.o
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  tr_languages.cpp  -o x_tr_languages.o
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  voices.cpp  -o x_voices.o
+voices.cpp: In function 'voice_t* LoadVoice(const char*, int)':
+voices.cpp:531:7: warning: variable 'error' set but not used [-Wunused-but-set-variable]
+  int  error = 0;
+       ^~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  wavegen.cpp  -o x_wavegen.o
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  phonemelist.cpp  -o x_phonemelist.o
+phonemelist.cpp: In function 'void MakePhonemeList(Translator*, int, int)':
+phonemelist.cpp:117:15: warning: variable 'prev' set but not used [-Wunused-but-set-variable]
+  PHONEME_TAB *prev, *next, *next2;
+               ^~~~
+phonemelist.cpp:126:6: warning: variable 'first_vowel' set but not used [-Wunused-but-set-variable]
+  int first_vowel=0;   // first vowel in a word
+      ^~~~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  espeak_command.cpp  -o x_espeak_command.o
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  event.cpp  -o x_event.o
+event.cpp: In function 'int sleep_until_timeout_or_stop_request(uint32_t)':
+event.cpp:389:22: warning: variable 'to' set but not used [-Wunused-but-set-variable]
+  struct timespec ts, to;
+                      ^~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  fifo.cpp  -o x_fifo.o
+fifo.cpp: In function 'int sleep_until_start_request_or_inactivity()':
+fifo.cpp:296:27: warning: variable 'to' set but not used [-Wunused-but-set-variable]
+       struct timespec ts, to;
+                           ^~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  wave_sada.cpp  -o x_wave_sada.o
+wave_sada.cpp: In function 'void* wave_open(const char*)':
+wave_sada.cpp:152:18: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   return((void*) sun_audio_fd);
+                  ^~~~~~~~~~~~
+wave_sada.cpp: In function 'std::size_t wave_write(void*, char*, std::size_t)':
+wave_sada.cpp:213:21: warning: cast from 'void*' to 'int' loses precision [-fpermissive]
+   num = write((int) theHandler, theMono16BitsWaveBuffer, theSize);
+                     ^~~~~~~~~~
+wave_sada.cpp: In function 'int wave_close(void*)':
+wave_sada.cpp:265:24: warning: cast from 'void*' to 'int' loses precision [-fpermissive]
+   int audio_fd = (int) theHandler;
+                        ^~~~~~~~~~
+wave_sada.cpp: In function 'uint32_t wave_get_read_position(void*)':
+wave_sada.cpp:431:15: warning: cast from 'void*' to 'int' loses precision [-fpermissive]
+   ioctl((int) theHandler, AUDIO_GETINFO, &ainfo);
+               ^~~~~~~~~~
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  debug.cpp  -o x_debug.o
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -Wall -fpic -fvisibility=hidden -pedantic \
+-I. -D LIBRARY -c -fno-exceptions  klatt.cpp  -o x_klatt.o
+/usr/gcc/7/bin/g++ -shared -Wl,-soname,libespeak.so.1 -o libespeak.so x_speak_lib.o x_compiledict.o x_dictionary.o x_intonation.o x_readclause.o x_setlengths.o x_numbers.o x_synth_mbrola.o x_synthdata.o x_synthesize.o x_translate.o x_mbrowrap.o x_tr_languages.o x_voices.o x_wavegen.o x_phonemelist.o x_espeak_command.o x_event.o x_fifo.o x_wave_sada.o x_debug.o x_klatt.o -lstdc++  -lpthread
+ar cqs libespeak.a x_speak_lib.o x_compiledict.o x_dictionary.o x_intonation.o x_readclause.o x_setlengths.o x_numbers.o x_synth_mbrola.o x_synthdata.o x_synthesize.o x_translate.o x_mbrowrap.o x_tr_languages.o x_voices.o x_wavegen.o x_phonemelist.o x_espeak_command.o x_event.o x_fifo.o x_wave_sada.o x_debug.o x_klatt.o
+/usr/gcc/7/bin/g++ -m64 -O3       -fpermissive -DUSE_SADA -D PATH_ESPEAK_DATA=\"/usr/share/espeak-data\" -Wall -pedantic -I. -c -fno-exceptions  espeak.cpp
+espeak.cpp: In function 'void DisplayVoices(std::FILE*, char*)':
+espeak.cpp:130:6: warning: variable 'scores' set but not used [-Wunused-but-set-variable]
+  int scores = 0;
+      ^~~~~~
+espeak.cpp: In function 'int main(int, char**)':
+espeak.cpp:394:7: warning: variable 'voice_mbrola' set but not used [-Wunused-but-set-variable]
+  char voice_mbrola[20];
+       ^~~~~~~~~~~~
+espeak.cpp:395:7: warning: variable 'dictname' set but not used [-Wunused-but-set-variable]
+  char dictname[40];
+       ^~~~~~~~
+/usr/gcc/7/bin/g++ -o espeak espeak.o -lstdc++ -L . -lespeak
+mv libespeak.so libespeak.so.1.1.44
+make[1]: Leaving directory '/ws/userland/src/components/desktop/espeak/build/amd64/src'
+/usr/bin/touch /ws/userland/src/components/desktop/espeak/build/amd64/.built
+(cd /ws/userland/src/components/desktop/espeak/build/amd64/src ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/desktop/espeak/build/prototype/i386   AUDIO="sada" CC="/usr/gcc/7/bin/gcc" CFLAGS=" -m64  -O3     " CXX="/usr/gcc/7/bin/g++" CXXFLAGS="  -m64 -O3       -fpermissive" EXTRA_LIBS="-lm" LIBDIR=/usr/lib/amd64 install)
+make[1]: Entering directory '/ws/userland/src/components/desktop/espeak/build/amd64/src'
+/usr/gcc/7/bin/g++ -shared -Wl,-soname,libespeak.so.1 -o libespeak.so x_speak_lib.o x_compiledict.o x_dictionary.o x_intonation.o x_readclause.o x_setlengths.o x_numbers.o x_synth_mbrola.o x_synthdata.o x_synthesize.o x_translate.o x_mbrowrap.o x_tr_languages.o x_voices.o x_wavegen.o x_phonemelist.o x_espeak_command.o x_event.o x_fifo.o x_wave_sada.o x_debug.o x_klatt.o -lstdc++  -lpthread
+/usr/gcc/7/bin/g++ -o espeak espeak.o -lstdc++ -L . -lespeak
+mv libespeak.so libespeak.so.1.1.44
+# Create directories
+rm -rf /ws/userland/src/components/desktop/espeak/build/prototype/i386/usr/share/espeak-data
+mkdir -p /ws/userland/src/components/desktop/espeak/build/prototype/i386/usr/bin
+mkdir -p /ws/userland/src/components/desktop/espeak/build/prototype/i386/usr/lib/amd64
+mkdir -p /ws/userland/src/components/desktop/espeak/build/prototype/i386/usr/include/espeak
+mkdir -p /ws/userland/src/components/desktop/espeak/build/prototype/i386/usr/share/espeak-data
+# Install espeak executable
+install -m 755 espeak /ws/userland/src/components/desktop/espeak/build/prototype/i386/usr/bin
+# Install shared library
+install -m 755 libespeak.so.1.1.44 /ws/userland/src/components/desktop/espeak/build/prototype/i386/usr/lib/amd64
+# Install static library
+install -m 755 libespeak.a /ws/userland/src/components/desktop/espeak/build/prototype/i386/usr/lib/amd64
+/bin/ln -sf libespeak.so.1.1.44 /ws/userland/src/components/desktop/espeak/build/prototype/i386/usr/lib/amd64/libespeak.so.1
+/bin/ln -sf libespeak.so.1 /ws/userland/src/components/desktop/espeak/build/prototype/i386/usr/lib/amd64/libespeak.so
+# Install development headers
+install -pm 644 speak_lib.h /ws/userland/src/components/desktop/espeak/build/prototype/i386/usr/include/espeak
+# Install data files
+cp -prf ../espeak-data/* /ws/userland/src/components/desktop/espeak/build/prototype/i386/usr/share/espeak-data
+make[1]: Leaving directory '/ws/userland/src/components/desktop/espeak/build/amd64/src'
+/usr/bin/touch /ws/userland/src/components/desktop/espeak/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 espeak.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=1\\.44\\.0\\.5 -D COMPONENT_RE_VERSION=1\\.44\\.05 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/desktop/espeak -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="7478" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="1.44.05" -D IPS_COMPONENT_VERSION="1.44.0.5" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://sourceforge.net/projects/espeak/files/espeak/espeak-1.44/espeak-1.44.05-source.zip" -D COMPONENT_PROJECT_URL="http://espeak.sourceforge.net/" -D COMPONENT_NAME="espeak" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" espeak.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/desktop/espeak/build/manifest-i386-espeak.mogrified
+/bin/mkdir -p /ws/userland/src/components/desktop/espeak/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/desktop/espeak/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/espeak/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/espeak/build/prototype/i386 -d /ws/userland/src/components/desktop/espeak/build -d /ws/userland/src/components/desktop/espeak -d espeak-1.44.05-source -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/espeak/files -m /ws/userland/src/components/desktop/espeak/build/manifest-i386-espeak.mogrified >/ws/userland/src/components/desktop/espeak/build/manifest-i386-espeak.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/desktop/espeak/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/espeak/build/prototype/i386 -d /ws/userland/src/components/desktop/espeak/build -d /ws/userland/src/components/desktop/espeak -d espeak-1.44.05-source -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/espeak/files /ws/userland/src/components/desktop/espeak/build/manifest-i386-espeak.mangled >/ws/userland/src/components/desktop/espeak/build/manifest-i386-espeak.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/desktop/espeak/build/resolve.deps -m /ws/userland/src/components/desktop/espeak/build/manifest-i386-espeak.depend
+/usr/bin/touch /ws/userland/src/components/desktop/espeak/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/desktop/espeak/build/manifest-i386-espeak.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/desktop/espeak/build/prototype/i386/mangled /ws/userland/src/components/desktop/espeak/build/prototype/i386 /ws/userland/src/components/desktop/espeak/build /ws/userland/src/components/desktop/espeak espeak-1.44.05-source /ws/userland/src/licenses /ws/userland/src/components/desktop/espeak/files"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/desktop/espeak/build/manifest-i386-espeak.depend.res
+/usr/bin/touch /ws/userland/src/components/desktop/espeak/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/desktop/espeak/build/prototype/i386/mangled -d /ws/userland/src/components/desktop/espeak/build/prototype/i386 -d /ws/userland/src/components/desktop/espeak/build -d /ws/userland/src/components/desktop/espeak -d espeak-1.44.05-source -d /ws/userland/src/licenses -d /ws/userland/src/components/desktop/espeak/files -T \*.py /ws/userland/src/components/desktop/espeak/build/manifest-i386-espeak.depend.res
+pkg://nightly/library/speech/espeak@1.44.0.5,5.11-11.4.0.0.1.14.0:20190727T184545Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/desktop/espeak/build/manifest-i386-espeak.depend.res >/ws/userland/src/components/desktop/espeak/build/manifest-i386-espeak.published
+/usr/bin/touch /ws/userland/src/components/desktop/espeak/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/desktop/espeak'
+
+real       29.4
+user       19.9
+sys         3.2

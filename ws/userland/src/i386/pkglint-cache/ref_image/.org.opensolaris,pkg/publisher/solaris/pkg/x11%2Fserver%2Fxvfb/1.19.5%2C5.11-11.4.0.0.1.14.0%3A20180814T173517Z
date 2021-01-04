@@ -1,0 +1,37 @@
+set name=pkg.fmri value=pkg://solaris/x11/server/xvfb@1.19.5,5.11-11.4.0.0.1.14.0:20180814T173517Z
+set name=pkg.depend.runpath value=$PKGDEPEND_RUNPATH:usr/lib/mesa/sparcv9 variant.arch=sparc
+set name=pkg.depend.runpath value=$PKGDEPEND_RUNPATH:usr/lib/mesa/amd64 variant.arch=i386
+set name=com.oracle.info.description value="portions of the X.Org X server software"
+set name=info.source-url value=https://www.x.org/releases/individual/xserver/xorg-server-1.19.5.tar.bz2
+set name=info.upstream-url value=https://www.x.org
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.tpno value=39514
+set name=org.opensolaris.arc-caseid value=PSARC/2004/187 value=PSARC/2004/685 value=PSARC/2004/829 value=PSARC/2005/450 value=PSARC/2006/609 value=PSARC/2007/051 value=PSARC/2007/434 value=PSARC/2007/500 value=PSARC/2008/294 value=PSARC/2009/021 value=PSARC/2009/292 value=PSARC/2009/679 value=PSARC/2010/109 value=PSARC/2010/382 value=PSARC/2011/008 value=PSARC/2011/214 value=PSARC/2012/144 value=PSARC/2012/320 value=PSARC/2013/091 value=PSARC/2015/251 value=PSARC/2016/293 value=PSARC/2017/212
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.summary value="Xvfb - virtual framebuffer X server"
+set name=com.oracle.info.name value=xorg-server
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+set name=com.oracle.info.version value=1.19.5
+set name=pkg.description value="Xvfb is an X server that can run on machines using no display hardware and no physical input devices. It emulates a dumb framebuffer using virtual memory."
+set name=org.opensolaris.consolidation value=userland
+set name=variant.arch value=i386 value=sparc
+depend fmri=pkg:/system/library/security/crypto@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/library/graphics/pixman@0.34.0-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/x11/library/libxfont2@2.0.3-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/keyboard/xkbcomp type=require
+depend fmri=pkg:/x11/library/mesa@13.0.6-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libxau@1.0.8-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libxdmcp@1.1.2-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/keyboard/xkeyboard-config type=require
+file 2e7b43ff3ae5b937b20a22c88685a911050622a9 chash=6164e7e4c21a9d07e0cd3c1a7e481b32a8cfc9da elfarch=i386 elfbits=64 elfhash=de53d3f16fc52b932211eec947f4c3ee6563887e group=bin mode=0555 owner=root path=usr/bin/Xvfb pkg.content-hash=gelf:sha512t_256:32c937598268694847583bc9f5c1472c1f8bedf4cdd6810dfae2961d65e1b02c pkg.content-hash=gelf.unsigned:sha512t_256:a5ed3ac9a524682eded8b2970d4f412e6a93bca580d1e17993ca1357464d5f0d pkg.content-hash=file:sha512t_256:e60899d5004bccffaa00c79c7c5bd053b7f2dc13e6cbe4652a40204e0242dc35 pkg.content-hash=gzip:sha512t_256:9efe07d4695cda03381f96a65fcd39570f82aad08be57a0caf68b6484e613413 pkg.csize=1317025 pkg.size=5379376 variant.arch=i386
+file ad395bbfca4e5416c710215bdb3ba9a813ce198e chash=a22e948343249b9f46a6cd93a672a4cdd45e08c9 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/Xvfb.1 pkg.content-hash=file:sha512t_256:9011c4d98b6daa6208cd64eca69badf7901369ed99bc981480c8bf0261f1a24d pkg.content-hash=gzip:sha512t_256:60f7274b556ec2f4d34c19c55460ee197a31a6cf88362429cc463b95b67cf6a1 pkg.csize=2809 pkg.size=6208
+file ddf4bdbeb816b99e11f8d9c88acfd4e190d37189 chash=f088a804ecf5da95fc62926e36b3a89a7867a364 elfarch=sparc elfbits=64 elfhash=e3b2fbeb63fb2d407f01b216f4c4401bfbfc6a73 group=bin mode=0555 owner=root path=usr/bin/Xvfb pkg.content-hash=gelf:sha512t_256:35e28850f92a8f41ee2d9fd1bf2ca39f04f2a1dbd40cb3633b471fddad297a8d pkg.content-hash=gelf.unsigned:sha512t_256:ffd75631e2bf390057aac04d5680b89cc691810c95c64d4d6e376fd8d1eafba8 pkg.content-hash=file:sha512t_256:d6639816d4dc196aaae781baf87088ffab0e2429f8e66a00a86ecfbf8ad6603f pkg.content-hash=gzip:sha512t_256:da4ad3f085087e4a37ed87a1846c0c05c44aa30586c963d18b723c325cb9a1d7 pkg.csize=1711854 pkg.size=6346032 variant.arch=sparc
+link path=usr/X11/bin/Xvfb target=../../bin/Xvfb
+link path=usr/bin/amd64/Xvfb target=../Xvfb variant.arch=i386
+link path=usr/lib/mdb/proc/amd64/Xvfb.so target=Xserver.so variant.arch=i386
+link path=usr/lib/mdb/proc/sparcv9/Xvfb.so target=Xserver.so variant.arch=sparc
+license 27261c54ee01d58e496edf64e6730cc5948c6205 chash=d7f8657bc73615bae719c618956f75d9d78e76ad license=MIT pkg.content-hash=file:sha512t_256:e0a589ddecfd5b161fce0141d7864bf904d1af8e872828c0d2669e9ffb1b436e pkg.content-hash=gzip:sha512t_256:b3b6427e78bbd0fe10454b5244063d8af680f94b94d403f8e7d0f2d6dfcb75d9 pkg.csize=32082 pkg.size=483105
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=b3ce89df72ab17e14a40e58c10b1d4e34317ab9d5e102d231c84b3a606018f43c8fdc8ea87642e838cdda9bf2411042aa0fbcf9a9356ce4924a8c8b2a739e364d2e84291973a54095ecb388585b1272b48bfab1495b59755ee30af4d7a2aefb77acd5ababcc5b74bf2cc044d67657d51a5c4652a7f085b1293218ff89bb83b83dc459bd3048930b71e455075ed80105e069f74e5165f2b70fbd0e3a1ef34ef7cdea96c9c59faaf4bdce3d9203c6082dee0b5098f18bb2b16b16f7b4d33deecbfddd50d68855eda329adce4e55d8c63e24188284f1ff4aa4e05e449d7cf36bd8e0a1cfeadae956ca4af45541b986c1685957a94735e73a128792400a67942b0dd version=0

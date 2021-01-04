@@ -1,0 +1,28 @@
+set name=pkg.fmri value=library/desktop/xdg/icon-naming-utils@0.8.90-11.4.0.0.1.9.0
+set name=pkg.summary value="Icon naming utils"
+set name=com.oracle.info.name value=icon-naming-utils
+set name=com.oracle.info.version value=0.8.90
+set name=info.classification \
+    value="org.opensolaris.category.2008:Desktop (GNOME)/Theming"
+set name=info.source-url \
+    value=http://tango.freedesktop.org/releases/icon-naming-utils-0.8.90.tar.bz2
+set name=info.upstream-url value=http://tango.freedesktop.org/
+set name=org.opensolaris.consolidation value=userland
+set name=variant.arch value=i386
+dir  path=usr owner=root group=sys mode=0755
+dir  path=usr/lib owner=root group=bin mode=0755
+file usr/lib/icon-name-mapping path=usr/lib/icon-name-mapping owner=root \
+    group=bin mode=0755
+dir  path=usr/share owner=root group=sys mode=0755
+dir  path=usr/share/dtds owner=root group=other mode=0755
+file usr/share/dtds/legacy-icon-mapping.dtd \
+    path=usr/share/dtds/legacy-icon-mapping.dtd owner=root group=bin mode=0644
+dir  path=usr/share/icon-naming-utils owner=root group=other mode=0755
+file usr/share/icon-naming-utils/legacy-icon-mapping.xml \
+    path=usr/share/icon-naming-utils/legacy-icon-mapping.xml owner=root \
+    group=bin mode=0644
+dir  path=usr/share/pkgconfig owner=root group=bin mode=0755
+file usr/share/pkgconfig/icon-naming-utils.pc \
+    path=usr/share/pkgconfig/icon-naming-utils.pc owner=root group=bin \
+    mode=0644
+depend fmri=pkg:/runtime/perl-526@5.26.2-11.4.0.0.1.14.0 fmri=pkg:/runtime/perl-522@5.22.1.1-11.4.0.0.1.14.0 type=require-any

@@ -1,0 +1,28 @@
+set name=pkg.fmri value=pkg://solaris/driver/network/wlan/rum@11.4,5.11-11.4.0.0.1.15.0:20180817T002502Z
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=variant.arch value=i386
+set name=variant.debug.osnet value=true value=false
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Networking
+set name=com.oracle.info.version value=1.13.2.1
+set name=com.oracle.info.description value="driver for Ralink RT2501/RT2601/RT73USB wireless chipset"
+set name=com.oracle.info.name value=rum
+set name=pkg.description value="Wireless network device driver for Ralink RT2501/RT2601/RT73USB chipset-based 802.11b/g NICs."
+set name=pkg.summary value="Ralink RT2501/RT2601/RT73USB Wireless NIC Driver"
+set name=org.opensolaris.consolidation value=osnet
+set name=com.oracle.info.tpno value=5848
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=pkg:/system/kernel@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+depend fmri=pkg:/system/io/usb@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv/amd64 variant.opensolaris.zone=global
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man4d
+file c51f10655f37d70689d1e587f3d29ec1ff12e4c9 chash=7133ec229254685d714b6f24f0e4a8808c6ba969 elfarch=i386 elfbits=64 elfhash=1b69f95c1fbd91569628577033fba2e8f852dea2 group=sys mode=0755 owner=root path=kernel/drv/amd64/rum pkg.content-hash=gelf:sha512t_256:b6634002c0a700f01a978d2f00571b01e56b07b756f029cff3fdb0177390dd03 pkg.content-hash=gelf.unsigned:sha512t_256:b6634002c0a700f01a978d2f00571b01e56b07b756f029cff3fdb0177390dd03 pkg.content-hash=file:sha512t_256:2d4f66f18063f156d8797c0ae1efafa870cfd5b58ac59b0d1ab12cef8970edd9 pkg.content-hash=gzip:sha512t_256:34b0be55032093392d7c846af6ee3d08e3c1ae238b54d62425c4ae45203f3ca5 pkg.csize=28560 pkg.size=61152 reboot-needed=true variant.debug.osnet=true variant.opensolaris.zone=global
+file 3cc5695cb6d23983a92e88d6049b686db41c873a chash=d1a98e2b6bc0d349ae19d8864930a9e8bc2066f5 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4d/rum.4d pkg.content-hash=file:sha512t_256:9f7ed231f3796b8e9cfb50b3c57ce4c9436e1791d3f1194f3303177e25514640 pkg.content-hash=gzip:sha512t_256:cdb3fbd2a24c81825f530c39577ac5df4542defe95e965299975bb8aa724196e pkg.csize=881 pkg.size=1556
+file 94be07fa0d64e07550f1a9d1ac4955f714aa7734 chash=23b0bb05cb62bb585c50d84c4e59d672aa2572e4 elfarch=i386 elfbits=64 elfhash=515167f20bcab0c77374808791a65d3c1e07ce6b group=sys mode=0755 owner=root path=kernel/drv/amd64/rum pkg.content-hash=gelf:sha512t_256:7745b0fb7e6b8737e9b44677adede74ac24bc50cb2aea3be58d658c32106be79 pkg.content-hash=gelf.unsigned:sha512t_256:7745b0fb7e6b8737e9b44677adede74ac24bc50cb2aea3be58d658c32106be79 pkg.content-hash=file:sha512t_256:e3e2e1c15a84b35dc212990194b7a9855c496687a82802b88128898cbb61fae0 pkg.content-hash=gzip:sha512t_256:b4bf755b0fc6f4827a18070cc7f5de99832c070be5ac7c988447f48c8ecd0205 pkg.csize=28366 pkg.size=60400 reboot-needed=true variant.debug.osnet=false variant.opensolaris.zone=global
+driver alias=usb7d1,3c03 alias=usb7d1,3c04 alias=usbb05,1723 alias=usb1044,800a alias=usb13b1,20 alias=usb148f,2573 alias=usb15a9,4 clone_perms="rum 0666 root sys" name=rum perms="* 0666 root sys" variant.opensolaris.zone=global
+license 2e505fcb4f7b72bbec493a3722cb296e2bca2b68 chash=e2902fc44415b360dc29df2beb05e4516c3f99cf license=usr/src/uts/common/io/rum/THIRDPARTYLICENSE pkg.content-hash=file:sha512t_256:7afa8eaea2f3b3d75ac540678aabd15e64dda32463d41272b911a6a2b122d605 pkg.content-hash=gzip:sha512t_256:99dd456176dc84f8a532dead31f303189f9c207a6525d210392cb7ab5862cd7b pkg.csize=701 pkg.size=1962
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+legacy arch=i386 category=system desc="Ralink RT2501/RT2601/RT73USB 802.11b/g Wireless Driver" hotline="Please contact your local service provider" name="Ralink RT2501/RT2601/RT73USB 802.11b/g Wireless Driver" pkg=SUNWrum vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=68b9cdae4ad33453fad106535d6d015619f62093883d8c974736e0f77dee03254ccaf7cfc2f964ad865220040a8e6b2992fe77571fe95b668dee161cc62e0724a3099ae3b5d72350af763ab253df4ecb8c6f345a7e6bffad4e7c077971436b0cddc854571cef72c461421679b95ad1146f7c224dbb9d10ea3ece8f3380a4e73494ae9b2b189331aec2ba190a419b1909d15be2554d5700983fca8172a63221c59e1f927ef008f9d4be0fb4dff11c6d8352b4bb1e206305dee136a96f4dd4253044ce32308454a37d5fcaa42f27d6946de3d413815865a3b184f5cf6901ca5f4220a9165a414014186771aa072f3bae944916e02b4f59f52ebad1a711c14a5786 version=0

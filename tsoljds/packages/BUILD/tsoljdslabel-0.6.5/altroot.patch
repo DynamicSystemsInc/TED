@@ -1,0 +1,16 @@
+--- altroot.py.orig	2020-11-10 19:25:19.704573925 -0800
++++ altroot.py	2020-11-16 16:15:38.852551768 -0800
+@@ -285,11 +285,11 @@
+         # SIGKILL if they persist or ar respawned.  startd was killed above, so
+         # it shouldn't be doing any respawning, but startd could be running
+         # stop methods.  10 tries * 0.5 second delay between tries.
+-        cmd = ["/usr/sbin/fuser", "-cs", "TERM", self.alt_root]
++        cmd = ["/usr/sbin/fuser", "-cns", "TERM", self.alt_root]
+         tries = 10
+         while tries > 0:
+             if tries == 2:
+-                cmd = ["/usr/sbin/fuser", "-cs", "KILL", self.alt_root]
++                cmd = ["/usr/sbin/fuser", "-cns", "KILL", self.alt_root]
+             fuser = Popen.check_call(cmd, stdout=Popen.STORE,
+                                      stderr=Popen.DEVNULL,
+                                      text=True)

@@ -1,0 +1,25 @@
+set name=pkg.fmri value=pkg://solaris/x11/xkill@1.0.4,5.11-11.4.0.0.1.14.0:20180814T173544Z
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.description value=xkill
+set name=info.upstream-url value=https://www.x.org
+set name=com.oracle.info.tpno value=39514
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+set name=pkg.description value="xkill is a utility for forcing the X server to close connections to clients.  This program is very dangerous, but is useful for aborting programs that have displayed undesired windows on a user's screen."
+set name=org.opensolaris.arc-caseid value=PSARC/2015/221
+set name=info.source-url value=https://www.x.org/releases/individual/app/xkill-1.0.4.tar.bz2
+set name=com.oracle.info.name value=xkill
+set name=pkg.summary value="xkill - utility to forcibly close X11 clients"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=com.oracle.info.version value=1.0.4
+set name=variant.arch value=i386 value=sparc
+depend fmri=pkg:/x11/library/libxmuu@1.1.2-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libx11@1.6.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file 1f5304ed9267328e4643109e08a917be415d1a76 chash=784971bb0b3767006120196637474c491337d598 elfarch=i386 elfbits=64 elfhash=498178341426786700d16d13a1dad6a90d3b1370 group=bin mode=0555 owner=root path=usr/bin/xkill pkg.content-hash=gelf:sha512t_256:0c73ca433fca1ef1e312d86dffa680c257d79b3b2d87d34303ec8ca7f5b9150e pkg.content-hash=gelf.unsigned:sha512t_256:17e492e982e5f10cbb9d997de7b86ef9dea9a2e6d92f93b414c8bcae3499efab pkg.content-hash=file:sha512t_256:0c74c60a6dcea17c0e34b3d5200ada60d9d47e6791f5f6b4890ec8bb07fe6b6b pkg.content-hash=gzip:sha512t_256:036ed6b26cb8a13d38bd57ffc7fda77357342960be57ef76c9c69cff84967ad5 pkg.csize=7766 pkg.size=22560 variant.arch=i386
+file d0530e814d9c3f014fe64d9d9b5e8ac5db3a5317 chash=64561ea53152549cc0b2baa9b359696a6225ba11 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/xkill.1 pkg.content-hash=file:sha512t_256:135651078de3e94d8b614c9903c1928875fd12904406e61429c2945365b0382a pkg.content-hash=gzip:sha512t_256:250075dfb9996bf941446ad03702006720811223a8f02164b31205f1736c3436 pkg.csize=2143 pkg.size=4575
+file 8a112bffb0fdb86f549b6a20876b23e07a8686ec chash=35913563aaf8535110db2927b31f51814120163c elfarch=sparc elfbits=64 elfhash=0128642887019228022257840b2449a69d35336d group=bin mode=0555 owner=root path=usr/bin/xkill pkg.content-hash=gelf:sha512t_256:b364eae5428ea8a3f4a90a170c555914aa9c1762b010afe5b6e9de4bcef8796d pkg.content-hash=gelf.unsigned:sha512t_256:c6d089b13f48a87f8a73aeffc29bc3911b64c130c33428b555d2ebbbbb3fd147 pkg.content-hash=file:sha512t_256:83aefbd51e62063257febc047ecfb72500048e6e64eb18c3fc577dd70e2bc884 pkg.content-hash=gzip:sha512t_256:86e3f130c1f68704748cb1fbe41bf2e4eccb5f6d89aafb03e72fd006e0d4d605 pkg.csize=8191 pkg.size=27360 variant.arch=sparc
+link path=usr/X11/bin/xkill target=../../bin/xkill
+license 8dd1a5611e7e942c1cb89e33c1f4667e60b5314f chash=416367ec94b3a19a770b26c41fb949afe3fb2838 license=MIT pkg.content-hash=file:sha512t_256:ea3f5e93a7cd3e19d209fcbc9fef919038eb634561c62b23306a7a427882b2ee pkg.content-hash=gzip:sha512t_256:edb57ccd7da2a1094a6a7487841d7b6edb1d11b2feb348d5b8bc6d09030323c7 pkg.csize=649 pkg.size=1135
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=15d7c901784dafc842cea3b6018c0fa11b4d2646b60fc0f6a25d979db02352e9e33b78c7d1a8020d3bcb5d1450e3f9082682d8bbabb5711849febf31a28c29c599ddb0dd358814fa14fa0dbe617e995f79754a7daff61ce950833584fc15e60907033db0b17307cbaec3dfd2ad6442ba355ff80ea66ed002ea81e7f9bdd0da6694998520be6701ad429a29c9bd5aea20426cd31236000db8bf7beb369784ba6842969995340dee47cddfe6a61a6b0a3f5247cacacfeaa4cfc5beeea3954a92e806ce7ea3083938a4bc0cb769e3776e7053ff795fa211746089c1285239198a53f710e943fb4762404f484e018cdd45867338c2901698c6ce3099c7d18bf54d4c version=0

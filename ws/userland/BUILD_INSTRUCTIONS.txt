@@ -1,0 +1,22 @@
+Build environment
+=================
+BE is defined and validated via the cbe_check_11.4 script. This command:
+
+$ cbe_check_11.4 compare_last
+
+Either returns differences between current machine and the BE or nothing if the
+machine has valid BE.
+
+
+Compiling the gate
+==================
+$ cd <top level directory>
+$ gmake publish
+
+The resulting IPS repositories are located in
+
+<top level directory>/$(uname -p)/repo
+and
+<top level directory>/$(uname -p)/repo.exerimental
+
+Detailed instructions can befound in the "doc" directory.

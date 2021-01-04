@@ -1,0 +1,20 @@
+set name=pkg.fmri value=pkg://solaris/library/python/testresources@1.0.0,5.11-11.4.0.0.1.14.0:20180814T170459Z
+set name=pkg.summary value="PyUnit extension for managing expensive test resources"
+set name=com.oracle.info.name value=testresources
+set name=org.opensolaris.consolidation value=userland
+set name=info.upstream value="Robert Collins <robertc@robertcollins.net>"
+set name=info.source-url value=pypi:///testresources==1.0.0
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=pkg.description value="PyUnit extension to manage the initialization and lifetime of expensive test fixtures. For example reference databases are often only need to be constructed once but standard test isolation causes them to be constructed for every fixture, making test execution very slow."
+set name=info.upstream-url value=https://github.com/testing-cabal/testrepository
+set name=com.oracle.info.description value="the Python testresources module"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.arc-caseid value=PSARC/2015/472
+set name=com.oracle.info.version value=1.0.0
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/python/testresources-34@1.0.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/testresources-27@1.0.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+depend fmri=library/python/testresources-35@1.0.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=30252d68b813aa28a3722d1811773a6dcf1686af1ec3032599c76c925a86876eaad5399591b5ac5ad4bf8a012b34741e47d3bd7ccf3ca996f3b3a5f4965a26e1b9fa9b2bb277b2a0fabd95ab3d5f167970b31d4f9587e42d8e546e0804473957e37f664aa6e8654f3fd70dea1552ad15eeefc8740dfc6ef5bb00c987896cc9994e10f29972330ce0af60a5420a4512bb563de98a893dc6203193b043fd00de12b2c9cae1f2ae2668083b7c525908fdcef22d2035feb0453184d0d3ac175300a5ad573e5bc6b270db2d0d155cccaa6aa8308b26edf76fe71b5cef7eb01d1ea280bd04d139254a69b28a211da4e9ef114318be6d619e3e802c0d5c42aec5fb9f81 version=0

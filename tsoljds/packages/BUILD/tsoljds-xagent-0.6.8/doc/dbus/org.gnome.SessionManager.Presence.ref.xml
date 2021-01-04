@@ -1,0 +1,75 @@
+<refentry id="org.gnome.SessionManager.Presence">
+  <refmeta>
+    <refentrytitle role="top_of_page">org.gnome.SessionManager.Presence</refentrytitle>
+  </refmeta>
+  <refnamediv>
+    <refname>org.gnome.SessionManager.Presence</refname>
+    <refpurpose>Presence interface</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv role="synopsis">
+    <title role="synopsis.title">Methods</title>
+    <synopsis><link linkend="org.gnome.SessionManager.Presence.SetStatus">SetStatus</link>(in'u'status)
+<link linkend="org.gnome.SessionManager.Presence.SetStatusText">SetStatusText</link>(in's'status_text)
+</synopsis>
+  </refsynopsisdiv>
+  <refsect1 role="signal_proto">
+    <title role="signal_proto.title">Signals</title>
+    <synopsis><link linkend="org.gnome.SessionManager.Presence::StatusChanged">StatusChanged</link>('u'status)
+<link linkend="org.gnome.SessionManager.Presence::StatusTextChanged">StatusTextChanged</link>('s'status_text)
+</synopsis>
+  </refsect1>
+  <refsect1 role="impl_interfaces">
+    <title role="impl_interfaces.title">Implemented Interfaces</title>
+    <para>
+    Objects implementing org.gnome.SessionManager.Presence also implements
+    org.freedesktop.DBus.Introspectable,
+    org.freedesktop.DBus.Properties
+    </para>
+  </refsect1>
+  <refsect1 role="properties">
+    <title role="properties.title">Properties</title>
+    <synopsis><link linkend="org.gnome.SessionManager.Presence:status">'status'</link>readwrite'u'
+<link linkend="org.gnome.SessionManager.Presence:status-text">'status-text'</link>readwrite's'
+</synopsis>
+  </refsect1>
+  <refsect1 role="desc">
+    <title role="desc.title">Description</title>
+    <para/>
+  </refsect1>
+  <refsect1 role="details">
+    <title role="details.title">Details</title>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Presence.SetStatus"/>SetStatus ()</title><indexterm><primary>SetStatus</primary><secondary>org.gnome.SessionManager.Presence</secondary></indexterm><programlisting>SetStatus (in'u'status)</programlisting>
+          <para>Set the status value of the session.</para>
+        <variablelist role="params"><varlistentry><term><parameter>status</parameter>:</term><listitem><simpara>The status value</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Presence.SetStatusText"/>SetStatusText ()</title><indexterm><primary>SetStatusText</primary><secondary>org.gnome.SessionManager.Presence</secondary></indexterm><programlisting>SetStatusText (in's'status_text)</programlisting>
+          <para>Set the descriptive status text for the session.</para>
+        <variablelist role="params"><varlistentry><term><parameter>status_text</parameter>:</term><listitem><simpara>The descriptive status for the session.</simpara></listitem></varlistentry></variablelist></refsect2>
+  </refsect1>
+  <refsect1 role="signals">
+    <title role="signals.title">Signal Details</title>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Presence::StatusChanged"/>The StatusChanged signal</title><indexterm><primary>StatusChanged</primary><secondary>org.gnome.SessionManager.Presence</secondary></indexterm><programlisting>StatusChanged ('u'status)</programlisting>
+          <para>Indicates that the session status value has changed.</para>
+        <variablelist role="params"><varlistentry><term><parameter>status</parameter>:</term><listitem><simpara>The new status value</simpara></listitem></varlistentry></variablelist></refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Presence::StatusTextChanged"/>The StatusTextChanged signal</title><indexterm><primary>StatusTextChanged</primary><secondary>org.gnome.SessionManager.Presence</secondary></indexterm><programlisting>StatusTextChanged ('s'status_text)</programlisting>
+          <para>Indicates that the descriptive session status text has changed.</para>
+        <variablelist role="params"><varlistentry><term><parameter>status_text</parameter>:</term><listitem><simpara>The new status text</simpara></listitem></varlistentry></variablelist></refsect2>
+  </refsect1>
+  <refsect1 role="property_details">
+    <title role="property_details.title">Property Details</title>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Presence:status"/>The "status" property</title><indexterm><primary>status</primary><secondary>org.gnome.SessionManager.Presence</secondary></indexterm><programlisting>'status'readwrite'u'
+</programlisting>
+          <para>
+            The status of the session.
+          </para>
+          <para>
+            The status parameter must be one of the following:
+            <itemizedlist><listitem><simpara><emphasis role="bold">0: </emphasis>Available</simpara></listitem><listitem><simpara><emphasis role="bold">1: </emphasis>Invisible</simpara></listitem><listitem><simpara><emphasis role="bold">2: </emphasis>Busy</simpara></listitem><listitem><simpara><emphasis role="bold">3: </emphasis>Idle</simpara></listitem></itemizedlist>
+          </para>
+        </refsect2>
+    <refsect2><title><anchor role="function" id="org.gnome.SessionManager.Presence:status-text"/>The "status-text" property</title><indexterm><primary>status-text</primary><secondary>org.gnome.SessionManager.Presence</secondary></indexterm><programlisting>'status-text'readwrite's'
+</programlisting>
+          <para>The descriptive status for the session.
+          </para>
+        </refsect2>
+  </refsect1>
+</refentry>

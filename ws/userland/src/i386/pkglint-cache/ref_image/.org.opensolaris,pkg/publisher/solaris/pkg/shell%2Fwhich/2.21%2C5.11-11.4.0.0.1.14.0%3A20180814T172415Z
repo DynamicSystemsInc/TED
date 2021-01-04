@@ -1,0 +1,27 @@
+set name=pkg.fmri value=pkg://solaris/shell/which@2.21,5.11-11.4.0.0.1.14.0:20180814T172415Z
+set name=variant.arch value=i386 value=sparc
+set name=org.opensolaris.arc-caseid value=PSARC/2007/049
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.tpno value=27233
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.description value="GNU which"
+set name=org.opensolaris.consolidation value=userland
+set name=info.source-url value=https://ftp.gnu.org/gnu/which/which-2.21.tar.gz
+set name=info.upstream-url value=https://savannah.gnu.org/projects/which/
+set name=com.oracle.info.version value=2.21
+set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.description value="Utility to show the full path of (shell) commands"
+set name=pkg.summary value="GNU which"
+set name=com.oracle.info.name value=which
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file 1f49ae2667e947391d9fb73a4b56cdea4b282b98 chash=045aa2fab27f4c7cdbde2ab1f82fe4f3ab9f01d3 elfarch=i386 elfbits=64 elfhash=749fe9de855e5040c709756caa490b2b97833073 group=bin mode=0555 owner=root path=usr/gnu/bin/which pkg.content-hash=gelf:sha512t_256:2a1f3db63fb75433b311da342236f1d25d311871e9c994ccd6dfe4bb140ad904 pkg.content-hash=gelf.unsigned:sha512t_256:ba5948bf27a3d5159e92c853a093688a8548ea38fa213e9b67607b9bc77fb63d pkg.content-hash=file:sha512t_256:54e0fa3b9d550e0a88de7a2bfb9abe87569a37789255e8fc988d97d5493d50db pkg.content-hash=gzip:sha512t_256:11f86c4a490d66dfaa510ce632ed91bc1ec88170e84a2b75b2b7b4bbf26a8ab0 pkg.csize=19213 pkg.size=52832 variant.arch=i386
+file 1fb15fbc9a5d27466e7556edc3ba282eccc0fade chash=838c5b1364897ad5fb1a0acd8e7be154f5e6cd7c facet.doc.man=all group=bin mode=0444 owner=root path=usr/gnu/share/man/man1/which.1 pkg.content-hash=file:sha512t_256:db178c5cbad8a400e690ad3ee37debe9f6fde08732e2e8c4bb69071fb12e06a9 pkg.content-hash=gzip:sha512t_256:fbd1cfd054a3bb05ebd38f56265f4aa4a3d66502ad7c6f6a59f57f37cda58f97 pkg.csize=1849 pkg.size=4309
+file 7f0b1b1c60a3b0fef699ec9ab7a09ccc1dab7205 chash=67f551f6587a48a78a61eefd634b56eba8cd9eab facet.doc.info=all group=bin mode=0444 owner=root path=usr/share/info/which.info pkg.content-hash=file:sha512t_256:9d0741632ebbe185a4a6ab766b8e7d3a498f140c361e221d06ed9ed6ea05ff71 pkg.content-hash=gzip:sha512t_256:4ee19930683c2bc9ae74c2b9f6ad68187d2bc3ed0d57c20014e0c3db0c5b2094 pkg.csize=2414 pkg.size=7546 restart_fmri=svc:/application/texinfo-update:default
+file 01110bf984c6511a9e78403e99e3b4fca3ed968c chash=5a5cb645bcb2bd1dd3728241c9efdd96f014696c elfarch=sparc elfbits=64 elfhash=4d5ec18d9bfbe1cc68d9d397671940371f14ae46 group=bin mode=0555 owner=root path=usr/gnu/bin/which pkg.content-hash=gelf:sha512t_256:2e4dba2063bcdf3ec8e1c0b462c48bc0a9b451b56de45f476d3d0b505e85274f pkg.content-hash=gelf.unsigned:sha512t_256:1faec85c18349748deed6f7bd3e55dbc3d6b23b64dca3b50f8103defc13a4715 pkg.content-hash=file:sha512t_256:3918d6f9fd13f2f78f8da841bfb64102549e2767d11c390c6c9ec39d005d6b34 pkg.content-hash=gzip:sha512t_256:ff1744a0dec8f22c1268f4aba0bb566daf98cac791cd678e44b36d1793eacadf pkg.csize=19946 pkg.size=52480 variant.arch=sparc
+link facet.doc.man=all mediator=which mediator-implementation=gnu mediator-priority=vendor path=usr/share/man/man1/which.1 target=../../../gnu/share/man/man1/which.1
+link facet.compat.gnulinks=all facet.doc.man=all path=usr/share/man/man1/gwhich.1 target=../../../gnu/share/man/man1/which.1
+link mediator=which mediator-implementation=gnu mediator-priority=vendor path=usr/bin/which target=../gnu/bin/which
+link facet.compat.gnulinks=true path=usr/bin/gwhich target=../gnu/bin/which
+license 8624bcdae55baeef00cd11d5dfcfa60f68710a02 chash=27dc99e72f87543d57556e76364fc123d2cdac99 license=GPLv3 pkg.content-hash=file:sha512t_256:50103044e3b51c68da9a3bf617b5961d718241973db744ca93f283961c613d1d pkg.content-hash=gzip:sha512t_256:c2fe536b54c054ad9cdd56eee93d46624670218ebd675eee459ecdc3c8c2a8b2 pkg.csize=12130 pkg.size=35147
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=815386827caf3efa53b2ed062946df23b0b5a96137c2cc72e13621c24a646b81b22defd3629b1a9745908709e96e6a1a6b7d3ca2c4199d407fba45ad9be9a056e75ab844835fffd8283d86dbb09884a469b31b7c1cafa065622e89bf70277978c0564ca1c31ccd7337f049496f6047d9660969d4db5f1edb6b517f61a3e8d5b740e0c5aeb627a9361cb3c615d5e870b1c66a337040fd8106e342c3b0170d55021b512c158bce6e00d7f38056b08f1d120db0b69625bc28f81249a7bc4e21a7b359c73e6f6eacd0cbe7ed65e851329218ed0ce9f2268f5d339784ff18e006b0c414c52d39d261e171fa6b127863f4e81310c910ad032b47aa179e05114e1a299f version=0

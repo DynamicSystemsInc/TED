@@ -1,0 +1,31 @@
+set name=pkg.fmri value=pkg://solaris/network/firewall/firewall-pflog@5.5,5.11-11.4.0.0.1.14.0:20180814T170847Z
+set name=pkg.summary value="pflog - PF packet log daemon"
+set name=com.oracle.info.name value=pflogd
+set name=info.classification value="org.opensolaris.category.2008:System/Administration and Configuration"
+set name=pkg.description value="pflogd reads PF logged packets from capture link device"
+set name=com.oracle.info.description value="pflog, PF log daemon"
+set name=com.oracle.info.tpno value=24254
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.smf.fmri value=svc:/network/firewall/pflog:default value=svc:/network/firewall/pflog
+set name=info.upstream-url value=http://www.openbsd.org
+set name=com.oracle.info.version value=5.5
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=PSARC/2014/291
+set name=info.source-url value=http://www.openbsd.org/cgi-bin/cvsweb/src/sbin/pflogd/
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=variant.arch value=i386 value=sparc
+depend fmri=pkg:/shell/ksh93@93.21.1.20120801-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/network/firewall@5.12-5.12 type=require
+depend fmri=pkg:/system/core-os@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/library/libpcap@1.8.1-11.4.0.0.1.13.0 type=require
+dir group=daemon mode=0700 owner=daemon path=var/log/firewall
+dir group=daemon mode=0700 owner=daemon path=var/log/firewall/pflog
+file d7f75a0801bd527123d85ffb032a203e32f14c0b chash=095dfa36ba4357e53dc9d5893ae80a8c5c8906d9 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man8/pflogd.8 pkg.content-hash=file:sha512t_256:b851b1f9b9d28843a4fa9ceea665f7e68e4820b035b3cf0ef7b91e88512d3567 pkg.content-hash=gzip:sha512t_256:74d876d2d21d823f2f3af563455122951d9247487c526dde509eedcb9d6d753c pkg.csize=4137 pkg.size=9746
+file 9af10e0e363b9f95c02681d0e13a07365bbe93f0 chash=31e732b85460c956a01f0bd073ebdffbe5f4eef5 group=bin mode=0444 owner=root path=lib/svc/manifest/network/firewall/pflog.xml pkg.content-hash=file:sha512t_256:e6d13e46466452adacb99ff763c8fb61d75ce2c36a1f6cc17f70ab13aab600a1 pkg.content-hash=gzip:sha512t_256:b785adab4033d4295ba8c5da74233f78842ac6cd3b814c10a01e1688447828fc pkg.csize=1194 pkg.size=3572 restart_fmri=svc:/system/manifest-import:default
+file aa11b3bfad84d0dd287cac6eb5c3475744776898 chash=1190cc1d86c81145bbecca720c1cd17ca6979392 elfarch=i386 elfbits=64 elfhash=ccedec839e762b02d5137687ddb340d5dce8a025 group=bin mode=0555 owner=root path=usr/sbin/pflogd pkg.content-hash=gelf:sha512t_256:45a5db7c0da4a11ce1e8505ea47df9ecdda9fd9b5defa2640dc66b95876d8587 pkg.content-hash=gelf.unsigned:sha512t_256:4d5682e6ed032b987e7d1bd71413187c47c1b9259dd1dae629e71de958ce287d pkg.content-hash=file:sha512t_256:7563a72a80e069be3ea9377421821cc0bf718a818cb24c1c8edb9224faba6440 pkg.content-hash=gzip:sha512t_256:408ececaa8155e98812c23c9781dfe8a4b8e0000a17bfa39914dbf8882075de7 pkg.csize=23014 pkg.size=62000 variant.arch=i386
+file fff9ab7df4bc2326b47e4369ea058c9f705243a6 chash=ff1e1668164ae547e0c35dd89e6811b58dae47c0 group=bin mode=0555 owner=root path=lib/svc/method/pflog pkg.content-hash=file:sha512t_256:b338c0bea9467ebde67d26ad4437a0256161f907aa20907198e8f1fbb06ffceb pkg.content-hash=gzip:sha512t_256:d42fd7c22e01a8950beeebabae204f9f11beece400ab73e1f43422de3ff4f697 pkg.csize=892 pkg.size=2130
+file 148389cc04fb5880d4f71f2042b0a2cc809e94c9 chash=495678106f1c30b750be4b6c3e96e2913a1dde47 elfarch=sparc elfbits=64 elfhash=f88a1988bdbb2b7beb0132b4f14a0733d5c2af4c group=bin mode=0555 owner=root path=usr/sbin/pflogd pkg.content-hash=gelf:sha512t_256:039de63dd28050cd9fd6fd5daa84b2bae44808aa97a43b320e1983029b6fd4db pkg.content-hash=gelf.unsigned:sha512t_256:4865ff316fc0dc5d2cf0ef1f5c4c0666a2645d3c4412fde96cd48f3f436587e1 pkg.content-hash=file:sha512t_256:76a48f7e8a85cf6182f654a6be5a9a52fd511dece2442fbd2edc3751ef968670 pkg.content-hash=gzip:sha512t_256:c5a56a093bce650ebbc069f2c77513050e31505ce5f7c3205561a2ecc6753448 pkg.csize=23461 pkg.size=63184 variant.arch=sparc
+license 0e0ffbb5be11f187ab44c7f2645c246133cb8121 chash=75dac20e8c02c887b503013f4a8c7197107ca9db license="pflogd license" pkg.content-hash=file:sha512t_256:148fd047a66d9cd561b24d984460b7997eaa7ced4f97041648b9ff7d992ee961 pkg.content-hash=gzip:sha512t_256:fc82c39c59d472c6d78614771150b38a6d32c9ac28da11417e1a1c8adb72158b pkg.csize=1471 pkg.size=6381
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=ab3cb35ab14f42eb66297a11048c52098fbfa555e202bcc4a114c9b78a0b2373c964e289ff97296ae1cdcbe0675eb558f6b15eb95852396f51692cef185237073d37b4d319f1aca937f86a286bf8a0581ac5f6d141d7d314489417f381504cb540f85a5c3efff1b94df5fe14b53cd4fd1b4abc7f6d04f8608481c0b9189052d7e9a6cc236840fa805ec2c47c83d46927a40b5a45711eff2a7374e9d85503c0c837a494b876df3c35c50f287766c601f453b87e628fc945f63b78d5dd31288ae21403541a64668adf677aed5b9b6d011366bb4ec9447912bb567a2a90e05456079cf04e4118ecf205c573bd35ebfd93550f169c5b7fd148060391d35a983257f6 version=0

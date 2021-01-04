@@ -1,0 +1,30 @@
+set name=pkg.fmri value=pkg://solaris/image/graphviz/graphviz-ruby@2.28.0,5.11-11.4.0.0.1.14.0:20180814T163852Z
+set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
+set name=com.oracle.info.tpno value=17707
+set name=info.upstream-url value=http://www.graphviz.org/
+set name=com.oracle.info.version value=2.28.0
+set name=org.opensolaris.arc-caseid value=PSARC/2011/269
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.consolidation value=userland
+set name=info.source-url value=http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.28.0.tar.gz
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=pkg.summary value="Ruby bindings for Graphviz"
+set name=com.oracle.info.description value="Ruby bindings for Graphviz"
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.name value=graphviz
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/library/c++-runtime@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/image/graphviz@2.28.0-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/runtime/ruby-21@2.1.6-11.4.0.0.1.13.0 type=require
+file c8356b2ffbdcba0936edde3b124c885cbf8cebc8 chash=89b82d7443d55bb103c53563532c25a823e5b6bb elfarch=i386 elfbits=64 elfhash=92280e206d2127a930c1e8c05ef8f7b5676226f9 group=bin mode=0555 owner=root path=usr/lib/amd64/graphviz/ruby/libgv_ruby.so pkg.content-hash=gelf:sha512t_256:471aea5f1a8805c374d99cbc2ee08b53ae8915913d7083918e53d3492bc0fb53 pkg.content-hash=gelf.unsigned:sha512t_256:1643074d8e5ece498fb78978d9bb1957f844c1ab3e076ea1e54b9626e78e743b pkg.content-hash=file:sha512t_256:86b2a4d348cbd739358a57490b2b684342a62b8a3d3bcb8b64936c32054bd366 pkg.content-hash=gzip:sha512t_256:50b11a4dcf0b72aea0dea5e8f8496634c29208300c1a770f4f30d8422d5233a1 pkg.csize=42515 pkg.size=156144 variant.arch=i386
+file ba79b131640726da73976c2b8f02085f182cb01d chash=e104c7610c40ce2066211e8c775bc90259953816 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man3/gv-ruby.3 pkg.content-hash=file:sha512t_256:5b6ed2da40a07df0b55c8989402cc4a64f6a7425ceab262e50480c20261251be pkg.content-hash=gzip:sha512t_256:b1c25fafbd46bea8716e4677b449dbc7336c60bf0dd8ed156ddcfc9fadff7d9d pkg.csize=1984 pkg.size=9644
+file ef664a63cae8f964ce0d47b8bafdebbfea3293ef chash=6370180e4edd0b66a1c4acc6344ba6316fb45b8e group=bin mode=0444 owner=root path=usr/share/graphviz/demo/modgraph.rb pkg.content-hash=file:sha512t_256:72175427d23a0cf70a74360ff39b7400cde26f0dc57bcd9eed47116c9aa07150 pkg.content-hash=gzip:sha512t_256:4c379b636a585f4167bc261fdf3ffd4fe11b8bc371cb873f3055ece04f7750c9 pkg.csize=506 pkg.size=894
+file 0292a7051c7dca1e89995c0097e080f4608d5bd1 chash=b37e7d8a7a55528fe37476429153b5446977d48c elfarch=sparc elfbits=64 elfhash=32f375a0919f6c61508bf6b29051ad452df54ef3 group=bin mode=0555 owner=root path=usr/lib/sparcv9/graphviz/ruby/libgv_ruby.so pkg.content-hash=gelf:sha512t_256:bbc01c889736f24ba4c84a64bbb2fe5964cc844a200f79c967133868c3df5cd3 pkg.content-hash=gelf.unsigned:sha512t_256:cfd01364f2945e23b2eb1d9532e7a627e665cf0f8933918a33129ce4f9297978 pkg.content-hash=file:sha512t_256:662d30e43c0c5d7df726386894fba8fb767ffbba981717e222608839f18ab3f2 pkg.content-hash=gzip:sha512t_256:ccdb1cdb008cd07ee2668b8c560b3365f0fb1ecf77af51831951a620872cf59b pkg.csize=56738 pkg.size=216248 variant.arch=sparc
+link path=usr/ruby/2.1/lib/ruby/vendor_ruby/2.1.0/amd64-solaris2.11/gv.so target=../../../../../../../lib/amd64/graphviz/ruby/libgv_ruby.so variant.arch=i386
+link path=usr/lib/amd64/graphviz/ruby/gv.so target=libgv_ruby.so variant.arch=i386
+link path=usr/lib/sparcv9/graphviz/ruby/gv.so target=libgv_ruby.so variant.arch=sparc
+link path=usr/ruby/2.1/lib/ruby/vendor_ruby/2.1.0/sparcv9-solaris2.11/gv.so target=../../../../../../../lib/sparcv9/graphviz/ruby/libgv_ruby.so variant.arch=sparc
+license 3348e5430ba4fb49fa8eb6e9caf4f06266639d0d chash=34a6b7f0793384181f4058777e045e50769ea1ed license=EPL1.0 pkg.content-hash=file:sha512t_256:458bb9ec2413f2d940f3e23ae76aec311e607e4641a6b769272ea15e73d643af pkg.content-hash=gzip:sha512t_256:b99718c6808622620712198112ff7d162d7636dd6e97f2546412e1439742b48f pkg.csize=4288 pkg.size=11798
+license 1b67cc38d7bbd595b46f356a00713c0e4b70dc92 chash=4b09d7af6291d38b456c9f55ac40c7b658ef8ac9 license="Other Notices" pkg.content-hash=file:sha512t_256:4d5a405b59f723730ab43571470e4cdbbb8efc765eb70e6f066eba33bc21fda1 pkg.content-hash=gzip:sha512t_256:511f561662b687caf92fb933968866ae9414244b30fc092ba7ae82c9a6aaa18a pkg.csize=1764 pkg.size=4626
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=86cf34a72c3ea2fe893bb957d6ea2bd041a96383c4f390a58d4605ae4c721e06aace0c6542334163c0bc9857ea5a178b5994a64cf4828a0196e0be4546ab5a803803389a79a28e32e580a216aa5ff9d5b88042796f5e657ba023fb13f03d76dd9034cd5d19c7da42eda8e98d7c6138d463b53336dcfa62aed0eeb1fca084efbb280e1a3dc6be7169cf6bfeb9204869c8e9c3a7c2a7e28f7cd81c633905cc38972a36861fc34accbd9e3e41fe64ca36d230efca1c0e0b8d3c88b842d8905e1a7d1498bdfe91c6f081863d4a8f6c15fc595ac406bc40458b8657bb82e1a0f0b2598a509919dd5f6f4f34b4a5483f30c2bfcc25de2775479822081e67c1055ba273 version=0

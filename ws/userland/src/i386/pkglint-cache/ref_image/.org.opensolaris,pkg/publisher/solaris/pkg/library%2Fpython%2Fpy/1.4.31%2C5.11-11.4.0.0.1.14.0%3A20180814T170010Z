@@ -1,0 +1,20 @@
+set name=pkg.fmri value=pkg://solaris/library/python/py@1.4.31,5.11-11.4.0.0.1.14.0:20180814T170010Z
+set name=pkg.description value="The py lib is a Python development support library featuring the following tools and modules: py.path: uniform local and svn path objects; py.apipkg: explicit API control and lazy-importing; py.iniconfig: easy parsing of .ini files; py.code: dynamic code generation and introspection; py.path: uniform local and svn path objects."
+set name=com.oracle.info.name value=py
+set name=pkg.summary value="library with cross-python path, ini-parsing, io, code, log facilities"
+set name=variant.arch value=i386 value=sparc
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=PSARC/2013/354
+set name=com.oracle.info.version value=1.4.31
+set name=info.upstream-url value=https://bitbucket.org/hpk42/py
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=info.source-url value=pypi:///py==1.4.31
+set name=com.oracle.info.description value="the Python py module"
+depend fmri=library/python/py-27@1.4.31,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+depend fmri=library/python-2/py@1.4.15,5.12-5.12.0.0.0.41.0 type=optional
+depend fmri=library/python/py-34@1.4.31,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/py-35@1.4.31,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=9207ce808056754d71fd7b337769d162d2a69e852cef0d834a6dc70eacafb71c4c0e0e4189368187be778fcd4da2a7a6238c1f9f549cc5b4957e7dfe7b743648bbb863c1f4a5f49c340061e74cb2460c6f79512eb4b66fcf549b4c59e52673a02b70009a7b8c4d0ac65de86c5c4cb56e8245b4a105b9b147e47b9e846d48d26683f7235557b3938088eb9bcf42cc23e12972e227d7ace64b8ad35d7c8b15f57359cc15e5da5ca2298b031f26ad1ccff07dfed4fc2c84074a91d39839d44a1449cfdbe865f93c32a363d3f4be88624555c8d55368eda20b98f4176eecd0aca809482022a34b7a88fc8073e01f575767fbca4860e4070577b29203d56c54b1421f version=0

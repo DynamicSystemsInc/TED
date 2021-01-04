@@ -1,0 +1,385 @@
+gmake: Entering directory '/ws/userland/src/components/ccid'
+/bin/rm -f -r /ws/userland/src/components/ccid/ccid-1.4.20
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  ccid-1.4.20.tar.bz2
+/usr/bin/touch /ws/userland/src/components/ccid/ccid-1.4.20/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/ccid/ccid-1.4.20 --strip=1 --backup --version-control=numbered < patches/00-ltmain.sh.patch
+patching file ltmain.sh
+/usr/bin/touch /ws/userland/src/components/ccid/ccid-1.4.20/.patched-00-ltmain.sh.patch
+/usr/bin/patch -d /ws/userland/src/components/ccid/ccid-1.4.20 --strip=1 --backup --version-control=numbered < patches/01-ccid_usb.c.patch
+patching file src/ccid_usb.c
+/usr/bin/touch /ws/userland/src/components/ccid/ccid-1.4.20/.patched-01-ccid_usb.c.patch
+/usr/bin/patch -d /ws/userland/src/components/ccid/ccid-1.4.20 --strip=1 --backup --version-control=numbered < patches/02-commands.c.patch
+patching file src/commands.c
+/usr/bin/touch /ws/userland/src/components/ccid/ccid-1.4.20/.patched-02-commands.c.patch
+/usr/bin/touch /ws/userland/src/components/ccid/ccid-1.4.20/.patched
+/usr/bin/touch /ws/userland/src/components/ccid/ccid-1.4.20/.prep
+(/bin/rm -f -rf /ws/userland/src/components/ccid/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/ccid/build/amd64)
+(cd /ws/userland/src/components/ccid/build/amd64 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/opt/solarisstudio12.4/bin/cc" CXX="/opt/solarisstudio12.4/bin/CC" PATH="/usr/bin/amd64:/usr/bin:/usr/gnu/bin" CC_FOR_BUILD="/opt/solarisstudio12.4/bin/cc -m64" CXX_FOR_BUILD="/opt/solarisstudio12.4/bin/CC -m64" CPPFLAGS="-m64" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt" CXXFLAGS="-norunpath -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr" LDFLAGS="" LIBUSB_CFLAGS="-I/usr/include/libusb-1.0" LIBUSB_LIBS="-lusb-1.0" CFLAGS="-m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -I/usr/include/PCSC" LDFLAGS="-lpcsclite" /bin/bash \
+	/ws/userland/src/components/ccid/ccid-1.4.20/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib/amd64    --exec-prefix=/usr/lib/amd64 --enable-libusb --enable-usbdropdir=/usr/lib/amd64/pcsc/drivers)
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking build system type... x86_64-pc-solaris2.11
+checking host system type... x86_64-pc-solaris2.11
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for gcc... /opt/solarisstudio12.4/bin/cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... no
+checking whether /opt/solarisstudio12.4/bin/cc accepts -g... yes
+checking for /opt/solarisstudio12.4/bin/cc option to accept ISO C89... none needed
+checking whether /opt/solarisstudio12.4/bin/cc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of /opt/solarisstudio12.4/bin/cc... none
+checking how to run the C preprocessor... /opt/solarisstudio12.4/bin/cc -E
+checking whether make sets $(MAKE)... (cached) yes
+checking whether ln -s works... yes
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for PCSC... yes
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking ifdhandler.h usability... yes
+checking ifdhandler.h presence... yes
+checking for ifdhandler.h... yes
+checking reader.h usability... yes
+checking reader.h presence... yes
+checking for reader.h... yes
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for fgrep... /usr/bin/ggrep -F
+checking for non-GNU ld... /usr/bin/amd64/ld
+checking if the linker (/usr/bin/amd64/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking the maximum length of command line arguments... 1572480
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-pc-solaris2.11 file names to x86_64-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert x86_64-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/amd64/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/gnu/bin/nm output from /opt/solarisstudio12.4/bin/cc object... ok
+checking for sysroot... no
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking for /opt/solarisstudio12.4/bin/cc option to produce PIC... -KPIC -DPIC
+checking if /opt/solarisstudio12.4/bin/cc PIC flag -KPIC -DPIC works... yes
+checking if /opt/solarisstudio12.4/bin/cc static flag -Bstatic works... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... yes
+checking if /opt/solarisstudio12.4/bin/cc supports -c -o file.o... (cached) yes
+checking whether the /opt/solarisstudio12.4/bin/cc linker (/usr/bin/amd64/ld -64) supports shared libraries... yes
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for ANSI C header files... (cached) yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking for string.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for sys/types.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for an ANSI C-conforming const... yes
+checking for size_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for select... yes
+checking for strerror... yes
+checking for strncpy... yes
+checking for memcpy... yes
+checking for strlcpy... yes
+checking for strlcat... yes
+checking for LIBUSB... yes
+checking libusb.h usability... yes
+checking libusb.h presence... yes
+checking for libusb.h... yes
+checking for libusb_init... yes
+checking for -fvisibility=hidden... yes
+checking whether pthreads work with -pthreads... no
+checking for the pthreads library -lpthread... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... -mt -D_REENTRANT
+checking for PTHREAD_PRIO_INHERIT... yes
+checking for xlc_r... no
+checking for cc_r... no
+checking for SCardEstablishContext... yes
+
+libccid has been configured with following options:
+
+Version:             1.4.20
+User binaries:       /usr/bin
+Configuration files: /usr/etc
+
+
+Host:                x86_64-pc-solaris2.11
+Compiler:            /opt/solarisstudio12.4/bin/cc
+Preprocessor flags:  -m64
+Compiler flags:      -m64  -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr    -mt    -I/usr/include/PCSC
+Preprocessor flags:  -m64
+Linker flags:        -lpcsclite
+Libraries:           
+
+PCSC_CFLAGS:         -mt -D_REENTRANT -I/usr/include/PCSC
+PCSC_LIBS:           -L/usr/lib/amd64 -lpcsclite
+PTHREAD_CFLAGS:      -mt -D_REENTRANT 
+PTHREAD_LIBS:        -lpthread
+BUNDLE_HOST:         Solaris
+DYN_LIB_EXT:         so
+LIBUSB_CFLAGS:       -I/usr/include/libusb-1.0
+LIBUSB_LIBS:         -lusb-1.0
+SYMBOL_VISIBILITY:   -fvisibility=hidden
+NOCLASS:             
+
+libusb support:          yes
+composite as multislot:  no
+multi threading:         yes
+bundle directory name:   ifd-ccid.bundle
+USB drop directory:      /usr/lib/amd64/pcsc/drivers
+serial Twin support:     no
+serial twin install dir: /usr/lib/amd64/pcsc/drivers/serial
+serial config directory: /etc/pcsc
+compiled for pcsc-lite:  yes
+syslog debug:            no
+class driver:            yes
+
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating readers/Makefile
+config.status: creating contrib/Makefile
+config.status: creating contrib/Kobil_mIDentity_switch/Makefile
+config.status: creating contrib/RSA_SecurID/Makefile
+config.status: creating examples/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+/usr/bin/touch /ws/userland/src/components/ccid/build/amd64/.configured
+(cd /ws/userland/src/components/ccid/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" PATH="/usr/bin:/usr/gnu/bin:/usr/perl5/5.22/bin" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/ccid/build/amd64'
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/ccid/build/amd64'
+Making all in readers
+make[3]: Entering directory '/ws/userland/src/components/ccid/build/amd64/readers'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/readers'
+Making all in examples
+make[3]: Entering directory '/ws/userland/src/components/ccid/build/amd64/examples'
+  CC       scardcontrol-scardcontrol.o
+"/ws/userland/src/components/ccid/ccid-1.4.20/examples/scardcontrol.c", line 617: Warning: Likely out-of-bound write: *(bSendBuffer+19) in function main
+"/ws/userland/src/components/ccid/ccid-1.4.20/examples/scardcontrol.c", line 618: Warning: Likely out-of-bound write: *(bSendBuffer + 1+19) in function main
+"/ws/userland/src/components/ccid/ccid-1.4.20/examples/scardcontrol.c", line 619: Warning: Likely out-of-bound write: *(bSendBuffer + 2+19) in function main
+"/ws/userland/src/components/ccid/ccid-1.4.20/examples/scardcontrol.c", line 620: Warning: Likely out-of-bound write: *(bSendBuffer + 3+19) in function main
+"/ws/userland/src/components/ccid/ccid-1.4.20/examples/scardcontrol.c", line 624: Warning: Likely out-of-bound write: *(bSendBuffer + 7+19) in function main
+"/ws/userland/src/components/ccid/ccid-1.4.20/examples/scardcontrol.c", line 625: Warning: Likely out-of-bound write: *(bSendBuffer + 8+19) in function main
+"/ws/userland/src/components/ccid/ccid-1.4.20/examples/scardcontrol.c", line 628: Warning: Likely out-of-bound write: *(bSendBuffer + 11+19) in function main
+"/ws/userland/src/components/ccid/ccid-1.4.20/examples/scardcontrol.c", line 629: Warning: Likely out-of-bound write: *(bSendBuffer + 12+19) in function main
+  CC       scardcontrol-PCSCv2part10.o
+  CCLD     scardcontrol
+make[3]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/examples'
+Making all in contrib
+make[3]: Entering directory '/ws/userland/src/components/ccid/build/amd64/contrib'
+Making all in Kobil_mIDentity_switch
+make[4]: Entering directory '/ws/userland/src/components/ccid/build/amd64/contrib/Kobil_mIDentity_switch'
+  CC       Kobil_mIDentity_switch-Kobil_mIDentity_switch.o
+  CCLD     Kobil_mIDentity_switch
+make[4]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/contrib/Kobil_mIDentity_switch'
+Making all in RSA_SecurID
+make[4]: Entering directory '/ws/userland/src/components/ccid/build/amd64/contrib/RSA_SecurID'
+  CC       RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.o
+  CCLD     RSA_SecurID_getpasswd
+make[4]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/contrib/RSA_SecurID'
+make[4]: Entering directory '/ws/userland/src/components/ccid/build/amd64/contrib'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/contrib'
+make[3]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/contrib'
+Making all in src
+make[3]: Entering directory '/ws/userland/src/components/ccid/build/amd64/src'
+  CC       libccid_la-ccid.lo
+  CC       libccid_la-commands.lo
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/commands.c", line 2207: warning: statement not reached
+  CC       libccid_la-ifdhandler.lo
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ifdhandler.c", line 532: warning: assignment type mismatch:
+	pointer to void "=" pointer to function(unsigned long, int) returning long
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ifdhandler.c", line 540: warning: assignment type mismatch:
+	pointer to void "=" pointer to function(unsigned long, int) returning long
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ifdhandler.c", line 578: warning: assignment type mismatch:
+	pointer to void "=" pointer to function(unsigned long) returning long
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ifdhandler.c", line 1288: warning: initializer does not fit or is out of range: 255
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ifdhandler.c", line 1288: warning: initializer does not fit or is out of range: 154
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ifdhandler.c", line 1289: warning: initializer does not fit or is out of range: 255
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ifdhandler.c", line 1289: warning: initializer does not fit or is out of range: 154
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ifdhandler.c", line 1290: warning: initializer does not fit or is out of range: 255
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ifdhandler.c", line 1290: warning: initializer does not fit or is out of range: 154
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ifdhandler.c", line 1291: warning: initializer does not fit or is out of range: 255
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ifdhandler.c", line 1291: warning: initializer does not fit or is out of range: 154
+  CC       libccid_la-utils.lo
+  CC       libccid_la-ccid_usb.lo
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ccid_usb.c", line 1510: warning: statement not reached
+  CC       libccid_la-tokenparser.lo
+  CC       libccid_la-strlcpy.lo
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/strlcpy.c", line 22: warning: empty translation unit
+  CC       libccid_la-simclist.lo
+  CC       towitoko/libccid_la-atr.lo
+  CC       towitoko/libccid_la-pps.lo
+  CC       openct/libccid_la-buffer.lo
+  CC       openct/libccid_la-checksum.lo
+  CC       openct/libccid_la-proto-t1.lo
+  CCLD     libccid.la
+  CC       parse-parse.o
+  CC       parse-debug.o
+  CC       parse-ccid_usb.o
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/ccid_usb.c", line 1510: warning: statement not reached
+  CC       parse-tokenparser.o
+  CC       parse-strlcpy.o
+"/ws/userland/src/components/ccid/ccid-1.4.20/src/strlcpy.c", line 22: warning: empty translation unit
+  CC       parse-simclist.o
+  CCLD     parse
+make[3]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/src'
+make[3]: Entering directory '/ws/userland/src/components/ccid/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/ccid/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/ccid/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/ccid/build/amd64'
+/usr/bin/touch /ws/userland/src/components/ccid/build/amd64/.built
+(cd /ws/userland/src/components/ccid/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/ccid/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/ccid/build/amd64'
+Making install in readers
+make[2]: Entering directory '/ws/userland/src/components/ccid/build/amd64/readers'
+make[3]: Entering directory '/ws/userland/src/components/ccid/build/amd64/readers'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/readers'
+make[2]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/readers'
+Making install in examples
+make[2]: Entering directory '/ws/userland/src/components/ccid/build/amd64/examples'
+make[3]: Entering directory '/ws/userland/src/components/ccid/build/amd64/examples'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/examples'
+make[2]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/examples'
+Making install in contrib
+make[2]: Entering directory '/ws/userland/src/components/ccid/build/amd64/contrib'
+Making install in Kobil_mIDentity_switch
+make[3]: Entering directory '/ws/userland/src/components/ccid/build/amd64/contrib/Kobil_mIDentity_switch'
+make[4]: Entering directory '/ws/userland/src/components/ccid/build/amd64/contrib/Kobil_mIDentity_switch'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/contrib/Kobil_mIDentity_switch'
+make[3]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/contrib/Kobil_mIDentity_switch'
+Making install in RSA_SecurID
+make[3]: Entering directory '/ws/userland/src/components/ccid/build/amd64/contrib/RSA_SecurID'
+make[4]: Entering directory '/ws/userland/src/components/ccid/build/amd64/contrib/RSA_SecurID'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/contrib/RSA_SecurID'
+make[3]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/contrib/RSA_SecurID'
+make[3]: Entering directory '/ws/userland/src/components/ccid/build/amd64/contrib'
+make[4]: Entering directory '/ws/userland/src/components/ccid/build/amd64/contrib'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/contrib'
+make[3]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/contrib'
+make[2]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/contrib'
+Making install in src
+make[2]: Entering directory '/ws/userland/src/components/ccid/build/amd64/src'
+/ws/userland/src/components/ccid/ccid-1.4.20/src/create_Info_plist.pl /ws/userland/src/components/ccid/ccid-1.4.20/src/../readers/supported_readers.txt /ws/userland/src/components/ccid/ccid-1.4.20/src/Info.plist.src --target=libccid.so --version=1.4.20  > Info.plist
+/bin/bash /ws/userland/src/components/ccid/ccid-1.4.20/install-sh -d /ws/userland/src/components/ccid/build/prototype/i386/usr/lib/amd64/pcsc/drivers/ifd-ccid.bundle/Contents/Solaris/
+cp Info.plist /ws/userland/src/components/ccid/build/prototype/i386/usr/lib/amd64/pcsc/drivers/ifd-ccid.bundle/Contents/
+cp .libs/libccid.so /ws/userland/src/components/ccid/build/prototype/i386/usr/lib/amd64/pcsc/drivers/ifd-ccid.bundle/Contents/Solaris/libccid.so
+-e 
+\33[01;31m***************
+
+copy the src/92_pcscd_ccid.rules file in udev directory (/etc/udev/rules.d/)
+-e 
+***************
+\33[0m
+make[2]: Leaving directory '/ws/userland/src/components/ccid/build/amd64/src'
+make[2]: Entering directory '/ws/userland/src/components/ccid/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/ccid/build/amd64'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/ccid/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/ccid/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/ccid/build/amd64'
+/usr/bin/touch /ws/userland/src/components/ccid/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 libccid.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=1\\.4\\.20 -D COMPONENT_RE_VERSION=1\\.4\\.20 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/ccid -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="25483" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="1.4.20" -D IPS_COMPONENT_VERSION="1.4.20" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://alioth.debian.org/frs/download.php/file/4140//ccid-1.4.20.tar.bz2" -D COMPONENT_PROJECT_URL="https://pcsclite.alioth.debian.org/ccid.html" -D COMPONENT_NAME="ccid" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" libccid.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/ccid/build/manifest-i386-libccid.mogrified
+/bin/mkdir -p /ws/userland/src/components/ccid/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/ccid/build/prototype/i386/mangled -d /ws/userland/src/components/ccid/build/prototype/i386/mangled -d /ws/userland/src/components/ccid/build/prototype/i386 -d /ws/userland/src/components/ccid/build -d /ws/userland/src/components/ccid -d ccid-1.4.20 -d /ws/userland/src/licenses -m /ws/userland/src/components/ccid/build/manifest-i386-libccid.mogrified >/ws/userland/src/components/ccid/build/manifest-i386-libccid.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/ccid/build/prototype/i386/mangled -d /ws/userland/src/components/ccid/build/prototype/i386 -d /ws/userland/src/components/ccid/build -d /ws/userland/src/components/ccid -d ccid-1.4.20 -d /ws/userland/src/licenses /ws/userland/src/components/ccid/build/manifest-i386-libccid.mangled >/ws/userland/src/components/ccid/build/manifest-i386-libccid.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/ccid/build/resolve.deps -m /ws/userland/src/components/ccid/build/manifest-i386-libccid.depend
+/usr/bin/touch /ws/userland/src/components/ccid/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/ccid/build/manifest-i386-libccid.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/ccid/build/prototype/i386/mangled /ws/userland/src/components/ccid/build/prototype/i386 /ws/userland/src/components/ccid/build /ws/userland/src/components/ccid ccid-1.4.20 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/ccid/build/manifest-i386-libccid.depend.res
+/usr/bin/touch /ws/userland/src/components/ccid/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/ccid/build/prototype/i386/mangled -d /ws/userland/src/components/ccid/build/prototype/i386 -d /ws/userland/src/components/ccid/build -d /ws/userland/src/components/ccid -d ccid-1.4.20 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/ccid/build/manifest-i386-libccid.depend.res
+pkg://nightly/library/security/pcsc-lite/ccid@1.4.20,5.11-11.4.0.0.1.14.0:20190727T173159Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/ccid/build/manifest-i386-libccid.depend.res >/ws/userland/src/components/ccid/build/manifest-i386-libccid.published
+/usr/bin/touch /ws/userland/src/components/ccid/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/ccid'
+
+real       24.3
+user        8.9
+sys         3.0

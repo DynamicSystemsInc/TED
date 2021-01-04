@@ -1,0 +1,19 @@
+set name=pkg.fmri value=pkg://solaris/library/python/trollius@2.1,5.11-11.4.0.0.1.14.0:20180814T170527Z
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.version value=2.1
+set name=com.oracle.info.description value="Port of the Tulip Project on Python 2"
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=pkg.summary value="Port of the Tulip project (asyncio module, PEP 3156) on Python 2"
+set name=pkg.description value="Trollius provides infrastructure for writing single-threaded concurrent code using coroutines, multiplexing I/O access over sockets and other resources, running network clients and servers, and other related primitives. Here is a more detailed list of the package contents: 1) a pluggable event loop with various system-specific implentations; 2) transport and protocol abstractions (similar to thos in Twisted); 3) concrete support for TCP, UDP, SSL, subprocess pipes, delayed calls, and others (some may be system-dependent); 4) a ``Future`` class that mimics the one in the ``concurrent.futures`` module, but adapted for use with the event loop; 5) coroutines and tasks based on generators (``yield``), to thelp write concurrent code in a sequential fashion; 6) cancellation support for ``Future``\s and coroutines; 7) synchronization primitives for use between coroutines in a single thread, mimicking those in the ``threading`` module; 8) an interface for passing work off to a theadpool, for times when you absolutely, positively have to use a library that makes blocking I/O calls."
+set name=info.upstream-url value=https://github.com/haypo/trollius
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=PSARC/2015/474
+set name=info.source-url value="Victor Stinner <victor.stinner@gmail.com>"
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.name value=trollius
+depend fmri=library/python/trollius-35@2.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python/trollius-34@2.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/trollius-27@2.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=b2f8e40e25f8b804bf9b8fbdf0d89aeac51511541f075bb4877611699a8f050d97d2ad26daa70fecfcc2fe9ff020c1651d2bb0ba6686c29232b1db2876a2cc16c95de78e2c5c812253e5ed3b6c50b7d07260a328bdfba726d27c9ec4feca720fca24c97ddec2103a3e97fc0b1d320ab161e2a93f24d941849b02ffc09b991fd24f2f1d487f43680ef7bca92191c7ca35fa2edc7c2a494d75a9432b74aa2d19f950a77332ac4c1c8e023417e806bd971a30565395bc00d5d29040ccea3c8247961e8bb9ea1fe9ecacd4583168ebcc1a5e2614ec42b3859db75c63a6e1a99b2b52c0f85d2364271a4a047fb266b067d8fa5a4d3cf637134a376e47f1961c4eb184 version=0

@@ -1,0 +1,26 @@
+set name=pkg.fmri value=pkg://solaris/image/xcursorgen@1.0.6,5.11-11.4.0.0.1.14.0:20180814T163953Z
+set name=com.oracle.info.description value=xcursorgen
+set name=info.classification value="org.opensolaris.category.2008:Applications/Graphics and Imaging"
+set name=pkg.summary value="xcursorgen prepares X11 cursor sets for use with libXcursor."
+set name=com.oracle.info.name value=xcursorgen
+set name=com.oracle.info.tpno value=39514
+set name=pkg.description value="xcursorgen creates an X cursor set file from a collection of PNG images and a metadata file."
+set name=com.oracle.info.version value=1.0.6
+set name=info.source-url value=https://www.x.org/releases/individual/app/xcursorgen-1.0.6.tar.bz2
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=info.upstream-url value=https://www.x.org
+set name=org.opensolaris.arc-caseid value=LSARC/2007/491
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+depend fmri=pkg:/image/library/libpng14@1.4.20-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libx11@1.6.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libxcursor@1.1.15-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file b16827404ccb1ad74bdcd7e33763d67b4f43247a chash=cea3da7314040afe5bb690cb2edbee587f9bba65 elfarch=sparc elfbits=64 elfhash=0f7326e58442b30e059544f58a6cd986024b9832 group=bin mode=0555 owner=root path=usr/bin/xcursorgen pkg.content-hash=gelf:sha512t_256:f2b4315fef09130428ba47b5db42bc961778bf06429b26f719235f587c66f5ce pkg.content-hash=gelf.unsigned:sha512t_256:a1de106004a6e4f84a3156c41ea7fb35bdf0d8dae630a985bafdee2f2328035d pkg.content-hash=file:sha512t_256:455a02ea9d3678d44995241ce5b60cc0478d3d95033c0f97263ef8179b728fea pkg.content-hash=gzip:sha512t_256:3ea5a4e7c634fe3c64dc8b8f6282a1293567aba85664192fe92e5cf4117de35b pkg.csize=8127 pkg.size=27912 variant.arch=sparc
+file 67bdaaae2bd90de2052e16bb1bc73b3892ddc9d7 chash=dc1e39d4aba4b781c85ccac47ea580271e4258ff facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/xcursorgen.1 pkg.content-hash=file:sha512t_256:dcd7b7340d03b90de8b0dd38fbee82121d432a826b01652e67328c9c12db9177 pkg.content-hash=gzip:sha512t_256:d6103363577c000a0e96ce2d747338bde9ec8700ae4d30ccaf364bc47276e875 pkg.csize=1691 pkg.size=3443
+file 53ba698606a3d59fc3d2acdca5c2c87524cd0b8f chash=74463f90cfc7f41652c61dd0c479b92fcdda2c6d elfarch=i386 elfbits=64 elfhash=c2e72dc3b750094479bd25427e077682094e7f86 group=bin mode=0555 owner=root path=usr/bin/xcursorgen pkg.content-hash=gelf:sha512t_256:017ad2299ec52711bd11232bb3741a1ccaddb5806364968caaa3afedb3bab321 pkg.content-hash=gelf.unsigned:sha512t_256:7a68802ba4197d9a9397f7928c2000926403fd3d82507670727a2e93a8cd1585 pkg.content-hash=file:sha512t_256:d18f81f3ae75c140ae66133ed2db7f44f49466fe6b793109e3e2c9d1f278ae42 pkg.content-hash=gzip:sha512t_256:bb059009594410a6259fde65155deb7f0abae21b944f1ecc7a7022a8260d5a2c pkg.csize=7958 pkg.size=22496 variant.arch=i386
+link path=usr/X11/bin/xcursorgen target=../../bin/xcursorgen
+license 32b0302709046c7d107587b2a4435e91bcea2be8 chash=3b6ca1b384138b52d196cd0ba57d3309db40f80a license=MIT pkg.content-hash=file:sha512t_256:d3e931fcd2b0d0bde0f26cac402989f97546e936c60e7bdd682f439dc2836dd9 pkg.content-hash=gzip:sha512t_256:d6810920971c67e94fa5dc67454a4257e7be1abb4ac5b74af3538cb8bc9593f9 pkg.csize=629 pkg.size=1094
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=4ff1fea70f4c0403277ba496a7f40389a688a051b778617c82c337421d214b65024f120c8140ebe0ea93f14e98ef42cd32983830a8f3a9b5c8f50c9cc73ac056c011172655977b8bbd9e78e15196e88c93a4cbb1c293d2abef4482b4b2cc2af67967bd5d14767c983b770c2568875323363a679e7da8510240b700a9f4b0245f0caeab5573b9b493751619453c1a148b8dde16161287f8f78838736ff059285d1ee3c02657375074878f311c066dd56078041a9046e18613c2e7615fa9b6aaffd9012c9d1c872527c776cb9976877497cf1e4b4070e374d0adb811739e6a29f4cbf3a6e3f2ba8e30ffefeadab21805e163ae1ddff3fb7b19a5feb4d532b50d60 version=0

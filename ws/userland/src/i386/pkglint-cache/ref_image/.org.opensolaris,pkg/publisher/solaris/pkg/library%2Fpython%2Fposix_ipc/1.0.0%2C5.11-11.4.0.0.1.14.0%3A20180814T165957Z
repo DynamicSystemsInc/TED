@@ -1,0 +1,20 @@
+set name=pkg.fmri value=pkg://solaris/library/python/posix_ipc@1.0.0,5.11-11.4.0.0.1.14.0:20180814T165957Z
+set name=com.oracle.info.description value="the Python posix_ipc Library"
+set name=pkg.description value="posix_ipc is a Python module that permits creation and manipulation of POSIX inter-process semaphores, shared memory and message queues on platforms supporting the POSIX Realtime Extensions a.k.a. POSIX 1003.1b-1993."
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.version value=1.0.0
+set name=org.opensolaris.arc-caseid value=PSARC/2014/330
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.source-url value=pypi:///posix_ipc==1.0.0
+set name=info.upstream-url value=http://semanchuk.com/philip/posix_ipc/
+set name=pkg.summary value="POSIX IPC primitives (semaphores, shared memory and message queues) for Python"
+set name=com.oracle.info.name value=posix_ipc
+set name=info.classification value=org.opensolaris.category.2008:Development/Python value=org.opensolaris.category.2008:System/Libraries
+set name=org.opensolaris.consolidation value=userland
+set name=info.upstream value="Philip Semanchuk <philip@semanchuk.com>"
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/python/posix_ipc-34@1.0.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/posix_ipc-35@1.0.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python/posix_ipc-27@1.0.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=6d247e93bf68ec25bb91ee24a349b68b1fb0b7ddf8c87ddf782a036e8390c63db52a355442f8e118dfa5316016532d532bf2cd9dc90e8828833aef44b634ad3cf54e0d3bb91eac6e88ce272c20c26a6de3d70d838a6c2336311b13402c829158bb56bd39ebab82d65ff6033fc74131ab1a5024ec127c416d9ad1ccd24f5d8ee5c3656e1a38b2a9f87d1014920f275bc5c8b370121537a1118b81c1476309ec26714675c1840295c4506d1a35ddfe69015f21e269c1ba790ae86bc63ac89d5851ca5582e1a32a25ce773585377234751b7274f75a0d3b818802230669ae86b0dd70d041b9cfbb4d4396fb1e4aee158683eee391f92f84acd1bde7a491a3b414ff version=0

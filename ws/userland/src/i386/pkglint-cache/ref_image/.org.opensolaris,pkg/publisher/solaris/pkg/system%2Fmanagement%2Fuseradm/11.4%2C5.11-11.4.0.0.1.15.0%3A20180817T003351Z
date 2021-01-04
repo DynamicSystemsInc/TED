@@ -1,0 +1,29 @@
+set name=pkg.fmri value=pkg://solaris/system/management/useradm@11.4,5.11-11.4.0.0.1.15.0:20180817T003351Z
+set name=variant.debug.osnet value=true value=false
+set name=variant.arch value=sparc value=i386
+set name=pkg.summary value="User Administration Python Client"
+set name=pkg.description value="RAD python client to administer users and roles."
+set name=info.classification value="org.opensolaris.category.2008:System/Administration and Configuration"
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.opensolaris.zone value=global value=nonglobal
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=pkg:/runtime/python-27@2.7.14-11.4.0.0.1.14.0 type=require
+depend fmri=system/management/rad/module/rad-usermgr type=require
+depend fmri=system/management/rad/client/rad-python type=group
+depend fmri=pkg:/system/management/rad/client/rad-python@11.4-11.4.0.0.1.15 type=require
+dir group=sys mode=0755 owner=root path=usr
+dir group=bin mode=0755 owner=root path=usr/lib/python2.7
+dir group=bin mode=0755 owner=root path=usr/lib/python2.7/vendor-packages
+dir group=bin mode=0755 owner=root path=usr/lib/python2.7/vendor-packages/useradm
+dir group=bin mode=0755 owner=root path=usr/sbin
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man8
+file 0c27cd15b1532cba38503222b7fd53b60c8f2772 chash=0bbb1a1a02788683eb79d2aa0189fb1e87023e01 group=bin mode=0555 owner=root path=usr/sbin/useradm pkg.content-hash=file:sha512t_256:5f5cbbc30ee48a8f6d59729579b186589aff03b1803bb96a7cb58f5230167027 pkg.content-hash=gzip:sha512t_256:149c796194bcf08bf070a14d7aa8d0bcbdc23d5470349d219782e2a178eb0601 pkg.csize=8791 pkg.size=46979
+file 1abdf3e665447371fb0edca94ede8f0236785902 chash=9aae821989c2e38a78797985286475b2d3223564 group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/useradm/menusUI.pyc pkg.content-hash=file:sha512t_256:c7d3fab975b06c2c8593267f1418e13c4039cdd9d39db6f1e5e666d490562517 pkg.content-hash=gzip:sha512t_256:22528f503cd10107f137a1d54e6020718772dc3ab5e1a988813ef99ed50fa8cb pkg.csize=9916 pkg.size=25395
+file e1f9ae2c124aecba9065ed16ef7550646534dc52 chash=6f2918d0dc2b8de512a9b14080b874b0aa4a26a6 group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/useradm/menusUI.py pkg.content-hash=file:sha512t_256:68633fc8c38350c438484dfc63765a1582b8bc904f79c5a9d2b243f0cb7d2613 pkg.content-hash=gzip:sha512t_256:35a2d1a245cc50cd739dcc53e17f87c065e122d1138edcfe613e8c69292c6932 pkg.csize=6456 pkg.size=38074 timestamp=20161115T004431Z
+file 507dff450f1da4da77ba2c0047697041cb77b86d chash=52d6c2a4dbb0686a693eb189b4d834d25abe626f group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/useradm/messages.py pkg.content-hash=file:sha512t_256:402161e5f5c6d7f6eb5860f023a7d4c697cb9a3d105009e43c6e0ff7756b45c4 pkg.content-hash=gzip:sha512t_256:c107315eaa06871345f74d0d4ccfb270e805952af4128461366d71ece02a4720 pkg.csize=1683 pkg.size=5911 timestamp=20151204T084754Z
+file 15822980d9b3c01ec4ad16e864e4d245f8aae133 chash=3f286699292ae35816b6b0930a05f9fcffde2379 group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/useradm/messages.pyc pkg.content-hash=file:sha512t_256:1e24fcf978965a6c01c8d15c8d3dcf292ee7c8d3a675e1520193d203b06ba208 pkg.content-hash=gzip:sha512t_256:80126528f50428cc27c383af71438e22d4741c6defbe12d4eb9da32c66b13d8d pkg.csize=2352 pkg.size=5751
+file 3546d04e6520707ce36104af56a5309f5aef0bdc chash=a0d59290a4b518d4086f411dedf2556e16377023 group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/useradm/__init__.pyc pkg.content-hash=file:sha512t_256:7f6da50c839c5800dac9679c9960e3c75f62b2418e4c1dee7d6003082bba3dc2 pkg.content-hash=gzip:sha512t_256:d74fa05e9c1ddab0dc7e4b5edcb0072848d4d2c98c1259a702d08174e01b5f6a pkg.csize=146 pkg.size=168
+file 267052a32207e72da37cfd9578a3ce7e4e802736 chash=4844934468e07eed520e8cb02c32e5de14df406b group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/useradm/__init__.py pkg.content-hash=file:sha512t_256:5dc9569ca2cb6dc3561c1ba87203ede07acb2d2030a637a072cfc81072a94271 pkg.content-hash=gzip:sha512t_256:c7e39f2f1b0001f656cd328233214802aaf22999515ad585e4ad4310528848bd pkg.csize=126 pkg.size=112 timestamp=20150221T003429Z
+file 3190d10ce1cb551c338b9666ef8a8ee0a3e469cb chash=85fc86bed19a2d6d941ebdeae7e66b30a182689d facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man8/useradm.8 pkg.content-hash=file:sha512t_256:ba4d22b166d49d0213c59c9da49cc21fa4bd4c0273ad87ac6aca99895d47aec4 pkg.content-hash=gzip:sha512t_256:bc5df556efe193e73de09b2edc10b20c53a23d390658524384a82f110d46e8d2 pkg.csize=4122 pkg.size=12611
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=06f5b4a7f4971af93aeeabde0a8d4f9a9c6b3aa52b701366ab4c63c8041682e2aab4ced985a8f982fd797b857d779277b2d4d89922d14dbd6db62c1a66c7aee72161ece6db2af0e413149ff9ecd3cceeaab33e4d3f67fdfb54fa541b45a13cc5760af922ff07393cc5ed1e513349e146fcf2708c86096e9023b88fbcac37f68f47b6895c031ffde04ef4e94d8e2fee4851de58233b117a9bd94565510f3fec62f60157ae5bb4d6155389a18fea4cef236a2c12e9910f6e576ee88addd5a280e7190a54d2baad734018f3899e5e3aa2798cbde73d248ab712461a2e80a4b03cb2fa731be831675d7373e9010e27c7bebbdc834eb1f07e09fdd3767041b0700ee4 version=0

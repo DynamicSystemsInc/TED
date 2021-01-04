@@ -1,0 +1,20 @@
+set name=pkg.fmri value=pkg://solaris/library/python/waitress@0.9.0,5.11-11.4.0.0.1.14.0:20180814T170545Z
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.name value=waitress
+set name=pkg.summary value="Waitress WSGI server"
+set name=pkg.description value="Waitress is meant to be a production-quality pure-Python WSGI server with very acceptable performance. It has no dependencies except ones which live in the Python standard library. It supports HTTP/1.0 and HTTP/1.1."
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=org.opensolaris.arc-caseid value=PSARC/2013/379
+set name=info.upstream-url value=https://pypi.python.org/pypi/waitress
+set name=org.opensolaris.consolidation value=userland
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.description value="the Python waitress module"
+set name=com.oracle.info.version value=0.9.0
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.source-url value=pypi:///waitress==0.9.0
+depend fmri=library/python/waitress-34@0.9.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python-2/waitress@0.8.5,5.12-5.12.0.0.0.41.0 type=optional
+depend fmri=library/python/waitress-35@0.9.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python/waitress-27@0.9.0,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=2616093cc2244e98623e916bb11b3931732b898f77b74d05170b95120d911251f343f3d5a1f4d8c041ffa9ed0f48e41b8d3c338cb3394c741f595fbabc23b7d98b445a068d7deece5c15720aa6e62540f621870be2667089371360f70609285142033c8d94522459ef7ccbeb70a6f6a76a3668505f108d57f9a4ec522e3e812b974c19ee8aa5ca668da3e0eca3f4ee1045a88d738446f5489cc256f0261527217d3a16cea587f98850b95ae50cfe1030a944d7407c7a52895d6ec297d623b8a4104bcf9ed84f2cab8db4aea258ec016353cc6bce99723a76cc0c72679c0c84df0368860ef6015edb32c5e20ec34dc6e5755c6b040de0c96090ca0b40bfcc8cd2 version=0

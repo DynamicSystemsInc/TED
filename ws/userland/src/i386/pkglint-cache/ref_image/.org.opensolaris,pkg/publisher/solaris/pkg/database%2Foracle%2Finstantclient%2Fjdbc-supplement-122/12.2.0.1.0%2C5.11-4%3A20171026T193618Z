@@ -1,0 +1,26 @@
+set name=pkg.fmri value=pkg://solaris/database/oracle/instantclient/jdbc-supplement-122@12.2.0.1.0,5.11-4:20171026T193618Z
+set name=pkg.summary value="Oracle Instant Client JDBC supplement"
+set name=info.classification value=org.opensolaris.category.2008:System/Databases
+set name=pkg.description value="This package provides a JDBC supplement: additional support for XA, internationalization and RowSet operations with the Oracle Instant Client."
+set name=org.opensolaris.consolidation value=instantclient
+set name=variant.arch value=sparc value=i386
+depend fmri=pkg:/system/library/math@0.5.11-0.175.3.13.0.1.0 type=require
+depend fmri=consolidation/instantclient/instantclient-incorporation type=require
+depend fmri=pkg:/database/oracle/instantclient-122@12.2.0.1.0-4 type=require
+depend fmri=pkg:/system/library/security/crypto@0.5.11-0.175.3.21.0.1.0 type=require
+depend fmri=pkg:/system/library@0.5.11-0.175.3.25.0.1.0 type=require
+depend fmri=pkg:/system/linker@0.5.11-0.175.3.24.0.1.0 type=require
+depend fmri=pkg:/system/resource-mgmt/resource-pools@0.5.11-0.175.3.20.0.3.0 type=require
+dir group=bin mode=0755 owner=root path=usr/oracle
+dir group=bin mode=0755 owner=root path=usr/oracle/instantclient
+dir group=bin mode=0755 owner=root path=usr/oracle/instantclient/12.2
+dir group=bin mode=0755 owner=root path=usr/oracle/instantclient/12.2/lib
+file a75b6ea7980dd11cc4282ec5d0559a606ec3b952 chash=f01998cf14b16185ba747c52d0d0b9570ff1de01 elfarch=sparc elfbits=64 elfhash=30f7b59a978a816cbae07ab50366258c9802e352 group=bin mode=0555 owner=root path=usr/oracle/instantclient/12.2/lib/sparcv9/libheteroxa12.so pkg.csize=5158 pkg.size=23888 variant.arch=sparc
+file 60cfb8650e5acc74df51892104b97dca2c363888 chash=83c45a8184da1afca49c5bcf136e9cd3c7ac2079 group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.2/lib/orai18n-mapping.jar pkg.csize=82878 pkg.size=88120
+file a569c1304c519d5de820daba00d5b8a6a6f798ab chash=04e283d2e5128e1b7873b7f07f8c8a016ba1bcfb group=bin mode=0444 owner=root path=usr/oracle/instantclient/12.2/lib/orai18n.jar pkg.csize=1484114 pkg.size=1661088
+file 3635ce5e2884decd160f35ed6d135f389b93e3ba chash=ea7ddd1ad95f28bf68c38a3335f12b231ef0e4d0 elfarch=sparc elfbits=32 elfhash=643a590c71130bd59482f49fa3e0e126578251d0 group=bin mode=0555 owner=root path=usr/oracle/instantclient/12.2/lib/libheteroxa12.so pkg.csize=4805 pkg.size=19148 variant.arch=sparc
+file da34aa10c1ea8bd9f9a926231233d23c3a56692e chash=87c2d056c22718f7fae5de7bbdace4f226970d7b elfarch=i386 elfbits=64 elfhash=bbdde924f3cfab5671de4ab7e98d4cc08a5ef0db group=bin mode=0555 owner=root path=usr/oracle/instantclient/12.2/lib/amd64/libheteroxa12.so pkg.csize=5049 pkg.size=23008 variant.arch=i386
+file a8dcc148c9419a9b3e90989b5bb45b9c4e9cb8d4 chash=1c204049fe0ff6ab6540fa650a4aa962eca75d28 elfarch=i386 elfbits=32 elfhash=8b0f7fd253cfe7576216f145227e6270d04129c2 group=bin mode=0555 owner=root path=usr/oracle/instantclient/12.2/lib/libheteroxa12.so pkg.csize=4053 pkg.size=17360 variant.arch=i386
+license 00a39f951798d4d92ba08bbda4fbc649476beb9d chash=4d395ba9bb4af2376edc3005c9d91d5ceeeefcc0 license=cr_Sun pkg.csize=88 pkg.size=71
+set name=com.oracle.service.bugid value=25791608 value=26300939
+signature 235c7674d821032ae3eeda280c7837d1f1f4fdb5 algorithm=rsa-sha256 chain="8e422c1bb80b05f08f7a849f3d7ae90a976e048e 754665e03bd28ef63b05a416073eb6d649624781" chain.chashes="083e40bb50e6964834ebfd3c66b8720b46028068 f85dabbb0d56b37de3c3de98663dd8f27a12ff8e" chain.csizes="1273 1326" chain.sizes="1773 2061" chash=05654e46fc5cac3b9b9bd11c39512bc92bc85089 pkg.csize=1281 pkg.size=1753 value=64b9bebf46c6d284e825d36a4ed09df130e043180409ffef9c9568d93869a5a3d70ce9c43e0b1540dd8580c3e674478dd5271b0f6148c62043bb344739451ed0fb0de368194c1f2e990d1ce8c872cdeabe5050f7674e839b4b2f2604c49c17c70713393f41cd559b0ff5a8fe79bccd8e38050718eea6a530e25570a36bd5b1ba9a8c3a6b6b740f27ab596a5eb373cbac4eca528abae130a5ae0b79e00f4c93af092a6f5f4685bc0682e853612d7a9c6bfdfc27e097e66cb5a7b3a20570592725cdce66d7fe76d858c3cc2c5c30855f052c7cc8c05b8d4bae4ea6111e7d0c106267abcc5f7ef4e105d557b3de072bde4830d7e65771b84d34811456f177ad6729 version=0

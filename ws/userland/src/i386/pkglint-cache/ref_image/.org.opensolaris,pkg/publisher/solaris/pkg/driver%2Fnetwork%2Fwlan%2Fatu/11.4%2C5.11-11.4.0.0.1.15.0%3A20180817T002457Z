@@ -1,0 +1,28 @@
+set name=pkg.fmri value=pkg://solaris/driver/network/wlan/atu@11.4,5.11-11.4.0.0.1.15.0:20180817T002457Z
+set name=com.oracle.info.version value=1.92
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Networking
+set name=com.oracle.info.tpno value=5770
+set name=variant.debug.osnet value=true value=false
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=pkg.summary value="Atmel AT76C50x USB Wireless NIC Driver"
+set name=pkg.description value="Wireless network device driver for Atmel AT76C50x chipset-based USB 802.11b NICs."
+set name=com.oracle.info.name value=atu
+set name=com.oracle.info.description value="driver for Atmel AT76C50x USB IEEE802.11b wireless"
+set name=variant.arch value=i386
+depend fmri=pkg:/system/kernel@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+depend fmri=pkg:/system/io/usb@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv/amd64 variant.opensolaris.zone=global
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man4d
+file e86ef023706204c35af77a47265453ca8ac86d4f chash=e2cca4b427c79865d2b12086da36bbb838495314 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4d/atu.4d pkg.content-hash=file:sha512t_256:03fa1885d25606d83ef6dfc68a9da0de61858f1b752110b5039a5146bf789267 pkg.content-hash=gzip:sha512t_256:3d3ee3c9866262759163ceb2c5ab9bbb7c53a8a2a9082c7e640ec798df6e2bf1 pkg.csize=867 pkg.size=1526
+file 2318d8fcee83144d49114fe589bc8056ddcaf5e2 chash=72798af2f6127a610d5f97198d3433387675a85a elfarch=i386 elfbits=64 elfhash=84eae9be760e72214212bfa9a2284050533a2e22 group=sys mode=0755 owner=root path=kernel/drv/amd64/atu pkg.content-hash=gelf:sha512t_256:4a96c17e7e058d24228c029e755b004a6717dfa28c7967c101056df29ab2b387 pkg.content-hash=gelf.unsigned:sha512t_256:4a96c17e7e058d24228c029e755b004a6717dfa28c7967c101056df29ab2b387 pkg.content-hash=file:sha512t_256:ca6661c9d8992aaaec301ff607bcdc2eda660478b752a39d233fa1704814a0e9 pkg.content-hash=gzip:sha512t_256:cd245990b6515c609449200c6df3867436fa7f04e264ac80546df7633d7386d1 pkg.csize=188200 pkg.size=284656 reboot-needed=true variant.debug.osnet=true variant.opensolaris.zone=global
+file aa9606d2d6fc37c82d44984de76b679a1ae65ad1 chash=59b2b8400ffa5390b26b1a5bfd921662640e3179 elfarch=i386 elfbits=64 elfhash=5fa66aab2121aa79900624546a3a65e4a8ff7d73 group=sys mode=0755 owner=root path=kernel/drv/amd64/atu pkg.content-hash=gelf:sha512t_256:28069e4168cd58da902937a179813458db037466e8aaa2ec140220c6174267c4 pkg.content-hash=gelf.unsigned:sha512t_256:28069e4168cd58da902937a179813458db037466e8aaa2ec140220c6174267c4 pkg.content-hash=file:sha512t_256:7a38dde3242c16f079d25d0dcdd84c35b3d8a9687cdc3b809695ff94b0a019ec pkg.content-hash=gzip:sha512t_256:381f33249092cf71e2b404ec2d7882da9f4bb2dfcac5a6e68c1e33eec8080512 pkg.csize=188210 pkg.size=284656 reboot-needed=true variant.debug.osnet=false variant.opensolaris.zone=global
+driver alias=usb1915,2233 clone_perms="atu 0666 root sys" name=atu perms="* 0666 root sys" variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+license 1eaed6c6ef3d1d145fd3b8505fbfa8767bfb7c48 chash=f4e1999982bfa32121cdc5c946b4877099ae9e14 license=usr/src/uts/common/io/atu/THIRDPARTYLICENSE pkg.content-hash=file:sha512t_256:8af8b153bb2714588c4a951aa371a05a3ce5bc53efe1320dbb7c9bbce5bb78b1 pkg.content-hash=gzip:sha512t_256:aba29acba9861285d1e07f6a31b06ced55d88640a67407f8c44565c3d47f555f pkg.csize=1747 pkg.size=4442
+legacy arch=i386 category=system desc="Atmel AT76C50x USB IEEE 802.11b Wireless Device Driver" hotline="Please contact your local service provider" name="Atmel AT76C50x USB IEEE 802.11b Wireless Device Driver" pkg=SUNWatu vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=0693f90bed98b8896e90e2daf062fa18795106b57f19560c135ffa0a5a788dce8a88da48eaf05d79cd5e53bd3401b6d185f4f60eb5fbf1581103a9fd197a542881486e7791900de9864ceea700da2dc45853ba35d7a4e4b807a68109bcc9ad391ddee7456f78bbd22c300266bcdbf8da0b2385143d7a42cb8f250d6dfff763efeaa941ba8783685d76373b546bf21c5d3f30c8ba36b364901a97c068d90e3260fab7302d12fbc42d0ab77e39052fbcabc19c7360b916e8cb54b43f002d8a61c0f7e3e8fe35d7e046a06e9a82b38e44bf1f75779f1e351e8927fae346dc8afdf48e9cb8dab32c7ed0434fd73f6e7681e7d3e0666b85d83b7352a1ce0119d3c421 version=0

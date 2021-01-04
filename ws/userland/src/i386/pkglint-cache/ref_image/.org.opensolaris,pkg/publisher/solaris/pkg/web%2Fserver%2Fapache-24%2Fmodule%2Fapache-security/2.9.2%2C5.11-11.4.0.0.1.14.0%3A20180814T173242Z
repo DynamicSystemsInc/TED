@@ -1,0 +1,30 @@
+set name=pkg.fmri value=pkg://solaris/web/server/apache-24/module/apache-security@2.9.2,5.11-11.4.0.0.1.14.0:20180814T173242Z
+set name=pkg.description value="Mod Security plugin for Apache Web Server Version 2.4"
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.name value=modsecurity
+set name=pkg.summary value="Mod Security plugin for Apache Web Server V2.4"
+set name=org.opensolaris.arc-caseid value=PSARC/2008/090
+set name=info.source-url value=https://www.modsecurity.org/tarball/2.9.2/modsecurity-2.9.2.tar.gz
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.description value="the Mod Security plugin for Apache Web Server V2.4"
+set name=com.oracle.info.version value=2.9.2
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=info.classification value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
+set name=com.oracle.info.tpno value=36801
+set name=info.upstream-url value=https://www.modsecurity.org/
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+depend fmri=pkg:/web/curl@7.60.0-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/pcre@8.41-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/runtime/lua@5.2.1-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/apr-util-16@1.6.1-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/libxml2@2.9.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/apr-16@1.6.3-11.4.0.0.1.13.0 type=require
+dir group=webservd mode=770 owner=webservd path=var/apache2/2.4/modsec/tmp/
+file f1b04a596f912199c028821bb40d90753cd59a0a chash=459b81b83c0e5793ee8489023a70187db1282288 group=bin mode=0444 owner=root path=etc/apache2/2.4/samples-conf.d/unicode.mapping pkg.content-hash=file:sha512t_256:3f437776973f6e08dfc63c9801cfbe0501bd840657d2bed7c43b1ea91bc93e29 pkg.content-hash=gzip:sha512t_256:85390c8c27c69ba0d7e66d97aa20e6c42d63eb4aeca1cfbcc21769561b73ea5b pkg.csize=4462 pkg.size=53642
+file 53bddc765e70d210c83b7e968232278082fee8db chash=30e240ddbfa7d23f0aca1c808e1202a484129f40 group=bin mode=0444 owner=root path=etc/apache2/2.4/samples-conf.d/security2.conf pkg.content-hash=file:sha512t_256:2567a49477745f301214990d1883818bdcccf9f08cc67710b77cbabe3e4779ad pkg.content-hash=gzip:sha512t_256:590a9963787766a429117836ce230cbf3d15b3095a52107422d4e583efe6133b pkg.csize=3541 pkg.size=8604
+file a0aa1ab49bbc07a1f5b114a128f9caf986031889 chash=d69559392d92f7d78dcce5d34cdfe8def1269be3 elfarch=sparc elfbits=64 elfhash=11ce360cb52d1867d037ed31ec2c22f3c08563dd group=bin mode=0444 owner=root path=usr/apache2/2.4/libexec/mod_security2.so pkg.content-hash=gelf:sha512t_256:743e4fc909b90dc2b6cb4598735d3d4663cbae56ba5bbafbfe12e3ac699ebc12 pkg.content-hash=gelf.unsigned:sha512t_256:64205236a638d322ee902b43d2e46aeeea30c1034598a08431be78316a07bcd6 pkg.content-hash=file:sha512t_256:8329c3517b933ed35b66b1d1031350d4f42c314282de7352efb9facb881e237a pkg.content-hash=gzip:sha512t_256:79f1fcd2bd8065691542653674f21746531aae1a3f24496890701dc74f53d5d5 pkg.csize=391281 pkg.linted.userland.action001.2=true pkg.size=1393136 variant.arch=sparc
+file a160ca3c0101f2f6fa448bee61acca0dec26fcb5 chash=e48391e2155b51e6388b30d331f7d9c646f5f7de elfarch=i386 elfbits=64 elfhash=538b60daef81a79623f9db8cff3bb2ab3dadcaf7 group=bin mode=0444 owner=root path=usr/apache2/2.4/libexec/mod_security2.so pkg.content-hash=gelf:sha512t_256:ec182a285cb9741521e0fc3a08be9bd82a271efd8c5c692eb21129af2ac22db2 pkg.content-hash=gelf.unsigned:sha512t_256:3a25fd64772fcc1cc4ac6ce1e7a8555fa0374773db9d7a326bb6ed82b4c0ea6a pkg.content-hash=file:sha512t_256:1a5a3c0860374b6dd34ccb368ef161847296f7d049d3a55eae77878d32ac487e pkg.content-hash=gzip:sha512t_256:a6ab044709e26d19246d6fac4c2307c9c1a54d40595090c666688eb157170b9e pkg.csize=334301 pkg.linted.userland.action001.2=true pkg.size=1400640 variant.arch=i386
+license 1d32f89a755c46d10bdb6fe19efc080c036deea7 chash=e4921fb76328022a60d45551370d9fa27eb63916 license="Apache v2.0" pkg.content-hash=file:sha512t_256:b996b745b5879489529870016eb4476102d85d1e2f8e519931deb0505d6f6e31 pkg.content-hash=gzip:sha512t_256:b0190fdcc03811c5570de7cd2307e2fe9927840f1fe7839c3a4cbeead75520b0 pkg.csize=3845 pkg.size=11388
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=a1e5be0bc049b9766406831c6581d483f42204e377a1a6134ae438a71779c1917bc28eea2a852c230e2b1fdcb9507ba7d1a5a24372de2db983c0b1af0c7a411526faf83d7ffa56f8b0b6782036768432b05e167f293d008ffb30053d7fe7981f88980d43c08dbd862ff4f2334e0933cf13e02586d3bbe51a1a9bc808f4cc040743fe1974b2574454a15670fabf0eb92ac50dd228c7129c48547ace89937c9e61e256d1b5130466213cc05a74cdfa5e62386651569fd7eadfb84264abe5030ba8543ac56ee880b0b0fad570e7d4dbdf95082e88a965d7cd4f3eeddd67db22880c6796b407a9b8c9027a03c69f47b7464a82bb89d1a5a68eb8d6834497e5178d6b version=0

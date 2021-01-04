@@ -1,0 +1,32 @@
+set name=pkg.fmri value=pkg://solaris/x11/xfs@1.1.4,5.11-11.4.0.0.1.14.0:20180814T173543Z
+set name=org.opensolaris.arc-caseid value=LSARC/2008/009 value=PSARC/2004/752 value=PSARC/2015/221
+set name=info.upstream-url value=https://www.x.org
+set name=com.oracle.info.version value=1.1.4
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.smf.fmri value=svc:/application/x11/xfs value=svc:/application/x11/xfs:default
+set name=info.source-url value=https://www.x.org/releases/individual/app/xfs-1.1.4.tar.bz2
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=org.opensolaris.consolidation value=userland
+set name=pkg.summary value="xfs - X Font Server"
+set name=com.oracle.info.name value=xfs
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.tpno value=39514
+set name=pkg.description value="xfs is the X Window System font server. It supplies fonts to X Window System display servers on local or remote hosts."
+set name=com.oracle.info.description value=xfs
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/x11/library/libxfont@1.5.4-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/shell/ksh93@93.21.1.20120801-11.4.0.0.1.13.0 type=require
+dir group=sys mode=0755 owner=root path=lib/svc/manifest/application/x11
+file 344f7b3625bfac97f815dae9864c7dbf27f1ddf9 chash=0b8634ebbaa31f897fc3396f2755bf9d6dfa4800 group=sys mode=0444 owner=root path=lib/svc/manifest/application/x11/xfs.xml pkg.content-hash=file:sha512t_256:e51413bc235e6a8c56c30b1831ef1bf393b7a281e06ce63437450cd316d65e0a pkg.content-hash=gzip:sha512t_256:68a9860338cd5d829732b2120c2afb37a8fa5eaa4ccb103e1f5d8de4975476db pkg.csize=1649 pkg.size=3534 restart_fmri=svc:/system/manifest-import:default
+file 6da7728f1e568c1d71aa8a30348a8bbcf8339443 chash=b243f9c04b06912d8f37d369a706a0f31e043ce0 elfarch=i386 elfbits=64 elfhash=3b52c78b3ad71dff1d6c789b97ad181d4aadecb9 group=bin mode=0555 owner=root path=usr/bin/xfs pkg.content-hash=gelf:sha512t_256:8b97843809f2049790dda018110f2d0ffab98430cf1a39c5c61299366fa47f9a pkg.content-hash=gelf.unsigned:sha512t_256:8f48773988fcbdb75fa2e0ac615179a3c290286c77baa1eb9c67f2d2da7c8800 pkg.content-hash=file:sha512t_256:0eca7aa4e18eb398f8ef25784ff81e1426b737c6fec5f2d889dc2e72cd0238c1 pkg.content-hash=gzip:sha512t_256:653d1748b76f0565b3419e13439f17549dcc9cb2f0c6bcbf33c8aa484790d2fb pkg.csize=94042 pkg.size=291648 variant.arch=i386
+file 71fc3c0f6b828988ca4e2ac5fc532e7ae7a660e4 chash=28700ce3b82544d3dada5a4a1c6503db5e615fca facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/xfs.1 pkg.content-hash=file:sha512t_256:602ff868e5aee8c4416824737f9fe06633f6f9ef7d402fcbb09bbf17aa9c8f6d pkg.content-hash=gzip:sha512t_256:be1773242834d74e830b2b09fa17ce8c5ef7805ff4997ea1f717ca43ffcc7f14 pkg.csize=5512 pkg.size=14027
+file d46a8448519236a4e153ce580bd89efc26eb6362 chash=bd0ea2cf017e34fc41b433220dc97c2cd7287d14 group=bin mode=0555 owner=root path=usr/sbin/fsadmin pkg.content-hash=file:sha512t_256:aa7b93a72070067e299749842d3fde9b1316e43059ed3936d6eb3cacc3a69773 pkg.content-hash=gzip:sha512t_256:182f2905af2d28d7151649d66c8256653446b66894ae9d7d99eb86a6fcebfd3e pkg.csize=953 pkg.size=1572
+file 50d5503166524070ad927c6d9a307b4f72166e5f chash=7fd2f9a3b77911cc0f4823eb5c6ecfb96c24bd12 elfarch=sparc elfbits=64 elfhash=f9cca4cfe65ad075b833147ee26a26dcf8ffb91f group=bin mode=0555 owner=root path=usr/bin/xfs pkg.content-hash=gelf:sha512t_256:e6c3412d0f5f216708db36e11f26a19f8c6b05243be0f29d32fdc5582c53f111 pkg.content-hash=gelf.unsigned:sha512t_256:56f81fb232dcdbda835a090d0a8831f93c606c4194987e6e574b695f7a62a21d pkg.content-hash=file:sha512t_256:8ea1f290bf7019b1143be991beb429aea804dce945428204cf50c4ea40c05aea pkg.content-hash=gzip:sha512t_256:a263412a380943dd7fe9520eadabd64d7e8243fff21ea4aa834e54f224f882c5 pkg.csize=102243 pkg.size=282336 variant.arch=sparc
+file 722861207df8a9ab604732028f3b63b27077765d chash=7ae4cbd47e2a894da13f0bdbd575f4a165e479c9 group=bin mode=0444 owner=root path=usr/lib/X11/fs/config pkg.content-hash=file:sha512t_256:8ea6a7e3fc6296bb306535c20e6cb3c40819037d1259018742045eaba211406c pkg.content-hash=gzip:sha512t_256:739d6097501fd097944be88f92fc6f8c1baccc0442f7e7c7015ad4ea8b87e4ac pkg.csize=370 pkg.size=597
+file 17e4060e67de2dd2506afb6553afbc240cd6c9d4 chash=f6426960a9f308b25b261142f318bb2cdc3b1107 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/fsadmin.1 pkg.content-hash=file:sha512t_256:f33a1af1464492e0f9dcd6933cb2257885c959bad09f7b1d7db3a79778bf695a pkg.content-hash=gzip:sha512t_256:243b786d4a64094717269cc9c0db443f892b69b3010f1d4554cf851667fc3772 pkg.csize=1855 pkg.size=3795
+link path=usr/X11/bin/fsadmin target=../../sbin/fsadmin
+link path=usr/X11/bin/xfs target=../../bin/xfs
+license 1f4c7489f94c1a02ce077e85c662d7629e86cd97 chash=83435d51d84adef6cea89dc9683a8837e6172ca8 license=MIT pkg.content-hash=file:sha512t_256:f25876b86cabeaa5b5355227cc226c7bf976e1fbc8cda880a000beb1ebcd575e pkg.content-hash=gzip:sha512t_256:b1b46991989e9120b9c76885cd1bd28503f9fe568659ec4014f301c1e7cdd8c4 pkg.csize=1753 pkg.size=7538
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=98aa80567ca59dc85b88c1a7568878f392f6a34bf46bfbb741dcfae0da2760243fb62078fb94b9d366d9ae500c67509705eac15df77d983e2ff2c34233fe88d42df5fec96713890d07b08b853cdbd3fb7abbc2eb7418cd402e110f015b311d0e007a6fb24378d9c9595e1bb9d59d197a4775b1e0f2b5741fe7d9c827663169a2aa9059052ec3bf15fddf062b21e98cc25c6428be43aa13b14396164c0f4442f3411c8b2cbae3d1167450d1388b54008ce2b0971d12700cc30d59c146a46150af38cc2b64e3f6a16452565ce13658920843bca71764d55d16a9e03387da3e67cbdc8c1313c1bcf52877f7d9bcfdf2504600bdd029a080acad63b347d78f931432 version=0

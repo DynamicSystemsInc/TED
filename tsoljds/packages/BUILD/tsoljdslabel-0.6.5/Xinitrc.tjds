@@ -1,0 +1,53 @@
+#!/bin/pfksh
+#####################################################################
+###  File:              Xinitrc.tjds 
+###
+###  Default Location:  /usr/dt/config/Xinitrc.tjds
+###
+###  Purpose:           X session startup script 
+###
+###  Invoked by:        /usr/share/xsessions/mate.desktop
+###
+#####################################################################
+
+if [ "x$LC_ALL" = x -a "x$LANG" = x -o "x$LANG" = xC ]; then
+  export LC_ALL="C"
+  export LC_CTYPE="C"
+else
+  export LC_MESSAGES=$LANG
+fi
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export GDM_LANG=en_US.UTF-8
+export LC_MESSAGES=en_US.UTF-8
+export G_FILENAME_ENCODING=@locale,UTF-8
+export G_BROKEN_FILENAMES=yes
+
+if [ -f $HOME/.Xdefaults ]; then
+    xrdb -merge $HOME/.Xdefaults        # Load Users X11 resource database
+fi
+
+if [ -x /usr/bin/dbus-launch -a -z "$DBUS_SESSION__BUS_ADDRESS" ] ; then
+	eval `dbus-launch --exit-with-session --sh-syntax`
+fi	
+
+tninfo 2>/dev/null
+if [ $? = 0 ]; then
+    echo "Starting Trusted MATE"
+    export LOGIN_TIME=$(date +"%Y"%m%d%H"%M"%S)
+    export TRUSTED_SESSION=TRUE
+    if [ -x /usr/dt/config/pkgcreatezone-patch ] ; then
+	/usr/dt/config/pkgcreatezone-patch
+    fi	
+
+# Uncomment the following line to set screenstripe at bottom
+#    /usr/bin/tsoljds-setssheight&
+
+    command="/usr/bin/tsoljdslabel /usr/bin/mate-session --trusted-session"
+else    
+    echo 'Starting mate-session'
+    command="/usr/bin/mate-session"
+fi
+exec $command

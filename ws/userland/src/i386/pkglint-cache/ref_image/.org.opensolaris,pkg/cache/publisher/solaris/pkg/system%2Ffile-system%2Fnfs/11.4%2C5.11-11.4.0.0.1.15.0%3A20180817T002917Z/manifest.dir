@@ -1,0 +1,47 @@
+dir group=sys mode=0755 owner=root path=etc
+dir group=sys mode=0755 owner=root path=etc/default
+dir group=sys mode=0755 owner=root path=etc/fs
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/fs variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/fs/amd64 variant.arch=i386 variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/fs/sparcv9 variant.arch=sparc variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/misc variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/misc/amd64 variant.arch=i386 variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/misc/sparcv9 variant.arch=sparc variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/sys variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/sys/amd64 variant.arch=i386 variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/sys/sparcv9 variant.arch=sparc variant.opensolaris.zone=global
+dir group=bin mode=0755 owner=root path=lib
+dir group=bin mode=0755 owner=root path=lib/share
+dir group=bin mode=0755 owner=root path=lib/share/proto
+dir group=bin mode=0755 owner=root path=lib/share/proto/amd64 variant.arch=i386
+dir group=bin mode=0755 owner=root path=lib/share/proto/sparcv9 variant.arch=sparc
+dir group=bin mode=0755 owner=root path=lib/svc
+dir group=sys mode=0755 owner=root path=lib/svc/manifest
+dir group=sys mode=0755 owner=root path=lib/svc/manifest/network
+dir group=sys mode=0755 owner=root path=lib/svc/manifest/network/nfs
+dir group=bin mode=0755 owner=root path=lib/svc/method
+dir group=sys mode=0755 owner=root path=usr
+dir group=bin mode=0755 owner=root path=usr/bin
+dir group=bin mode=0755 owner=root path=usr/lib
+dir group=sys mode=0755 owner=root path=usr/lib/fs
+dir group=sys mode=0755 owner=root path=usr/lib/fs/nfs
+dir group=sys mode=0755 owner=root path=usr/lib/fs/nfs/amd64 variant.arch=i386
+dir group=sys mode=0755 owner=root path=usr/lib/fs/nfs/sparcv9 variant.arch=sparc
+dir group=sys mode=0755 owner=root path=usr/lib/nfs
+dir group=sys mode=0755 owner=root path=usr/lib/nfs/amd64 variant.arch=i386
+dir group=sys mode=0755 owner=root path=usr/lib/nfs/nfssnoop_ds
+dir group=sys mode=0755 owner=root path=usr/lib/nfs/sparcv9 variant.arch=sparc
+dir group=bin mode=0755 owner=root path=usr/sbin
+dir facet.doc.man=all facet.locale.ja_JP=all group=bin mode=0755 owner=root path=usr/share/man/ja_JP.UTF-8/man1
+dir facet.doc.man=all facet.locale.ja_JP=all group=bin mode=0755 owner=root path=usr/share/man/ja_JP.UTF-8/man8
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man1
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man5
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man7
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man8
+dir facet.doc.man=all facet.locale.zh_CN=all group=bin mode=0755 owner=root path=usr/share/man/zh_CN.UTF-8/man1
+dir facet.doc.man=all facet.locale.zh_CN=all group=bin mode=0755 owner=root path=usr/share/man/zh_CN.UTF-8/man8
+dir group=sys mode=0755 owner=root path=var
+dir group=sys mode=0700 owner=root path=var/.migrate
+dir group=bin mode=0755 owner=root path=var/.migrate/nfs refresh_fmri=svc:/system/filesystem/minimal:default salvage-from=/var/cache/nfs
+dir group=daemon mode=0755 owner=daemon path=var/.migrate/statmon refresh_fmri=svc:/system/filesystem/minimal:default salvage-from=/var/statmon

@@ -1,0 +1,28 @@
+set name=pkg.fmri value=pkg://solaris/driver/network/wlan/zyd@11.4,5.11-11.4.0.0.1.15.0:20180817T002507Z
+set name=pkg.description value="The zyd(4D) GLDv3-based device driver supports the ZyDAS ZD1211/B USB Wireless NIC using the 802.11b and 802.11g standards."
+set name=pkg.summary value="ZyDAS ZD1211/B USB wireless NIC driver"
+set name=com.oracle.info.description value="driver for ZyDAS ZD1211 IEEE802.11bg USB"
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Networking
+set name=com.oracle.info.version value=0.1.3.1
+set name=com.oracle.info.name value=zyd
+set name=com.oracle.info.tpno value=5846
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=variant.arch value=i386
+set name=variant.debug.osnet value=true value=false
+depend fmri=pkg:/system/io/usb@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+depend fmri=pkg:/system/kernel@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv/amd64 variant.opensolaris.zone=global
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man4d
+file 53c235e8e2055af866048ce7979d398b566923f3 chash=20fb00ad19d440be06b2846be90868d4a9f1386c elfarch=i386 elfbits=64 elfhash=a5fc4df9b8d61f5931931f923448c83063e4638f group=sys mode=0755 owner=root path=kernel/drv/amd64/zyd pkg.content-hash=gelf:sha512t_256:641f11c6ebd114f8eaf76d7a74f0b921bcf29ac5cc2641a55378158c97bdce7d pkg.content-hash=gelf.unsigned:sha512t_256:641f11c6ebd114f8eaf76d7a74f0b921bcf29ac5cc2641a55378158c97bdce7d pkg.content-hash=file:sha512t_256:43d79ed90fe847fdd5d52b04296bcf016f0e6d205ec9565666cb704462ce1b1e pkg.content-hash=gzip:sha512t_256:3cb0a4e3f6dd7bfc8f304f2de60e2c26847066379565b0dfed2a8fc0b84024f5 pkg.csize=34648 pkg.size=79088 reboot-needed=true variant.debug.osnet=false variant.opensolaris.zone=global
+file e83c350eac687f17fce531e8873890aefd48afd8 chash=584a6e1018f31e67330328e401fcb08d3d273b03 elfarch=i386 elfbits=64 elfhash=3fff0eb736520f5b6ff27f4b2dbe3ee6fe9175eb group=sys mode=0755 owner=root path=kernel/drv/amd64/zyd pkg.content-hash=gelf:sha512t_256:d71dc9844a118469d9bcc1acd59649b4924af53f1a639d161bf2f1d2ec32ec8a pkg.content-hash=gelf.unsigned:sha512t_256:d71dc9844a118469d9bcc1acd59649b4924af53f1a639d161bf2f1d2ec32ec8a pkg.content-hash=file:sha512t_256:b587469b58423f305078e0ed39c7c60ce188bc5983669452f845e9ace157ae34 pkg.content-hash=gzip:sha512t_256:077816d7e531fd78c02f43a7360f44a3ae67b74cfbabbe0c0bcc1c79e4167f39 pkg.csize=36652 pkg.size=88600 reboot-needed=true variant.debug.osnet=true variant.opensolaris.zone=global
+file a9665f5bc4418ca52ea921e910e121fbe5ec1191 chash=c34ed75ebc85dcf7edfe06b7c218cb910f2d28e3 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4d/zyd.4d pkg.content-hash=file:sha512t_256:90fd72c35b93e6f599978580b12b7b605e819c4ed40dd2e095985eb98e5d35b8 pkg.content-hash=gzip:sha512t_256:071af408626ef817f9c0d03b9b28d05a4dbc7d8c7c66eff644f2f82bcc8d2563 pkg.csize=909 pkg.size=1621
+driver alias=usbace,1211 alias=usb13b1,24 clone_perms="zyd 0666 root sys" name=zyd perms="* 0666 root sys" variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+license 81f1e63e7f3061517d5fe69edd46539cf96890b1 chash=75ab83e6c44c4247eb2d10f7cc8d3ff96db8d12b license=usr/src/uts/common/io/zyd/THIRDPARTYLICENSE pkg.content-hash=file:sha512t_256:efc17fc3261a50e450e09981b6c56a394eee1664b6d7b23f1c74bce4aa462776 pkg.content-hash=gzip:sha512t_256:bd3cbec701ec564e3758ae6ea9901081e747092347d5d5afdf7f2cd66ff30c7e pkg.csize=1315 pkg.size=2916
+legacy arch=i386 category=system desc="ZyDAS ZD1211 USB 802.11b/g Wireless Driver" hotline="Please contact your local service provider" name="ZyDAS ZD1211 USB 802.11b/g Wireless Driver" pkg=SUNWzyd vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=b3f41a3fd75d2889cbb4f6d6381710f0de6e1cc3cf1e9cbc3feb44ca0dff65c63988871ac5b049500c2c18a3fe3a25e01386a09e182746c07944beb65c259e54433a55be14d273d763d8e4f7f6594234ac702c66e9ca2c04aea24ea87da154cc4029e8cf9ecb74a2eede51a2a0ce9394fd0b5701365c0b2b4d0c7f45ce3be0d59fb1a5f3a15e919d37ca762899f4f6727f950ed3bb52b79f35887d0bbfcd9d4cbc539f3fb8481104753022b657d44851760ecd799d7764068b86fe76b482dad4872bd939ea385c9e8130daf025ef225819dfa3c2a7971c10e41f9a0d0da06077f69a720544946172a55478d0cb4c20199b26f48a9ea447db64ed6ac4f19cd731 version=0

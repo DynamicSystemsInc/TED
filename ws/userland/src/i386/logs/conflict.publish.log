@@ -1,0 +1,131 @@
+gmake: Entering directory '/ws/userland/src/components/conflict'
+/bin/rm -f -r /ws/userland/src/components/conflict/conflict-20150705
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  conflict-20150705.tgz
+/usr/bin/touch /ws/userland/src/components/conflict/conflict-20150705/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/conflict/conflict-20150705 --strip=1 --backup --version-control=numbered < patches/system-test.patch
+patching file run_test.sh
+/usr/bin/touch /ws/userland/src/components/conflict/conflict-20150705/.patched-system-test.patch
+/usr/bin/touch /ws/userland/src/components/conflict/conflict-20150705/.patched
+/usr/bin/touch /ws/userland/src/components/conflict/conflict-20150705/.prep
+(/bin/rm -f -rf /ws/userland/src/components/conflict/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/conflict/build/amd64)
+(/ws/userland/src/tools/cloney /ws/userland/src/components/conflict/conflict-20150705 /ws/userland/src/components/conflict/build/amd64)
+symlink cloning /ws/userland/src/components/conflict/conflict-20150705 to /ws/userland/src/components/conflict/build/amd64
+(cd /ws/userland/src/components/conflict/build/amd64 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/opt/solarisstudio12.4/bin/cc" CXX="/opt/solarisstudio12.4/bin/CC" PATH="/usr/bin/amd64:/usr/bin:/usr/gnu/bin" CC_FOR_BUILD="/opt/solarisstudio12.4/bin/cc -m64" CXX_FOR_BUILD="/opt/solarisstudio12.4/bin/CC -m64" CPPFLAGS="-m64" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt" CXXFLAGS="-norunpath -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/conflict/conflict-20150705/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib/amd64   )
+checking build system type... x86_64-pc-solaris2.11
+checking host system type... x86_64-pc-solaris2.11
+Configuring for solaris2.11
+checking for gcc... /opt/solarisstudio12.4/bin/cc
+checking for C compiler default output... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for executable suffix... 
+checking for object suffix... o
+checking whether we are using the GNU C compiler... no
+checking whether /opt/solarisstudio12.4/bin/cc accepts -g... yes
+checking for /opt/solarisstudio12.4/bin/cc option to accept ANSI C... none needed
+checking $CC variable... ok
+checking for a BSD compatible install... /usr/bin/ginstall -c
+checking for an ANSI C-conforming const... yes
+checking for an ANSI C-conforming const... (cached) yes
+checking if you want to see long compiling messages... yes
+checking if filesystem supports mixed-case filenames... yes
+checking for exctags... -R --c++-kinds=+p --fields=+iaS --extra=+q
+checking for exetags... no
+checking for etags... etags
+checking for -R... no
+checking for etags... yes
+checking for tdlint... no
+checking for lint... no
+checking for alint... no
+checking for splint... no
+checking for lclint... no
+checking if you want to install stripped executables... yes
+checking if install needs to be told about ownership... no
+checking how to run the C preprocessor... /opt/solarisstudio12.4/bin/cc -E
+checking for ANSI C header files... yes
+checking for stdlib.h... yes
+checking for unistd.h... yes
+checking for getopt.h... yes
+checking for string.h... yes
+checking for malloc.h... yes
+checking for sys/param.h... yes
+checking for dirent.h that defines DIR... yes
+checking for opendir in -ldir... no
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... (cached) yes
+checking for size_t... yes
+checking for ino_t... yes
+checking for dev_t... yes
+checking for getcwd... yes
+checking for getopt... yes
+checking for link... yes
+checking for symlink... yes
+checking for realpath... yes
+checking for strcasecmp... yes
+checking for strrchr... yes
+checking for strdup... yes
+checking if you want to use dmalloc for testing... no
+checking if you want to use dbmalloc for testing... no
+checking if you want to use valgrind for testing... no
+checking if you want to perform memory-leak testing... no
+checking for groff... /usr/bin/groff
+checking for nroff... /usr/bin/nroff
+checking for program to convert manpage to html... /usr/bin/groff
+cmp: EOF on /dev/null
+configure: creating ./config.status
+config.status: creating makefile
+config.status: creating config.h
+/usr/bin/touch /ws/userland/src/components/conflict/build/amd64/.configured
+(cd /ws/userland/src/components/conflict/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/conflict/build/amd64'
+/opt/solarisstudio12.4/bin/cc -c -I. -I/ws/userland/src/components/conflict/conflict-20150705 -DHAVE_CONFIG_H -DRELEASE=\"t20150705\" -m64  -D__EXTENSIONS__  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  conflict.c
+/opt/solarisstudio12.4/bin/cc -c -I. -I/ws/userland/src/components/conflict/conflict-20150705 -DHAVE_CONFIG_H -DRELEASE=\"t20150705\" -m64  -D__EXTENSIONS__  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  unix.c
+/opt/solarisstudio12.4/bin/cc -c -I. -I/ws/userland/src/components/conflict/conflict-20150705 -DHAVE_CONFIG_H -DRELEASE=\"t20150705\" -m64  -D__EXTENSIONS__  -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt  txtalloc.c
+/opt/solarisstudio12.4/bin/cc -m64 -xO4 -xchip=generic -Ui386 -U__i386 -xregs=no%frameptr -mt   -o conflict conflict.o unix.o txtalloc.o 
+make[1]: Leaving directory '/ws/userland/src/components/conflict/build/amd64'
+/usr/bin/touch /ws/userland/src/components/conflict/build/amd64/.built
+(cd /ws/userland/src/components/conflict/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/conflict/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/conflict/build/amd64'
+mkdir -p /ws/userland/src/components/conflict/build/prototype/i386/usr/bin
+mkdir -p /ws/userland/src/components/conflict/build/prototype/i386/usr/share/man/man1
+/usr/bin/ginstall -c  -s conflict /ws/userland/src/components/conflict/build/prototype/i386/usr/bin/conflict
+/usr/bin/ginstall -c  -m 644 /ws/userland/src/components/conflict/conflict-20150705/conflict.1 /ws/userland/src/components/conflict/build/prototype/i386/usr/share/man/man1/conflict.1
+make[1]: Leaving directory '/ws/userland/src/components/conflict/build/amd64'
+/usr/bin/touch /ws/userland/src/components/conflict/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 conflict.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=0\\.2015\\.7\\.5 -D COMPONENT_RE_VERSION=20150705 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/conflict -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="27130" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="20150705" -D IPS_COMPONENT_VERSION="0.2015.7.5" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://invisible-mirror.net/archives/conflict/conflict-20150705.tgz" -D COMPONENT_PROJECT_URL="http://invisible-island.net/conflict/conflict.html" -D COMPONENT_NAME="conflict" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" conflict.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/conflict/build/manifest-i386-conflict.mogrified
+/bin/mkdir -p /ws/userland/src/components/conflict/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/conflict/build/prototype/i386/mangled -d /ws/userland/src/components/conflict/build/prototype/i386/mangled -d /ws/userland/src/components/conflict/build/prototype/i386 -d /ws/userland/src/components/conflict/build -d /ws/userland/src/components/conflict -d conflict-20150705 -d /ws/userland/src/licenses -m /ws/userland/src/components/conflict/build/manifest-i386-conflict.mogrified >/ws/userland/src/components/conflict/build/manifest-i386-conflict.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/conflict/build/prototype/i386/mangled -d /ws/userland/src/components/conflict/build/prototype/i386 -d /ws/userland/src/components/conflict/build -d /ws/userland/src/components/conflict -d conflict-20150705 -d /ws/userland/src/licenses /ws/userland/src/components/conflict/build/manifest-i386-conflict.mangled >/ws/userland/src/components/conflict/build/manifest-i386-conflict.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/conflict/build/resolve.deps -m /ws/userland/src/components/conflict/build/manifest-i386-conflict.depend
+/usr/bin/touch /ws/userland/src/components/conflict/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/conflict/build/manifest-i386-conflict.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/conflict/build/prototype/i386/mangled /ws/userland/src/components/conflict/build/prototype/i386 /ws/userland/src/components/conflict/build /ws/userland/src/components/conflict conflict-20150705 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/conflict/build/manifest-i386-conflict.depend.res
+/usr/bin/touch /ws/userland/src/components/conflict/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/conflict/build/prototype/i386/mangled -d /ws/userland/src/components/conflict/build/prototype/i386 -d /ws/userland/src/components/conflict/build -d /ws/userland/src/components/conflict -d conflict-20150705 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/conflict/build/manifest-i386-conflict.depend.res
+pkg://nightly/shell/conflict@0.2015.7.5,5.11-11.4.0.0.1.14.0:20190727T175056Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/conflict/build/manifest-i386-conflict.depend.res >/ws/userland/src/components/conflict/build/manifest-i386-conflict.published
+/usr/bin/touch /ws/userland/src/components/conflict/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/conflict'
+
+real        9.6
+user        3.2
+sys         1.4

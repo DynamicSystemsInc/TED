@@ -1,0 +1,650 @@
+set name=pkg.fmri \
+    value=pkg:/system/display-manager/lightdm@1.30.0,5.11-2019.0.0.1
+set name=pkg.summary value="Light display manager"
+set name=com.oracle.info.name value=lightdm
+set name=com.oracle.info.version value=1.30.0
+set name=info.classification \
+    value="org.opensolaris.category.2008:Desktop (GNOME)/Sessions"
+set name=info.source-url \
+    value=https://github.com/CanonicalLtd/lightdm/releases/download/1.30.0/lightdm-1.30.0.tar.xz
+set name=info.upstream-url \
+    value=https://www.freedesktop.org/wiki/Software/LightDM/
+set name=org.opensolaris.consolidation value=userland
+set name=userland.info.git-branch value=HEAD
+set name=userland.info.git-remote \
+    value=git://github.com/OpenIndiana/oi-userland.git
+set name=userland.info.git-rev value=93a833da464f822a900874cf7749d04b63db423d
+set name=variant.arch value=i386
+dir  path=etc owner=root group=sys mode=0755
+dir  path=etc/dbus-1 owner=root group=bin mode=0755
+dir  path=etc/dbus-1/system.d owner=root group=bin mode=0755
+file etc/dbus-1/system.d/org.freedesktop.DisplayManager.conf \
+    path=etc/dbus-1/system.d/org.freedesktop.DisplayManager.conf owner=root \
+    group=bin mode=0644
+dir  path=etc/init owner=root group=bin mode=0755
+file etc/init/lightdm.conf path=etc/init/lightdm.conf owner=root group=bin \
+    mode=0644
+dir  path=etc/lightdm owner=root group=bin mode=0755
+file etc/lightdm/keys.conf path=etc/lightdm/keys.conf owner=root group=bin \
+    mode=0644
+file etc/lightdm/lightdm.conf path=etc/lightdm/lightdm.conf owner=root \
+    group=bin mode=0644
+file etc/lightdm/users.conf path=etc/lightdm/users.conf owner=root group=bin \
+    mode=0644
+dir  path=etc/pam.d owner=root group=sys mode=0755
+file etc/pam.d/lightdm-autologin path=etc/pam.d/lightdm-autologin owner=root \
+    group=sys mode=0644
+file etc/pam.d/lightdm-greeter path=etc/pam.d/lightdm owner=root \
+    group=sys mode=0644
+file etc/pam.d/lightdm-greeter path=etc/pam.d/lightdm-greeter owner=root \
+    group=sys mode=0644
+dir  path=/lib owner=root group=bin mode=0755
+dir  path=/lib/svc owner=root group=bin mode=0755
+dir  path=/lib/svc/manifest owner=root group=sys mode=0755
+dir  path=/lib/svc/manifest/application owner=root group=sys mode=0755
+dir  path=/lib/svc/manifest/application/graphical-login owner=root group=sys mode=0755
+file ../../../files/lightdm.xml \
+path=lib/svc/manifest/application/graphical-login/lightdm.xml \
+owner=root group=bin mode=0444
+dir  path=/lib/svc/method owner=root group=bin mode=0755
+file ../../../files/svc-lightdm \
+path=lib/svc/method/svc-lightdm owner=root group=bin mode=0555
+dir  path=usr owner=root group=sys mode=0755
+dir  path=usr/bin owner=root group=bin mode=0755
+file usr/bin/dm-tool path=usr/bin/dm-tool owner=root group=bin mode=0755
+file ../../../files/lightdm-session \
+path=usr/bin/lightdm-session owner=root group=bin mode=0755
+dir  path=usr/include owner=root group=bin mode=0755
+dir  path=usr/include/lightdm-gobject-1 owner=root group=bin mode=0755
+dir  path=usr/include/lightdm-gobject-1/lightdm owner=root group=bin mode=0755
+file usr/include/lightdm-gobject-1/lightdm.h \
+    path=usr/include/lightdm-gobject-1/lightdm.h owner=root group=bin mode=0644
+file usr/include/lightdm-gobject-1/lightdm/greeter.h \
+    path=usr/include/lightdm-gobject-1/lightdm/greeter.h owner=root group=bin \
+    mode=0644
+file usr/include/lightdm-gobject-1/lightdm/language.h \
+    path=usr/include/lightdm-gobject-1/lightdm/language.h owner=root \
+    group=bin mode=0644
+file usr/include/lightdm-gobject-1/lightdm/layout.h \
+    path=usr/include/lightdm-gobject-1/lightdm/layout.h owner=root group=bin \
+    mode=0644
+file usr/include/lightdm-gobject-1/lightdm/power.h \
+    path=usr/include/lightdm-gobject-1/lightdm/power.h owner=root group=bin \
+    mode=0644
+file usr/include/lightdm-gobject-1/lightdm/session.h \
+    path=usr/include/lightdm-gobject-1/lightdm/session.h owner=root group=bin \
+    mode=0644
+file usr/include/lightdm-gobject-1/lightdm/system.h \
+    path=usr/include/lightdm-gobject-1/lightdm/system.h owner=root group=bin \
+    mode=0644
+file usr/include/lightdm-gobject-1/lightdm/user.h \
+    path=usr/include/lightdm-gobject-1/lightdm/user.h owner=root group=bin \
+    mode=0644
+dir  path=usr/lib owner=root group=bin mode=0755
+dir  path=usr/lib/amd64 owner=root group=bin mode=0755
+dir  path=usr/lib/amd64/girepository-1.0 owner=root group=bin mode=0755
+file usr/lib/amd64/girepository-1.0/LightDM-1.typelib \
+    path=usr/lib/amd64/girepository-1.0/LightDM-1.typelib owner=root \
+    group=bin mode=0644
+file usr/lib/amd64/liblightdm-gobject-1.a \
+    path=usr/lib/amd64/liblightdm-gobject-1.a owner=root group=bin mode=0644
+file usr/lib/amd64/liblightdm-gobject-1.la \
+    path=usr/lib/amd64/liblightdm-gobject-1.la owner=root group=bin mode=0755
+link path=usr/lib/amd64/liblightdm-gobject-1.so \
+    target=liblightdm-gobject-1.so.0.0.0
+link path=usr/lib/amd64/liblightdm-gobject-1.so.0 \
+    target=liblightdm-gobject-1.so.0.0.0
+file usr/lib/amd64/liblightdm-gobject-1.so.0.0.0 \
+    path=usr/lib/amd64/liblightdm-gobject-1.so.0.0.0 owner=root group=bin \
+    mode=0755
+file usr/lib/amd64/lightdm-guest-session \
+    path=usr/lib/amd64/lightdm-guest-session owner=root group=bin mode=0755
+dir  path=usr/lib/amd64/pkgconfig owner=root group=other mode=0755
+file usr/lib/amd64/pkgconfig/liblightdm-gobject-1.pc \
+    path=usr/lib/amd64/pkgconfig/liblightdm-gobject-1.pc owner=root group=bin \
+    mode=0644
+dir  path=usr/sbin owner=root group=bin mode=0755
+file usr/sbin/lightdm path=usr/sbin/lightdm owner=root group=bin mode=0755
+dir  path=usr/share owner=root group=sys mode=0755
+dir  path=usr/share/accountsservice owner=root group=bin mode=0755
+dir  path=usr/share/accountsservice/interfaces owner=root group=bin mode=0755
+link \
+    path=usr/share/accountsservice/interfaces/org.freedesktop.DisplayManager.AccountsService.xml \
+    target=../../dbus-1/interfaces/org.freedesktop.DisplayManager.AccountsService.xml
+dir  path=usr/share/bash-completion owner=root group=sys mode=0755
+dir  path=usr/share/bash-completion/completions owner=root group=sys mode=0755
+file usr/share/bash-completion/completions/dm-tool \
+    path=usr/share/bash-completion/completions/dm-tool owner=root group=bin \
+    mode=0644
+file usr/share/bash-completion/completions/lightdm \
+    path=usr/share/bash-completion/completions/lightdm owner=root group=bin \
+    mode=0644
+dir  path=usr/share/dbus-1 owner=root group=sys mode=0755
+dir  path=usr/share/dbus-1/interfaces owner=root group=bin mode=0755
+file usr/share/dbus-1/interfaces/org.freedesktop.DisplayManager.AccountsService.xml \
+    path=usr/share/dbus-1/interfaces/org.freedesktop.DisplayManager.AccountsService.xml \
+    owner=root group=bin mode=0644
+dir  path=usr/share/gir-1.0 owner=root group=other mode=0755
+file usr/share/gir-1.0/LightDM-1.gir path=usr/share/gir-1.0/LightDM-1.gir \
+    owner=root group=bin mode=0644
+dir  path=usr/share/help owner=root group=other mode=0755
+dir  path=usr/share/help/C owner=root group=other mode=0755
+dir  path=usr/share/help/C/lightdm owner=root group=other mode=0755
+file usr/share/help/C/lightdm/autologin.page \
+    path=usr/share/help/C/lightdm/autologin.page owner=root group=other mode=0644
+file usr/share/help/C/lightdm/config.page \
+    path=usr/share/help/C/lightdm/config.page owner=root group=other mode=0644
+file usr/share/help/C/lightdm/default-greeter.page \
+    path=usr/share/help/C/lightdm/default-greeter.page owner=root group=bin \
+    mode=0644
+file usr/share/help/C/lightdm/default-session.page \
+    path=usr/share/help/C/lightdm/default-session.page owner=root group=bin \
+    mode=0644
+file usr/share/help/C/lightdm/diagnostics.page \
+    path=usr/share/help/C/lightdm/diagnostics.page owner=root group=bin \
+    mode=0644
+file usr/share/help/C/lightdm/guest.page \
+    path=usr/share/help/C/lightdm/guest.page owner=root group=bin mode=0644
+file usr/share/help/C/lightdm/index.page \
+    path=usr/share/help/C/lightdm/index.page owner=root group=bin mode=0644
+file usr/share/help/C/lightdm/legal.xml \
+    path=usr/share/help/C/lightdm/legal.xml owner=root group=bin mode=0644
+file usr/share/help/C/lightdm/local-sessions.page \
+    path=usr/share/help/C/lightdm/local-sessions.page owner=root group=bin \
+    mode=0644
+file usr/share/help/C/lightdm/remote-sessions.page \
+    path=usr/share/help/C/lightdm/remote-sessions.page owner=root group=bin \
+    mode=0644
+file usr/share/help/C/lightdm/seat.page \
+    path=usr/share/help/C/lightdm/seat.page owner=root group=bin mode=0644
+file usr/share/help/C/lightdm/standard-authentication.page \
+    path=usr/share/help/C/lightdm/standard-authentication.page owner=root \
+    group=bin mode=0644
+file usr/share/help/C/lightdm/user-list.page \
+    path=usr/share/help/C/lightdm/user-list.page owner=root group=bin mode=0644
+file usr/share/help/C/lightdm/user-switching.page \
+    path=usr/share/help/C/lightdm/user-switching.page owner=root group=bin \
+    mode=0644
+file usr/share/help/C/lightdm/vnc.page path=usr/share/help/C/lightdm/vnc.page \
+    owner=root group=bin mode=0644
+file usr/share/help/C/lightdm/write-greeter.page \
+    path=usr/share/help/C/lightdm/write-greeter.page owner=root group=bin \
+    mode=0644
+file usr/share/help/C/lightdm/xdmcp.page \
+    path=usr/share/help/C/lightdm/xdmcp.page owner=root group=bin mode=0644
+dir  path=usr/share/locale owner=root group=other mode=0755
+dir  path=usr/share/locale/af owner=root group=other mode=0755
+dir  path=usr/share/locale/af/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/af/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/af/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/an owner=root group=other mode=0755
+dir  path=usr/share/locale/an/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/an/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/an/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ar owner=root group=other mode=0755
+dir  path=usr/share/locale/ar/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ar/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ar/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ast owner=root group=other mode=0755
+dir  path=usr/share/locale/ast/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ast/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ast/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/az owner=root group=other mode=0755
+dir  path=usr/share/locale/az/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/az/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/az/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/be owner=root group=other mode=0755
+dir  path=usr/share/locale/be/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/be/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/be/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/bg owner=root group=other mode=0755
+dir  path=usr/share/locale/bg/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/bg/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/bg/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/bn owner=root group=other mode=0755
+dir  path=usr/share/locale/bn/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/bn/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/bn/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/bo owner=root group=other mode=0755
+dir  path=usr/share/locale/bo/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/bo/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/bo/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/br owner=root group=other mode=0755
+dir  path=usr/share/locale/br/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/br/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/br/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/bs owner=root group=other mode=0755
+dir  path=usr/share/locale/bs/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/bs/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/bs/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ca owner=root group=other mode=0755
+dir  path=usr/share/locale/ca/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ca/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ca/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ca@valencia owner=root group=other mode=0755
+dir  path=usr/share/locale/ca@valencia/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ca@valencia/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ca@valencia/LC_MESSAGES/lightdm.mo owner=root \
+    group=bin mode=0644
+dir  path=usr/share/locale/ckb owner=root group=other mode=0755
+dir  path=usr/share/locale/ckb/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ckb/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ckb/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/cs owner=root group=other mode=0755
+dir  path=usr/share/locale/cs/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/cs/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/cs/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/da owner=root group=other mode=0755
+dir  path=usr/share/locale/da/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/da/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/da/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/de owner=root group=other mode=0755
+dir  path=usr/share/locale/de/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/de/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/de/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/el owner=root group=other mode=0755
+dir  path=usr/share/locale/el/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/el/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/el/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/en_AU owner=root group=other mode=0755
+dir  path=usr/share/locale/en_AU/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/en_AU/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/en_AU/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/en_CA owner=root group=other mode=0755
+dir  path=usr/share/locale/en_CA/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/en_CA/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/en_CA/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/en_GB owner=root group=other mode=0755
+dir  path=usr/share/locale/en_GB/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/en_GB/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/en_GB/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/eo owner=root group=other mode=0755
+dir  path=usr/share/locale/eo/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/eo/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/eo/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/es owner=root group=other mode=0755
+dir  path=usr/share/locale/es/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/es/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/es/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/et owner=root group=other mode=0755
+dir  path=usr/share/locale/et/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/et/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/et/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/eu owner=root group=other mode=0755
+dir  path=usr/share/locale/eu/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/eu/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/eu/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/fa owner=root group=other mode=0755
+dir  path=usr/share/locale/fa/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/fa/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/fa/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/fi owner=root group=other mode=0755
+dir  path=usr/share/locale/fi/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/fi/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/fi/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/fo owner=root group=other mode=0755
+dir  path=usr/share/locale/fo/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/fo/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/fo/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/fr owner=root group=other mode=0755
+dir  path=usr/share/locale/fr/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/fr/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/fr/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/fy owner=root group=other mode=0755
+dir  path=usr/share/locale/fy/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/fy/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/fy/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/gd owner=root group=other mode=0755
+dir  path=usr/share/locale/gd/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/gd/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/gd/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/gl owner=root group=other mode=0755
+dir  path=usr/share/locale/gl/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/gl/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/gl/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/gu owner=root group=other mode=0755
+dir  path=usr/share/locale/gu/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/gu/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/gu/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/he owner=root group=other mode=0755
+dir  path=usr/share/locale/he/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/he/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/he/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/hi owner=root group=other mode=0755
+dir  path=usr/share/locale/hi/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/hi/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/hi/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/hr owner=root group=other mode=0755
+dir  path=usr/share/locale/hr/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/hr/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/hr/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/hu owner=root group=other mode=0755
+dir  path=usr/share/locale/hu/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/hu/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/hu/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ia owner=root group=other mode=0755
+dir  path=usr/share/locale/ia/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ia/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ia/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/id owner=root group=other mode=0755
+dir  path=usr/share/locale/id/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/id/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/id/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/is owner=root group=other mode=0755
+dir  path=usr/share/locale/is/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/is/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/is/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/it owner=root group=other mode=0755
+dir  path=usr/share/locale/it/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/it/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/it/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ja owner=root group=other mode=0755
+dir  path=usr/share/locale/ja/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ja/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ja/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/kk owner=root group=other mode=0755
+dir  path=usr/share/locale/kk/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/kk/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/kk/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/km owner=root group=other mode=0755
+dir  path=usr/share/locale/km/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/km/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/km/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/kn owner=root group=other mode=0755
+dir  path=usr/share/locale/kn/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/kn/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/kn/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ko owner=root group=other mode=0755
+dir  path=usr/share/locale/ko/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ko/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ko/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ku owner=root group=other mode=0755
+dir  path=usr/share/locale/ku/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ku/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ku/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/lb owner=root group=other mode=0755
+dir  path=usr/share/locale/lb/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/lb/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/lb/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/lt owner=root group=other mode=0755
+dir  path=usr/share/locale/lt/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/lt/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/lt/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/lv owner=root group=other mode=0755
+dir  path=usr/share/locale/lv/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/lv/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/lv/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/mhr owner=root group=other mode=0755
+dir  path=usr/share/locale/mhr/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/mhr/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/mhr/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/mi owner=root group=other mode=0755
+dir  path=usr/share/locale/mi/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/mi/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/mi/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ml owner=root group=other mode=0755
+dir  path=usr/share/locale/ml/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ml/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ml/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/mr owner=root group=other mode=0755
+dir  path=usr/share/locale/mr/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/mr/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/mr/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ms owner=root group=other mode=0755
+dir  path=usr/share/locale/ms/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ms/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ms/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/my owner=root group=other mode=0755
+dir  path=usr/share/locale/my/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/my/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/my/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/nb owner=root group=other mode=0755
+dir  path=usr/share/locale/nb/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/nb/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/nb/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/nl owner=root group=other mode=0755
+dir  path=usr/share/locale/nl/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/nl/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/nl/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/nn owner=root group=other mode=0755
+dir  path=usr/share/locale/nn/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/nn/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/nn/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/oc owner=root group=other mode=0755
+dir  path=usr/share/locale/oc/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/oc/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/oc/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/pa owner=root group=other mode=0755
+dir  path=usr/share/locale/pa/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/pa/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/pa/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/pl owner=root group=other mode=0755
+dir  path=usr/share/locale/pl/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/pl/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/pl/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/pt owner=root group=other mode=0755
+dir  path=usr/share/locale/pt/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/pt/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/pt/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/pt_BR owner=root group=other mode=0755
+dir  path=usr/share/locale/pt_BR/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/pt_BR/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/pt_BR/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ro owner=root group=other mode=0755
+dir  path=usr/share/locale/ro/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ro/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ro/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ru owner=root group=other mode=0755
+dir  path=usr/share/locale/ru/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ru/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ru/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/sc owner=root group=other mode=0755
+dir  path=usr/share/locale/sc/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sc/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/sc/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/sd owner=root group=other mode=0755
+dir  path=usr/share/locale/sd/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sd/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/sd/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/shn owner=root group=other mode=0755
+dir  path=usr/share/locale/shn/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/shn/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/shn/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/si owner=root group=other mode=0755
+dir  path=usr/share/locale/si/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/si/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/si/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/sk owner=root group=other mode=0755
+dir  path=usr/share/locale/sk/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sk/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/sk/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/sl owner=root group=other mode=0755
+dir  path=usr/share/locale/sl/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sl/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/sl/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/sq owner=root group=other mode=0755
+dir  path=usr/share/locale/sq/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sq/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/sq/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/sr owner=root group=other mode=0755
+dir  path=usr/share/locale/sr/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sr/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/sr/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/sv owner=root group=other mode=0755
+dir  path=usr/share/locale/sv/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/sv/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/sv/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ta owner=root group=other mode=0755
+dir  path=usr/share/locale/ta/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ta/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ta/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/te owner=root group=other mode=0755
+dir  path=usr/share/locale/te/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/te/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/te/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/tg owner=root group=other mode=0755
+dir  path=usr/share/locale/tg/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/tg/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/tg/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/th owner=root group=other mode=0755
+dir  path=usr/share/locale/th/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/th/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/th/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/tl owner=root group=other mode=0755
+dir  path=usr/share/locale/tl/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/tl/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/tl/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/tr owner=root group=other mode=0755
+dir  path=usr/share/locale/tr/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/tr/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/tr/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/ug owner=root group=other mode=0755
+dir  path=usr/share/locale/ug/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/ug/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/ug/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/uk owner=root group=other mode=0755
+dir  path=usr/share/locale/uk/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/uk/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/uk/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/uz owner=root group=other mode=0755
+dir  path=usr/share/locale/uz/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/uz/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/uz/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/vi owner=root group=other mode=0755
+dir  path=usr/share/locale/vi/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/vi/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/vi/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/wae owner=root group=other mode=0755
+dir  path=usr/share/locale/wae/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/wae/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/wae/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/zh_CN owner=root group=other mode=0755
+dir  path=usr/share/locale/zh_CN/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/zh_CN/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/zh_CN/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/zh_HK owner=root group=other mode=0755
+dir  path=usr/share/locale/zh_HK/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/zh_HK/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/zh_HK/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/locale/zh_TW owner=root group=other mode=0755
+dir  path=usr/share/locale/zh_TW/LC_MESSAGES owner=root group=other mode=0755
+file usr/share/locale/zh_TW/LC_MESSAGES/lightdm.mo \
+    path=usr/share/locale/zh_TW/LC_MESSAGES/lightdm.mo owner=root group=bin \
+    mode=0644
+dir  path=usr/share/man owner=root group=bin mode=0755
+dir  path=usr/share/man/man1 owner=root group=bin mode=0755
+file usr/share/man/man1/dm-tool.1 path=usr/share/man/man1/dm-tool.1 owner=root \
+    group=bin mode=0644
+file usr/share/man/man1/lightdm.1 path=usr/share/man/man1/lightdm.1 owner=root \
+    group=bin mode=0644
+dir  path=usr/share/polkit-1 owner=root group=other mode=0755
+dir  path=usr/share/polkit-1/actions owner=root group=other mode=0755
+file usr/share/polkit-1/actions/org.freedesktop.DisplayManager.AccountsService.policy \
+    path=usr/share/polkit-1/actions/org.freedesktop.DisplayManager.AccountsService.policy \
+    owner=root group=bin mode=0644
+dir  path=usr/share/vala owner=root group=sys mode=0755
+dir  path=usr/share/vala/vapi owner=root group=sys mode=0755
+file usr/share/vala/vapi/liblightdm-gobject-1.deps \
+    path=usr/share/vala/vapi/liblightdm-gobject-1.deps owner=root group=bin \
+    mode=0644
+file usr/share/vala/vapi/liblightdm-gobject-1.vapi \
+    path=usr/share/vala/vapi/liblightdm-gobject-1.vapi owner=root group=bin \
+    mode=0644
+group groupname=lightdm gid=54
+user username=lightdm gcos-field="LightDM Reserved UID" group=lightdm \
+    home-dir=/var/lib/lightdm-data uid=54
+dir group=lightdm mode=1770 owner=root path=var/lib/lightdm-data
+depend fmri=pkg:/library/desktop/libxklavier@5.0-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/library/glib2@2.52.0-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/system/library/security/libgcrypt@1.8.1-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.15.0 type=require
+depend fmri=pkg:/x11/library/libx11@1.6.5-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/x11/library/libxcb@1.12-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/x11/library/libxdmcp@1.1.2-11.4.0.0.1.14.0 type=require

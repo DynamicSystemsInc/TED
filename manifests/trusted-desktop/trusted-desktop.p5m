@@ -1,0 +1,65 @@
+set name=pkg.fmri value=pkg://trusted-desktop/group/feature/trusted-desktop@5.12,5.11-11.4.0.0.1.9.0
+set name=org.opensolaris.consolidation value=userland
+set name=pkg.summary value="Oracle Solaris Trusted Desktop"
+set name=pkg.description value="Provides an Oracle Solaris trusted desktop environment"
+set name=com.oracle.info.version value=0.5.11
+set name=info.classification value="org.opensolaris.category.2008:Meta Packages/Group Packages"
+set name=com.oracle.info.name value=meta-packages/group-feature
+set name=variant.arch value=i386
+link path=usr/bin/mate-terminal target=gnome-terminal
+depend fmri=pkg:/system/trusted type=require
+depend fmri=pkg://trusted-desktop/gnome/trusted/xagent type=require
+depend fmri=pkg://trusted-desktop/x11/trusted/libxtsol type=require
+depend fmri=pkg:/terminal/gnome-terminal type=require
+depend fmri=pkg:/desktop/mate/atril@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/caja@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/caja-extensions@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/nimbus@1.0 type=require
+depend fmri=pkg:/desktop/mate/libmatekbd@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/libmatemixer@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/libmateweather@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-control-center@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-applets@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-backgrounds@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-calc@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-common@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-desktop@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-icon-theme@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-media@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-notification-daemon@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-settings-daemon@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-themes@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/mate-user-guide@1.22.1 type=require
+depend fmri=pkg:/desktop/mate/snap-now@1.0.0 type=require
+depend fmri=audio/audio-utilities type=group
+depend fmri=editor/gedit type=group
+depend fmri=editor/gedit/gedit-plugins type=group
+depend fmri=editor/gvim type=group
+depend fmri=editor/nano type=group
+depend fmri=editor/vim type=group
+depend fmri=gnome/gnome-keyring type=group
+depend fmri=gnome/gnome-screenshot type=group
+depend fmri=mail/thunderbird type=group
+depend fmri=mail/thunderbird/plugin/thunderbird-lightning type=group
+depend fmri=web/browser/firefox type=group
+depend fmri=web/data/firefox-bookmarks type=group
+depend fmri=web/wget type=group
+depend fmri=print/cups type=group
+depend fmri=print/cups/filter/foomatic-db type=group
+depend fmri=print/cups/filter/foomatic-db-engine type=group
+depend fmri=print/cups/hal-cups-utils type=group
+depend fmri=print/filter/a2ps type=group
+depend fmri=print/filter/ghostscript type=group
+depend fmri=print/filter/ghostscript/fonts/gnu-gs-fonts-other type=group
+depend fmri=print/filter/ghostscript/fonts/gnu-gs-fonts-std type=group
+depend fmri=print/filter/gutenprint type=group
+depend fmri=print/filter/hplip type=group
+depend fmri=print/lp/filter/foomatic-rip type=group
+depend fmri=print/psutils type=group
+depend fmri=library/gnome/gvfs type=require
+depend fmri=gnome/zenity type=require
+depend fmri=gnome/theme/hicolor-icon-theme type=require
+dir group=sys mode=0755 owner=root path=etc
+dir group=sys mode=0755 owner=root path=etc/security
+dir group=sys mode=0755 owner=root path=etc/security/tsol
+dir group=sys mode=0755 owner=root path=etc/security/tsol/doors

@@ -1,0 +1,24 @@
+diff -ur src/lightdm-gtk-greeter.c src2/lightdm-gtk-greeter.c
+--- a/src/lightdm-gtk-greeter.c	2020-07-22 14:36:06.564302312 +0000
++++ b/src/lightdm-gtk-greeter.c	2020-07-22 14:37:12.889963490 +0000
+@@ -35,6 +35,8 @@
+ #include <gtk/gtkx.h>
+ #include <glib/gslist.h>
+ 
++#include <tsol/label.h>
++
+ #ifdef HAVE_LIBINDICATOR
+ #include <libindicator/indicator-object.h>
+ #ifdef HAVE_LIBINDICATOR_NG
+@@ -3121,6 +3123,11 @@
+             gtk_widget_show (GTK_WIDGET (radiomenuitem));
+         }
+         set_session (NULL);
++	/*
++	 * Trusted Extensions users may not choose an alternate session
++	 */
++	if (is_system_labeled())
++            gtk_widget_set_sensitive (session_menu, FALSE);
+     }
+ 
+     /* Language menu */

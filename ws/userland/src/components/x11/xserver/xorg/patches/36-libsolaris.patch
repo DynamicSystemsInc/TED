@@ -1,0 +1,12 @@
+--- a/hw/xfree86/Makefile.am	2020-05-18 13:36:43.291978571 +0000
++++ b/hw/xfree86/Makefile.am	2020-05-18 13:16:46.732074032 +0000
+@@ -78,7 +78,8 @@
+ Xorg_LDADD = \
+             $(LOCAL_LIBS) \
+             $(XORG_SYS_LIBS) \
+-            $(XSERVER_SYS_LIBS)
++            $(XSERVER_SYS_LIBS) \
++            os-support/solaris/.libs/solaris-amd64.o
+ Xorg_DEPENDENCIES = $(LOCAL_LIBS)
+ 
+ Xorg_LDFLAGS = $(LD_EXPORT_SYMBOLS_FLAG)

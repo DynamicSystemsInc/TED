@@ -1,0 +1,1715 @@
+gmake: Entering directory '/ws/userland/src/components/augeas'
+/bin/rm -f -r /ws/userland/src/components/augeas/augeas-1.8.1
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  augeas-1.8.1.tar.gz
+/usr/bin/touch /ws/userland/src/components/augeas/augeas-1.8.1/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/augeas/augeas-1.8.1 --strip=1 --backup --version-control=numbered < patches/0001-Solaris-needs-gnu-version-script-compat.patch
+patching file configure.ac
+/usr/bin/touch /ws/userland/src/components/augeas/augeas-1.8.1/.patched-0001-Solaris-needs-gnu-version-script-compat.patch
+/usr/bin/touch /ws/userland/src/components/augeas/augeas-1.8.1/.patched
+/usr/bin/touch /ws/userland/src/components/augeas/augeas-1.8.1/.prep
+(/bin/rm -f -rf /ws/userland/src/components/augeas/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/augeas/build/amd64)
+(cd /ws/userland/src/components/augeas/augeas-1.8.1; autoconf) ;(/ws/userland/src/tools/cloney /ws/userland/src/components/augeas/augeas-1.8.1 /ws/userland/src/components/augeas/build/amd64)
+symlink cloning /ws/userland/src/components/augeas/augeas-1.8.1 to /ws/userland/src/components/augeas/build/amd64
+(cd /ws/userland/src/components/augeas/build/amd64 ; /usr/bin/env CONFIG_SHELL="/bin/bash" PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++" PATH="/usr/bin/amd64:/usr/bin:/usr/gnu/bin" CC_FOR_BUILD="/usr/gcc/7/bin/gcc -m64" CXX_FOR_BUILD="/usr/gcc/7/bin/g++ -m64" CPPFLAGS="-m64" "ac_cv_func_realloc_0_nonnull=yes" "NM=/usr/gnu/bin/nm" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" CFLAGS="-m64 -O3" CXXFLAGS="-m64 -O3" LDFLAGS="" /bin/bash \
+	/ws/userland/src/components/augeas/augeas-1.8.1/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib/amd64    --infodir=/usr/share/info --disable-dependency-tracking ac_cv_func_newlocale=no)
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for naturaldocs... no
+checking for NaturalDocs... no
+checking for style of include used by make... GNU
+checking for gcc... /usr/gcc/7/bin/gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... yes
+checking dependency style of /usr/gcc/7/bin/gcc... none
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+checking for gcc... (cached) /usr/gcc/7/bin/gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... (cached) yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... (cached) none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... (cached) yes
+checking dependency style of /usr/gcc/7/bin/gcc... (cached) none
+checking for Minix Amsterdam compiler... no
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ar... (cached) ar
+checking for ranlib... ranlib
+checking build system type... x86_64-pc-solaris2.11
+checking host system type... x86_64-pc-solaris2.11
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for special C compiler options needed for large files... (cached) no
+checking for _FILE_OFFSET_BITS value needed for large files... (cached) no
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for fgrep... /usr/bin/ggrep -F
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/gnu/bin/nm
+checking the name lister (/usr/gnu/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert x86_64-pc-solaris2.11 file names to x86_64-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert x86_64-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... (cached) ranlib
+checking command to parse /usr/gnu/bin/nm output from /usr/gcc/7/bin/gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/gcc/7/bin/gcc supports -fno-rtti -fno-exceptions... no
+checking for /usr/gcc/7/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/gcc static flag -static works... no
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/gcc linker (/usr/bin/ld -64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for bison... bison -y
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking whether gcc understands -Wall... yes
+checking whether gcc understands -Wformat... yes
+checking whether gcc understands -Wformat-security... yes
+checking whether gcc understands -Wmissing-prototypes... yes
+checking whether gcc understands -Wnested-externs... yes
+checking whether gcc understands -Wpointer-arith... yes
+checking whether gcc understands -Wextra... yes
+checking whether gcc understands -Wshadow... yes
+checking whether gcc understands -Wcast-align... yes
+checking whether gcc understands -Wwrite-strings... yes
+checking whether gcc understands -Waggregate-return... yes
+checking whether gcc understands -Wstrict-prototypes... yes
+checking whether gcc understands -Winline... yes
+checking whether gcc understands -Wredundant-decls... yes
+checking whether gcc understands -Wno-sign-compare... yes
+checking whether gcc understands -fexceptions... yes
+checking whether gcc understands -fasynchronous-unwind-tables... yes
+checking what language compliance flags to pass to the C compiler... 
+checking readline/readline.h usability... yes
+checking readline/readline.h presence... yes
+checking for readline/readline.h... yes
+checking for readline in -lreadline... no
+checking for library containing tgetent... -lncurses
+checking for rl_initialize in -lreadline... yes
+checking for rl_completion_matches... yes
+checking for rl_crlf... yes
+checking for rl_replace_line... yes
+checking for open_memstream... yes
+checking for uselocale... yes
+checking how to pass version script to the linker (/usr/bin/ld -64)... -z gnu-version-script-compat,-Wl,--version-script=
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for C/C++ restrict keyword... __restrict
+checking whether <wchar.h> uses 'inline' correctly... yes
+checking for btowc... yes
+checking for canonicalize_file_name... yes
+checking for getcwd... yes
+checking for readlink... yes
+checking for realpath... yes
+checking for symlink... yes
+checking for isblank... yes
+checking for iswctype... yes
+checking for mbsrtowcs... yes
+checking for mempcpy... no
+checking for wmemchr... yes
+checking for wmemcpy... yes
+checking for wmempcpy... no
+checking for getdelim... yes
+checking for gettimeofday... yes
+checking for lstat... yes
+checking for mbsinit... yes
+checking for mbrtowc... yes
+checking for mprotect... yes
+checking for mkstemp... yes
+checking for nl_langinfo... yes
+checking for secure_getenv... yes
+checking for getuid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getegid... yes
+checking for stpncpy... yes
+checking for strndup... yes
+checking for vasnprintf... no
+checking for snprintf... yes
+checking for wcrtomb... yes
+checking for iswcntrl... yes
+checking for _set_invalid_parameter_handler... no
+checking for getdtablesize... yes
+checking for newlocale... (cached) no
+checking for setenv... yes
+checking for wctob... yes
+checking for nl_langinfo and CODESET... yes
+checking for a traditional french locale... fr_FR
+checking whether // is distinct from /... no
+checking whether realpath works... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking for unistd.h... (cached) yes
+checking wctype.h usability... yes
+checking wctype.h presence... yes
+checking for wctype.h... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking langinfo.h usability... yes
+checking langinfo.h presence... yes
+checking for langinfo.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking xlocale.h usability... no
+checking xlocale.h presence... no
+checking for xlocale.h... no
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking selinux/selinux.h usability... no
+checking selinux/selinux.h presence... no
+checking for selinux/selinux.h... no
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking for stdint.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking for sys/wait.h... yes
+checking features.h usability... no
+checking features.h presence... no
+checking for features.h... no
+checking for inttypes.h... (cached) yes
+checking whether the preprocessor supports include_next... yes
+checking whether system header files limit the line length... no
+checking for complete errno.h... yes
+checking for working fcntl.h... no (bad O_NOATIME)
+checking for pid_t... yes
+checking for mode_t... yes
+checking for mbstate_t... yes
+checking whether getdelim is declared... yes
+checking whether getline is declared... yes
+checking for getopt.h... (cached) yes
+checking for getopt_long_only... yes
+checking whether getopt is POSIX compatible... yes
+checking for working GNU getopt function... no
+checking whether getenv is declared... yes
+checking for struct timeval... yes
+checking for wide-enough struct timeval.tv_sec member... yes
+checking whether gettimeofday is declared without a macro... yes
+checking whether limits.h has ULLONG_WIDTH etc.... yes
+checking whether getc_unlocked is declared... yes
+checking whether we are using the GNU C Library >= 2.1 or uClibc... no
+checking for wchar_t... yes
+checking for max_align_t... yes
+checking whether NULL can be used in arbitrary expressions... yes
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld -64
+checking if the linker (/usr/bin/ld -64) is GNU ld... no
+checking for shared library run path origin... done
+checking for 64-bit host... yes
+checking whether imported symbols can be declared weak... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_kill in -lpthread... yes
+checking for multithread API to use... posix
+checking whether lstat correctly handles trailing slash... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for unsigned long long int... yes
+checking for long long int... yes
+checking for a traditional japanese locale... ja_JP
+checking for a transitional chinese locale... zh_CN.GB18030
+checking for a french Unicode locale... fr_FR.UTF-8
+checking for mmap... yes
+checking for MAP_ANONYMOUS... yes
+checking whether memchr works... yes
+checking whether alarm is declared... yes
+checking for inline... inline
+checking for library containing setfilecon... no
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking whether stdint.h conforms to C99... yes
+checking whether stdint.h predates C++11... no
+checking whether stdint.h has UINTMAX_WIDTH etc.... no
+checking whether stpncpy is declared... yes
+checking whether ffsl is declared without a macro... yes
+checking whether ffsll is declared without a macro... yes
+checking whether memmem is declared without a macro... yes
+checking whether mempcpy is declared without a macro... no
+checking whether memrchr is declared without a macro... no
+checking whether rawmemchr is declared without a macro... no
+checking whether stpcpy is declared without a macro... yes
+checking whether stpncpy is declared without a macro... yes
+checking whether strchrnul is declared without a macro... yes
+checking whether strdup is declared without a macro... yes
+checking whether strncat is declared without a macro... yes
+checking whether strndup is declared without a macro... yes
+checking whether strnlen is declared without a macro... yes
+checking whether strpbrk is declared without a macro... yes
+checking whether strsep is declared without a macro... yes
+checking whether strcasestr is declared without a macro... yes
+checking whether strtok_r is declared without a macro... yes
+checking whether strerror_r is declared without a macro... yes
+checking whether strsignal is declared without a macro... yes
+checking whether strverscmp is declared without a macro... no
+checking whether strndup is declared... (cached) yes
+checking whether strnlen is declared... (cached) yes
+checking whether strstr works... yes
+checking whether stat file-mode macros are broken... no
+checking for struct timespec in <time.h>... yes
+checking for wint_t... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for intmax_t... yes
+checking where to find the exponent in a 'double'... word 1 bit 20
+checking whether snprintf returns a byte count as in C99... yes
+checking for snprintf... (cached) yes
+checking for strnlen... yes
+checking for wcslen... yes
+checking for wcsnlen... yes
+checking for mbrtowc... (cached) yes
+checking for wcrtomb... (cached) yes
+checking whether _snprintf is declared... no
+checking if environ is properly declared... no
+checking whether getcwd (NULL, 0) allocates memory for result... yes
+checking for getcwd with POSIX signature... yes
+checking whether getdtablesize is declared... yes
+checking whether imaxabs is declared without a macro... yes
+checking whether imaxdiv is declared without a macro... yes
+checking whether strtoimax is declared without a macro... yes
+checking whether strtoumax is declared without a macro... yes
+checking for inttypes.h... (cached) yes
+checking whether the inttypes.h PRIxNN macros are broken... no
+checking for LC_MESSAGES... yes
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking whether malloc, realloc, calloc are POSIX compliant... yes
+checking for promoted mode_t type... mode_t
+checking whether setenv is declared... yes
+checking search.h usability... yes
+checking search.h presence... yes
+checking for search.h... yes
+checking for tsearch... yes
+checking whether unsetenv is declared... yes
+checking for alloca as a compiler built-in... yes
+checking for argz.h... no
+checking for error_t... no
+checking for argz_replace... no
+checking whether btowc(0) is correct... yes
+checking whether btowc(EOF) is correct... yes
+checking whether isblank is declared without a macro... yes
+checking whether fcntl is declared without a macro... yes
+checking whether openat is declared without a macro... yes
+checking for flexible array member... yes
+checking whether conversion from 'int' to 'long double' works... yes
+checking for working POSIX fnmatch... yes
+checking for working getdelim function... yes
+checking for getline... yes
+checking for working getline function... yes
+checking whether gettimeofday clobbers localtime buffer... no
+checking for gettimeofday with POSIX signature... yes
+checking whether langinfo.h defines CODESET... yes
+checking whether langinfo.h defines T_FMT_AMPM... yes
+checking whether langinfo.h defines ERA... yes
+checking whether langinfo.h defines YESEXPR... yes
+checking whether nl_langinfo is declared without a macro... yes
+checking whether locale.h conforms to POSIX:2001... yes
+checking whether struct lconv is properly defined... yes
+checking whether setlocale is declared without a macro... yes
+checking whether duplocale is declared without a macro... yes
+checking for pthread_rwlock_t... yes
+checking whether mbrtowc handles incomplete characters... yes
+checking whether mbrtowc works as well as mbtowc... yes
+checking whether mbrtowc handles a NULL pwc argument... yes
+checking whether mbrtowc handles a NULL string argument... yes
+checking whether mbrtowc has a correct return value... yes
+checking whether mbrtowc returns 0 when parsing a NUL character... yes
+checking whether mbrtowc works on empty input... yes
+checking whether the C locale is free of encoding errors... yes
+checking whether mbrtowc handles incomplete characters... (cached) yes
+checking whether mbrtowc works as well as mbtowc... (cached) yes
+checking whether mbrtowc handles incomplete characters... (cached) yes
+checking whether mbrtowc works as well as mbtowc... (cached) yes
+checking whether mbsrtowcs works... yes
+checking for mempcpy... (cached) no
+checking for working mkstemp... yes
+checking whether YESEXPR works... yes
+checking for rawmemchr... no
+checking whether readlink signature is correct... yes
+checking whether readlink handles trailing slash correctly... yes
+checking for working re_compile_pattern... no
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking whether isblank is declared... (cached) yes
+checking for stdint.h... (cached) yes
+checking for SIZE_MAX... yes
+checking for ssize_t... yes
+checking whether stat handles trailing slashes on directories... yes
+checking whether stat handles trailing slashes on files... yes
+checking for max_align_t... (cached) yes
+checking whether NULL can be used in arbitrary expressions... (cached) yes
+checking which flavor of printf attribute matches inttypes macros... system
+checking whether dprintf is declared without a macro... yes
+checking whether fpurge is declared without a macro... no
+checking whether fseeko is declared without a macro... yes
+checking whether ftello is declared without a macro... yes
+checking whether getdelim is declared without a macro... yes
+checking whether getline is declared without a macro... yes
+checking whether gets is declared without a macro... no
+checking whether pclose is declared without a macro... yes
+checking whether popen is declared without a macro... yes
+checking whether renameat is declared without a macro... yes
+checking whether snprintf is declared without a macro... yes
+checking whether tmpfile is declared without a macro... yes
+checking whether vdprintf is declared without a macro... yes
+checking whether vsnprintf is declared without a macro... yes
+checking whether _Exit is declared without a macro... yes
+checking whether atoll is declared without a macro... yes
+checking whether canonicalize_file_name is declared without a macro... yes
+checking whether getloadavg is declared without a macro... no
+checking whether getsubopt is declared without a macro... yes
+checking whether grantpt is declared without a macro... yes
+checking whether initstate is declared without a macro... yes
+checking whether initstate_r is declared without a macro... no
+checking whether mkdtemp is declared without a macro... yes
+checking whether mkostemp is declared without a macro... no
+checking whether mkostemps is declared without a macro... no
+checking whether mkstemp is declared without a macro... yes
+checking whether mkstemps is declared without a macro... yes
+checking whether posix_openpt is declared without a macro... yes
+checking whether ptsname is declared without a macro... yes
+checking whether ptsname_r is declared without a macro... no
+checking whether random is declared without a macro... yes
+checking whether random_r is declared without a macro... no
+checking whether realpath is declared without a macro... yes
+checking whether rpmatch is declared without a macro... no
+checking whether secure_getenv is declared without a macro... yes
+checking whether setenv is declared without a macro... yes
+checking whether setstate is declared without a macro... yes
+checking whether setstate_r is declared without a macro... no
+checking whether srandom is declared without a macro... yes
+checking whether srandom_r is declared without a macro... no
+checking whether strtod is declared without a macro... yes
+checking whether strtoll is declared without a macro... yes
+checking whether strtoull is declared without a macro... yes
+checking whether unlockpt is declared without a macro... yes
+checking whether unsetenv is declared without a macro... yes
+checking for stpcpy... yes
+checking for working stpncpy... yes
+checking for strchrnul... yes
+checking whether strchrnul works... yes
+checking for working strndup... yes
+checking for working strnlen... yes
+checking whether strstr works in linear time... no
+checking whether strstr works... (cached) yes
+checking for nlink_t... yes
+checking whether fchmodat is declared without a macro... yes
+checking whether fstat is declared without a macro... yes
+checking whether fstatat is declared without a macro... yes
+checking whether futimens is declared without a macro... yes
+checking whether lchmod is declared without a macro... no
+checking whether lstat is declared without a macro... yes
+checking whether mkdirat is declared without a macro... yes
+checking whether mkfifo is declared without a macro... yes
+checking whether mkfifoat is declared without a macro... yes
+checking whether mknod is declared without a macro... yes
+checking whether mknodat is declared without a macro... yes
+checking whether stat is declared without a macro... yes
+checking whether utimensat is declared without a macro... yes
+checking whether waitpid is declared without a macro... yes
+checking whether chdir is declared without a macro... yes
+checking whether chown is declared without a macro... yes
+checking whether dup is declared without a macro... yes
+checking whether dup2 is declared without a macro... yes
+checking whether dup3 is declared without a macro... yes
+checking whether environ is declared without a macro... no
+checking whether euidaccess is declared without a macro... yes
+checking whether faccessat is declared without a macro... yes
+checking whether fchdir is declared without a macro... yes
+checking whether fchownat is declared without a macro... yes
+checking whether fdatasync is declared without a macro... yes
+checking whether fsync is declared without a macro... yes
+checking whether ftruncate is declared without a macro... yes
+checking whether getcwd is declared without a macro... yes
+checking whether getdomainname is declared without a macro... no
+checking whether getdtablesize is declared without a macro... yes
+checking whether getgroups is declared without a macro... yes
+checking whether gethostname is declared without a macro... yes
+checking whether getlogin is declared without a macro... yes
+checking whether getlogin_r is declared without a macro... yes
+checking whether getpagesize is declared without a macro... yes
+checking whether getusershell is declared without a macro... yes
+checking whether setusershell is declared without a macro... yes
+checking whether endusershell is declared without a macro... yes
+checking whether group_member is declared without a macro... no
+checking whether isatty is declared without a macro... yes
+checking whether lchown is declared without a macro... yes
+checking whether link is declared without a macro... yes
+checking whether linkat is declared without a macro... yes
+checking whether lseek is declared without a macro... yes
+checking whether pipe is declared without a macro... yes
+checking whether pipe2 is declared without a macro... yes
+checking whether pread is declared without a macro... yes
+checking whether pwrite is declared without a macro... yes
+checking whether readlink is declared without a macro... yes
+checking whether readlinkat is declared without a macro... yes
+checking whether rmdir is declared without a macro... yes
+checking whether sethostname is declared without a macro... yes
+checking whether sleep is declared without a macro... yes
+checking whether symlink is declared without a macro... yes
+checking whether symlinkat is declared without a macro... yes
+checking whether ttyname_r is declared without a macro... yes
+checking whether unlink is declared without a macro... yes
+checking whether unlinkat is declared without a macro... yes
+checking whether usleep is declared without a macro... yes
+checking for ptrdiff_t... yes
+checking for vasprintf... yes
+checking whether btowc is declared without a macro... yes
+checking whether wctob is declared without a macro... yes
+checking whether mbsinit is declared without a macro... yes
+checking whether mbrtowc is declared without a macro... yes
+checking whether mbrlen is declared without a macro... yes
+checking whether mbsrtowcs is declared without a macro... yes
+checking whether mbsnrtowcs is declared without a macro... yes
+checking whether wcrtomb is declared without a macro... yes
+checking whether wcsrtombs is declared without a macro... yes
+checking whether wcsnrtombs is declared without a macro... yes
+checking whether wcwidth is declared without a macro... yes
+checking whether wmemchr is declared without a macro... yes
+checking whether wmemcmp is declared without a macro... yes
+checking whether wmemcpy is declared without a macro... yes
+checking whether wmemmove is declared without a macro... yes
+checking whether wmemset is declared without a macro... yes
+checking whether wcslen is declared without a macro... yes
+checking whether wcsnlen is declared without a macro... yes
+checking whether wcscpy is declared without a macro... yes
+checking whether wcpcpy is declared without a macro... yes
+checking whether wcsncpy is declared without a macro... yes
+checking whether wcpncpy is declared without a macro... yes
+checking whether wcscat is declared without a macro... yes
+checking whether wcsncat is declared without a macro... yes
+checking whether wcscmp is declared without a macro... yes
+checking whether wcsncmp is declared without a macro... yes
+checking whether wcscasecmp is declared without a macro... yes
+checking whether wcsncasecmp is declared without a macro... yes
+checking whether wcscoll is declared without a macro... yes
+checking whether wcsxfrm is declared without a macro... yes
+checking whether wcsdup is declared without a macro... yes
+checking whether wcschr is declared without a macro... yes
+checking whether wcsrchr is declared without a macro... yes
+checking whether wcscspn is declared without a macro... yes
+checking whether wcsspn is declared without a macro... yes
+checking whether wcspbrk is declared without a macro... yes
+checking whether wcsstr is declared without a macro... yes
+checking whether wcstok is declared without a macro... yes
+checking whether wcswidth is declared without a macro... yes
+checking whether mbrtowc handles incomplete characters... (cached) yes
+checking whether mbrtowc works as well as mbtowc... (cached) yes
+checking whether wcrtomb return value is correct... yes
+checking whether iswcntrl works... yes
+checking for towlower... yes
+checking for wctype_t... yes
+checking for wctrans_t... yes
+checking whether wctype is declared without a macro... yes
+checking whether iswctype is declared without a macro... yes
+checking whether wctrans is declared without a macro... yes
+checking whether towctrans is declared without a macro... yes
+checking for stdint.h... (cached) yes
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional french locale... (cached) fr_FR
+checking for a turkish Unicode locale... none
+checking whether dup2 works... yes
+checking whether fdopen sets errno... yes
+checking whether getdtablesize works... yes
+checking for getpagesize... yes
+checking whether getpagesize is declared... (cached) yes
+checking whether INT32_MAX < INTMAX_MAX... yes
+checking whether INT64_MAX == LONG_MAX... yes
+checking whether UINT32_MAX < UINTMAX_MAX... yes
+checking whether UINT64_MAX == ULONG_MAX... yes
+checking for setlocale... yes
+checking for uselocale... (cached) yes
+checking for getlocalename_l... no
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional japanese locale... (cached) ja_JP
+checking for a transitional chinese locale... (cached) zh_CN.GB18030
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional japanese locale... (cached) ja_JP
+checking for a transitional chinese locale... (cached) zh_CN.GB18030
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking whether open recognizes a trailing slash... yes
+checking for putenv compatible with GNU and SVID... no
+checking whether _putenv is declared... no
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking whether setenv validates arguments... yes
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional japanese locale... (cached) ja_JP
+checking for a transitional chinese locale... (cached) zh_CN.GB18030
+checking for working stdalign.h... yes
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking whether symlink handles trailing slash correctly... yes
+checking for pthread_atfork... yes
+checking for unsetenv... yes
+checking for unsetenv() return type... int
+checking whether unsetenv obeys POSIX... no
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional japanese locale... (cached) ja_JP
+checking for a transitional chinese locale... (cached) zh_CN.GB18030
+checking whether wctob works... yes
+checking whether wctob is declared... (cached) yes
+checking for sched_yield in -lrt... yes
+checking if we should run the GNUlib tests... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for LIBXML... yes
+checking for strerror_r... yes
+checking for fsync... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating gnulib/lib/Makefile
+config.status: creating gnulib/tests/Makefile
+config.status: creating src/Makefile
+config.status: creating man/Makefile
+config.status: creating tests/Makefile
+config.status: creating examples/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/naturaldocs/Makefile
+config.status: creating augeas.pc
+config.status: creating augeas.spec
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+/usr/bin/touch /ws/userland/src/components/augeas/build/amd64/.configured
+(cd /ws/userland/src/components/augeas/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  PKG_CONFIG_PATH="/usr/lib/amd64/pkgconfig" "ac_cv_func_realloc_0_nonnull=yes" INTLTOOL_PERL="/usr/perl5/5.22/bin/perl" \
+	/usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/augeas/build/amd64'
+CDPATH="${ZSH_VERSION+.}:" && cd /ws/userland/src/components/augeas/augeas-1.8.1 && /bin/bash /ws/userland/src/components/augeas/build/amd64/build/ac-aux/missing aclocal-1.15 -I gnulib/m4
+/usr/share/aclocal/aalib.m4:12: warning: underquoted definition of AM_PATH_AALIB
+/usr/share/aclocal/aalib.m4:12:   run info Automake 'Extending aclocal'
+/usr/share/aclocal/aalib.m4:12:   or see http://www.gnu.org/software/automake/manual/automake.html#Extending-aclocal
+ cd /ws/userland/src/components/augeas/augeas-1.8.1 && /bin/bash /ws/userland/src/components/augeas/build/amd64/build/ac-aux/missing automake-1.15 --gnu
+tests/Makefile.am:286: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+tests/Makefile.am:288: warning: source file '$(top_srcdir)/src/memory.c' is in a subdirectory,
+tests/Makefile.am:288: but option 'subdir-objects' is disabled
+automake-1.15: warning: possible forward-incompatibility.
+automake-1.15: At least a source file is in a subdirectory, but the 'subdir-objects'
+automake-1.15: automake option hasn't been enabled.  For now, the corresponding output
+automake-1.15: object file(s) will be placed in the top-level directory.  However,
+automake-1.15: this behaviour will change in future Automake versions: they will
+automake-1.15: unconditionally cause object files to be placed in the same subdirectory
+automake-1.15: of the corresponding sources.
+automake-1.15: You are advised to start using 'subdir-objects' option throughout your
+automake-1.15: project, to avoid future incompatibilities.
+tests/Makefile.am:300: warning: source file '$(top_srcdir)/src/memory.c' is in a subdirectory,
+tests/Makefile.am:300: but option 'subdir-objects' is disabled
+tests/Makefile.am:294: warning: source file '$(top_srcdir)/src/memory.c' is in a subdirectory,
+tests/Makefile.am:294: but option 'subdir-objects' is disabled
+tests/Makefile.am:306: warning: source file '$(top_srcdir)/src/memory.c' is in a subdirectory,
+tests/Makefile.am:306: but option 'subdir-objects' is disabled
+tests/Makefile.am:303: warning: source file '$(top_srcdir)/src/memory.c' is in a subdirectory,
+tests/Makefile.am:303: but option 'subdir-objects' is disabled
+tests/Makefile.am:297: warning: source file '$(top_srcdir)/src/memory.c' is in a subdirectory,
+tests/Makefile.am:297: but option 'subdir-objects' is disabled
+tests/Makefile.am:291: warning: source file '$(top_srcdir)/src/memory.c' is in a subdirectory,
+tests/Makefile.am:291: but option 'subdir-objects' is disabled
+CDPATH="${ZSH_VERSION+.}:" && cd /ws/userland/src/components/augeas/augeas-1.8.1 && /bin/bash /ws/userland/src/components/augeas/build/amd64/build/ac-aux/missing autoconf
+/bin/bash ./config.status --recheck
+running CONFIG_SHELL=/bin/bash /bin/bash /ws/userland/src/components/augeas/augeas-1.8.1/configure --prefix=/usr --mandir=/usr/share/man --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib/amd64 --infodir=/usr/share/info --disable-dependency-tracking ac_cv_func_newlocale=no CC=/usr/gcc/7/bin/gcc CFLAGS=-m64 -O3 LDFLAGS= CPPFLAGS=-m64 PKG_CONFIG_PATH=/usr/lib/amd64/pkgconfig --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/gmkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for naturaldocs... no
+checking for NaturalDocs... no
+checking for style of include used by make... GNU
+checking for gcc... /usr/gcc/7/bin/gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... yes
+checking dependency style of /usr/gcc/7/bin/gcc... none
+checking how to run the C preprocessor... /usr/gcc/7/bin/gcc -E
+checking for grep that handles long lines and -e... /usr/bin/ggrep
+checking for egrep... /usr/bin/ggrep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+checking for gcc... (cached) /usr/gcc/7/bin/gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether /usr/gcc/7/bin/gcc accepts -g... (cached) yes
+checking for /usr/gcc/7/bin/gcc option to accept ISO C89... (cached) none needed
+checking whether /usr/gcc/7/bin/gcc understands -c and -o together... (cached) yes
+checking dependency style of /usr/gcc/7/bin/gcc... (cached) none
+checking for Minix Amsterdam compiler... no
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ar... (cached) ar
+checking for ranlib... ranlib
+checking build system type... x86_64-pc-solaris2.11
+checking host system type... x86_64-pc-solaris2.11
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for special C compiler options needed for large files... (cached) no
+checking for _FILE_OFFSET_BITS value needed for large files... (cached) no
+checking how to print strings... print -r
+checking for a sed that does not truncate output... /usr/bin/gsed
+checking for fgrep... /usr/bin/ggrep -F
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -p
+checking the name lister (/usr/bin/nm -p) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572480
+checking how to convert x86_64-pc-solaris2.11 file names to x86_64-pc-solaris2.11 format... func_convert_file_noop
+checking how to convert x86_64-pc-solaris2.11 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... (cached) ranlib
+checking command to parse /usr/bin/nm -p output from /usr/gcc/7/bin/gcc object... failed
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/gcc/7/bin/gcc supports -fno-rtti -fno-exceptions... no
+checking for /usr/gcc/7/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/gcc/7/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/gcc/7/bin/gcc static flag -static works... no
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... yes
+checking if /usr/gcc/7/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/gcc/7/bin/gcc linker (/usr/bin/ld -64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... solaris2.11 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for bison... bison -y
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking whether gcc understands -Wall... yes
+checking whether gcc understands -Wformat... yes
+checking whether gcc understands -Wformat-security... yes
+checking whether gcc understands -Wmissing-prototypes... yes
+checking whether gcc understands -Wnested-externs... yes
+checking whether gcc understands -Wpointer-arith... yes
+checking whether gcc understands -Wextra... yes
+checking whether gcc understands -Wshadow... yes
+checking whether gcc understands -Wcast-align... yes
+checking whether gcc understands -Wwrite-strings... yes
+checking whether gcc understands -Waggregate-return... yes
+checking whether gcc understands -Wstrict-prototypes... yes
+checking whether gcc understands -Winline... yes
+checking whether gcc understands -Wredundant-decls... yes
+checking whether gcc understands -Wno-sign-compare... yes
+checking whether gcc understands -fexceptions... yes
+checking whether gcc understands -fasynchronous-unwind-tables... yes
+checking what language compliance flags to pass to the C compiler... 
+checking readline/readline.h usability... yes
+checking readline/readline.h presence... yes
+checking for readline/readline.h... yes
+checking for readline in -lreadline... no
+checking for library containing tgetent... -lncurses
+checking for rl_initialize in -lreadline... yes
+checking for rl_completion_matches... yes
+checking for rl_crlf... yes
+checking for rl_replace_line... yes
+checking for open_memstream... yes
+checking for uselocale... yes
+checking how to pass version script to the linker (/usr/bin/ld -64)... -z gnu-version-script-compat,-Wl,--version-script=
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for C/C++ restrict keyword... __restrict
+checking whether <wchar.h> uses 'inline' correctly... yes
+checking for btowc... yes
+checking for canonicalize_file_name... yes
+checking for getcwd... yes
+checking for readlink... yes
+checking for realpath... yes
+checking for symlink... yes
+checking for isblank... yes
+checking for iswctype... yes
+checking for mbsrtowcs... yes
+checking for mempcpy... no
+checking for wmemchr... yes
+checking for wmemcpy... yes
+checking for wmempcpy... no
+checking for getdelim... yes
+checking for gettimeofday... yes
+checking for lstat... yes
+checking for mbsinit... yes
+checking for mbrtowc... yes
+checking for mprotect... yes
+checking for mkstemp... yes
+checking for nl_langinfo... yes
+checking for secure_getenv... yes
+checking for getuid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getegid... yes
+checking for stpncpy... yes
+checking for strndup... yes
+checking for vasnprintf... no
+checking for snprintf... yes
+checking for wcrtomb... yes
+checking for iswcntrl... yes
+checking for _set_invalid_parameter_handler... no
+checking for getdtablesize... yes
+checking for newlocale... (cached) no
+checking for setenv... yes
+checking for wctob... yes
+checking for nl_langinfo and CODESET... yes
+checking for a traditional french locale... fr_FR
+checking whether // is distinct from /... no
+checking whether realpath works... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking for unistd.h... (cached) yes
+checking wctype.h usability... yes
+checking wctype.h presence... yes
+checking for wctype.h... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking langinfo.h usability... yes
+checking langinfo.h presence... yes
+checking for langinfo.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking xlocale.h usability... no
+checking xlocale.h presence... no
+checking for xlocale.h... no
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking selinux/selinux.h usability... no
+checking selinux/selinux.h presence... no
+checking for selinux/selinux.h... no
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking for stdint.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking for sys/wait.h... yes
+checking features.h usability... no
+checking features.h presence... no
+checking for features.h... no
+checking for inttypes.h... (cached) yes
+checking whether the preprocessor supports include_next... yes
+checking whether system header files limit the line length... no
+checking for complete errno.h... yes
+checking for working fcntl.h... no (bad O_NOATIME)
+checking for pid_t... yes
+checking for mode_t... yes
+checking for mbstate_t... yes
+checking whether getdelim is declared... yes
+checking whether getline is declared... yes
+checking for getopt.h... (cached) yes
+checking for getopt_long_only... yes
+checking whether getopt is POSIX compatible... yes
+checking for working GNU getopt function... no
+checking whether getenv is declared... yes
+checking for struct timeval... yes
+checking for wide-enough struct timeval.tv_sec member... yes
+checking whether gettimeofday is declared without a macro... yes
+checking whether limits.h has ULLONG_WIDTH etc.... yes
+checking whether getc_unlocked is declared... yes
+checking whether we are using the GNU C Library >= 2.1 or uClibc... no
+checking for wchar_t... yes
+checking for max_align_t... yes
+checking whether NULL can be used in arbitrary expressions... yes
+checking for ld used by /usr/gcc/7/bin/gcc... /usr/bin/ld -64
+checking if the linker (/usr/bin/ld -64) is GNU ld... no
+checking for shared library run path origin... done
+checking for 64-bit host... yes
+checking whether imported symbols can be declared weak... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_kill in -lpthread... yes
+checking for multithread API to use... posix
+checking whether lstat correctly handles trailing slash... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for unsigned long long int... yes
+checking for long long int... yes
+checking for a traditional japanese locale... ja_JP
+checking for a transitional chinese locale... zh_CN.GB18030
+checking for a french Unicode locale... fr_FR.UTF-8
+checking for mmap... yes
+checking for MAP_ANONYMOUS... yes
+checking whether memchr works... yes
+checking whether alarm is declared... yes
+checking for inline... inline
+checking for library containing setfilecon... no
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking whether stdint.h conforms to C99... yes
+checking whether stdint.h predates C++11... no
+checking whether stdint.h has UINTMAX_WIDTH etc.... no
+checking whether stpncpy is declared... yes
+checking whether ffsl is declared without a macro... yes
+checking whether ffsll is declared without a macro... yes
+checking whether memmem is declared without a macro... yes
+checking whether mempcpy is declared without a macro... no
+checking whether memrchr is declared without a macro... no
+checking whether rawmemchr is declared without a macro... no
+checking whether stpcpy is declared without a macro... yes
+checking whether stpncpy is declared without a macro... yes
+checking whether strchrnul is declared without a macro... yes
+checking whether strdup is declared without a macro... yes
+checking whether strncat is declared without a macro... yes
+checking whether strndup is declared without a macro... yes
+checking whether strnlen is declared without a macro... yes
+checking whether strpbrk is declared without a macro... yes
+checking whether strsep is declared without a macro... yes
+checking whether strcasestr is declared without a macro... yes
+checking whether strtok_r is declared without a macro... yes
+checking whether strerror_r is declared without a macro... yes
+checking whether strsignal is declared without a macro... yes
+checking whether strverscmp is declared without a macro... no
+checking whether strndup is declared... (cached) yes
+checking whether strnlen is declared... (cached) yes
+checking whether strstr works... yes
+checking whether stat file-mode macros are broken... no
+checking for struct timespec in <time.h>... yes
+checking for wint_t... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for intmax_t... yes
+checking where to find the exponent in a 'double'... word 1 bit 20
+checking whether snprintf returns a byte count as in C99... yes
+checking for snprintf... (cached) yes
+checking for strnlen... yes
+checking for wcslen... yes
+checking for wcsnlen... yes
+checking for mbrtowc... (cached) yes
+checking for wcrtomb... (cached) yes
+checking whether _snprintf is declared... no
+checking if environ is properly declared... no
+checking whether getcwd (NULL, 0) allocates memory for result... yes
+checking for getcwd with POSIX signature... yes
+checking whether getdtablesize is declared... yes
+checking whether imaxabs is declared without a macro... yes
+checking whether imaxdiv is declared without a macro... yes
+checking whether strtoimax is declared without a macro... yes
+checking whether strtoumax is declared without a macro... yes
+checking for inttypes.h... (cached) yes
+checking whether the inttypes.h PRIxNN macros are broken... no
+checking for LC_MESSAGES... yes
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking whether malloc, realloc, calloc are POSIX compliant... yes
+checking for promoted mode_t type... mode_t
+checking whether setenv is declared... yes
+checking search.h usability... yes
+checking search.h presence... yes
+checking for search.h... yes
+checking for tsearch... yes
+checking whether unsetenv is declared... yes
+checking for alloca as a compiler built-in... yes
+checking for argz.h... no
+checking for error_t... no
+checking for argz_replace... no
+checking whether btowc(0) is correct... yes
+checking whether btowc(EOF) is correct... yes
+checking whether isblank is declared without a macro... yes
+checking whether fcntl is declared without a macro... yes
+checking whether openat is declared without a macro... yes
+checking for flexible array member... yes
+checking whether conversion from 'int' to 'long double' works... yes
+checking for working POSIX fnmatch... yes
+checking for working getdelim function... yes
+checking for getline... yes
+checking for working getline function... yes
+checking whether gettimeofday clobbers localtime buffer... no
+checking for gettimeofday with POSIX signature... yes
+checking whether langinfo.h defines CODESET... yes
+checking whether langinfo.h defines T_FMT_AMPM... yes
+checking whether langinfo.h defines ERA... yes
+checking whether langinfo.h defines YESEXPR... yes
+checking whether nl_langinfo is declared without a macro... yes
+checking whether locale.h conforms to POSIX:2001... yes
+checking whether struct lconv is properly defined... yes
+checking whether setlocale is declared without a macro... yes
+checking whether duplocale is declared without a macro... yes
+checking for pthread_rwlock_t... yes
+checking whether mbrtowc handles incomplete characters... yes
+checking whether mbrtowc works as well as mbtowc... yes
+checking whether mbrtowc handles a NULL pwc argument... yes
+checking whether mbrtowc handles a NULL string argument... yes
+checking whether mbrtowc has a correct return value... yes
+checking whether mbrtowc returns 0 when parsing a NUL character... yes
+checking whether mbrtowc works on empty input... yes
+checking whether the C locale is free of encoding errors... yes
+checking whether mbrtowc handles incomplete characters... (cached) yes
+checking whether mbrtowc works as well as mbtowc... (cached) yes
+checking whether mbrtowc handles incomplete characters... (cached) yes
+checking whether mbrtowc works as well as mbtowc... (cached) yes
+checking whether mbsrtowcs works... yes
+checking for mempcpy... (cached) no
+checking for working mkstemp... yes
+checking whether YESEXPR works... yes
+checking for rawmemchr... no
+checking whether readlink signature is correct... yes
+checking whether readlink handles trailing slash correctly... yes
+checking for working re_compile_pattern... no
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking whether isblank is declared... (cached) yes
+checking for stdint.h... (cached) yes
+checking for SIZE_MAX... yes
+checking for ssize_t... yes
+checking whether stat handles trailing slashes on directories... yes
+checking whether stat handles trailing slashes on files... yes
+checking for max_align_t... (cached) yes
+checking whether NULL can be used in arbitrary expressions... (cached) yes
+checking which flavor of printf attribute matches inttypes macros... system
+checking whether dprintf is declared without a macro... yes
+checking whether fpurge is declared without a macro... no
+checking whether fseeko is declared without a macro... yes
+checking whether ftello is declared without a macro... yes
+checking whether getdelim is declared without a macro... yes
+checking whether getline is declared without a macro... yes
+checking whether gets is declared without a macro... no
+checking whether pclose is declared without a macro... yes
+checking whether popen is declared without a macro... yes
+checking whether renameat is declared without a macro... yes
+checking whether snprintf is declared without a macro... yes
+checking whether tmpfile is declared without a macro... yes
+checking whether vdprintf is declared without a macro... yes
+checking whether vsnprintf is declared without a macro... yes
+checking whether _Exit is declared without a macro... yes
+checking whether atoll is declared without a macro... yes
+checking whether canonicalize_file_name is declared without a macro... yes
+checking whether getloadavg is declared without a macro... no
+checking whether getsubopt is declared without a macro... yes
+checking whether grantpt is declared without a macro... yes
+checking whether initstate is declared without a macro... yes
+checking whether initstate_r is declared without a macro... no
+checking whether mkdtemp is declared without a macro... yes
+checking whether mkostemp is declared without a macro... no
+checking whether mkostemps is declared without a macro... no
+checking whether mkstemp is declared without a macro... yes
+checking whether mkstemps is declared without a macro... yes
+checking whether posix_openpt is declared without a macro... yes
+checking whether ptsname is declared without a macro... yes
+checking whether ptsname_r is declared without a macro... no
+checking whether random is declared without a macro... yes
+checking whether random_r is declared without a macro... no
+checking whether realpath is declared without a macro... yes
+checking whether rpmatch is declared without a macro... no
+checking whether secure_getenv is declared without a macro... yes
+checking whether setenv is declared without a macro... yes
+checking whether setstate is declared without a macro... yes
+checking whether setstate_r is declared without a macro... no
+checking whether srandom is declared without a macro... yes
+checking whether srandom_r is declared without a macro... no
+checking whether strtod is declared without a macro... yes
+checking whether strtoll is declared without a macro... yes
+checking whether strtoull is declared without a macro... yes
+checking whether unlockpt is declared without a macro... yes
+checking whether unsetenv is declared without a macro... yes
+checking for stpcpy... yes
+checking for working stpncpy... yes
+checking for strchrnul... yes
+checking whether strchrnul works... yes
+checking for working strndup... yes
+checking for working strnlen... yes
+checking whether strstr works in linear time... no
+checking whether strstr works... (cached) yes
+checking for nlink_t... yes
+checking whether fchmodat is declared without a macro... yes
+checking whether fstat is declared without a macro... yes
+checking whether fstatat is declared without a macro... yes
+checking whether futimens is declared without a macro... yes
+checking whether lchmod is declared without a macro... no
+checking whether lstat is declared without a macro... yes
+checking whether mkdirat is declared without a macro... yes
+checking whether mkfifo is declared without a macro... yes
+checking whether mkfifoat is declared without a macro... yes
+checking whether mknod is declared without a macro... yes
+checking whether mknodat is declared without a macro... yes
+checking whether stat is declared without a macro... yes
+checking whether utimensat is declared without a macro... yes
+checking whether waitpid is declared without a macro... yes
+checking whether chdir is declared without a macro... yes
+checking whether chown is declared without a macro... yes
+checking whether dup is declared without a macro... yes
+checking whether dup2 is declared without a macro... yes
+checking whether dup3 is declared without a macro... yes
+checking whether environ is declared without a macro... no
+checking whether euidaccess is declared without a macro... yes
+checking whether faccessat is declared without a macro... yes
+checking whether fchdir is declared without a macro... yes
+checking whether fchownat is declared without a macro... yes
+checking whether fdatasync is declared without a macro... yes
+checking whether fsync is declared without a macro... yes
+checking whether ftruncate is declared without a macro... yes
+checking whether getcwd is declared without a macro... yes
+checking whether getdomainname is declared without a macro... no
+checking whether getdtablesize is declared without a macro... yes
+checking whether getgroups is declared without a macro... yes
+checking whether gethostname is declared without a macro... yes
+checking whether getlogin is declared without a macro... yes
+checking whether getlogin_r is declared without a macro... yes
+checking whether getpagesize is declared without a macro... yes
+checking whether getusershell is declared without a macro... yes
+checking whether setusershell is declared without a macro... yes
+checking whether endusershell is declared without a macro... yes
+checking whether group_member is declared without a macro... no
+checking whether isatty is declared without a macro... yes
+checking whether lchown is declared without a macro... yes
+checking whether link is declared without a macro... yes
+checking whether linkat is declared without a macro... yes
+checking whether lseek is declared without a macro... yes
+checking whether pipe is declared without a macro... yes
+checking whether pipe2 is declared without a macro... yes
+checking whether pread is declared without a macro... yes
+checking whether pwrite is declared without a macro... yes
+checking whether readlink is declared without a macro... yes
+checking whether readlinkat is declared without a macro... yes
+checking whether rmdir is declared without a macro... yes
+checking whether sethostname is declared without a macro... yes
+checking whether sleep is declared without a macro... yes
+checking whether symlink is declared without a macro... yes
+checking whether symlinkat is declared without a macro... yes
+checking whether ttyname_r is declared without a macro... yes
+checking whether unlink is declared without a macro... yes
+checking whether unlinkat is declared without a macro... yes
+checking whether usleep is declared without a macro... yes
+checking for ptrdiff_t... yes
+checking for vasprintf... yes
+checking whether btowc is declared without a macro... yes
+checking whether wctob is declared without a macro... yes
+checking whether mbsinit is declared without a macro... yes
+checking whether mbrtowc is declared without a macro... yes
+checking whether mbrlen is declared without a macro... yes
+checking whether mbsrtowcs is declared without a macro... yes
+checking whether mbsnrtowcs is declared without a macro... yes
+checking whether wcrtomb is declared without a macro... yes
+checking whether wcsrtombs is declared without a macro... yes
+checking whether wcsnrtombs is declared without a macro... yes
+checking whether wcwidth is declared without a macro... yes
+checking whether wmemchr is declared without a macro... yes
+checking whether wmemcmp is declared without a macro... yes
+checking whether wmemcpy is declared without a macro... yes
+checking whether wmemmove is declared without a macro... yes
+checking whether wmemset is declared without a macro... yes
+checking whether wcslen is declared without a macro... yes
+checking whether wcsnlen is declared without a macro... yes
+checking whether wcscpy is declared without a macro... yes
+checking whether wcpcpy is declared without a macro... yes
+checking whether wcsncpy is declared without a macro... yes
+checking whether wcpncpy is declared without a macro... yes
+checking whether wcscat is declared without a macro... yes
+checking whether wcsncat is declared without a macro... yes
+checking whether wcscmp is declared without a macro... yes
+checking whether wcsncmp is declared without a macro... yes
+checking whether wcscasecmp is declared without a macro... yes
+checking whether wcsncasecmp is declared without a macro... yes
+checking whether wcscoll is declared without a macro... yes
+checking whether wcsxfrm is declared without a macro... yes
+checking whether wcsdup is declared without a macro... yes
+checking whether wcschr is declared without a macro... yes
+checking whether wcsrchr is declared without a macro... yes
+checking whether wcscspn is declared without a macro... yes
+checking whether wcsspn is declared without a macro... yes
+checking whether wcspbrk is declared without a macro... yes
+checking whether wcsstr is declared without a macro... yes
+checking whether wcstok is declared without a macro... yes
+checking whether wcswidth is declared without a macro... yes
+checking whether mbrtowc handles incomplete characters... (cached) yes
+checking whether mbrtowc works as well as mbtowc... (cached) yes
+checking whether wcrtomb return value is correct... yes
+checking whether iswcntrl works... yes
+checking for towlower... yes
+checking for wctype_t... yes
+checking for wctrans_t... yes
+checking whether wctype is declared without a macro... yes
+checking whether iswctype is declared without a macro... yes
+checking whether wctrans is declared without a macro... yes
+checking whether towctrans is declared without a macro... yes
+checking for stdint.h... (cached) yes
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional french locale... (cached) fr_FR
+checking for a turkish Unicode locale... none
+checking whether dup2 works... yes
+checking whether fdopen sets errno... yes
+checking whether getdtablesize works... yes
+checking for getpagesize... yes
+checking whether getpagesize is declared... (cached) yes
+checking whether INT32_MAX < INTMAX_MAX... yes
+checking whether INT64_MAX == LONG_MAX... yes
+checking whether UINT32_MAX < UINTMAX_MAX... yes
+checking whether UINT64_MAX == ULONG_MAX... yes
+checking for setlocale... yes
+checking for uselocale... (cached) yes
+checking for getlocalename_l... no
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional japanese locale... (cached) ja_JP
+checking for a transitional chinese locale... (cached) zh_CN.GB18030
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional japanese locale... (cached) ja_JP
+checking for a transitional chinese locale... (cached) zh_CN.GB18030
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking whether open recognizes a trailing slash... yes
+checking for putenv compatible with GNU and SVID... no
+checking whether _putenv is declared... no
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking whether setenv validates arguments... yes
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional japanese locale... (cached) ja_JP
+checking for a transitional chinese locale... (cached) zh_CN.GB18030
+checking for working stdalign.h... yes
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking whether symlink handles trailing slash correctly... yes
+checking for pthread_atfork... yes
+checking for unsetenv... yes
+checking for unsetenv() return type... int
+checking whether unsetenv obeys POSIX... no
+checking for a traditional french locale... (cached) fr_FR
+checking for a french Unicode locale... (cached) fr_FR.UTF-8
+checking for a traditional japanese locale... (cached) ja_JP
+checking for a transitional chinese locale... (cached) zh_CN.GB18030
+checking whether wctob works... yes
+checking whether wctob is declared... (cached) yes
+checking for sched_yield in -lrt... yes
+checking if we should run the GNUlib tests... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for LIBXML... yes
+checking for strerror_r... yes
+checking for fsync... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/bash ./config.status
+config.status: creating Makefile
+config.status: creating gnulib/lib/Makefile
+config.status: creating gnulib/tests/Makefile
+config.status: creating src/Makefile
+config.status: creating man/Makefile
+config.status: creating tests/Makefile
+config.status: creating examples/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/naturaldocs/Makefile
+config.status: creating augeas.pc
+config.status: creating augeas.spec
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+(CDPATH="${ZSH_VERSION+.}:" && cd /ws/userland/src/components/augeas/augeas-1.8.1 && /bin/bash /ws/userland/src/components/augeas/build/amd64/build/ac-aux/missing autoheader)
+rm -f stamp-h1
+touch /ws/userland/src/components/augeas/augeas-1.8.1/config.h.in
+cd . && /bin/bash ./config.status config.h
+config.status: creating config.h
+config.status: config.h is unchanged
+/usr/gnu/bin/make  all-recursive
+make[2]: Entering directory '/ws/userland/src/components/augeas/build/amd64'
+Making all in gnulib/lib
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+  GEN      alloca.h
+  GEN      argz.h
+  GEN      configmake.h
+  GEN      c++defs.h
+  GEN      warn-on-use.h
+  GEN      ctype.h
+  GEN      arg-nonnull.h
+  GEN      fcntl.h
+  GEN      getopt.h
+  GEN      langinfo.h
+  GEN      limits.h
+  GEN      locale.h
+  GEN      unused-parameter.h
+  GEN      selinux/selinux.h
+  GEN      selinux/context.h
+  GEN      stdint.h
+  GEN      stdio.h
+  GEN      stdlib.h
+  GEN      string.h
+  GEN      sys/stat.h
+  GEN      sys/time.h
+  GEN      sys/types.h
+  GEN      sys/wait.h
+  GEN      time.h
+  GEN      unistd.h
+  GEN      wchar.h
+  GEN      wctype.h
+/usr/gnu/bin/make  all-recursive
+make[4]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+make[5]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+  CC       hard-locale.lo
+  CC       localcharset.lo
+  CC       glthread/lock.lo
+  CC       malloca.lo
+  CC       safe-alloc.lo
+  CC       se-context.lo
+  CC       se-selinux.lo
+  CC       strnlen1.lo
+  CC       tempname.lo
+  CC       glthread/threadlib.lo
+  CC       unistd.lo
+  CC       wctype-h.lo
+  CC       xsize.lo
+  CC       argz.lo
+  CC       asnprintf.lo
+  CC       getopt.lo
+  CC       getopt1.lo
+  CC       mempcpy.lo
+  CC       printf-args.lo
+  CC       printf-parse.lo
+  CC       rawmemchr.lo
+  CC       regex.lo
+  CC       strstr.lo
+  CC       vasnprintf.lo
+  CCLD     libgnu.la
+  GEN      charset.alias
+  GEN      ref-add.sed
+  GEN      ref-del.sed
+make[5]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+make[4]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+Making all in src
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/src'
+echo '#define DATADIR "/usr/share"' > datadir.h1
+/ws/userland/src/components/augeas/augeas-1.8.1/build/ac-aux/move-if-change datadir.h1 datadir.h
+/usr/gnu/bin/make  all-am
+make[4]: Entering directory '/ws/userland/src/components/augeas/build/amd64/src'
+  CC       fa.lo
+  CC       hash.lo
+  CC       memory.lo
+  CC       ref.lo
+  CCLD     libfa.la
+  CC       augeas.lo
+  CC       augrun.lo
+augrun.c: In function 'nexttoken':
+augrun.c:152:24: warning: this statement may fall through [-Wimplicit-fallthrough=]
+                     if (quot) break;
+                        ^
+augrun.c:153:17: note: here
+                 case '\'':
+                 ^~~~
+augrun.c:155:24: warning: this statement may fall through [-Wimplicit-fallthrough=]
+                     if (quot && quot != *(s+1)) break;
+                        ^
+augrun.c:156:17: note: here
+                 case '\\': /* pass next character through */
+                 ^~~~
+  CC       pathx.lo
+pathx.c:131:19: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+ static const char const name_follow[] = "][|/=()!,";
+                   ^~~~~
+pathx.c:298:24: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+ static const enum type const arg_types_nodeset[] = { T_NODESET };
+                        ^~~~~
+pathx.c:299:24: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+ static const enum type const arg_types_string[] = { T_STRING };
+                        ^~~~~
+pathx.c:300:24: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+ static const enum type const arg_types_bool[] = { T_BOOLEAN };
+                        ^~~~~
+pathx.c:301:24: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+ static const enum type const arg_types_string_string[] = { T_STRING, T_STRING };
+                        ^~~~~
+pathx.c:302:24: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+ static const enum type const arg_types_nodeset_string[] = { T_NODESET, T_STRING };
+                        ^~~~~
+  CC       internal.lo
+internal.c: In function 'xstrerror':
+internal.c:425:12: warning: return makes pointer from integer without a cast [-Wint-conversion]
+     return strerror_r(errnum, buf, len);
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC       syntax.lo
+  CC       parser.lo
+  CC       builtin.lo
+  CC       lens.lo
+lens.c:36:18: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+ static const int const type_offs[] = {
+                  ^~~~~
+  CC       regexp.lo
+  CC       transform.lo
+  CC       ast.lo
+  CC       get.lo
+  CC       put.lo
+  CC       info.lo
+  CC       errcode.lo
+  CC       jmt.lo
+  CC       xml.lo
+  CC       liblexer_la-lexer.lo
+lexer.c:1557:16: warning: 'input' defined but not used [-Wunused-function]
+     static int input  (yyscan_t yyscanner)
+                ^~~~~
+lexer.c:1509:17: warning: 'yyunput' defined but not used [-Wunused-function]
+     static void yyunput (int c, char * yy_bp , yyscan_t yyscanner)
+                 ^~~~~~~
+  CCLD     liblexer.la
+  CCLD     libaugeas.la
+  CC       augtool.o
+  CCLD     augtool
+  CC       augparse.o
+  CCLD     augparse
+make[4]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/src'
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/src'
+Making all in gnulib/tests
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+  GEN      c++defs.h
+  GEN      warn-on-use.h
+  GEN      arg-nonnull.h
+  GEN      inttypes.h
+  GEN      unused-parameter.h
+/usr/gnu/bin/make  all-recursive
+make[4]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+Making all in .
+make[5]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+make[5]: Nothing to be done for 'all-am'.
+make[5]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+make[4]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+Making all in tests
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/tests'
+  CC       leak.o
+  CCLD     leak
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/tests'
+Making all in man
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/man'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/man'
+Making all in doc
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/doc'
+Making all in naturaldocs
+make[4]: Entering directory '/ws/userland/src/components/augeas/build/amd64/doc/naturaldocs'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/doc/naturaldocs'
+make[4]: Entering directory '/ws/userland/src/components/augeas/build/amd64/doc'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/doc'
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/doc'
+Making all in examples
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/examples'
+  CC       fadot.o
+  CCLD     fadot
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/examples'
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64'
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/augeas/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/augeas/build/amd64'
+/usr/bin/touch /ws/userland/src/components/augeas/build/amd64/.built
+(cd /ws/userland/src/components/augeas/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make \
+		 DESTDIR=/ws/userland/src/components/augeas/build/prototype/i386 install)
+make[1]: Entering directory '/ws/userland/src/components/augeas/build/amd64'
+Making install in gnulib/lib
+make[2]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+/usr/gnu/bin/make  install-recursive
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+make[4]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+make[5]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+if test no = no; then \
+  case 'solaris2.11' in \
+    darwin[56]*) \
+      need_charset_alias=true ;; \
+    darwin* | cygwin* | mingw* | pw32* | cegcc*) \
+      need_charset_alias=false ;; \
+    *) \
+      need_charset_alias=true ;; \
+  esac ; \
+else \
+  need_charset_alias=false ; \
+fi ; \
+if $need_charset_alias; then \
+  /bin/bash /ws/userland/src/components/augeas/build/amd64/build/ac-aux/install-sh -d /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64 ; \
+fi ; \
+if test -f /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/charset.alias; then \
+  sed -f ref-add.sed /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/charset.alias > /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/charset.tmp ; \
+  /usr/bin/ginstall -c -m 644 /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/charset.tmp /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/charset.alias ; \
+  rm -f /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/charset.tmp ; \
+else \
+  if $need_charset_alias; then \
+    sed -f ref-add.sed charset.alias > /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/charset.tmp ; \
+    /usr/bin/ginstall -c -m 644 /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/charset.tmp /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/charset.alias ; \
+    rm -f /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/charset.tmp ; \
+  fi ; \
+fi
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+make[4]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+make[2]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/lib'
+Making install in src
+make[2]: Entering directory '/ws/userland/src/components/augeas/build/amd64/src'
+echo '#define DATADIR "/usr/share"' > datadir.h1
+/ws/userland/src/components/augeas/augeas-1.8.1/build/ac-aux/move-if-change datadir.h1 datadir.h
+/usr/gnu/bin/make  install-am
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/src'
+make[4]: Entering directory '/ws/userland/src/components/augeas/build/amd64/src'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64'
+ /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c   libfa.la libaugeas.la '/ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/libfa.so.1.4.4 /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/libfa.so.1.4.4
+libtool: install: (cd /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64 && { ln -s -f libfa.so.1.4.4 libfa.so.1 || { rm -f libfa.so.1 && ln -s libfa.so.1.4.4 libfa.so.1; }; })
+libtool: install: (cd /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64 && { ln -s -f libfa.so.1.4.4 libfa.so || { rm -f libfa.so && ln -s libfa.so.1.4.4 libfa.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/libfa.so.1.4.4
+libtool: install: /usr/bin/ginstall -c .libs/libfa.lai /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/libfa.la
+libtool: warning: relinking 'libaugeas.la'
+libtool: install: (cd /ws/userland/src/components/augeas/build/amd64/src; /bin/bash "/ws/userland/src/components/augeas/build/amd64/libtool"  --silent --tag CC --mode=relink /usr/gcc/7/bin/gcc -std=gnu99 -Wall -Wformat -Wformat-security -Wmissing-prototypes -Wnested-externs -Wpointer-arith -Wextra -Wshadow -Wcast-align -Wwrite-strings -Waggregate-return -Wstrict-prototypes -Winline -Wredundant-decls -Wno-sign-compare -fexceptions -fasynchronous-unwind-tables -I ../gnulib/lib -I /ws/userland/src/components/augeas/augeas-1.8.1/gnulib/lib -I/usr/include/libxml2 -m64 -O3 -z gnu-version-script-compat,-Wl,--version-script=/ws/userland/src/components/augeas/augeas-1.8.1/src/augeas_sym.version -version-info 22:1:22 -o libaugeas.la -rpath /usr/lib/amd64 augeas.lo augrun.lo pathx.lo internal.lo memory.lo ref.lo syntax.lo parser.lo builtin.lo lens.lo regexp.lo transform.lo ast.lo get.lo put.lo info.lo errcode.lo jmt.lo xml.lo liblexer.la libfa.la -L/usr/lib/amd64 -lxml2 ../gnulib/lib/libgnu.la -inst-prefix-dir /ws/userland/src/components/augeas/build/prototype/i386)
+libtool: install: /usr/bin/ginstall -c .libs/libaugeas.so.0.22.1T /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/libaugeas.so.0.22.1
+libtool: install: (cd /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64 && { ln -s -f libaugeas.so.0.22.1 libaugeas.so.0 || { rm -f libaugeas.so.0 && ln -s libaugeas.so.0.22.1 libaugeas.so.0; }; })
+libtool: install: (cd /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64 && { ln -s -f libaugeas.so.0.22.1 libaugeas.so || { rm -f libaugeas.so && ln -s libaugeas.so.0.22.1 libaugeas.so; }; })
+libtool: install: chmod +x /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/libaugeas.so.0.22.1
+libtool: install: /usr/bin/ginstall -c .libs/libaugeas.lai /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/libaugeas.la
+libtool: install: /usr/bin/ginstall -c .libs/libfa.a /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/libfa.a
+libtool: install: chmod 644 /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/libfa.a
+libtool: install: ranlib /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/libfa.a
+libtool: install: /usr/bin/ginstall -c .libs/libaugeas.a /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/libaugeas.a
+libtool: install: chmod 644 /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/libaugeas.a
+libtool: install: ranlib /ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/libaugeas.a
+libtool: warning: remember to run 'libtool --finish /usr/lib/amd64'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/augeas/build/prototype/i386/usr/bin'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c augtool augparse '/ws/userland/src/components/augeas/build/prototype/i386/usr/bin'
+libtool: warning: 'libaugeas.la' has not been installed in '/usr/lib/amd64'
+libtool: warning: '/ws/userland/src/components/augeas/build/amd64/src/libfa.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/augtool /ws/userland/src/components/augeas/build/prototype/i386/usr/bin/augtool
+libtool: warning: 'libaugeas.la' has not been installed in '/usr/lib/amd64'
+libtool: warning: '/ws/userland/src/components/augeas/build/amd64/src/libfa.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/augparse /ws/userland/src/components/augeas/build/prototype/i386/usr/bin/augparse
+ /usr/bin/gmkdir -p '/ws/userland/src/components/augeas/build/prototype/i386/usr/include'
+ /usr/bin/ginstall -c -m 644 augeas.h fa.h '/ws/userland/src/components/augeas/build/prototype/i386/usr/include'
+make[4]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/src'
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/src'
+make[2]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/src'
+Making install in gnulib/tests
+make[2]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+/usr/gnu/bin/make  install-recursive
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+Making install in .
+make[4]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+make[5]: Entering directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+make[4]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+make[2]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/gnulib/tests'
+Making install in tests
+make[2]: Entering directory '/ws/userland/src/components/augeas/build/amd64/tests'
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/tests'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/tests'
+make[2]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/tests'
+Making install in man
+make[2]: Entering directory '/ws/userland/src/components/augeas/build/amd64/man'
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/man'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/man/man1'
+ /usr/bin/ginstall -c -m 644 augtool.1 augparse.1 '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/man/man1'
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/man'
+make[2]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/man'
+Making install in doc
+make[2]: Entering directory '/ws/userland/src/components/augeas/build/amd64/doc'
+Making install in naturaldocs
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/doc/naturaldocs'
+make[4]: Entering directory '/ws/userland/src/components/augeas/build/amd64/doc/naturaldocs'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/doc/naturaldocs'
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/doc/naturaldocs'
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/doc'
+make[4]: Entering directory '/ws/userland/src/components/augeas/build/amd64/doc'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/vim/vimfiles'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/vim/vimfiles/ftdetect'
+ /usr/bin/ginstall -c -m 644  ftdetect/augeas.vim '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/vim/vimfiles/ftdetect'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/vim/vimfiles/syntax'
+ /usr/bin/ginstall -c -m 644  syntax/augeas.vim '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/vim/vimfiles/syntax'
+make[4]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/doc'
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/doc'
+make[2]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/doc'
+Making install in examples
+make[2]: Entering directory '/ws/userland/src/components/augeas/build/amd64/examples'
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64/examples'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/augeas/build/prototype/i386/usr/bin'
+  /bin/bash ../libtool   --mode=install /usr/bin/ginstall -c fadot '/ws/userland/src/components/augeas/build/prototype/i386/usr/bin'
+libtool: warning: '../src/libfa.la' has not been installed in '/usr/lib/amd64'
+libtool: install: /usr/bin/ginstall -c .libs/fadot /ws/userland/src/components/augeas/build/prototype/i386/usr/bin/fadot
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/examples'
+make[2]: Leaving directory '/ws/userland/src/components/augeas/build/amd64/examples'
+make[2]: Entering directory '/ws/userland/src/components/augeas/build/amd64'
+make[3]: Entering directory '/ws/userland/src/components/augeas/build/amd64'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/gmkdir -p '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist'
+ /usr/bin/ginstall -c -m 644 lenses/kdump.aug lenses/logwatch.aug lenses/monit.aug lenses/chrony.aug lenses/aptpreferences.aug lenses/modules_conf.aug lenses/simplelines.aug lenses/mke2fs.aug lenses/puppetfileserver.aug lenses/postfix_access.aug lenses/shellvars.aug lenses/sysctl.aug lenses/rx.aug lenses/updatedb.aug lenses/mysql.aug lenses/reprepro_uploaders.aug lenses/crypttab.aug lenses/openshift_http.aug lenses/sudoers.aug lenses/backuppchosts.aug lenses/fai_diskconfig.aug lenses/nsswitch.aug lenses/multipath.aug lenses/securetty.aug lenses/cron.aug lenses/xorg.aug lenses/jettyrealm.aug lenses/dns_zone.aug lenses/inifile.aug lenses/ntpd.aug lenses/collectd.aug lenses/sep.aug lenses/lvm.aug lenses/desktop.aug lenses/fuse.aug lenses/nagioscfg.aug lenses/postfix_sasl_smtpd.aug lenses/xymon.aug lenses/aptsources.aug lenses/postfix_master.aug '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist'
+ /usr/bin/ginstall -c -m 644 lenses/aliases.aug lenses/interfaces.aug lenses/util.aug lenses/gtkbookmarks.aug lenses/slapd.aug lenses/pbuilder.aug lenses/postfix_passwordmap.aug lenses/grub.aug lenses/redis.aug lenses/puppet_auth.aug lenses/soma.aug lenses/modprobe.aug lenses/build.aug lenses/php.aug lenses/nginx.aug lenses/pam.aug lenses/sip_conf.aug lenses/dput.aug lenses/lightdm.aug lenses/dpkg.aug lenses/ssh.aug lenses/sssd.aug lenses/aptcacherngsecurity.aug lenses/jmxpassword.aug lenses/rsyncd.aug lenses/vsftpd.aug lenses/pgbouncer.aug lenses/postfix_transport.aug lenses/automaster.aug lenses/channels.aug lenses/group.aug lenses/yaml.aug lenses/splunk.aug lenses/darkice.aug lenses/rhsm.aug lenses/tuned.aug lenses/nrpe.aug lenses/cachefilesd.aug lenses/httpd.aug lenses/cpanel.aug '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist'
+ /usr/bin/ginstall -c -m 644 lenses/dhcpd.aug lenses/up2date.aug lenses/pamconf.aug lenses/ldif.aug lenses/qpid.aug lenses/gdm.aug lenses/cgrules.aug lenses/access.aug lenses/cyrus_imapd.aug lenses/masterpasswd.aug lenses/nagiosobjects.aug lenses/cron_user.aug lenses/cobblersettings.aug lenses/afs_cellalias.aug lenses/htpasswd.aug lenses/anacron.aug lenses/bootconf.aug lenses/activemq_xml.aug lenses/login_defs.aug lenses/solaris_system.aug lenses/tmpfiles.aug lenses/passwd.aug lenses/clamav.aug lenses/sshd.aug lenses/pylonspaste.aug lenses/spacevars.aug lenses/memcached.aug lenses/subversion.aug lenses/inputrc.aug lenses/host_conf.aug lenses/mailscanner_rules.aug lenses/squid.aug lenses/modules.aug lenses/hostname.aug lenses/bbhosts.aug lenses/trapperkeeper.aug lenses/xendconfsxp.aug lenses/lokkit.aug lenses/vmware_config.aug lenses/properties.aug '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist'
+ /usr/bin/ginstall -c -m 644 lenses/avahi.aug lenses/simplevars.aug lenses/apt_update_manager.aug lenses/jmxaccess.aug lenses/carbon.aug lenses/mailscanner.aug lenses/xml.aug lenses/sysconfig.aug lenses/puppet.aug lenses/json.aug lenses/fstab.aug lenses/dnsmasq.aug lenses/cobblermodules.aug lenses/inittab.aug lenses/xymon_alerting.aug lenses/rsyslog.aug lenses/thttpd.aug lenses/mcollective.aug lenses/pagekite.aug lenses/rmt.aug lenses/services.aug lenses/phpvars.aug lenses/hosts_access.aug lenses/cups.aug lenses/syslog.aug lenses/device_map.aug lenses/netmasks.aug lenses/koji.aug lenses/vfstab.aug lenses/pythonpaste.aug lenses/csv.aug lenses/opendkim.aug lenses/inetd.aug lenses/wine.aug lenses/ntp.aug lenses/limits.aug lenses/shadow.aug lenses/mongodbserver.aug lenses/iscsid.aug lenses/rabbitmq.aug '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist'
+ /usr/bin/ginstall -c -m 644 lenses/openshift_quickstarts.aug lenses/odbc.aug lenses/samba.aug lenses/jaas.aug lenses/shells.aug lenses/krb5.aug lenses/mdadm_conf.aug lenses/pg_hba.aug lenses/openvpn.aug lenses/smbusers.aug lenses/resolv.aug lenses/ldso.aug lenses/puppetfile.aug lenses/erlang.aug lenses/iproute2.aug lenses/authorized_keys.aug lenses/stunnel.aug lenses/exports.aug lenses/debctrl.aug lenses/webmin.aug lenses/networkmanager.aug lenses/openshift_config.aug lenses/shellvars_list.aug lenses/systemd.aug lenses/networks.aug lenses/radicale.aug lenses/iptables.aug lenses/ethers.aug lenses/fonts.aug lenses/aptconf.aug lenses/postfix_main.aug lenses/yum.aug lenses/logrotate.aug lenses/xinetd.aug lenses/cgconfig.aug lenses/protocols.aug lenses/hosts.aug lenses/activemq_conf.aug lenses/sysconfig_route.aug lenses/dovecot.aug '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist'
+ /usr/bin/ginstall -c -m 644 lenses/dhclient.aug lenses/quote.aug lenses/approx.aug lenses/postgresql.aug lenses/known_hosts.aug lenses/keepalived.aug lenses/postfix_virtual.aug lenses/schroot.aug lenses/gshadow.aug lenses/automounter.aug lenses/star.aug '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist/tests'
+ /usr/bin/ginstall -c -m 644 lenses/tests/test_jmxpassword.aug lenses/tests/test_php.aug lenses/tests/test_nagiosobjects.aug lenses/tests/test_smbusers.aug lenses/tests/test_group.aug lenses/tests/test_simplelines.aug lenses/tests/test_dns_zone.aug lenses/tests/test_ssh.aug lenses/tests/test_csv.aug lenses/tests/test_soma.aug lenses/tests/test_xorg.aug lenses/tests/test_exports.aug lenses/tests/test_puppetfile.aug lenses/tests/test_rabbitmq.aug lenses/tests/test_jmxaccess.aug lenses/tests/test_sip_conf.aug lenses/tests/test_passwd.aug lenses/tests/test_grub.aug lenses/tests/test_networkmanager.aug lenses/tests/test_activemq_conf.aug lenses/tests/test_ldso.aug lenses/tests/test_postfix_main.aug lenses/tests/test_access.aug lenses/tests/test_pylonspaste.aug lenses/tests/test_modprobe.aug lenses/tests/test_protocols.aug lenses/tests/test_channels.aug lenses/tests/test_ldap.aug lenses/tests/test_clamav.aug lenses/tests/test_splunk.aug lenses/tests/test_mailscanner.aug lenses/tests/test_nginx.aug lenses/tests/test_iscsid.aug lenses/tests/test_gdm.aug lenses/tests/test_lokkit.aug lenses/tests/test_xymon_alerting.aug lenses/tests/test_spacevars.aug lenses/tests/test_webmin.aug lenses/tests/test_sysconfig_route.aug lenses/tests/test_util.aug '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist/tests'
+ /usr/bin/ginstall -c -m 644 lenses/tests/test_thttpd.aug lenses/tests/test_shellvars.aug lenses/tests/test_phpvars.aug lenses/tests/test_cpanel.aug lenses/tests/test_cgrules.aug lenses/tests/test_authorized_keys.aug lenses/tests/test_radicale.aug lenses/tests/test_cyrus_imapd.aug lenses/tests/test_ldif.aug lenses/tests/test_subversion.aug lenses/tests/test_trapperkeeper.aug lenses/tests/test_puppetfileserver.aug lenses/tests/test_postfix_access.aug lenses/tests/test_shells.aug lenses/tests/test_cobblersettings.aug lenses/tests/test_carbon.aug lenses/tests/test_mongodbserver.aug lenses/tests/test_solaris_system.aug lenses/tests/test_kdump.aug lenses/tests/test_build.aug lenses/tests/test_sshd.aug lenses/tests/test_mailscanner_rules.aug lenses/tests/test_wine.aug lenses/tests/test_rmt.aug lenses/tests/test_debctrl.aug lenses/tests/test_mdadm_conf.aug lenses/tests/test_anacron.aug lenses/tests/test_modules.aug lenses/tests/test_yum.aug lenses/tests/test_pam.aug lenses/tests/test_vmware_config.aug lenses/tests/test_fai_diskconfig.aug lenses/tests/test_limits.aug lenses/tests/test_inputrc.aug lenses/tests/test_activemq_xml.aug lenses/tests/test_schroot.aug lenses/tests/test_postfix_master.aug lenses/tests/test_dpkg.aug lenses/tests/test_networks.aug lenses/tests/test_simplevars.aug '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist/tests'
+ /usr/bin/ginstall -c -m 644 lenses/tests/test_memcached.aug lenses/tests/test_gtkbookmarks.aug lenses/tests/test_xendconfsxp.aug lenses/tests/test_postfix_sasl_smtpd.aug lenses/tests/test_nrpe.aug lenses/tests/test_lvm.aug lenses/tests/test_nagioscfg.aug lenses/tests/test_reprepro_uploaders.aug lenses/tests/test_postgresql.aug lenses/tests/test_aliases.aug lenses/tests/test_dhclient.aug lenses/tests/test_slapd.aug lenses/tests/test_automaster.aug lenses/tests/test_pbuilder.aug lenses/tests/test_httpd.aug lenses/tests/test_fonts.aug lenses/tests/test_dnsmasq.aug lenses/tests/test_afs_cellalias.aug lenses/tests/test_approx.aug lenses/tests/test_crypttab.aug lenses/tests/test_inittab.aug lenses/tests/test_resolv.aug lenses/tests/test_aptconf.aug lenses/tests/test_syslog.aug lenses/tests/test_xml.aug lenses/tests/test_systemd.aug lenses/tests/test_hostname.aug lenses/tests/test_hosts_access.aug lenses/tests/test_automounter.aug lenses/tests/test_openshift_http.aug lenses/tests/test_netmasks.aug lenses/tests/test_bbhosts.aug lenses/tests/test_cups.aug lenses/tests/test_quote.aug lenses/tests/test_opendkim.aug lenses/tests/test_xinetd.aug lenses/tests/test_dovecot.aug lenses/tests/test_securetty.aug lenses/tests/test_pagekite.aug lenses/tests/test_ntpd.aug '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist/tests'
+ /usr/bin/ginstall -c -m 644 lenses/tests/test_backuppchosts.aug lenses/tests/test_samba.aug lenses/tests/test_monit.aug lenses/tests/test_shadow.aug lenses/tests/test_openshift_quickstarts.aug lenses/tests/test_aptpreferences.aug lenses/tests/test_login_defs.aug lenses/tests/test_mysql.aug lenses/tests/test_dput.aug lenses/tests/test_puppet.aug lenses/tests/test_htpasswd.aug lenses/tests/test_openvpn.aug lenses/tests/test_masterpasswd.aug lenses/tests/test_cgconfig.aug lenses/tests/test_stunnel.aug lenses/tests/test_cachefilesd.aug lenses/tests/test_postfix_passwordmap.aug lenses/tests/test_xymon.aug lenses/tests/test_json.aug lenses/tests/test_iproute2.aug lenses/tests/test_shellvars_list.aug lenses/tests/test_sysctl.aug lenses/tests/test_inetd.aug lenses/tests/test_apt_update_manager.aug lenses/tests/test_openshift_config.aug lenses/tests/test_ethers.aug lenses/tests/test_postfix_virtual.aug lenses/tests/test_pythonpaste.aug lenses/tests/test_cron_user.aug lenses/tests/test_rx.aug lenses/tests/test_iptables.aug lenses/tests/test_sssd.aug lenses/tests/test_tuned.aug lenses/tests/test_cron.aug lenses/tests/test_services.aug lenses/tests/test_rsyslog.aug lenses/tests/test_logrotate.aug lenses/tests/test_postfix_transport.aug lenses/tests/test_fuse.aug lenses/tests/test_koji.aug '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist/tests'
+ /usr/bin/ginstall -c -m 644 lenses/tests/test_properties.aug lenses/tests/test_collectd.aug lenses/tests/test_fstab.aug lenses/tests/test_updatedb.aug lenses/tests/test_squid.aug lenses/tests/test_erlang.aug lenses/tests/test_modules_conf.aug lenses/tests/test_host_conf.aug lenses/tests/test_aptsources.aug lenses/tests/test_dhcpd.aug lenses/tests/test_star.aug lenses/tests/test_keepalived.aug lenses/tests/test_up2date.aug lenses/tests/test_chrony.aug lenses/tests/test_interfaces.aug lenses/tests/test_bootconf.aug lenses/tests/test_odbc.aug lenses/tests/test_tmpfiles.aug lenses/tests/test_sysconfig.aug lenses/tests/test_logwatch.aug lenses/tests/test_gshadow.aug lenses/tests/test_known_hosts.aug lenses/tests/test_cobblermodules.aug lenses/tests/test_ntp.aug lenses/tests/test_mke2fs.aug lenses/tests/test_aptcacherngsecurity.aug lenses/tests/test_mcollective.aug lenses/tests/test_yaml.aug lenses/tests/test_darkice.aug lenses/tests/test_lightdm.aug lenses/tests/test_sudoers.aug lenses/tests/test_pamconf.aug lenses/tests/test_device_map.aug lenses/tests/test_avahi.aug lenses/tests/test_redis.aug lenses/tests/test_jaas.aug lenses/tests/test_krb5.aug lenses/tests/test_pgbouncer.aug lenses/tests/test_vfstab.aug lenses/tests/test_desktop.aug '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist/tests'
+ /usr/bin/ginstall -c -m 644 lenses/tests/test_nsswitch.aug lenses/tests/test_rsyncd.aug lenses/tests/test_multipath.aug lenses/tests/test_rhsm.aug lenses/tests/test_hosts.aug lenses/tests/test_jettyrealm.aug lenses/tests/test_qpid.aug lenses/tests/test_inifile.aug lenses/tests/test_vsftpd.aug lenses/tests/test_puppet_auth.aug lenses/tests/test_pg_hba.aug '/ws/userland/src/components/augeas/build/prototype/i386/usr/share/augeas/lenses/dist/tests'
+ /usr/bin/gmkdir -p '/ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/pkgconfig'
+ /usr/bin/ginstall -c -m 644 augeas.pc '/ws/userland/src/components/augeas/build/prototype/i386/usr/lib/amd64/pkgconfig'
+make[3]: Leaving directory '/ws/userland/src/components/augeas/build/amd64'
+make[2]: Leaving directory '/ws/userland/src/components/augeas/build/amd64'
+make[1]: Leaving directory '/ws/userland/src/components/augeas/build/amd64'
+/usr/bin/touch /ws/userland/src/components/augeas/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 augeas.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D LIBAUGEAS_VER=so.0.22.1 -D LIBFA_VER=so.1.4.4 -D IPS_COMPONENT_RE_VERSION=1\\.8\\.1 -D COMPONENT_RE_VERSION=1\\.8\\.1 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/augeas -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="37422" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="1.8.1" -D IPS_COMPONENT_VERSION="1.8.1" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="http://download.augeas.net/augeas-1.8.1.tar.gz" -D COMPONENT_PROJECT_URL="http://www.augeas.net/" -D COMPONENT_NAME="augeas" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" augeas.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/augeas/build/manifest-i386-augeas.mogrified
+/bin/mkdir -p /ws/userland/src/components/augeas/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/augeas/build/prototype/i386/mangled -d /ws/userland/src/components/augeas/build/prototype/i386/mangled -d /ws/userland/src/components/augeas/build/prototype/i386 -d /ws/userland/src/components/augeas/build -d /ws/userland/src/components/augeas -d augeas-1.8.1 -d /ws/userland/src/licenses -m /ws/userland/src/components/augeas/build/manifest-i386-augeas.mogrified >/ws/userland/src/components/augeas/build/manifest-i386-augeas.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/augeas/build/prototype/i386/mangled -d /ws/userland/src/components/augeas/build/prototype/i386 -d /ws/userland/src/components/augeas/build -d /ws/userland/src/components/augeas -d augeas-1.8.1 -d /ws/userland/src/licenses /ws/userland/src/components/augeas/build/manifest-i386-augeas.mangled >/ws/userland/src/components/augeas/build/manifest-i386-augeas.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/augeas/build/resolve.deps -m /ws/userland/src/components/augeas/build/manifest-i386-augeas.depend
+/usr/bin/touch /ws/userland/src/components/augeas/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/augeas/build/manifest-i386-augeas.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/augeas/build/prototype/i386/mangled /ws/userland/src/components/augeas/build/prototype/i386 /ws/userland/src/components/augeas/build /ws/userland/src/components/augeas augeas-1.8.1 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/augeas/build/manifest-i386-augeas.depend.res
+/usr/bin/touch /ws/userland/src/components/augeas/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/augeas/build/prototype/i386/mangled -d /ws/userland/src/components/augeas/build/prototype/i386 -d /ws/userland/src/components/augeas/build -d /ws/userland/src/components/augeas -d augeas-1.8.1 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/augeas/build/manifest-i386-augeas.depend.res
+pkg://nightly/system/management/augeas@1.8.1,5.11-11.4.0.0.1.14.0:20190727T164948Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/augeas/build/manifest-i386-augeas.depend.res >/ws/userland/src/components/augeas/build/manifest-i386-augeas.published
+/usr/bin/touch /ws/userland/src/components/augeas/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/augeas'
+
+real     3:07.0
+user     1:10.1
+sys        14.3

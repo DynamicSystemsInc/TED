@@ -1,0 +1,29 @@
+set name=pkg.fmri value=pkg://solaris/web/analytics/webalizer@2.23.8,5.11-11.4.0.0.1.14.0:20180814T172940Z
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=org.opensolaris.consolidation value=userland
+set name=pkg.human-version value=2.23-08
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.version value=2.23-08
+set name=variant.arch value=i386 value=sparc
+set name=info.upstream-url value=http://www.mrunix.net/webalizer/
+set name=org.opensolaris.arc-caseid value=LSARC/2008/503
+set name=info.source-url value=ftp://ftp.mrunix.net/pub/webalizer/webalizer-2.23-08-src.tar.bz2
+set name=pkg.description value="The Webalizer is a Web server log analysis program. It is designed to scan Web server log files in various formats and produce usage statistics in HTML format for viewing through a browser. It produces professional looking graphs which make analyzing when and where your Web traffic is coming from easy."
+set name=info.classification value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
+set name=com.oracle.info.description value="the Webalizer utility"
+set name=com.oracle.info.tpno value=27276
+set name=com.oracle.info.name value=webalizer
+set name=pkg.summary value="A flexible Web server log file analysis program"
+depend fmri=pkg:/library/zlib@1.2.11-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/gd@2.2.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/database/berkeleydb-5@5.3.21-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend facet.version-lock.web/analytics/webalizer=true fmri=consolidation/desktop/desktop-incorporation@5.12-5.12.0.0.0.15.0 type=optional
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+file 55eaa2cb85c5cba660504fec12298d07abe32bef chash=e8c006115588f5219cab52b8d8baf0401ec2ccd7 elfarch=i386 elfbits=64 elfhash=897ae10ca6bb2da85c5a496519cf352fcdb3bdb2 group=bin mode=0555 owner=root path=usr/bin/webalizer pkg.content-hash=gelf:sha512t_256:8e0556132cc3ae4f6839cbe00e70ee5b24802780bba960a2fe84ca7cae8dd3e8 pkg.content-hash=gelf.unsigned:sha512t_256:e5794bb43602659820575f1f4bfa645df46bb540eebb3884d071bdf8e402c2ad pkg.content-hash=file:sha512t_256:43426ae52b5e3d8e8deb25313c191e39318bbcb6f26a5b96f05ad8293c4b45fa pkg.content-hash=gzip:sha512t_256:e8ea3260db4754690978fe0d88aa9ba355d3b329de3096d937a451e7aee08007 pkg.csize=91251 pkg.size=232424 variant.arch=i386
+file 77ef25cab8a126b1dc138448876cc41547c56b0b chash=a187b231406a4bf2c1903b9a4befcdef0c47c04e elfarch=sparc elfbits=64 elfhash=427115671e78230020462b57c43f5ad0fc226e12 group=bin mode=0555 owner=root path=usr/bin/webalizer pkg.content-hash=gelf:sha512t_256:07aa278c3a4f1c05ce184a5982772ceac61302aa2680c7e2f9d383008d469072 pkg.content-hash=gelf.unsigned:sha512t_256:40972b4b1866ab7108d166d3675d69a78ba79ae04ebea43def4b4a302123700a pkg.content-hash=file:sha512t_256:5160a98cffdb339f553209ce72d8410d92ceda96b852422dc777e0c27b4736c7 pkg.content-hash=gzip:sha512t_256:d6b740a5f6a0d7740fb6cbf2b562f8c1cabf523c8a960ed68f97ee2fb5974503 pkg.csize=96604 pkg.size=257688 variant.arch=sparc
+file 8aa020b0d2075fb37dd0889ac751c21426789f86 chash=c1208de57c1bfe295475223fc58e9c743afd20e8 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/webalizer.1 pkg.content-hash=file:sha512t_256:876ed7b3eae319c5747713a5387942baf10d5cea83c71fdbe149b53045db5428 pkg.content-hash=gzip:sha512t_256:23b3141570074dabf6b1db0b9ab9e51d932b98bfa00193413f6c3ab565a8be9a pkg.csize=10661 pkg.size=36557
+file bf80095501c51e6d2e1b4fc404d16e74529fa78f chash=08aed8e7a49a7e6824c26b1df9dbf44ee0992722 group=bin mode=0444 owner=root path=etc/webalizer.conf.sample pkg.content-hash=file:sha512t_256:e1c5cf416ed113a1b9f86566eb14662f3ad2c7592968440c9a439a38c90b6cbf pkg.content-hash=gzip:sha512t_256:f4e94ba226fa741e091dde12b1affc6efe225fd38758762d850eb5090b44e7b3 pkg.csize=11477 pkg.size=32110
+license 39ac928a87dba6f28004d2f38d056d1cb0d52ea3 chash=9007a27d3a778fb5944b104c0ef03ecd9f0b843c license=GPLv2 pkg.content-hash=file:sha512t_256:dca1b7c0ba84c13967a5fc565af70c18f60b0afa34ffb08ff0866e122a5d3654 pkg.content-hash=gzip:sha512t_256:58f2c218ed92172cffabf42a91404fbccafded29885a40aaa634ac3bae801586 pkg.csize=6903 pkg.size=18915
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=239a82eff09856a129fe1191f08f77761d2897034c8ad6e007c6d2a5c995df279dc9d15eecf1c3f87dae3c4e0f378886c116a110782741acd595a03634af9d5cc4e966db515a5f6e4958b7fbc9272ab2be59dd5166e3cc8dfd894b6ca1b46da7ccff66d04753b8e9a5a43c58c96181eb5fee9961f7dc43ea410a9e0a2fd3052232c4c9a72ed4e37e8b848701759f3f4233b3b8214ea47387aeb3bcdd016d25df726f73c9f4d4a7ff23ffd3c6c4abce14af38e9e01cedac2386941dff003027daa95b409809b6e413a7c4232908beb50654f34484d75493eb2ca30d0be04e9241d1f51f5bc7a2fe15480a40d4c50785aeef867623d5bf053093bfb7fa35f2fa37 version=0

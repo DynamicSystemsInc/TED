@@ -1,0 +1,81 @@
+gmake: Entering directory '/ws/userland/src/components/acpidump'
+/bin/rm -f -r /ws/userland/src/components/acpidump/pmtools-20071116
+/usr/bin/env RUBY_VERSION=2.1 /ws/userland/src/tools/userland-unpack  pmtools-20071116.tar.gz
+/usr/bin/touch /ws/userland/src/components/acpidump/pmtools-20071116/.unpacked
+/usr/bin/patch -d /ws/userland/src/components/acpidump/pmtools-20071116 --strip=1 --backup --version-control=numbered < patches/pmtools-01.patch
+patching file acpidump/acpidump.c
+patching file acpidump/Makefile
+patching file acpixtract/Makefile
+patching file include/acpi/platform/acenv.h
+patching file include/acpi/platform/aclinux.h
+patching file include/acpi/platform/acsolaris.h
+patching file madt/Makefile
+patching file Makefile
+/usr/bin/touch /ws/userland/src/components/acpidump/pmtools-20071116/.patched-pmtools-01.patch
+/usr/bin/touch /ws/userland/src/components/acpidump/pmtools-20071116/.patched
+/usr/bin/touch /ws/userland/src/components/acpidump/pmtools-20071116/.prep
+/bin/rm -f -r /ws/userland/src/components/acpidump/build/amd64 ; /bin/mkdir -p /ws/userland/src/components/acpidump/build/amd64
+/ws/userland/src/tools/cloney /ws/userland/src/components/acpidump/pmtools-20071116 /ws/userland/src/components/acpidump/build/amd64
+symlink cloning /ws/userland/src/components/acpidump/pmtools-20071116 to /ws/userland/src/components/acpidump/build/amd64
+(cd /ws/userland/src/components/acpidump/build/amd64; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  CC="/usr/gcc/7/bin/gcc" CXX="/usr/gcc/7/bin/g++" CFLAGS="-m64 -O3" CXXFLAGS="-m64 -O3" LDFLAGS="" /usr/gnu/bin/make  )
+make[1]: Entering directory '/ws/userland/src/components/acpidump/build/amd64'
+for i in acpidump acpixtract madt; do /usr/gnu/bin/make -C $i all; done
+make[2]: Entering directory '/ws/userland/src/components/acpidump/build/amd64/acpidump'
+/usr/gcc/7/bin/gcc -m64 -O3 -Wall -Wstrict-prototypes -Wdeclaration-after-statement -Os -s -D_LINUX -DDEFINE_ALTERNATE_TYPES -I../include  acpidump.c -o acpidump
+make[2]: Leaving directory '/ws/userland/src/components/acpidump/build/amd64/acpidump'
+make[2]: Entering directory '/ws/userland/src/components/acpidump/build/amd64/acpixtract'
+/usr/gcc/7/bin/gcc -m64 -O3 -Wall -O2 -D_LINUX -DACPI_APPLICATION -Wstrict-prototypes -I../../include  acpixtract.c -o acpixtract
+make[2]: Leaving directory '/ws/userland/src/components/acpidump/build/amd64/acpixtract'
+make[2]: Entering directory '/ws/userland/src/components/acpidump/build/amd64/madt'
+/usr/gcc/7/bin/gcc -m64 -O3 madt.c -o madt
+madt.c:45:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ get_next_entry(acpi_table_entry_header * entry_header)
+ ^~~~~~~~~~~~~~
+madt.c:56:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^~~~
+make[2]: Leaving directory '/ws/userland/src/components/acpidump/build/amd64/madt'
+make[1]: Leaving directory '/ws/userland/src/components/acpidump/build/amd64'
+/usr/bin/touch /ws/userland/src/components/acpidump/build/amd64/.built
+/bin/mkdir -p /ws/userland/src/components/acpidump/build/prototype/i386/usr/bin
+(cd /ws/userland/src/components/acpidump/build/amd64 ; /usr/bin/env LD_OPTIONS="-M /usr/lib/ld/map.noexdata -M /usr/lib/ld/map.pagealign -Bdirect -zignore -zstrip-class=comment" LD_EXEC_OPTIONS=" -zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable " LD_PIE_OPTIONS="-zsx=aslr=enable -zsx=nxstack=enable -zsx=nxheap=enable "  /usr/gnu/bin/make  DESTDIR=/ws/userland/src/components/acpidump/build/prototype/i386  DESTDIR=/ws/userland/src/components/acpidump/build/prototype/i386/usr/bin install)
+make[1]: Entering directory '/ws/userland/src/components/acpidump/build/amd64'
+for i in acpidump acpixtract madt; do /usr/gnu/bin/make -C $i install; done
+make[2]: Entering directory '/ws/userland/src/components/acpidump/build/amd64/acpidump'
+cp acpidump	/ws/userland/src/components/acpidump/build/prototype/i386/usr/bin
+make[2]: Leaving directory '/ws/userland/src/components/acpidump/build/amd64/acpidump'
+make[2]: Entering directory '/ws/userland/src/components/acpidump/build/amd64/acpixtract'
+cp acpixtract	/ws/userland/src/components/acpidump/build/prototype/i386/usr/bin
+make[2]: Leaving directory '/ws/userland/src/components/acpidump/build/amd64/acpixtract'
+make[2]: Entering directory '/ws/userland/src/components/acpidump/build/amd64/madt'
+cp madt	/ws/userland/src/components/acpidump/build/prototype/i386/usr/bin
+make[2]: Leaving directory '/ws/userland/src/components/acpidump/build/amd64/madt'
+make[1]: Leaving directory '/ws/userland/src/components/acpidump/build/amd64'
+/usr/bin/touch /ws/userland/src/components/acpidump/build/amd64/.installed
+abort: there is no Mercurial repository here (.hg not found)
+/usr/bin/pkgfmt -c -fv2 acpidump.p5m
+/usr/bin/pkgmogrify -D PERL_ARCH=i86pc-solaris-thread-multi-64 -D PERL_VERSION=5.22 -D IPS_COMPONENT_RE_VERSION=0\\.2007\\.11\\.16 -D COMPONENT_RE_VERSION=20071116 -D PYTHON_2.7_ONLY=# -D PYTHON_3.4_ONLY=# -D PYTHON_3.5_ONLY=# -D SQ=\' -D DQ=\" -D Q=\" -I/ws/userland/src/components/acpidump -D SOLARIS_11_3_ONLY="#" -D SOLARIS_11_5_ONLY="#" -D SOLARIS_11_3_4_ONLY="" -D SOLARIS_11_4_5_ONLY="" -D SOLARIS_11_4_ONLY="" -D ARC_CASE="" -D TPNO="8848" -D BUILD_VERSION="5.11-11.4.0.0.1.14.0" -D OS_RELEASE="5.11" -D SOLARIS_VERSION="2.11" -D PKG_SOLARIS_VERSION="11.4" -D CONSOLIDATION="userland" -D CONSOLIDATION_CHANGESET="" -D CONSOLIDATION_REPOSITORY_URL="https://github.com/oracle/solaris-userland.git" -D COMPONENT_VERSION="20071116" -D IPS_COMPONENT_VERSION="0.2007.11.16" -D HUMAN_VERSION="" -D COMPONENT_ARCHIVE_URL="https://01.org/sites/default/files/page/pmtools-20071116.tar.gz" -D COMPONENT_PROJECT_URL="https://01.org/linux-acpi/utilities" -D COMPONENT_NAME="acpidump" -D HG_REPO="" -D HG_REV="" -D HG_URL="" -D GIT_COMMIT_ID="" -D GIT_REPO="" -D GIT_TAG="" -D MACH="i386" -D MACH32="i86" -D MACH64="amd64" -D PUBLISHER="nightly" -D PUBLISHER_LOCALIZABLE="userland-localizable" acpidump.p5m \
+	/ws/userland/src/transforms/license-changes /ws/userland/src/transforms/variant-cleanup /ws/userland/src/transforms/autopyc /ws/userland/src/transforms/defaults /ws/userland/src/transforms/actuators /ws/userland/src/transforms/depends /ws/userland/src/transforms/devel /ws/userland/src/transforms/docs /ws/userland/src/transforms/locale /ws/userland/src/transforms/standard-python-libraries /ws/userland/src/transforms/python-rename /ws/userland/src/transforms/python-3-groups /ws/userland/src/transforms/python-3-soabi /ws/userland/src/transforms/python-3-no-32bit /ws/userland/src/transforms/ruby-tests /ws/userland/src/transforms/puppet /ws/userland/src/transforms/libtool-drop /ws/userland/src/transforms/incorporate /ws/userland/src/transforms/publish-cleanup | \
+	sed -e '/^$/d' -e '/^#.*$/d' | uniq >/ws/userland/src/components/acpidump/build/manifest-i386-acpidump.mogrified
+/bin/mkdir -p /ws/userland/src/components/acpidump/build/prototype/i386/mangled
+/ws/userland/src/tools/userland-mangler -D /ws/userland/src/components/acpidump/build/prototype/i386/mangled -d /ws/userland/src/components/acpidump/build/prototype/i386/mangled -d /ws/userland/src/components/acpidump/build/prototype/i386 -d /ws/userland/src/components/acpidump/build -d /ws/userland/src/components/acpidump -d pmtools-20071116 -d /ws/userland/src/licenses -m /ws/userland/src/components/acpidump/build/manifest-i386-acpidump.mogrified >/ws/userland/src/components/acpidump/build/manifest-i386-acpidump.mangled
+/usr/bin/env  /usr/bin/pkgdepend generate \
+    -m -d /ws/userland/src/components/acpidump/build/prototype/i386/mangled -d /ws/userland/src/components/acpidump/build/prototype/i386 -d /ws/userland/src/components/acpidump/build -d /ws/userland/src/components/acpidump -d pmtools-20071116 -d /ws/userland/src/licenses /ws/userland/src/components/acpidump/build/manifest-i386-acpidump.mangled >/ws/userland/src/components/acpidump/build/manifest-i386-acpidump.depend
+/usr/bin/pkgdepend resolve -e /ws/userland/src/components/acpidump/build/resolve.deps -m /ws/userland/src/components/acpidump/build/manifest-i386-acpidump.depend
+/usr/bin/touch /ws/userland/src/components/acpidump/build/.resolved-i386
+VALIDATING MANIFEST CONTENT: /ws/userland/src/components/acpidump/build/manifest-i386-acpidump.depend.res
+/usr/bin/env PYTHONPATH=/ws/userland/src/tools/python PROTO_PATH="/ws/userland/src/components/acpidump/build/prototype/i386/mangled /ws/userland/src/components/acpidump/build/prototype/i386 /ws/userland/src/components/acpidump/build /ws/userland/src/components/acpidump pmtools-20071116 /ws/userland/src/licenses"\
+	SOLARIS_VERSION=2.11\
+	/bin/true -c /ws/userland/src/i386/pkglint-cache \
+		-f /ws/userland/src/tools/pkglintrc /ws/userland/src/components/acpidump/build/manifest-i386-acpidump.depend.res
+/usr/bin/touch /ws/userland/src/components/acpidump/build/.linted-i386
+/usr/bin/pkgsend -s file:/ws/userland/src/i386/repo publish --fmri-in-manifest --no-catalog -d /ws/userland/src/components/acpidump/build/prototype/i386/mangled -d /ws/userland/src/components/acpidump/build/prototype/i386 -d /ws/userland/src/components/acpidump/build -d /ws/userland/src/components/acpidump -d pmtools-20071116 -d /ws/userland/src/licenses -T \*.py /ws/userland/src/components/acpidump/build/manifest-i386-acpidump.depend.res
+pkg://nightly/diagnostic/acpidump@0.2007.11.16,5.11-11.4.0.0.1.14.0:20190727T162622Z
+PUBLISHED
+/usr/bin/pkgfmt </ws/userland/src/components/acpidump/build/manifest-i386-acpidump.depend.res >/ws/userland/src/components/acpidump/build/manifest-i386-acpidump.published
+/usr/bin/touch /ws/userland/src/components/acpidump/build/.published-i386
+gmake: Leaving directory '/ws/userland/src/components/acpidump'
+
+real        5.2
+user        2.8
+sys         1.0

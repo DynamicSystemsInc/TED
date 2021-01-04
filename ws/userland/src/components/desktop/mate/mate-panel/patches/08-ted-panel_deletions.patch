@@ -1,0 +1,66 @@
+diff -ur mate-panel/applet.c mate-panel2/applet.c
+--- a/mate-panel/applet.c	2019-04-24 11:15:07.000000000 +0000
++++ b/mate-panel/applet.c	2020-07-14 19:55:00.756134886 +0000
+@@ -763,12 +763,15 @@
+ 		info->data_destroy (info->data);
+ 	info->data = NULL;
+ 
+-	mate_panel_applet_clear_user_menu (info);
++	/*
++	 * TODO:
++	 * libumem reports reuse of freed memory 
++	 * so don't call mate_panel_applet_clear_user_menu (info);
++	 * or g_free (info);
++	 */
+ 
+ 	g_free (info->id);
+-	info->id = NULL;
+-
+-	g_free (info);
++	info = NULL;
+ }
+ 
+ typedef struct {
+diff -ur mate-panel/menu.c mate-panel2/menu.c
+--- a/mate-panel/menu.c	2020-07-14 19:53:22.794605301 +0000
++++ b/mate-panel/menu.c	2020-07-14 19:55:00.755825858 +0000
+@@ -1233,8 +1233,10 @@
+      * them and update both main menus and submenus.
+      */
+ 
+-    for (m = filtered_menus; m; m = m->next) {
++    m = filtered_menus;
++    while (m) {
+ 	menu = m->data;
++	m = m->next;
+ 	if (menu->parent_instance.ref_count == 1) {
+ 		/*
+ 		 * The menu has been removed from
+@@ -1401,6 +1403,7 @@
+ 	GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
+ 	gtk_widget_set_visual(GTK_WIDGET(toplevel), visual); 
+ 
++	filtered_menus = g_list_append(filtered_menus, g_object_ref(menu));
+ 	return menu;
+ }
+ 
+@@ -1510,7 +1513,6 @@
+ 	g_object_set_data(G_OBJECT(main_menu), "panel-menu-append-callback", main_menu_append);
+ 	g_object_set_data(G_OBJECT(main_menu), "panel-menu-append-callback-data", panel);
+ 
+-	filtered_menus = g_list_append(filtered_menus, g_object_ref(main_menu));
+ 	return main_menu;
+ }
+ 
+diff -ur mate-panel/panel-menu-items.c mate-panel2/panel-menu-items.c
+--- a/mate-panel/panel-menu-items.c	2020-07-14 19:53:22.842380562 +0000
++++ b/mate-panel/panel-menu-items.c	2020-07-14 19:55:00.756453872 +0000
+@@ -1716,7 +1716,7 @@
+ 		gboolean   loaded;
+ 		char      *full_path;
+ 		char 	  *cmd;
+-		char      *path_freeme;
++		char      *path_freeme = NULL;
+ 
+ 		key_file = g_key_file_new ();
+ 

@@ -1,0 +1,24 @@
+set name=pkg.fmri value=pkg://solaris/web/server/apache-24/module/apache-ssl@2.4.33,5.11-11.4.0.0.1.14.0:20180814T173244Z
+set name=com.oracle.info.name value=apache2
+set name=pkg.summary value="SSL (default) support plugin for Apache Web Server V2.4"
+set name=info.source-url value=https://archive.apache.org/dist/httpd/httpd-2.4.33.tar.gz
+set name=com.oracle.info.description value="the SSL (default) support plugins for Apache Web Server V2.4"
+set name=com.oracle.info.tpno value=41981
+set name=org.opensolaris.arc-caseid value=PSARC/2015/007
+set name=info.classification value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
+set name=info.upstream-url value=https://httpd.apache.org/
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.version value=2.4.33
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/web/server/apache-24@2.4.33-11.4.0.0.1.14.0 type=require
+depend fmri=pkg:/library/security/openssl/openssl-fips-140@2.0.13-11.4.0.0.1.13.0 fmri=pkg:/library/security/openssl@1.0.2.15-11.4.0.0.1.13.0 type=require-any
+depend fmri=pkg:/library/security/openssl@1.0.2.15-11.4.0.0.1.13.0 predicate=pkg:/library/security/openssl/openssl-fips-140@2.0.13-11.4.0.0.1.13.0 type=conditional
+file 312bb93c25cc56f430bf24f8ebb14a948dbe3975 chash=18e1f3a597bab9c7fc3c2160a32b34b99d0b4198 elfarch=i386 elfbits=64 elfhash=a78707ae4c3375c7bc10ca35ecd860f871db052c group=bin mode=0444 owner=root path=usr/apache2/2.4/libexec/mod_ssl-default.so pkg.content-hash=gelf:sha512t_256:73dd72c205c0f78e8ac2bd535c7967b34bc537d8dfd1efa0721bd9f42dd8151c pkg.content-hash=gelf.unsigned:sha512t_256:f5b39be9227921941a80f8410ed0ab9855f315dcb1b43f6c557132cd02ca1cff pkg.content-hash=file:sha512t_256:d57fa4b3d7e7142e3dffc1a271e8177b901888ebc3b02f139da1c45e228e53eb pkg.content-hash=gzip:sha512t_256:a320d3905343d5668b725f0c2d53aa112e4cd455577afa754bf38b82530c1b8b pkg.csize=115428 pkg.linted.userland.action001.2=true pkg.size=448536 variant.arch=i386
+file 700e2b85ee488174dcb9dfc46fb90c394a9abe5b chash=05397b1f1d4c481bf31b09423893509baf2130ba elfarch=sparc elfbits=64 elfhash=0e0e47823647f47e4930dc173047e3188a335f02 group=bin mode=0444 owner=root path=usr/apache2/2.4/libexec/mod_ssl-default.so pkg.content-hash=gelf:sha512t_256:3e0d1e38ea44d4f6397fd41b0840d4130a97f3959f152f9665e1b2189d139217 pkg.content-hash=gelf.unsigned:sha512t_256:bde15e6334eb611fdfa385d890316c33a039f210660deafa4383352d321fe65e pkg.content-hash=file:sha512t_256:126735f01d4fafd47bd01236a3dda34106f08cae0d8ba0c3dcac92917ecf026e pkg.content-hash=gzip:sha512t_256:b743aef75544825f1e1d7cf41c3b88611b4673abc111260e5ce7efa5b4723820 pkg.csize=138693 pkg.linted.userland.action001.2=true pkg.size=485216 variant.arch=sparc
+link mediator=openssl mediator-implementation=default mediator-priority=vendor path=usr/apache2/2.4/libexec/mod_ssl.so target=mod_ssl-default.so
+license 25b9bf48e300d805c24489ef1f5b4f251e8eef7b chash=0f1d817cc163c5f9d486b459debd9e74e2d50152 license="Apache v2.0" pkg.content-hash=file:sha512t_256:5461b87c9b89d82ffdb4a09b92df09a6279b966ac460fa6ee56b497e0160ff2a pkg.content-hash=gzip:sha512t_256:644a0e6fe86da74137ca5d132aa0750ff1ccf2672232b79110bc4243d47326e7 pkg.csize=7845 pkg.size=26199
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=7bdfe618cac72d5ae5b993365ed5d302fece1d2cd62c68ca34722bc725a9a85974f7712e27b6eed7ffe274fb8d48b3564c3e94b4464f8857b6f5eeaa93721e378c6d5da0cc24ae32f8baec126db136a2494468caea1091ee675eaae1e16c4dc2dcc2f045b0058b96da1dc6a296de171ea62d4e614efabbc1573045dba9c72b4a740425e0f6c3f42b6afdc6a010527d8e89ca0b98f34543c8778c823eb1907a11772d2566bdaec01a7426f523cdafb9d0a93f58c683b2406533d6360df76308cd6bc602b6c5e173a26fd107ba00725a6fdd26898bc257384d9f15c8b5050270224e46950b4d2917f3a4bca308295f7a40032f4349903a188c43bc92a897e8385c version=0

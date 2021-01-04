@@ -1,0 +1,79 @@
+dnl Process this file with autoconf to produce a configure script.
+
+AC_INIT(configure.in)
+AM_INIT_AUTOMAKE(tsoljds-tstripe, 0.6.8)
+AM_MAINTAINER_MODE
+AM_CONFIG_HEADER(config.h)
+
+AC_ISC_POSIX
+AC_PROG_CC
+AM_PROG_CC_STDC
+AC_HEADER_STDC
+AC_PROG_LIBTOOL
+IT_PROG_INTLTOOL([0.35.0])
+
+pkg_modules="libgnomeui-2.0 libwnck-1.0 libgnometsol"
+PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
+AC_SUBST(PACKAGE_CFLAGS)
+AC_SUBST(PACKAGE_LIBS)
+
+GETTEXT_PACKAGE=tsoljds-tstripe
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
+
+### tsol ans Xtsol libraries
+AC_CANONICAL_HOST
+echo "HOST is "
+echo $host
+
+found_xtsol=no
+XTSOL_LIBS=
+case "$host" in
+    *-*-solaris*)
+        old_LDFLAGS="$LDFLAGS"
+        LDFLAGS="$LDFLAGS -L/usr/openwin/lib -R/usr/openwin/lib"
+        AC_CHECK_LIB(Xtsol, XTSOLIsWindowTrusted,
+                     XTSOL_LIBS="-L/usr/openwin/lib -R/usr/openwin/lib -lXtsol -ltsol -lsecdb -lpam -lbsm -lcontract -lcmd -lXmu" found_xtsol=yes AC_DEFINE(HAVE_XTSOL, ,[Building with XTSOL support]), ,-lX11 -ltsol)
+        LDFLAGS="$old_LDFLAGS"
+        ;;
+    *)
+### uncomment the 3 following lines to test fake xtsol on linux
+       AC_DEFINE(HAVE_XTSOL, ,[Building with XTSOL support])
+       AC_DEFINE(HAVE_FAKE_XTSOL, , [Building with Fake XTSOL support])
+       found_xtsol=yes
+        ;;
+esac
+
+AM_CONDITIONAL(XTSOL_DEFINED, test x$found_xtsol = xyes)
+
+RANDR_LIBS=
+found_randr=no
+AC_CHECK_LIB(Xrandr, XRRUpdateConfiguration,
+               [AC_CHECK_HEADER(X11/extensions/Xrandr.h,
+                                RANDR_LIBS=-lXrandr found_randr=yes,,
+                                [#include <X11/Xlib.h>])],
+               , -lXrender -lXext $ALL_X_LIBS)
+
+if test "x$found_randr" = "xyes"; then
+   AC_DEFINE(HAVE_RANDR, , [Have the Xrandr extension library])
+fi
+
+
+echo "LDFLAGS"
+echo $LDFLAGS
+
+PACKAGE_LIBS="$XTSOL_LIBS -lX11 $RANDR_LIBS $PACKAGE_LIBS"
+
+echo "PACKAGE_LIBS"
+echo $PACKAGE_LIBS
+
+
+dnl Add the languages which your application supports here.
+AM_GLIB_GNU_GETTEXT
+
+AC_OUTPUT([
+Makefile
+po/Makefile.in
+src/Makefile
+])
+

@@ -1,0 +1,22 @@
+set name=pkg.fmri value=pkg://solaris/driver/audio/audiovia823x@11.4,5.11-11.4.0.0.1.15.0:20180817T002419Z
+set name=variant.debug.osnet value=true value=false
+set name=org.opensolaris.consolidation value=osnet
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=pkg.description value="Audio device driver for VIA VT8233, VT8235, and VT8237 devices."
+set name=variant.arch value=i386
+set name=pkg.summary value="VIA VT823x audio driver"
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Media
+depend fmri=pkg:/system/io/audio@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv/amd64 variant.opensolaris.zone=global
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man4d
+file 61056824f22ce8664b3a898838c5c6494aa6cfa5 chash=5d087a2be8dbe88bd9792a80c5bb142997c39756 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4d/audiovia823x.4d pkg.content-hash=file:sha512t_256:eb60398de999b017cf2c5078e68376052dee25f92362a03a3d9c99098ab73fcc pkg.content-hash=gzip:sha512t_256:03fe29e4d4d65a96350755e79be0a4b0ffde611db59532b1d255bd51d4c18d34 pkg.csize=563 pkg.size=923
+file 2daab535b8337c1e00bb411d52671a278759f514 chash=2dc32bacaa8a4af76452d4f8450303e6df47d2e1 elfarch=i386 elfbits=64 elfhash=aca1cdfc3ce0dec1fba571b60d2f6ff66fdf6281 group=sys mode=0755 owner=root path=kernel/drv/amd64/audiovia823x pkg.content-hash=gelf:sha512t_256:1cd20a7eac9ab1ffeed5f7301e127a627d6510dd2b23b147391e07926248f005 pkg.content-hash=gelf.unsigned:sha512t_256:1cd20a7eac9ab1ffeed5f7301e127a627d6510dd2b23b147391e07926248f005 pkg.content-hash=file:sha512t_256:6b32aef598edfce5480fc7fc6bcf60ec95e89fa819870b462f8acb31c77d0813 pkg.content-hash=gzip:sha512t_256:ff85af7949e25f9399b5cf5bbdb402004de86c9f73008cff241f4aff2bc2888f pkg.csize=5494 pkg.size=15040 reboot-needed=true variant.debug.osnet=false variant.opensolaris.zone=global
+file 0a492ffd228f45ff2f1ebd28b463c4943ddcd97c chash=6f6b67d78521aa5f020188d666cbc9e19abc6c38 elfarch=i386 elfbits=64 elfhash=631c642caaa17bb2164f9f2b346eb58554012081 group=sys mode=0755 owner=root path=kernel/drv/amd64/audiovia823x pkg.content-hash=gelf:sha512t_256:d0fa0ca38ca6e85814aa5f4c1004deb7ef25c24cd67798da680dd96d38c38940 pkg.content-hash=gelf.unsigned:sha512t_256:d0fa0ca38ca6e85814aa5f4c1004deb7ef25c24cd67798da680dd96d38c38940 pkg.content-hash=file:sha512t_256:92b801e3069202d2cda057af9ee67d4f24f62a29a86463adc6c5a00449aece56 pkg.content-hash=gzip:sha512t_256:fda3368ce6d65718d137167c91461ac9a301a366e5d63a51b09e72f240db49b6 pkg.csize=5495 pkg.size=15040 reboot-needed=true variant.debug.osnet=true variant.opensolaris.zone=global
+driver alias=pci1106,3059 name=audiovia823x variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+legacy arch=i386 category=system desc="SunOS audio device driver for VIA VT823x south bridges" hotline="Please contact your local service provider" name="SUNW Audio Driver for VIA VT823x" pkg=SUNWvia823x vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=9e8fe99bb4f3b60921d0bbb64c02622dc83d4d8027e74f12d7445f4f24ef86589057b1b25dc04c62188515881e6974b443d3792a547e65b710f774013f456775b8e249ac6959743a03bd26a46aaa8ca55e92ea6c6afd6bea943a52d52c33bda6c63ccf50c0c741cb2c4ce470eddbd5d85da2665848098a659ea2f58575729730d4d362b35f6b1d5528662dbd7da289ef17997fbf814e87ce013db33409a2ba290722291c23450768ee5755f37174e04ecf6e069e23f4275cc8b10a0972676897f077c7c7a37ad1b00f95ca0af0e3fa87ddb83c437a8d2e906907e849986235ccc0b6424859dea69da17be4c453934a9cfb9b74e06491b263b9773713458d6626 version=0

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# This script builds the prototypes for all the TED components
+
+workspace=/trusted-desktop/ws/userland/src/components
+tools=/trusted-desktop/tools
+
+# Install all the userland prototype objects
+
+cd $workspace
+for i in `cat $tools/userland_components`
+do
+	(cd $i; make install)
+done
+
+# Install all the tsoljds prototype objects
+
+workspace=/trusted-desktop/tsoljds
+cd $workspace
+for i in `cat $tools/tsoljds-components`
+do
+	export DESTDIR=$workspace/proto/$i/prototype/i386
+	(cd packages/BUILD/$i; make install)
+done

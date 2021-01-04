@@ -1,0 +1,29 @@
+set name=pkg.fmri value=pkg://solaris/x11/xfontsel@1.0.5,5.11-11.4.0.0.1.14.0:20180814T173541Z
+set name=org.opensolaris.arc-caseid value=PSARC/2008/137
+set name=info.source-url value=https://www.x.org/releases/individual/app/xfontsel-1.0.5.tar.bz2
+set name=com.oracle.info.description value=xfontsel
+set name=com.oracle.info.tpno value=39514
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.consolidation value=userland
+set name=info.upstream-url value=https://www.x.org
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=com.oracle.info.version value=1.0.5
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=variant.arch value=i386 value=sparc
+set name=pkg.description value="The xfontsel application provides a simple way to display the fonts known to your X server, examine samples of each, and retrieve the X Logical Font Description (XLFD) full name for a font."
+set name=com.oracle.info.name value=xfontsel
+set name=pkg.summary value="xfontsel - point and click selection of X11 font names"
+depend fmri=pkg:/x11/library/toolkit/libxt@1.1.5-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/toolkit/libxaw7@1.0.13-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/x11/library/libxmu@1.1.2-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/x11/library/libx11@1.6.5-11.4.0.0.1.13.0 type=require
+file bf3691216e0e96b18aace75a8cc684af17369482 chash=791dd2e3f282edcd2ece2934270e17a0fbe557af group=other mode=0444 owner=root path=usr/share/locale/C/LC_MESSAGES/xfontsel.po pkg.content-hash=file:sha512t_256:59815d758e93b501690359f6ce4ddfe1fa766f916629604fa9e75be326270b34 pkg.content-hash=gzip:sha512t_256:79775167e069b5edcee7934c1eadab6b7465866fef510276d2c76ec135b9d6b8 pkg.csize=472 pkg.size=1375
+file 443a70f11e90ba6c00419d90f7cbcde7028206a5 chash=888c644b4f85db7f46bce4ee36a05fb16787397a group=bin mode=0444 owner=root path=usr/share/X11/app-defaults/XFontSel pkg.content-hash=file:sha512t_256:8c11541f741805746815231bc686156815600de9993e292d0764aa5ce5cb7d75 pkg.content-hash=gzip:sha512t_256:93db1e98d40ff8f70dc5cea47854dbee54d38a82b13b38695033cd28ea1d0523 pkg.csize=2244 pkg.size=4774
+file 01dd6bff834436fb09089ec3f957fffd52e0729b chash=41fa09ead0387b00f62e12fd6862505ff024e762 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/xfontsel.1 pkg.content-hash=file:sha512t_256:da5fdc5da7cc1ee52d9a071da3e5221efb8c7c8c60b9027cb5f7fc5246dddc02 pkg.content-hash=gzip:sha512t_256:271f414c3d0852ee65d673e7caa53e6d0d100fa3c725361604c5fdd8e34ae2be pkg.csize=4175 pkg.size=9955
+file 364af40c1e82fc59c1e9b4f82987ecc5f9bbb8df chash=7cc3abb80846fa70c8506fb4431ef19d7d465e79 elfarch=sparc elfbits=64 elfhash=365e10a19b20040721e053f5e745102d23dcd818 group=bin mode=0555 owner=root path=usr/bin/xfontsel pkg.content-hash=gelf:sha512t_256:15d4588a8d33280f9d3afe7c69d72159065b40e82d51c6c1e7f2a9b659503c7e pkg.content-hash=gelf.unsigned:sha512t_256:05b320bf2f14647085661b5f226d601e9189172a6b99b89a7ab75a32995badcd pkg.content-hash=file:sha512t_256:75d993b2b5e69e9487d9a715c837cf327cfdc47d33261f7348a7b45f9fb14956 pkg.content-hash=gzip:sha512t_256:20ed0404805ebda75342a95d55a35dd010156ef0bc815c7a7e5f27503c120a9d pkg.csize=33186 pkg.size=83408 variant.arch=sparc
+file b7c1d1a24e8074d42604fb35fd7e0126a31bc335 chash=1fa1d95452960cc29781a2eddb32aa7b5a50990b elfarch=i386 elfbits=64 elfhash=a43f738fd29eae9d56bd1f57fdd9796b41b337bc group=bin mode=0555 owner=root path=usr/bin/xfontsel pkg.content-hash=gelf:sha512t_256:08ab7bbeb2c68f7eae662265f52147e7c24f8b16e439594f3c0ca13e6dcf94b1 pkg.content-hash=gelf.unsigned:sha512t_256:80c4c169f71515eef76cc1867420f8b23e275b5d7243141df67b72109824069b pkg.content-hash=file:sha512t_256:79020fab9256a0145b1feeb9f83389c53ec6b5acbbb81d035abe55053ff052f1 pkg.content-hash=gzip:sha512t_256:2df6470d8667260153316a82c79bde308faff423cac47a4d77060b6a0a0e4c03 pkg.csize=28214 pkg.size=74064 variant.arch=i386
+link path=usr/X11/bin/xfontsel target=../../bin/xfontsel
+license 2224b59891a816e6b608547bebe9b6ca225abd64 chash=7c787dec71e195513b953cc6cd78db9bb763b188 license=MIT pkg.content-hash=file:sha512t_256:af78e411079fc1e488728809f7df53d7f46b967edeae47d8986a62fe908a07ff pkg.content-hash=gzip:sha512t_256:444c892eeb4126f8c56be439c1ef631c1bf45f2592fe047b3960bdef2ca4c64a pkg.csize=1102 pkg.size=2300
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=abaefe87c4ad8a1bd833366127beb6c29f15557bfc87ba712cad223cf724c64ef3deb2820830f3cce3438875c3967cd5ef1e6d83d2e44a885e278030e29da9c02f88f596178ddbbb69fdab634cf0fa265993b73370f1d0229a381bc60647cc2ca6a67b961ed718f2f112ed35a7caea3dd79f9c33a425637ed6b51576667707ef1d19be2d772c7e77302782643ff265a34b39be0d50e61ed4bb0b110691fb62a751df0383dbff3ccacaeadf7278be45849cabd99312276872810f4f2347ca5d9513e3ea41bb8826db6a6773b01ed6b7c7df68f3291328d3281fd8c6428d15473935189061e89b5772f502065acc54ca617fc5088eefac17a9be878f8d3a133f6e version=0

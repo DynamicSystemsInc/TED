@@ -1,0 +1,25 @@
+set name=pkg.fmri value=pkg://solaris/library/python/pygobject-3@3.24.1,5.11-11.4.0.0.1.14.0:20180814T170120Z
+set name=com.oracle.info.name value=pygobject
+set name=pkg.summary value="Python bindings for GLib/Gobject/GIO/GTK+"
+set name=com.oracle.info.description value=pygobject
+set name=pkg.description value="PyGObject is a Python extension module that gives clean and consistent access to the entire GNOME software platform through the use of GObject Introspection. PyGObject provides full support of GObject Introspection and all of its features (callbacks, GVariant support, closures, sub-classing, etc.)."
+set name=info.classification value="org.opensolaris.category.2008:Desktop (GNOME)/Libraries"
+set name=pkg.tmp.incorporate value=consolidation/desktop/gnome-incorporation
+set name=info.source-url value=https://download.gnome.org/sources/pygobject/3.24/pygobject-3.24.1.tar.xz
+set name=com.oracle.info.version value=3.24.1
+set name=org.opensolaris.arc-caseid value=PSARC/2014/371 value=PSARC/2016/290
+set name=org.opensolaris.consolidation value=userland
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.tpno value=35809
+set name=info.upstream-url value=https://wiki.gnome.org/Projects/PyGObject
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+depend fmri=library/python/pygobject-3-27@3.24.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+depend fmri=library/python/pygobject-3-34@3.24.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/pygobject-3-35@3.24.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+file afb3012420ad54332a7abb3ac24a2a3db56103e9 chash=5a0ea05f54e899e168108787f251e44c4d3f70ad facet.devel=all group=bin mode=0444 owner=root path=usr/lib/sparcv9/pkgconfig/pygobject-3.0.pc pkg.content-hash=file:sha512t_256:10b99f5baa637e593ab953e7ee1946e5797d4022a78b5a0a6dfc2224942160da pkg.content-hash=gzip:sha512t_256:473f01c501fff6ce9f5be1a96e49928174ac4f046ddf2897699871fe3d7b111a pkg.csize=419 pkg.size=730 variant.arch=sparc
+file d6a43bea46b6262a2a8524f84745e8c4c11d6b3e chash=2e89a33bb9f60a58c796cbb9cb3a5b2b4a3f5413 facet.devel=all group=bin mode=0444 owner=root path=usr/lib/amd64/pkgconfig/pygobject-3.0.pc pkg.content-hash=file:sha512t_256:8fa58bbe3d7701e177e4d32bceb3a850aab45578a0f79e3ae9297a973f73411d pkg.content-hash=gzip:sha512t_256:db383c4f563d629cc7e42b56659e00d8ac2ab912fba3aff6789e4cb1b26e20fa pkg.csize=418 pkg.size=728 variant.arch=i386
+file 898d0d48b6c51fd30e5110c357dbed6cfa78f0d7 chash=b6076385358e79d5ea520ea8134350c25ef47183 facet.devel=all group=bin mode=0444 owner=root path=usr/lib/pkgconfig/pygobject-3.0.pc pkg.content-hash=file:sha512t_256:c9196def67f715c7fcf39073b527f4bfda69321622a90999b13955335ee44661 pkg.content-hash=gzip:sha512t_256:af495202ea97ce97a56bc6eab5ad41ef1811a1b53e77a86ed3b31d2e91676f8e pkg.csize=413 pkg.size=722
+file 5d24275c0a753129d30a76d3dd2786b9286d72b5 chash=1934b4b4382cf5b58361281eee6bc39e309af718 facet.devel=all group=bin mode=0444 owner=root path=usr/include/pygobject-3.0/pygobject.h pkg.content-hash=file:sha512t_256:c838275adefcc2d48f049d26569faac81d1841008dc63323cc8a5f7d715571dd pkg.content-hash=gzip:sha512t_256:96df8512e011b92bbf7fa6483025b2e4faef910c5d95df75359b2fe71bdc37e1 pkg.csize=5796 pkg.size=25160
+license 597bf5f9c0904bd6c48ac3a3527685818d11246d chash=73164631e1d1e1b9b5c18a4566df7d77b86f0221 license=LGPLv2.1 pkg.content-hash=file:sha512t_256:7688a5402b6f6483c57119e60ea78f00159691f7f0919f80e2045c48e79900c1 pkg.content-hash=gzip:sha512t_256:c994c67f4727dfbfe6e2bc0c8425973e91c591570f249523407cc94130d04444 pkg.csize=9371 pkg.size=26440
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=610bd87983f162c1d8d7f818f198cc2208e1ac433c786b3f2ed107e206e722df9d79d4e21fcef7d26daca07686c69ebf85527044b8052c007d66dc57b5009642cecfab11bf84050631bf69f4b6950f75a83fdcb59cd6243e7b6a66c56e1ec2d848cd4416331d180a1691d7416f6dd894146d387bd6d49b72ee34783f904a6207adadd1d59143b0b405d5213e8964338bd2648abe588630e9e9e202e44ee353fefc59ba28c587d1ba74292109f3008256fb3e300b2d153dd4f27bc3c136925d2fdf0c366bfb61bd08108461d44faea5bde7ee148d5abf55b9e341e1491f773fe00c92d2d402bdc5300894e950bf4cb7325660cfb0cb13bdae49dd5a50b01a7c04 version=0

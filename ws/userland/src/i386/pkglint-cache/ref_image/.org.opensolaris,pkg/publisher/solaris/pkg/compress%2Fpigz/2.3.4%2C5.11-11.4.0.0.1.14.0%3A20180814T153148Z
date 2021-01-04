@@ -1,0 +1,26 @@
+set name=pkg.fmri value=pkg://solaris/compress/pigz@2.3.4,5.11-11.4.0.0.1.14.0:20180814T153148Z
+set name=com.oracle.info.description value="parallel gzip"
+set name=pkg.description value="Pigz compresses using threads to make use of multiple processors and cores. The compressed data format generated is in the gzip, zlib, or single-entry zip format using the deflate compression method."
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=info.upstream value="Mark Adler <madler@alumni.caltech.edu>"
+set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=org.opensolaris.consolidation value=userland
+set name=info.upstream-url value=http://zlib.net/pigz/
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.version value=2.3.4
+set name=org.opensolaris.arc-caseid value=PSARC/2012/357
+set name=info.source-url value=http://zlib.net/pigz/pigz-2.3.4.tar.gz
+set name=com.oracle.info.tpno value=34040
+set name=variant.arch value=i386 value=sparc
+set name=pkg.summary value="parallel implementation of gzip"
+set name=com.oracle.info.name value=pigz
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/library/zlib@1.2.11-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+file 45ba71f85bcf881510749fe5b845d0f030903df3 chash=65e266a2f0fa04b5a35231462440e7e9b64c6238 elfarch=i386 elfbits=64 elfhash=929c54955de727a6d6958bf3234f03cee70a0c30 group=bin mode=0555 owner=root path=usr/bin/pigz pkg.content-hash=gelf:sha512t_256:fa96c920428e97a28544f3da54a5e9eb4c68ee0d57a43317b27f5def1ec928ae pkg.content-hash=gelf.unsigned:sha512t_256:c72e3e540320b458f40d880fa9a5d23e74bd65698abede846f17f1801d56b29b pkg.content-hash=file:sha512t_256:d69314b6647cb8811eac63bb1b25a7f0358a455002ec85f85dbb9049e8959c22 pkg.content-hash=gzip:sha512t_256:7c8a40d4f7ea556ccf14c66a6237fed2c403352fa3d395a5681581ff6943d606 pkg.csize=91484 pkg.size=225816 variant.arch=i386
+file 87f46818dd6f0ad131abedfa6580a49ba6b5b063 chash=653f2d84fc2a8c90b281d5d7ea12637b2ebc2a72 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/pigz.1 pkg.content-hash=file:sha512t_256:9bcd67327e6cc2fb21590fcd089a79359eaaa1120c8ab227213cb608f6281b94 pkg.content-hash=gzip:sha512t_256:01b0af1171908b4018b817e57727c8bed8637e7dd3de1f4601fe48b1a1a26320 pkg.csize=2801 pkg.size=6508
+file c63c683ebe5eda594139e452f1e71133dc5fe781 chash=2c167ce9491b086370a863510b7e3d54d51a1d90 elfarch=sparc elfbits=64 elfhash=90e36279a663e797049c9441a008261631a262cf group=bin mode=0555 owner=root path=usr/bin/pigz pkg.content-hash=gelf:sha512t_256:3074b462de6d06e29195505171c0f7ecae0fc12f35ab18620c712a3ef28f08eb pkg.content-hash=gelf.unsigned:sha512t_256:2472407b302082529bb91b2d29cfedb4c7138ee4da66b1b25330d8e05037db43 pkg.content-hash=file:sha512t_256:6bb667b6d7c4d3a6828231b27b4f2992dbb3f6b3b3f324e76b3dbcde1adb1e5d pkg.content-hash=gzip:sha512t_256:bb7cc2f4cae82c8ca64965842efbe72b14e01ffcb67b2803d5c9c7a456c98a7e pkg.csize=107299 pkg.size=223176 variant.arch=sparc
+link path=usr/bin/unpigz target=pigz
+license 9af5c5f6523420499c5ac194824535dcc4cb9166 chash=7bff155040f737026073f7e1f55ff88f4a5f0457 license=BSD-like pkg.content-hash=file:sha512t_256:30350a65007bf2638213839b437a655e96113dc37adebd719eacaedd47db7b2e pkg.content-hash=gzip:sha512t_256:8fbe653c1a2af4fa9dc5c611d80595d4e474d44534fed5baaf412623c1688cbc pkg.csize=619 pkg.size=1152
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=8ccf9c5cb4c2e9802a4f63e9088e2d650171d135880011bc23974d5f961b7680f3bde5f8f16cef797dc015d02e0b7bfb59421b38f0ac9bdc62ac67b721b4d02f8b55f9abfd2bd46161932a91fc7a249c5f59353615511a6ef807ab257b852244bf24104aa74c619ae856f893cec4298ef7a939d213ff84d8f786d4f18600f5f72e111bdd188e6f6881ed55e38fafebd067ed004aa70a5f30438a13755e0aa4b15e7219a2c15ba4d0deb712ed1728c3ed491dd4e8ec3dc667cafc1b501e6f9fb5aceee3094f1e14e5caf94ac20f10bc4b3255aa4dd5bbdb770dd06516c96f7ad6692457c5af8e62d8e9c852a792da4f86a7f85c534c4d40324a417ed2f49c2b8d version=0

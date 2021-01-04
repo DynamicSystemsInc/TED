@@ -1,0 +1,26 @@
+set name=pkg.fmri value=pkg://solaris/compress/pbzip2@1.1.13,5.11-11.4.0.0.1.14.0:20180814T153147Z
+set name=com.oracle.info.name value=pbzip2
+set name=pkg.summary value="parallel implementation of bzip2"
+set name=pkg.description value="pbzip2 is a parallel implementation of the bzip2 block-sorting file compressor, which should be fully compatible with bzip2."
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=org.opensolaris.arc-caseid value=PSARC/2012/095
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=info.upstream-url value=http://compression.ca/pbzip2/
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.version value=1.1.13
+set name=info.source-url value=https://launchpad.net/pbzip2/1.1/1.1.13/+download/pbzip2-1.1.13.tar.gz
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.description value="pbzip2, a parallel bzip2"
+set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
+set name=com.oracle.info.tpno value=27242
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/system/library/c++-runtime@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/compress/bzip2@1.0.6-11.4.0.0.1.13.0 type=require
+file 7a1e875f62d379b5d094cd7ce1975ba4a7c92acb chash=b3457f8a8f229efa7f2d814fd8eb63a8c1f07846 elfarch=i386 elfbits=64 elfhash=7cd987e499a2116ae5936c3d8514037e6f93dad3 group=bin mode=0555 owner=root path=usr/bin/pbzip2 pkg.content-hash=gelf:sha512t_256:b016b21cdb4e7361aa87a791d4d6a151cf6f536f0c4da21da7ebbdae755c8130 pkg.content-hash=gelf.unsigned:sha512t_256:b2ef450bc797cf58174fee970fad7da7d45581fefa682faf771f20cf52338be4 pkg.content-hash=file:sha512t_256:27cc365aca5d5e4d8330fd03dcb5ebc32d5893de802b426f5ba86060710ad28c pkg.content-hash=gzip:sha512t_256:b709c4049b5d5ea7a6b381109dce2a267092c4bb9d9fc7607e30578bef7c322c pkg.csize=71303 pkg.size=205376 variant.arch=i386
+file bcbc49cd5743e79d4e4cbe983c8ba3c07a367908 chash=8380ef5add7e524c8dc98a5da1d952bb6853ead2 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man1/pbzip2.1 pkg.content-hash=file:sha512t_256:b2e0412bcef5b55f3a4529bb575cec005b56cd2d21e21b1d613089ef375f2498 pkg.content-hash=gzip:sha512t_256:65d449793e7d29eda50fe9aa9496b0861cbe24bfdc8f2d1bfaf01f26f044fd15 pkg.csize=2482 pkg.size=6284
+file 7f3d9d0f1ca4e3237f34cf5b82fcfe42982c6054 chash=c3388b08ec05ffbe84d0dfe1b416c3c985c68201 elfarch=sparc elfbits=64 elfhash=76ab88e6739e4461ca6cba3e919230204f073b20 group=bin mode=0555 owner=root path=usr/bin/pbzip2 pkg.content-hash=gelf:sha512t_256:098b6e175229c65e415b97086c38fd6b1916d15fc868422765c1364b444a3f8b pkg.content-hash=gelf.unsigned:sha512t_256:461973c59813bd313f91179bb9ddd349e8e7ef05e4936bf5509c858b4a021e86 pkg.content-hash=file:sha512t_256:43a555239235e7d6fa775f94416d7ee062bbc5b567fccd5bace93b2ceb8bcc24 pkg.content-hash=gzip:sha512t_256:767093054926c87cc6c72dd53c186c791c1381343d4c754546c16c0a44ce8198 pkg.csize=80685 pkg.size=195248 variant.arch=sparc
+link path=usr/bin/pbzcat target=./pbzip2
+link path=usr/bin/pbunzip2 target=./pbzip2
+license b89274504ae8b921297aa884da54a63d1b96a8eb chash=8aa97b758efd2c24d97b940b7bc7c86ce3aeaecb license="pbzip2 license" pkg.content-hash=file:sha512t_256:529217eb9a5df7bfe57079e71ab8f63df13fcc427dc3583ca5d30dd96763e882 pkg.content-hash=gzip:sha512t_256:c64299408c415fbad489430983f680bff1c0f8c4ab62dfc63ded4d7d8af73a42 pkg.csize=1014 pkg.size=1807
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=9dbfa2c97b6c391e8788c2cff030668baac15863575906e241d5566ec226e2ef2b8a4b75e8b809dcbc66d2ac793f341b69f173cdfbe40d66771548017a47c6feb8626c010a2ee7e501141eada7c60f9b6686dfceda2c8c428bbb0e8262ffad8162215bb38a4385d2b2a2419b00327e243d132ff24183356556c8a388474050164d32aba811eb8463ddd1ce7689010af156ea27943491c725a9c55c35f117cf7c9278c87992e0080edc8639617d2e6ec6199674f04038dba1fca00f81ac9c43379ee0a53be9fc9ab8fe103e78f5cfafdc5fc0b5e8f4a3277260dd5b7d58ac393503324ab50eb83420bd86beddb2fe437015836a2456da1c9a2a86be44b2c4923e version=0

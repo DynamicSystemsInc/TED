@@ -1,0 +1,40 @@
+set name=pkg.fmri value=pkg://solaris/x11/library/libxfont2@2.0.3,5.11-11.4.0.0.1.14.0:20180814T173408Z
+set name=com.oracle.info.name value=libXfont2
+set name=variant.arch value=i386 value=sparc
+set name=info.upstream-url value=https://www.x.org
+set name=org.opensolaris.arc-caseid value=PSARC/2017/212
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.description value=libXfont2
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=info.source-url value=https://www.x.org/releases/individual/lib/libXfont2-2.0.3.tar.bz2
+set name=com.oracle.info.version value=2.0.3
+set name=pkg.summary value="libXfont2 - version 2 of the library for X servers and utilities to access font files"
+set name=pkg.tmp.incorporate value=consolidation/X/X-incorporation
+set name=com.oracle.info.tpno value=39514
+set name=pkg.description value="libXfont provides the core of the legacy X11 font system, handling the index files (fonts.dir, fonts.alias, fonts.scale), the various font file formats, and rasterizing them.   It is used by the X servers, the X Font Server (xfs), and some font utilities (bdftopcf for instance), but should not be used by normal X11 clients.  X11 clients access fonts via either the new API's in libXft, or the legacy API's in libX11."
+set name=info.classification value=org.opensolaris.category.2008:System/X11
+depend fmri=pkg:/system/library/math@11.4-11.4.0.0.1.4.0 type=require
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend facet.devel=true fmri=pkg:/x11/header/x11-protocols type=require
+depend fmri=pkg:/x11/library/libfontenc@1.1.3-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/system/library/freetype-2@2.9.1-11.4.0.0.1.13.0 type=require
+depend fmri=pkg:/library/zlib@1.2.11-11.4.0.0.1.13.0 type=require
+dir group=sys mode=0755 owner=root path=etc/X11
+dir group=sys mode=0755 owner=root path=etc/X11/fontpath.d
+file 1c372a53e0d62189c1dacebcfd314242829a7c59 chash=2f4da7685ccad96591a90b0e34703727aff04441 facet.devel=all group=bin mode=0444 owner=root path=usr/lib/pkgconfig/xfont2.pc pkg.content-hash=file:sha512t_256:8b5e5d4b2bd2c07d9f0a43c2b4a010197a45e0a12509b9238a8a3a3593e444d3 pkg.content-hash=gzip:sha512t_256:70d541462623b8ea0db4ee20f1749c895645bb221470309e88290ca1567cdb7b pkg.csize=209 pkg.size=300
+file f26698c386f607f6a42f6b9e2154a33fe6960e1c chash=d600e77f8acc51e548cf67f6e45ee2a1eaa620d1 facet.devel=all group=bin mode=0444 owner=root path=usr/include/X11/fonts/libxfont2.h pkg.content-hash=file:sha512t_256:9d76c26da1083cdbed70235ab7cf3dd285a9ceca599fbc62a16deed3b6d6d791 pkg.content-hash=gzip:sha512t_256:ff3019968c63080fa283a3a8923855c10475ccefa0c83b32dff7e34c67268bdd pkg.csize=1991 pkg.size=5232
+file acf65634c3c10bc9fd3515ff9b29d3c029982407 chash=e57f680ab5c62582e180c11131a342fe94823143 facet.devel=all group=bin mode=0444 owner=root path=usr/lib/amd64/pkgconfig/xfont2.pc pkg.content-hash=file:sha512t_256:0ba93e0924efabeaee6c16322dbc7fb8f5006f4c8380ebb7f4e496baebb338ac pkg.content-hash=gzip:sha512t_256:fc7fee91b566164c17c6d276b4174a34475c5266057a913c5c12a0b7cf6d54f9 pkg.csize=218 pkg.size=306 variant.arch=i386
+file b1a2a7410639a2ae6d3df536ba2975b543674897 chash=d5278201220ae9523cbd2ad75f3a10c48fb3121c elfarch=i386 elfbits=32 elfhash=0b6a3824adbc91e720b675615aad7ab0a330af16 group=bin mode=0555 owner=root path=usr/lib/xorg/libXfont2.so.2.0.0 pkg.content-hash=gelf:sha512t_256:e58888d24ada42e0132b776b6c04f4210d416e08051550b0000e6a982894681d pkg.content-hash=gelf.unsigned:sha512t_256:6d79f1bc0392f5d44837a1e6b88b0b281ed23a7542100fd373ff9320f3e69ed2 pkg.content-hash=file:sha512t_256:51dab932f4773a4ffc73a358e9ada232d1fc97094f491072169474ac5b9912a5 pkg.content-hash=gzip:sha512t_256:f89d4f37e18eaaa5d5faa2a9ec82f65d2e1c623982556b7d25ed949a6c5f4feb pkg.csize=169818 pkg.size=486884 variant.arch=i386
+file d876c7c8ec74af2dd8fb66355081777a87dd625b chash=9bf28326bad8e6d624b442d85924a2f8b877d2f9 elfarch=i386 elfbits=64 elfhash=3363bbe6d7dab7927b71b1295b452b9fff52747d group=bin mode=0555 owner=root path=usr/lib/xorg/amd64/libXfont2.so.2.0.0 pkg.content-hash=gelf:sha512t_256:e74487c68cba7adcb18b49ead5183becf132e94ce9e946c1222dcb96fd367942 pkg.content-hash=gelf.unsigned:sha512t_256:719cf719fe846ff29297874f8d44159b2d64615da532ec4b1429dbf526dd2d4c pkg.content-hash=file:sha512t_256:7e64a4cbdaa6955cf812e4df6f38c87ae60e6f9a43ffd611b4a2823eb12945ee pkg.content-hash=gzip:sha512t_256:e7f8afbd3bc3f41e0485c4a7d1e0ae40a21ce9f788d3e9003643fb91431d87f2 pkg.csize=179533 pkg.size=545240 variant.arch=i386
+file 84748db24df4d00306725a7dbd45691e65581449 chash=865626916dfffa0ecb5811a0e4c713559355f921 facet.devel=all group=bin mode=0444 owner=root path=usr/lib/sparcv9/pkgconfig/xfont2.pc pkg.content-hash=file:sha512t_256:8bda79edb93bbc43127b9e5c648932059d910bda6cd6e16c72fabc64524fa36d pkg.content-hash=gzip:sha512t_256:649b2a71d8cb0e106e4986bdcad430712e6c9e5aa9c4adbe11a183de7aa710c3 pkg.csize=218 pkg.size=308 variant.arch=sparc
+file 32dee7edbf7f66aab05c5fdf9ea19183fcdccb1a chash=48e18f59b299ebab22f1ddb5bcb198624f97937a elfarch=sparc elfbits=32 elfhash=442e428f76419d0703757b187cd5ab1a7a717511 group=bin mode=0555 owner=root path=usr/lib/xorg/libXfont2.so.2.0.0 pkg.content-hash=gelf:sha512t_256:6370359254a1f65f52dc9ab13c69a0e5f415660cb5fd06a7e35fe0c8a79bf6e0 pkg.content-hash=gelf.unsigned:sha512t_256:ba9ae6e166b48e78bdd29c09471d040f2b87ea4dccc3a2311381394c3b0838c0 pkg.content-hash=file:sha512t_256:f6ad188f7c528b1a6cff97b5d2b2153f0c16bb404345d7daa35dc0b82b28e143 pkg.content-hash=gzip:sha512t_256:2f18add306d6c630c9c8d871f3b5a59b4afe437f5e07029fd0cf03dfcdd4448c pkg.csize=189528 pkg.size=467900 variant.arch=sparc
+file a0b635d83bf585ee301d600135bf9724135f192c chash=1818660e341598bd5a44bad89688805c7f8ea9f5 elfarch=sparc elfbits=64 elfhash=c98c55a347239226817a8410199f1b0252105d8a group=bin mode=0555 owner=root path=usr/lib/xorg/sparcv9/libXfont2.so.2.0.0 pkg.content-hash=gelf:sha512t_256:4c50da0e8ef712b9e773087dc96b00735c8758d266fb90afe75685cce45b411f pkg.content-hash=gelf.unsigned:sha512t_256:46f205a46d4c155a00b91380dfc42a9ac82957ca97b0c8610816c72bef6292af pkg.content-hash=file:sha512t_256:94cc8d9d12792664d0b427a745061d82b036b3cba88a463bbd7297aa01bd293b pkg.content-hash=gzip:sha512t_256:952755576274c2780e2d9dde2f9fd5014fdb177dd8a49a5bc223d4009d813b39 pkg.csize=200794 pkg.size=528328 variant.arch=sparc
+link path=usr/lib/xorg/sparcv9/libXfont2.so target=libXfont2.so.2 variant.arch=sparc
+link path=usr/lib/xorg/sparcv9/libXfont2.so.2 target=libXfont2.so.2.0.0 variant.arch=sparc
+link path=usr/lib/xorg/amd64/libXfont2.so target=libXfont2.so.2 variant.arch=i386
+link path=usr/lib/xorg/amd64/libXfont2.so.2 target=libXfont2.so.2.0.0 variant.arch=i386
+link path=usr/lib/xorg/libXfont2.so.2 target=libXfont2.so.2.0.0
+link path=usr/lib/xorg/libXfont2.so target=libXfont2.so.2
+license 2b61cd7d9b22e98804387e896a3cfa382c1bc4ef chash=fa3c02c0d5314c669cb27f382d3ed65fccd53c9c license=MIT,Other pkg.content-hash=file:sha512t_256:5c4232fce6aeaf1aa90c73c094e3a68c724bd99e5fc4e4fb19b347bbf5923d98 pkg.content-hash=gzip:sha512t_256:abefc312b874414f8d5c0b0d8ac4ff67619bd5a59d55272cce06803c452cd3b7 pkg.csize=2862 pkg.size=13424
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=056de03a6306f1e3b5a010906a710418445c2f9c87b775fe89467107bd5765ae149de40cc2332454c726903df7b5a0c6bbf8dbbb85c1d4941c99c62d8f3a4d5d31f126e8649bafc4f60a2c4c77aa80fad9e2449a1e3a5fd6c442c45c8b7ee779499c49e43f4e6c22bb7305d47851d33a0ce978cb30850999f2a31f4a2ea34bf8010d3036d8f1b44cf9e25c9f544d2517c479be57bf79627e4bd4feaf51bf41cabe3c04a16b4fbc58ce1e7771dca6a5b68cef3428e521b99173c28a17121d474747ab0e7f0194dad1b3d0be3daa887739b983fef3898961c1ae264922949a968d146b57fc0b79dc0045f468c1b123676d91aa5b5e263c4b218891335d272a3689 version=0

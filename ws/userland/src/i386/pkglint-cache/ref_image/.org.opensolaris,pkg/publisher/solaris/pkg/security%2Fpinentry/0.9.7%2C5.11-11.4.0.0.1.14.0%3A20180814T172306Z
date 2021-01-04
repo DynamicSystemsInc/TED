@@ -1,0 +1,26 @@
+set name=pkg.fmri value=pkg://solaris/security/pinentry@0.9.7,5.11-11.4.0.0.1.14.0:20180814T172306Z
+set name=org.opensolaris.consolidation value=userland
+set name=info.upstream-url value=http://www.gnupg.org/related_software/pinentry/
+set name=com.oracle.info.tpno value=26271
+set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
+set name=com.oracle.info.version value=0.9.7
+set name=info.source-url value=https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-0.9.7.tar.bz2
+set name=org.opensolaris.arc-caseid value=PSARC/2009/397
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.description value="pinentry utility for command line"
+set name=pkg.description value="A command line curses dialog program that allows GnuPG to read passphrases and PIN numbers in a secure manner."
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.name value=pinentry
+set name=pkg.summary value="A small command line utility for entering passwords."
+depend fmri=pkg:/library/security/libgpg-error@1.27-11.4.0.0.1.13.0 type=require
+depend fmri=crypto/gnupg@2.0.17-0.169 type=optional
+depend fmri=pkg:/system/library@11.4-11.4.0.0.1.12.2 type=require
+depend fmri=pkg:/library/security/libassuan@2.4.3-11.4.0.0.1.13.0 type=require
+file b5765b5c7f232c3640d6f95735d2e4d2fa92bf29 chash=7fe12e822780db72d9f3ffa090dcd0ec22863ef5 facet.doc.info=all group=bin mode=0444 owner=root path=usr/share/info/pinentry.info pkg.content-hash=file:sha512t_256:b223ec43aba477edfb39bee61dd60b0d3fe3448986f9a54eb8526f0f2a42fce0 pkg.content-hash=gzip:sha512t_256:d36a9d14d224fbf6876b07daf805920b66175fae3260a40b770727eb0098d26f pkg.csize=15336 pkg.size=44456 restart_fmri=svc:/application/texinfo-update:default
+file ff57b8a96b1b0f9ae36ce97b51a575be9d0aede1 chash=99e6b428023db2e30f671d5456a86ad329e65de7 elfarch=i386 elfbits=64 elfhash=194ddca8858a7897e340e0ec43a27804fdbd6494 group=bin mode=0555 owner=root path=usr/lib/pinentry-curses pkg.content-hash=gelf:sha512t_256:5e32d68e8189b20e4da9204ae476d39df3615c42c8cd96fbafbe1bf49b0f0c36 pkg.content-hash=gelf.unsigned:sha512t_256:bc2f6c86285c9969fe596fe0d775033a1f56d808f1d92b80ace1168bbc4adaf9 pkg.content-hash=file:sha512t_256:14f77d693c58f6e3dd9b23a4577ddd8f43af7365f600b5547d1b98646fafc37d pkg.content-hash=gzip:sha512t_256:7f3fce5bbef6c9a1981081d6d3731d979691fc1de77bd6309c0c9cd0324f1cf7 pkg.csize=37270 pkg.size=109912 variant.arch=i386
+file 7735cd04d6241e4edba9b7b661b586158b45ce39 chash=e42855cb5f6ad1fbdc973e8d123c5a9253f624e4 elfarch=sparc elfbits=64 elfhash=a762880018388e1914f0181ca5049d83cee59a46 group=bin mode=0555 owner=root path=usr/lib/pinentry-curses pkg.content-hash=gelf:sha512t_256:6c5dd2a4c222b0989246c19a2731fdb952e9265fa6cea7ae9e154d0dfcf8a248 pkg.content-hash=gelf.unsigned:sha512t_256:f05d6ccc05bb301cb25cd97c7a3a6747e0ae9eb3d13c735d6f7f87f80bc3021f pkg.content-hash=file:sha512t_256:fc2a51dd434826e8f6146fc1335cbebfcd66167928fbff99e0257e50b8efa715 pkg.content-hash=gzip:sha512t_256:f0d71de7c590e7ce75c562077ed7d51c441903f31e133b29727699f918980893 pkg.csize=41563 pkg.size=123056 variant.arch=sparc
+link mediator=pinentry mediator-implementation=pinentry-curses mediator-priority=vendor path=usr/lib/pinentry target=pinentry-curses
+license 5064f386824af149b45087ae8fc3ba9f83172e5a chash=7e52a1227a45ba1917a38617cc22ed31a9ae7397 license=GPLv2 pkg.content-hash=file:sha512t_256:261f8dd1246db681dd29ddb56cf57553cc8523ee54e3cb43db12a961f0db7ad9 pkg.content-hash=gzip:sha512t_256:4dd4fe843fd4c15896e2981a19850883d2efef7406ee56ebb0f8e1fc53556b7f pkg.csize=6879 pkg.size=18004
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=4af0b3241f1c554f1fd8cd1f809fd4a4162b6d0264ecccd0f34ce521b403d570ed550ec37c094489891ddfd52596e0ee30a9fc07ce79798ae1bc450966110f562993764e6a0f52b19cb09e5dfc3c083dd7eec69f07e9b7e5a61706b6a39a286f816bcd0731adebb1058d49780be91419317643e57f7e3483e3d2605a181074646bbee11cffde48465bf804e3b90b646fae8ab92d0ec40470e42962a0e5e04507d5c968d69e6dbe7d987feaf81209c8a88b21727b4effab287f9c74956a10de82b3cb3e24f91021d69436a68b4d5ad1583960de7e0ea22f610bd764022bba5ff8f040538d12b7cb30f63b0779889e5b15f8b1bdd64acdfe794b47c67661497da1 version=0

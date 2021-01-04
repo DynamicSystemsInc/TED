@@ -1,0 +1,64 @@
+Fix for:
+Bug 21206921 - Xorg crash switching back from VT under VirtualBox
+
+Not applicable upstream, since it's caused by our privilege dropping in
+the Solaris added sun-src/os/dtlogin.c
+
+--- a/hw/xfree86/common/xf86Events.c	2019-02-12 13:01:04.959851842 -0800
++++ b/hw/xfree86/common/xf86Events.c	2019-02-12 13:02:36.416576094 -0800
+@@ -456,6 +456,16 @@
+     if (!xf86VTSwitchTo())
+         return;
+ 
++#ifdef __sun  /* restore root privs needed to restore device access */
++   uid_t user_id = geteuid();
++
++    if (user_id != 0) {
++        if (seteuid(0) < 0) {
++            xf86Msg(X_WARNING, "Error in resetting euid to root \n");
++        }
++    }
++#endif
++
+ #ifdef XF86PM
+     xf86OSPMClose = xf86OSPMOpen();
+ #endif
+@@ -497,6 +507,14 @@
+     xf86platformVTProbe();
+ #endif
+ 
++#ifdef __sun
++    if (user_id != 0) {               /* reset privs back to user */
++        if (seteuid(user_id) < 0) {
++            xf86Msg(X_WARNING, "Error in resetting euid to %d\n", user_id);
++        }
++    }
++#endif
++
+     xf86UpdateHasVTProperty(TRUE);
+ 
+     input_unlock();
+--- a/hw/xfree86/os-support/solaris/sun_vid.c	2019-02-12 13:03:00.584372350 -0800
++++ b/hw/xfree86/os-support/solaris/sun_vid.c	2019-02-12 13:03:38.875621167 -0800
+@@ -22,7 +22,7 @@
+  * OF THIS SOFTWARE.
+  *
+  */
+-/* Copyright (c) 2008, Oracle and/or its affiliates. All rights reserved.
++/* Copyright (c) 2008, 2017, Oracle and/or its affiliates. All rights reserved.
+  *
+  * Permission is hereby granted, free of charge, to any person obtaining a
+  * copy of this software and associated documentation files (the "Software"),
+@@ -100,8 +100,10 @@
+     if (!ExtendedEnabled)
+         return;
+ 
+-    sysi86(SI86V86, V86SC_IOPL, 0);
++    if (sysi86(SI86V86, V86SC_IOPL, 0) < 0)
++        xf86Msg(X_WARNING, "xf86DisableIOPorts: Failed to set IOPL for I/O\n");
++    else
++        ExtendedEnabled = FALSE;
+ 
+-    ExtendedEnabled = FALSE;
+ #endif                          /* i386 */
+ }

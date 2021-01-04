@@ -1,0 +1,22 @@
+set name=pkg.fmri value=pkg://solaris/driver/audio/audiocmi@11.4,5.11-11.4.0.0.1.15.0:20180817T002412Z
+set name=variant.arch value=i386
+set name=variant.debug.osnet value=true value=false
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=pkg.description value="The audiocmi(4D) device driver provides support for the C-Media 8738, 8768, and 8338 audio controllers."
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Media
+set name=org.opensolaris.consolidation value=osnet
+set name=pkg.summary value="C-Media 8738 family audio driver"
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+depend fmri=pkg:/system/io/audio@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv/amd64 variant.opensolaris.zone=global
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man4d
+file 396f264990302767bc30a4bcfaa1989d582e0686 chash=2ac7b5234de4b8af5a7cfa5d6753af07bc2bc05c elfarch=i386 elfbits=64 elfhash=1d8c98ed20432372b94d644785838e693472a442 group=sys mode=0755 owner=root path=kernel/drv/amd64/audiocmi pkg.content-hash=gelf:sha512t_256:ad0326514aea936da0d364f618a2a28e9ff580f7f507c098eba2cfdbe45dd426 pkg.content-hash=gelf.unsigned:sha512t_256:ad0326514aea936da0d364f618a2a28e9ff580f7f507c098eba2cfdbe45dd426 pkg.content-hash=file:sha512t_256:ebc2296d78d883278279d400a81e0ec7bf54e0f30be82334d7d0a23b69a61912 pkg.content-hash=gzip:sha512t_256:2b860e96512c8c33b3ac20709610b5dc93aeb3cacff37872cfdf4ded0340e0c4 pkg.csize=7629 pkg.size=23632 reboot-needed=true variant.debug.osnet=false variant.opensolaris.zone=global
+file 8cce92e27c364a5de1e9bcdc4a0ed485c840ed6c chash=34bb216c89255a81ae29849f39f5a238a8f7420d elfarch=i386 elfbits=64 elfhash=fbd8146d5d13090722bfab06b9580560dc53c4f2 group=sys mode=0755 owner=root path=kernel/drv/amd64/audiocmi pkg.content-hash=gelf:sha512t_256:3fee230f16affd00e181295c6d4260dc772475b4c9ca8685be43e1b3473dc18a pkg.content-hash=gelf.unsigned:sha512t_256:3fee230f16affd00e181295c6d4260dc772475b4c9ca8685be43e1b3473dc18a pkg.content-hash=file:sha512t_256:be2ae11aa89bd15c5cb17338ceb84d8b697329d93b22d7fc68517bd886091a31 pkg.content-hash=gzip:sha512t_256:4fb216fcf800587d27d79570600863b57284305c74861b7822ead76ebd528e54 pkg.csize=7626 pkg.size=23632 reboot-needed=true variant.debug.osnet=true variant.opensolaris.zone=global
+file 23d798174e8d0991d5fd017495a1f7035a3adb2c chash=f689990478e98db5fff2987e9cc6964c7f9a0190 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4d/audiocmi.4d pkg.content-hash=file:sha512t_256:321a99708a9d6974a1096c299c5f09c2c069681ce415973b1d30dc6c86bfb84f pkg.content-hash=gzip:sha512t_256:0a651a0b8cde30010c6ba42fe9bcf6ae12fd1fe4d107676635ec8c361f09f37e pkg.csize=612 pkg.size=1158
+driver alias=pci13f6,100 alias=pci13f6,101 alias=pci13f6,111 name=audiocmi variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+legacy arch=i386 category=system desc="SunOS audio device driver for C-Media 8738" hotline="Please contact your local service provider" name="C-Media 8738 Family Audio Driver" pkg=SUNWaudiocmi vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=aa96eaa1b2458d07c18bde39b43c1b41fc43da0827dbc966066fd7898c62371cd445b3d94aeca05a796a1888c558cc571efac6310634834fa7729e3ef4571ef583d0958b18236916ca04b863ca03730d0d5d588f713b64e705f3cef583d51048994739741f953942e0f770e977a4833207e209001b10f3534fdb9e4c969856c8ddce035e69309eca4d71dfaf80c6b52c92d14f225953ca389afbd8c76cf85232cd67778ce6ff7d46fb74b1cab6451e4ed3e1e14625a51d28a303e9396711f2e9019ac196add42f6dc512bd8b941d61d86dc7829bdcd9ed0d57a147abf36d1b8c25f01ad41c6046f8e43a20c25eb7f6cee1929ddb80a408c2cec2fb2ae3843b26 version=0

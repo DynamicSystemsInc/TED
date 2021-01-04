@@ -1,0 +1,28 @@
+set name=pkg.fmri value=pkg://solaris/driver/network/wlan/iwk@11.4,5.11-11.4.0.0.1.15.0:20180817T002500Z
+set name=com.oracle.info.tpno value=5805
+set name=variant.opensolaris.zone value=global value=nonglobal
+set name=variant.arch value=i386
+set name=variant.debug.osnet value=true value=false
+set name=org.opensolaris.consolidation value=osnet
+set name=info.classification value=org.opensolaris.category.2008:Drivers/Networking
+set name=pkg.summary value="Intel(R) WiFi Link 4965AGN Wireless NIC Driver"
+set name=pkg.description value="Wireless network device driver for Intel(R) WiFi Link 4965AGN chipset-based 802.11a/g/n NICs."
+set name=com.oracle.info.description value="driver for Intel 4965agn wireless chipset"
+set name=com.oracle.info.name value=iwk
+set name=com.oracle.info.version value=1.16
+depend fmri=pkg:/system/kernel@11.4-11.4.0.0.1.15 type=require variant.opensolaris.zone=global
+depend fmri=feature/package/dependency/self type=parent variant.opensolaris.zone=nonglobal
+depend fmri=consolidation/osnet/osnet-incorporation type=require
+dir group=sys mode=0755 owner=root path=kernel variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv variant.opensolaris.zone=global
+dir group=sys mode=0755 owner=root path=kernel/drv/amd64 variant.opensolaris.zone=global
+dir facet.doc.man=all group=bin mode=0755 owner=root path=usr/share/man/man4d
+file 71bafd0b16cc0e688b8827e4175431de84da6536 chash=cca2828debcd5f01ce42b0fc254c9f699a4fe00b elfarch=i386 elfbits=64 elfhash=b03b5395d883652a1dd1a89a7f32a1dc166e1fa1 group=sys mode=0755 owner=root path=kernel/drv/amd64/iwk pkg.content-hash=gelf:sha512t_256:ad25148453ce3e19f988d9ef1014acb5f7d44c5358d182a4d46da9afdab36af0 pkg.content-hash=gelf.unsigned:sha512t_256:ad25148453ce3e19f988d9ef1014acb5f7d44c5358d182a4d46da9afdab36af0 pkg.content-hash=file:sha512t_256:55e6f7a8b00cfbffc5329856b4bab87d8000a47fdd18fcf25c49ac18cfa77221 pkg.content-hash=gzip:sha512t_256:dea3d6de65172beea4a35ae602a59043fea8443db12756e3b43bf84cb4c73a2d pkg.csize=117919 pkg.size=281048 reboot-needed=true variant.debug.osnet=false variant.opensolaris.zone=global
+file 1fd331d095b20ab7cd5fae6738d0dd6ffe020b2b chash=696c2fba8ce621bb6ca404009c7343c7b5412b22 elfarch=i386 elfbits=64 elfhash=4c2c48db7e84d7896280c3046ca4e38976953112 group=sys mode=0755 owner=root path=kernel/drv/amd64/iwk pkg.content-hash=gelf:sha512t_256:ea364e4b38b92a5fa065a12432d3704afbdb11049f31be9c66aa700cacfca882 pkg.content-hash=gelf.unsigned:sha512t_256:ea364e4b38b92a5fa065a12432d3704afbdb11049f31be9c66aa700cacfca882 pkg.content-hash=file:sha512t_256:c9d004db05f5d0f53a5569781cc74a1f3a8ebb0151a7ae97526d1d96f02a8fb3 pkg.content-hash=gzip:sha512t_256:c0ce2115ebe4bfdb887426039fea89ce82e40ba808d5d1fe24308e5e455fca18 pkg.csize=121529 pkg.size=293912 reboot-needed=true variant.debug.osnet=true variant.opensolaris.zone=global
+file d4e8c1b19a887f4620c013ead52eed8793eb5657 chash=e32b803f2e07e14b02b4972dbe2f01977531ce44 facet.doc.man=all group=bin mode=0444 owner=root path=usr/share/man/man4d/iwk.4d pkg.content-hash=file:sha512t_256:625cd292309019985e672d3b08d76b174f9345d58eed3c701baea362a1868997 pkg.content-hash=gzip:sha512t_256:213d978dfaad27d04fe665fadc448122d294e03db2bf52685e7c23b4cfb1738b pkg.csize=845 pkg.size=1451
+driver alias=pciex8086,4229 alias=pciex8086,4230 clone_perms="iwk 0666 root sys" name=iwk perms="* 0666 root sys" variant.opensolaris.zone=global
+license 3d5c74be0a455b9fd5564161fe96479b0b9e1b7e chash=b355035adddefde279adea455bc377ebe02f55fb license=cr_Sun pkg.content-hash=file:sha512t_256:a6564d0343ff9a2774beaa9c8a729e5a015237d469ed39164c3d8c904f7cfe01 pkg.content-hash=gzip:sha512t_256:fcae61f6dddfa72916b52c130386dc1331916db085a3ec50cf4818e315eed92e pkg.csize=88 pkg.size=71
+license a9fc6ee0cecf5f07c4baf9dcf6829f96bedc4883 chash=6f6752edce0bbb42f8a2da87e29155a0e477ebb7 license=usr/src/uts/common/io/iwk/THIRDPARTYLICENSE pkg.content-hash=file:sha512t_256:83f9046caad92e83de49057587f7d339e88f7da0a3170aaa9fc8f86592f8f0a8 pkg.content-hash=gzip:sha512t_256:10ee9d8b80ab7200ae31ecb48a110e53d542d2699d19ebec08ae882346e6861b pkg.csize=1210 pkg.size=2774
+license 669b1c34a5cfb0cb813de68d09b0ed89966b5951 chash=63736e47ee942d12f0b0eab0ba85c9edbe1ebda6 license=usr/src/uts/common/io/iwk/fw-iw/LICENSE pkg.content-hash=file:sha512t_256:33d39f19570f3e3e2e3b0051a6989827e68179f13e8fd8099ab7b9cbb8cb1954 pkg.content-hash=gzip:sha512t_256:1c38454cd19a5d839d3206a0ddeed0887c0fab84241d8688c762186178a57d87 pkg.csize=1217 pkg.size=2383
+legacy arch=i386 category=system desc="Intel(R) PRO/Wireless 4965AGN driver" hotline="Please contact your local service provider" name="Intel(R) PRO/Wireless 4965AGN driver" pkg=SUNWiwk vendor="Oracle Corporation" version=11.11,REV=2009.11.11
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=4ddc36b32ec387e0ef23b1ea36836f913785a46f15ec06cf1564dddb934bca7dd00a53ac6ebb1cefbe0ef91652105f80cb21918e7a72a3e02c926196558f3c79bc8c8fbb898ce4c335706b899629f2cb4047e875e8e43345552bc98e0a9da94423e94198575538d20ef009cb9a5e8a4817df8a0a75797bc2552cf84547e2cd179f7d648e16a13b6117ed021435e766af52dd7333466d89caf99552ee12442657c11767b3aee25930054fe86cdf0cf424237feb4c508b918a25de93ad9d6bec85af41fcad68c273e38a7d668a55d7cb5995a7b34023d59bcba570108c298a02aae0f11daf990f5cfe26720dacb0f8f193c72102bb194dd95d92d28eafda63582b version=0

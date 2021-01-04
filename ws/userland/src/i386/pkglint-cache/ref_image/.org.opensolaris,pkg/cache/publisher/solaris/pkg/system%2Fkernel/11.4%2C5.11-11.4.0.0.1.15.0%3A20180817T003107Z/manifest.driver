@@ -1,0 +1,93 @@
+driver name=clone variant.opensolaris.zone=global
+driver name=acpi_drv perms="* 0666 root sys" variant.arch=i386 variant.opensolaris.zone=global
+driver name=aggr perms="* 0666 root sys" variant.opensolaris.zone=global
+driver name=arp perms="arp 0666 root sys" variant.opensolaris.zone=global
+driver name=bl perms="* 0666 root sys" variant.opensolaris.zone=global
+driver clone_perms="bridge 0666 root sys" name=bridge policy="read_priv_set=net_rawaccess write_priv_set=net_rawaccess" variant.opensolaris.zone=global
+driver name=cap variant.opensolaris.zone=global
+driver name=cn perms="* 0620 root tty" variant.opensolaris.zone=global
+driver name=conskbd perms="kbd 0666 root sys" variant.opensolaris.zone=global
+driver name=consms perms="mouse 0666 root sys" variant.opensolaris.zone=global
+driver name=cpuid perms="self 0644 root sys" variant.opensolaris.zone=global
+driver alias=cpus name=cpunex variant.arch=i386 variant.opensolaris.zone=global
+driver name=defdump perms="defdump 0640 root sys" variant.opensolaris.zone=global
+driver name=devinfo perms="devinfo 0640 root sys" perms="devinfo,ro 0444 root sys" variant.opensolaris.zone=global
+driver name=dld perms="* 0666 root sys" variant.opensolaris.zone=global
+driver name=dlpistub perms="* 0666 root sys" variant.opensolaris.zone=global
+driver name=dump perms="dump 0660 root sys" variant.opensolaris.zone=global
+driver alias=8042 name=i8042 variant.arch=sparc variant.opensolaris.zone=global
+driver name=i8042 variant.arch=i386 variant.opensolaris.zone=global
+driver name=icmp perms="icmp 0666 root sys" policy="read_priv_set=net_icmpaccess write_priv_set=net_icmpaccess" variant.opensolaris.zone=global
+driver name=icmp6 perms="icmp6 0666 root sys" policy="read_priv_set=net_icmpaccess write_priv_set=net_icmpaccess" variant.opensolaris.zone=global
+driver alias=pci8086,25c0 alias=pci8086,25d0 alias=pci8086,25d4 alias=pci8086,25d8 alias=pci8086,3600 alias=pci8086,4000 alias=pci8086,4001 alias=pci8086,4003 alias=pci8086,65c0 name=intel_nb5000 variant.arch=i386 variant.opensolaris.zone=global
+driver alias=pci8086,3423 alias=pci8086,372a name=intel_nhm variant.arch=i386 variant.opensolaris.zone=global
+driver alias=pci8086,3438 name=intel_nhmex variant.arch=i386 variant.opensolaris.zone=global
+driver alias=pci8086,e2a alias=pci8086,3cd0 alias=pci8086,3cd1 name=intel_snb variant.arch=i386 variant.opensolaris.zone=global
+driver name=ip perms="ip 0666 root sys" policy="read_priv_set=net_rawaccess write_priv_set=net_rawaccess" variant.opensolaris.zone=global
+driver name=ip6 perms="ip6 0666 root sys" policy="read_priv_set=net_rawaccess write_priv_set=net_rawaccess" variant.opensolaris.zone=global
+driver name=ipnet perms="lo0 0666 root sys" policy="read_priv_set=net_observability write_priv_set=net_observability" variant.opensolaris.zone=global
+driver name=ippctl variant.opensolaris.zone=global
+driver name=ipsecah perms="ipsecah 0666 root sys" policy="read_priv_set=sys_ip_config write_priv_set=sys_ip_config" variant.opensolaris.zone=global
+driver name=ipsecesp perms="ipsecesp 0666 root sys" policy="read_priv_set=sys_ip_config write_priv_set=sys_ip_config" variant.opensolaris.zone=global
+driver name=ipt perms="* 0666 root sys" variant.arch=i386 variant.opensolaris.zone=global
+driver name=iptun variant.opensolaris.zone=global
+driver name=iwscn variant.opensolaris.zone=global
+driver alias=pnpPNP,303 name=kb8042 variant.opensolaris.zone=global
+driver name=keysock perms="keysock 0666 root sys" policy="read_priv_set=sys_ip_config write_priv_set=sys_ip_config" variant.opensolaris.zone=global
+driver name=kmdb variant.opensolaris.zone=global
+driver name=kstat perms="* 0666 root sys" variant.opensolaris.zone=global
+driver name=ksyms perms="* 0600 root sys" variant.opensolaris.zone=global
+driver clone_perms="llc1 0666 root sys" name=llc1 variant.opensolaris.zone=global
+driver name=lofi perms="* 0600 root sys" perms="ctl 0644 root sys" variant.opensolaris.zone=global
+driver name=log perms="conslog 0666 root sys" perms="log 0640 root sys" variant.opensolaris.zone=global
+driver name=logindmux variant.opensolaris.zone=global
+driver alias=pci1022,1100 alias=pci1022,1101 alias=pci1022,1102 name=mc-amd variant.arch=i386 variant.opensolaris.zone=global
+driver name=mc-fma variant.arch=i386 variant.opensolaris.zone=global
+driver name=mm perms="allkmem 0600 root sys" perms="kmem 0600 root sys" perms="mem 0600 root sys" perms="null 0666 root sys" perms="zero 0666 root sys" policy="allkmem read_priv_set=all write_priv_set=all require_admin_high=true" policy="kmem read_priv_set=none write_priv_set=all require_admin_high=true" policy="mem read_priv_set=none write_priv_set=all require_admin_high=true" variant.opensolaris.zone=global
+driver alias=pnpPNP,f03 name=mouse8042 variant.opensolaris.zone=global
+driver alias=scsa,nodev alias=scsa,probe alias=scsiclass name=nulldriver variant.opensolaris.zone=global
+driver name=openeepr perms="openprom 0644 root sys" policy=write_priv_set=all variant.opensolaris.zone=global
+driver name=options variant.opensolaris.zone=global
+driver alias=pci1011,1 alias=pci1011,21 alias=pci1011,24 alias=pci1011,25 alias=pci1011,26 alias=pci1014,22 alias=pciclass,060400 class=pci name=pci_pci variant.arch=sparc variant.opensolaris.zone=global
+driver alias=pci1011,1 alias=pci1011,21 alias=pci1014,22 alias=pciclass,060400 alias=pciclass,060401 class=pci name=pci_pci variant.arch=i386 variant.opensolaris.zone=global
+driver alias=pciex108e,9010 alias=pciex108e,9020 alias=pciex10b5,8114 alias=pciex10b5,8516 alias=pciex10b5,8517 alias=pciex10b5,8518 alias=pciex10b5,8532 alias=pciex10b5,8533 alias=pciex10b5,8548 alias=pciexclass,060400 name=pcieb variant.arch=sparc variant.opensolaris.zone=global
+driver alias=pciexclass,060400 alias=pciexclass,060401 name=pcieb variant.arch=i386 variant.opensolaris.zone=global
+driver name=physmem perms="* 0600 root sys" policy="write_priv_set=all require_admin_high=true" variant.opensolaris.zone=global
+driver name=poll perms="* 0666 root sys" variant.opensolaris.zone=global
+driver alias=ali1535d+-power name=power variant.arch=sparc variant.opensolaris.zone=global
+driver name=power variant.arch=i386 variant.opensolaris.zone=global
+driver alias=zconsnex name=pseudo variant.opensolaris.zone=global
+driver name=ptc perms="* 0666 root sys" variant.opensolaris.zone=global
+driver clone_perms="ptmx 0666 root sys" name=ptm variant.opensolaris.zone=global
+driver name=pts perms="* 0644 root sys" perms="0 0620 root tty" perms="1 0620 root tty" perms="2 0620 root tty" perms="3 0620 root tty" variant.opensolaris.zone=global
+driver name=ptsl perms="* 0666 root sys" variant.opensolaris.zone=global
+driver alias=SUNW,ramdisk name=ramdisk perms="* 0600 root sys" perms="ctl 0644 root sys" variant.arch=sparc variant.opensolaris.zone=global
+driver name=ramdisk perms="* 0600 root sys" perms="ctl 0644 root sys" variant.arch=i386 variant.opensolaris.zone=global
+driver name=random perms="* 0644 root sys" policy=write_priv_set=sys_devices variant.opensolaris.zone=global
+driver name=rts perms="rts 0666 root sys" variant.opensolaris.zone=global
+driver name=sad perms="admin 0666 root sys" perms="user 0666 root sys" variant.opensolaris.zone=global
+driver class=scsi-self-identifying name=scsi_vhci perms="* 0666 root sys" policy="devctl write_priv_set=sys_devices" variant.opensolaris.zone=global
+driver alias=ide-cdrom alias=scsiclass,00 alias=scsiclass,05 name=sd perms="* 0640 root sys" policy=tpd_member=true variant.arch=sparc variant.opensolaris.zone=global
+driver alias=scsiclass,00 alias=scsiclass,05 name=sd perms="* 0640 root sys" policy=tpd_member=true variant.arch=i386 variant.opensolaris.zone=global
+driver alias=scsiclass,08 name=sgen perms="* 0600 root sys" policy=tpd_member=true variant.opensolaris.zone=global
+driver clone_perms="simnet 0666 root sys" name=simnet perms="* 0666 root sys" variant.opensolaris.zone=global
+driver name=smbios perms="smbios 0444 root sys" variant.arch=i386 variant.opensolaris.zone=global
+driver name=softmac variant.opensolaris.zone=global
+driver name=spdsock perms="spdsock 0666 root sys" policy="read_priv_set=sys_ip_config write_priv_set=sys_ip_config" variant.opensolaris.zone=global
+driver alias=scsiclass,01 name=st perms="* 0666 root sys" variant.opensolaris.zone=global
+driver name=sy perms="tty 0666 root tty" variant.opensolaris.zone=global
+driver name=sysevent perms="* 0600 root sys" variant.opensolaris.zone=global
+driver name=sysmsg perms="msglog 0600 root sys" perms="sysmsg 0600 root sys" variant.opensolaris.zone=global
+driver name=tcp perms="tcp 0666 root sys" variant.opensolaris.zone=global
+driver name=tcp6 perms="tcp6 0666 root sys" variant.opensolaris.zone=global
+driver clone_perms="ticlts 0666 root sys" clone_perms="ticots 0666 root sys" clone_perms="ticotsord 0666 root sys" name=tl perms="* 0666 root sys" variant.opensolaris.zone=global
+driver alias=multiplexer name=ttymux variant.arch=sparc variant.opensolaris.zone=global
+driver name=tzmon variant.arch=i386 variant.opensolaris.zone=global
+driver name=ucode perms="* 0644 root sys" variant.arch=i386 variant.opensolaris.zone=global
+driver name=udp perms="udp 0666 root sys" variant.opensolaris.zone=global
+driver name=udp6 perms="udp6 0666 root sys" variant.opensolaris.zone=global
+driver name=umac perms="* 0666 root sys" variant.opensolaris.zone=global
+driver alias=pciclass,000100 alias=pciclass,030000 alias=pciclass,030001 alias=pciex102b,522.8086.102 alias=pnpPNP,900 name=vgatext variant.arch=i386 variant.opensolaris.zone=global
+driver clone_perms="vnic 0666 root sys" name=vnic perms="* 0666 root sys" variant.opensolaris.zone=global
+driver name=vxlan perms="* 0666 root sys" variant.opensolaris.zone=global
+driver name=wc perms="* 0600 root sys" variant.opensolaris.zone=global

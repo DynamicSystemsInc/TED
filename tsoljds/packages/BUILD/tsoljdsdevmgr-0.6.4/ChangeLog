@@ -1,0 +1,159 @@
+2009-01-16  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: 0.6.3 release
+
+2009-01-16  Stephen Browne <stephen.browne@sun.com>
+
+	* src/Makefile.am: disable deprecated 
+	* devmgr-dialog.h: use G_TYPE cast checks
+	* devmgr-props-dialog.h: use G_TYPE cast checks
+	* devmgr-dialog.c: use gtk_icon_theme instead or hardcoding icons. Fixes
+	6748239
+
+2008-08-05  Takao Fujiwara  <takao.fujiwara@sun.com>
+
+	* src/devmgr-dialog.c: update to remove gettext().
+	  Fixes SEGV 6727185
+
+2008-05-20  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: 0.6.2 release
+
+2008-03-25  Takao Fujiwara  <takao.fujiwara@sun.com>
+
+	* configure.in: update version number to 0.6.1
+
+2008-03-14  Stephen Browne <stephen.browne@sun.com>
+
+	* src/devmgr-dialog.c: build patch from Damien Carbery
+
+2008-03-14  Stephen Browne <stephen.browne@sun.com>
+
+	* configure.in: update version number to 0.6
+
+2008-03-03  Stephen Browne  <stephen.browne@sun.com>
+
+	* COPYING: added
+	* AUTHORS, src/devmgr-dialog.c, src/devmgr-dialog.h,
+	  src/devmgr-help.c, src/devmgr-help.h, src/devmgr-props-dialog.c,
+	  src/devmgr-props-dialog.h, src/devmgr.c, src/devmgr.h: updated
+	  License
+
+2007-11-09  John Fischer <john.fischer@sun.com>
+	* src/devmgr-dialog.c: resolved a potential NULL free, corrected the ownership listing
+	  for /ERROR and /INVALID, added a message to help when a user does not have allocation
+	  permissions, insured that the lists are regenerated each time a command is executed.
+
+2007-08-22  Stephen Browne <stephen.browne@sun.com>
+
+        * src/Makefile.am: remove -ltlc from link line we dont need libtlc
+          bugid 6584062
+
+2007-07-05  John Fischer <john.fischer@sun.com>
+
+        * src/devmgr-dialog.c: fixed 6571193 - add and remove buttons 
+          can get out of sink with the selection lists
+        * src/devmgr-props-dialog.c: fixed 6549621 - clicking cancel on
+          label builder returns an invalid label; also fixed auth list
+          error on reset.
+
+2007-06-29  Takao Fujiwara <takao.fujiwara@sun.com>
+
+	* po/cs.po, po/de.po, po/es.po, po/fr.po, po/hu.po, po/it.po,
+	  po/ja.po, po/ko.po, po/pl.po, po/pt_BR.po, po/ru.po, po/sv.po,
+	  po/zh_CN.po, po/zh_HK.po, po/zh_TW.po: Updated translations.
+
+2007-06-07  Damien Carbery <damien.carbery@sun.com>
+
+	* src/devmgr-dialog.c: Correct return type of wnck_workspace_get_role
+	  and wnck_workspace_get_label, adding 'const'. This now matches the
+	  declaration in /usr/include/libwnck-1.0/libwnck/workspace.h.
+
+2007-06-06  John Fischer <john.fischer@sun.com>
+
+         * src/devmgr-dialog.c changes:
+           - corrected a growing list of callbacks for the label changes on
+	   workspace fix
+
+2007-06-06  John Fischer <john.fischer@sun.com>
+
+	 * src/devmgr-dialog.c changes:
+	   - removed list delete/create code to use only stat() (bug id 6549569,
+	   6552691, 6547303)
+	   - added role changes
+	   - insured authorizations work better
+	   - insured allocated list is updated when label changes on workspace
+	   - insured popen() had corrisponding pclose().
+	* src/devmgr-props-dialog.c changes:
+	   - added default values (bug id 6549616)
+	   - fixed crash for a bad label setting (bug id 6549621)
+
+2007-05-28  Damien Carbery <damien.carbery@sun.com>
+
+	* src/devmgr-props-dialog.c: Include gtk/gtkfilesel.h to build with
+	  the new gtk+ tarball. Also include an extern definition of
+	  wnck_workspace_get_label_range to get it to build too.
+
+2007-04-06  John Fischer <john.fischer@sun.com>
+
+        * src/devmgr-dialog.c: fixed bugs 6484418 and 6520725 by changing
+	  the code to use stat() instead of counting the number of displayed
+	  devices.
+
+2007-04-04  John Fischer <john.fischer@sun.com>
+
+	* src/devmgr-dialog.c: corrected '0' string error in the display check.
+
+2007-03-05  Stephen Browne <stephen.browne@sun.com>
+
+        * src/devmgr-dialog.c: filter list of devices based on display.
+        This means only DTU attached devices show up for a Sun Ray session
+
+2006-10-24 John Fischer <john.fischer@sun.com>
+
+	* updated so that the sun ray audio device works correctly--CR 6483448
+	  the other half of this is within xagent and session
+	* updated so that devmgr refreshes correctly--CR 6484418
+
+2006-10-06 John Fischer <john.fischer@sun.com>
+
+	* updated so that audio device works correctly--CR 6473602
+
+2006-08-11 Yuriy Kuznetsov <Yuriy.Kuznetsov@Sun.COM>
+
+        * po/cs.po po/de.po po/es.po po/fr.po po/hu.po po/it.po 
+          po/ja.po po/ko.po po/pl.po po/pt_BR.po po/ru.po
+          po/sv.po po/zh_CN.po po/zh_HK.po po/zh_TW.po
+          fix for CR#6401835
+
+2006-06-19  Stephen Browne <stephen.browne@sun.com>
+
+	* src/Makefile.am : added two help files
+	* src/devmgr-help.[ch]: new files one help API
+	* src/devmgr.c: add help callback
+	* src/devmgr-dialog.c: add help callbacks
+	* src/devmgr-props-dialog.c: add help callback
+
+2006-05-24  Stephen Browne <stephen.browne@sun.com>
+
+	* Makefile.am: remove man page
+	* tsoljdsdevmgr.1: remove
+
+2006-03-07  Stephen Browne <stephen.browne@sun.com>
+
+	* Makefile.am: added man_MANS
+	* tsoljdsdevmgr: added man page place holder
+
+2005-02-22 Stephen Browne <stephen.browne@sun.com>
+
+	* AUTHORS: Change from me to John.
+	* Makefile.am : remove references to sel_config
+	* sel_config: copied over from selection manager but not needed for 
+	device manager
+	*  src/.deps/devmgr-dialog.Po, src/.deps/devmgr.Po: removed these files
+	as they were mistakenly imported.  The hidden files always get you :)
+
+2005-02-17 John Fischer <john.fischer@sun.com>
+
+	* initial import of skeleton GUI based on Stephen Browne's work
+

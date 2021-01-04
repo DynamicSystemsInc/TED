@@ -1,0 +1,21 @@
+set name=pkg.fmri value=pkg://solaris/library/python/pbr@1.8.1,5.11-11.4.0.0.1.14.0:20180814T165920Z
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=pkg.summary value="Python Build Reasonableness"
+set name=info.upstream-url value=http://docs.openstack.org/developer/pbr/
+set name=org.opensolaris.consolidation value=userland
+set name=com.oracle.info.description value="the Python pbr module"
+set name=info.source-url value=pypi:///pbr==1.8.1
+set name=pkg.description value="pbr is a library that injects some useful and sensible default behaviors into your setuptools run. It builds on top of d2to1 to provide for declarative configuration. It then filters the setup.cfg data through a setup hook to fill in default values and provide more sensible behaviors."
+set name=info.upstream value="OpenStack <openstack-dev@lists.openstack.org>"
+set name=com.oracle.info.name value=pbr
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=org.opensolaris.arc-caseid value=PSARC/2013/246
+set name=com.oracle.info.version value=1.8.1
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=variant.arch value=i386 value=sparc
+depend fmri=library/python/pbr-27@1.8.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+depend fmri=library/python/pbr-34@1.8.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/pbr-35@1.8.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python-2/pbr@0.5.21,5.12-5.12.0.0.0.41.0 type=optional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=65ae362beb7f491b79403c690ec682a199b97befddc950a86c87a46df2dfc0a9942e10f01c46b921b09fb6efc4dff3ba3629b0e2c0760577ede1f48f4809efd32abfa28dd075a0726965546ba96b032f1f23dca9abc9d399b945db86ec44fdb31a5b2ea572c9e4145408621a48f2df7ffce97f20326bf41b83cc07c338c90a24d9b08571abf82bf9219b06e5b579a781dfda9a540fbc825610a71a804fb839cdfab2170026a89d31d297547787903e9dd100ebc1441be437985c18fac075f7296e3190f979a47e0d5bfac75d33f90d9ac2da71b2aaf56f1ab5447dcd39bb173e8dc875ba24831f5486c2c10374525a7341fa79207538b61a932e4247434fc206 version=0

@@ -1,0 +1,20 @@
+set name=pkg.fmri value=pkg://solaris/library/python/urllib3@1.15.1,5.11-11.4.0.0.1.14.0:20180814T170537Z
+set name=pkg.summary value="HTTP library with thread-safe connection pooling, file post, and more."
+set name=info.upstream value="Andrey Petrov <andrey.petrov@shazow.net>"
+set name=com.oracle.info.description value="the Python urllib3 module"
+set name=info.source-url value=pypi:///urllib3==1.15.1
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=pkg.description value="urllib3 is a powerful, sanity-friendly HTTP client for Python. It brings many critical features that are missing from the Python standard libraries including: 1) Thread safety; 2) Connection pooling; 3) Client-side SSL/TLS verification; 4) File uploads with multipart encoding; 5) Helpers for retrying requests and dealing with HTTP redirects; 6) Support for gzip and deflate encoding; 7) Proxy support for HTTP and SOCKS."
+set name=com.oracle.info.name value=urllib3
+set name=variant.arch value=i386 value=sparc
+set name=info.upstream-url value=https://github.com/shazow/urllib3
+set name=org.opensolaris.consolidation value=userland
+set name=org.opensolaris.arc-caseid value=PSARC/2015/475
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+set name=com.oracle.info.version value=1.15.1
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+depend fmri=library/python/urllib3-34@1.15.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-34 type=conditional
+depend fmri=library/python/urllib3-35@1.15.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-35 type=conditional
+depend fmri=library/python/urllib3-27@1.15.1,5.11-11.4.0.0.1.14.0 predicate=runtime/python-27 type=conditional
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=011e0beaf7f1e17879ceb8e682a19a4f358988d87c3bf339fd9ed689a1f401b5513d483095b663512b552397c04666f9f5b39cb6375f6a2ab92afc5eb7ddc33cd8e5c3fd4b971ba79cae579484e8fca5fbd89bf73035553315b9cac5a28c51b190a0edd69a04a18db7cb8c7c4edc74f9fa76f658b420750af46a9ab5f24c5550dec1554f85d3958f02f6582fb75d1223b353b73ad2e4790323a95446d06c166bd4fdbc91cfdeb4dadc881844decfef3016cdf5f1eb8f4826e58a5c49202caf768b609cc9b182184fcb53b349c1541910529632536099093fe83c092c78c2d3c3fa426344f46fb9497be9103ea210b8ac65202d13c589a5a73f60165b5d748acf version=0

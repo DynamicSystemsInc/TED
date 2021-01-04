@@ -1,0 +1,27 @@
+set name=pkg.fmri value=pkg://solaris/library/python/ldappool-27@1.0,5.11-11.4.0.0.1.14.0:20180814T165609Z
+set name=pkg.tmp.incorporate value=consolidation/userland/userland-incorporation
+set name=info.source-url value=pypi:///ldappool==1.0
+set name=org.opensolaris.consolidation value=userland
+set name=info.upstream-url value=https://github.com/mozilla-services/ldappool
+set name=org.opensolaris.arc-caseid value=PSARC/2015/097
+set name=info.upstream value="Mozilla Services <services-dev@mozilla.org>"
+set name=com.oracle.info.consolidation.repository-changeset value=015c52ec5ff2
+set name=com.oracle.info.version value=1.0
+set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=com.oracle.info.description value="the Python ldappool module"
+set name=com.oracle.info.tpno value=21665
+set name=pkg.description value="A simple connector pool for python-ldap. The pool keeps LDAP connectors alive and allows the reuse of them, drastically reducing the time spent to initiate a ldap connection. The pool has useful features like: transparent reconnection on failures or server restarts; configurable pool size and connectors timeouts; configurable max lifetime for connectors; a context manager to simplify acquiring and releasing a connector."
+set name=pkg.summary value="A connection pool for python-ldap"
+set name=com.oracle.info.name value=ldappool
+set name=variant.arch value=i386 value=sparc
+set name=com.oracle.info.consolidation.repository-url value=https://github.com/oracle/solaris-userland.git
+depend fmri=pkg:/runtime/python-27@2.7.14-11.4.0.0.1.13.0 type=require
+depend fmri=library/python/python-ldap-27 type=require
+depend fmri=library/python/ldappool@1.0,5.11-11.4.0.0.1.14.0 type=require
+file 2972c4c4e1422606b8951a877dc11bb13eb11181 chash=5321fc13fc5ca0148d5fbbb04376ac55b5050e4e group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/ldappool/__init__.pyc pkg.content-hash=file:sha512t_256:c9edd932040ebe6b72440b07d79fef55923c79ec589a540e0d0197ac71a1986a pkg.content-hash=gzip:sha512t_256:b91397221d9c0dd6009ea8aeee261031655b7df499b0d6b898488316bd6d3367 pkg.csize=3309 pkg.size=8456 variant.arch=sparc
+file db42974280ebf1243644c69aa9e0272231739539 chash=92781f0f741de4325ed8557e6f723f51b801e9a6 group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/ldappool-1.0-py2.7.egg-info pkg.content-hash=file:sha512t_256:027eaf1255f0d039fe60ea1fd91ae19ed51fbaf521642aa2979e2222f75e6489 pkg.content-hash=gzip:sha512t_256:4aea13b7a830efc064e89a44297551be8889f8cd50451f1f62808d975809694c pkg.csize=1152 pkg.size=3094
+file 2f0b2f75ab7f0c71e34ba65b3c3d468994391570 chash=2d534707f5f6c19793a4dfed5e61aa1a3b87c286 group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/ldappool/__init__.pyc pkg.content-hash=file:sha512t_256:13e238e2ed4d1a06e1df252014832c268b2f0078400914db4ca7a4649b0afb5f pkg.content-hash=gzip:sha512t_256:722956b257451d37c2dfa09dae45cc9ebb376118486377b6800279bf26c53f9c pkg.csize=3307 pkg.size=8456 variant.arch=i386
+file b40a6ba2612d9ed897e70f58c823dc2270b62ea2 chash=eef9cfb8d2263638b8b5836092174d9df3909341 group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/ldappool/__init__.py pkg.content-hash=file:sha512t_256:8ead4c1af61ac26b5af2489d3ccb42ccb34950549829c1a2e8a973646630ba98 pkg.content-hash=gzip:sha512t_256:bde20881cb6af68463b22e5104279a350d2b4657e2a3183c959e83fc8047a418 pkg.csize=2945 pkg.size=10857 timestamp=20180809T231458Z variant.arch=sparc
+file b40a6ba2612d9ed897e70f58c823dc2270b62ea2 chash=eef9cfb8d2263638b8b5836092174d9df3909341 group=bin mode=0444 owner=root path=usr/lib/python2.7/vendor-packages/ldappool/__init__.py pkg.content-hash=file:sha512t_256:8ead4c1af61ac26b5af2489d3ccb42ccb34950549829c1a2e8a973646630ba98 pkg.content-hash=gzip:sha512t_256:bde20881cb6af68463b22e5104279a350d2b4657e2a3183c959e83fc8047a418 pkg.csize=2945 pkg.size=10857 timestamp=20180810T043448Z variant.arch=i386
+license f0aba89eda17de882c6364238711d912b48a7698 chash=35326463be7c1a4071bf71d405c3044083ebd813 license=MPL pkg.content-hash=file:sha512t_256:545da467e09d548613106146c59e3242dafb5c6aa17571f0ff5358c482c9594c pkg.content-hash=gzip:sha512t_256:272a876231d3bff66f5f60717f94721093791963ebe97a64339b5e09c6a0f963 pkg.csize=781 pkg.size=1676
+signature b9e38504b3c149270fd54d6416ce65594f97309d algorithm=rsa-sha256 chain=370b6b4fba7b0ad472465ffe9377f8f6040b2cfd chain.chashes=ff591399c9e679500060a00196932e292872eeb1 chain.csizes=984 chain.sizes=1269 chash=774089cf732c83322727e12d298e2ca91837a709 pkg.csize=987 pkg.size=1314 value=05346a7a6ec3db9d914b345f89fe15b38a104b560818ea4ba004158e37f69a65bd2b1d19bb8ef4da2deb97211d95d7d8bbfc5a46603a41cdd95cb49dff32f1f19efbd5ce32d0b2d2ac082c31114427d7d88fe8b53b1a66660450e0b7ecb7f4094877a82c413c404937a8611fc51fc64558693896f634a504ce03f8e0d1160679d8862af873ea514850f9696d03e0e55cb10e06d195d6dcc0ea86807d20b57c2e48217d525bcb907ee115b2ddc5598b6ef75a09e7d92fa1f6ee07fea533a0ff403371d5c2c58e038b8efefd9bf50d15a7681e4309f8294105454a4e069c9ea533ceb76e045ef916652473e2f1fd375009f05be1deb5678024601d35e53f2e8371 version=0
