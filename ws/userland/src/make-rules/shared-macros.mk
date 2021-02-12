@@ -20,34 +20,48 @@
 #
 
 #
-# Copyright (c) 2010, 2018, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2010, 2020, Oracle and/or its affiliates.
 #
 
 .PHONY: void
 void:
 	@echo "Must specify target: prep, build, install, publish, test, etc."
-	@echo "See $(WS_TOP)/makefile-targets.txt for more info."
+	@echo "See $(WS_TOP)/doc/makefile-targets.txt for more info."
 
 #PATH=/usr/bin:/usr/gnu/bin
 PATH=/usr/gnu/bin:/usr/bin
+DEFAULT_CONFIG_FILE ?= /etc/userland
+
+# $(1) - variable name
+# $(2) - default value
+# Produces 'VARIABLE?=default'
+#
+# Read configuration from DEFAULT_CONFIG_FILE providing default when the config
+# file is not found. Config file has the variables prefixed by DEFAULT_ so if
+# you want to configure CANONICAL_REPO the line in DEFAULT_CONFIG_FILE should
+# be:
+# DEFAULT_CANONICAL_REPO=http://.....
+define read-config
+	$(eval $(1)?=$(shell bash -c '[ -r "$(DEFAULT_CONFIG_FILE)" ] && . "$(DEFAULT_CONFIG_FILE)"; echo $${DEFAULT_$(1):-$(2)}'))
+endef
 
 # The location of an internal mirror of community source archives that we build
 # in this gate.  This mirror has been seeded to include "custom" source archives
 # for a few components where the communities either no longer provide matching
 # source archives or we have changes that aren't reflected in their archives or
 # anywhere else.
+$(call read-config,INTERNAL_ARCHIVE_MIRROR,http://userland.us.oracle.com/source-archives)
 
 # The location of an external mirror of community source archives that we build
 # in this gate.  The external mirror is a replica of the internal mirror.
-EXTERNAL_ARCHIVE_MIRROR = 
-INTERNAL_ARCHIVE_MIRROR = 
+EXTERNAL_ARCHIVE_MIRROR =
 
 # Default to looking for source archives on the internal mirror and the external
 # mirror before we hammer on the community source archive repositories.
-#export DOWNLOAD_SEARCH_PATH +=	$(INTERNAL_ARCHIVE_MIRROR)
-#ifneq   ($(strip $(EXTERNAL_ARCHIVE_MIRROR)),)
-#export DOWNLOAD_SEARCH_PATH +=	$(EXTERNAL_ARCHIVE_MIRROR)
-#endif
+export DOWNLOAD_SEARCH_PATH +=	$(INTERNAL_ARCHIVE_MIRROR)
+ifneq   ($(strip $(EXTERNAL_ARCHIVE_MIRROR)),)
+export DOWNLOAD_SEARCH_PATH +=	$(EXTERNAL_ARCHIVE_MIRROR)
+endif
 
 # The workspace starts at the parent of the make-rules directory,
 # unless someone already supplied the top.
@@ -104,16 +118,63 @@ PUBLISHER_LOCALIZABLE ?=	$(CONSOLIDATION)-localizable
 # space-separated paths to colon-separated paths in variables with
 # $(subst $(space),:,$(strip $(SPATHS)))
 empty :=
+quot  := "
+bkslash  := \$(empty)
 space := $(empty) $(empty)
 define newline
 
 
 endef
 
+# Change \ -> \\
+define prepare_env_args_slash
+$(subst $(bkslash),$(bkslash)$(bkslash),$(1))
+endef
+
+# Change $ -> \$
+define prepare_env_args_dollar
+$(subst $$,$(bkslash)$$,$(call prepare_env_args_slash,$(1)))
+endef
+
+# Change " -> \"
+define prepare_env_args_quote
+$(subst $(quot),$(bkslash)$(quot),$(call prepare_env_args_dollar,$(1)))
+endef
+
+# Change \n -> "$'\n'"
+define prepare_env_args_newline
+$(subst $(newline),$(quot)$$'$(bkslash)n'$(quot),$(call prepare_env_args_quote,$(1)))
+endef
+
+
+# Modify all the arguments to a form directly passable to the env(1) command.
+# The arguments are encapsulated in double quotes and several characters are
+# replaced as follows:
+#         \ -> \\
+#         " -> \"
+#         $ -> \$
+# <newline> -> "$'\n'"
+#
+# It is intended to be used as
+#     env $(call prepare_env_args,VAR1 VAR2) process
+# and process will get VAR1 and VAR2 in it's environment.
+define prepare_env_args
+$(foreach env,$(1),"$(env)=$(call prepare_env_args_newline,$($(env)))")
+endef
+
+PUBLISH_LOG = $(BUILD_DIR)/packages.$(MACH).log
+define log-package-publish
+    $(CAT) $(1) $(WS_TOP)/transforms/print-published-pkgs | \
+	    $(PKGMOGRIFY) $(PKG_OPTIONS) /dev/fd/0 | \
+	    sed -e '/^$$/d' -e '/^#.*$$/d' >> $(PUBLISH_LOG)
+endef
+
 ROOT =			/
 
 # The changset and external source repo used in building the packages.
-CONSOLIDATION_CHANGESET=$(shell hg identify -i)
+CONSOLIDATION_CHANGESET=	\
+	$(shell hg --config ui.report_untrusted=False identify -i)
+
 CONSOLIDATION_REPOSITORY_URL=https://github.com/oracle/solaris-userland.git
 
 # Native OS version
@@ -201,12 +262,33 @@ endif
 # BUILD_STYLE=
 
 # The default version should go last.
-PYTHON_VERSION =	2.7
+PYTHON_VERSION =	3.7
 PYTHON2_VERSIONS =	2.7
-PYTHON3_VERSIONS =	3.4 3.5
-PYTHON_VERSIONS =	$(PYTHON3_VERSIONS) $(PYTHON2_VERSIONS)
+PYTHON3_VERSIONS =	3.7 3.9
+PYTHON_VERSIONS =	$(PYTHON2_VERSIONS) $(PYTHON3_VERSIONS)
 
-BASS_O_MATIC =	$(WS_TOOLS)/bass-o-matic
+# Convenience variable for builds without Python 3.7 and 3.9
+WITHOUT_PYTHON3.7 = $(PYTHON2_VERSIONS)
+WITHOUT_PYTHON3.9 = 3.7 $(PYTHON2_VERSIONS)
+
+# PYTHON3_SOABI variable defines the naming scheme
+# of python3 extension libraries: cpython or abi3.
+# Currently, most of the components use cpython naming scheme by default,
+# only python/xattr and python/cryptography require abi3 naming.
+PYTHON3_SOABI ?= cpython
+ifeq ($(PYTHON3_SOABI),cpython)
+PY3_CPYTHON_NAMING=
+PY3_ABI3_NAMING=\#
+else ifeq ($(PYTHON3_SOABI),abi3)
+PY3_CPYTHON_NAMING=\#
+PY3_ABI3_NAMING=
+else
+$(error "Invalid python naming scheme '$(PYTHON3_SOABI)' selected!")
+endif
+
+USERLAND_COMPONENTS = $(WS_TOOLS)/userland-components
+MANIFEST_GENERATE = $(WS_TOOLS)/manifest-generate
+MANIFEST_COMPARE = $(WS_TOOLS)/manifest-check
 
 CLONEY =	$(WS_TOOLS)/cloney
 
@@ -298,6 +380,8 @@ CONSTANT_TIME +=	TIME_CONSTANT=$(TIME_CONSTANT)
 
 # set MACH from uname -p to either sparc or i386
 MACH :=		$(shell uname -p)
+# Override this to limit builds and publication to a single architecture.
+BUILD_ARCH ?=	$(MACH)
 
 # set MACH32 from MACH to either sparcv7 or i86
 MACH32_1 =	$(MACH:sparc=sparcv7)
@@ -324,6 +408,58 @@ BUILD_32_and_64 =	$(BUILD_32) $(BUILD_64)
 $(BUILD_DIR_NO_ARCH)/.built:	BITS=32
 $(BUILD_DIR_32)/.built:		BITS=32
 $(BUILD_DIR_64)/.built:		BITS=64
+
+# COMPONENT_MAKE_JOBS contains the maximal number of build
+# jobs per component. The default value is equal to the
+# number of physical cores. The maximal system load is
+# limited by the number of virtual processors.
+ifneq ($(wildcard /usr/sbin/psrinfo),)
+
+PSRINFO=/usr/sbin/psrinfo
+COMPONENT_MAKE_JOBS ?= $(shell $(PSRINFO) -t | grep -c core)
+SYSTEM_MAX_LOAD := $(shell $(PSRINFO) | wc -l)
+
+# If the number of physical cores cannot be determined from
+# 'psrinfo -t' output, we use the number of virtual processors
+# (hardware threads) as a workaround.
+ifeq ($(COMPONENT_MAKE_JOBS),0)
+COMPONENT_MAKE_JOBS := $(SYSTEM_MAX_LOAD)
+endif
+
+endif
+
+# If the memory is almost exhausted, then refuse to execute parallel build jobs.
+ifneq ($(wildcard /usr/bin/kstat2),)
+ifneq ($(wildcard /usr/bin/pagesize),)
+
+KSTAT2 := /usr/bin/kstat2
+PAGE_SIZE := $(shell /usr/bin/pagesize)
+
+TOTAL_MEMORY_PAGES := $(shell $(KSTAT2) -p kstat:/vm/usage/memory:mem_total | cut -f 2)
+FREE_MEMORY_PAGES := $(shell $(KSTAT2) -p kstat:/pages/unix/system_pages:freemem | cut -f 2)
+ZFS_MEMORY_PAGES := $(shell $(KSTAT2) -p kstat:/vm/usage/memory:mem_zfs | cut -f 2)
+AVAILABLE_MEMORY_PAGES := $(shell echo $$(($(FREE_MEMORY_PAGES)+$(ZFS_MEMORY_PAGES))))
+AVAILABLE_MEMORY_PERCENTAGE := $(shell echo $$((100*$(AVAILABLE_MEMORY_PAGES)/$(TOTAL_MEMORY_PAGES))))
+
+# If there is less than 20 % of available memory, then we set COMPONENT_MAKE_JOBS to 1.
+ifeq ($(shell expr $(AVAILABLE_MEMORY_PERCENTAGE) \<= 20),1)
+COMPONENT_MAKE_JOBS := 1
+endif
+
+endif
+endif
+
+# If the number of jobs is greater than 1, then we need to set
+# GNU make parameters. If GMAKE variable is used for other
+# command (e.g., build.sh), COMPONENT_MAKE_JOBS must be empty or set to 1.
+ifneq ($(filter-out 1,$(COMPONENT_MAKE_JOBS)),)
+
+ifeq ($(SYSTEM_MAX_LOAD),)
+SYSTEM_MAX_LOAD := $(COMPONENT_MAKE_JOBS)
+endif
+
+COMPONENT_BUILD_ARGS += -j $(COMPONENT_MAKE_JOBS) -l $(SYSTEM_MAX_LOAD)
+endif
 
 INSTALL_NO_ARCH =	$(BUILD_DIR_NO_ARCH)/.installed
 INSTALL_32 =		$(BUILD_DIR_32)/.installed
@@ -461,24 +597,33 @@ SYSTEM_TEST_64 =		$(BUILD_DIR_64)/.system-tested-and-compared
 endif
 SYSTEM_TEST_32_and_64 =	$(SYSTEM_TEST_32) $(SYSTEM_TEST_64)
 ifeq ($(strip $(wildcard $(COMPONENT_TEST_RESULTS_DIR)/results-*.master)),)
-TEST_NO_ARCH =		$(BUILD_DIR_NO_ARCH)/.tested
-TEST_32 =		$(BUILD_DIR_32)/.tested
-TEST_64 =		$(BUILD_DIR_64)/.tested
+TEST_NO_ARCH ?=		$(BUILD_DIR_NO_ARCH)/.tested
+TEST_32 ?=		$(BUILD_DIR_32)/.tested
+TEST_64 ?=		$(BUILD_DIR_64)/.tested
 else
-TEST_NO_ARCH =		$(BUILD_DIR_NO_ARCH)/.tested-and-compared
-TEST_32 =		$(BUILD_DIR_32)/.tested-and-compared
-TEST_64 =		$(BUILD_DIR_64)/.tested-and-compared
+TEST_NO_ARCH ?=		$(BUILD_DIR_NO_ARCH)/.tested-and-compared
+TEST_32 ?=		$(BUILD_DIR_32)/.tested-and-compared
+TEST_64 ?=		$(BUILD_DIR_64)/.tested-and-compared
 endif
-TEST_32_and_64 =	$(TEST_32) $(TEST_64)
+TEST_32_and_64 ?=	$(TEST_32) $(TEST_64)
 
 # When running tests at the top level, skip those tests,
 # by redefining the above TEST_* targets,
 # when a component Makefile includes $(SKIP_TEST_AT_TOP_LEVEL).
-# It's done in separate skip-test.mk file, to allow inclusion of 
-# a multi-line ifdef statement which is evaluated at the component
-# Makefile level
 
-SKIP_TEST_AT_TOP_LEVEL = $(eval include $(WS_MAKE_RULES)/skip-test.mk)
+define SKIP_TEST_AT_TOP_LEVEL_HELPER
+ifeq ($$(TOP_LEVEL_TEST),yes)
+TEST_32 = $$(SKIP_TEST)
+TEST_64 = $$(SKIP_TEST)
+TEST_32_and_64 = $$(SKIP_TEST)
+TEST_NO_ARCH = $$(SKIP_TEST)
+TEST_TARGET = $$(NO_TESTS)
+endif
+endef
+
+define SKIP_TEST_AT_TOP_LEVEL
+$(eval $(call SKIP_TEST_AT_TOP_LEVEL_HELPER))
+endef
 
 $(BUILD_DIR_NO_ARCH)/.system-tested:			BITS=32
 $(BUILD_DIR_32)/.system-tested:				BITS=32
@@ -507,11 +652,13 @@ $(BUILD_DIR_32) $(BUILD_DIR_64):
 BUILD_TOOLS ?=	/opt
 
 SPRO_ROOT ?=	$(BUILD_TOOLS)
-SPRO_VROOT ?=	$(SPRO_ROOT)/developerstudio12.5
+SPRO_VROOT ?=	$(SPRO_ROOT)/developerstudio12.6
 
-PARFAIT_ROOT =	$(BUILD_TOOLS)/parfait/parfait-tools-2.1.0
+PARFAIT_VER ?=	parfait-tools-2.3.0
+PARFAIT_ROOT =	$(BUILD_TOOLS)/parfait
+PARFAIT_VROOT=	$(PARFAIT_ROOT)/$(PARFAIT_VER)
 PARFAIT_TOOLS=	$(WS_TOOLS)/$(MACH)/parfait
-PARFAIT= $(PARFAIT_ROOT)/bin/parfait
+PARFAIT= $(PARFAIT_VROOT)/bin/parfait
 export PARFAIT_NATIVESUNCC=$(SPRO_VROOT)/bin/cc
 export PARFAIT_NATIVESUNCXX=$(SPRO_VROOT)/bin/CC
 export PARFAIT_NATIVEGCC=$(GCC_ROOT)/bin/gcc
@@ -520,7 +667,7 @@ export PARFAIT_NATIVEGXX=$(GCC_ROOT)/bin/g++
 ONBLD_ROOT ?=	$(BUILD_TOOLS)/onbld
 ONBLD_BIN ?=	$(ONBLD_ROOT)/bin
 
-GCC_ROOT =	/usr/gcc/7
+GCC_ROOT ?=	/usr/gcc/9
 
 CC.studio.32 =	$(SPRO_VROOT)/bin/cc
 CXX.studio.32 =	$(SPRO_VROOT)/bin/CC
@@ -557,15 +704,14 @@ endif
 CC =		$(CC.$(COMPILER).$(BITS))
 CXX =		$(CXX.$(COMPILER).$(BITS))
 
-RUBY_VERSION =	2.1
-RUBY_LIB_VERSION =	2.1.0
-RUBY.2.1 =	/usr/ruby/2.1/bin/ruby
-RUBY.2.3 =	/usr/ruby/2.3/bin/ruby
+RUBY_VERSION =	2.5
+RUBY_PUPPET_VERSION = 2.5
+
+# The default version should go last.
+RUBY_VERSIONS = 2.5 2.6
+RUBY.2.5 =	/usr/ruby/2.5/bin/ruby
+RUBY.2.6 =	/usr/ruby/2.6/bin/ruby
 RUBY =		$(RUBY.$(RUBY_VERSION))
-# Use the ruby lib versions to represent the RUBY_VERSIONS that
-# need to get built.  This is done because during package transformations
-# both the ruby version and the ruby library version are needed. 
-RUBY_VERSIONS = $(RUBY_LIB_VERSION)
 
 # Transform Ruby scripts to call the supported
 # version-specific ruby; used in multiple *.mk files
@@ -579,19 +725,24 @@ PYTHON.2.7.VENDOR_PACKAGES.32 = /usr/lib/python2.7/vendor-packages
 PYTHON.2.7.VENDOR_PACKAGES.64 = /usr/lib/python2.7/vendor-packages/64
 PYTHON.2.7.VENDOR_PACKAGES = $(PYTHON.2.7.VENDOR_PACKAGES.$(BITS))
 
-PYTHON.3.4.VENDOR_PACKAGES.64 = /usr/lib/python3.4/vendor-packages/64
-PYTHON.3.4.VENDOR_PACKAGES = $(PYTHON.3.4.VENDOR_PACKAGES.$(BITS))
+PYTHON.3.7.VENDOR_PACKAGES.32 =
+PYTHON.3.7.VENDOR_PACKAGES.64 = /usr/lib/python3.7/vendor-packages
+PYTHON.3.7.VENDOR_PACKAGES = $(PYTHON.3.7.VENDOR_PACKAGES.64)
 
-PYTHON.3.5.VENDOR_PACKAGES.64 = /usr/lib/python3.5/vendor-packages
-PYTHON.3.5.VENDOR_PACKAGES = $(PYTHON.3.5.VENDOR_PACKAGES.$(BITS))
+PYTHON.3.9.VENDOR_PACKAGES.32 =
+PYTHON.3.9.VENDOR_PACKAGES.64 = /usr/lib/python3.9/vendor-packages
+PYTHON.3.9.VENDOR_PACKAGES = $(PYTHON.3.9.VENDOR_PACKAGES.64)
 
-PYTHON_VENDOR_PACKAGES.32 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages
-PYTHON_VENDOR_PACKAGES.64 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages/64
-PYTHON_VENDOR_PACKAGES = $(PYTHON_VENDOR_PACKAGES.$(BITS))
+# Base path to vendor packages shared between all Python versions
+PYTHON_VENDOR_PACKAGES_BASE = /usr/lib/python$(PYTHON_VERSION)/vendor-packages
+
+PYTHON_VENDOR_PACKAGES.32 = $(PYTHON.$(PYTHON_VERSION).VENDOR_PACKAGES.32)
+PYTHON_VENDOR_PACKAGES.64 = $(PYTHON.$(PYTHON_VERSION).VENDOR_PACKAGES.64)
+PYTHON_VENDOR_PACKAGES = $(PYTHON.$(PYTHON_VERSION).VENDOR_PACKAGES)
 
 PYTHON.2.7.TEST = /usr/lib/python2.7/test
-PYTHON.3.4.TEST = /usr/lib/python3.4/test
-PYTHON.3.5.TEST = /usr/lib/python3.5/test
+PYTHON.3.7.TEST = /usr/lib/python3.7/test
+PYTHON.3.9.TEST = /usr/lib/python3.9/test
 
 USRBIN.32 =	/usr/bin
 USRBIN.64 =	/usr/bin/$(MACH64)
@@ -609,13 +760,13 @@ PYTHON.2.7 =	$(USRBIN)/python2.7
 # in such a way that we still need the .32 macro below.  And since we build
 # 64-bit only, we stick it directly in usr/bin (i.e., the 32-bit path) rather
 # than the 64-bit path.
-PYTHON.3.4.32 =	$(USRBIN.32)/python3.4
-PYTHON.3.4.64 =	$(USRBIN.32)/python3.4
-PYTHON.3.4 =	$(USRBIN.32)/python3.4
+PYTHON.3.7.32 =	$(USRBIN.32)/python3.7
+PYTHON.3.7.64 =	$(USRBIN.32)/python3.7
+PYTHON.3.7 =	$(USRBIN.32)/python3.7
 
-PYTHON.3.5.32 =	$(USRBIN.32)/python3.5
-PYTHON.3.5.64 =	$(USRBIN.32)/python3.5
-PYTHON.3.5 =	$(USRBIN.32)/python3.5
+PYTHON.3.9.32 =	$(USRBIN.32)/python3.9
+PYTHON.3.9.64 =	$(USRBIN.32)/python3.9
+PYTHON.3.9 =	$(USRBIN.32)/python3.9
 
 PYTHON.32 =	$(PYTHON.$(PYTHON_VERSION).32)
 PYTHON.64 =	$(PYTHON.$(PYTHON_VERSION).64)
@@ -631,7 +782,7 @@ PYTHON_DATA= $(PYTHON_LIB)
 # point at the userland default build python so as not to be influenced
 # by the ips python mediator.
 # In the component's Makefile define PYTHON_SCRIPTS with a list of files
-# to be editted.
+# to be edited.
 
 # Edit the leading #!/usr/bin/python line in python scripts to use the
 # BUILD's $(PYTHON).
@@ -640,6 +791,7 @@ PYTHON_SCRIPT_SHEBANG_FIX_FUNC = \
 		-e '1s@/usr/bin/python$$@$(PYTHON)@' \
 		-e '1s@/usr/bin/python\ @$(PYTHON) @' \
 		-e '1s@/usr/bin/env\ $(PYTHON)@$(PYTHON)@' \
+		-e '1s@/usr/bin/env\ python[23]@$(PYTHON)@' \
 		-e '1s@/usr/bin/env\ python@$(PYTHON)@' $(1);
 
 # PYTHON_SCRIPTS is a list of files from the calling Makefile.
@@ -665,9 +817,19 @@ PERL_VERSION_NODOT = $(subst .,,$(PERL_VERSION))
 # multiple packages for each version of perl listed here.  Used by
 # perl_modules/* but also used for those components that deliver a perl
 # package like graphviz and openscap.
-PERL_VERSIONS = 5.22
+PERL_VERSIONS = 5.22 5.26
 
 PERL.5.22 =     /usr/perl5/5.22/bin/perl
+PERL.5.26 =     /usr/perl5/5.26/bin/perl
+
+define test-perl-availability
+TEST_PERL_PATH=$$(PERL.$(1))
+ifeq ($$(strip $$(TEST_PERL_PATH)),)
+$$(error variable PERL.$(1) is not defined)
+endif
+endef
+
+$(foreach p,$(PERL_VERSIONS),$(eval $(call test-perl-availability,$(p))))
 
 # Use these in a component's Makefile for building and packaging with the
 # BUILD's default perl and the package it comes from.
@@ -691,7 +853,7 @@ PKG_MACROS +=   PERL_VERSION=$(PERL_VERSION)
 # point at the userland default build perl so as not to be influenced
 # by the ips perl mediator.
 # In the component's Makefile define PERL_SCRIPTS with a list of files
-# to be editted.
+# to be edited.
 
 # Edit the leading #!/usr/bin/perl line in perl scripts to use the
 # BUILD's $(PERL).
@@ -716,22 +878,18 @@ COMPONENT_POST_INSTALL_ACTION += $(PERL_SCRIPTS_PROCESS)
 PHP_TOP_DIR = $(WS_COMPONENTS)/php
 
 # All versions of PHP for building extension packages.
-#PHP_VERSIONS = 5.6 7.1
-PHP_VERSIONS = 7.1 7.3 7.4
-#PHP_VERSIONS = 5.6 7.1 7.3 7.4
+PHP_VERSIONS = 7.3 7.4
 
-PHP.5.6 = /usr/php/5.6/bin/php
-PHP.7.1 = /usr/php/7.1/bin/php
 PHP.7.3 = /usr/php/7.3/bin/php
 PHP.7.4 = /usr/php/7.4/bin/php
 
 # This is the default BUILD version of tcl
 # Not necessarily the system's default version, i.e. /usr/bin/tclsh
-TCL_VERSION =  8.5
-TCLSH.8.5.i386.32 =	/usr/bin/i86/tclsh8.5
-TCLSH.8.5.i386.64 =	/usr/bin/amd64/tclsh8.5
-TCLSH.8.5.sparc.32 =	/usr/bin/sparcv7/tclsh8.5
-TCLSH.8.5.sparc.64 =	/usr/bin/sparcv9/tclsh8.5
+TCL_VERSION =  8.6
+TCLSH.8.6.i386.32 =	/usr/bin/i86/tclsh8.6
+TCLSH.8.6.i386.64 =	/usr/bin/amd64/tclsh8.6
+TCLSH.8.6.sparc.32 =	/usr/bin/sparcv7/tclsh8.6
+TCLSH.8.6.sparc.64 =	/usr/bin/sparcv9/tclsh8.6
 TCLSH =		$(TCLSH.$(TCL_VERSION).$(MACH).$(BITS))
 
 CCSMAKE =	/usr/ccs/bin/make
@@ -757,8 +915,8 @@ else
 PKGLINTVAR =	${WS_TOOLS}/pkglint
 endif
 
-ACLOCAL =	/usr/bin/aclocal-1.10
-AUTOMAKE =	/usr/bin/automake-1.10
+ACLOCAL =	/usr/bin/aclocal-1.16
+AUTOMAKE =	/usr/bin/automake-1.16
 AUTORECONF = 	/usr/bin/autoreconf
 
 KSH93 =         /usr/bin/ksh93
@@ -777,6 +935,7 @@ GNU_GREP =	/usr/gnu/bin/grep
 CHMOD =		/usr/bin/chmod
 NAWK =		/usr/bin/nawk
 TAR =		/usr/bin/tar
+GNU_TAR =	/usr/gnu/bin/tar
 TEE =		/usr/bin/tee
 ANT =		/usr/bin/ant
 LOCALEDEF =	/usr/bin/localedef
@@ -806,7 +965,7 @@ LIBXNET=$(shell elfdump -d /usr/lib/libxnet.so.1 | $(NAWK) 'BEGIN {ret="-lxnet"}
 # C preprocessor flag sets to ease feature selection.  Add the required
 # feature to your Makefile with CPPFLAGS += $(FEATURE_MACRO) and add to
 # the component build with CONFIGURE_OPTIONS += CPPFLAGS="$(CPPFLAGS)" or
-# similiar.
+# similar.
 #
 
 # Enables visibility of some c99 math functions that aren't visible by default.
@@ -838,7 +997,7 @@ CPP_XPG5MODE=   -D_XOPEN_SOURCE=500 -D__EXTENSIONS__=1 -D_XPG5
 #
 # Studio C compiler flag sets to ease feature selection.  Add the required
 # feature to your Makefile with CFLAGS += $(FEATURE_MACRO) and add to the
-# component build with CONFIGURE_OPTIONS += CFLAGS="$(CFLAGS)" or similiar.
+# component build with CONFIGURE_OPTIONS += CFLAGS="$(CFLAGS)" or similar.
 #
 
 # Generate 32/64 bit objects
@@ -846,12 +1005,12 @@ CC_BITS =	-m$(BITS)
 
 # Code generation instruction set and optimization 'hints'.  Use studio_XBITS
 # and not the .arch.bits variety directly.
-studio_XBITS.sparc.32 =	-xtarget=ultra2 -xarch=sparcvis -xchip=ultra2
-studio_XBITS.sparc.64 =	
+studio_XBITS.sparc.32 =	-xtarget=generic -xarch=sparcvis -xchip=generic
+studio_XBITS.sparc.64 =
 ifneq   ($(strip $(PARFAIT_BUILD)),yes)
-studio_XBITS.sparc.64 += -xtarget=ultra2
+studio_XBITS.sparc.64 += -xtarget=generic
 endif
-studio_XBITS.sparc.64 += -xarch=sparcvis -xchip=ultra2
+studio_XBITS.sparc.64 += -xarch=sparcvis -xchip=generic
 studio_XBITS.i386.32 =	-xchip=pentium
 studio_XBITS.i386.64 =	-xchip=generic -Ui386 -U__i386
 studio_XBITS = $(studio_XBITS.$(MACH).$(BITS))
@@ -879,7 +1038,7 @@ studio_cplusplus_C99_ENABLE = 	-xlang=c99
 studio_cplusplus_C99_DISABLE =
 
 # And this is the macro you should actually use
-studio_cplusplus_C99MODE = 
+studio_cplusplus_C99MODE =
 
 # Allow zero-sized struct/union declarations and void functions with return
 # statements.
@@ -941,7 +1100,7 @@ XPG5MODE =		$(studio_XPG5MODE)
 
 # Default Studio C compiler flags.  Add the required feature to your Makefile
 # with CFLAGS += $(FEATURE_MACRO) and add to the component build with
-# CONFIGURE_OPTIONS += CFLAGS="$(CFLAGS)" or similiar.  In most cases, it
+# CONFIGURE_OPTIONS += CFLAGS="$(CFLAGS)" or similar.  In most cases, it
 # should not be necessary to add CFLAGS to any environment other than the
 # configure environment.
 CFLAGS.studio +=	$(studio_OPT) $(studio_XBITS) $(studio_XREGS) \
@@ -950,7 +1109,7 @@ CFLAGS.studio +=	$(studio_OPT) $(studio_XBITS) $(studio_XREGS) \
 
 # Default Studio C++ compiler flags.  Add the required feature to your Makefile
 # with CXXFLAGS += $(FEATURE_MACRO) and add to the component build with
-# CONFIGURE_OPTIONS += CXXFLAGS="$(CXXFLAGS)" or similiar.  In most cases, it
+# CONFIGURE_OPTIONS += CXXFLAGS="$(CXXFLAGS)" or similar.  In most cases, it
 # should not be necessary to add CXXFLAGS to any environment other than the
 # configure environment.
 CXXFLAGS.studio +=	$(studio_OPT) $(studio_XBITS) $(studio_XREGS) \
@@ -959,7 +1118,7 @@ CXXFLAGS.studio +=	$(studio_OPT) $(studio_XBITS) $(studio_XREGS) \
 #
 # GNU C compiler flag sets to ease feature selection.  Add the required
 # feature to your Makefile with CFLAGS += $(FEATURE_MACRO) and add to the
-# component build with CONFIGURE_OPTIONS += CFLAGS="$(CFLAGS)" or similiar.
+# component build with CONFIGURE_OPTIONS += CFLAGS="$(CFLAGS)" or similar.
 #
 
 # gcc defaults to assuming stacks are 8 byte aligned on x86, but some
@@ -980,28 +1139,33 @@ gcc_OPT ?=		$(gcc_OPT.$(MACH).$(BITS)) \
 # GCC PIC code generation.  Use CC_PIC instead to select PIC code generation.
 gcc_PIC =	-fPIC -DPIC
 
+# Remove the build path from macros and debug information (requires GCC 9.0+).
+gcc_FIX_PATH ?= -ffile-prefix-map="$(COMPONENT_DIR)=."
+
 # Generic macro for PIC code generation.  Use this macro instead of the
 # compiler-specific variant.
 CC_PIC =		$($(COMPILER)_PIC)
 CC_PIC_ENABLE =		$(CC_PIC)
-CC_PIC_DISABLE =	
+CC_PIC_DISABLE =
 CC_PIC_MODE =		$(CC_PIC_DISABLE)
 
 # Default GNU C compiler flags.  Add the required feature to your Makefile
 # with CFLAGS += $(FEATURE_MACRO) and add to the component build with
-# CONFIGURE_OPTIONS += CFLAGS="$(CFLAGS)" or similiar.  In most cases, it
+# CONFIGURE_OPTIONS += CFLAGS="$(CFLAGS)" or similar.  In most cases, it
 # should not be necessary to add CFLAGS to any environment other than the
 # configure environment.
 CFLAGS.gcc +=	$(gcc_OPT)
 CFLAGS.gcc +=	$(gcc_XREGS)
+CFLAGS.gcc +=	$(gcc_FIX_PATH)
 
 # Default GNU C++ compiler flags.  Add the required feature to your Makefile
 # with CXXFLAGS += $(FEATURE_MACRO) and add to the component build with
-# CONFIGURE_OPTIONS += CXXFLAGS="$(CXXFLAGS)" or similiar.  In most cases, it
+# CONFIGURE_OPTIONS += CXXFLAGS="$(CXXFLAGS)" or similar.  In most cases, it
 # should not be necessary to add CXXFLAGS to any environment other than the
 # configure environment.
 CXXFLAGS.gcc +=		$(gcc_OPT)
 CXXFLAGS.gcc +=		$(gcc_XREGS)
+CXXFLAGS.gcc +=		$(gcc_FIX_PATH)
 
 # Build 32 or 64 bit objects.
 CFLAGS +=	$(CC_BITS)
@@ -1053,7 +1217,7 @@ CXXFLAGS +=	$(CXXFLAGS.$(MACH))
 #
 # Solaris linker flag sets to ease feature selection.  Add the required
 # feature to your Makefile with LDFLAGS += $(FEATURE_MACRO) and add to the
-# component build with CONFIGURE_OPTIONS += LDFLAGS="$(LDFLAGS)" or similiar.
+# component build with CONFIGURE_OPTIONS += LDFLAGS="$(LDFLAGS)" or similar.
 #
 
 # set the bittedness that we want to link
@@ -1135,8 +1299,11 @@ ADISTACK_ENABLE.sparcv9 =	-zsx=adistack=enable
 ADISTACK_DISABLE.sparcv9 =	-zsx=adistack=disable
 ADISTACK_ENABLE =		$(ADISTACK_ENABLE.$(MACH64))
 ADISTACK_DISABLE =		$(ADISTACK_DISABLE.$(MACH64))
+
+SSBD_ENABLE =			-zsx=ssbd=enable
+SSBD_DISABLE =			-zsx=ssbd=disable
 endif
- 
+
 # Enable ASLR, NXHEAP and NXSTACK by default unless target build is NO_ARCH.
 ifeq ($(strip $(BUILD_BITS)),NO_ARCH)
 ASLR_MODE= 		$(ASLR_NOT_APPLICABLE)
@@ -1293,6 +1460,7 @@ define anitya-recipe
 	@ print '# $(COMPONENT_NAME$(1)) $(COMPONENT_VERSION$(1))'
 	@ print '# $(COMPONENT_PROJECT_URL$(1))'
 	@ if [[ -n "$(COMPONENT_ANITYA_ID$(1):N/A=)" ]] ; then \
+		print '# $(ANITYA_API_URL)/$(COMPONENT_ANITYA_ID$(1))'; \
 		curl -s $(ANITYA_API_URL)/$(COMPONENT_ANITYA_ID$(1)) ; \
 		print ; \
 	else \
@@ -1310,43 +1478,29 @@ endif
 CLEAN_PATHS +=	$(BUILD_DIR)
 CLOBBER_PATHS +=	$(PROTO_DIR)
 
-#
-# Packages with tools that are required to build Userland components
-#
-REQUIRED_PACKAGES += developer/build/gnu-make
-REQUIRED_PACKAGES += developer/build/make
-REQUIRED_PACKAGES += developer/build/onbld
+ifneq ($(strip $(BUILD_BITS)),NO_ARCH)
+# Only a default dependency if component being built produces binaries.
+
 ifeq ($(COMPILER),gcc)
-REQUIRED_PACKAGES += developer/gcc-7
+REQUIRED_PACKAGES += developer/gcc-9
 endif
-ifeq ($(COMPILER),studio)
-ifneq ($(findstring /opt/solarisstudio12.4,$(CC)),)
-# If we are setup to build with an installed compiler, require the package
-# we can uncomment this when we know that pkglint can find it.
-#REQUIRED_PACKAGES += /solarisstudio/developer/solarisstudio-124
+
+# We do not add studio compiler to required packages as it is not part of
+# solaris publisher. That means that developer/opensolaris/userland would
+# not be installable without having studio publisher configured.
+
+# Almost all components need libc and linker, so let's add that
+# requirements to all components which do NOT declare
+# BUILD_BITS=NO_ARCH.
+REQUIRED_PACKAGES += system/library
+REQUIRED_PACKAGES += system/library/libc
+REQUIRED_PACKAGES += system/linker
 endif
-endif
-ifeq ($(PARFAIT_BUILD),yes)
-# uncomment this line if you need to install Parfait
-#REQUIRED_PACKAGES += developer/parfait/parfait-tools-161
-endif
-REQUIRED_PACKAGES += developer/versioning/mercurial
-REQUIRED_PACKAGES += file/gnu-findutils
-REQUIRED_PACKAGES += package/pkg
-REQUIRED_PACKAGES += runtime/python-27
+
+# Almost all components have some sort of shell script, so let's
+# add that requirement to all components here.
 REQUIRED_PACKAGES += shell/bash
 REQUIRED_PACKAGES += shell/ksh93
-REQUIRED_PACKAGES += system/linker
-REQUIRED_PACKAGES += text/gawk
-REQUIRED_PACKAGES += text/gnu-grep
-REQUIRED_PACKAGES += text/gnu-sed
-REQUIRED_PACKAGES += developer/java/jdk-8
-REQUIRED_PACKAGES += security/sudo
-
-# Only a default dependency if component being built produces binaries.
-ifneq ($(strip $(BUILD_BITS)),NO_ARCH)
-REQUIRED_PACKAGES += system/library
-endif
 
 include $(WS_MAKE_RULES)/environment.mk
 
