@@ -50,14 +50,11 @@
 #include <secdb.h>
 #include <pwd.h>
 
-#include <gconf/gconf-client.h>
-
 #include <sel_config.h>
 
 #include "selmgr-dialog.h"
 
 #define SEL_AGNT_ATOM   "_TSOL_SEL_AGNT"
-#define GCONF_KEY_TIMEDIFF   "/desktop/gnome/interface/tsoljdsselmger_timediff"
 #define MAX_WINDOWS 20
 #define TIMEOUT_VAL     120000	/* in millisecs. 2mins */
 
@@ -1676,27 +1673,9 @@ sel_mgr_init (void)
 		*/
 }
 
-static void
-timediff_notify (GConfClient *client,
-                 guint        cnxn_id,
-                 GConfEntry  *entry,
-                 gpointer     user_data)
-{
-	GConfValue *val;
-	int timediffval;
-
-	val = gconf_entry_get_value (entry);
-	timediffval = gconf_value_get_int (val);
-
-	if (timediffval > 0)
-		saved_timediffval = timediffval;
-}
-
-
 int
 main (int argc, char **argv)
 {
-	GConfClient    *conf;
 	GError         *err;
 
 	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
@@ -1713,21 +1692,7 @@ main (int argc, char **argv)
 		exit (2);
 	}
 
-	conf = gconf_client_get_default ();
 	err = NULL;
-/*
-	gconf_client_notify_add (conf,
-	                         GCONF_KEY_TIMEDIFF,
-	                         timediff_notify,
-	                         client,
-	                         NULL, &err);
-
-	if (err) {
-		g_printerr (_("There was an error adding to the notification of gconf. (%s)\n"),
-		            err->message);
-		g_error_free (err);
-	}
-*/
 	sel_mgr_init ();
 
 	gtk_main ();

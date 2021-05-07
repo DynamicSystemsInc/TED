@@ -3,7 +3,7 @@
  * Copyright (C) 2006 Novell, Inc.
  * Copyright (C) 2008 Red Hat, Inc.
  * Copyright (C) 2008 Sun Microsystems, Inc.
- * Copyright (c) 2020, Dynamic Systems, Inc.
+ * Copyright (C) 2021 Dynamic Systems, Inc.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -46,9 +46,7 @@
 
 #include <string.h>
 
-#include "gsm-gconf.h"
 #include "gsm-util.h"
-#include "gsm-manager.h"
 #include "gsm-xsmp-server.h"
 #include "gsm-store.h"
 #include "trusted.h"
@@ -327,8 +325,6 @@ main (int argc, char **argv)
         char            *display_str;
 	Display *xdisp;
 	GdkDisplay *gdisp;
-        GsmManager      *manager;
-        GsmStore        *client_store;
         GsmXsmpServer   *xsmp_server;
 	int dummy_fd, pipe_fd;
 	GIOChannel *channel;
@@ -378,15 +374,9 @@ main (int argc, char **argv)
 	XSetErrorHandler (XAgentXErrorHandler);
 
 	if (!nosession) {
- xagent_start_dbus ();        	/* Start up gconfd if not already running. */
-        	gsm_gconf_init ();
+	   xagent_start_dbus ();	/* Start up dbus if not already running. */
+	}
 
-        	gsm_gconf_check ();
-	}
-	
-	if (g_file_test (TSOLJDS_MIGRATION_SCRIPT, G_FILE_TEST_IS_EXECUTABLE)) {
-		system (TSOLJDS_MIGRATION_SCRIPT);
-	}
 	/*start the session*/
 	xagent_start_default_clients ();
 
@@ -400,8 +390,6 @@ main (int argc, char **argv)
 				      so_long_pipe);
 
         gtk_main ();
-
-        gsm_gconf_shutdown ();
 
         return 0;
 }
