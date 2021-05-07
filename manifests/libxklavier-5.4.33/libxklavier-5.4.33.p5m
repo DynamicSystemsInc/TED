@@ -1,0 +1,141 @@
+set name=pkg.fmri value=library/desktop/libxklavier@5.0-11.4.33.0.1.94.0
+set name=pkg.summary value="XKB utility library"
+set name=com.oracle.info.name value=libxklavier
+set name=com.oracle.info.version value=5.4
+set name=info.classification \
+    value=org.opensolaris.category.2008:System/Libraries
+set name=info.source-url \
+    value=https://cgit.freedesktop.org/libxklavier/snapshot/libxklavier-5.4.tar.xz
+set name=info.upstream-url \
+    value=https://www.freedesktop.org/wiki/Software/LibXklavier/
+set name=org.opensolaris.consolidation value=userland
+set name=variant.arch value=i386
+dir  path=usr owner=root group=sys mode=0755
+dir  path=usr/include owner=root group=bin mode=0755
+dir  path=usr/include/libxklavier owner=root group=bin mode=0755
+file ../../../files/audit_class path=etc/security/audit_class owner=root \
+    group=root mode=0644 overlay=true preserve=renameold
+file ../../../files/audit_event path=etc/security/audit_event owner=root \
+    group=root mode=0644 overlay=true preserve=renameold
+file ../../../files/policy.conf \
+    path=etc/security/policy.conf owner=root \
+    group=root mode=0644 overlay=true preserve=renameold
+file usr/include/libxklavier/xkl-enum-types.h \
+    path=usr/include/libxklavier/xkl-enum-types.h owner=root group=bin \
+    mode=0644
+file usr/include/libxklavier/xkl_config_item.h \
+    path=usr/include/libxklavier/xkl_config_item.h owner=root group=bin \
+    mode=0644
+file usr/include/libxklavier/xkl_config_rec.h \
+    path=usr/include/libxklavier/xkl_config_rec.h owner=root group=bin \
+    mode=0644
+file usr/include/libxklavier/xkl_config_registry.h \
+    path=usr/include/libxklavier/xkl_config_registry.h owner=root group=bin \
+    mode=0644
+file usr/include/libxklavier/xkl_engine.h \
+    path=usr/include/libxklavier/xkl_engine.h owner=root group=bin mode=0644
+file usr/include/libxklavier/xkl_engine_marshal.h \
+    path=usr/include/libxklavier/xkl_engine_marshal.h owner=root group=bin \
+    mode=0644
+file usr/include/libxklavier/xklavier.h \
+    path=usr/include/libxklavier/xklavier.h owner=root group=bin mode=0644
+dir  path=usr/lib owner=root group=bin mode=0755
+dir  path=usr/lib/amd64 owner=root group=bin mode=0755
+dir  path=usr/lib/amd64/girepository-1.0 owner=root group=bin mode=0755
+file usr/lib/amd64/girepository-1.0/Xkl-1.0.typelib \
+    path=usr/lib/amd64/girepository-1.0/Xkl-1.0.typelib owner=root group=bin \
+    mode=0644
+file usr/lib/amd64/libxklavier.la path=usr/lib/amd64/libxklavier.la owner=root \
+    group=bin mode=0755
+link path=usr/lib/amd64/libxklavier.so target=libxklavier.so.16.4.0
+link path=usr/lib/amd64/libxklavier.so.16 target=libxklavier.so.16.4.0
+link path=usr/lib/amd64/libgtop-2.0.so.10 target=libgtop-2.0.so.11.0.1
+file usr/lib/amd64/libxklavier.so.16.4.0 \
+    path=usr/lib/amd64/libxklavier.so.16.4.0 owner=root group=bin mode=0755
+dir  path=usr/lib/amd64/pkgconfig owner=root group=other mode=0755
+file usr/lib/amd64/pkgconfig/libxklavier.pc \
+    path=usr/lib/amd64/pkgconfig/libxklavier.pc owner=root group=bin mode=0644
+dir  path=usr/lib/girepository-1.0 owner=root group=bin mode=0755
+file usr/lib/girepository-1.0/Xkl-1.0.typelib \
+    path=usr/lib/girepository-1.0/Xkl-1.0.typelib owner=root group=bin \
+    mode=0644
+file usr/lib/libxklavier.la path=usr/lib/libxklavier.la owner=root group=bin \
+    mode=0755
+link path=usr/lib/libxklavier.so target=libxklavier.so.16.4.0
+link path=usr/lib/libxklavier.so.16 target=libxklavier.so.16.4.0
+file usr/lib/libxklavier.so.16.4.0 path=usr/lib/libxklavier.so.16.4.0 \
+    owner=root group=bin mode=0755
+dir  path=usr/lib/pkgconfig owner=root group=other mode=0755
+file usr/lib/pkgconfig/libxklavier.pc path=usr/lib/pkgconfig/libxklavier.pc \
+    owner=root group=bin mode=0644
+dir  path=usr/share owner=root group=sys mode=0755
+dir  path=usr/share/gir-1.0 owner=root group=other mode=0755
+file usr/share/gir-1.0/Xkl-1.0.gir path=usr/share/gir-1.0/Xkl-1.0.gir \
+    owner=root group=bin mode=0644
+dir  path=usr/share/gtk-doc owner=root group=other mode=0755
+dir  path=usr/share/gtk-doc/html owner=root group=other mode=0755
+dir  path=usr/share/gtk-doc/html/libxklavier owner=root group=other mode=0755
+file usr/share/gtk-doc/html/libxklavier/XklConfigItem.html \
+    path=usr/share/gtk-doc/html/libxklavier/XklConfigItem.html owner=root \
+    group=bin mode=0644
+file usr/share/gtk-doc/html/libxklavier/XklConfigRec.html \
+    path=usr/share/gtk-doc/html/libxklavier/XklConfigRec.html owner=root \
+    group=bin mode=0644
+file usr/share/gtk-doc/html/libxklavier/XklConfigRegistry.html \
+    path=usr/share/gtk-doc/html/libxklavier/XklConfigRegistry.html owner=root \
+    group=bin mode=0644
+file usr/share/gtk-doc/html/libxklavier/ch01.html \
+    path=usr/share/gtk-doc/html/libxklavier/ch01.html owner=root group=bin \
+    mode=0644
+file usr/share/gtk-doc/html/libxklavier/ch02.html \
+    path=usr/share/gtk-doc/html/libxklavier/ch02.html owner=root group=bin \
+    mode=0644
+file usr/share/gtk-doc/html/libxklavier/home.png \
+    path=usr/share/gtk-doc/html/libxklavier/home.png owner=root group=bin \
+    mode=0644
+file usr/share/gtk-doc/html/libxklavier/index.html \
+    path=usr/share/gtk-doc/html/libxklavier/index.html owner=root group=bin \
+    mode=0644
+file usr/share/gtk-doc/html/libxklavier/left-insensitive.png \
+    path=usr/share/gtk-doc/html/libxklavier/left-insensitive.png owner=root \
+    group=bin mode=0644
+file usr/share/gtk-doc/html/libxklavier/left.png \
+    path=usr/share/gtk-doc/html/libxklavier/left.png owner=root group=bin \
+    mode=0644
+file usr/share/gtk-doc/html/libxklavier/libxklavier-xkl-engine.html \
+    path=usr/share/gtk-doc/html/libxklavier/libxklavier-xkl-engine.html \
+    owner=root group=bin mode=0644
+file usr/share/gtk-doc/html/libxklavier/libxklavier-xklavier.html \
+    path=usr/share/gtk-doc/html/libxklavier/libxklavier-xklavier.html \
+    owner=root group=bin mode=0644
+file usr/share/gtk-doc/html/libxklavier/libxklavier.devhelp2 \
+    path=usr/share/gtk-doc/html/libxklavier/libxklavier.devhelp2 owner=root \
+    group=bin mode=0644
+file usr/share/gtk-doc/html/libxklavier/right-insensitive.png \
+    path=usr/share/gtk-doc/html/libxklavier/right-insensitive.png owner=root \
+    group=bin mode=0644
+file usr/share/gtk-doc/html/libxklavier/right.png \
+    path=usr/share/gtk-doc/html/libxklavier/right.png owner=root group=bin \
+    mode=0644
+file usr/share/gtk-doc/html/libxklavier/style.css \
+    path=usr/share/gtk-doc/html/libxklavier/style.css owner=root group=bin \
+    mode=0644
+file usr/share/gtk-doc/html/libxklavier/up-insensitive.png \
+    path=usr/share/gtk-doc/html/libxklavier/up-insensitive.png owner=root \
+    group=bin mode=0644
+file usr/share/gtk-doc/html/libxklavier/up.png \
+    path=usr/share/gtk-doc/html/libxklavier/up.png owner=root group=bin \
+    mode=0644
+dir  path=usr/share/vala owner=root group=sys mode=0755
+dir  path=usr/share/vala/vapi owner=root group=sys mode=0755
+file usr/share/vala/vapi/libxklavier.deps \
+    path=usr/share/vala/vapi/libxklavier.deps owner=root group=bin mode=0644
+file usr/share/vala/vapi/libxklavier.vapi \
+    path=usr/share/vala/vapi/libxklavier.vapi owner=root group=bin mode=0644
+depend fmri=pkg:/library/glib2 type=require
+depend fmri=pkg:/library/libxml2 type=require
+depend fmri=pkg:/system/library type=require
+depend fmri=pkg:/x11/library/libx11 type=require
+depend fmri=pkg:/x11/library/libxi type=require
+depend fmri=pkg:/x11/library/libxkbfile type=require
+depend fmri=pkg:/library/libgtop@2.40.0,11.4-11.4.21.0.1.69.0 type=require
