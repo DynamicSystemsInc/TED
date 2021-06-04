@@ -1,0 +1,203 @@
+diff -ur xscreensaver-5.39/driver/Makefile.in xscreensaver-5.39/driver/Makefile.in
+--- xscreensaver-5.39/driver/Makefile.in	2021-05-06 23:12:10.436306575 +0000
++++ xscreensaver-5.39/driver/Makefile.in	2021-05-06 23:42:49.619820205 +0000
+@@ -809,7 +808,7 @@
+ #
+ xscreensaver: $(SAVER_OBJS)
+ 	$(CC) $(LDFLAGS) -o $@ $(SAVER_OBJS) $(SAVER_LIBS) $(INTL_LIBS) \
+-	-lgconf-2 -lgobject-2.0 -lglib-2.0
++	-lgobject-2.0 -lglib-2.0
+ 
+ xscreensaver-command: $(CMD_OBJS)
+ 	$(CC) $(LDFLAGS) -o $@ $(CMD_OBJS) $(CMD_LIBS)
+diff -ur xscreensaver-5.39/driver/demo-Gtk.c xscreensaver-5.39/driver/demo-Gtk.c
+--- xscreensaver-5.39/driver/demo-Gtk.c	2021-05-06 23:12:10.433848388 +0000
++++ xscreensaver-5.39/driver/demo-Gtk.c	2021-05-06 23:14:34.104016602 +0000
+@@ -97,8 +97,6 @@
+ # define G_MODULE_EXPORT /**/
+ #endif /* !HAVE_GTK2 */
+ 
+-#include <gconf/gconf-client.h>
+-
+ #if defined(DEFAULT_ICONDIR) && !defined(GLADE_DIR)
+ # define GLADE_DIR DEFAULT_ICONDIR
+ #endif
+@@ -5105,22 +5103,6 @@
+   load_init_file (dpy, p);
+   initialize_sort_map (s);
+ 
+-  /* Bug 147639: Gok cant automatically UI grab screensaver preferences */
+-  {
+-    GConfClient *client = gconf_client_get_default ();
+-
+-#define KEY "/desktop/gnome/interface/accessibility"
+-
+-    /* check if accessibilty mode is enabled */
+-    if (gconf_client_get_bool (client, KEY, NULL))
+-      {
+-	/* GTK Accessibility Module initialized */
+-	const char *modulesptr = g_getenv ("GTK_MODULES");
+-	if (!modulesptr || (modulesptr [0] == '\0'))
+-	  putenv ("GTK_MODULES=gail:atk-bridge");
+-      }
+-  }
+-
+   /* Now that Xt has been initialized, and the resources have been read,
+      we can set our `progname' variable to something more in line with
+      reality.
+diff -ur xscreensaver-5.39/driver/lock-Gtk.c xscreensaver-5.39/driver/lock-Gtk.c
+--- xscreensaver-5.39/driver/lock-Gtk.c	2021-05-06 23:12:10.435109781 +0000
++++ xscreensaver-5.39/driver/lock-Gtk.c	2021-05-06 23:15:50.789532579 +0000
+@@ -65,7 +65,6 @@
+ #include <X11/Xutil.h>
+ #include <X11/Xmu/WinUtil.h>
+ 
+-#include <gconf/gconf-client.h>
+ #include <atk/atkobject.h>
+ 
+ #include "remote.h"
+@@ -654,7 +653,6 @@
+   PasswdDialog *pwd;
+   char *s;
+   char *real_progname = argv[0];
+-  GConfClient *client;
+   const char *modulesptr = NULL;
+   int i;
+   const char *locale = NULL;
+@@ -710,28 +708,6 @@
+   */
+   putenv ("GTK_IM_MODULE=gtk-im-context-simple");
+ 
+-
+-  /* accessibility mode enabled ? */
+-  client = gconf_client_get_default ();
+-  at_enable = gconf_client_get_bool (client,
+-                                     "/desktop/gnome/interface/accessibility",
+-                                     NULL);
+-  if (at_enable)
+-    {
+-
+-      /* GTK Accessibility Module initialized */
+-      modulesptr = g_getenv ("GTK_MODULES");
+-      if (!modulesptr || modulesptr [0] == '\0')
+-        putenv ("GTK_MODULES=gail:atk-bridge");
+-
+-      /*
+-       * 6182506: unlock dialog can be obscured by the magnifier window
+-       * if it's always centered, so don't force that if any accessibility
+-       * helpers are present
+-       */
+-      center_position = FALSE;
+-    } /* accessibility enabled */
+-
+   pwd = make_dialog (center_position);
+   connect_signals (pwd);
+ 
+diff -ur xscreensaver-5.39/driver/lock.c xscreensaver-5.39/driver/lock.c
+--- xscreensaver-5.39/driver/lock.c	2021-05-06 23:12:10.435454195 +0000
++++ xscreensaver-5.39/driver/lock.c	2021-05-06 23:20:55.028236387 +0000
+@@ -25,7 +25,6 @@
+ #include <time.h>
+ #include <sys/time.h>
+ #include <errno.h>
+-#include <gconf/gconf-client.h>
+ #include "exec.h"
+ #include "dialog-data.h"
+ #include "xscreensaver.h"
+@@ -127,14 +126,8 @@
+ 
+ Bool g_passwd_dialog_created = 0;
+ 
+-GConfClient *client = NULL;
+-
+-static const char *switch_windows_gconf_key
+-  = "/apps/metacity/global_keybindings/switch_windows";
+ static char  *global_switch_key = NULL;
+ 
+-static const char *main_menu_gconf_key
+-  = "/apps/metacity/global_keybindings/panel_main_menu";
+ static char  *global_menu_key = NULL;
+ 
+ extern Bool safe_XDestroyWindow (Display *dpy, Window window);
+@@ -452,29 +445,6 @@
+          Other window managers are likely to be risky to use in this case.
+       */
+ 
+-      if (client == NULL)
+-        client = gconf_client_get_default();
+-
+-      if (global_switch_key == NULL)
+-        {
+-          global_switch_key =
+-            gconf_client_get_string (client, switch_windows_gconf_key, NULL);
+-
+-          if (global_switch_key && strncmp (global_switch_key, "dis", 3))
+-            gconf_client_set_string (client, switch_windows_gconf_key,
+-                                     "disabled", NULL);
+-        }
+-
+-      if (global_menu_key == NULL)
+-        {
+-          global_menu_key =
+-            gconf_client_get_string (client, main_menu_gconf_key, NULL);
+-
+-          if (global_menu_key && strncmp(global_menu_key, "dis", 3))
+-            gconf_client_set_string (client, main_menu_gconf_key,
+-                                     "disabled", NULL);
+-        }
+-
+       XUngrabKeyboard (si->dpy, CurrentTime);
+       XFlush (si->dpy);
+     }
+@@ -1948,25 +1918,6 @@
+       si->pw_data->got_windowid = False;
+       si->external_passwd = False;
+ 
+-      /* restore any metacity keys we temporarily disabled */
+-      if (client)
+-        {
+-          if (global_switch_key)
+-            {
+-              gconf_client_set_string (client, switch_windows_gconf_key,
+-                                       global_switch_key, NULL);
+-              g_free(global_switch_key);
+-              global_switch_key = NULL;
+-            }
+-
+-          if (global_menu_key)
+-            {
+-              gconf_client_set_string (client, main_menu_gconf_key,
+-                                       global_menu_key, NULL);
+-              g_free(global_menu_key);
+-              global_menu_key = NULL;
+-            }
+-        }
+     }
+ #endif /* HAVE_XSCREENSAVER_LOCK */
+ 
+diff -ur xscreensaver-5.39/driver/xscreensaver.c xscreensaver-5.39/driver/xscreensaver.c
+--- xscreensaver-5.39/driver/xscreensaver.c	2021-05-06 23:12:10.434929537 +0000
++++ xscreensaver-5.39/driver/xscreensaver.c	2021-05-06 23:18:25.502430369 +0000
+@@ -165,7 +165,6 @@
+ #include <X11/StringDefs.h>
+ #include <X11/Shell.h>
+ #include <X11/Xos.h>
+-#include <gconf/gconf-client.h>
+ #include <glib.h>
+ #include <time.h>
+ #include <sys/time.h>
+@@ -1220,14 +1219,6 @@
+   ** GTK_MODULES is set only if at support is enabled
+   */
+ 
+-  if (gconf_client_get_bool(gconf_client_get_default(),
+-			    "/desktop/gnome/interface/accessibility", NULL))
+-    {
+-      modulesptr = getenv ("GTK_MODULES");
+-      if (!modulesptr || modulesptr [0] == '\0')
+-	putenv ("GTK_MODULES=gail:atk-bridge");
+-    }
+-
+   while (1)
+     {
+       Bool was_locked = False;

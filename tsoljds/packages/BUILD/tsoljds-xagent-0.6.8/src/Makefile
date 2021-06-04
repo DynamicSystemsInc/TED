@@ -65,15 +65,15 @@ test_inhibit_OBJECTS = $(am_test_inhibit_OBJECTS)
 test_inhibit_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1)
 am_tsoljds_xagent_OBJECTS = gsm-app.$(OBJEXT) \
-	gsm-autostart-app.$(OBJEXT) gsm-client.$(OBJEXT) \
+	gsm-client.$(OBJEXT) \
 	gsm-xsmp-client.$(OBJEXT) gsm-dbus-client.$(OBJEXT) \
 	gsm-marshal.$(OBJEXT) gsm-consolekit.$(OBJEXT) \
 	gsm-logout-dialog.$(OBJEXT) gsm-inhibit-dialog.$(OBJEXT) \
 	gsm-power-manager.$(OBJEXT) gs-idle-monitor.$(OBJEXT) \
-	gsm-presence.$(OBJEXT) gsm-gconf.$(OBJEXT) gdm.$(OBJEXT) \
+	gsm-presence.$(OBJEXT) gdm.$(OBJEXT) \
 	gdm-signal-handler.$(OBJEXT) gdm-log.$(OBJEXT) \
 	xagent.$(OBJEXT) gsm-store.$(OBJEXT) gsm-inhibitor.$(OBJEXT) \
-	gsm-manager.$(OBJEXT) gsm-session-save.$(OBJEXT) \
+	gsm-session-save.$(OBJEXT) \
 	gsm-xsmp-server.$(OBJEXT) $(am__objects_1)
 tsoljds_xagent_OBJECTS = $(am_tsoljds_xagent_OBJECTS)
 tsoljds_xagent_DEPENDENCIES = libgsmutil.la \
@@ -142,12 +142,6 @@ EGREP = /usr/gnu/bin/grep -E
 EXECINFO_LIBS = 
 EXEEXT = 
 FGREP = /usr/gnu/bin/grep -F
-GCONFTOOL = /usr/bin/gconftool-2
-GCONF_CFLAGS = -DORBIT2=1 -D_REENTRANT -D_PTHREADS -I/usr/include/gconf/2 -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include  
-GCONF_LIBS = -L/usr/lib/amd64 -lgconf-2 -lglib-2.0  
-GCONF_SANITY_CHECK = /usr/lib/gconf-sanity-check-2
-GCONF_SCHEMA_CONFIG_SOURCE = xml:merged:/etc/gconf/gconf.xml.defaults
-GCONF_SCHEMA_FILE_DIR = $(sysconfdir)/gconf/schemas
 GETTEXT_PACKAGE = gnome-session-2.0
 GLIB_GENMARSHAL = /usr/bin/glib-genmarshal
 GMOFILES = 
@@ -215,8 +209,8 @@ SET_MAKE =
 SHELL = /bin/sh
 SM_CFLAGS =  
 SM_LIBS = -lSM  
-SPLASH_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_PTHREADS -DORBIT2=1 -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/lib/amd64/gtk-3.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include -I/usr/include/startup-notification-1.0 -I/usr/include/gconf/2 -I/usr/include/orbit-2.0  
-SPLASH_LIBS = -L/usr/lib/amd64 -lgtk-3 -lsecdb -ltsol -lgdk-3 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lfreetype -lfontconfig -lgmodule-2.0 -ldbus-glib-1 -ldbus-1 -lgobject-2.0 -lgthread-2.0 -lpthread -lstartup-notification-1 -lgconf-2 -lglib-2.0  
+SPLASH_CFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -D_PTHREADS -DORBIT2=1 -I/usr/include/glib-2.0 -I/usr/lib/amd64/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/lib/amd64/gtk-3.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/dbus-1.0 -I/usr/lib/amd64/dbus-1.0/include -I/usr/include/startup-notification-1.0 -I/usr/include/orbit-2.0  
+SPLASH_LIBS = -L/usr/lib/amd64 -lgtk-3 -lsecdb -ltsol -lgdk-3 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lfreetype -lfontconfig -lgmodule-2.0 -ldbus-glib-1 -ldbus-1 -lgobject-2.0 -lgthread-2.0 -lpthread -lstartup-notification-1 -lglib-2.0  
 STRIP = strip
 USE_NLS = yes
 VERSION = 2.30.2
@@ -296,19 +290,16 @@ INCLUDES = \
 	$(ICE_CFLAGS)				\
 	$(XEXT_CFLAGS)				\
 	$(GNOME_SESSION_CFLAGS)			\
-	$(GCONF_CFLAGS)				\
 	-I$(top_srcdir)/egg			\
 	-DLOCALE_DIR=\""$(datadir)/locale"\"	\
 	-DDATA_DIR=\""$(datadir)/gnome-session"\" \
 	-DDBUS_LAUNCH=\"dbus-launch\"		\
 	-DLIBEXECDIR=\"$(libexecdir)\"		\
 	-DGTKBUILDER_DIR=\""$(pkgdatadir)"\"		\
-	-DGCONF_SANITY_CHECK=\""$(GCONF_SANITY_CHECK)"\" \
-	-DGCONFTOOL_CMD=\"$(GCONFTOOL)\"	\
 	-DI_KNOW_THE_DEVICEKIT_POWER_API_IS_SUBJECT_TO_CHANGE
 
 configdir = $(datadir)/gtk-3.0
-config_DATA = settings.ini auto_homedir audit_class audit_event
+config_DATA = settings.ini auto_homedir
 
 test_inhibit_SOURCES = \
 	test-inhibit.c	\
@@ -333,7 +324,6 @@ tsoljds_xagent_LDADD = \
 	$(ICE_LIBS)				\
 	-lsecdb					\
 	$(GNOME_SESSION_LIBS)			\
-	$(GCONF_LIBS)				\
 	$(XRENDER_LIBS)				\
 	$(XTEST_LIBS)				\
 	$(XEXT_LIBS)				\
@@ -343,8 +333,6 @@ tsoljds_xagent_LDADD = \
 tsoljds_xagent_SOURCES = \
 	gsm-app.h				\
 	gsm-app.c				\
-	gsm-autostart-app.h			\
-	gsm-autostart-app.c			\
 	gsm-client.c				\
 	gsm-client.h				\
 	gsm-xsmp-client.h			\
@@ -359,14 +347,10 @@ tsoljds_xagent_SOURCES = \
 	gsm-logout-dialog.c			\
 	gsm-inhibit-dialog.h			\
 	gsm-inhibit-dialog.c			\
-	gsm-power-manager.h			\
-	gsm-power-manager.c			\
 	gs-idle-monitor.h			\
 	gs-idle-monitor.c			\
 	gsm-presence.h				\
 	gsm-presence.c				\
-	gsm-gconf.c				\
-	gsm-gconf.h				\
 	gdm.h					\
 	gdm.c					\
 	gdm-signal-handler.h			\
@@ -378,8 +362,6 @@ tsoljds_xagent_SOURCES = \
 	gsm-store.c				\
 	gsm-inhibitor.h				\
 	gsm-inhibitor.c				\
-	gsm-manager.c				\
-	gsm-manager.h				\
 	gsm-session-save.c			\
 	gsm-session-save.h			\
 	gsm-xsmp-server.c			\
@@ -523,15 +505,12 @@ include ./$(DEPDIR)/gdm-signal-handler.Po
 include ./$(DEPDIR)/gdm.Po
 include ./$(DEPDIR)/gs-idle-monitor.Po
 include ./$(DEPDIR)/gsm-app.Po
-include ./$(DEPDIR)/gsm-autostart-app.Po
 include ./$(DEPDIR)/gsm-client.Po
 include ./$(DEPDIR)/gsm-consolekit.Po
 include ./$(DEPDIR)/gsm-dbus-client.Po
-include ./$(DEPDIR)/gsm-gconf.Po
 include ./$(DEPDIR)/gsm-inhibit-dialog.Po
 include ./$(DEPDIR)/gsm-inhibitor.Po
 include ./$(DEPDIR)/gsm-logout-dialog.Po
-include ./$(DEPDIR)/gsm-manager.Po
 include ./$(DEPDIR)/gsm-marshal.Po
 include ./$(DEPDIR)/gsm-power-manager.Po
 include ./$(DEPDIR)/gsm-presence.Po

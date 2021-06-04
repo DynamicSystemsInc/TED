@@ -16,15 +16,12 @@ INCLUDES =					\
 	$(ICE_CFLAGS)				\
 	$(XEXT_CFLAGS)				\
 	$(GNOME_SESSION_CFLAGS)			\
-	$(GCONF_CFLAGS)				\
 	-I$(top_srcdir)/egg			\
 	-DLOCALE_DIR=\""$(datadir)/locale"\"	\
 	-DDATA_DIR=\""$(datadir)/gnome-session"\" \
 	-DDBUS_LAUNCH=\"dbus-launch\"		\
 	-DLIBEXECDIR=\"$(libexecdir)\"		\
 	-DGTKBUILDER_DIR=\""$(pkgdatadir)"\"		\
-	-DGCONF_SANITY_CHECK=\""$(GCONF_SANITY_CHECK)"\" \
-	-DGCONFTOOL_CMD=\"$(GCONFTOOL)\"	\
 	-DI_KNOW_THE_DEVICEKIT_POWER_API_IS_SUBJECT_TO_CHANGE
 
 test_inhibit_SOURCES = 	\
@@ -50,7 +47,6 @@ tsoljds_xagent_LDADD =				\
 	$(ICE_LIBS)				\
 	-lsecdb					\
 	$(GNOME_SESSION_LIBS)			\
-	$(GCONF_LIBS)				\
 	$(XRENDER_LIBS)				\
 	$(XTEST_LIBS)				\
 	$(XEXT_LIBS)				\
@@ -60,8 +56,6 @@ tsoljds_xagent_LDADD =				\
 tsoljds_xagent_SOURCES =				\
 	gsm-app.h				\
 	gsm-app.c				\
-	gsm-autostart-app.h			\
-	gsm-autostart-app.c			\
 	gsm-client.c				\
 	gsm-client.h				\
 	gsm-xsmp-client.h			\
@@ -76,14 +70,10 @@ tsoljds_xagent_SOURCES =				\
 	gsm-logout-dialog.c			\
 	gsm-inhibit-dialog.h			\
 	gsm-inhibit-dialog.c			\
-	gsm-power-manager.h			\
-	gsm-power-manager.c			\
 	gs-idle-monitor.h			\
 	gs-idle-monitor.c			\
 	gsm-presence.h				\
 	gsm-presence.c				\
-	gsm-gconf.c				\
-	gsm-gconf.h				\
 	gdm.h					\
 	gdm.c					\
 	gdm-signal-handler.h			\
@@ -95,8 +85,6 @@ tsoljds_xagent_SOURCES =				\
 	gsm-store.c				\
 	gsm-inhibitor.h				\
 	gsm-inhibitor.c				\
-	gsm-manager.c				\
-	gsm-manager.h				\
 	gsm-session-save.c			\
 	gsm-session-save.h			\
 	gsm-xsmp-server.c			\

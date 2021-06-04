@@ -153,7 +153,6 @@ PERL_SCRIPTS= \
 	$(PROTOUSRBINDIR)/xscreensaver-getimage-video \
 	$(PROTOUSRBINDIR)/xscreensaver-text
 
-REQUIRED_PACKAGES += gnome/config/gconf
 REQUIRED_PACKAGES += image/library/libjpeg
 REQUIRED_PACKAGES += image/library/libpng14
 REQUIRED_PACKAGES += library/desktop/atk

@@ -65,15 +65,15 @@ test_inhibit_OBJECTS = $(am_test_inhibit_OBJECTS)
 test_inhibit_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1)
 am_tsoljds_xagent_OBJECTS = gsm-app.$(OBJEXT) \
-	gsm-autostart-app.$(OBJEXT) gsm-client.$(OBJEXT) \
+	gsm-client.$(OBJEXT) \
 	gsm-xsmp-client.$(OBJEXT) gsm-dbus-client.$(OBJEXT) \
 	gsm-marshal.$(OBJEXT) gsm-consolekit.$(OBJEXT) \
 	gsm-logout-dialog.$(OBJEXT) gsm-inhibit-dialog.$(OBJEXT) \
 	gsm-power-manager.$(OBJEXT) gs-idle-monitor.$(OBJEXT) \
-	gsm-presence.$(OBJEXT) gsm-gconf.$(OBJEXT) gdm.$(OBJEXT) \
+	gsm-presence.$(OBJEXT) gdm.$(OBJEXT) \
 	gdm-signal-handler.$(OBJEXT) gdm-log.$(OBJEXT) \
 	xagent.$(OBJEXT) gsm-store.$(OBJEXT) gsm-inhibitor.$(OBJEXT) \
-	gsm-manager.$(OBJEXT) gsm-session-save.$(OBJEXT) \
+	 gsm-session-save.$(OBJEXT) \
 	gsm-xsmp-server.$(OBJEXT) $(am__objects_1)
 tsoljds_xagent_OBJECTS = $(am_tsoljds_xagent_OBJECTS)
 tsoljds_xagent_DEPENDENCIES = libgsmutil.la \
@@ -140,12 +140,6 @@ EGREP = @EGREP@
 EXECINFO_LIBS = @EXECINFO_LIBS@
 EXEEXT = @EXEEXT@
 FGREP = @FGREP@
-GCONFTOOL = @GCONFTOOL@
-GCONF_CFLAGS = @GCONF_CFLAGS@
-GCONF_LIBS = @GCONF_LIBS@
-GCONF_SANITY_CHECK = @GCONF_SANITY_CHECK@
-GCONF_SCHEMA_CONFIG_SOURCE = @GCONF_SCHEMA_CONFIG_SOURCE@
-GCONF_SCHEMA_FILE_DIR = @GCONF_SCHEMA_FILE_DIR@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GLIB_GENMARSHAL = @GLIB_GENMARSHAL@
 GMOFILES = @GMOFILES@
@@ -294,15 +288,12 @@ INCLUDES = \
 	$(ICE_CFLAGS)				\
 	$(XEXT_CFLAGS)				\
 	$(GNOME_SESSION_CFLAGS)			\
-	$(GCONF_CFLAGS)				\
 	-I$(top_srcdir)/egg			\
 	-DLOCALE_DIR=\""$(datadir)/locale"\"	\
 	-DDATA_DIR=\""$(datadir)/gnome-session"\" \
 	-DDBUS_LAUNCH=\"dbus-launch\"		\
 	-DLIBEXECDIR=\"$(libexecdir)\"		\
 	-DGTKBUILDER_DIR=\""$(pkgdatadir)"\"		\
-	-DGCONF_SANITY_CHECK=\""$(GCONF_SANITY_CHECK)"\" \
-	-DGCONFTOOL_CMD=\"$(GCONFTOOL)\"	\
 	-DI_KNOW_THE_DEVICEKIT_POWER_API_IS_SUBJECT_TO_CHANGE
 
 test_inhibit_SOURCES = \
@@ -328,7 +319,6 @@ tsoljds_xagent_LDADD = \
 	$(ICE_LIBS)				\
 	-lsecdb					\
 	$(GNOME_SESSION_LIBS)			\
-	$(GCONF_LIBS)				\
 	$(XRENDER_LIBS)				\
 	$(XTEST_LIBS)				\
 	$(XEXT_LIBS)				\
@@ -338,8 +328,6 @@ tsoljds_xagent_LDADD = \
 tsoljds_xagent_SOURCES = \
 	gsm-app.h				\
 	gsm-app.c				\
-	gsm-autostart-app.h			\
-	gsm-autostart-app.c			\
 	gsm-client.c				\
 	gsm-client.h				\
 	gsm-xsmp-client.h			\
@@ -360,8 +348,6 @@ tsoljds_xagent_SOURCES = \
 	gs-idle-monitor.c			\
 	gsm-presence.h				\
 	gsm-presence.c				\
-	gsm-gconf.c				\
-	gsm-gconf.h				\
 	gdm.h					\
 	gdm.c					\
 	gdm-signal-handler.h			\
@@ -373,8 +359,6 @@ tsoljds_xagent_SOURCES = \
 	gsm-store.c				\
 	gsm-inhibitor.h				\
 	gsm-inhibitor.c				\
-	gsm-manager.c				\
-	gsm-manager.h				\
 	gsm-session-save.c			\
 	gsm-session-save.h			\
 	gsm-xsmp-server.c			\
@@ -517,15 +501,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gdm.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gs-idle-monitor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-app.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-autostart-app.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-client.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-consolekit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-dbus-client.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-gconf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-inhibit-dialog.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-inhibitor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-logout-dialog.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-manager.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-marshal.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-power-manager.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gsm-presence.Po@am__quote@

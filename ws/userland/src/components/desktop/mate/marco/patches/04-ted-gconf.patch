@@ -1,0 +1,863 @@
+--- a/configure.ac	2020-05-21 19:52:45.000000000 +0000
++++ b/configure.ac	2021-05-04 21:01:40.093049184 +0000
+@@ -321,7 +321,7 @@
+ fi
+ 
+ CPPFLAGS="$marco_save_cppflags"
+-CPPFLAGS="$CPPFLAGS -I/usr/include/gconf/2"
++CPPFLAGS="$CPPFLAGS"
+ 
+ SHAPE_LIBS=
+ found_shape=no
+@@ -404,7 +404,7 @@
+    AC_DEFINE(HAVE_PRESENT, , [Have the Xpresent extension library])
+ fi
+ 
+-MARCO_LIBS="$MARCO_LIBS $XSYNC_LIBS $RANDR_LIBS $SHAPE_LIBS $XPRESENT_LIBS $X_LIBS $X_PRE_LIBS -lX11 $X_EXTRA_LIBS -lm -lgconf-2"
++MARCO_LIBS="$MARCO_LIBS $XSYNC_LIBS $RANDR_LIBS $SHAPE_LIBS $XPRESENT_LIBS $X_LIBS $X_PRE_LIBS -lX11 $X_EXTRA_LIBS -lm"
+ MARCO_MESSAGE_LIBS="$MARCO_MESSAGE_LIBS $X_LIBS $X_PRE_LIBS -lX11 $X_EXTRA_LIBS"
+ MARCO_WINDOW_DEMO_LIBS="$MARCO_WINDOW_DEMO_LIBS $X_LIBS $X_PRE_LIBS -lX11 $X_EXTRA_LIBS"
+ MARCO_PROPS_LIBS="$MARCO_PROPS_LIBS $X_LIBS $X_PRE_LIBS -lX11 $X_EXTRA_LIBS"
+--- a/src/core/prefs.c	2020-05-21 19:52:45.000000000 +0000
++++ b/src/core/prefs.c	2021-05-07 16:19:24.433531498 +0000
+@@ -27,8 +27,6 @@
+ #include "prefs.h"
+ #ifdef HAVE_XTSOL
+ #include "trusted.h"
+-#define HAVE_GCONF
+-#include <gconf/gconf-client.h>
+ #endif /* HAVE_XTSOL */
+ #include "ui.h"
+ #include "util.h"
+@@ -68,6 +66,14 @@
+ #define KEY_WORKSPACE_NAME_SCHEMA "org.mate.Marco.workspace-names"
+ #define KEY_WORKSPACE_NAME_PREFIX "name-"
+ 
++#ifdef HAVE_XTSOL
++#define KEY_WORKSPACE_LABEL_SCHEMA "org.mate.Marco.workspace-labels"
++#define KEY_WORKSPACE_LABEL_PREFIX "label-"
++
++#define KEY_WORKSPACE_ROLE_SCHEMA "org.mate.Marco.workspace-roles"
++#define KEY_WORKSPACE_ROLE_PREFIX "role-"
++#endif /* HAVE_XTSOL */
++
+ #define KEY_MATE_INTERFACE_SCHEMA "org.mate.interface"
+ #define KEY_MATE_INTERFACE_ACCESSIBILITY "accessibility"
+ #define KEY_MATE_INTERFACE_ENABLE_ANIMATIONS "enable-animations"
+@@ -79,12 +85,6 @@
+ #define KEY_MATE_MOUSE_CURSOR_THEME "cursor-theme"
+ #define KEY_MATE_MOUSE_CURSOR_SIZE "cursor-size"
+ 
+-#ifdef HAVE_XTSOL
+-#define KEY_WORKSPACE_LABEL_PREFIX "/apps/metacity/workspace_labels/ws_"
+-#define KEY_WORKSPACE_ROLE_PREFIX "/apps/metacity/workspace_roles/ws_"
+-static GConfClient *default_client = NULL;
+-#endif /* HAVE_XTSOL */
+-
+ #define SETTINGS(s) g_hash_table_lookup (settings_schemas, (s))
+ 
+ static GSettings *settings_general;
+@@ -92,6 +92,10 @@
+ static GSettings *settings_screen_bindings;
+ static GSettings *settings_window_bindings;
+ static GSettings *settings_workspace_names;
++#ifdef HAVE_XTSOL
++static GSettings *settings_workspace_labels;
++static GSettings *settings_workspace_roles;
++#endif /* XTSOL */
+ static GSettings *settings_mate_interface;
+ static GSettings *settings_mate_terminal;
+ static GSettings *settings_mate_mouse;
+@@ -175,12 +179,8 @@
+  			   char *error_property_name,
+  			   const char  *name,
+  			   const char  *value);
+-static char* gconf_key_for_workspace_label (int i);
+-static char* gconf_key_for_workspace_role (int i);
+-#ifdef HAVE_GCONF
+-static void     cleanup_error             (GError **error);
+-#endif
+-
++static char* settings_key_for_workspace_label (int i);
++static char* settings_key_for_workspace_role (int i);
+ #endif /*HAVE_XTSOL*/
+ 
+ static char* settings_key_for_workspace_name (int i);
+@@ -803,28 +803,25 @@
+ 	{
+ 	  if (*cursor->target > value) /* remove a workspace blank label and role */
+ 	    {
+-	      GError *err = NULL;
+-	      char *key = gconf_key_for_workspace_label (value);
+-	      gconf_client_unset (default_client,
+-				  key, &err);
++	      char *key = settings_key_for_workspace_label (value);
++	      g_settings_set_string (settings_workspace_labels,
++				  key, "");
+ 	      update_workspace_property (workspace_labels,"Workspace Label",
+ 					 key, NULL);
+ 
+ 	      g_free (key);
+-	      err = NULL;
+-	      key = gconf_key_for_workspace_role (value);
+-	      gconf_client_unset (default_client,
+-				  key, &err);
++	      key = settings_key_for_workspace_role (value);
++	      g_settings_set_string (settings_workspace_roles,
++				  key, "");
+ 	      update_workspace_property (workspace_roles ,"Workspace roles",
+ 					 key, NULL);
+ 	      g_free (key);
+ 	    }
+ 	  else if (value > *cursor->target)	   /* add a workspace add default label, blank role */
+ 	    {
+-	      GError *err = NULL;
+-	      char *key = gconf_key_for_workspace_role (value-1);
+-	      gconf_client_unset (default_client,
+-				  key, &err);
++	      char *key = settings_key_for_workspace_role (value-1);
++	      g_settings_set_string (settings_workspace_roles,
++				  key, "");
+ 	      update_workspace_property (workspace_roles ,"Workspace roles",
+ 					 key, NULL);
+ 	      g_free (key);
+@@ -973,6 +970,10 @@
+   settings_screen_bindings = g_settings_new (KEY_SCREEN_BINDINGS_SCHEMA);
+   settings_window_bindings = g_settings_new (KEY_WINDOW_BINDINGS_SCHEMA);
+   settings_workspace_names = g_settings_new (KEY_WORKSPACE_NAME_SCHEMA);
++#ifdef HAVE_XTSOL
++  settings_workspace_labels = g_settings_new (KEY_WORKSPACE_LABEL_SCHEMA);
++  settings_workspace_roles = g_settings_new (KEY_WORKSPACE_ROLE_SCHEMA);
++#endif /* HAVE_XTSOL */
+   settings_mate_interface = g_settings_new (KEY_MATE_INTERFACE_SCHEMA);
+   settings_mate_terminal = g_settings_new (KEY_MATE_TERMINAL_SCHEMA);
+   settings_mate_mouse = g_settings_new (KEY_MATE_MOUSE_SCHEMA);
+@@ -983,6 +984,10 @@
+   g_hash_table_insert (settings_schemas, KEY_SCREEN_BINDINGS_SCHEMA, settings_screen_bindings);
+   g_hash_table_insert (settings_schemas, KEY_WINDOW_BINDINGS_SCHEMA, settings_window_bindings);
+   g_hash_table_insert (settings_schemas, KEY_WORKSPACE_NAME_SCHEMA, settings_workspace_names);
++#ifdef HAVE_XTSOL
++  g_hash_table_insert (settings_schemas, KEY_WORKSPACE_LABEL_SCHEMA, settings_workspace_labels);
++  g_hash_table_insert (settings_schemas, KEY_WORKSPACE_ROLE_SCHEMA, settings_workspace_roles);
++#endif /* HAVE_XTSOL */
+   g_hash_table_insert (settings_schemas, KEY_MATE_INTERFACE_SCHEMA, settings_mate_interface);
+   g_hash_table_insert (settings_schemas, KEY_MATE_TERMINAL_SCHEMA, settings_mate_terminal);
+   g_hash_table_insert (settings_schemas, KEY_MATE_MOUSE_SCHEMA, settings_mate_mouse);
+@@ -992,6 +997,10 @@
+   g_signal_connect (settings_screen_bindings, "changed", G_CALLBACK (change_notify), NULL);
+   g_signal_connect (settings_window_bindings, "changed", G_CALLBACK (change_notify), NULL);
+   g_signal_connect (settings_workspace_names, "changed", G_CALLBACK (change_notify), NULL);
++#ifdef HAVE_XTSOL
++  g_signal_connect (settings_workspace_labels, "changed", G_CALLBACK (change_notify), NULL);
++  g_signal_connect (settings_workspace_roles, "changed", G_CALLBACK (change_notify), NULL);
++#endif /* HAVE_XTSOL */
+ 
+   g_signal_connect (settings_mate_interface, "changed::" KEY_MATE_INTERFACE_ACCESSIBILITY, G_CALLBACK (change_notify), NULL);
+   g_signal_connect (settings_mate_interface, "changed::" KEY_MATE_INTERFACE_ENABLE_ANIMATIONS, G_CALLBACK (change_notify), NULL);
+@@ -1086,25 +1095,15 @@
+ 
+       g_free(str);
+     }
+- #ifdef HAVE_XTSOL
++#ifdef HAVE_XTSOL
+    else if (g_str_has_prefix (key, KEY_WORKSPACE_LABEL_PREFIX))
+     {
+-      const char *str;
++      gchar *str;
+  
+       if (!tsol_use_trusted_extensions ())
+         goto out;
+  
+-      /*
+-	 GLENN
+-      if (user_data && user_data->type != GCONF_VALUE_STRING)
+-        {
+-          meta_warning (_("GConf key \"%s\" is set to an invalid type\n"),
+-                        key);
+-          goto out;
+-        }
+-      */
+- 
+-      str = user_data ? gconf_value_get_string (user_data) : NULL;
++      str = g_settings_get_string (settings, key);
+  
+       /* Check if the label is in range if not set it to USER_MIN_SL or role MIN label 
+        * NOTE : if USER_MIN_SL is not properly set you can have an infinite loop here */
+@@ -1114,7 +1113,7 @@
+  	 char *p; /* code from update_workspace_property */
+  	 int i;
+  	 
+- 	 p = strrchr (key, '_');
++ 	 p = strrchr (key, '-');
+  	 if (p != NULL)
+  	   {
+  	     ++p;
+@@ -1132,12 +1131,9 @@
+  		 else
+  		   {
+  		     char *name, *role_key;
+- 		     GError *err = NULL;
+- 		     role_key = gconf_key_for_workspace_role (i);
+- 		     name = gconf_client_get_string (default_client, role_key, &err);
+- 		     cleanup_error (&err);
++ 		     role_key = settings_key_for_workspace_role (i);
++ 		     name = g_settings_get_string (settings, role_key);
+  		     g_free (role_key);
+- 
+  		     if (name)
+  		       {
+  			 char *min_role_label = NULL;
+@@ -1163,27 +1159,17 @@
+     }
+    else if (g_str_has_prefix (key, KEY_WORKSPACE_ROLE_PREFIX))
+     {
+-      const char *str;
++      gchar *str;
+       
+       if (!tsol_use_trusted_extensions ())
+         goto out;
+  
+-      /*
+-       * GLENN
+-      if (value && value->type != GCONF_VALUE_STRING)
+-        {
+-          meta_warning (_("GConf key \"%s\" is set to an invalid type\n"),
+-                        key);
+-          goto out;
+-        }
+-      */
+- 
+-      str = user_data ? gconf_value_get_string (user_data) : NULL;
++      str = g_settings_get_string (settings, key);
+  
+       if (update_workspace_property (workspace_roles ,"Workspace roles", key, str))
+         queue_changed (META_PREF_WORKSPACE_ROLES);
++#endif /*HAVE_XTSOL*/
+     }
+- #endif /*HAVE_XTSOL*/
+   else
+     {
+       /* Is this possible with GSettings? I dont think so! */
+@@ -1194,23 +1180,9 @@
+   g_free (schema_name);
+ }
+ 
+-#ifdef HAVE_GCONF
+-static void
+-cleanup_error (GError **error)
+-{
+-  if (*error)
+-    {
+-      meta_warning ("%s\n", (*error)->message);
+-
+-      g_error_free (*error);
+-      *error = NULL;
+-    }
+-}
+-#endif
+-
+ /**
+  * Special case: give a warning the first time disable_workarounds
+- * is turned on.
++ *org.mate.marco.gschema.xml is turned on.
+  */
+ static void
+ maybe_give_disable_workarounds_warning (void)
+@@ -1914,46 +1886,37 @@
+ #ifdef HAVE_XTSOL
+  static void init_labels_roles_workspaces (void)
+  {
+-#ifdef HAVE_GCONF
+-   int i;
+-   GError *err;
+ 
+-   default_client = gconf_client_get_default();
++   GSettingsSchema *schema;
++   gchar **list = NULL;
++   gchar *str_val = NULL;
++	 
+    if (!tsol_use_trusted_extensions ())
+      return;
+ 
+-   i = 0;
+-   while (i < MAX_REASONABLE_WORKSPACES)
++   g_object_get (settings_workspace_labels, "settings-schema", &schema, NULL);
++   list = g_settings_schema_list_keys (schema);
++   g_settings_schema_unref (schema);
++   while (*list != NULL)
+      {
+-       char *str_val;
+-       char *label_key, *role_key;
+-
+-       label_key = gconf_key_for_workspace_label (i);
+-
+-       err = NULL;
+-       str_val = gconf_client_get_string (default_client, label_key, &err);
+-       cleanup_error (&err);
+-
++       str_val = g_settings_get_string (settings_workspace_labels, *list);
+        update_workspace_property (workspace_labels,"Workspace Label",
+-                                  label_key, str_val);
+-
+-       g_free (str_val);
+-       g_free (label_key);
+-
+-       role_key = gconf_key_for_workspace_role (i);
+-
+-       err = NULL;
+-       str_val = gconf_client_get_string (default_client, role_key, &err);
+-       cleanup_error (&err);
+-       update_workspace_property (workspace_roles ,"Workspace roles",
+-				 role_key, str_val);
+-
+-      g_free (str_val);    
+-      g_free (role_key);
++                                  *list, str_val);
++       list++;
++     }
++   g_free (str_val);
++   g_object_get (settings_workspace_roles, "settings-schema", &schema, NULL);
++   list = g_settings_schema_list_keys (schema);
++   g_settings_schema_unref (schema);
++   while (*list != NULL)
++     {
++       str_val = g_settings_get_string (settings_workspace_roles, *list);
++       update_workspace_property (workspace_roles,"Workspace roles",
++                                  *list, str_val);
++       list++;
++     }
+ 
+-      ++i;
+-    }
+-#endif /* HAVE_GCONF */
++   g_free (str_val);
+ }
+ #endif /* HAVE_XTSOL */
+ 
+@@ -2247,7 +2210,6 @@
+   return KEY_MATE_TERMINAL_COMMAND;
+ }
+ 
+-#ifdef HAVE_GCONF
+ #ifdef HAVE_XTSOL
+ static gboolean
+ update_workspace_property (char **property,
+@@ -2261,11 +2223,11 @@
+   if (!tsol_use_trusted_extensions ())
+     return FALSE;
+   
+-  p = strrchr (name, '_');
++  p = strrchr (name, '-');
+   if (p == NULL)
+     {
+       meta_topic (META_DEBUG_PREFS,
+-                  "%s name %s has no underscore?\n", error_property_name, name);
++                  "%s name %s has no dash?\n", error_property_name, name);
+       return FALSE;
+     }
+   
+@@ -2311,7 +2273,6 @@
+   return TRUE;
+ }
+ #endif /* HAVE_XTSOL */
+-#endif /* HAVE_GCONF */
+ 
+ static gboolean
+ update_workspace_name (const char  *name,
+@@ -2403,9 +2364,7 @@
+ meta_prefs_change_workspace_label (int         i,
+ 				   const char *name)
+ {
+-#ifdef HAVE_GCONF
+   char *key;
+-  GError *err;
+   
+   g_return_if_fail (i >= 0 && i < MAX_REASONABLE_WORKSPACES);
+ 
+@@ -2434,31 +2393,19 @@
+       return;
+     }
+   
+-  key = gconf_key_for_workspace_label (i);
++  key = settings_key_for_workspace_label (i);
+ 
+-  err = NULL;
+   if (name != NULL)
+-    gconf_client_set_string (default_client,
+-                             key, name,
+-                             &err);
++    g_settings_set_string (settings_workspace_labels,
++                             key, name);
+   else
+-    gconf_client_unset (default_client,
+-                        key, &err);
+-
+-  
+-  if (err)
+-    {
+-      meta_warning (_("Error setting name for workspace label %d to \"%s\": %s\n"),
+-                    i, name ? name : "none",
+-                    err->message);
+-      g_error_free (err);
+-    }
++    g_settings_set_string(settings_workspace_labels,
++                        key, "");
+ 
+   update_workspace_property (workspace_labels,"Workspace Label",
+ 			     key, name);
+   
+   g_free (key);
+-#endif /* HAVE_GCONF */
+ }
+ 
+ 
+@@ -2472,12 +2419,10 @@
+   return workspace_roles [i];
+ }
+ 
+-void        meta_prefs_change_workspace_role (int         i,
++void  meta_prefs_change_workspace_role (int         i,
+                                               const char *name)
+ {
+-#ifdef HAVE_GCONF
+   char *key;
+-  GError *err;
+   
+   g_return_if_fail (i >= 0 && i < MAX_REASONABLE_WORKSPACES);
+  
+@@ -2506,28 +2451,16 @@
+       return;
+     }
+   
+-  key = gconf_key_for_workspace_role (i);
++  key = settings_key_for_workspace_role (i);
+ 
+-  err = NULL;
+   if (name != NULL)
+-    gconf_client_set_string (default_client,
+-                             key, name,
+-                             &err);
++    g_settings_set_string (settings_workspace_roles,
++                             key, name);
+   else
+-    gconf_client_unset (default_client,
+-                        key, &err);
++    g_settings_set_string (settings_workspace_roles,
++                        key, "");
+ 
+-  
+-  if (err)
+-    {
+-      meta_warning (_("Error setting name for workspace role %d to \"%s\": %s\n"),
+-                    i, name ? name : "none",
+-                    err->message);
+-      g_error_free (err);
+-    }
+-  
+   g_free (key);
+-#endif /* HAVE_GCONF */
+ }
+ #endif /* HAVE_XTSOL */
+ 
+@@ -2596,7 +2529,7 @@
+ 
+ #ifdef HAVE_XTSOL
+ static char*
+-gconf_key_for_workspace_label (int i)
++settings_key_for_workspace_label (int i)
+ {
+   char *key;
+   
+@@ -2605,7 +2538,7 @@
+   return key;
+ }
+ static char*
+-gconf_key_for_workspace_role (int i)
++settings_key_for_workspace_role (int i)
+ {
+   char *key;
+   
+--- a/src/org.mate.marco.gschema.xml	2021-05-07 16:59:59.477117222 +0000
++++ b/src/org.mate.marco.gschema.xml	2021-05-07 17:09:53.344144154 +0000
+@@ -39,6 +39,8 @@
+   <schema id="org.mate.Marco" path="/org/mate/marco/">
+     <child name="general" schema="org.mate.Marco.general"/>
+     <child name="workspace-names" schema="org.mate.Marco.workspace-names"/>
++    <child name="workspace-labels" schema="org.mate.Marco.workspace-labels"/>
++    <child name="workspace-roles" schema="org.mate.Marco.workspace-roles"/>
+     <child name="global-keybindings" schema="org.mate.Marco.global-keybindings"/>
+     <child name="keybinding-commands" schema="org.mate.Marco.keybinding-commands"/>
+     <child name="window-keybindings" schema="org.mate.Marco.window-keybindings"/>
+@@ -381,6 +383,372 @@
+     </key>
+   </schema>
+ 
++  <schema id="org.mate.Marco.workspace-labels" path="/org/mate/marco/workspace-labels/">
++    <key name="label-1" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-2" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-3" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-4" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-5" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-6" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-7" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-8" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-9" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-10" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-11" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-12" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-13" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-14" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-15" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-16" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-17" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-18" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-19" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-20" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-21" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-22" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-23" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-24" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-25" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-26" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-27" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-28" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-29" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-30" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-31" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-32" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-33" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-34" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-35" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++    <key name="label-36" type="s">
++      <default>''</default>
++      <summary>Label of workspace</summary>
++      <description>The label of a workspace.</description>
++    </key>
++  </schema>
++
++  <schema id="org.mate.Marco.workspace-roles" path="/org/mate/marco/workspace-roles/">
++    <key name="role-1" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-2" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-3" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-4" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-5" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-6" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-7" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-8" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-9" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-10" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-11" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-12" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-13" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-14" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-15" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-16" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-17" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-18" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-19" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-20" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-21" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-22" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-23" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-24" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-25" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-26" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-27" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-28" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-29" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-30" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-31" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-32" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-33" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="name-34" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-35" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++    <key name="role-36" type="s">
++      <default>''</default>
++      <summary>Role of workspace</summary>
++      <description>The role of a workspace.</description>
++    </key>
++  </schema>
++
+   <schema id="org.mate.Marco.global-keybindings" path="/org/mate/marco/global-keybindings/">
+     <key name="run-command-1" type="s">
+       <default>'disabled'</default>
